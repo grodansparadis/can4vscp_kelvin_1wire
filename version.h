@@ -2,7 +2,7 @@
  * 	VSCP (Very Simple Control Protocol) 
  * 	http://www.vscp.org
  *
- *  Kelvin NTC10KA Module
+ *  Kelvin 1-wire Module
  *  =====================
  *
  *  Copyright (C) 2015-2016 Ake Hedman, Grodans Paradis AB
@@ -25,5 +25,5 @@
 // Firmware version
 
 #define FIRMWARE_MAJOR_VERSION		1
-#define FIRMWARE_MINOR_VERSION		2
-#define FIRMWARE_SUB_MINOR_VERSION	3
+#define FIRMWARE_MINOR_VERSION		0
+#define FIRMWARE_SUB_MINOR_VERSION	0

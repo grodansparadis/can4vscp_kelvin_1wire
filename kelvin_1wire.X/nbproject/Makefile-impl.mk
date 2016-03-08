@@ -24,10 +24,10 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=kelvin_ntc.X
+PROJECTNAME=kelvin_1wire.X
 
 # Active Configuration
-DEFAULTCONF=Debug_2580
+DEFAULTCONF=Debug_26K80
 CONF=${DEFAULTCONF}
 
 # All Configurations

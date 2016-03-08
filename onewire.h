@@ -2,7 +2,7 @@
  * 	VSCP (Very Simple Control Protocol) 
  * 	http://www.vscp.org
  *
- *  Kelvin NTC10KA Module
+ *  Kelvin 1-wire Module
  *  =====================
  *
  *  Copyright (C) 2015-2016 Ake Hedman, Grodans Paradis AB
@@ -27,10 +27,6 @@
 
 #include <inttypes.h>
 #include "main.h"
-
-// Defines the number of samples that is taken for each sensor
-// An average temperature is calculated of this number of samples.
-#define NUMBER_OF_TEMP_SERIES               80
 
 //
 // Defaults

@@ -3,8 +3,8 @@
  * 	VSCP (Very Simple Control Protocol) 
  * 	http://www.vscp.org
  *
- *  Kelvin NTC10KA Module
- *  =====================
+ *  Kelvin 1-wire Module
+ *  ====================
  *
  *  Copyright (C) 2015-2016 Ake Hedman, Grodans Paradis AB
  *                          http://www.grodansparadis.com
@@ -29,7 +29,7 @@
 #include <p18cxxx.h>
 #include <float.h>
 #include <math.h>
-#include "ntc.h"
+#include "onewire.h"
 
 
 ///////////////////////////////////////////////////////////////////////////////

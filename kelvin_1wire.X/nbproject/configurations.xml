@@ -10,7 +10,6 @@
       <itemPath>../vscp_projdefs.h</itemPath>
       <itemPath>../ECAN.h</itemPath>
       <itemPath>../onewire.h</itemPath>
-      <itemPath>../../../../../../../../../Program Files (x86)/Microchip/xc8/v1.21/include/plib/adc.h</itemPath>
       <itemPath>../../vscp_firmware/common/vscp_firmware.h</itemPath>
       <itemPath>../ECAN.def</itemPath>
       <itemPath>../../vscp_firmware/common/vscp_class.h</itemPath>

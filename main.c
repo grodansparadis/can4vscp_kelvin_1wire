@@ -2,7 +2,7 @@
  * 	VSCP (Very Simple Control Protocol) 
  * 	http://www.vscp.org
  *
- *  Kelvin NTC10KA Module
+ *  Kelvin 1-wire Module
  *  =====================
  *
  *  Copyright (C) 2015-2016 Ake Hedman, Grodans Paradis AB
@@ -37,7 +37,7 @@
 #include <vscp_type.h>
 #include "main.h" 
 #include "version.h"
-#include "ntc.h"
+#include "onewire.h"
 
 
 #if defined(_18F2580) 
@@ -119,36 +119,29 @@
 
 #endif
 
-// Startup code from c018.c
-//void _startup(void);
-
-// ISR Routines
-//void isr_low(void);
-
 // The device URL (max 32 characters including null termination)
-const uint8_t vscp_deviceURL[] = "www.eurosource.se/ntc10KA_3.xml";
+const uint8_t vscp_deviceURL[] = "www.eurosource.se/1wire_1.xml";
 
 // Global Variable Declarations
-int16_t current_temp[6]; // Current temperature
+int16_t current_temp;  // Current temperatures, pos 0 = thermistor
 
-uint8_t adc[NUMBER_OF_TEMP_SERIES * 12];// Current ADC values
-uint8_t adc_conversion_flags;           // Bits to flag new adc values
-uint8_t adc_series_counter;             // Series counter
-
-volatile uint16_t sendTimer;             // Timer for CAN send
+volatile uint16_t sendTimer;            // Timer for CAN send
 volatile uint32_t measurement_clock;    // Clock for measurements
 volatile uint32_t timeout_clock;        // Clock used for timeouts
 
-uint8_t seconds;                // counter for seconds
+uint8_t seconds;                        // counter for seconds
 
-uint8_t seconds_temp[6];        // timers for temp event
+uint8_t seconds_temp[6];                // timers for temp event
 
 // Alarm flag bits
 uint8_t low_alarm;
 uint8_t high_alarm;
 
+uint8_t adc_low;
+uint8_t adc_high;
+
 // Thermistor coefficients
-double sh_coefficients[6*3];    // 6 sensors each with 3 32-bit constants
+double sh_coefficient;    // 1 sensor with 3 32-bit constants
 
 ///////////////////////////////////////////////////////////////////////////////
 // Isr() 	- Interrupt Service Routine
@@ -211,101 +204,12 @@ void interrupt low_priority interrupt_at_low_vector( void )
 
             case SELECT_ADC_TEMP0:
                 // Read conversion
-                adc[(12 * adc_series_counter) + 0] = ADRESH;
-                adc[(12 * adc_series_counter) + 1] = ADRESL;
-                // Start new conversion
-                ADCON0 = SELECT_ADC_TEMP1 + 1;
-
-                // Mark that a new adc value is available if a full series
-                // has been completed.
-                if ((NUMBER_OF_TEMP_SERIES - 1) == adc_series_counter) {
-                    adc_conversion_flags |= 1;
-                }
-                break;
-
-            case SELECT_ADC_TEMP1:
-                // Read conversion
-                adc[(12 * adc_series_counter) + 2] = ADRESH;
-                adc[(12 * adc_series_counter) + 3] = ADRESL;
-
-                // Start new conversion
-                ADCON0 = SELECT_ADC_TEMP2 + 1;
-
-                // Mark that a new adc value is available if a full series
-                // has been completed.
-                if ((NUMBER_OF_TEMP_SERIES - 1) == adc_series_counter) {
-                    adc_conversion_flags |= 1 << 1;
-                }
-                break;
-
-            case SELECT_ADC_TEMP2:
-                // Read conversion
-                adc[(12 * adc_series_counter) + 4] = ADRESH;
-                adc[(12 * adc_series_counter) + 5] = ADRESL;
-
-                // Start new conversion
-                ADCON0 = SELECT_ADC_TEMP3 + 1;
-
-                // Mark that a new adc value is available if a full series
-                // has been completed.
-                if ((NUMBER_OF_TEMP_SERIES - 1) == adc_series_counter) {
-                    adc_conversion_flags |= 1 << 2;
-                }
-                break;
-
-            case SELECT_ADC_TEMP3:
-                // Read conversion
-                adc[(12 * adc_series_counter) + 6] = ADRESH;
-                adc[(12 * adc_series_counter) + 7] = ADRESL;
-                // Start new conversion
-                ADCON0 = SELECT_ADC_TEMP4 + 1;
-
-                // Mark that a new adc value is available if a full series
-                // has been completed.
-                if ((NUMBER_OF_TEMP_SERIES - 1) == adc_series_counter) {
-                    adc_conversion_flags |= 1 << 3;
-                }
-                break;
-
-            case SELECT_ADC_TEMP4:
-                // Read conversion
-                adc[(12 * adc_series_counter) + 8] = ADRESH;
-                adc[(12 * adc_series_counter) + 9] = ADRESL;
-                // Start new conversion
-                ADCON0 = SELECT_ADC_TEMP5 + 1;
-
-                // Mark that a new adc value is available if a full series
-                // has been completed.
-                if ((NUMBER_OF_TEMP_SERIES - 1) == adc_series_counter) {
-                    adc_conversion_flags |= 1 << 4;
-                }
-                break;
-
-            case SELECT_ADC_TEMP5:
-                // Read conversion
-                adc[(12 * adc_series_counter) + 10] = ADRESH;
-                adc[(12 * adc_series_counter) + 11] = ADRESL;
+                adc_low = ADRESH;
+                adc_high = ADRESL;
                 // Start new conversion
                 ADCON0 = SELECT_ADC_TEMP0 + 1;
-
-                // Mark that a new adc value is available if a full series
-                // has been completed.
-                if ((NUMBER_OF_TEMP_SERIES - 1) == adc_series_counter) {
-                    adc_conversion_flags |= 1 << 5;
-                }
-
-                // Fill next series
-                adc_series_counter++;
-                if (adc_series_counter >= NUMBER_OF_TEMP_SERIES) {
-                    adc_series_counter = 0;
-                }
                 break;
 
-            default:
-                // Start new conversion
-                ADCON0 = SELECT_ADC_TEMP0 + 1;
-                adc_series_counter = 0;
-                break;
         }
 
         // Start conversion
@@ -458,7 +362,6 @@ void doWork(void)
 {
     uint8_t i, j;
     uint16_t B;
-    double avarage;
     double resistance;
     double Rinf;
     double temp;
@@ -471,80 +374,28 @@ void doWork(void)
     // Check if there are new adc values to
     // convert to temperatures
 
-    for (i = 0; i < 6; i++) {
-
-        if (adc_conversion_flags & 1 << i) {
-
-            // Calculate mean value for this adc
-            avarage = 0;
-            for (j = 0; j < NUMBER_OF_TEMP_SERIES; j++) {
-                avarage += ((uint16_t)adc[12 * j + 2 * i])*256 + adc[12 * j + 2 * i + 1];
-            }
-            avarage = avarage / NUMBER_OF_TEMP_SERIES;
-
-            if (1) {
-
-                // Use B-constant
-                // ==============
-                // http://en.wikipedia.org/wiki/Thermistor
-                // R1 = (R2V - R2V2) / V2  R2= 10K, V = 5V,  V2 = adc * voltage/1024
-                // T = B / ln(r/Rinf)
-                // Rinf = R0 e (-B/T0), R0=10K, T0 = 273.15 + 25 = 298.15
-                B = (uint16_t)eeprom_read(2 * i + EEPROM_B_CONSTANT0_MSB)*256 +
+    // Use B-constant
+    // ==============
+    // http://en.wikipedia.org/wiki/Thermistor
+    // R1 = (R2V - R2V2) / V2  R2= 10K, V = 5V,  V2 = adc * voltage/1024
+    // T = B / ln(r/Rinf)
+    // Rinf = R0 e (-B/T0), R0=10K, T0 = 273.15 + 25 = 298.15
+    B = (uint16_t)eeprom_read(2 * i + EEPROM_B_CONSTANT0_MSB)*256 +
                         eeprom_read(2 * i + EEPROM_B_CONSTANT0_LSB);
+            
+    Rinf = 10000.0 * exp(B / -298.15);
+    //itemp = Rinf * 10000;
+    v = 5.0 * (double) ( ( adc_high << 8 ) + adc_low) / 1025; // TODO 12-bit resolution
+    //itemp = v * 100;
+    resistance = (calVoltage - 10000.0 * v) / v;
+    //itemp = r;
+    temp = ((double) B) / log(resistance / Rinf);
+    //itemp = log(r/Rinf);
+    temp -= 273.15; // Convert Kelvin to Celsius            
 
-                
-                Rinf = 10000.0 * exp(B / -298.15);
-                //itemp = Rinf * 10000;
-                v = 5.0 * (double) avarage / 1025;
-                //itemp = v * 100;
-                resistance = (calVoltage - 10000.0 * v) / v;
-                //itemp = r;
-                temp = ((double) B) / log(resistance / Rinf);
-                //itemp = log(r/Rinf);
-                temp -= 273.15; // Convert Kelvin to Celcius
-                
-
-                //avarage = testadc;
-                /*  https://learn.adafruit.com/thermistor/using-a-thermistor
-                avarage = (1023/avarage) - 1;
-                avarage = 10000 / avarage;      // Resistance of termistor
-                //temp = avarage/10000;           // (R/Ro)
-                temp = 10000/avarage;
-                temp = log(temp);               // ln(R/Ro)
-                temp /= B;                      // 1/B * ln(R/Ro)
-                temp += 1.0 / (25 + 273.15);    // + (1/To)
-                temp = 1.0 / temp;              // Invert
-                temp -= 273.15;
-                */
-                current_temp[ i ] = (current_temp[ i ] + ((long) (temp * 100) + getCalibrationValue(i))) / 2;
-
-            }
-            else {
-
-                // Use S-H equation
-                // ================
-
-                // Assuming a 10k Thermistor.  Calculation is actually: Resistance = (1024/ADC)
-                resistance = ((10240000 / adc[2 * i + 1]) - 10000);
-
-                /********************************************************************/
-                /* Utilizes the Steinhart-Hart Thermistor Equation:					*/
-                /*    Temperature in Kelvin = 1 / {A + B[ln(R)] + C[ln(R)]^3}		*/
-                /********************************************************************/
-                temp = log(resistance);
-                temp = 1 / (sh_coefficients[i * 3] + (sh_coefficients[i * 3 + 1] * temp) +
-                        (sh_coefficients[i * 3 + 2] * temp * temp * temp));
-                temp = temp - 273.15; // Convert Kelvin to Celsius
-                current_temp[ i ] = (current_temp[ i ] + ((long) (temp * 100) + getCalibrationValue(i))) / 2;
-
-            }
-
-            // Reset flag
-            adc_conversion_flags &= ~(1 << i);
-
-        }
-    }
+    current_temp = (current_temp + 
+                            ((long)(temp * 100) + 
+                            getCalibrationValue(i) ) ) / 2;
 
 }
 
@@ -558,12 +409,11 @@ void doOneSecondWork(void)
     uint8_t i;
     int16_t setpoint;
 
-    for (i = 0; i < 6; i++) {
 
         //*********************************************************************
         // Check if this is the lowest temperature ever
         //*********************************************************************
-        
+ /*       
         if (current_temp[ i ] < construct_signed16( eeprom_read(EEPROM_ABSOLUT_LOW0_MSB + 2*i),
                                                     eeprom_read(EEPROM_ABSOLUT_LOW0_LSB + 2*i) ) ) {
             // Store new lowest value
@@ -837,6 +687,7 @@ void doOneSecondWork(void)
         }
         
     }
+  */ 
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -856,10 +707,10 @@ int8_t sendTempEvent(uint8_t i)
             i; // Sensor
     // Exponent 
     vscp_omsg.data[ 1 ] = 0x82;
-
+/* TODO
     setEventData( current_temp[i],
             ( 0x03 & eeprom_read(i + EEPROM_CONTROLREG0 ) ) );
-
+*/
     // Send event
     if (!vscp_sendEvent()) {
         return FALSE;
@@ -1009,6 +860,7 @@ void writeCoeffs2Ram(void)
     int i, j;
     uint8_t c[3];
 
+/* TODO   
     for (i = 0; i < 6; i++) {
         for (j = 2; j > 0; j--) {
             // Store Microchip order (Little endian)
@@ -1016,6 +868,7 @@ void writeCoeffs2Ram(void)
         }
         sh_coefficients[i] = *((double*) c);
     }
+*/    
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -1031,15 +884,9 @@ void init_app_ram(void)
 
     // no temp. reads yet
     for (i = 0; i < 6; i++) {
-        seconds_temp[i] = 0;
-        current_temp[i] = 0;
+        //seconds_temp = 0;  TODO
+        current_temp = 0;
     }
-
-    // No adc conversions done
-    adc_conversion_flags = 0;
-
-    // Start with series 0
-    adc_series_counter = 0;
 
     // No low temperature alarms
     low_alarm = 0;
@@ -1370,62 +1217,62 @@ uint8_t vscp_readAppReg(unsigned char reg)
 
             // MSB of current temperature for sensor 0
             case 0x08:
-                rv = ((current_temp[0] & 0xff00) >> 8);
+                rv = ((current_temp & 0xff00) >> 8);
                 break;
 
             // LSB of current temperature for sensor 0
             case 0x09:
-                rv = (current_temp[0] & 0x00ff);
+                rv = (current_temp & 0x00ff);
                 break;
 
             // MSB of current temperature for sensor 1
             case 0x0A:
-                rv = ((current_temp[1] & 0xff00) >> 8);
+                rv = ((current_temp & 0xff00) >> 8);
                 break;
 
             // LSB of current temperature for sensor 1
             case 0x0B:
-                rv = (current_temp[1] & 0x00ff);
+                rv = (current_temp & 0x00ff);
                 break;
 
             // MSB of current temperature for sensor 2
             case 0x0C:
-                rv = ((current_temp[2] & 0xff00) >> 8);
+                rv = ((current_temp & 0xff00) >> 8);
                 break;
 
             // LSB of current temperature for sensor 2
             case 0x0D:
-                rv = (current_temp[2] & 0x00ff);
+                rv = (current_temp & 0x00ff);
                 break;
 
             // MSB of current temperature for sensor 3
             case 0x0E:
-                rv = ((current_temp[3] & 0xff00) >> 8);
+                rv = ((current_temp & 0xff00) >> 8);
                 break;
 
             // LSB of current temperature for sensor 3
             case 0x0F:
-                rv = (current_temp[3] & 0x00ff);
+                rv = (current_temp & 0x00ff);
                 break;
 
             // MSB of current temperature for sensor 4
             case 0x10:
-                rv = ((current_temp[4] & 0xff00) >> 8);
+                rv = ((current_temp & 0xff00) >> 8);
                 break;
 
             // LSB of current temperature for sensor 4
             case 0x11:
-                rv = (current_temp[4] & 0x00ff);
+                rv = (current_temp & 0x00ff);
                 break;
 
             // MSB of current temperature for sensor 4
             case 0x12:
-                rv = ((current_temp[5] & 0xff00) >> 8);
+                rv = ((current_temp & 0xff00) >> 8);
                 break;
 
             // LSB of current temperature for sensor 4
             case 0x13:
-                rv = (current_temp[5] & 0x00ff);
+                rv = (current_temp & 0x00ff);
                 break;
 
             // Report interval register for sensor 0
@@ -1917,7 +1764,7 @@ uint8_t vscp_readAppReg(unsigned char reg)
             else {
                 pos++;
             }
-            rv = adc[ pos ];
+            rv = adc_low; // TODO
         }
         // Sensor calibration values
         else if (reg < 98) {
@@ -2580,7 +2427,7 @@ uint8_t vscp_writeAppReg(unsigned char reg, unsigned char val)
             else {
                 pos++;
             }
-            rv = adc[ pos ];
+            rv = adc_high;
         }
         // Sensor calibration values
         else if (reg < 98) {

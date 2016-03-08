@@ -1,0 +1,20 @@
+Kelvin NTC
+==========
+
+2015-11-26 AKHE - Fixed problem with low/high limits with negative values. Also
+                    limits now are in degrees as is hysteresis as well.
+2015-11-25 AKHE - Fixed problem with overwritten calibration value on bootload
+2015-11-24 AKHE - Moved limit and alarm tests to one second work where they belong.
+2015-09-28 AKHE - Temperature register 5 was not read correctly. Temperature register 4 was returned erronius instead.
+----- Version 1.2.2
+2015-09-13 AKHE - Sensor zones/subzones was written correctly but not read correctly
+2015-09-13 AKHE - Fixed sync command.
+2015-09-13 AKHE - Fixed send overrun problem when send buffer was fill
+2014-08-13 AKHE - Added missing fuse config pragmas.
+2014-03-22 AKHE - Added mean calculations on temperatures
+2014-03-22 AKHE - Added Calibrated voltage variable
+2012-10-18 AKHE - Fixed paths so code compiles again.
+2012-03-20-AKHE - 10uF C8,C9,C10,C11,C12,C13 Changed from Digikey 493-2328-1-ND to Digikey 445-1371-2-ND 
+				Elfa 65-768-30 is alternativ. 
+				Digikey 445-1371-1-ND is alternativ.
+2012-01-29 AKHE - Started development from old Kelvin SHT

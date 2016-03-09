@@ -1,0 +1,1779 @@
+<HTML>
+<HEAD>
+<LINK rel=stylesheet href="udf_styles.css" type="text/css">
+</HEAD>
+<BODY>
+<a name="CGEN"><a name="CLA"><a name="0"><h2 class="">Command Line Arguments for Code generator</h2>
+<code>cgpic18.exe</code><br>
+<code>--edf=C:\Program Files (x86)\Microchip\xc8\v1.21\dat\en_msgs.txt</code><br>
+<code>--cmode=htc</code><br>
+<code>-Og9s</code><br>
+<code>--UDF=html\kelvin_ntc.X.debug.cgen.html</code><br>
+<code>-E1</code><br>
+<code>-Ddist/Debug/debug\kelvin_ntc.X.debug.sdb</code><br>
+<code>-PMS0:code:0@CODE=072h-07CFFh</code><br>
+<code>-PMS0:code:0@CONST=072h-07CFFh</code><br>
+<code>-PMS0:code:0@SMALLCONST=0600h-06FFhx119</code><br>
+<code>-PMS0:code:0@MEDIUMCONST=0600h-07CFFh</code><br>
+<code>-PMS1:data:8@COMRAM=01h-05Fh</code><br>
+<code>-PMS1:data:0@ABS1=00h-05EEh</code><br>
+<code>-PMS1:data:0@BIGRAM=01h-05EEh</code><br>
+<code>-PMS1:data:0@RAM=060h-0FFh,0100h-01FFhx4,0500h-05EEh</code><br>
+<code>-PMS1:data:1000@BANK0=060h-0FFh</code><br>
+<code>-PMS1:data:2000@BANK1=0100h-01FFh</code><br>
+<code>-PMS1:data:4000@BANK2=0200h-02FFh</code><br>
+<code>-PMS1:data:8000@BANK3=0300h-03FFh</code><br>
+<code>-PMS1:data:0@BANK4=0400h-04FFh</code><br>
+<code>-PMS1:data:0@BANK5=0500h-05EEh</code><br>
+<code>-PMS1:data:0@SFR=0D00h-0DFFhx2,0F00h-0F5Fh,0F60h-0F9Bh,0F9Dh-0FD3h,0FD5h-0FDAh,0FE0h-0FE2h,0FE8h-0FEAh,0FF0h-0FFBh</code><br>
+<code>-PMS4:config:0@CONFIG=0300000h-030000Dh</code><br>
+<code>-PMS3:eedata:0@EEDATA=0F00000h-0F000FFh</code><br>
+<code>-PMS5:idloc:0@IDLOC=0200000h-0200007h</code><br>
+<code>--cfgdata=C:\Program Files (x86)\Microchip\xc8\v1.21\dat\cfgdata\18f2580.cfgdata</code><br>
+<code>--cfgprefix=__CFG_</code><br>
+<code>--stack=compiled</code><br>
+<code>-MLFSROK</code><br>
+<code>-MIEEE_DBL</code><br>
+<code>-MSPACEOPT</code><br>
+<code>-MEMI_WORD</code><br>
+<code>-PPIC18F2580</code><br>
+<code>-PREALICE=257</code><br>
+<code>-AC:\Users\GRODAN~1\AppData\Local\Temp\s9io.</code><br>
+<code>--funcdat=C:\Users\GRODAN~1\AppData\Local\Temp\s9io.5</code><br>
+<code>--addrqual=ignore</code><br>
+<code>--runtime=init</code><br>
+<code>--runtime=clear</code><br>
+<code>-B__IT_SAVE_WREG</code><br>
+<code>-B__IT_INT_MASK</code><br>
+<code>-B__IT_SAVE_BSR</code><br>
+<code>-B__IT_SAVE_STATUS</code><br>
+<code>build/Debug/debug/_ext/1472/main.p1</code><br>
+<code>build/Debug/debug/_ext/1472/ntc.p1</code><br>
+<code>build/Debug/debug/_ext/1472/ECAN.p1</code><br>
+<code>build/Debug/debug/_ext/1554471087/eeprom.p1</code><br>
+<code>build/Debug/debug/_ext/1935753226/vscp_firmware.p1</code><br>
+<code>C:\Program Files (x86)\Microchip\xc8\v1.21\lib\pic18-plib-htc-18f2580.lpp</code><br>
+<code>C:\Program Files (x86)\Microchip\xc8\v1.21\lib\pic18-trace-p1.lpp</code><br>
+<code>C:\Program Files (x86)\Microchip\xc8\v1.21\lib\pic18-stdlib-htc-d32-f24.lpp</code><br>
+<a name="1"><h2 class="">C Symbol Information
+</h2>
+<table class="">
+<tr><td><b>Name</b></td><td><b>Type</b></td><td><b>Space</b></td><td><b>Size</b></td><td><b>File Name</b></td><td><b>Line number</b></td></tr>
+<tr><td><code>_vscp_init</code></td><td><code>FTN()void </code></td><td>COMRAM</td><td>0</td><td>../../vscp_firmware/common/vscp_firmware.c</td><td>119</td></tr>
+<tr><td><code>_vscp_check_pstorage</code></td><td><code>FTN()unsigned char </code></td><td>COMRAM</td><td>1</td><td>../../vscp_firmware/common/vscp_firmware.c</td><td>168</td></tr>
+<tr><td><code>_vscp_error</code></td><td><code>FTN()void </code></td><td>COMRAM</td><td>0</td><td>../../vscp_firmware/common/vscp_firmware.c</td><td>193</td></tr>
+<tr><td><code>_vscp_handleProbeState</code></td><td><code>FTN()void </code></td><td>COMRAM</td><td>0</td><td>../../vscp_firmware/common/vscp_firmware.c</td><td>202</td></tr>
+<tr><td><code>_vscp_handlePreActiveState</code></td><td><code>FTN()void </code></td><td>COMRAM</td><td>0</td><td>../../vscp_firmware/common/vscp_firmware.c</td><td>325</td></tr>
+<tr><td><code>_vscp_goActiveState</code></td><td><code>FTN()void </code></td><td>COMRAM</td><td>0</td><td>../../vscp_firmware/common/vscp_firmware.c</td><td>358</td></tr>
+<tr><td><code>_vscp_sendHeartBeat</code></td><td><code>FTN(unsigned char ,unsigned char ,)void </code></td><td>COMRAM</td><td>0</td><td>../../vscp_firmware/common/vscp_firmware.c</td><td>378</td></tr>
+<tr><td><code>_vscp_handleHeartbeat</code></td><td><code>FTN()void </code></td><td>COMRAM</td><td>0</td><td>../../vscp_firmware/common/vscp_firmware.c</td><td>396</td></tr>
+<tr><td><code>_vscp_handleSetNickname</code></td><td><code>FTN()void </code></td><td>COMRAM</td><td>0</td><td>../../vscp_firmware/common/vscp_firmware.c</td><td>422</td></tr>
+<tr><td><code>_vscp_handleDropNickname</code></td><td><code>FTN()void </code></td><td>COMRAM</td><td>0</td><td>../../vscp_firmware/common/vscp_firmware.c</td><td>438</td></tr>
+<tr><td><code>_vscp_newNodeOnline</code></td><td><code>FTN()void </code></td><td>COMRAM</td><td>0</td><td>../../vscp_firmware/common/vscp_firmware.c</td><td>502</td></tr>
+<tr><td><code>_vscp_doOneSecondWork</code></td><td><code>FTN()void </code></td><td>COMRAM</td><td>0</td><td>../../vscp_firmware/common/vscp_firmware.c</td><td>524</td></tr>
+<tr><td><code>_vscp_readRegister</code></td><td><code>FTN(unsigned char ,)unsigned char </code></td><td>COMRAM</td><td>1</td><td>../../vscp_firmware/common/vscp_firmware.c</td><td>561</td></tr>
+<tr><td><code>_vscp_readStdReg</code></td><td><code>FTN(unsigned char ,)unsigned char </code></td><td>COMRAM</td><td>1</td><td>../../vscp_firmware/common/vscp_firmware.c</td><td>575</td></tr>
+<tr><td><code>_vscp_writeRegister</code></td><td><code>FTN(unsigned char ,unsigned char ,)unsigned char </code></td><td>COMRAM</td><td>1</td><td>../../vscp_firmware/common/vscp_firmware.c</td><td>701</td></tr>
+<tr><td><code>_vscp_writeStdReg</code></td><td><code>FTN(unsigned char ,unsigned char ,)unsigned char </code></td><td>COMRAM</td><td>1</td><td>../../vscp_firmware/common/vscp_firmware.c</td><td>715</td></tr>
+<tr><td><code>_vscp_handleProtocolEvent</code></td><td><code>FTN()void </code></td><td>COMRAM</td><td>0</td><td>../../vscp_firmware/common/vscp_firmware.c</td><td>797</td></tr>
+<tr><td><code>_vscp_sendEvent</code></td><td><code>FTN()unsigned char </code></td><td>COMRAM</td><td>1</td><td>../../vscp_firmware/common/vscp_firmware.c</td><td>1288</td></tr>
+<tr><td><code>_vscp_getEvent</code></td><td><code>FTN()unsigned char </code></td><td>COMRAM</td><td>1</td><td>../../vscp_firmware/common/vscp_firmware.c</td><td>1308</td></tr>
+<tr><td><code>_writeEEPROM</code></td><td><code>FTN(unsigned short ,unsigned char ,)void </code></td><td>COMRAM</td><td>0</td><td>../../vscp_firmware/pic/common/eeprom.c</td><td>24</td></tr>
+<tr><td><code>_readEEPROM</code></td><td><code>FTN(unsigned short ,)unsigned char </code></td><td>COMRAM</td><td>1</td><td>../../vscp_firmware/pic/common/eeprom.c</td><td>94</td></tr>
+<tr><td><code>_ECANInitialize</code></td><td><code>FTN()void </code></td><td>COMRAM</td><td>0</td><td>../ECAN.c</td><td>168</td></tr>
+<tr><td><code>_ECANSendMessage</code></td><td><code>FTN(unsigned long ,PTR unsigned char ,unsigned char ,enum E16400,)enum E15660</code></td><td>COMRAM</td><td>1</td><td>../ECAN.c</td><td>617</td></tr>
+<tr><td><code>_ECANReceiveMessage</code></td><td><code>FTN(PTR unsigned long ,PTR unsigned char ,PTR unsigned char ,PTR enum E16418,)enum E15660</code></td><td>COMRAM</td><td>1</td><td>../ECAN.c</td><td>803</td></tr>
+<tr><td><code>_ECANSetOperationMode</code></td><td><code>FTN(enum E16431,)void </code></td><td>COMRAM</td><td>0</td><td>../ECAN.c</td><td>1012</td></tr>
+<tr><td><code>__CANIDToRegs</code></td><td><code>FTN(PTR unsigned char ,unsigned long ,unsigned char ,)void </code></td><td>COMRAM</td><td>0</td><td>../ECAN.c</td><td>1099</td></tr>
+<tr><td><code>__RegsToCANID</code></td><td><code>FTN(PTR unsigned char ,PTR unsigned long ,unsigned char ,)void </code></td><td>COMRAM</td><td>0</td><td>../ECAN.c</td><td>1156</td></tr>
+<tr><td><code>__ECANPointBuffer</code></td><td><code>FTN(unsigned char ,)PTR unsigned char </code></td><td>COMRAM</td><td>2</td><td>../ECAN.c</td><td>1207</td></tr>
+<tr><td><code>_interrupt_at_low_vector</code></td><td><code>Q_0400000  FTN()void </code></td><td>COMRAM</td><td>0</td><td>../main.c</td><td>134</td></tr>
+<tr><td><code>_main</code></td><td><code>FTN()void </code></td><td>COMRAM</td><td>0</td><td>../main.c</td><td>301</td></tr>
+<tr><td><code>_doWork</code></td><td><code>FTN()void </code></td><td>COMRAM</td><td>0</td><td>../main.c</td><td>432</td></tr>
+<tr><td><code>_doOneSecondWork</code></td><td><code>FTN()void </code></td><td>COMRAM</td><td>0</td><td>../main.c</td><td>530</td></tr>
+<tr><td><code>_sendTempEvent</code></td><td><code>FTN(unsigned char ,)unsigned char </code></td><td>COMRAM</td><td>1</td><td>../main.c</td><td>821</td></tr>
+<tr><td><code>_setEventData</code></td><td><code>FTN(int ,unsigned char ,)void </code></td><td>BANK0</td><td>0</td><td>../main.c</td><td>850</td></tr>
+<tr><td><code>_getCalibrationValue</code></td><td><code>FTN(unsigned char ,)short </code></td><td>COMRAM</td><td>2</td><td>../main.c</td><td>878</td></tr>
+<tr><td><code>_init</code></td><td><code>FTN()void </code></td><td>COMRAM</td><td>0</td><td>../main.c</td><td>892</td></tr>
+<tr><td><code>_writeCoeffs2Ram</code></td><td><code>FTN()void </code></td><td>COMRAM</td><td>0</td><td>../main.c</td><td>973</td></tr>
+<tr><td><code>_init_app_ram</code></td><td><code>FTN()void </code></td><td>COMRAM</td><td>0</td><td>../main.c</td><td>991</td></tr>
+<tr><td><code>_init_app_eeprom</code></td><td><code>FTN()void </code></td><td>COMRAM</td><td>0</td><td>../main.c</td><td>1026</td></tr>
+<tr><td><code>_convertTemperature</code></td><td><code>FTN(int ,unsigned char ,)unsigned char </code></td><td>COMRAM</td><td>1</td><td>../main.c</td><td>1236</td></tr>
+<tr><td><code>_handle_sync</code></td><td><code>FTN()void </code></td><td>COMRAM</td><td>0</td><td>../main.c</td><td>1262</td></tr>
+<tr><td><code>_vscp_readAppReg</code></td><td><code>FTN(unsigned char ,)unsigned char </code></td><td>COMRAM</td><td>1</td><td>../main.c</td><td>1286</td></tr>
+<tr><td><code>_vscp_writeAppReg</code></td><td><code>FTN(unsigned char ,unsigned char ,)unsigned char </code></td><td>COMRAM</td><td>1</td><td>../main.c</td><td>1902</td></tr>
+<tr><td><code>_vscp_getMajorVersion</code></td><td><code>FTN()unsigned char </code></td><td>COMRAM</td><td>1</td><td>../main.c</td><td>2572</td></tr>
+<tr><td><code>_vscp_getMinorVersion</code></td><td><code>FTN()unsigned char </code></td><td>COMRAM</td><td>1</td><td>../main.c</td><td>2581</td></tr>
+<tr><td><code>_vscp_getSubMinorVersion</code></td><td><code>FTN()unsigned char </code></td><td>COMRAM</td><td>1</td><td>../main.c</td><td>2590</td></tr>
+<tr><td><code>_vscp_getGUID</code></td><td><code>FTN(unsigned char ,)unsigned char </code></td><td>COMRAM</td><td>1</td><td>../main.c</td><td>2601</td></tr>
+<tr><td><code>_vscp_setGUID</code></td><td><code>FTN(unsigned char ,unsigned char ,)void </code></td><td>COMRAM</td><td>0</td><td>../main.c</td><td>2611</td></tr>
+<tr><td><code>_vscp_getMDF_URL</code></td><td><code>FTN(unsigned char ,)unsigned char </code></td><td>COMRAM</td><td>1</td><td>../main.c</td><td>2624</td></tr>
+<tr><td><code>_vscp_getUserID</code></td><td><code>FTN(unsigned char ,)unsigned char </code></td><td>COMRAM</td><td>1</td><td>../main.c</td><td>2633</td></tr>
+<tr><td><code>_vscp_setUserID</code></td><td><code>FTN(unsigned char ,unsigned char ,)void </code></td><td>COMRAM</td><td>0</td><td>../main.c</td><td>2642</td></tr>
+<tr><td><code>_vscp_getManufacturerId</code></td><td><code>FTN(unsigned char ,)unsigned char </code></td><td>COMRAM</td><td>1</td><td>../main.c</td><td>2653</td></tr>
+<tr><td><code>_vscp_setManufacturerId</code></td><td><code>FTN(unsigned char ,unsigned char ,)void </code></td><td>COMRAM</td><td>0</td><td>../main.c</td><td>2664</td></tr>
+<tr><td><code>_vscp_getBootLoaderAlgorithm</code></td><td><code>FTN()unsigned char </code></td><td>COMRAM</td><td>1</td><td>../main.c</td><td>2673</td></tr>
+<tr><td><code>_vscp_getBufferSize</code></td><td><code>FTN()unsigned char </code></td><td>COMRAM</td><td>1</td><td>../main.c</td><td>2682</td></tr>
+<tr><td><code>_vscp_getMatrixInfo</code></td><td><code>FTN(PTR unsigned char ,)void </code></td><td>COMRAM</td><td>0</td><td>../main.c</td><td>2691</td></tr>
+<tr><td><code>_vscp_getEmbeddedMdfInfo</code></td><td><code>FTN()void </code></td><td>COMRAM</td><td>0</td><td>../main.c</td><td>2707</td></tr>
+<tr><td><code>_vscp_getRegisterPagesUsed</code></td><td><code>FTN()unsigned char </code></td><td>COMRAM</td><td>1</td><td>../main.c</td><td>2729</td></tr>
+<tr><td><code>_vscp_getZone</code></td><td><code>FTN()unsigned char </code></td><td>COMRAM</td><td>1</td><td>../main.c</td><td>2738</td></tr>
+<tr><td><code>_vscp_getSubzone</code></td><td><code>FTN()unsigned char </code></td><td>COMRAM</td><td>1</td><td>../main.c</td><td>2747</td></tr>
+<tr><td><code>_vscp_goBootloaderMode</code></td><td><code>FTN(unsigned char ,)void </code></td><td>COMRAM</td><td>0</td><td>../main.c</td><td>2756</td></tr>
+<tr><td><code>_vscp_readNicknamePermanent</code></td><td><code>FTN()unsigned char </code></td><td>COMRAM</td><td>1</td><td>../main.c</td><td>2775</td></tr>
+<tr><td><code>_vscp_writeNicknamePermanent</code></td><td><code>FTN(unsigned char ,)void </code></td><td>COMRAM</td><td>0</td><td>../main.c</td><td>2784</td></tr>
+<tr><td><code>_vscp_getSegmentCRC</code></td><td><code>FTN()unsigned char </code></td><td>COMRAM</td><td>1</td><td>../main.c</td><td>2793</td></tr>
+<tr><td><code>_vscp_setSegmentCRC</code></td><td><code>FTN(unsigned char ,)void </code></td><td>COMRAM</td><td>0</td><td>../main.c</td><td>2802</td></tr>
+<tr><td><code>_vscp_setControlByte</code></td><td><code>FTN(unsigned char ,)void </code></td><td>COMRAM</td><td>0</td><td>../main.c</td><td>2811</td></tr>
+<tr><td><code>_vscp_getControlByte</code></td><td><code>FTN()unsigned char </code></td><td>COMRAM</td><td>1</td><td>../main.c</td><td>2821</td></tr>
+<tr><td><code>_vscp_getFamilyCode</code></td><td><code>FTN()unsigned long </code></td><td>COMRAM</td><td>4</td><td>../main.c</td><td>2830</td></tr>
+<tr><td><code>_vscp_getFamilyType</code></td><td><code>FTN()unsigned long </code></td><td>COMRAM</td><td>4</td><td>../main.c</td><td>2840</td></tr>
+<tr><td><code>_vscp_restoreDefaults</code></td><td><code>FTN()void </code></td><td>COMRAM</td><td>0</td><td>../main.c</td><td>2849</td></tr>
+<tr><td><code>_sendVSCPFrame</code></td><td><code>FTN(unsigned short ,unsigned char ,unsigned char ,unsigned char ,unsigned char ,PTR unsigned char ,)unsigned char </code></td><td>BANK0</td><td>1</td><td>../main.c</td><td>2864</td></tr>
+<tr><td><code>_getVSCPFrame</code></td><td><code>FTN(PTR unsigned short ,PTR unsigned char ,PTR unsigned char ,PTR unsigned char ,PTR unsigned char ,PTR unsigned char ,)unsigned char </code></td><td>COMRAM</td><td>1</td><td>../main.c</td><td>2890</td></tr>
+<tr><td><code>_sendCANFrame</code></td><td><code>FTN(unsigned long ,unsigned char ,PTR unsigned char ,)unsigned char </code></td><td>COMRAM</td><td>1</td><td>../main.c</td><td>2911</td></tr>
+<tr><td><code>_getCANFrame</code></td><td><code>FTN(PTR unsigned long ,PTR unsigned char ,PTR unsigned char ,)unsigned char </code></td><td>COMRAM</td><td>1</td><td>../main.c</td><td>2932</td></tr>
+<tr><td><code>_Celsius2Fahrenheit</code></td><td><code>FTN(,)</code></td><td>BANK0</td><td>4</td><td>../ntc.c</td><td>42</td></tr>
+<tr><td><code>_Fahrenheit2Celsius</code></td><td><code>FTN(,)</code></td><td>COMRAM</td><td>4</td><td>../ntc.c</td><td>51</td></tr>
+<tr><td><code>_Celsius2Kelvin</code></td><td><code>FTN(,)</code></td><td>COMRAM</td><td>4</td><td>../ntc.c</td><td>61</td></tr>
+<tr><td><code>_Kelvin2Celsius</code></td><td><code>FTN(,)</code></td><td>COMRAM</td><td>4</td><td>../ntc.c</td><td>70</td></tr>
+<tr><td><code>___abdiv</code></td><td><code>FTN(char ,char ,)char </code></td><td>COMRAM</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\abdiv.c</td><td>5</td></tr>
+<tr><td><code>___abmod</code></td><td><code>FTN(char ,char ,)char </code></td><td>COMRAM</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\abmod.c</td><td>5</td></tr>
+<tr><td><code>___abtofl</code></td><td><code>FTN(char ,)</code></td><td>COMRAM</td><td>4</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\abtofl.c</td><td>32</td></tr>
+<tr><td><code>___abtoft</code></td><td><code>FTN(char ,)float </code></td><td>COMRAM</td><td>3</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\abtoft.c</td><td>34</td></tr>
+<tr><td><code>___aldiv</code></td><td><code>FTN(long ,long ,)long </code></td><td>BANK0</td><td>4</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\aldiv.c</td><td>10</td></tr>
+<tr><td><code>___almod</code></td><td><code>FTN(long ,long ,)long </code></td><td>COMRAM</td><td>4</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\almod.c</td><td>10</td></tr>
+<tr><td><code>___altofl</code></td><td><code>FTN(long ,)</code></td><td>BANK0</td><td>4</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\altofl.c</td><td>37</td></tr>
+<tr><td><code>___altoft</code></td><td><code>FTN(long ,)float </code></td><td>COMRAM</td><td>3</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\altoft.c</td><td>43</td></tr>
+<tr><td><code>___atdiv</code></td><td><code>FTN(m,m,)m</code></td><td>COMRAM</td><td>3</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\atdiv.c</td><td>10</td></tr>
+<tr><td><code>___atmod</code></td><td><code>FTN(m,m,)m</code></td><td>COMRAM</td><td>3</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\atmod.c</td><td>10</td></tr>
+<tr><td><code>___attofl</code></td><td><code>FTN(m,)</code></td><td>COMRAM</td><td>4</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\attofl.c</td><td>38</td></tr>
+<tr><td><code>___attoft</code></td><td><code>FTN(m,)float </code></td><td>COMRAM</td><td>3</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\attoft.c</td><td>38</td></tr>
+<tr><td><code>___awdiv</code></td><td><code>FTN(int ,int ,)int </code></td><td>COMRAM</td><td>2</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\awdiv.c</td><td>10</td></tr>
+<tr><td><code>___awmod</code></td><td><code>FTN(int ,int ,)int </code></td><td>COMRAM</td><td>2</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\awmod.c</td><td>10</td></tr>
+<tr><td><code>___awtofl</code></td><td><code>FTN(int ,)</code></td><td>COMRAM</td><td>4</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\awtofl.c</td><td>32</td></tr>
+<tr><td><code>___awtoft</code></td><td><code>FTN(int ,)float </code></td><td>COMRAM</td><td>3</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\awtoft.c</td><td>33</td></tr>
+<tr><td><code>___bmul</code></td><td><code>FTN(unsigned char ,unsigned char ,)unsigned char </code></td><td>COMRAM</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\bmul.c</td><td>3</td></tr>
+<tr><td><code>___flpack</code></td><td><code>FTN(unsigned long ,unsigned char ,unsigned char ,)</code></td><td>COMRAM</td><td>4</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\double.c</td><td>64</td></tr>
+<tr><td><code>_eval_poly</code></td><td><code>FTN(,PTR const ,int ,)</code></td><td>BANK0</td><td>4</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\evalpoly.c</td><td>5</td></tr>
+<tr><td><code>_exp</code></td><td><code>FTN(,)</code></td><td>BANK0</td><td>4</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\exp.c</td><td>13</td></tr>
+<tr><td><code>___fladd</code></td><td><code>FTN(,,)</code></td><td>COMRAM</td><td>4</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\fladd.c</td><td>89</td></tr>
+<tr><td><code>___fldiv</code></td><td><code>FTN(,,)</code></td><td>BANK0</td><td>4</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\fldiv.c</td><td>50</td></tr>
+<tr><td><code>___flge</code></td><td><code>FTN(,,)bit </code></td><td>COMRAM</td><td>0</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\flge.c</td><td>5</td></tr>
+<tr><td><code>___flmul</code></td><td><code>FTN(,,)</code></td><td>BANK0</td><td>4</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\flmul.c</td><td>51</td></tr>
+<tr><td><code>___flneg</code></td><td><code>FTN(,)</code></td><td>COMRAM</td><td>4</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\flneg.c</td><td>16</td></tr>
+<tr><td><code>___ftpack</code></td><td><code>FTN(unsigned um,unsigned char ,unsigned char ,)float </code></td><td>COMRAM</td><td>3</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\float.c</td><td>63</td></tr>
+<tr><td><code>_floor</code></td><td><code>FTN(,)</code></td><td>BANK0</td><td>4</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\floor.c</td><td>14</td></tr>
+<tr><td><code>___flsub</code></td><td><code>FTN(,,)</code></td><td>COMRAM</td><td>4</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\flsub.c</td><td>22</td></tr>
+<tr><td><code>___fltol</code></td><td><code>FTN(,)long </code></td><td>BANK0</td><td>4</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\fltol.c</td><td>44</td></tr>
+<tr><td><code>_frexp</code></td><td><code>FTN(,PTR int ,)</code></td><td>COMRAM</td><td>4</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\frexp.c</td><td>255</td></tr>
+<tr><td><code>_ldexp</code></td><td><code>FTN(,int ,)</code></td><td>BANK0</td><td>4</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\frexp.c</td><td>278</td></tr>
+<tr><td><code>___ftadd</code></td><td><code>FTN(float ,float ,)float </code></td><td>COMRAM</td><td>3</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\ftadd.c</td><td>87</td></tr>
+<tr><td><code>___ftdiv</code></td><td><code>FTN(float ,float ,)float </code></td><td>COMRAM</td><td>3</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\ftdiv.c</td><td>50</td></tr>
+<tr><td><code>___ftge</code></td><td><code>FTN(float ,float ,)bit </code></td><td>COMRAM</td><td>0</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\ftge.c</td><td>5</td></tr>
+<tr><td><code>___ftmul</code></td><td><code>FTN(float ,float ,)float </code></td><td>COMRAM</td><td>3</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\ftmul.c</td><td>52</td></tr>
+<tr><td><code>___ftneg</code></td><td><code>FTN(float ,)float </code></td><td>COMRAM</td><td>3</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\ftneg.c</td><td>16</td></tr>
+<tr><td><code>___ftsub</code></td><td><code>FTN(float ,float ,)float </code></td><td>COMRAM</td><td>3</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\ftsub.c</td><td>22</td></tr>
+<tr><td><code>___fttol</code></td><td><code>FTN(float ,)long </code></td><td>COMRAM</td><td>4</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\fttol.c</td><td>45</td></tr>
+<tr><td><code>___lbdiv</code></td><td><code>FTN(unsigned char ,unsigned char ,)unsigned char </code></td><td>COMRAM</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\lbdiv.c</td><td>5</td></tr>
+<tr><td><code>___lbmod</code></td><td><code>FTN(unsigned char ,unsigned char ,)unsigned char </code></td><td>COMRAM</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\lbmod.c</td><td>5</td></tr>
+<tr><td><code>___lbtofl</code></td><td><code>FTN(unsigned char ,)</code></td><td>COMRAM</td><td>4</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\lbtofl.c</td><td>28</td></tr>
+<tr><td><code>___lbtoft</code></td><td><code>FTN(unsigned char ,)float </code></td><td>COMRAM</td><td>3</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\lbtoft.c</td><td>28</td></tr>
+<tr><td><code>___lldiv</code></td><td><code>FTN(unsigned long ,unsigned long ,)unsigned long </code></td><td>COMRAM</td><td>4</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\lldiv.c</td><td>10</td></tr>
+<tr><td><code>___llmod</code></td><td><code>FTN(unsigned long ,unsigned long ,)unsigned long </code></td><td>COMRAM</td><td>4</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\llmod.c</td><td>10</td></tr>
+<tr><td><code>___lltofl</code></td><td><code>FTN(unsigned long ,)</code></td><td>COMRAM</td><td>4</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\lltofl.c</td><td>31</td></tr>
+<tr><td><code>___lltoft</code></td><td><code>FTN(unsigned long ,)float </code></td><td>COMRAM</td><td>3</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\lltoft.c</td><td>36</td></tr>
+<tr><td><code>___lmul</code></td><td><code>FTN(unsigned long ,unsigned long ,)unsigned long </code></td><td>COMRAM</td><td>4</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\lmul.c</td><td>3</td></tr>
+<tr><td><code>_log</code></td><td><code>FTN(,)</code></td><td>BANK0</td><td>4</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\log.c</td><td>6</td></tr>
+<tr><td><code>_log10</code></td><td><code>FTN(,)</code></td><td>COMRAM</td><td>4</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\log.c</td><td>40</td></tr>
+<tr><td><code>___ltdiv</code></td><td><code>FTN(unsigned um,unsigned um,)unsigned um</code></td><td>COMRAM</td><td>3</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\ltdiv.c</td><td>10</td></tr>
+<tr><td><code>___ltmod</code></td><td><code>FTN(unsigned um,unsigned um,)unsigned um</code></td><td>COMRAM</td><td>3</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\ltmod.c</td><td>10</td></tr>
+<tr><td><code>___lttofl</code></td><td><code>FTN(unsigned um,)</code></td><td>COMRAM</td><td>4</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\lttofl.c</td><td>31</td></tr>
+<tr><td><code>___lttoft</code></td><td><code>FTN(unsigned um,)float </code></td><td>COMRAM</td><td>3</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\lttoft.c</td><td>31</td></tr>
+<tr><td><code>___lwdiv</code></td><td><code>FTN(unsigned int ,unsigned int ,)unsigned int </code></td><td>COMRAM</td><td>2</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\lwdiv.c</td><td>10</td></tr>
+<tr><td><code>___lwmod</code></td><td><code>FTN(unsigned int ,unsigned int ,)unsigned int </code></td><td>COMRAM</td><td>2</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\lwmod.c</td><td>10</td></tr>
+<tr><td><code>___lwtofl</code></td><td><code>FTN(unsigned int ,)</code></td><td>COMRAM</td><td>4</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\lwtofl.c</td><td>29</td></tr>
+<tr><td><code>___lwtoft</code></td><td><code>FTN(unsigned int ,)float </code></td><td>COMRAM</td><td>3</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\lwtoft.c</td><td>29</td></tr>
+<tr><td><code>___tmul</code></td><td><code>FTN(unsigned um,unsigned um,)unsigned um</code></td><td>COMRAM</td><td>3</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\tmul.c</td><td>3</td></tr>
+<tr><td><code>___wmul</code></td><td><code>FTN(unsigned int ,unsigned int ,)unsigned int </code></td><td>COMRAM</td><td>2</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\wmul.c</td><td>5</td></tr>
+<tr><td><code>___asfladd</code></td><td><code>FTN(PTR ,,)</code></td><td>COMRAM</td><td>4</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\asfladd.c</td><td>5</td></tr>
+<tr><td><code>___asfldiv</code></td><td><code>FTN(PTR ,,)</code></td><td>BANK0</td><td>4</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\asfldiv.c</td><td>5</td></tr>
+<tr><td><code>___asflmul</code></td><td><code>FTN(PTR ,,)</code></td><td>BANK0</td><td>4</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\asflmul.c</td><td>5</td></tr>
+<tr><td><code>___asflsub</code></td><td><code>FTN(PTR ,,)</code></td><td>COMRAM</td><td>4</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\asflsub.c</td><td>5</td></tr>
+<tr><td><code>___asftadd</code></td><td><code>FTN(PTR float ,float ,)float </code></td><td>COMRAM</td><td>3</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\asftadd.c</td><td>5</td></tr>
+<tr><td><code>___asftdiv</code></td><td><code>FTN(PTR float ,float ,)float </code></td><td>COMRAM</td><td>3</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\asftdiv.c</td><td>5</td></tr>
+<tr><td><code>___asftmul</code></td><td><code>FTN(PTR float ,float ,)float </code></td><td>COMRAM</td><td>3</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\asftmul.c</td><td>5</td></tr>
+<tr><td><code>___asftsub</code></td><td><code>FTN(PTR float ,float ,)float </code></td><td>COMRAM</td><td>3</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\asftsub.c</td><td>5</td></tr>
+<tr><td><code>___aslmul</code></td><td><code>FTN(PTR unsigned long ,unsigned long ,)unsigned long </code></td><td>COMRAM</td><td>4</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\aslmul.c</td><td>5</td></tr>
+<tr><td><code>_ConvertADC</code></td><td><code>FTN()void </code></td><td>COMRAM</td><td>0</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\ADC\adcconv.c</td><td>23</td></tr>
+<tr><td><code>i1_ConvertADC</code></td><td><code>FTN()void </code></td><td>COMRAM</td><td>0</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\ADC\adcconv.c</td><td>23</td></tr>
+<tr><td><code>i1_ConvertADC</code></td><td><code>FTN()void </code></td><td>COMRAM</td><td>0</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\ADC\adcconv.c</td><td>23</td></tr>
+<tr><td><code>_OpenADC</code></td><td><code>FTN(unsigned char ,unsigned char ,unsigned char ,)void </code></td><td>COMRAM</td><td>0</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\ADC\adcopen.c</td><td>71</td></tr>
+<tr><td><code>_OpenTimer0</code></td><td><code>FTN(unsigned char ,)void </code></td><td>COMRAM</td><td>0</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\Timers\t0open.c</td><td>19</td></tr>
+<tr><td><code>_WriteTimer0</code></td><td><code>FTN(unsigned int ,)void </code></td><td>COMRAM</td><td>0</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\Timers\t0write.c</td><td>17</td></tr>
+<tr><td><code>i1_WriteTimer0</code></td><td><code>FTN(unsigned int ,)void </code></td><td>COMRAM</td><td>0</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\Timers\t0write.c</td><td>17</td></tr>
+<tr><td><code>i1_WriteTimer0</code></td><td><code>FTN(unsigned int ,)void </code></td><td>COMRAM</td><td>0</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\Timers\t0write.c</td><td>17</td></tr>
+<tr><td><code>_vscp_nickname</code></td><td><code>unsigned char </code></td><td>BANK0</td><td>1</td><td>../../vscp_firmware/common/vscp_firmware.c</td><td>63</td></tr>
+<tr><td><code>_vscp_alarmstatus</code></td><td><code>unsigned char </code></td><td>COMRAM</td><td>1</td><td>../../vscp_firmware/common/vscp_firmware.c</td><td>66</td></tr>
+<tr><td><code>_vscp_node_state</code></td><td><code>unsigned char </code></td><td>BANK0</td><td>1</td><td>../../vscp_firmware/common/vscp_firmware.c</td><td>68</td></tr>
+<tr><td><code>_vscp_node_substate</code></td><td><code>unsigned char </code></td><td>COMRAM</td><td>1</td><td>../../vscp_firmware/common/vscp_firmware.c</td><td>69</td></tr>
+<tr><td><code>_vscp_probe_cnt</code></td><td><code>unsigned char </code></td><td>COMRAM</td><td>1</td><td>../../vscp_firmware/common/vscp_firmware.c</td><td>71</td></tr>
+<tr><td><code>_vscp_imsg</code></td><td><code>struct _imsg</code></td><td>BANK1</td><td>14</td><td>../../vscp_firmware/common/vscp_firmware.c</td><td>74</td></tr>
+<tr><td><code>_vscp_omsg</code></td><td><code>struct _omsg</code></td><td>BANK0</td><td>13</td><td>../../vscp_firmware/common/vscp_firmware.c</td><td>77</td></tr>
+<tr><td><code>_vscp_probe_address</code></td><td><code>unsigned char </code></td><td>COMRAM</td><td>1</td><td>../../vscp_firmware/common/vscp_firmware.c</td><td>79</td></tr>
+<tr><td><code>_vscp_initledfunc</code></td><td><code>unsigned char </code></td><td>COMRAM</td><td>1</td><td>../../vscp_firmware/common/vscp_firmware.c</td><td>80</td></tr>
+<tr><td><code>_vscp_timer</code></td><td><code>volatile unsigned short </code></td><td>BANK1</td><td>2</td><td>../../vscp_firmware/common/vscp_firmware.c</td><td>82</td></tr>
+<tr><td><code>_vscp_initbtncnt</code></td><td><code>volatile unsigned char </code></td><td>BANK0</td><td>1</td><td>../../vscp_firmware/common/vscp_firmware.c</td><td>89</td></tr>
+<tr><td><code>_vscp_statuscnt</code></td><td><code>volatile unsigned char </code></td><td>COMRAM</td><td>1</td><td>../../vscp_firmware/common/vscp_firmware.c</td><td>92</td></tr>
+<tr><td><code>_vscp_configtimer</code></td><td><code>volatile unsigned short </code></td><td>BANK1</td><td>2</td><td>../../vscp_firmware/common/vscp_firmware.c</td><td>95</td></tr>
+<tr><td><code>_vscp_page_select</code></td><td><code>unsigned short </code></td><td>COMRAM</td><td>2</td><td>../../vscp_firmware/common/vscp_firmware.c</td><td>99</td></tr>
+<tr><td><code>_vscp_guid_reset</code></td><td><code>unsigned char </code></td><td>COMRAM</td><td>1</td><td>../../vscp_firmware/common/vscp_firmware.c</td><td>106</td></tr>
+<tr><td><code>_vscp_second</code></td><td><code>unsigned char </code></td><td>COMRAM</td><td>1</td><td>../../vscp_firmware/common/vscp_firmware.c</td><td>109</td></tr>
+<tr><td><code>_vscp_minute</code></td><td><code>unsigned char </code></td><td>COMRAM</td><td>1</td><td>../../vscp_firmware/common/vscp_firmware.c</td><td>110</td></tr>
+<tr><td><code>_vscp_hour</code></td><td><code>unsigned char </code></td><td>BANK0</td><td>1</td><td>../../vscp_firmware/common/vscp_firmware.c</td><td>111</td></tr>
+<tr><td><code>__ECANRxFilterHitInfo</code></td><td><code>struct .</code></td><td>COMRAM</td><td>1</td><td>../ECAN.c</td><td>56</td></tr>
+<tr><td><code>_vscp_deviceURL</code></td><td><code>const unsigned char [32]</code></td><td>CODE</td><td>32</td><td>../main.c</td><td>97</td></tr>
+<tr><td><code>_current_temp</code></td><td><code>short [6]</code></td><td>BANK1</td><td>12</td><td>../main.c</td><td>100</td></tr>
+<tr><td><code>_adc</code></td><td><code>unsigned char [960]</code></td><td>BIGRAM</td><td>960</td><td>../main.c</td><td>102</td></tr>
+<tr><td><code>_adc_conversion_flags</code></td><td><code>unsigned char </code></td><td>BANK0</td><td>1</td><td>../main.c</td><td>103</td></tr>
+<tr><td><code>_adc_series_counter</code></td><td><code>unsigned char </code></td><td>COMRAM</td><td>1</td><td>../main.c</td><td>104</td></tr>
+<tr><td><code>_sendTimer</code></td><td><code>volatile unsigned short </code></td><td>BANK1</td><td>2</td><td>../main.c</td><td>106</td></tr>
+<tr><td><code>_measurement_clock</code></td><td><code>volatile unsigned long </code></td><td>BANK1</td><td>4</td><td>../main.c</td><td>107</td></tr>
+<tr><td><code>_timeout_clock</code></td><td><code>volatile unsigned long </code></td><td>BANK1</td><td>4</td><td>../main.c</td><td>108</td></tr>
+<tr><td><code>_seconds</code></td><td><code>unsigned char </code></td><td>BANK0</td><td>1</td><td>../main.c</td><td>110</td></tr>
+<tr><td><code>_seconds_temp</code></td><td><code>unsigned char [6]</code></td><td>BANK1</td><td>6</td><td>../main.c</td><td>112</td></tr>
+<tr><td><code>_low_alarm</code></td><td><code>unsigned char </code></td><td>BANK0</td><td>1</td><td>../main.c</td><td>115</td></tr>
+<tr><td><code>_high_alarm</code></td><td><code>unsigned char </code></td><td>BANK0</td><td>1</td><td>../main.c</td><td>116</td></tr>
+<tr><td><code>_sh_coefficients</code></td><td><code>[18]</code></td><td>BANK1</td><td>72</td><td>../main.c</td><td>119</td></tr>
+<tr><td><code>_RXFCON0</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>5134</td></tr>
+<tr><td><code>_RXFCON1</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>5195</td></tr>
+<tr><td><code>_RXFBCON0</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>5331</td></tr>
+<tr><td><code>_RXFBCON1</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>5400</td></tr>
+<tr><td><code>_RXFBCON2</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>5469</td></tr>
+<tr><td><code>_RXFBCON3</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>5538</td></tr>
+<tr><td><code>_RXFBCON4</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>5607</td></tr>
+<tr><td><code>_RXFBCON5</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>5676</td></tr>
+<tr><td><code>_RXFBCON6</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>5745</td></tr>
+<tr><td><code>_RXFBCON7</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>5814</td></tr>
+<tr><td><code>_MSEL0</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>5883</td></tr>
+<tr><td><code>_MSEL1</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>5944</td></tr>
+<tr><td><code>_MSEL2</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>6005</td></tr>
+<tr><td><code>_BSEL0</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>6127</td></tr>
+<tr><td><code>_B0CON</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>6314</td></tr>
+<tr><td><code>_B1CON</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>7959</td></tr>
+<tr><td><code>_B2CON</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>9604</td></tr>
+<tr><td><code>_B3CON</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>11258</td></tr>
+<tr><td><code>_B4CON</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>12912</td></tr>
+<tr><td><code>_B5CON</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>14575</td></tr>
+<tr><td><code>_RXF0SIDH</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>16250</td></tr>
+<tr><td><code>_RXF0SIDL</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>16382</td></tr>
+<tr><td><code>_RXF0EIDH</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>16495</td></tr>
+<tr><td><code>_RXF0EIDL</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>16627</td></tr>
+<tr><td><code>_RXF1SIDH</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>16759</td></tr>
+<tr><td><code>_RXF1SIDL</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>16891</td></tr>
+<tr><td><code>_RXF1EIDH</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>17004</td></tr>
+<tr><td><code>_RXF1EIDL</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>17136</td></tr>
+<tr><td><code>_RXM0SIDH</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>19304</td></tr>
+<tr><td><code>_RXM0SIDL</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>19436</td></tr>
+<tr><td><code>_RXM0EIDH</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>19540</td></tr>
+<tr><td><code>_RXM0EIDL</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>19672</td></tr>
+<tr><td><code>_RXM1SIDH</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>19804</td></tr>
+<tr><td><code>_RXM1SIDL</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>19936</td></tr>
+<tr><td><code>_RXM1EIDH</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>20040</td></tr>
+<tr><td><code>_RXM1EIDL</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>20172</td></tr>
+<tr><td><code>_TXB2CON</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>20304</td></tr>
+<tr><td><code>_TXB1CON</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>21682</td></tr>
+<tr><td><code>_TXB0CON</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>23060</td></tr>
+<tr><td><code>_RXB1CON</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>24429</td></tr>
+<tr><td><code>_RXB1CONbits</code></td><td><code>volatile struct .</code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>24497</td></tr>
+<tr><td><code>_RXB0CON</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>25920</td></tr>
+<tr><td><code>_CANCON</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>27377</td></tr>
+<tr><td><code>_BRGCON1</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>27480</td></tr>
+<tr><td><code>_BRGCON2</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>27541</td></tr>
+<tr><td><code>_BRGCON3</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>27611</td></tr>
+<tr><td><code>_CIOCON</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>27655</td></tr>
+<tr><td><code>_ECANCON</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>27928</td></tr>
+<tr><td><code>_PORTC</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>28381</td></tr>
+<tr><td><code>_TRISA</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>29182</td></tr>
+<tr><td><code>_TRISB</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>29403</td></tr>
+<tr><td><code>_TRISC</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>29624</td></tr>
+<tr><td><code>_PIE1bits</code></td><td><code>volatile struct .</code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>29940</td></tr>
+<tr><td><code>_PIR1bits</code></td><td><code>volatile struct .</code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>30013</td></tr>
+<tr><td><code>_PIR2bits</code></td><td><code>volatile struct .</code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>30218</td></tr>
+<tr><td><code>_EECON1bits</code></td><td><code>volatile struct .</code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>30635</td></tr>
+<tr><td><code>_EECON2</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>30679</td></tr>
+<tr><td><code>_EEDATA</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>30685</td></tr>
+<tr><td><code>_EEADR</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>30691</td></tr>
+<tr><td><code>_ADCON2</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>31654</td></tr>
+<tr><td><code>_ADCON1</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>31724</td></tr>
+<tr><td><code>_ADCON0</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>31814</td></tr>
+<tr><td><code>_ADCON0bits</code></td><td><code>volatile struct .</code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>31862</td></tr>
+<tr><td><code>_ADRESL</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>31942</td></tr>
+<tr><td><code>_ADRESH</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>31948</td></tr>
+<tr><td><code>_T0CON</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>33182</td></tr>
+<tr><td><code>_T0CONbits</code></td><td><code>volatile struct .</code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>33203</td></tr>
+<tr><td><code>_TMR0L</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>33263</td></tr>
+<tr><td><code>_TMR0H</code></td><td><code>volatile unsigned char </code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>33269</td></tr>
+<tr><td><code>_INTCONbits</code></td><td><code>volatile struct .</code></td><td>ABS</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>33728</td></tr>
+<tr><td><code>_B0RXFUL</code></td><td><code>volatile bit </code></td><td>ABS</td><td>0</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>34244</td></tr>
+<tr><td><code>_B0TXEN</code></td><td><code>volatile bit </code></td><td>ABS</td><td>0</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>34278</td></tr>
+<tr><td><code>_B1RXFUL</code></td><td><code>volatile bit </code></td><td>ABS</td><td>0</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>34484</td></tr>
+<tr><td><code>_B1TXEN</code></td><td><code>volatile bit </code></td><td>ABS</td><td>0</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>34518</td></tr>
+<tr><td><code>_B2RXFUL</code></td><td><code>volatile bit </code></td><td>ABS</td><td>0</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>34726</td></tr>
+<tr><td><code>_B2TXEN</code></td><td><code>volatile bit </code></td><td>ABS</td><td>0</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>34760</td></tr>
+<tr><td><code>_B3RXFUL</code></td><td><code>volatile bit </code></td><td>ABS</td><td>0</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>34968</td></tr>
+<tr><td><code>_B3TXEN</code></td><td><code>volatile bit </code></td><td>ABS</td><td>0</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>35002</td></tr>
+<tr><td><code>_B4RXFUL</code></td><td><code>volatile bit </code></td><td>ABS</td><td>0</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>35212</td></tr>
+<tr><td><code>_B4TXEN</code></td><td><code>volatile bit </code></td><td>ABS</td><td>0</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>35246</td></tr>
+<tr><td><code>_B5RXFUL</code></td><td><code>volatile bit </code></td><td>ABS</td><td>0</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>35458</td></tr>
+<tr><td><code>_B5TXEN</code></td><td><code>volatile bit </code></td><td>ABS</td><td>0</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>35492</td></tr>
+<tr><td><code>_FIFOEMPTY</code></td><td><code>volatile bit </code></td><td>ABS</td><td>0</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>35830</td></tr>
+<tr><td><code>_IRXIF</code></td><td><code>volatile bit </code></td><td>ABS</td><td>0</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>36038</td></tr>
+<tr><td><code>_MDSEL0</code></td><td><code>volatile bit </code></td><td>ABS</td><td>0</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>36178</td></tr>
+<tr><td><code>_MDSEL1</code></td><td><code>volatile bit </code></td><td>ABS</td><td>0</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>36180</td></tr>
+<tr><td><code>_RXB0FILHIT0</code></td><td><code>volatile bit </code></td><td>ABS</td><td>0</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>36598</td></tr>
+<tr><td><code>_RXB0FUL</code></td><td><code>volatile bit </code></td><td>ABS</td><td>0</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>36608</td></tr>
+<tr><td><code>_RXB0IF</code></td><td><code>volatile bit </code></td><td>ABS</td><td>0</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>36612</td></tr>
+<tr><td><code>_RXB0OVFL</code></td><td><code>volatile bit </code></td><td>ABS</td><td>0</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>36620</td></tr>
+<tr><td><code>_RXB1IF</code></td><td><code>volatile bit </code></td><td>ABS</td><td>0</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>36848</td></tr>
+<tr><td><code>_RXB1OVFL</code></td><td><code>volatile bit </code></td><td>ABS</td><td>0</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>36856</td></tr>
+<tr><td><code>_RXM0EXIDM</code></td><td><code>volatile bit </code></td><td>ABS</td><td>0</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>37944</td></tr>
+<tr><td><code>_RXM1EXIDEN</code></td><td><code>volatile bit </code></td><td>ABS</td><td>0</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h</td><td>38004</td></tr>
+<tr><td><code>exp@coeff</code></td><td><code>const [10]</code></td><td>CODE</td><td>40</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\exp.c</td><td>17</td></tr>
+<tr><td><code>log@coeff</code></td><td><code>const [9]</code></td><td>CODE</td><td>36</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\log.c</td><td>9</td></tr>
+<tr><td><code>__IT_INT_MASK</code></td><td><code>unsigned char </code></td><td>BANK0</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\realice\htdata.c</td><td>3</td></tr>
+<tr><td><code>___DCByte</code></td><td><code>volatile unsigned char </code></td><td>BANK0</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\realice\htdata.c</td><td>5</td></tr>
+<tr><td><code>___DCDelay</code></td><td><code>Q_040  unsigned char </code></td><td>BANK1</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\realice\htdata.c</td><td>6</td></tr>
+<tr><td><code>__IT_SAVE_BSR</code></td><td><code>unsigned char </code></td><td>BANK0</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\realice\htdata.c</td><td>8</td></tr>
+<tr><td><code>__IT_SAVE_WREG</code></td><td><code>unsigned char </code></td><td>BANK0</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\realice\htdata.c</td><td>9</td></tr>
+<tr><td><code>__IT_SAVE_STATUS</code></td><td><code>unsigned char </code></td><td>BANK0</td><td>1</td><td>C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\realice\htdata.c</td><td>10</td></table>
+<a name="2"><h2 class="">Pointer list with targets</h2>
+<table class="">
+<tr><td><b>Pointer Name</b></td><td><b>Pointer Type</b></td><td><b>Pointer Size</b></td><td><b>Largest Pointer Target</b></td></tr>
+<tr><td></td><td><b>-> Target Name</b></td><td><b>Target Space</b></td><td><b>Target Size</b></td></tr>
+<tr><td>?__ECANPointBuffer</td><td>PTR unsigned char </td><td>2</td><td>1</td></tr>
+<tr><td></td><td>-> B5CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B4CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B3CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B2CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B1CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B0CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> RXB1CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> RXB0CON</td><td>ABS</td><td>1</td></tr>
+<tr><td>eval_poly@d</td><td>PTR const </td><td>1</td><td>40</td></tr>
+<tr><td></td><td>-> log@coeff</td><td>CODE</td><td>36</td></tr>
+<tr><td></td><td>-> exp@coeff</td><td>CODE</td><td>40</td></tr>
+<tr><td>frexp@eptr</td><td>PTR int </td><td>2</td><td>2</td></tr>
+<tr><td></td><td>-> log@exponent</td><td>COMRAM</td><td>2</td></tr>
+<tr><td></td><td>-> floor@expon</td><td>BANK0</td><td>2</td></tr>
+<tr><td>__asflsub@f1p</td><td>PTR </td><td>2</td><td>4</td></tr>
+<tr><td></td><td>-> exp@x</td><td>BANK0</td><td>4</td></tr>
+<tr><td></td><td>-> doWork@temp</td><td>BANK1</td><td>4</td></tr>
+<tr><td>__asflmul@mp</td><td>PTR </td><td>1</td><td>4</td></tr>
+<tr><td></td><td>-> exp@x</td><td>BANK0</td><td>4</td></tr>
+<tr><td>__asfldiv@f1p</td><td>PTR </td><td>2</td><td>4</td></tr>
+<tr><td></td><td>-> doWork@avarage</td><td>BANK1</td><td>4</td></tr>
+<tr><td>__asfladd@f1p</td><td>PTR </td><td>2</td><td>4</td></tr>
+<tr><td></td><td>-> doWork@temp</td><td>BANK1</td><td>4</td></tr>
+<tr><td></td><td>-> doWork@avarage</td><td>BANK1</td><td>4</td></tr>
+<tr><td>_ECANPointBuffer@pt</td><td>PTR unsigned char </td><td>2</td><td>1</td></tr>
+<tr><td></td><td>-> B5CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B4CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B3CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B2CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B1CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B0CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> RXB1CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> RXB0CON</td><td>ABS</td><td>1</td></tr>
+<tr><td>_RegsToCANID@ptr</td><td>PTR unsigned char </td><td>2</td><td>1</td></tr>
+<tr><td></td><td>-> B5CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B4CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B3CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B2CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B1CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B0CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> RXB1CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> RXB0CON</td><td>ABS</td><td>1</td></tr>
+<tr><td>_RegsToCANID@val</td><td>PTR unsigned long </td><td>1</td><td>4</td></tr>
+<tr><td></td><td>-> getVSCPFrame@id</td><td>COMRAM</td><td>4</td></tr>
+<tr><td>_RegsToCANID@Value</td><td>PTR struct _CAN_MESSAGE_ID</td><td>1</td><td>4</td></tr>
+<tr><td></td><td>-> getVSCPFrame@id</td><td>COMRAM</td><td>4</td></tr>
+<tr><td>_CANIDToRegs@ptr</td><td>PTR unsigned char </td><td>2</td><td>1</td></tr>
+<tr><td></td><td>-> TXB2CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> TXB1CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> TXB0CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B5CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B4CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B3CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B2CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B1CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B0CON</td><td>ABS</td><td>1</td></tr>
+<tr><td>_CANIDToRegs@Value</td><td>PTR struct _CAN_MESSAGE_ID</td><td>1</td><td>4</td></tr>
+<tr><td></td><td>-> _CANIDToRegs@val</td><td>COMRAM</td><td>4</td></tr>
+<tr><td>ECANReceiveMessage@data</td><td>PTR unsigned char </td><td>2</td><td>14</td></tr>
+<tr><td></td><td>-> vscp_imsg</td><td>BANK1</td><td>14</td></tr>
+<tr><td>ECANReceiveMessage@id</td><td>PTR unsigned long </td><td>1</td><td>4</td></tr>
+<tr><td></td><td>-> getVSCPFrame@id</td><td>COMRAM</td><td>4</td></tr>
+<tr><td>ECANReceiveMessage@dataLen</td><td>PTR unsigned char </td><td>2</td><td>14</td></tr>
+<tr><td></td><td>-> vscp_imsg</td><td>BANK1</td><td>14</td></tr>
+<tr><td>ECANReceiveMessage@savedPtr</td><td>PTR unsigned char </td><td>2</td><td>1</td></tr>
+<tr><td></td><td>-> B5CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B4CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B3CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B2CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B1CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B0CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> RXB1CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> RXB0CON</td><td>ABS</td><td>1</td></tr>
+<tr><td>sp___ECANPointBuffer</td><td>PTR unsigned char </td><td>2</td><td>1</td></tr>
+<tr><td></td><td>-> B5CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B4CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B3CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B2CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B1CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B0CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> RXB1CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> RXB0CON</td><td>ABS</td><td>1</td></tr>
+<tr><td>ECANReceiveMessage@ptr</td><td>PTR unsigned char </td><td>2</td><td>1</td></tr>
+<tr><td></td><td>-> B5CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B4CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B3CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B2CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B1CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B0CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> RXB1CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> RXB0CON</td><td>ABS</td><td>1</td></tr>
+<tr><td>ECANReceiveMessage@msgFlags</td><td>PTR enum E16333</td><td>1</td><td>1</td></tr>
+<tr><td></td><td>-> getCANFrame@flags</td><td>COMRAM</td><td>1</td></tr>
+<tr><td>ECANSendMessage@data</td><td>PTR unsigned char </td><td>1</td><td>13</td></tr>
+<tr><td></td><td>-> vscp_omsg</td><td>BANK0</td><td>13</td></tr>
+<tr><td>ECANSendMessage@tempPtr</td><td>PTR unsigned char </td><td>2</td><td>1</td></tr>
+<tr><td></td><td>-> TXB2CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> TXB1CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> TXB0CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B5CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B4CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B3CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B2CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B1CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B0CON</td><td>ABS</td><td>1</td></tr>
+<tr><td>ECANSendMessage@ptr</td><td>PTR unsigned char </td><td>2</td><td>1</td></tr>
+<tr><td></td><td>-> TXB2CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> TXB1CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> TXB0CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B5CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B4CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B3CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B2CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B1CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B0CON</td><td>ABS</td><td>1</td></tr>
+<tr><td>ECANSendMessage@pb</td><td>PTR unsigned char [9]</td><td>2</td><td>1</td></tr>
+<tr><td></td><td>-> TXB2CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> TXB1CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> TXB0CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B5CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B4CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B3CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B2CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B1CON</td><td>ABS</td><td>1</td></tr>
+<tr><td></td><td>-> B0CON</td><td>ABS</td><td>1</td></tr>
+<tr><td>getCANFrame@pdlc</td><td>PTR unsigned char </td><td>2</td><td>14</td></tr>
+<tr><td></td><td>-> vscp_imsg</td><td>BANK1</td><td>14</td></tr>
+<tr><td>getCANFrame@pdata</td><td>PTR unsigned char </td><td>2</td><td>14</td></tr>
+<tr><td></td><td>-> vscp_imsg</td><td>BANK1</td><td>14</td></tr>
+<tr><td>getCANFrame@pid</td><td>PTR unsigned long </td><td>1</td><td>4</td></tr>
+<tr><td></td><td>-> getVSCPFrame@id</td><td>COMRAM</td><td>4</td></tr>
+<tr><td>sendCANFrame@pdata</td><td>PTR unsigned char </td><td>1</td><td>13</td></tr>
+<tr><td></td><td>-> vscp_omsg</td><td>BANK0</td><td>13</td></tr>
+<tr><td>getVSCPFrame@pPriority</td><td>PTR unsigned char </td><td>2</td><td>14</td></tr>
+<tr><td></td><td>-> vscp_imsg</td><td>BANK1</td><td>14</td></tr>
+<tr><td>getVSCPFrame@pvscpclass</td><td>PTR unsigned short </td><td>2</td><td>14</td></tr>
+<tr><td></td><td>-> vscp_imsg</td><td>BANK1</td><td>14</td></tr>
+<tr><td>getVSCPFrame@pvscptype</td><td>PTR unsigned char </td><td>2</td><td>14</td></tr>
+<tr><td></td><td>-> vscp_imsg</td><td>BANK1</td><td>14</td></tr>
+<tr><td>getVSCPFrame@pNodeId</td><td>PTR unsigned char </td><td>2</td><td>14</td></tr>
+<tr><td></td><td>-> vscp_imsg</td><td>BANK1</td><td>14</td></tr>
+<tr><td>getVSCPFrame@pData</td><td>PTR unsigned char </td><td>2</td><td>14</td></tr>
+<tr><td></td><td>-> vscp_imsg</td><td>BANK1</td><td>14</td></tr>
+<tr><td>getVSCPFrame@pSize</td><td>PTR unsigned char </td><td>2</td><td>14</td></tr>
+<tr><td></td><td>-> vscp_imsg</td><td>BANK1</td><td>14</td></tr>
+<tr><td>sendVSCPFrame@pData</td><td>PTR unsigned char </td><td>1</td><td>13</td></tr>
+<tr><td></td><td>-> vscp_omsg</td><td>BANK0</td><td>13</td></tr>
+<tr><td>vscp_getMatrixInfo@pData</td><td>PTR unsigned char </td><td>1</td><td>13</td></tr>
+<tr><td></td><td>-> vscp_omsg</td><td>BANK0</td><td>13</td></table>
+<a name="3"><h2 class="">Function Information</h2>
+<table class="funcinfo">
+<tr><td><code>_main</code></td><td><h4 class="funcinfo">Parameters</h4>
+<br>
+None<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>i</code></td><td>4 </td><td>91[BANK0] </td><td>unsigned long </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: void 
+size: 0
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, pclat, btemp, btemp+1, btemp+2, btemp+3, btemp+4, btemp+5, btemp+6, btemp+7, tosl, structret, tblptrl, tblptrh, tblptru, prodl, prodh, bsr, cstack</td></tr>
+<tr><td><code>_doWork</code></td><td><h4 class="funcinfo">Parameters</h4>
+<br>
+None<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>temp</code></td><td>4 </td><td>47[BANK1] </td><td>void </td></tr>
+<tr><td><code>avarage</code></td><td>4 </td><td>43[BANK1] </td><td>void </td></tr>
+<tr><td><code>resistance</code></td><td>4 </td><td>38[BANK1] </td><td>void </td></tr>
+<tr><td><code>v</code></td><td>4 </td><td>32[BANK1] </td><td>void </td></tr>
+<tr><td><code>calVoltage</code></td><td>4 </td><td>4[BANK1] </td><td>void </td></tr>
+<tr><td><code>Rinf</code></td><td>4 </td><td>0[BANK1] </td><td>void </td></tr>
+<tr><td><code>B</code></td><td>2 </td><td>36[BANK1] </td><td>unsigned short </td></tr>
+<tr><td><code>i</code></td><td>1 </td><td>51[BANK1] </td><td>unsigned char </td></tr>
+<tr><td><code>j</code></td><td>1 </td><td>42[BANK1] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: void 
+size: 0
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, pclat, btemp, btemp+1, btemp+2, btemp+3, btemp+4, btemp+5, btemp+6, btemp+7, tosl, structret, tblptrl, tblptrh, tblptru, prodl, prodh, bsr, cstack</td></tr>
+<tr><td><code>___lwtofl</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>c</code></td><td>2</td><td>25[COMRAM] </td><td>unsigned int </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+None<h4 class="funcinfo">Return value</h4>
+type: unsigned int 
+size: 4
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, status,0, cstack</td></tr>
+<tr><td><code>___asfldiv</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>f1p</code></td><td>2</td><td>8[BANK0] </td><td>PTR </td></tr>
+<tr><td><code>f2</code></td><td>4</td><td>10[BANK0] </td><td>PTR </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+None<h4 class="funcinfo">Return value</h4>
+type: PTR 
+size: 4
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr2l, fsr2h, status,2, status,0, cstack</td></tr>
+<tr><td><code>___asfladd</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>f1p</code></td><td>2</td><td>44[COMRAM] </td><td>PTR </td></tr>
+<tr><td><code>f2</code></td><td>4</td><td>46[COMRAM] </td><td>PTR </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+None<h4 class="funcinfo">Return value</h4>
+type: PTR 
+size: 4
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr2l, fsr2h, status,2, status,0, cstack</td></tr>
+<tr><td><code>___aldiv</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>dividend</code></td><td>4</td><td>38[BANK0] </td><td>long </td></tr>
+<tr><td><code>divisor</code></td><td>4</td><td>42[BANK0] </td><td>long </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>quotient</code></td><td>4 </td><td>48[BANK0] </td><td>long </td></tr>
+<tr><td><code>sign</code></td><td>1 </td><td>47[BANK0] </td><td>unsigned char </td></tr>
+<tr><td><code>counter</code></td><td>1 </td><td>46[BANK0] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: long 
+size: 4
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, status,0</td></tr>
+<tr><td><code>_getCalibrationValue</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>i</code></td><td>1</td><td>wreg</td><td>unsigned char </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>i</code></td><td>1 </td><td>34[COMRAM] </td><td>unsigned char </td></tr>
+<tr><td><code>cal</code></td><td>2 </td><td>32[COMRAM] </td><td>short </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: short 
+size: 2
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, status,0, prodl, prodh, cstack</td></tr>
+<tr><td><code>_log</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>x</code></td><td>4</td><td>41[BANK0] </td><td>short </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>exponent</code></td><td>2 </td><td>67[COMRAM] </td><td>int </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: int 
+size: 4
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack</td></tr>
+<tr><td><code>_exp</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>x</code></td><td>4</td><td>66[BANK0] </td><td>int </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>exponent</code></td><td>2 </td><td>74[BANK0] </td><td>int </td></tr>
+<tr><td><code>sign</code></td><td>1 </td><td>76[BANK0] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: unsigned char 
+size: 4
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack</td></tr>
+<tr><td><code>___flneg</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>f1</code></td><td>4</td><td>13[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+None<h4 class="funcinfo">Return value</h4>
+type: unsigned char 
+size: 4
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr2l, fsr2h, status,2, status,0</td></tr>
+<tr><td><code>_ldexp</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>value</code></td><td>4</td><td>41[BANK0] </td><td>unsigned char </td></tr>
+<tr><td><code>newexp</code></td><td>2</td><td>45[BANK0] </td><td>int </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+None<h4 class="funcinfo">Return value</h4>
+type: int 
+size: 4
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr2l, fsr2h, status,2, status,0</td></tr>
+<tr><td><code>_eval_poly</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>x</code></td><td>4</td><td>30[BANK0] </td><td>int </td></tr>
+<tr><td><code>d</code></td><td>1</td><td>34[BANK0] </td><td>PTR const </td></tr>
+<tr><td><code>n</code></td><td>2</td><td>35[BANK0] </td><td>int </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>res</code></td><td>4 </td><td>37[BANK0] </td><td>int </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: int 
+size: 4
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack</td></tr>
+<tr><td><code>_floor</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>x</code></td><td>4</td><td>56[BANK0] </td><td>int </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>i</code></td><td>4 </td><td>60[BANK0] </td><td>int </td></tr>
+<tr><td><code>expon</code></td><td>2 </td><td>64[BANK0] </td><td>int </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: int 
+size: 4
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr2l, fsr2h, status,2, status,0, cstack</td></tr>
+<tr><td><code>___fltol</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>f1</code></td><td>4</td><td>30[BANK0] </td><td>int </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>exp1</code></td><td>1 </td><td>67[COMRAM] </td><td>unsigned char </td></tr>
+<tr><td><code>sign1</code></td><td>1 </td><td>66[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: long 
+size: 4
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, status,0</td></tr>
+<tr><td><code>_frexp</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>value</code></td><td>4</td><td>13[COMRAM] </td><td>long </td></tr>
+<tr><td><code>eptr</code></td><td>2</td><td>17[COMRAM] </td><td>PTR int </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+None<h4 class="funcinfo">Return value</h4>
+type: PTR int 
+size: 4
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr2l, fsr2h, status,2, status,0</td></tr>
+<tr><td><code>___flge</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>ff1</code></td><td>4</td><td>13[COMRAM] </td><td>PTR int </td></tr>
+<tr><td><code>ff2</code></td><td>4</td><td>17[COMRAM] </td><td>PTR int </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+None<h4 class="funcinfo">Return value</h4>
+type: bit 
+size: 0
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, status,0</td></tr>
+<tr><td><code>___altofl</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>c</code></td><td>4</td><td>52[BANK0] </td><td>long </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>sign</code></td><td>1 </td><td>68[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: unsigned char 
+size: 4
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, status,0, cstack</td></tr>
+<tr><td><code>___asflsub</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>f1p</code></td><td>2</td><td>52[COMRAM] </td><td>PTR </td></tr>
+<tr><td><code>f2</code></td><td>4</td><td>54[COMRAM] </td><td>PTR </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+None<h4 class="funcinfo">Return value</h4>
+type: PTR 
+size: 4
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr2l, fsr2h, status,2, status,0, cstack</td></tr>
+<tr><td><code>___flsub</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>f1</code></td><td>4</td><td>44[COMRAM] </td><td>PTR </td></tr>
+<tr><td><code>f2</code></td><td>4</td><td>48[COMRAM] </td><td>PTR </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+None<h4 class="funcinfo">Return value</h4>
+type: PTR 
+size: 4
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, status,0, cstack</td></tr>
+<tr><td><code>___asflmul</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>mp</code></td><td>1</td><td>wreg</td><td>PTR </td></tr>
+<tr><td><code>multiplicand</code></td><td>4</td><td>30[BANK0] </td><td>PTR </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>mp</code></td><td>1 </td><td>66[COMRAM] </td><td>PTR </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: PTR 
+size: 4
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr2l, fsr2h, status,2, status,0, cstack</td></tr>
+<tr><td><code>___fldiv</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>f1</code></td><td>4</td><td>0[BANK0] </td><td>PTR </td></tr>
+<tr><td><code>f2</code></td><td>4</td><td>4[BANK0] </td><td>PTR </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>f3</code></td><td>4 </td><td>59[COMRAM] </td><td>PTR </td></tr>
+<tr><td><code>sign</code></td><td>1 </td><td>65[COMRAM] </td><td>unsigned char </td></tr>
+<tr><td><code>exp</code></td><td>1 </td><td>64[COMRAM] </td><td>unsigned char </td></tr>
+<tr><td><code>cntr</code></td><td>1 </td><td>63[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: unsigned char 
+size: 4
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, status,0, cstack</td></tr>
+<tr><td><code>_vscp_doOneSecondWork</code></td><td><h4 class="funcinfo">Parameters</h4>
+<br>
+None<h4 class="funcinfo">Auto variables</h4>
+None<h4 class="funcinfo">Return value</h4>
+type: void 
+size: 0
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, pclat, btemp, btemp+1, btemp+2, btemp+3, btemp+4, btemp+5, btemp+6, btemp+7, tosl, structret, tblptrl, tblptrh, tblptru, prodl, prodh, bsr, cstack</td></tr>
+<tr><td><code>_vscp_sendHeartBeat</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>zone</code></td><td>1</td><td>wreg</td><td>unsigned char </td></tr>
+<tr><td><code>subzone</code></td><td>1</td><td>67[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>zone</code></td><td>1 </td><td>68[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: void 
+size: 0
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, pclat, btemp, btemp+1, btemp+2, btemp+3, btemp+4, btemp+5, btemp+6, btemp+7, tosl, structret, tblptrl, tblptrh, tblptru, prodl, prodh, bsr, cstack</td></tr>
+<tr><td><code>_vscp_getSubzone</code></td><td><h4 class="funcinfo">Parameters</h4>
+<br>
+None<h4 class="funcinfo">Auto variables</h4>
+None<h4 class="funcinfo">Return value</h4>
+type: unsigned char 
+size: 1
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, cstack</td></tr>
+<tr><td><code>_vscp_getZone</code></td><td><h4 class="funcinfo">Parameters</h4>
+<br>
+None<h4 class="funcinfo">Auto variables</h4>
+None<h4 class="funcinfo">Return value</h4>
+type: unsigned char 
+size: 1
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, cstack</td></tr>
+<tr><td><code>_doOneSecondWork</code></td><td><h4 class="funcinfo">Parameters</h4>
+<br>
+None<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>setpoint</code></td><td>2 </td><td>56[BANK0] </td><td>short </td></tr>
+<tr><td><code>i</code></td><td>1 </td><td>58[BANK0] </td><td>unsigned char </td></tr>
+<tr><td><code>tmp</code></td><td>1 </td><td>55[BANK0] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: void 
+size: 0
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, pclat, btemp, btemp+1, btemp+2, btemp+3, btemp+4, btemp+5, btemp+6, btemp+7, tosl, structret, tblptrl, tblptrh, tblptru, prodl, prodh, bsr, cstack</td></tr>
+<tr><td><code>_vscp_error</code></td><td><h4 class="funcinfo">Parameters</h4>
+<br>
+None<h4 class="funcinfo">Auto variables</h4>
+None<h4 class="funcinfo">Return value</h4>
+type: void 
+size: 0
+<h4 class="funcinfo">Registers used</h4>
+None
+</td></tr>
+<tr><td><code>_handle_sync</code></td><td><h4 class="funcinfo">Parameters</h4>
+<br>
+None<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>i</code></td><td>1 </td><td>50[BANK0] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: void 
+size: 0
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, pclat, btemp, btemp+1, btemp+2, btemp+3, btemp+4, btemp+5, btemp+6, btemp+7, tosl, structret, tblptrl, tblptrh, tblptru, prodl, prodh, bsr, cstack</td></tr>
+<tr><td><code>_sendTempEvent</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>i</code></td><td>1</td><td>wreg</td><td>unsigned char </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>i</code></td><td>1 </td><td>47[BANK0] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: unsigned char 
+size: 1
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, pclat, btemp, btemp+1, btemp+2, btemp+3, btemp+4, btemp+5, btemp+6, btemp+7, tosl, structret, tblptrl, tblptrh, tblptru, prodl, prodh, bsr, cstack</td></tr>
+<tr><td><code>_setEventData</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>v</code></td><td>2</td><td>38[BANK0] </td><td>int </td></tr>
+<tr><td><code>unit</code></td><td>1</td><td>40[BANK0] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>newval</code></td><td>4 </td><td>41[BANK0] </td><td>unsigned char </td></tr>
+<tr><td><code>ival</code></td><td>2 </td><td>45[BANK0] </td><td>int </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: void 
+size: 0
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, status,0, cstack</td></tr>
+<tr><td><code>_Celsius2Fahrenheit</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>tc</code></td><td>4</td><td>30[BANK0] </td><td>void </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+None<h4 class="funcinfo">Return value</h4>
+type: void 
+size: 4
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, status,0, cstack</td></tr>
+<tr><td><code>___fladd</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>f1</code></td><td>4</td><td>29[COMRAM] </td><td>void </td></tr>
+<tr><td><code>f2</code></td><td>4</td><td>33[COMRAM] </td><td>void </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>exp1</code></td><td>1 </td><td>43[COMRAM] </td><td>unsigned char </td></tr>
+<tr><td><code>exp2</code></td><td>1 </td><td>42[COMRAM] </td><td>unsigned char </td></tr>
+<tr><td><code>sign</code></td><td>1 </td><td>41[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: unsigned char 
+size: 4
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, status,0, cstack</td></tr>
+<tr><td><code>_Celsius2Kelvin</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>tc</code></td><td>4</td><td>44[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+None<h4 class="funcinfo">Return value</h4>
+type: unsigned char 
+size: 4
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, status,0, cstack</td></tr>
+<tr><td><code>_vscp_handleProtocolEvent</code></td><td><h4 class="funcinfo">Parameters</h4>
+<br>
+None<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>bytes</code></td><td>1 </td><td>44[BANK0] </td><td>unsigned char </td></tr>
+<tr><td><code>page_save</code></td><td>2 </td><td>40[BANK0] </td><td>unsigned short </td></tr>
+<tr><td><code>i</code></td><td>1 </td><td>50[BANK0] </td><td>unsigned char </td></tr>
+<tr><td><code>bytes</code></td><td>2 </td><td>54[BANK0] </td><td>unsigned short </td></tr>
+<tr><td><code>page_save</code></td><td>2 </td><td>38[BANK0] </td><td>unsigned short </td></tr>
+<tr><td><code>byte</code></td><td>1 </td><td>53[BANK0] </td><td>unsigned char </td></tr>
+<tr><td><code>cb</code></td><td>1 </td><td>49[BANK0] </td><td>unsigned char </td></tr>
+<tr><td><code>bytes_this_time</code></td><td>1 </td><td>48[BANK0] </td><td>unsigned char </td></tr>
+<tr><td><code>j</code></td><td>1 </td><td>58[BANK0] </td><td>unsigned char </td></tr>
+<tr><td><code>i</code></td><td>1 </td><td>56[BANK0] </td><td>unsigned char </td></tr>
+<tr><td><code>k</code></td><td>1 </td><td>51[BANK0] </td><td>unsigned char </td></tr>
+<tr><td><code>i</code></td><td>1 </td><td>52[BANK0] </td><td>unsigned char </td></tr>
+<tr><td><code>len</code></td><td>1 </td><td>47[BANK0] </td><td>unsigned char </td></tr>
+<tr><td><code>pos</code></td><td>1 </td><td>46[BANK0] </td><td>unsigned char </td></tr>
+<tr><td><code>i</code></td><td>1 </td><td>57[BANK0] </td><td>unsigned char </td></tr>
+<tr><td><code>len</code></td><td>1 </td><td>45[BANK0] </td><td>unsigned char </td></tr>
+<tr><td><code>pos</code></td><td>1 </td><td>43[BANK0] </td><td>unsigned char </td></tr>
+<tr><td><code>offset</code></td><td>1 </td><td>42[BANK0] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: void 
+size: 0
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, pclat, btemp, btemp+1, btemp+2, btemp+3, btemp+4, btemp+5, btemp+6, btemp+7, tosl, structret, tblptrl, tblptrh, tblptru, prodl, prodh, bsr, cstack</td></tr>
+<tr><td><code>___lbmod</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>dividend</code></td><td>1</td><td>wreg</td><td>unsigned char </td></tr>
+<tr><td><code>divisor</code></td><td>1</td><td>13[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>dividend</code></td><td>1 </td><td>14[COMRAM] </td><td>unsigned char </td></tr>
+<tr><td><code>rem</code></td><td>1 </td><td>16[COMRAM] </td><td>unsigned char </td></tr>
+<tr><td><code>counter</code></td><td>1 </td><td>15[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: unsigned char 
+size: 1
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, status,0</td></tr>
+<tr><td><code>_vscp_writeRegister</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>reg</code></td><td>1</td><td>wreg</td><td>unsigned char </td></tr>
+<tr><td><code>value</code></td><td>1</td><td>38[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>reg</code></td><td>1 </td><td>39[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: unsigned char 
+size: 1
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack</td></tr>
+<tr><td><code>_vscp_writeStdReg</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>reg</code></td><td>1</td><td>wreg</td><td>unsigned char </td></tr>
+<tr><td><code>value</code></td><td>1</td><td>26[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>reg</code></td><td>1 </td><td>32[COMRAM] </td><td>unsigned char </td></tr>
+<tr><td><code>rv</code></td><td>1 </td><td>31[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: unsigned char 
+size: 1
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack</td></tr>
+<tr><td><code>_vscp_restoreDefaults</code></td><td><h4 class="funcinfo">Parameters</h4>
+<br>
+None<h4 class="funcinfo">Auto variables</h4>
+None<h4 class="funcinfo">Return value</h4>
+type: void 
+size: 0
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack</td></tr>
+<tr><td><code>_init_app_eeprom</code></td><td><h4 class="funcinfo">Parameters</h4>
+<br>
+None<h4 class="funcinfo">Auto variables</h4>
+None<h4 class="funcinfo">Return value</h4>
+type: void 
+size: 0
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, cstack</td></tr>
+<tr><td><code>_vscp_setManufacturerId</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>idx</code></td><td>1</td><td>wreg</td><td>unsigned char </td></tr>
+<tr><td><code>data</code></td><td>1</td><td>16[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>idx</code></td><td>1 </td><td>17[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: void 
+size: 0
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, status,0, cstack</td></tr>
+<tr><td><code>_vscp_setUserID</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>idx</code></td><td>1</td><td>wreg</td><td>unsigned char </td></tr>
+<tr><td><code>data</code></td><td>1</td><td>16[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>idx</code></td><td>1 </td><td>17[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: void 
+size: 0
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, status,0, cstack</td></tr>
+<tr><td><code>_vscp_setGUID</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>idx</code></td><td>1</td><td>wreg</td><td>unsigned char </td></tr>
+<tr><td><code>data</code></td><td>1</td><td>16[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>idx</code></td><td>1 </td><td>17[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: void 
+size: 0
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, status,0, cstack</td></tr>
+<tr><td><code>_vscp_writeAppReg</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>reg</code></td><td>1</td><td>wreg</td><td>unsigned char </td></tr>
+<tr><td><code>val</code></td><td>1</td><td>34[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>reg</code></td><td>1 </td><td>36[COMRAM] </td><td>unsigned char </td></tr>
+<tr><td><code>pos</code></td><td>1 </td><td>35[COMRAM] </td><td>unsigned char </td></tr>
+<tr><td><code>rv</code></td><td>1 </td><td>37[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: unsigned char 
+size: 1
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack</td></tr>
+<tr><td><code>_writeCoeffs2Ram</code></td><td><h4 class="funcinfo">Parameters</h4>
+<br>
+None<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>c</code></td><td>3 </td><td>27[COMRAM] </td><td>unsigned char [3]</td></tr>
+<tr><td><code>j</code></td><td>2 </td><td>32[COMRAM] </td><td>int </td></tr>
+<tr><td><code>i</code></td><td>2 </td><td>30[COMRAM] </td><td>int </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: void 
+size: 0
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack</td></tr>
+<tr><td><code>___wmul</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>multiplier</code></td><td>2</td><td>13[COMRAM] </td><td>unsigned int </td></tr>
+<tr><td><code>multiplicand</code></td><td>2</td><td>15[COMRAM] </td><td>unsigned int </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>product</code></td><td>2 </td><td>19[COMRAM] </td><td>unsigned int </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: unsigned int 
+size: 2
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, status,0, prodl, prodh</td></tr>
+<tr><td><code>_vscp_readRegister</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>reg</code></td><td>1</td><td>wreg</td><td>unsigned char </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>reg</code></td><td>1 </td><td>43[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: unsigned char 
+size: 1
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, cstack</td></tr>
+<tr><td><code>_vscp_readStdReg</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>reg</code></td><td>1</td><td>wreg</td><td>unsigned char </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>reg</code></td><td>1 </td><td>42[COMRAM] </td><td>unsigned char </td></tr>
+<tr><td><code>code</code></td><td>4 </td><td>35[COMRAM] </td><td>unsigned long </td></tr>
+<tr><td><code>idx</code></td><td>1 </td><td>40[COMRAM] </td><td>unsigned char </td></tr>
+<tr><td><code>code</code></td><td>4 </td><td>31[COMRAM] </td><td>unsigned long </td></tr>
+<tr><td><code>idx</code></td><td>1 </td><td>39[COMRAM] </td><td>unsigned char </td></tr>
+<tr><td><code>rv</code></td><td>1 </td><td>41[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: unsigned char 
+size: 1
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, status,0, tblptrl, tblptrh, tblptru, cstack</td></tr>
+<tr><td><code>_vscp_getFamilyType</code></td><td><h4 class="funcinfo">Parameters</h4>
+<br>
+None<h4 class="funcinfo">Auto variables</h4>
+None<h4 class="funcinfo">Return value</h4>
+type: unsigned long 
+size: 4
+<h4 class="funcinfo">Registers used</h4>
+None
+</td></tr>
+<tr><td><code>_vscp_getFamilyCode</code></td><td><h4 class="funcinfo">Parameters</h4>
+<br>
+None<h4 class="funcinfo">Auto variables</h4>
+None<h4 class="funcinfo">Return value</h4>
+type: unsigned long 
+size: 4
+<h4 class="funcinfo">Registers used</h4>
+None
+</td></tr>
+<tr><td><code>_vscp_getRegisterPagesUsed</code></td><td><h4 class="funcinfo">Parameters</h4>
+<br>
+None<h4 class="funcinfo">Auto variables</h4>
+None<h4 class="funcinfo">Return value</h4>
+type: unsigned char 
+size: 1
+<h4 class="funcinfo">Registers used</h4>
+wreg</td></tr>
+<tr><td><code>_vscp_getBufferSize</code></td><td><h4 class="funcinfo">Parameters</h4>
+<br>
+None<h4 class="funcinfo">Auto variables</h4>
+None<h4 class="funcinfo">Return value</h4>
+type: unsigned char 
+size: 1
+<h4 class="funcinfo">Registers used</h4>
+wreg</td></tr>
+<tr><td><code>_vscp_getBootLoaderAlgorithm</code></td><td><h4 class="funcinfo">Parameters</h4>
+<br>
+None<h4 class="funcinfo">Auto variables</h4>
+None<h4 class="funcinfo">Return value</h4>
+type: unsigned char 
+size: 1
+<h4 class="funcinfo">Registers used</h4>
+wreg</td></tr>
+<tr><td><code>_vscp_getManufacturerId</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>idx</code></td><td>1</td><td>wreg</td><td>unsigned char </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>idx</code></td><td>1 </td><td>25[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: unsigned char 
+size: 1
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, status,0, cstack</td></tr>
+<tr><td><code>_vscp_getUserID</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>idx</code></td><td>1</td><td>wreg</td><td>unsigned char </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>idx</code></td><td>1 </td><td>25[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: unsigned char 
+size: 1
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, status,0, cstack</td></tr>
+<tr><td><code>_vscp_getMDF_URL</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>idx</code></td><td>1</td><td>wreg</td><td>unsigned char </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>idx</code></td><td>1 </td><td>14[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: unsigned char 
+size: 1
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, status,0, tblptrl, tblptrh, tblptru</td></tr>
+<tr><td><code>_vscp_getGUID</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>idx</code></td><td>1</td><td>wreg</td><td>unsigned char </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>idx</code></td><td>1 </td><td>25[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: unsigned char 
+size: 1
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, status,0, cstack</td></tr>
+<tr><td><code>_vscp_getSubMinorVersion</code></td><td><h4 class="funcinfo">Parameters</h4>
+<br>
+None<h4 class="funcinfo">Auto variables</h4>
+None<h4 class="funcinfo">Return value</h4>
+type: unsigned char 
+size: 1
+<h4 class="funcinfo">Registers used</h4>
+wreg</td></tr>
+<tr><td><code>_vscp_getMinorVersion</code></td><td><h4 class="funcinfo">Parameters</h4>
+<br>
+None<h4 class="funcinfo">Auto variables</h4>
+None<h4 class="funcinfo">Return value</h4>
+type: unsigned char 
+size: 1
+<h4 class="funcinfo">Registers used</h4>
+wreg</td></tr>
+<tr><td><code>_vscp_getMajorVersion</code></td><td><h4 class="funcinfo">Parameters</h4>
+<br>
+None<h4 class="funcinfo">Auto variables</h4>
+None<h4 class="funcinfo">Return value</h4>
+type: unsigned char 
+size: 1
+<h4 class="funcinfo">Registers used</h4>
+wreg</td></tr>
+<tr><td><code>_vscp_newNodeOnline</code></td><td><h4 class="funcinfo">Parameters</h4>
+<br>
+None<h4 class="funcinfo">Auto variables</h4>
+None<h4 class="funcinfo">Return value</h4>
+type: void 
+size: 0
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, pclat, btemp, btemp+1, btemp+2, btemp+3, btemp+4, btemp+5, btemp+6, btemp+7, tosl, structret, tblptrl, tblptrh, tblptru, prodl, prodh, bsr, cstack</td></tr>
+<tr><td><code>_vscp_handleDropNickname</code></td><td><h4 class="funcinfo">Parameters</h4>
+<br>
+None<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>bytes</code></td><td>1 </td><td>25[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: void 
+size: 0
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr2l, fsr2h, status,2, status,0, cstack</td></tr>
+<tr><td><code>_vscp_init</code></td><td><h4 class="funcinfo">Parameters</h4>
+<br>
+None<h4 class="funcinfo">Auto variables</h4>
+None<h4 class="funcinfo">Return value</h4>
+type: void 
+size: 0
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, cstack</td></tr>
+<tr><td><code>_vscp_readNicknamePermanent</code></td><td><h4 class="funcinfo">Parameters</h4>
+<br>
+None<h4 class="funcinfo">Auto variables</h4>
+None<h4 class="funcinfo">Return value</h4>
+type: unsigned char 
+size: 1
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, cstack</td></tr>
+<tr><td><code>_readEEPROM</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>address</code></td><td>2</td><td>21[COMRAM] </td><td>unsigned short </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>data</code></td><td>1 </td><td>24[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: unsigned char 
+size: 1
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2</td></tr>
+<tr><td><code>_vscp_handleSetNickname</code></td><td><h4 class="funcinfo">Parameters</h4>
+<br>
+None<h4 class="funcinfo">Auto variables</h4>
+None<h4 class="funcinfo">Return value</h4>
+type: void 
+size: 0
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr2l, fsr2h, status,2, status,0, cstack</td></tr>
+<tr><td><code>_vscp_handleHeartbeat</code></td><td><h4 class="funcinfo">Parameters</h4>
+<br>
+None<h4 class="funcinfo">Auto variables</h4>
+None<h4 class="funcinfo">Return value</h4>
+type: void 
+size: 0
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, status,0, cstack</td></tr>
+<tr><td><code>_vscp_goBootloaderMode</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>algorithm</code></td><td>1</td><td>wreg</td><td>unsigned char </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>algorithm</code></td><td>1 </td><td>16[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: void 
+size: 0
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, status,0, cstack</td></tr>
+<tr><td><code>_vscp_getMatrixInfo</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>pData</code></td><td>1</td><td>wreg</td><td>PTR unsigned char </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>pData</code></td><td>1 </td><td>13[COMRAM] </td><td>PTR unsigned char </td></tr>
+<tr><td><code>i</code></td><td>1 </td><td>14[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: void 
+size: 0
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr2l, fsr2h, status,2, status,0</td></tr>
+<tr><td><code>_vscp_handleProbeState</code></td><td><h4 class="funcinfo">Parameters</h4>
+<br>
+None<h4 class="funcinfo">Auto variables</h4>
+None<h4 class="funcinfo">Return value</h4>
+type: void 
+size: 0
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, pclat, btemp, btemp+1, btemp+2, btemp+3, btemp+4, btemp+5, btemp+6, btemp+7, tosl, structret, tblptrl, tblptrh, tblptru, prodl, prodh, bsr, cstack</td></tr>
+<tr><td><code>_vscp_goActiveState</code></td><td><h4 class="funcinfo">Parameters</h4>
+<br>
+None<h4 class="funcinfo">Auto variables</h4>
+None<h4 class="funcinfo">Return value</h4>
+type: void 
+size: 0
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, pclat, btemp, btemp+1, btemp+2, btemp+3, btemp+4, btemp+5, btemp+6, btemp+7, tosl, structret, tblptrl, tblptrh, tblptru, prodl, prodh, bsr, cstack</td></tr>
+<tr><td><code>_vscp_sendEvent</code></td><td><h4 class="funcinfo">Parameters</h4>
+<br>
+None<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>rv</code></td><td>1 </td><td>66[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: unsigned char 
+size: 1
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, pclat, btemp, btemp+1, btemp+2, btemp+3, btemp+4, btemp+5, btemp+6, btemp+7, tosl, structret, tblptrl, tblptrh, tblptru, prodl, prodh, bsr, cstack</td></tr>
+<tr><td><code>_sendVSCPFrame</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>vscpclass</code></td><td>2</td><td>0[BANK0] </td><td>unsigned short </td></tr>
+<tr><td><code>vscptype</code></td><td>1</td><td>2[BANK0] </td><td>unsigned char </td></tr>
+<tr><td><code>nodeid</code></td><td>1</td><td>3[BANK0] </td><td>unsigned char </td></tr>
+<tr><td><code>priority</code></td><td>1</td><td>4[BANK0] </td><td>unsigned char </td></tr>
+<tr><td><code>size</code></td><td>1</td><td>5[BANK0] </td><td>unsigned char </td></tr>
+<tr><td><code>pData</code></td><td>1</td><td>6[BANK0] </td><td>PTR unsigned char </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>id</code></td><td>4 </td><td>27[BANK0] </td><td>unsigned long </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: unsigned char 
+size: 1
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, pclat, btemp, btemp+1, btemp+2, btemp+3, btemp+4, btemp+5, btemp+6, btemp+7, tosl, structret, tblptrl, tblptrh, tblptru, prodl, prodh, bsr, cstack</td></tr>
+<tr><td><code>_sendCANFrame</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>id</code></td><td>4</td><td>59[COMRAM] </td><td>unsigned long </td></tr>
+<tr><td><code>dlc</code></td><td>1</td><td>63[COMRAM] </td><td>unsigned char </td></tr>
+<tr><td><code>pdata</code></td><td>1</td><td>64[COMRAM] </td><td>PTR unsigned char </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>rv</code></td><td>1 </td><td>65[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: unsigned char 
+size: 1
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack</td></tr>
+<tr><td><code>_ECANSendMessage</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>id</code></td><td>4</td><td>23[COMRAM] </td><td>unsigned long </td></tr>
+<tr><td><code>data</code></td><td>1</td><td>27[COMRAM] </td><td>PTR unsigned char </td></tr>
+<tr><td><code>dataLen</code></td><td>1</td><td>28[COMRAM] </td><td>unsigned char </td></tr>
+<tr><td><code>msgFlags</code></td><td>1</td><td>29[COMRAM] </td><td>enum E16315</td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>pb</code></td><td>18 </td><td>31[COMRAM] </td><td>PTR unsigned char [9]</td></tr>
+<tr><td><code>ptr</code></td><td>2 </td><td>57[COMRAM] </td><td>PTR unsigned char </td></tr>
+<tr><td><code>tempPtr</code></td><td>2 </td><td>53[COMRAM] </td><td>PTR unsigned char </td></tr>
+<tr><td><code>i</code></td><td>1 </td><td>56[COMRAM] </td><td>unsigned char </td></tr>
+<tr><td><code>temp</code></td><td>1 </td><td>55[COMRAM] </td><td>unsigned char </td></tr>
+<tr><td><code>tempBSEL0</code></td><td>1 </td><td>52[COMRAM] </td><td>struct .</td></tr>
+<tr><td><code>j</code></td><td>1 </td><td>51[COMRAM] </td><td>unsigned char </td></tr>
+<tr><td><code>buffers</code></td><td>1 </td><td>50[COMRAM] </td><td>unsigned char </td></tr>
+<tr><td><code>mode</code></td><td>1 </td><td>49[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: enum E15660
+size: 1
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack</td></tr>
+<tr><td><code>__CANIDToRegs</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>ptr</code></td><td>2</td><td>13[COMRAM] </td><td>PTR unsigned char </td></tr>
+<tr><td><code>val</code></td><td>4</td><td>15[COMRAM] </td><td>unsigned long </td></tr>
+<tr><td><code>type</code></td><td>1</td><td>19[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>Value</code></td><td>1 </td><td>22[COMRAM] </td><td>PTR struct _CAN_MESSAGE_ID</td></table>
+<h4 class="funcinfo">Return value</h4>
+type: void 
+size: 0
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0</td></tr>
+<tr><td><code>_vscp_getEvent</code></td><td><h4 class="funcinfo">Parameters</h4>
+<br>
+None<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>rv</code></td><td>1 </td><td>59[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: unsigned char 
+size: 1
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, pclat, btemp, btemp+1, btemp+2, btemp+3, btemp+4, btemp+5, btemp+6, btemp+7, tosl, structret, tblptrl, tblptrh, tblptru, prodl, prodh, bsr, cstack</td></tr>
+<tr><td><code>_getVSCPFrame</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>pvscpclass</code></td><td>2</td><td>39[COMRAM] </td><td>PTR unsigned short </td></tr>
+<tr><td><code>pvscptype</code></td><td>2</td><td>41[COMRAM] </td><td>PTR unsigned char </td></tr>
+<tr><td><code>pNodeId</code></td><td>2</td><td>43[COMRAM] </td><td>PTR unsigned char </td></tr>
+<tr><td><code>pPriority</code></td><td>2</td><td>45[COMRAM] </td><td>PTR unsigned char </td></tr>
+<tr><td><code>pSize</code></td><td>2</td><td>47[COMRAM] </td><td>PTR unsigned char </td></tr>
+<tr><td><code>pData</code></td><td>2</td><td>49[COMRAM] </td><td>PTR unsigned char </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>id</code></td><td>4 </td><td>55[COMRAM] </td><td>unsigned long </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: unsigned char 
+size: 1
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, pclat, btemp, btemp+1, btemp+2, btemp+3, btemp+4, btemp+5, btemp+6, btemp+7, tosl, structret, tblptrl, tblptrh, tblptru, prodl, prodh, bsr, cstack</td></tr>
+<tr><td><code>_getCANFrame</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>pid</code></td><td>1</td><td>wreg</td><td>PTR unsigned long </td></tr>
+<tr><td><code>pdlc</code></td><td>2</td><td>33[COMRAM] </td><td>PTR unsigned char </td></tr>
+<tr><td><code>pdata</code></td><td>2</td><td>35[COMRAM] </td><td>PTR unsigned char </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>pid</code></td><td>1 </td><td>37[COMRAM] </td><td>PTR unsigned long </td></tr>
+<tr><td><code>flags</code></td><td>1 </td><td>38[COMRAM] </td><td>enum E16418</td></table>
+<h4 class="funcinfo">Return value</h4>
+type: unsigned char 
+size: 1
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, pclat, btemp, btemp+1, btemp+2, btemp+3, btemp+4, btemp+5, btemp+6, btemp+7, tosl, structret, tblptrl, tblptrh, tblptru, prodl, prodh, bsr, cstack</td></tr>
+<tr><td><code>_ECANReceiveMessage</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>id</code></td><td>1</td><td>wreg</td><td>PTR unsigned long </td></tr>
+<tr><td><code>data</code></td><td>2</td><td>20[COMRAM] </td><td>PTR unsigned char </td></tr>
+<tr><td><code>dataLen</code></td><td>2</td><td>22[COMRAM] </td><td>PTR unsigned char </td></tr>
+<tr><td><code>msgFlags</code></td><td>1</td><td>24[COMRAM] </td><td>PTR enum E16333</td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>id</code></td><td>1 </td><td>27[COMRAM] </td><td>PTR unsigned long </td></tr>
+<tr><td><code>ptr</code></td><td>2 </td><td>31[COMRAM] </td><td>PTR unsigned char </td></tr>
+<tr><td><code>savedPtr</code></td><td>2 </td><td>25[COMRAM] </td><td>PTR unsigned char </td></tr>
+<tr><td><code>temp</code></td><td>1 </td><td>30[COMRAM] </td><td>struct .</td></tr>
+<tr><td><code>mode</code></td><td>1 </td><td>29[COMRAM] </td><td>unsigned char </td></tr>
+<tr><td><code>i</code></td><td>1 </td><td>28[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: enum E15660
+size: 1
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, cstack</td></tr>
+<tr><td><code>__RegsToCANID</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>ptr</code></td><td>2</td><td>13[COMRAM] </td><td>PTR unsigned char </td></tr>
+<tr><td><code>val</code></td><td>1</td><td>15[COMRAM] </td><td>PTR unsigned long </td></tr>
+<tr><td><code>type</code></td><td>1</td><td>16[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>Value</code></td><td>1 </td><td>19[COMRAM] </td><td>PTR struct _CAN_MESSAGE_ID</td></table>
+<h4 class="funcinfo">Return value</h4>
+type: void 
+size: 0
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0</td></tr>
+<tr><td><code>__ECANPointBuffer</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>b</code></td><td>1</td><td>wreg</td><td>unsigned char </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>b</code></td><td>1 </td><td>16[COMRAM] </td><td>unsigned char </td></tr>
+<tr><td><code>pt</code></td><td>2 </td><td>17[COMRAM] </td><td>PTR unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: PTR unsigned char 
+size: 2
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, status,0</td></tr>
+<tr><td><code>_vscp_check_pstorage</code></td><td><h4 class="funcinfo">Parameters</h4>
+<br>
+None<h4 class="funcinfo">Auto variables</h4>
+None<h4 class="funcinfo">Return value</h4>
+type: unsigned char 
+size: 1
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, status,0, cstack</td></tr>
+<tr><td><code>_vscp_setControlByte</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>ctrl</code></td><td>1</td><td>wreg</td><td>unsigned char </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>ctrl</code></td><td>1 </td><td>16[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: void 
+size: 0
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, cstack</td></tr>
+<tr><td><code>_vscp_setSegmentCRC</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>crc</code></td><td>1</td><td>wreg</td><td>unsigned char </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>crc</code></td><td>1 </td><td>16[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: void 
+size: 0
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, cstack</td></tr>
+<tr><td><code>_vscp_getSegmentCRC</code></td><td><h4 class="funcinfo">Parameters</h4>
+<br>
+None<h4 class="funcinfo">Auto variables</h4>
+None<h4 class="funcinfo">Return value</h4>
+type: unsigned char 
+size: 1
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, cstack</td></tr>
+<tr><td><code>_vscp_writeNicknamePermanent</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>nickname</code></td><td>1</td><td>wreg</td><td>unsigned char </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>nickname</code></td><td>1 </td><td>16[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: void 
+size: 0
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, cstack</td></tr>
+<tr><td><code>_writeEEPROM</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>address</code></td><td>2</td><td>13[COMRAM] </td><td>unsigned short </td></tr>
+<tr><td><code>data</code></td><td>1</td><td>15[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+None<h4 class="funcinfo">Return value</h4>
+type: void 
+size: 0
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2</td></tr>
+<tr><td><code>_init</code></td><td><h4 class="funcinfo">Parameters</h4>
+<br>
+None<h4 class="funcinfo">Auto variables</h4>
+None<h4 class="funcinfo">Return value</h4>
+type: void 
+size: 0
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, pclat, btemp, btemp+1, btemp+2, btemp+3, btemp+4, btemp+5, btemp+6, btemp+7, tosl, structret, tblptrl, tblptrh, tblptru, prodl, prodh, bsr, cstack</td></tr>
+<tr><td><code>_ECANInitialize</code></td><td><h4 class="funcinfo">Parameters</h4>
+<br>
+None<h4 class="funcinfo">Auto variables</h4>
+None<h4 class="funcinfo">Return value</h4>
+type: void 
+size: 0
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, status,0, cstack</td></tr>
+<tr><td><code>_ECANSetOperationMode</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>mode</code></td><td>1</td><td>wreg</td><td>enum E16346</td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>mode</code></td><td>1 </td><td>13[COMRAM] </td><td>enum E16346</td></table>
+<h4 class="funcinfo">Return value</h4>
+type: void 
+size: 0
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, status,0</td></tr>
+<tr><td><code>_OpenADC</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>config</code></td><td>1</td><td>wreg</td><td>unsigned char </td></tr>
+<tr><td><code>config2</code></td><td>1</td><td>13[COMRAM] </td><td>unsigned char </td></tr>
+<tr><td><code>portconfig</code></td><td>1</td><td>14[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>config</code></td><td>1 </td><td>17[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: void 
+size: 0
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, status,0</td></tr>
+<tr><td><code>_OpenTimer0</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>config</code></td><td>1</td><td>wreg</td><td>unsigned char </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>config</code></td><td>1 </td><td>13[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: void 
+size: 0
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, status,0</td></tr>
+<tr><td><code>_init_app_ram</code></td><td><h4 class="funcinfo">Parameters</h4>
+<br>
+None<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>i</code></td><td>1 </td><td>13[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: void 
+size: 0
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh</td></tr>
+<tr><td><code>_ConvertADC</code></td><td><h4 class="funcinfo">Parameters</h4>
+<br>
+None<h4 class="funcinfo">Auto variables</h4>
+None<h4 class="funcinfo">Return value</h4>
+type: void 
+size: 0
+<h4 class="funcinfo">Registers used</h4>
+None
+</td></tr>
+<tr><td><code>_WriteTimer0</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>timer0</code></td><td>2</td><td>13[COMRAM] </td><td>unsigned int </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>timer</code></td><td>2 </td><td>15[COMRAM] </td><td>struct Timers</td></table>
+<h4 class="funcinfo">Return value</h4>
+type: void 
+size: 0
+<h4 class="funcinfo">Registers used</h4>
+None
+</td></tr>
+<tr><td><code>___flmul</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>f1</code></td><td>4</td><td>8[BANK0] </td><td>void </td></tr>
+<tr><td><code>f2</code></td><td>4</td><td>12[BANK0] </td><td>void </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>f3_as_product</code></td><td>4 </td><td>24[BANK0] </td><td>unsigned long </td></tr>
+<tr><td><code>sign</code></td><td>1 </td><td>29[BANK0] </td><td>unsigned char </td></tr>
+<tr><td><code>cntr</code></td><td>1 </td><td>28[BANK0] </td><td>unsigned char </td></tr>
+<tr><td><code>exp</code></td><td>1 </td><td>23[BANK0] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: unsigned char 
+size: 4
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, status,0, cstack</td></tr>
+<tr><td><code>___awtofl</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>c</code></td><td>2</td><td>23[COMRAM] </td><td>int </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>f1</code></td><td>4 </td><td>0</td><td>int </td></tr>
+<tr><td><code>sign</code></td><td>1 </td><td>28[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: unsigned char 
+size: 4
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, status,0, cstack</td></tr>
+<tr><td><code>___flpack</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>arg</code></td><td>4</td><td>13[COMRAM] </td><td>unsigned long </td></tr>
+<tr><td><code>exp</code></td><td>1</td><td>17[COMRAM] </td><td>unsigned char </td></tr>
+<tr><td><code>sign</code></td><td>1</td><td>18[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+None<h4 class="funcinfo">Return value</h4>
+type: unsigned char 
+size: 4
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, status,0</td></tr>
+<tr><td><code>___flpack</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>arg</code></td><td>4</td><td>13[COMRAM] </td><td>unsigned long </td></tr>
+<tr><td><code>exp</code></td><td>1</td><td>17[COMRAM] </td><td>unsigned char </td></tr>
+<tr><td><code>sign</code></td><td>1</td><td>18[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+None<h4 class="funcinfo">Return value</h4>
+type: unsigned char 
+size: 4
+<h4 class="funcinfo">Registers used</h4>
+wreg, status,2, status,0</td></tr>
+<tr><td><code>_vscp_readAppReg</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>reg</code></td><td>1</td><td>wreg</td><td>unsigned char </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>reg</code></td><td>1 </td><td>26[COMRAM] </td><td>unsigned char </td></tr>
+<tr><td><code>pos</code></td><td>1 </td><td>25[COMRAM] </td><td>unsigned char </td></tr>
+<tr><td><code>rv</code></td><td>1 </td><td>27[COMRAM] </td><td>unsigned char </td></table>
+<h4 class="funcinfo">Return value</h4>
+type: unsigned char 
+size: 1
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr2l, fsr2h, status,2, status,0, cstack</td></tr>
+<tr><td><code>_interrupt_at_low_vector</code></td><td><h4 class="funcinfo">Parameters</h4>
+<br>
+None<h4 class="funcinfo">Auto variables</h4>
+None<h4 class="funcinfo">Return value</h4>
+type: void 
+size: 0
+<h4 class="funcinfo">Registers used</h4>
+wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack</td></tr>
+<tr><td><code>i1_WriteTimer0</code></td><td><h4 class="funcinfo">Parameters</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>timer0</code></td><td>2</td><td>0[COMRAM] </td><td>unsigned int </td></table>
+<h4 class="funcinfo">Auto variables</h4>
+<table class="funcinfo">
+<tr><td><b>Name</b></td><td><b>Size</b></td><td><b>Reg/space</b></td><td><b>Type</b></td></tr>
+<tr><td><code>WriteTimer0</code></td><td>2 </td><td>2[COMRAM] </td><td>struct Timers</td></table>
+<h4 class="funcinfo">Return value</h4>
+type: void 
+size: 0
+<h4 class="funcinfo">Registers used</h4>
+None
+</td></tr>
+<tr><td><code>i1_ConvertADC</code></td><td><h4 class="funcinfo">Parameters</h4>
+<br>
+None<h4 class="funcinfo">Auto variables</h4>
+None<h4 class="funcinfo">Return value</h4>
+type: void 
+size: 0
+<h4 class="funcinfo">Registers used</h4>
+None
+</td></table>
+</BODY>
+</HTML>

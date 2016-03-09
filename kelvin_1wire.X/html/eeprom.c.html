@@ -1,0 +1,162 @@
+<HTML>
+<HEAD>
+<TITLE>Listing of ../../vscp_firmware/pic/common/eeprom.c</TITLE>
+<LINK rel=stylesheet href="udf_styles.css" type="text/css">
+</HEAD>
+<BODY>
+<table class="">
+<tr><td><code><i>     1</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
+<tr><td><code><i>     2</i> </code></td><td><code>&nbsp //&nbsp EEPROM&nbsp access&nbsp routines</code></td></tr>
+<tr><td><code><i>     3</i> </code></td><td><code>&nbsp //</code></td></tr>
+<tr><td><code><i>     4</i> </code></td><td><code>&nbsp //&nbsp Code&nbsp collected&nbsp from&nbsp the&nbsp Microchip&nbsp C18&nbsp forum</code></td></tr>
+<tr><td><code><i>     5</i> </code></td><td><code>&nbsp //&nbsp Copyright&nbsp (C)&nbsp 2003&nbsp JasonK</code></td></tr>
+<tr><td><code><i>     6</i> </code></td><td><code>&nbsp //</code></td></tr>
+<tr><td><code><i>     7</i> </code></td><td><code>&nbsp //&nbsp Changes&nbsp &&nbsp additions&nbsp (C)&nbsp 2005-2016&nbsp Ake&nbsp Hedman,&nbsp Grodans&nbsp Paradis&nbsp AB&nbsp </code></td></tr>
+<tr><td><code><i>     8</i> </code></td><td><code>&nbsp //&nbsp&lsaquo  akhe@grodansparadis.com&rsaquo  </code></td></tr>
+<tr><td><code><i>     9</i> </code></td><td><code>&nbsp //</code></td></tr>
+<tr><td><code><i>    10</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>    11</i> </code></td><td><code>&nbsp #include&nbsp&lsaquo  p18cxxx.h&rsaquo  </code></td></tr>
+<tr><td><code><i>    12</i> </code></td><td><code>&nbsp #include&nbsp&lsaquo  vscp_compiler.h&rsaquo &nbsp &nbsp&nbsp&nbsp&nbsp //&nbsp This&nbsp file&nbsp should&nbsp be&nbsp in&nbsp your&nbsp project&nbsp folder</code></td></tr>
+<tr><td><code><i>    13</i> </code></td><td><code>&nbsp #include&nbsp&lsaquo  vscp_projdefs.h&rsaquo  &nbsp&nbsp&nbsp&nbsp&nbsp //&nbsp This&nbsp file&nbsp should&nbsp be&nbsp in&nbsp your&nbsp project&nbsp folder</code></td></tr>
+<tr><td><code><i>    14</i> </code></td><td><code>&nbsp #ifdef&nbsp EEPROM_STRING</code></td></tr>
+<tr><td><code><i>    15</i> </code></td><td><code>&nbsp #include&nbsp&lsaquo  string.h&rsaquo  </code></td></tr>
+<tr><td><code><i>    16</i> </code></td><td><code>&nbsp #endif</code></td></tr>
+<tr><td><code><i>    17</i> </code></td><td><code>&nbsp #include&nbsp&lsaquo  inttypes.h&rsaquo  </code></td></tr>
+<tr><td><code><i>    18</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>    19</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
+<tr><td><code><i>    20</i> </code></td><td><code>&nbsp //&nbsp writeEEPROM</code></td></tr>
+<tr><td><code><i>    21</i> </code></td><td><code>&nbsp //</code></td></tr>
+<tr><td><code><i>    22</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>    23</i> </code></td><td><code>&nbsp void&nbsp writeEEPROM(&nbsp uint16_t&nbsp address,&nbsp uint8_t&nbsp data&nbsp )&nbsp </code></td></tr>
+<tr><td><code><i>    24</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i>    25</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp </code></td></tr>
+<tr><td><code><i>    26</i> </code></td><td><code>&nbsp #if&nbsp defined(EEADRH)&nbsp &nbsp&nbsp&nbsp </code></td></tr>
+<tr><td><code><i>    27</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp EEADRH&nbsp =&nbsp (&nbsp address&nbsp&rsaquo &rsaquo &nbsp 8&nbsp )&nbsp &&nbsp 0xff;</code></td></tr>
+<tr><td><code><i>    28</i> </code></td><td><code>&nbsp #endif</code></td></tr>
+<tr><td><code><i>    29</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>    30</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp EEADR&nbsp =&nbsp address&nbsp &&nbsp 0xff; //&nbsp Data&nbsp Memory&nbsp Address&nbsp to&nbsp write&nbsp </code></td></tr>
+<tr><td><code><i>    31</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp EEDATA&nbsp =&nbsp data;&nbsp &nbsp &nbsp //&nbsp Data&nbsp Memory&nbsp Value&nbsp to&nbsp write&nbsp </code></td></tr>
+<tr><td><code><i>    32</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp EECON1bits.EEPGD&nbsp =&nbsp 0;&nbsp&nbsp //&nbsp Point&nbsp to&nbsp data&nbsp memory&nbsp </code></td></tr>
+<tr><td><code><i>    33</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp EECON1bits.CFGS&nbsp =&nbsp 0;&nbsp&nbsp&nbsp //&nbsp Access&nbsp program&nbsp FLASH&nbsp or&nbsp Data&nbsp EEPROM&nbsp Memory&nbsp </code></td></tr>
+<tr><td><code><i>    34</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp EECON1bits.WREN&nbsp =&nbsp 1;&nbsp&nbsp&nbsp //&nbsp Enable&nbsp writes&nbsp </code></td></tr>
+<tr><td><code><i>    35</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>    36</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp //required&nbsp sequence&nbsp </code></td></tr>
+<tr><td><code><i>    37</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp INTCONbits.GIE&nbsp =&nbsp 0;&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp //&nbsp Disable&nbsp interrupts&nbsp </code></td></tr>
+<tr><td><code><i>    38</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp EECON2&nbsp =&nbsp 0x55;&nbsp    //&nbsp Write&nbsp 55h&nbsp </code></td></tr>
+<tr><td><code><i>    39</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp EECON2&nbsp =&nbsp 0xaa;&nbsp    //&nbsp Write&nbsp AAh&nbsp </code></td></tr>
+<tr><td><code><i>    40</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp EECON1bits.WR&nbsp =&nbsp 1;&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp //&nbsp Set&nbsp WR&nbsp bit&nbsp to&nbsp begin&nbsp write</code></td></tr>
+<tr><td><code><i>    41</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp INTCONbits.GIE&nbsp =&nbsp 1;&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp //&nbsp Enable&nbsp Interrupts</code></td></tr>
+<tr><td><code><i>    42</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>    43</i> </code></td><td><code>&nbsp #if&nbsp defined(__18F25K80)&nbsp ||&nbsp defined(__18F26K80)&nbsp ||&nbsp defined(__18F45K80)&nbsp ||&nbsp defined(__18F46K80)&nbsp ||&nbsp defined(__18F65K80)&nbsp ||&nbsp defined(__18F66K80)&nbsp </code></td></tr>
+<tr><td><code><i>    44</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp while&nbsp (!PIR4bits.EEIF);&nbsp //&nbsp wait&nbsp for&nbsp interrupt&nbsp to&nbsp signal&nbsp write&nbsp complete</code></td></tr>
+<tr><td><code><i>    45</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp PIR4bits.EEIF&nbsp =&nbsp 0;&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp //&nbsp clear&nbsp EEPROM&nbsp write&nbsp operation&nbsp interrupt&nbsp flag</code></td></tr>
+<tr><td><code><i>    46</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp Nop();</code></td></tr>
+<tr><td><code><i>    47</i> </code></td><td><code>&nbsp #else</code></td></tr>
+<tr><td><code><i>    48</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp while&nbsp (!PIR2bits.EEIF);&nbsp //&nbsp wait&nbsp for&nbsp interrupt&nbsp to&nbsp signal&nbsp write&nbsp complete</code></td></tr>
+<tr><td><code><i>    49</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp PIR2bits.EEIF&nbsp =&nbsp 0;&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp //&nbsp clear&nbsp EEPROM&nbsp write&nbsp operation&nbsp interrupt&nbsp flag</code></td></tr>
+<tr><td><code><i>    50</i> </code></td><td><code>&nbsp #endif</code></td></tr>
+<tr><td><code><i>    51</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp EECON1bits.WREN&nbsp =&nbsp 0;&nbsp&nbsp&nbsp //&nbsp disable&nbsp writes&nbsp on&nbsp write&nbsp complete</code></td></tr>
+<tr><td><code><i>    52</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>    53</i> </code></td><td><code>&nbsp }&nbsp </code></td></tr>
+<tr><td><code><i>    54</i> </code></td><td><code>&nbsp &nbsp </code></td></tr>
+<tr><td><code><i>    55</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
+<tr><td><code><i>    56</i> </code></td><td><code>&nbsp //&nbsp writeULongEEPROM</code></td></tr>
+<tr><td><code><i>    57</i> </code></td><td><code>&nbsp //</code></td></tr>
+<tr><td><code><i>    58</i> </code></td><td><code>&nbsp //&nbsp Write_ULong_EEPROM&nbsp </code></td></tr>
+<tr><td><code><i>    59</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>    60</i> </code></td><td><code>&nbsp #ifdef&nbsp EEPROM_UL</code></td></tr>
+<tr><td><code><i>    61</i> </code></td><td><code>&nbsp void&nbsp writeULongEEPROM(&nbsp uint16_t&nbsp address,&nbsp uint8_t&nbsp data&nbsp )&nbsp </code></td></tr>
+<tr><td><code><i>    62</i> </code></td><td><code>&nbsp {&nbsp </code></td></tr>
+<tr><td><code><i>    63</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp uint8_t&nbsp i;&nbsp </code></td></tr>
+<tr><td><code><i>    64</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>    65</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp for&nbsp (&nbsp i=0;&nbsp i&lsaquo  4;&nbsp i++&nbsp )&nbsp </code></td></tr>
+<tr><td><code><i>    66</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp writeEEPROM(&nbsp address+i,&nbsp *(((char*)(&data))+i)&nbsp );&nbsp </code></td></tr>
+<tr><td><code><i>    67</i> </code></td><td><code>&nbsp }&nbsp </code></td></tr>
+<tr><td><code><i>    68</i> </code></td><td><code>&nbsp #endif</code></td></tr>
+<tr><td><code><i>    69</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>    70</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
+<tr><td><code><i>    71</i> </code></td><td><code>&nbsp //&nbsp writeStringEEPROM</code></td></tr>
+<tr><td><code><i>    72</i> </code></td><td><code>&nbsp //</code></td></tr>
+<tr><td><code><i>    73</i> </code></td><td><code>&nbsp //&nbsp Write_String_EEPROM&nbsp </code></td></tr>
+<tr><td><code><i>    74</i> </code></td><td><code>&nbsp //</code></td></tr>
+<tr><td><code><i>    75</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>    76</i> </code></td><td><code>&nbsp #ifdef&nbsp EEPROM_STRING</code></td></tr>
+<tr><td><code><i>    77</i> </code></td><td><code>&nbsp void&nbsp writeStringEEPROM(&nbsp uint16_t&nbsp address,&nbsp uint8_t&nbsp string[]&nbsp )&nbsp </code></td></tr>
+<tr><td><code><i>    78</i> </code></td><td><code>&nbsp {&nbsp </code></td></tr>
+<tr><td><code><i>    79</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp uint8_t&nbsp i,string_len;&nbsp </code></td></tr>
+<tr><td><code><i>    80</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>    81</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp string_len&nbsp =&nbsp strlen(&nbsp string&nbsp );&nbsp </code></td></tr>
+<tr><td><code><i>    82</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp for&nbsp (&nbsp i=0;&nbsp i&lsaquo  string_len;&nbsp i++&nbsp )&nbsp </code></td></tr>
+<tr><td><code><i>    83</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp writeEEPROM(&nbsp address+i,&nbsp *(&nbsp string+i&nbsp )&nbsp );&nbsp </code></td></tr>
+<tr><td><code><i>    84</i> </code></td><td><code>&nbsp }&nbsp </code></td></tr>
+<tr><td><code><i>    85</i> </code></td><td><code>&nbsp #endif</code></td></tr>
+<tr><td><code><i>    86</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>    87</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
+<tr><td><code><i>    88</i> </code></td><td><code>&nbsp //&nbsp readEEPROM</code></td></tr>
+<tr><td><code><i>    89</i> </code></td><td><code>&nbsp //</code></td></tr>
+<tr><td><code><i>    90</i> </code></td><td><code>&nbsp //&nbsp Read_EEPROM&nbsp </code></td></tr>
+<tr><td><code><i>    91</i> </code></td><td><code>&nbsp //</code></td></tr>
+<tr><td><code><i>    92</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>    93</i> </code></td><td><code>&nbsp uint8_t&nbsp readEEPROM(&nbsp uint16_t&nbsp address&nbsp )&nbsp </code></td></tr>
+<tr><td><code><i>    94</i> </code></td><td><code>&nbsp {&nbsp </code></td></tr>
+<tr><td><code><i>    95</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp uint8_t&nbsp data;&nbsp </code></td></tr>
+<tr><td><code><i>    96</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>    97</i> </code></td><td><code>&nbsp #if&nbsp defined(EEADRH)&nbsp&nbsp&nbsp&nbsp </code></td></tr>
+<tr><td><code><i>    98</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp EEADRH&nbsp =&nbsp (&nbsp address&nbsp&rsaquo &rsaquo &nbsp 8&nbsp )&nbsp &&nbsp 0xff;</code></td></tr>
+<tr><td><code><i>    99</i> </code></td><td><code>&nbsp #endif&nbsp </code></td></tr>
+<tr><td><code><i>   100</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp EEADR&nbsp =&nbsp address&nbsp &&nbsp 0xff;&nbsp //&nbsp Data&nbsp Memory&nbsp Address&nbsp to&nbsp write&nbsp </code></td></tr>
+<tr><td><code><i>   101</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp EECON1bits.EEPGD=&nbsp 0;&nbsp &nbsp&nbsp //&nbsp Point&nbsp to&nbsp data&nbsp memory&nbsp </code></td></tr>
+<tr><td><code><i>   102</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp EECON1bits.CFGS&nbsp =&nbsp 0;&nbsp &nbsp&nbsp //&nbsp Access&nbsp program&nbsp FLASH&nbsp or&nbsp Data&nbsp EEPROM&nbsp Memory&nbsp </code></td></tr>
+<tr><td><code><i>   103</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp EECON1bits.RD&nbsp =&nbsp 1;&nbsp &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp //&nbsp Enable&nbsp read&nbsp </code></td></tr>
+<tr><td><code><i>   104</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp Nop();</code></td></tr>
+<tr><td><code><i>   105</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp data&nbsp =&nbsp EEDATA;&nbsp </code></td></tr>
+<tr><td><code><i>   106</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>   107</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp return&nbsp data;&nbsp </code></td></tr>
+<tr><td><code><i>   108</i> </code></td><td><code>&nbsp }&nbsp </code></td></tr>
+<tr><td><code><i>   109</i> </code></td><td><code>&nbsp &nbsp </code></td></tr>
+<tr><td><code><i>   110</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>   111</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
+<tr><td><code><i>   112</i> </code></td><td><code>&nbsp //&nbsp readULongEEPROM</code></td></tr>
+<tr><td><code><i>   113</i> </code></td><td><code>&nbsp //</code></td></tr>
+<tr><td><code><i>   114</i> </code></td><td><code>&nbsp //&nbsp Read_ULong_EEPROM&nbsp //long&nbsp EEPROM&nbsp </code></td></tr>
+<tr><td><code><i>   115</i> </code></td><td><code>&nbsp //</code></td></tr>
+<tr><td><code><i>   116</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>   117</i> </code></td><td><code>&nbsp #ifdef&nbsp EEPROM_UL</code></td></tr>
+<tr><td><code><i>   118</i> </code></td><td><code>&nbsp uint32_t&nbsp readULongEEPROM(&nbsp uint16_t&nbsp address&nbsp )&nbsp </code></td></tr>
+<tr><td><code><i>   119</i> </code></td><td><code>&nbsp {&nbsp </code></td></tr>
+<tr><td><code><i>   120</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp unsigned&nbsp long&nbsp long_read;&nbsp </code></td></tr>
+<tr><td><code><i>   121</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp unsigned&nbsp char&nbsp i;&nbsp </code></td></tr>
+<tr><td><code><i>   122</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </code></td></tr>
+<tr><td><code><i>   123</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp long_read&nbsp =&nbsp 0x00000000;&nbsp </code></td></tr>
+<tr><td><code><i>   124</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp for&nbsp (&nbsp i=0;&nbsp i&lsaquo  4;&nbsp i++&nbsp )&nbsp {&nbsp </code></td></tr>
+<tr><td><code><i>   125</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp long_read&nbsp =&nbsp long_read&nbsp&lsaquo &lsaquo &nbsp 8;&nbsp </code></td></tr>
+<tr><td><code><i>   126</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp long_read&nbsp |=&nbsp readEEPROM(&nbsp address&nbsp +&nbsp i&nbsp );&nbsp </code></td></tr>
+<tr><td><code><i>   127</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp }&nbsp </code></td></tr>
+<tr><td><code><i>   128</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </code></td></tr>
+<tr><td><code><i>   129</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp return&nbsp long_read;&nbsp </code></td></tr>
+<tr><td><code><i>   130</i> </code></td><td><code>&nbsp }&nbsp </code></td></tr>
+<tr><td><code><i>   131</i> </code></td><td><code>&nbsp #endif&nbsp </code></td></tr>
+<tr><td><code><i>   132</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>   133</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
+<tr><td><code><i>   134</i> </code></td><td><code>&nbsp //&nbsp readStringEEPROM</code></td></tr>
+<tr><td><code><i>   135</i> </code></td><td><code>&nbsp //</code></td></tr>
+<tr><td><code><i>   136</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>   137</i> </code></td><td><code>&nbsp #ifdef&nbsp EEPROM_STRING</code></td></tr>
+<tr><td><code><i>   138</i> </code></td><td><code>&nbsp void&nbsp readStringEEPROM(&nbsp uint16_t&nbsp address,&nbsp </code></td></tr>
+<tr><td><code><i>   139</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp uint8_t&nbsp string[],&nbsp </code></td></tr>
+<tr><td><code><i>   140</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp uint8_t&nbsp final_character&nbsp )&nbsp </code></td></tr>
+<tr><td><code><i>   141</i> </code></td><td><code>&nbsp {&nbsp </code></td></tr>
+<tr><td><code><i>   142</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp uint8_t&nbsp char_read;&nbsp </code></td></tr>
+<tr><td><code><i>   143</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp uint8_t&nbsp i;&nbsp </code></td></tr>
+<tr><td><code><i>   144</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>   145</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp char_read&nbsp =&nbsp 0;&nbsp </code></td></tr>
+<tr><td><code><i>   146</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp i&nbsp =&nbsp 0;&nbsp </code></td></tr>
+<tr><td><code><i>   147</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp while(&nbsp char_read&nbsp !=&nbsp final_character&nbsp )&nbsp {</code></td></tr>
+<tr><td><code><i>   148</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp char_read&nbsp =&nbsp readEEPROM(address+i);&nbsp </code></td></tr>
+<tr><td><code><i>   149</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp *string&nbsp =&nbsp char_read;&nbsp </code></td></tr>
+<tr><td><code><i>   150</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp string++;</code></td></tr>
+<tr><td><code><i>   151</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp i++;</code></td></tr>
+<tr><td><code><i>   152</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp }&nbsp </code></td></tr>
+<tr><td><code><i>   153</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i>   154</i> </code></td><td><code>&nbsp #endif</code></code></BODY>
+</HTML>

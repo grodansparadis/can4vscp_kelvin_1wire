@@ -1,0 +1,80 @@
+<HTML>
+<HEAD>
+<TITLE>Listing of ../ntc.c</TITLE>
+<LINK rel=stylesheet href="udf_styles.css" type="text/css">
+</HEAD>
+<BODY>
+<table class="">
+<tr><td><code><i>     1</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>     2</i> </code></td><td><code>&nbsp /*</code></td></tr>
+<tr><td><code><i>     3</i> </code></td><td><code>&nbsp &nbsp *&nbsp Author:&nbsp AKHE</code></td></tr>
+<tr><td><code><i>     4</i> </code></td><td><code>&nbsp &nbsp *&nbsp Copyright&nbsp (C)&nbsp 1012-2016&nbsp Ake&nbsp Hedman,&nbsp Grodans&nbsp Paradis&nbsp AB</code></td></tr>
+<tr><td><code><i>     5</i> </code></td><td><code>&nbsp &nbsp *</code></td></tr>
+<tr><td><code><i>     6</i> </code></td><td><code>&nbsp &nbsp *&nbsp This&nbsp software&nbsp is&nbsp provided&nbsp 'as-is',&nbsp without&nbsp any&nbsp express&nbsp or&nbsp implied</code></td></tr>
+<tr><td><code><i>     7</i> </code></td><td><code>&nbsp &nbsp *&nbsp warranty.&nbsp&nbsp In&nbsp no&nbsp event&nbsp will&nbsp the&nbsp authors&nbsp be&nbsp held&nbsp liable&nbsp for&nbsp any&nbsp damages</code></td></tr>
+<tr><td><code><i>     8</i> </code></td><td><code>&nbsp &nbsp *&nbsp arising&nbsp from&nbsp the&nbsp use&nbsp of&nbsp this&nbsp software.</code></td></tr>
+<tr><td><code><i>     9</i> </code></td><td><code>&nbsp &nbsp *</code></td></tr>
+<tr><td><code><i>    10</i> </code></td><td><code>&nbsp &nbsp *&nbsp Permission&nbsp is&nbsp granted&nbsp to&nbsp anyone&nbsp to&nbsp use&nbsp this&nbsp software&nbsp for&nbsp any&nbsp purpose,</code></td></tr>
+<tr><td><code><i>    11</i> </code></td><td><code>&nbsp &nbsp *&nbsp including&nbsp commercial&nbsp applications,&nbsp and&nbsp to&nbsp alter&nbsp it&nbsp and&nbsp redistribute&nbsp it</code></td></tr>
+<tr><td><code><i>    12</i> </code></td><td><code>&nbsp &nbsp *&nbsp freely,&nbsp subject&nbsp to&nbsp the&nbsp following&nbsp restrictions:</code></td></tr>
+<tr><td><code><i>    13</i> </code></td><td><code>&nbsp &nbsp *</code></td></tr>
+<tr><td><code><i>    14</i> </code></td><td><code>&nbsp &nbsp *&nbsp 1.&nbsp The&nbsp origin&nbsp of&nbsp this&nbsp software&nbsp must&nbsp not&nbsp be&nbsp misrepresented;&nbsp you&nbsp must&nbsp not</code></td></tr>
+<tr><td><code><i>    15</i> </code></td><td><code>&nbsp &nbsp *&nbsp&nbsp&nbsp&nbsp claim&nbsp that&nbsp you&nbsp wrote&nbsp the&nbsp original&nbsp software.&nbsp If&nbsp you&nbsp use&nbsp this&nbsp software</code></td></tr>
+<tr><td><code><i>    16</i> </code></td><td><code>&nbsp &nbsp *&nbsp&nbsp&nbsp&nbsp in&nbsp a&nbsp product,&nbsp an&nbsp acknowledgment&nbsp in&nbsp the&nbsp product&nbsp documentation&nbsp would&nbsp be</code></td></tr>
+<tr><td><code><i>    17</i> </code></td><td><code>&nbsp &nbsp *&nbsp&nbsp&nbsp&nbsp appreciated&nbsp but&nbsp is&nbsp not&nbsp required.</code></td></tr>
+<tr><td><code><i>    18</i> </code></td><td><code>&nbsp &nbsp *&nbsp 2.&nbsp Altered&nbsp source&nbsp versions&nbsp must&nbsp be&nbsp plainly&nbsp marked&nbsp as&nbsp such,&nbsp and&nbsp must&nbsp not&nbsp be</code></td></tr>
+<tr><td><code><i>    19</i> </code></td><td><code>&nbsp &nbsp *&nbsp&nbsp&nbsp&nbsp misrepresented&nbsp as&nbsp being&nbsp the&nbsp original&nbsp software.</code></td></tr>
+<tr><td><code><i>    20</i> </code></td><td><code>&nbsp &nbsp *&nbsp 3.&nbsp This&nbsp notice&nbsp may&nbsp not&nbsp be&nbsp removed&nbsp or&nbsp altered&nbsp from&nbsp any&nbsp source&nbsp distribution.</code></td></tr>
+<tr><td><code><i>    21</i> </code></td><td><code>&nbsp &nbsp *</code></td></tr>
+<tr><td><code><i>    22</i> </code></td><td><code>&nbsp &nbsp *&nbsp&nbsp&nbsp&nbsp&nbsp This&nbsp file&nbsp is&nbsp part&nbsp of&nbsp VSCP&nbsp -&nbsp Very&nbsp Simple&nbsp Control&nbsp Protocol</code></td></tr>
+<tr><td><code><i>    23</i> </code></td><td><code>&nbsp &nbsp *&nbsp&nbsp&nbsp&nbsp&nbsp http://www.vscp.org</code></td></tr>
+<tr><td><code><i>    24</i> </code></td><td><code>&nbsp &nbsp *</code></td></tr>
+<tr><td><code><i>    25</i> </code></td><td><code>&nbsp &nbsp *&nbsp ******************************************************************************</code></td></tr>
+<tr><td><code><i>    26</i> </code></td><td><code>&nbsp &nbsp */</code></td></tr>
+<tr><td><code><i>    27</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>    28</i> </code></td><td><code>&nbsp #include&nbsp "vscp_compiler.h"</code></td></tr>
+<tr><td><code><i>    29</i> </code></td><td><code>&nbsp #include&nbsp "vscp_projdefs.h"</code></td></tr>
+<tr><td><code><i>    30</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>    31</i> </code></td><td><code>&nbsp #include&nbsp&lsaquo  p18cxxx.h&rsaquo  </code></td></tr>
+<tr><td><code><i>    32</i> </code></td><td><code>&nbsp #include&nbsp&lsaquo  float.h&rsaquo  </code></td></tr>
+<tr><td><code><i>    33</i> </code></td><td><code>&nbsp #include&nbsp&lsaquo  math.h&rsaquo  </code></td></tr>
+<tr><td><code><i>    34</i> </code></td><td><code>&nbsp #include&nbsp "ntc.h"</code></td></tr>
+<tr><td><code><i>    35</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>    36</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>    37</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
+<tr><td><code><i>    38</i> </code></td><td><code>&nbsp //&nbsp Celsius2Fahrenheit</code></td></tr>
+<tr><td><code><i>    39</i> </code></td><td><code>&nbsp //</code></td></tr>
+<tr><td><code><i>    40</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>    41</i> </code></td><td><code>&nbsp double&nbsp Celsius2Fahrenheit(double&nbsp tc)</code></td></tr>
+<tr><td><code><i>    42</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i>    43</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp return&nbsp (&nbsp (9&nbsp *&nbsp tc&nbsp +&nbsp 16000)&nbsp /&nbsp 5);</code></td></tr>
+<tr><td><code><i>    44</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i>    45</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>    46</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
+<tr><td><code><i>    47</i> </code></td><td><code>&nbsp //&nbsp Fahrenheit2Celsius</code></td></tr>
+<tr><td><code><i>    48</i> </code></td><td><code>&nbsp //</code></td></tr>
+<tr><td><code><i>    49</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>    50</i> </code></td><td><code>&nbsp double&nbsp Fahrenheit2Celsius(double&nbsp tf)</code></td></tr>
+<tr><td><code><i>    51</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i>    52</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp return&nbsp (&nbsp (5&nbsp *&nbsp tf&nbsp -&nbsp 16000)&nbsp /&nbsp 9);</code></td></tr>
+<tr><td><code><i>    53</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i>    54</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>    55</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>    56</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
+<tr><td><code><i>    57</i> </code></td><td><code>&nbsp //&nbsp Celsius2Kelvin</code></td></tr>
+<tr><td><code><i>    58</i> </code></td><td><code>&nbsp //</code></td></tr>
+<tr><td><code><i>    59</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>    60</i> </code></td><td><code>&nbsp double&nbsp Celsius2Kelvin(double&nbsp tc)</code></td></tr>
+<tr><td><code><i>    61</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i>    62</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp return&nbsp (27316.0&nbsp +&nbsp tc);</code></td></tr>
+<tr><td><code><i>    63</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i>    64</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>    65</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
+<tr><td><code><i>    66</i> </code></td><td><code>&nbsp //&nbsp Kelvin2Celsius</code></td></tr>
+<tr><td><code><i>    67</i> </code></td><td><code>&nbsp //</code></td></tr>
+<tr><td><code><i>    68</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>    69</i> </code></td><td><code>&nbsp double&nbsp Kelvin2Celsius(double&nbsp tf)</code></td></tr>
+<tr><td><code><i>    70</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i>    71</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp return&nbsp (&nbsp tf&nbsp -&nbsp 273.16);</code></td></tr>
+<tr><td><code><i>    72</i> </code></td><td><code>&nbsp }</code></code></BODY>
+</HTML>

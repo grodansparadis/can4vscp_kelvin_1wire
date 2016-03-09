@@ -1,0 +1,12 @@
+If an accurate delay is required, or if there are other tasks that can be performed during the delay, then using a timer to generate an interrupt is the best way to proceed.
+
+If this is not an option, then you can use the MPLAB® XC8 compiler’s in-built delay functions: _delay, __delay_ms or __delay_us.
+
+    These all expand into in-line instructions or a (nested) loop of instructions.
+    The delay amount must be a constant (cannot be a variable).
+    The Delay value should be less than 179,200 for PIC18 devices and 50,659,000 for other devices
+    The delay value is the number of instruction cycles that will be executed by the delay.
+
+To use these functions, you must tell the compiler what your oscillator frequency is by adding a line like the following near the top of your C file:
+
+Please refer to the compiler manual for more details about delay routines.

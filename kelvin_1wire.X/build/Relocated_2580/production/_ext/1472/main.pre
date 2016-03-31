@@ -18774,22 +18774,6 @@ typedef unsigned short uint16_t;
 
 typedef unsigned char uint8_t;
 
-# 23 "../../vscp_firmware/pic/common/eeprom.h"
-uint8_t readEEPROM( uint16_t address );
-void writeEEPROM( uint16_t address, uint8_t data );
-
-
-uint32_t readULongEEPROM( uint16_t address );
-void writeULongEEPROM( uint16_t address, uint8_t data );
-
-
-
-void readStringEEPROM( uint16_t address,
-uint8_t string[],
-uint8_t final_character );
-void writeStringEEPROM( uint16_t address,
-uint8_t string[] ) ;
-
 # 78 "../ECAN.h"
 typedef unsigned char BYTE;
 
@@ -18874,10 +18858,10 @@ void _CANIDToRegs(BYTE* ptr,
 unsigned long val,
 BYTE type );
 
-# 218 "../../vscp_firmware/common/vscp_firmware.h"
+# 219 "../../vscp_firmware/common/vscp_firmware.h"
 typedef struct {
 
-# 230
+# 231
 uint8_t flags;
 
 uint8_t priority;
@@ -18887,7 +18871,7 @@ uint8_t oaddr;
 uint8_t data[8];
 } vscpevent_t;
 
-# 295
+# 296
 struct _dmrow {
 uint8_t oaddr;
 uint8_t flags;
@@ -18920,64 +18904,64 @@ extern volatile uint16_t vscp_configtimer;
 
 extern const uint8_t vscp_deviceURL[];
 
-# 335
+# 336
 void vscp_init(void);
 
-# 341
+# 343
 void vscp_error(void);
 
-# 349
+# 351
 void vscp_handleProbeState(void);
 
-# 362
+# 364
 void vscp_handlePreActiveState(void);
 
-# 369
+# 371
 void vscp_handleProtocolEvent(void);
 
-# 377
+# 379
 void vscp_goActiveState(void);
 
-# 387
+# 389
 void vscp_sendHeartBeat(uint8_t zone, uint8_t subzone);
 
-# 392
+# 394
 void vscp_handleHeartbeat(void);
 
-# 397
+# 399
 void vscp_handleSetNickname(void);
 
-# 402
+# 404
 void vscp_handleDropNickname(void);
 
-# 407
+# 409
 void vscp_newNodeOnline(void);
 
-# 414
+# 416
 uint8_t vscp_readRegister(uint8_t reg);
 
-# 421
+# 423
 uint8_t vscp_readStdReg(uint8_t reg);
 
-# 429
+# 431
 uint8_t vscp_writeRegister(uint8_t reg, uint8_t value);
 
-# 437
+# 439
 uint8_t vscp_writeStdReg(uint8_t reg, uint8_t value);
 
-# 445
+# 447
 void vscp_doOneSecondWork(void);
 
-# 450
+# 452
 int8_t vscp_check_pstorage(void);
 
-# 456
+# 458
 int8_t vscp_sendEvent(void);
 
-# 462
+# 464
 int8_t vscp_getEvent(void);
 
-# 483
+# 517
 int8_t getVSCPFrame( uint16_t *pvscpclass,
 uint8_t *pvscptype,
 uint8_t *pNodeId,
@@ -18985,7 +18969,7 @@ uint8_t *pPriority,
 uint8_t *pSize,
 uint8_t *pData);
 
-# 500
+# 534
 int8_t sendVSCPFrame( uint16_t vscpclass,
 uint8_t vscptype,
 uint8_t nodeid,
@@ -18993,87 +18977,87 @@ uint8_t priority,
 uint8_t size,
 uint8_t *pData );
 
-# 511
+# 545
 uint8_t vscp_getMajorVersion( void );
 uint8_t vscp_getMinorVersion( void );
 uint8_t vscp_getSubMinorVersion( void );
 
-# 518
+# 552
 uint8_t vscp_getGUID(uint8_t idx);
 void vscp_setGUID(uint8_t idx, uint8_t data);
 
-# 528
+# 562
 uint8_t vscp_getUserID(uint8_t idx);
 void vscp_setUserID(uint8_t idx, uint8_t data);
 
-# 544
+# 578
 uint8_t vscp_getManufacturerId(uint8_t idx);
 void vscp_setManufacturerId(uint8_t idx, uint8_t data);
 
-# 550
+# 584
 uint8_t vscp_getBootLoaderAlgorithm( void );
 
-# 555
+# 589
 uint8_t vscp_getBufferSize(void);
 
-# 560
+# 594
 uint8_t vscp_getRegisterPagesUsed(void);
 
-# 566
+# 600
 uint8_t vscp_getMDF_URL(uint8_t idx);
 
-# 572
+# 606
 uint8_t vscp_readNicknamePermanent(void);
 
-# 578
+# 612
 void vscp_writeNicknamePermanent(uint8_t nickname);
 
-# 583
+# 617
 uint8_t vscp_getControlByte( uint8_t idx );
 
-# 588
+# 622
 void vscp_setControlByte(uint8_t idx, uint8_t ctrl);
 
-# 593
+# 627
 void vscp_init_pstorage( void );
 
-# 600
+# 634
 uint8_t vscp_getPageSelect(uint8_t idx);
 
-# 607
+# 641
 void vscp_setPageSelect(uint8_t idx, uint8_t data);
 
-# 614
+# 648
 uint8_t vscp_readAppReg(uint8_t reg);
 
-# 622
+# 656
 uint8_t vscp_writeAppReg(uint8_t reg, uint8_t value);
 
-# 636
+# 670
 void vscp_getMatrixInfo(char *pData);
 
-# 644
+# 678
 void vscp_getEmbeddedMdfInfo(void);
 
-# 651
+# 685
 void vscp_goBootloaderMode( uint8_t algorithm );
 
-# 657
+# 691
 uint8_t vscp_getZone(void);
 
-# 663
+# 697
 uint8_t vscp_getSubzone(void);
 
-# 669
+# 703
 uint32_t vscp_getFamilyCode(void);
 
-# 675
+# 709
 uint32_t vscp_getFamilyType(void);
 
-# 683
+# 717
 void vscp_restoreDefaults(void);
 
-# 116 "../main.h"
+# 107 "../main.h"
 void doWork(void);
 void init(void);
 void init_app_ram(void);
@@ -19087,20 +19071,20 @@ void setEventData(int v, unsigned char unit);
 void read_app_register(unsigned char reg);
 void write_app_register(unsigned char reg, unsigned char val);
 
-# 423 "../ntc.h"
+# 471 "../onewire.h"
 double Celsius2Fahrenheit(double tc);
 double Fahrenheit2Celsius(double tf);
 double Celsius2Kelvin(double tc);
 double Kelvin2Celsius(double tf);
 
-# 435
+# 483
 int8_t sendCANFrame( uint32_t id, uint8_t size, uint8_t *pData );
 
-# 444
+# 492
 int8_t getCANFrame( uint32_t *pid, uint8_t *psize, uint8_t *pData );
 
 
-# 52 "../main.c"
+# 48 "../main.c"
 #pragma config WDT = ON, WDTPS = 128
 #pragma config OSC = HSPLL
 #pragma config BOREN = BOACTIVE
@@ -19118,15 +19102,11 @@ int8_t getCANFrame( uint32_t *pid, uint8_t *psize, uint8_t *pData );
 
 #pragma config EBTRB = OFF
 
-# 97
-const uint8_t vscp_deviceURL[] = "www.eurosource.se/ntc10KA_3.xml";
+# 123
+const uint8_t vscp_deviceURL[] = "www.eurosource.se/1wire_1.xml";
 
 
-int16_t current_temp[6];
-
-uint8_t adc[80 * 12];
-uint8_t adc_conversion_flags;
-uint8_t adc_series_counter;
+int16_t current_temp;
 
 volatile uint16_t sendTimer;
 volatile uint32_t measurement_clock;
@@ -19140,10 +19120,13 @@ uint8_t seconds_temp[6];
 uint8_t low_alarm;
 uint8_t high_alarm;
 
+uint8_t adc_low;
+uint8_t adc_high;
 
-double sh_coefficients[6*3];
 
-# 127
+double sh_coefficient;
+
+# 152
 void interrupt low_priority interrupt_at_low_vector( void )
 {
 
@@ -19199,101 +19182,12 @@ switch (0x3C & ADCON0) {
 
 case (10<<2):
 
-adc[(12 * adc_series_counter) + 0] = ADRESH;
-adc[(12 * adc_series_counter) + 1] = ADRESL;
-
-ADCON0 = (2<<2) + 1;
-
-
-
-if ((80 - 1) == adc_series_counter) {
-adc_conversion_flags |= 1;
-}
-break;
-
-case (2<<2):
-
-adc[(12 * adc_series_counter) + 2] = ADRESH;
-adc[(12 * adc_series_counter) + 3] = ADRESL;
-
-
-ADCON0 = (1<<2) + 1;
-
-
-
-if ((80 - 1) == adc_series_counter) {
-adc_conversion_flags |= 1 << 1;
-}
-break;
-
-case (1<<2):
-
-adc[(12 * adc_series_counter) + 4] = ADRESH;
-adc[(12 * adc_series_counter) + 5] = ADRESL;
-
-
-ADCON0 = (0<<2) + 1;
-
-
-
-if ((80 - 1) == adc_series_counter) {
-adc_conversion_flags |= 1 << 2;
-}
-break;
-
-case (0<<2):
-
-adc[(12 * adc_series_counter) + 6] = ADRESH;
-adc[(12 * adc_series_counter) + 7] = ADRESL;
-
-ADCON0 = (9<<2) + 1;
-
-
-
-if ((80 - 1) == adc_series_counter) {
-adc_conversion_flags |= 1 << 3;
-}
-break;
-
-case (9<<2):
-
-adc[(12 * adc_series_counter) + 8] = ADRESH;
-adc[(12 * adc_series_counter) + 9] = ADRESL;
-
-ADCON0 = (8<<2) + 1;
-
-
-
-if ((80 - 1) == adc_series_counter) {
-adc_conversion_flags |= 1 << 4;
-}
-break;
-
-case (8<<2):
-
-adc[(12 * adc_series_counter) + 10] = ADRESH;
-adc[(12 * adc_series_counter) + 11] = ADRESL;
+adc_low = ADRESH;
+adc_high = ADRESL;
 
 ADCON0 = (10<<2) + 1;
-
-
-
-if ((80 - 1) == adc_series_counter) {
-adc_conversion_flags |= 1 << 5;
-}
-
-
-adc_series_counter++;
-if (adc_series_counter >= 80) {
-adc_series_counter = 0;
-}
 break;
 
-default:
-
-ADCON0 = (10<<2) + 1;
-adc_series_counter = 0;
-break;
 }
 
 
@@ -19306,7 +19200,28 @@ PIR1bits.ADIF = 0;
 return;
 }
 
-# 294
+
+void output_low( uint8_t pin )
+{
+
+}
+
+void output_high( uint8_t pin )
+{
+
+}
+
+extern uint8_t input( uint8_t pin )
+{
+return 1;
+}
+
+extern void output( uint8_t pin )
+{
+
+}
+
+# 251
 void main()
 {
 uint32_t i;
@@ -19333,7 +19248,7 @@ if ( ( vscp_initbtncnt > 250 ) &&
 
 
 vscp_nickname = 0xff;
-writeEEPROM(0x01, 0xff);
+(Busy_eep(), Write_b_eep(0x01,0xff));
 vscp_init();
 
 }
@@ -19431,45 +19346,27 @@ doWork();
 }
 }
 
-# 425
+# 382
 void doWork(void)
 {
 uint8_t i, j;
 uint16_t B;
-double avarage;
 double resistance;
 double Rinf;
 double temp;
 double v;
 double calVoltage;
 
-calVoltage = ((uint16_t) readEEPROM(0xF2)*256 +
-readEEPROM(0xF3));
+calVoltage = ((uint16_t) Read_b_eep(0xF2)*256 +
+Read_b_eep(0xF3));
 
-
-
-
-for (i = 0; i < 6; i++) {
-
-if (adc_conversion_flags & 1 << i) {
-
-
-avarage = 0;
-for (j = 0; j < 80; j++) {
-avarage += ((uint16_t)adc[12 * j + 2 * i])*256 + adc[12 * j + 2 * i + 1];
-}
-avarage = avarage / 80;
-
-if (1) {
-
-# 461
-B = (uint16_t)readEEPROM(2 * i + 0x4F)*256 +
-readEEPROM(2 * i + 0x50);
-
+# 404
+B = (uint16_t)Read_b_eep(2 * i + 0x4F)*256 +
+Read_b_eep(2 * i + 0x50);
 
 Rinf = 10000.0 * exp(B / -298.15);
 
-v = 5.0 * (double) avarage / 1025;
+v = 5.0 * (double) ( ( adc_high << 8 ) + adc_low) / 1025;
 
 resistance = (calVoltage - 10000.0 * v) / v;
 
@@ -19477,311 +19374,23 @@ temp = ((double) B) / log(resistance / Rinf);
 
 temp -= 273.15;
 
-# 488
-current_temp[ i ] = (current_temp[ i ] + ((long) (temp * 100) + getCalibrationValue(i))) / 2;
-
-}
-else {
-
-# 497
-resistance = ((10240000 / adc[2 * i + 1]) - 10000);
-
-# 503
-temp = log(resistance);
-temp = 1 / (sh_coefficients[i * 3] + (sh_coefficients[i * 3 + 1] * temp) +
-(sh_coefficients[i * 3 + 2] * temp * temp * temp));
-temp = temp - 273.15;
-current_temp[ i ] = (current_temp[ i ] + ((long) (temp * 100) + getCalibrationValue(i))) / 2;
+current_temp = (current_temp +
+((long)(temp * 100) +
+getCalibrationValue(i) ) ) / 2;
 
 }
 
-
-adc_conversion_flags &= ~(1 << i);
-
-}
-}
-
-}
-
-# 523
+# 427
 void doOneSecondWork(void)
 {
 uint8_t tmp;
 uint8_t i;
 int16_t setpoint;
 
-for (i = 0; i < 6; i++) {
-
-# 535
-if (current_temp[ i ] < ((int16_t)( (((uint16_t)readEEPROM(0x7F + 2*i))<<8) + (uint16_t)readEEPROM(0x80 + 2*i)) ) ) {
-
-# 538
-writeEEPROM(0x7F + 2*i, ((uint16_t)current_temp[ i ]) >> 8);
-writeEEPROM(0x80 + 2*i, ((uint16_t)current_temp[ i ]) & 0xff);
+# 712
 }
 
-# 546
-if (current_temp[ i ] > ((int16_t)( (((uint16_t)readEEPROM(0x8B + 2*i))<<8) + (uint16_t)readEEPROM(0x8C + 2*i )) ) ) {
-
-# 549
-writeEEPROM(0x8B + 2*i, ((uint16_t)current_temp[ i ]) >> 8);
-writeEEPROM(0x8C + 2*i, ((uint16_t)current_temp[ i ]) & 0xff );
-}
-
-
-
-
-tmp = readEEPROM(0x49 + i);
-if (tmp && (seconds_temp[i] > tmp)) {
-
-
-if (sendTempEvent(i)) {
-seconds_temp[i] = 0;
-}
-
-}
-
-
-
-
-if (0x80 & readEEPROM(0x43 + i)) {
-
-
-if (low_alarm & (1 << i)) {
-
-
-if (readEEPROM(0x43 + i) & (1<<3)) {
-
-vscp_omsg.priority = 0x00;
-vscp_omsg.flags = 0x80 + 3;
-
-
-if (readEEPROM(0x43 + i) & (1<<5)) {
-
-if (readEEPROM(0x43 + i) & (1<<6)) {
-vscp_omsg.vscp_class = 30;
-vscp_omsg.vscp_type = 5;
-}
-else {
-vscp_omsg.vscp_class = 30;
-vscp_omsg.vscp_type = 6;
-}
-
-}
-else {
-
-vscp_omsg.vscp_class = 1;
-vscp_omsg.vscp_type = 2;
-}
-
-vscp_omsg.data[ 0 ] = i;
-vscp_omsg.data[ 1 ] =
-readEEPROM(0x73 + 2*i);
-vscp_omsg.data[ 2 ] =
-readEEPROM(0x74 + 2*i);
-
-
-
-
-vscp_sendEvent();
-
-}
-}
-
-
-if (high_alarm & (1 << i)) {
-
-
-if ((readEEPROM(0x43 + i) & (1<<4))) {
-
-vscp_omsg.priority = 0x00;
-vscp_omsg.flags = 0x80 + 3;
-
-if (readEEPROM(0x43 + i) & (1<<5)) {
-
-if (readEEPROM(0x43 + i) & (1<<6)) {
-vscp_omsg.vscp_class = 30;
-vscp_omsg.vscp_type = 6;
-}
-else {
-vscp_omsg.vscp_class = 30;
-vscp_omsg.vscp_type = 5;
-}
-}
-else {
-
-vscp_omsg.vscp_class = 1;
-vscp_omsg.vscp_type = 2;
-}
-
-vscp_omsg.data[ 0 ] = i;
-vscp_omsg.data[ 1 ] =
-readEEPROM(0x73 + 2*i);
-vscp_omsg.data[ 2 ] =
-readEEPROM(0x74 + 2*i);
-
-
-
-
-vscp_sendEvent();
-}
-}
-}
-
-# 657
-if (low_alarm & (1 << i)) {
-
-
-setpoint = ((int16_t)( (((uint16_t)readEEPROM(0x5B + 2*i))<<8) + (uint16_t)readEEPROM(0x5C + 2*i)) ) +
-
-# 662
-(int8_t) readEEPROM(0x97 + i);
-
-
-
-
-if (current_temp[ i ] > (setpoint * 100)) {
-
-
-low_alarm &= ~(1 << i);
-
-}
-
-}
-else {
-
-
-
-setpoint = ((int16_t)( (((uint16_t)readEEPROM(0x5B + 2*i ))<<8) + (uint16_t)readEEPROM(0x5C + 2*i )) );
-
-# 682
-if (current_temp[ i ] < (setpoint * 100)) {
-
-
-low_alarm |= (1 << i);
-
-
-
-
-vscp_alarmstatus |= 1;
-
-
-if ( readEEPROM(i + 0x43) & (1<<3) ) {
-
-vscp_omsg.priority = 0x00;
-vscp_omsg.flags = 0x80 + 3;
-
-
-if (readEEPROM(0x43 + i) & (1<<5)) {
-
-if (readEEPROM(0x43 + i) & (1<<6)) {
-vscp_omsg.vscp_class = 30;
-vscp_omsg.vscp_type = 5;
-}
-else {
-vscp_omsg.vscp_class = 30;
-vscp_omsg.vscp_type = 6;
-}
-
-}
-else {
-vscp_omsg.vscp_class = 1;
-vscp_omsg.vscp_type = 2;
-}
-
-vscp_omsg.data[ 0 ] = i;
-vscp_omsg.data[ 1 ] = readEEPROM(0x73 + 2 * i);
-vscp_omsg.data[ 2 ] = readEEPROM(0x74 + 2 * i);
-
-
-if (!vscp_sendEvent()) {
-
-
-low_alarm &= ~(1 << i);
-}
-
-}
-}
-}
-
-
-
-
-if (high_alarm & (1 << i)) {
-
-
-
-setpoint = ((int16_t)( (((uint16_t)readEEPROM(0x67 + 2 * i))<<8) + (uint16_t)readEEPROM(0x68 + 2 * i)) ) -
-
-# 740
-(int8_t)readEEPROM(0x97 + i);
-
-
-if (current_temp[ i ] < (setpoint * 100) ) {
-
-
-high_alarm &= ~(1 << i);
-
-}
-
-}
-else {
-
-
-
-
-setpoint = ((int16_t)( (((uint16_t)readEEPROM(0x67 + 2 * i))<<8) + (uint16_t)readEEPROM(0x68 + 2 * i)) );
-
-# 759
-if (current_temp[ i ] > (setpoint * 100)) {
-
-
-high_alarm |= (1 << i);
-
-# 768
-vscp_alarmstatus |= 2;
-
-
-if (readEEPROM(0x43 + i) & (1<<4)) {
-
-vscp_omsg.priority = 0x00;
-vscp_omsg.flags = 0x80 + 3;
-
-if (readEEPROM(0x43 + i) & (1<<5)) {
-
-if (readEEPROM(0x43 + i) & (1<<6)) {
-vscp_omsg.vscp_class = 30;
-vscp_omsg.vscp_type = 6;
-}
-else {
-vscp_omsg.vscp_class = 30;
-vscp_omsg.vscp_type = 5;
-}
-}
-else {
-vscp_omsg.vscp_class = 1;
-vscp_omsg.vscp_type = 2;
-}
-
-vscp_omsg.data[ 0 ] = i;
-vscp_omsg.data[ 1 ] = readEEPROM(0x73 + 2 * i);
-vscp_omsg.data[ 2 ] = readEEPROM(0x74 + 2 * i);
-
-
-if (!vscp_sendEvent()) {
-
-
-high_alarm &= ~(1 << i);
-}
-
-}
-}
-}
-
-}
-}
-
-# 814
+# 718
 int8_t sendTempEvent(uint8_t i)
 {
 vscp_omsg.priority = 0x03;
@@ -19791,15 +19400,12 @@ vscp_omsg.vscp_type = 6;
 
 
 vscp_omsg.data[ 0 ] = 0x80 |
-((0x03 & readEEPROM(i + 0x43)) << 3) |
+((0x03 & Read_b_eep(i + 0x43)) << 3) |
 i;
 
 vscp_omsg.data[ 1 ] = 0x82;
 
-setEventData( current_temp[i],
-( 0x03 & readEEPROM(i + 0x43 ) ) );
-
-
+# 736
 if (!vscp_sendEvent()) {
 return 0;
 }
@@ -19807,7 +19413,7 @@ return 0;
 return 1;
 }
 
-# 843
+# 747
 void setEventData(int v, unsigned char unit)
 {
 double newval;
@@ -19830,18 +19436,18 @@ vscp_omsg.data[ 2 ] = ((ival & 0xff00) >> 8);
 vscp_omsg.data[ 3 ] = (ival & 0xff);
 }
 
-# 871
+# 775
 int16_t getCalibrationValue(uint8_t i)
 {
 int16_t cal;
 
-cal = ((int16_t)( (((uint16_t)readEEPROM(2 * i + 0x9E))<<8) + (uint16_t)readEEPROM(2 * i + 0x9F)) );
+cal = ((int16_t)( (((uint16_t)Read_b_eep(2 * i + 0x9E))<<8) + (uint16_t)Read_b_eep(2 * i + 0x9F)) );
 
-# 880
+# 784
 return cal;
 }
 
-# 887
+# 791
 void init()
 {
 
@@ -19849,28 +19455,29 @@ void init()
 
 init_app_ram();
 
-# 900
+# 804
 TRISA = 0x07;
 
-# 911
+# 815
 TRISB = 0x1B;
 
-# 921
+# 825
 TRISC = 0x01;
 PORTC = 0x00;
 
 OpenTimer0(0b11111111 & 0b10111111 & 0b11011111 & 0b11110010);
 WriteTimer0(0xfb1d);
 
+
 OpenADC(0b11101111 & 0b11111111 & 0b11111111,
 0b10000111 & 0b11111111 & 0b11110100 &
 0b11111110 & 0b11111101,
 15);
 
-
+# 844
 ECANInitialize();
 
-# 957
+# 868
 INTCONbits.GIE = 1;
 
 ConvertADC();
@@ -19878,22 +19485,16 @@ ConvertADC();
 return;
 }
 
-# 968
+# 879
 void writeCoeffs2Ram(void)
 {
 int i, j;
 uint8_t c[3];
 
-for (i = 0; i < 6; i++) {
-for (j = 2; j > 0; j--) {
-
-c[2 - j] = readEEPROM(0xAA + i * 3 + j);
-}
-sh_coefficients[i] = *((double*) c);
-}
+# 893
 }
 
-# 986
+# 899
 void init_app_ram(void)
 {
 char i;
@@ -19903,15 +19504,9 @@ seconds = 0;
 
 
 for (i = 0; i < 6; i++) {
-seconds_temp[i] = 0;
-current_temp[i] = 0;
+
+current_temp = 0;
 }
-
-
-adc_conversion_flags = 0;
-
-
-adc_series_counter = 0;
 
 
 low_alarm = 0;
@@ -19923,180 +19518,180 @@ high_alarm = 0;
 
 }
 
-# 1021
+# 928
 void init_app_eeprom(void)
 {
 
-writeEEPROM( 0x41, 0 );
-writeEEPROM( 0x41, 0 );
+(Busy_eep(), Write_b_eep(0x41,0));
+(Busy_eep(), Write_b_eep(0x41,0));
 
-writeEEPROM(0x43, 0b00000001);
-writeEEPROM(0x44, 0b00000001);
-writeEEPROM(0x45, 0b00000001);
-writeEEPROM(0x46, 0b00000001);
-writeEEPROM(0x47, 0b00000001);
-writeEEPROM(0x48, 0b00000001);
+(Busy_eep(), Write_b_eep(0x43,0b00000001));
+(Busy_eep(), Write_b_eep(0x44,0b00000001));
+(Busy_eep(), Write_b_eep(0x45,0b00000001));
+(Busy_eep(), Write_b_eep(0x46,0b00000001));
+(Busy_eep(), Write_b_eep(0x47,0b00000001));
+(Busy_eep(), Write_b_eep(0x48,0b00000001));
 
-writeEEPROM(0x49, 30);
-writeEEPROM(0x4A, 0);
-writeEEPROM(0x4B, 0);
-writeEEPROM(0x4C, 0);
-writeEEPROM(0x4D, 0);
-writeEEPROM(0x4E, 0);
-
-
-
-writeEEPROM(0x4F, 0x0F);
-writeEEPROM(0x50, 0x68);
-
-writeEEPROM(0x51, 0x0D);
-writeEEPROM(0x52, 0x7F);
-
-writeEEPROM(0x53, 0x0D);
-writeEEPROM(0x54, 0x7F);
-
-writeEEPROM(0x55, 0x0D);
-writeEEPROM(0x56, 0x7F);
-
-writeEEPROM(0x57, 0x0D);
-writeEEPROM(0x58, 0x7F);
-
-writeEEPROM(0x59, 0x0D);
-writeEEPROM(0x5A, 0x7F);
+(Busy_eep(), Write_b_eep(0x49,30));
+(Busy_eep(), Write_b_eep(0x4A,0));
+(Busy_eep(), Write_b_eep(0x4B,0));
+(Busy_eep(), Write_b_eep(0x4C,0));
+(Busy_eep(), Write_b_eep(0x4D,0));
+(Busy_eep(), Write_b_eep(0x4E,0));
 
 
 
-writeEEPROM(0x5B, 0x80);
-writeEEPROM(0x5C, 0xff);
+(Busy_eep(), Write_b_eep(0x4F,0x0F));
+(Busy_eep(), Write_b_eep(0x50,0x68));
 
-writeEEPROM(0x5D, 0x80);
-writeEEPROM(0x5E, 0xff);
+(Busy_eep(), Write_b_eep(0x51,0x0D));
+(Busy_eep(), Write_b_eep(0x52,0x7F));
 
-writeEEPROM(0x5F, 0x80);
-writeEEPROM(0x60, 0xff);
+(Busy_eep(), Write_b_eep(0x53,0x0D));
+(Busy_eep(), Write_b_eep(0x54,0x7F));
 
-writeEEPROM(0x61, 0x80);
-writeEEPROM(0x62, 0xff);
+(Busy_eep(), Write_b_eep(0x55,0x0D));
+(Busy_eep(), Write_b_eep(0x56,0x7F));
 
-writeEEPROM(0x63, 0x80);
-writeEEPROM(0x64, 0xff);
+(Busy_eep(), Write_b_eep(0x57,0x0D));
+(Busy_eep(), Write_b_eep(0x58,0x7F));
 
-writeEEPROM(0x65, 0x80);
-writeEEPROM(0x66, 0xff);
-
-
-
-writeEEPROM(0x67, 0x7f);
-writeEEPROM(0x68, 0xff);
-
-writeEEPROM(0x69, 0x7f);
-writeEEPROM(0x6A, 0xff);
-
-writeEEPROM(0x6B, 0x7f);
-writeEEPROM(0x6C, 0xff);
-
-writeEEPROM(0x6D, 0x7f);
-writeEEPROM(0x6E, 0xff);
-
-writeEEPROM(0x6F, 0x7f);
-writeEEPROM(0x70, 0xff);
-
-writeEEPROM(0x71, 0x7f);
-writeEEPROM(0x72, 0xff);
+(Busy_eep(), Write_b_eep(0x59,0x0D));
+(Busy_eep(), Write_b_eep(0x5A,0x7F));
 
 
 
-writeEEPROM(0x73, 0);
-writeEEPROM(0x74, 0);
+(Busy_eep(), Write_b_eep(0x5B,0x80));
+(Busy_eep(), Write_b_eep(0x5C,0xff));
 
-writeEEPROM(0x75, 0);
-writeEEPROM(0x76, 0);
+(Busy_eep(), Write_b_eep(0x5D,0x80));
+(Busy_eep(), Write_b_eep(0x5E,0xff));
 
-writeEEPROM(0x77, 0);
-writeEEPROM(0x78, 0);
+(Busy_eep(), Write_b_eep(0x5F,0x80));
+(Busy_eep(), Write_b_eep(0x60,0xff));
 
-writeEEPROM(0x79, 0);
-writeEEPROM(0x7A, 0);
+(Busy_eep(), Write_b_eep(0x61,0x80));
+(Busy_eep(), Write_b_eep(0x62,0xff));
 
-writeEEPROM(0x7B, 0);
-writeEEPROM(0x7C, 0);
+(Busy_eep(), Write_b_eep(0x63,0x80));
+(Busy_eep(), Write_b_eep(0x64,0xff));
 
-writeEEPROM(0x7D, 0);
-writeEEPROM(0x7E, 0);
-
-
-
-writeEEPROM(0x7F, 0x7f);
-writeEEPROM(0x80, 0xff);
-
-writeEEPROM(0x81, 0x7f);
-writeEEPROM(0x82, 0xff);
-
-writeEEPROM(0x83, 0x7f);
-writeEEPROM(0x84, 0xff);
-
-writeEEPROM(0x85, 0x7f);
-writeEEPROM(0x86, 0xff);
-
-writeEEPROM(0x87, 0x7f);
-writeEEPROM(0x88, 0xff);
-
-writeEEPROM(0x89, 0x7f);
-writeEEPROM(0x8A, 0xff);
+(Busy_eep(), Write_b_eep(0x65,0x80));
+(Busy_eep(), Write_b_eep(0x66,0xff));
 
 
 
-writeEEPROM(0x8B, 0x80);
-writeEEPROM(0x8C, 0x00);
+(Busy_eep(), Write_b_eep(0x67,0x7f));
+(Busy_eep(), Write_b_eep(0x68,0xff));
 
-writeEEPROM(0x8D, 0x80);
-writeEEPROM(0x8E, 0x00);
+(Busy_eep(), Write_b_eep(0x69,0x7f));
+(Busy_eep(), Write_b_eep(0x6A,0xff));
 
-writeEEPROM(0x8F, 0x80);
-writeEEPROM(0x90, 0x00);
+(Busy_eep(), Write_b_eep(0x6B,0x7f));
+(Busy_eep(), Write_b_eep(0x6C,0xff));
 
-writeEEPROM(0x91, 0x80);
-writeEEPROM(0x92, 0x00);
+(Busy_eep(), Write_b_eep(0x6D,0x7f));
+(Busy_eep(), Write_b_eep(0x6E,0xff));
 
-writeEEPROM(0x93, 0x80);
-writeEEPROM(0x94, 0x00);
+(Busy_eep(), Write_b_eep(0x6F,0x7f));
+(Busy_eep(), Write_b_eep(0x70,0xff));
 
-writeEEPROM(0x95, 0x80);
-writeEEPROM(0x96, 0x00);
-
-
-
-writeEEPROM(0x97, 2);
-writeEEPROM(0x98, 2);
-writeEEPROM(0x99, 2);
-writeEEPROM(0x9A, 2);
-writeEEPROM(0x9B, 2);
-writeEEPROM(0x9C, 2);
+(Busy_eep(), Write_b_eep(0x71,0x7f));
+(Busy_eep(), Write_b_eep(0x72,0xff));
 
 
 
-writeEEPROM(0xF2, 0xc3);
-writeEEPROM(0xF3, 0x50);
+(Busy_eep(), Write_b_eep(0x73,0));
+(Busy_eep(), Write_b_eep(0x74,0));
+
+(Busy_eep(), Write_b_eep(0x75,0));
+(Busy_eep(), Write_b_eep(0x76,0));
+
+(Busy_eep(), Write_b_eep(0x77,0));
+(Busy_eep(), Write_b_eep(0x78,0));
+
+(Busy_eep(), Write_b_eep(0x79,0));
+(Busy_eep(), Write_b_eep(0x7A,0));
+
+(Busy_eep(), Write_b_eep(0x7B,0));
+(Busy_eep(), Write_b_eep(0x7C,0));
+
+(Busy_eep(), Write_b_eep(0x7D,0));
+(Busy_eep(), Write_b_eep(0x7E,0));
 
 
 
-writeEEPROM(0x9E, 0);
-writeEEPROM(0x9F, 0);
-writeEEPROM(0xA0, 0);
-writeEEPROM(0xA1, 0);
-writeEEPROM(0xA2, 0);
-writeEEPROM(0xA3, 0);
-writeEEPROM(0xA4, 0);
-writeEEPROM(0xA5, 0);
-writeEEPROM(0xA6, 0);
-writeEEPROM(0xA7, 0);
-writeEEPROM(0xA8, 0);
-writeEEPROM(0xA9, 0);
+(Busy_eep(), Write_b_eep(0x7F,0x7f));
+(Busy_eep(), Write_b_eep(0x80,0xff));
 
-# 1224
+(Busy_eep(), Write_b_eep(0x81,0x7f));
+(Busy_eep(), Write_b_eep(0x82,0xff));
+
+(Busy_eep(), Write_b_eep(0x83,0x7f));
+(Busy_eep(), Write_b_eep(0x84,0xff));
+
+(Busy_eep(), Write_b_eep(0x85,0x7f));
+(Busy_eep(), Write_b_eep(0x86,0xff));
+
+(Busy_eep(), Write_b_eep(0x87,0x7f));
+(Busy_eep(), Write_b_eep(0x88,0xff));
+
+(Busy_eep(), Write_b_eep(0x89,0x7f));
+(Busy_eep(), Write_b_eep(0x8A,0xff));
+
+
+
+(Busy_eep(), Write_b_eep(0x8B,0x80));
+(Busy_eep(), Write_b_eep(0x8C,0x00));
+
+(Busy_eep(), Write_b_eep(0x8D,0x80));
+(Busy_eep(), Write_b_eep(0x8E,0x00));
+
+(Busy_eep(), Write_b_eep(0x8F,0x80));
+(Busy_eep(), Write_b_eep(0x90,0x00));
+
+(Busy_eep(), Write_b_eep(0x91,0x80));
+(Busy_eep(), Write_b_eep(0x92,0x00));
+
+(Busy_eep(), Write_b_eep(0x93,0x80));
+(Busy_eep(), Write_b_eep(0x94,0x00));
+
+(Busy_eep(), Write_b_eep(0x95,0x80));
+(Busy_eep(), Write_b_eep(0x96,0x00));
+
+
+
+(Busy_eep(), Write_b_eep(0x97,2));
+(Busy_eep(), Write_b_eep(0x98,2));
+(Busy_eep(), Write_b_eep(0x99,2));
+(Busy_eep(), Write_b_eep(0x9A,2));
+(Busy_eep(), Write_b_eep(0x9B,2));
+(Busy_eep(), Write_b_eep(0x9C,2));
+
+
+
+(Busy_eep(), Write_b_eep(0xF2,0xc3));
+(Busy_eep(), Write_b_eep(0xF3,0x50));
+
+
+
+(Busy_eep(), Write_b_eep(0x9E,0));
+(Busy_eep(), Write_b_eep(0x9F,0));
+(Busy_eep(), Write_b_eep(0xA0,0));
+(Busy_eep(), Write_b_eep(0xA1,0));
+(Busy_eep(), Write_b_eep(0xA2,0));
+(Busy_eep(), Write_b_eep(0xA3,0));
+(Busy_eep(), Write_b_eep(0xA4,0));
+(Busy_eep(), Write_b_eep(0xA5,0));
+(Busy_eep(), Write_b_eep(0xA6,0));
+(Busy_eep(), Write_b_eep(0xA7,0));
+(Busy_eep(), Write_b_eep(0xA8,0));
+(Busy_eep(), Write_b_eep(0xA9,0));
+
+# 1131
 }
 
-# 1231
+# 1138
 int8_t convertTemperature(int temp, unsigned char unit)
 {
 int newval;
@@ -20117,7 +19712,7 @@ newval = (int) temp;
 return newval;
 }
 
-# 1257
+# 1164
 void handle_sync(void)
 {
 uint8_t i;
@@ -20125,9 +19720,9 @@ uint8_t i;
 for (i = 0; i < 6; i++) {
 
 if ( ( ( 0xff == vscp_imsg.data[ 1 ] ) ||
-( readEEPROM( 0x73 + 2*i ) == vscp_imsg.data[ 1 ] ) ) &&
+( Read_b_eep(0x73 + 2*i) == vscp_imsg.data[ 1 ] ) ) &&
 ( ( 0xff == vscp_imsg.data[ 2 ] ) ||
-( readEEPROM( 0x74 + 2*i ) == vscp_imsg.data[ 2 ] ) ) ) {
+( Read_b_eep(0x74 + 2*i) == vscp_imsg.data[ 2 ] ) ) ) {
 
 
 timeout_clock = 0;
@@ -20138,7 +19733,7 @@ if (timeout_clock > 1000) break;
 }
 }
 
-# 1281
+# 1188
 uint8_t vscp_readAppReg(unsigned char reg)
 {
 uint8_t rv;
@@ -20152,524 +19747,524 @@ switch (reg) {
 
 
 case 0x00:
-rv = readEEPROM( 0x41 );
+rv = Read_b_eep(0x41);
 break;
 
 
 case 0x01:
-rv = readEEPROM( 0x42 );
+rv = Read_b_eep(0x42);
 break;
 
 
 case 0x02:
-rv = readEEPROM( 0x43 );
+rv = Read_b_eep(0x43);
 break;
 
 
 case 0x03:
-rv = readEEPROM (0x44 );
+rv = Read_b_eep(0x44);
 break;
 
 
 case 0x04:
-rv = readEEPROM( 0x45 );
+rv = Read_b_eep(0x45);
 break;
 
 
 case 0x05:
-rv = readEEPROM( 0x46 );
+rv = Read_b_eep(0x46);
 break;
 
 
 case 0x06:
-rv = readEEPROM( 0x47 );
+rv = Read_b_eep(0x47);
 break;
 
 
 case 0x07:
-rv = readEEPROM( 0x48 );
+rv = Read_b_eep(0x48);
 break;
 
 
 case 0x08:
-rv = ((current_temp[0] & 0xff00) >> 8);
+rv = ((current_temp & 0xff00) >> 8);
 break;
 
 
 case 0x09:
-rv = (current_temp[0] & 0x00ff);
+rv = (current_temp & 0x00ff);
 break;
 
 
 case 0x0A:
-rv = ((current_temp[1] & 0xff00) >> 8);
+rv = ((current_temp & 0xff00) >> 8);
 break;
 
 
 case 0x0B:
-rv = (current_temp[1] & 0x00ff);
+rv = (current_temp & 0x00ff);
 break;
 
 
 case 0x0C:
-rv = ((current_temp[2] & 0xff00) >> 8);
+rv = ((current_temp & 0xff00) >> 8);
 break;
 
 
 case 0x0D:
-rv = (current_temp[2] & 0x00ff);
+rv = (current_temp & 0x00ff);
 break;
 
 
 case 0x0E:
-rv = ((current_temp[3] & 0xff00) >> 8);
+rv = ((current_temp & 0xff00) >> 8);
 break;
 
 
 case 0x0F:
-rv = (current_temp[3] & 0x00ff);
+rv = (current_temp & 0x00ff);
 break;
 
 
 case 0x10:
-rv = ((current_temp[4] & 0xff00) >> 8);
+rv = ((current_temp & 0xff00) >> 8);
 break;
 
 
 case 0x11:
-rv = (current_temp[4] & 0x00ff);
+rv = (current_temp & 0x00ff);
 break;
 
 
 case 0x12:
-rv = ((current_temp[5] & 0xff00) >> 8);
+rv = ((current_temp & 0xff00) >> 8);
 break;
 
 
 case 0x13:
-rv = (current_temp[5] & 0x00ff);
+rv = (current_temp & 0x00ff);
 break;
 
 
 case 0x14:
-rv = readEEPROM(0x49);
+rv = Read_b_eep(0x49);
 break;
 
 
 case 0x15:
-rv = readEEPROM(0x4A);
+rv = Read_b_eep(0x4A);
 break;
 
 
 case 0x16:
-rv = readEEPROM(0x4B);
+rv = Read_b_eep(0x4B);
 break;
 
 
 case 0x17:
-rv = readEEPROM(0x4C);
+rv = Read_b_eep(0x4C);
 break;
 
 
 case 0x18:
-rv = readEEPROM(0x4D);
+rv = Read_b_eep(0x4D);
 break;
 
 
 case 0x19:
-rv = readEEPROM(0x4E);
+rv = Read_b_eep(0x4E);
 break;
 
 
 
 
 case 0x26:
-rv = readEEPROM(0x4F);
+rv = Read_b_eep(0x4F);
 break;
 
 
 case 0x27:
-rv = readEEPROM(0x50);
+rv = Read_b_eep(0x50);
 break;
 
 
 case 0x28:
-rv = readEEPROM(0x51);
+rv = Read_b_eep(0x51);
 break;
 
 
 case 0x29:
-rv = readEEPROM(0x52);
+rv = Read_b_eep(0x52);
 break;
 
 
 case 0x2A:
-rv = readEEPROM(0x53);
+rv = Read_b_eep(0x53);
 break;
 
 
 case 0x2B:
-rv = readEEPROM(0x54);
+rv = Read_b_eep(0x54);
 break;
 
 
 case 0x2C:
-rv = readEEPROM(0x55);
+rv = Read_b_eep(0x55);
 break;
 
 
 case 0x2D:
-rv = readEEPROM(0x56);
+rv = Read_b_eep(0x56);
 break;
 
 
 case 0x2E:
-rv = readEEPROM(0x57);
+rv = Read_b_eep(0x57);
 break;
 
 
 case 0x2F:
-rv = readEEPROM(0x58);
+rv = Read_b_eep(0x58);
 break;
 
 
 case 0x30:
-rv = readEEPROM(0x59);
+rv = Read_b_eep(0x59);
 break;
 
 
 case 0x31:
-rv = readEEPROM(0x5A);
+rv = Read_b_eep(0x5A);
 break;
 
-# 1489
+# 1396
 case 0x32:
-rv = readEEPROM(0x5B);
+rv = Read_b_eep(0x5B);
 break;
 
 
 case 0x33:
-rv = readEEPROM(0x5C);
+rv = Read_b_eep(0x5C);
 break;
 
 
 case 0x34:
-rv = readEEPROM(0x5D);
+rv = Read_b_eep(0x5D);
 break;
 
 
 case 0x35:
-rv = readEEPROM(0x5E);
+rv = Read_b_eep(0x5E);
 break;
 
 
 case 0x36:
-rv = readEEPROM(0x5F);
+rv = Read_b_eep(0x5F);
 break;
 
 
 case 0x37:
-rv = readEEPROM(0x60);
+rv = Read_b_eep(0x60);
 break;
 
 
 case 0x38:
-rv = readEEPROM(0x61);
+rv = Read_b_eep(0x61);
 break;
 
 
 case 0x39:
-rv = readEEPROM(0x62);
+rv = Read_b_eep(0x62);
 break;
 
 
 case 0x3A:
-rv = readEEPROM(0x63);
+rv = Read_b_eep(0x63);
 break;
 
 
 case 0x3B:
-rv = readEEPROM(0x64);
+rv = Read_b_eep(0x64);
 break;
 
 
 case 0x3C:
-rv = readEEPROM(0x65);
+rv = Read_b_eep(0x65);
 break;
 
 
 case 0x3D:
-rv = readEEPROM(0x66);
+rv = Read_b_eep(0x66);
 break;
 
-# 1554
+# 1461
 case 0x3E:
-rv = readEEPROM(0x67);
+rv = Read_b_eep(0x67);
 break;
 
 
 case 0x3F:
-rv = readEEPROM(0x68);
+rv = Read_b_eep(0x68);
 break;
 
 
 case 0x40:
-rv = readEEPROM(0x69);
+rv = Read_b_eep(0x69);
 break;
 
 
 case 0x41:
-rv = readEEPROM(0x6A);
+rv = Read_b_eep(0x6A);
 break;
 
 
 case 0x42:
-rv = readEEPROM(0x6B);
+rv = Read_b_eep(0x6B);
 break;
 
 
 case 0x43:
-rv = readEEPROM(0x6C);
+rv = Read_b_eep(0x6C);
 break;
 
 
 case 0x44:
-rv = readEEPROM(0x6D);
+rv = Read_b_eep(0x6D);
 break;
 
 
 case 0x45:
-rv = readEEPROM(0x6E);
+rv = Read_b_eep(0x6E);
 break;
 
 
 case 0x46:
-rv = readEEPROM(0x6F);
+rv = Read_b_eep(0x6F);
 break;
 
 
 case 0x47:
-rv = readEEPROM(0x70);
+rv = Read_b_eep(0x70);
 break;
 
 
 case 0x48:
-rv = readEEPROM(0x71);
+rv = Read_b_eep(0x71);
 break;
 
 
 case 0x49:
-rv = readEEPROM(0x72);
+rv = Read_b_eep(0x72);
 break;
 
-# 1618
+# 1525
 case 0x4A:
-rv = readEEPROM(0x73);
+rv = Read_b_eep(0x73);
 break;
 
 
 case 0x4B:
-rv = readEEPROM(0x74);
+rv = Read_b_eep(0x74);
 break;
 
 
 case 0x4C:
-rv = readEEPROM(0x75);
+rv = Read_b_eep(0x75);
 break;
 
 
 case 0x4D:
-rv = readEEPROM(0x76);
+rv = Read_b_eep(0x76);
 break;
 
 
 case 0x4E:
-rv = readEEPROM(0x77);
+rv = Read_b_eep(0x77);
 break;
 
 
 case 0x4F:
-rv = readEEPROM(0x78);
+rv = Read_b_eep(0x78);
 break;
 
 
 case 0x50:
-rv = readEEPROM(0x79);
+rv = Read_b_eep(0x79);
 break;
 
 
 case 0x51:
-rv = readEEPROM(0x7A);
+rv = Read_b_eep(0x7A);
 break;
 
 
 case 0x52:
-rv = readEEPROM(0x7B);
+rv = Read_b_eep(0x7B);
 break;
 
 
 case 0x53:
-rv = readEEPROM(0x7C);
+rv = Read_b_eep(0x7C);
 break;
 
 
 case 0x54:
-rv = readEEPROM(0x7D);
+rv = Read_b_eep(0x7D);
 break;
 
 
 case 0x55:
-rv = readEEPROM(0x7E);
+rv = Read_b_eep(0x7E);
 break;
 
-# 1682
+# 1589
 case 0x56:
-rv = readEEPROM(0x7F);
+rv = Read_b_eep(0x7F);
 break;
 
 
 case 0x57:
-rv = readEEPROM(0x80);
+rv = Read_b_eep(0x80);
 break;
 
 
 case 0x58:
-rv = readEEPROM(0x81);
+rv = Read_b_eep(0x81);
 break;
 
 
 case 0x59:
-rv = readEEPROM(0x82);
+rv = Read_b_eep(0x82);
 break;
 
 
 case 0x5A:
-rv = readEEPROM(0x83);
+rv = Read_b_eep(0x83);
 break;
 
 
 case 0x5B:
-rv = readEEPROM(0x84);
+rv = Read_b_eep(0x84);
 break;
 
 
 case 0x5C:
-rv = readEEPROM(0x85);
+rv = Read_b_eep(0x85);
 break;
 
 
 case 0x5D:
-rv = readEEPROM(0x86);
+rv = Read_b_eep(0x86);
 break;
 
 
 case 0x5E:
-rv = readEEPROM(0x87);
+rv = Read_b_eep(0x87);
 break;
 
 
 case 0x5F:
-rv = readEEPROM(0x88);
+rv = Read_b_eep(0x88);
 break;
 
 
 case 0x60:
-rv = readEEPROM(0x89);
+rv = Read_b_eep(0x89);
 break;
 
 
 case 0x61:
-rv = readEEPROM(0x8A);
+rv = Read_b_eep(0x8A);
 break;
 
-# 1746
+# 1653
 case 0x62:
-rv = readEEPROM(0x8B);
+rv = Read_b_eep(0x8B);
 break;
 
 
 case 0x63:
-rv = readEEPROM(0x8C);
+rv = Read_b_eep(0x8C);
 break;
 
 
 case 0x64:
-rv = readEEPROM(0x8D);
+rv = Read_b_eep(0x8D);
 break;
 
 
 case 0x65:
-rv = readEEPROM(0x8E);
+rv = Read_b_eep(0x8E);
 break;
 
 
 case 0x66:
-rv = readEEPROM(0x8F);
+rv = Read_b_eep(0x8F);
 break;
 
 
 case 0x67:
-rv = readEEPROM(0x90);
+rv = Read_b_eep(0x90);
 break;
 
 
 case 0x68:
-rv = readEEPROM(0x91);
+rv = Read_b_eep(0x91);
 break;
 
 
 case 0x69:
-rv = readEEPROM(0x92);
+rv = Read_b_eep(0x92);
 break;
 
 
 case 0x6A:
-rv = readEEPROM(0x93);
+rv = Read_b_eep(0x93);
 break;
 
 
 case 0x6B:
-rv = readEEPROM(0x94);
+rv = Read_b_eep(0x94);
 break;
 
 
 case 0x6C:
-rv = readEEPROM(0x95);
+rv = Read_b_eep(0x95);
 break;
 
 
 case 0x6D:
-rv = readEEPROM(0x96);
+rv = Read_b_eep(0x96);
 break;
 
-# 1811
+# 1718
 case 0x6E:
-rv = readEEPROM(0x97);
+rv = Read_b_eep(0x97);
 break;
 
 
 case 0x6F:
-rv = readEEPROM(0x98);
+rv = Read_b_eep(0x98);
 break;
 
 
 case 0x70:
-rv = readEEPROM(0x99);
+rv = Read_b_eep(0x99);
 break;
 
 
 case 0x71:
-rv = readEEPROM(0x9A);
+rv = Read_b_eep(0x9A);
 break;
 
 
 case 0x72:
-rv = readEEPROM(0x9B);
+rv = Read_b_eep(0x9B);
 break;
 
 
 case 0x73:
-rv = readEEPROM(0x9C);
+rv = Read_b_eep(0x9C);
 break;
 
 
@@ -20684,12 +20279,12 @@ break;
 
 
 case 0x76:
-rv = readEEPROM(0xF2);
+rv = Read_b_eep(0xF2);
 break;
 
 
 case 0x77:
-rv = readEEPROM(0xF3);
+rv = Read_b_eep(0xF3);
 break;
 
 default:
@@ -20701,7 +20296,7 @@ else if (1 == vscp_page_select) {
 
 
 if (reg < 72) {
-rv = readEEPROM(0xAA + reg ) ;
+rv = Read_b_eep(0xAA + reg) ;
 }
 
 else if (reg < 84) {
@@ -20713,11 +20308,11 @@ pos--;
 else {
 pos++;
 }
-rv = adc[ pos ];
+rv = adc_low;
 }
 
 else if (reg < 98) {
-rv = readEEPROM( 0x9E + reg - 84 ) ;
+rv = Read_b_eep(0x9E + reg - 84) ;
 }
 }
 
@@ -20725,12 +20320,12 @@ return rv;
 
 }
 
-# 1897
+# 1804
 uint8_t vscp_writeAppReg(unsigned char reg, unsigned char val)
 {
 uint8_t rv;
 
-# 1906
+# 1813
 rv = ~val;
 
 if (0 == vscp_page_select) {
@@ -20739,553 +20334,553 @@ switch (reg) {
 
 
 case 0x00:
-writeEEPROM(0x41, val);
-rv = readEEPROM(0x41);
+(Busy_eep(), Write_b_eep(0x41,val));
+rv = Read_b_eep(0x41);
 break;
 
 
 case 0x01:
-writeEEPROM(0x42, val);
-rv = readEEPROM(0x42);
+(Busy_eep(), Write_b_eep(0x42,val));
+rv = Read_b_eep(0x42);
 break;
 
-# 1929
+# 1836
 case 0x02:
-writeEEPROM(0x43, val);
-rv = readEEPROM(0x43);
+(Busy_eep(), Write_b_eep(0x43,val));
+rv = Read_b_eep(0x43);
 break;
 
 
 case 0x03:
-writeEEPROM(0x44, val);
-rv = readEEPROM(0x44);
+(Busy_eep(), Write_b_eep(0x44,val));
+rv = Read_b_eep(0x44);
 break;
 
 
 case 0x04:
-writeEEPROM(0x45, val);
-rv = readEEPROM(0x45);
+(Busy_eep(), Write_b_eep(0x45,val));
+rv = Read_b_eep(0x45);
 break;
 
 
 case 0x05:
-writeEEPROM(0x46, val);
-rv = readEEPROM(0x46);
+(Busy_eep(), Write_b_eep(0x46,val));
+rv = Read_b_eep(0x46);
 break;
 
 
 case 0x06:
-writeEEPROM(0x47, val);
-rv = readEEPROM(0x47);
+(Busy_eep(), Write_b_eep(0x47,val));
+rv = Read_b_eep(0x47);
 break;
 
 
 case 0x07:
-writeEEPROM(0x48, val);
-rv = readEEPROM(0x48);
+(Busy_eep(), Write_b_eep(0x48,val));
+rv = Read_b_eep(0x48);
 break;
 
-# 1969
+# 1876
 case 0x14:
-writeEEPROM(0x49, val);
-rv = readEEPROM(0x49);
+(Busy_eep(), Write_b_eep(0x49,val));
+rv = Read_b_eep(0x49);
 break;
 
 
 case 0x15:
-writeEEPROM(0x4A, val);
-rv = readEEPROM(0x4A);
+(Busy_eep(), Write_b_eep(0x4A,val));
+rv = Read_b_eep(0x4A);
 break;
 
 
 case 0x16:
-writeEEPROM(0x4B, val);
-rv = readEEPROM(0x4B);
+(Busy_eep(), Write_b_eep(0x4B,val));
+rv = Read_b_eep(0x4B);
 break;
 
 
 case 0x17:
-writeEEPROM(0x4C, val);
-rv = readEEPROM(0x4C);
+(Busy_eep(), Write_b_eep(0x4C,val));
+rv = Read_b_eep(0x4C);
 break;
 
 
 case 0x18:
-writeEEPROM(0x4D, val);
-rv = readEEPROM(0x4D);
+(Busy_eep(), Write_b_eep(0x4D,val));
+rv = Read_b_eep(0x4D);
 break;
 
 
 case 0x19:
-writeEEPROM(0x4E, val);
-rv = readEEPROM(0x4E);
+(Busy_eep(), Write_b_eep(0x4E,val));
+rv = Read_b_eep(0x4E);
 break;
 
-# 2009
+# 1916
 case 0x26:
-writeEEPROM(0x4F, val);
-rv = readEEPROM(0x4F);
+(Busy_eep(), Write_b_eep(0x4F,val));
+rv = Read_b_eep(0x4F);
 break;
 
 
 case 0x27:
-writeEEPROM(0x50, val);
-rv = readEEPROM(0x50);
+(Busy_eep(), Write_b_eep(0x50,val));
+rv = Read_b_eep(0x50);
 break;
 
 
 case 0x28:
-writeEEPROM(0x51, val);
-rv = readEEPROM(0x51);
+(Busy_eep(), Write_b_eep(0x51,val));
+rv = Read_b_eep(0x51);
 break;
 
 
 case 0x29:
-writeEEPROM(0x52, val);
-rv = readEEPROM(0x52);
+(Busy_eep(), Write_b_eep(0x52,val));
+rv = Read_b_eep(0x52);
 break;
 
 
 case 0x2A:
-writeEEPROM(0x53, val);
-rv = readEEPROM(0x53);
+(Busy_eep(), Write_b_eep(0x53,val));
+rv = Read_b_eep(0x53);
 break;
 
 
 case 0x2B:
-writeEEPROM(0x54, val);
-rv = readEEPROM(0x54);
+(Busy_eep(), Write_b_eep(0x54,val));
+rv = Read_b_eep(0x54);
 break;
 
 
 case 0x2C:
-writeEEPROM(0x55, val);
-rv = readEEPROM(0x55);
+(Busy_eep(), Write_b_eep(0x55,val));
+rv = Read_b_eep(0x55);
 break;
 
 
 case 0x2D:
-writeEEPROM(0x56, val);
-rv = readEEPROM(0x56);
+(Busy_eep(), Write_b_eep(0x56,val));
+rv = Read_b_eep(0x56);
 break;
 
 
 case 0x2E:
-writeEEPROM(0x57, val);
-rv = readEEPROM(0x57);
+(Busy_eep(), Write_b_eep(0x57,val));
+rv = Read_b_eep(0x57);
 break;
 
 
 case 0x2F:
-writeEEPROM(0x58, val);
-rv = readEEPROM(0x58);
+(Busy_eep(), Write_b_eep(0x58,val));
+rv = Read_b_eep(0x58);
 break;
 
 
 case 0x30:
-writeEEPROM(0x59, val);
-rv = readEEPROM(0x59);
+(Busy_eep(), Write_b_eep(0x59,val));
+rv = Read_b_eep(0x59);
 break;
 
 
 case 0x31:
-writeEEPROM(0x5A, val);
-rv = readEEPROM(0x5A);
+(Busy_eep(), Write_b_eep(0x5A,val));
+rv = Read_b_eep(0x5A);
 break;
 
-# 2085
+# 1992
 case 0x32:
-writeEEPROM(0x5B, val);
-rv = readEEPROM(0x5B);
+(Busy_eep(), Write_b_eep(0x5B,val));
+rv = Read_b_eep(0x5B);
 break;
 
 
 case 0x33:
-writeEEPROM(0x5C, val);
-rv = readEEPROM(0x5C);
+(Busy_eep(), Write_b_eep(0x5C,val));
+rv = Read_b_eep(0x5C);
 break;
 
 
 case 0x34:
-writeEEPROM(0x5D, val);
-rv = readEEPROM(0x5D);
+(Busy_eep(), Write_b_eep(0x5D,val));
+rv = Read_b_eep(0x5D);
 break;
 
 
 case 0x35:
-writeEEPROM(0x5E, val);
-rv = readEEPROM(0x5E);
+(Busy_eep(), Write_b_eep(0x5E,val));
+rv = Read_b_eep(0x5E);
 break;
 
 
 case 0x36:
-writeEEPROM(0x5F, val);
-rv = readEEPROM(0x5F);
+(Busy_eep(), Write_b_eep(0x5F,val));
+rv = Read_b_eep(0x5F);
 break;
 
 
 case 0x37:
-writeEEPROM(0x60, val);
-rv = readEEPROM(0x60);
+(Busy_eep(), Write_b_eep(0x60,val));
+rv = Read_b_eep(0x60);
 break;
 
 
 case 0x38:
-writeEEPROM(0x61, val);
-rv = readEEPROM(0x61);
+(Busy_eep(), Write_b_eep(0x61,val));
+rv = Read_b_eep(0x61);
 break;
 
 
 case 0x39:
-writeEEPROM(0x62, val);
-rv = readEEPROM(0x62);
+(Busy_eep(), Write_b_eep(0x62,val));
+rv = Read_b_eep(0x62);
 break;
 
 
 case 0x3A:
-writeEEPROM(0x63, val);
-rv = readEEPROM(0x63);
+(Busy_eep(), Write_b_eep(0x63,val));
+rv = Read_b_eep(0x63);
 break;
 
 
 case 0x3B:
-writeEEPROM(0x64, val);
-rv = readEEPROM(0x64);
+(Busy_eep(), Write_b_eep(0x64,val));
+rv = Read_b_eep(0x64);
 break;
 
 
 case 0x3C:
-writeEEPROM(0x65, val);
-rv = readEEPROM(0x65);
+(Busy_eep(), Write_b_eep(0x65,val));
+rv = Read_b_eep(0x65);
 break;
 
 
 case 0x3D:
-writeEEPROM(0x66, val);
-rv = readEEPROM(0x66);
+(Busy_eep(), Write_b_eep(0x66,val));
+rv = Read_b_eep(0x66);
 break;
 
-# 2161
+# 2068
 case 0x3E:
-writeEEPROM(0x67, val);
-rv = readEEPROM(0x67);
+(Busy_eep(), Write_b_eep(0x67,val));
+rv = Read_b_eep(0x67);
 break;
 
 
 case 0x3F:
-writeEEPROM(0x68, val);
-rv = readEEPROM(0x68);
+(Busy_eep(), Write_b_eep(0x68,val));
+rv = Read_b_eep(0x68);
 break;
 
 
 case 0x40:
-writeEEPROM(0x69, val);
-rv = readEEPROM(0x69);
+(Busy_eep(), Write_b_eep(0x69,val));
+rv = Read_b_eep(0x69);
 break;
 
 
 case 0x41:
-writeEEPROM(0x6A, val);
-rv = readEEPROM(0x6A);
+(Busy_eep(), Write_b_eep(0x6A,val));
+rv = Read_b_eep(0x6A);
 break;
 
 
 case 0x42:
-writeEEPROM(0x6B, val);
-rv = readEEPROM(0x6B);
+(Busy_eep(), Write_b_eep(0x6B,val));
+rv = Read_b_eep(0x6B);
 break;
 
 
 case 0x43:
-writeEEPROM(0x6C, val);
-rv = readEEPROM(0x6C);
+(Busy_eep(), Write_b_eep(0x6C,val));
+rv = Read_b_eep(0x6C);
 break;
 
 
 case 0x44:
-writeEEPROM(0x6D, val);
-rv = readEEPROM(0x6D);
+(Busy_eep(), Write_b_eep(0x6D,val));
+rv = Read_b_eep(0x6D);
 break;
 
 
 case 0x45:
-writeEEPROM(0x6E, val);
-rv = readEEPROM(0x6E);
+(Busy_eep(), Write_b_eep(0x6E,val));
+rv = Read_b_eep(0x6E);
 break;
 
 
 case 0x46:
-writeEEPROM(0x6F, val);
-rv = readEEPROM(0x6F);
+(Busy_eep(), Write_b_eep(0x6F,val));
+rv = Read_b_eep(0x6F);
 break;
 
 
 case 0x47:
-writeEEPROM(0x70, val);
-rv = readEEPROM(0x70);
+(Busy_eep(), Write_b_eep(0x70,val));
+rv = Read_b_eep(0x70);
 break;
 
 
 case 0x48:
-writeEEPROM(0x71, val);
-rv = readEEPROM(0x71);
+(Busy_eep(), Write_b_eep(0x71,val));
+rv = Read_b_eep(0x71);
 break;
 
 
 case 0x49:
-writeEEPROM(0x72, val);
-rv = readEEPROM(0x72);
+(Busy_eep(), Write_b_eep(0x72,val));
+rv = Read_b_eep(0x72);
 break;
 
-# 2237
+# 2144
 case 0x4A:
-writeEEPROM(0x73, val);
-rv = readEEPROM(0x73);
+(Busy_eep(), Write_b_eep(0x73,val));
+rv = Read_b_eep(0x73);
 break;
 
 
 case 0x4B:
-writeEEPROM(0x74, val);
-rv = readEEPROM(0x74);
+(Busy_eep(), Write_b_eep(0x74,val));
+rv = Read_b_eep(0x74);
 break;
 
 
 case 0x4C:
-writeEEPROM(0x75, val);
-rv = readEEPROM(0x75);
+(Busy_eep(), Write_b_eep(0x75,val));
+rv = Read_b_eep(0x75);
 break;
 
 
 case 0x4D:
-writeEEPROM(0x76, val);
-rv = readEEPROM(0x76);
+(Busy_eep(), Write_b_eep(0x76,val));
+rv = Read_b_eep(0x76);
 break;
 
 
 case 0x4E:
-writeEEPROM(0x77, val);
-rv = readEEPROM(0x77);
+(Busy_eep(), Write_b_eep(0x77,val));
+rv = Read_b_eep(0x77);
 break;
 
 
 case 0x4F:
-writeEEPROM(0x78, val);
-rv = readEEPROM(0x78);
+(Busy_eep(), Write_b_eep(0x78,val));
+rv = Read_b_eep(0x78);
 break;
 
 
 case 0x50:
-writeEEPROM(0x79, val);
-rv = readEEPROM(0x79);
+(Busy_eep(), Write_b_eep(0x79,val));
+rv = Read_b_eep(0x79);
 break;
 
 
 case 0x51:
-writeEEPROM(0x7A, val);
-rv = readEEPROM(0x7A);
+(Busy_eep(), Write_b_eep(0x7A,val));
+rv = Read_b_eep(0x7A);
 break;
 
 
 case 0x52:
-writeEEPROM(0x7B, val);
-rv = readEEPROM(0x7B);
+(Busy_eep(), Write_b_eep(0x7B,val));
+rv = Read_b_eep(0x7B);
 break;
 
 
 case 0x53:
-writeEEPROM(0x7C, val);
-rv = readEEPROM(0x7C);
+(Busy_eep(), Write_b_eep(0x7C,val));
+rv = Read_b_eep(0x7C);
 break;
 
 
 case 0x54:
-writeEEPROM(0x7D, val);
-rv = readEEPROM(0x7D);
+(Busy_eep(), Write_b_eep(0x7D,val));
+rv = Read_b_eep(0x7D);
 break;
 
 
 case 0x55:
-writeEEPROM(0x7E, val);
-rv = readEEPROM(0x7E);
+(Busy_eep(), Write_b_eep(0x7E,val));
+rv = Read_b_eep(0x7E);
 break;
 
-# 2313
+# 2220
 case 0x56:
-writeEEPROM(0x7F, val );
-rv = readEEPROM(0x7F);
+(Busy_eep(), Write_b_eep(0x7F,val));
+rv = Read_b_eep(0x7F);
 break;
 
 
 case 0x57:
-writeEEPROM(0x80, val );
-rv = readEEPROM(0x80);
+(Busy_eep(), Write_b_eep(0x80,val));
+rv = Read_b_eep(0x80);
 break;
 
 
 case 0x58:
-writeEEPROM(0x81, val );
-rv = readEEPROM(0x81);
+(Busy_eep(), Write_b_eep(0x81,val));
+rv = Read_b_eep(0x81);
 break;
 
 
 case 0x59:
-writeEEPROM(0x82, val );
-rv = readEEPROM(0x82);
+(Busy_eep(), Write_b_eep(0x82,val));
+rv = Read_b_eep(0x82);
 break;
 
 
 case 0x5A:
-writeEEPROM(0x83, val );
-rv = readEEPROM(0x83);
+(Busy_eep(), Write_b_eep(0x83,val));
+rv = Read_b_eep(0x83);
 break;
 
 
 case 0x5B:
-writeEEPROM(0x84, val );
-rv = readEEPROM(0x84);
+(Busy_eep(), Write_b_eep(0x84,val));
+rv = Read_b_eep(0x84);
 break;
 
 
 case 0x5C:
-writeEEPROM(0x85, val );
-rv = readEEPROM(0x85);
+(Busy_eep(), Write_b_eep(0x85,val));
+rv = Read_b_eep(0x85);
 break;
 
 
 case 0x5D:
-writeEEPROM(0x86, val );
-rv = readEEPROM(0x86);
+(Busy_eep(), Write_b_eep(0x86,val));
+rv = Read_b_eep(0x86);
 break;
 
 
 case 0x5E:
-writeEEPROM(0x87, val );
-rv = readEEPROM(0x87);
+(Busy_eep(), Write_b_eep(0x87,val));
+rv = Read_b_eep(0x87);
 break;
 
 
 case 0x5F:
-writeEEPROM(0x88, val );
-rv = readEEPROM(0x88);
+(Busy_eep(), Write_b_eep(0x88,val));
+rv = Read_b_eep(0x88);
 break;
 
 
 case 0x60:
-writeEEPROM(0x89, val );
-rv = readEEPROM(0x89);
+(Busy_eep(), Write_b_eep(0x89,val));
+rv = Read_b_eep(0x89);
 break;
 
 
 case 0x61:
-writeEEPROM(0x8A, val );
-rv = readEEPROM(0x8A);
+(Busy_eep(), Write_b_eep(0x8A,val));
+rv = Read_b_eep(0x8A);
 break;
 
-# 2389
+# 2296
 case 0x62:
-writeEEPROM(0x8B, val );
-rv = readEEPROM(0x8B);
+(Busy_eep(), Write_b_eep(0x8B,val));
+rv = Read_b_eep(0x8B);
 break;
 
 
 case 0x63:
-writeEEPROM(0x8C, val );
-rv = readEEPROM(0x8C);
+(Busy_eep(), Write_b_eep(0x8C,val));
+rv = Read_b_eep(0x8C);
 break;
 
 
 case 0x64:
-writeEEPROM(0x8D, val );
-rv = readEEPROM(0x8D);
+(Busy_eep(), Write_b_eep(0x8D,val));
+rv = Read_b_eep(0x8D);
 break;
 
 
 case 0x65:
-writeEEPROM(0x8E, val );
-rv = readEEPROM(0x8E);
+(Busy_eep(), Write_b_eep(0x8E,val));
+rv = Read_b_eep(0x8E);
 break;
 
 
 case 0x66:
-writeEEPROM(0x8F, val );
-rv = readEEPROM(0x8F);
+(Busy_eep(), Write_b_eep(0x8F,val));
+rv = Read_b_eep(0x8F);
 break;
 
 
 case 0x67:
-writeEEPROM(0x90, val );
-rv = readEEPROM(0x90);
+(Busy_eep(), Write_b_eep(0x90,val));
+rv = Read_b_eep(0x90);
 break;
 
 
 case 0x68:
-writeEEPROM(0x91, val );
-rv = readEEPROM(0x91);
+(Busy_eep(), Write_b_eep(0x91,val));
+rv = Read_b_eep(0x91);
 break;
 
 
 case 0x69:
-writeEEPROM(0x92, val );
-rv = readEEPROM(0x92);
+(Busy_eep(), Write_b_eep(0x92,val));
+rv = Read_b_eep(0x92);
 break;
 
 
 case 0x6A:
-writeEEPROM(0x93, val );
-rv = readEEPROM(0x93);
+(Busy_eep(), Write_b_eep(0x93,val));
+rv = Read_b_eep(0x93);
 break;
 
 
 case 0x6B:
-writeEEPROM(0x94, val );
-rv = readEEPROM(0x94);
+(Busy_eep(), Write_b_eep(0x94,val));
+rv = Read_b_eep(0x94);
 break;
 
 
 case 0x6C:
-writeEEPROM(0x95, val );
-rv = readEEPROM(0x95);
+(Busy_eep(), Write_b_eep(0x95,val));
+rv = Read_b_eep(0x95);
 break;
 
 
 case 0x6D:
-writeEEPROM(0x96, val );
-rv = readEEPROM(0x96);
+(Busy_eep(), Write_b_eep(0x96,val));
+rv = Read_b_eep(0x96);
 break;
 
-# 2465
+# 2372
 case 0x6E:
-writeEEPROM(0x97, val);
-rv = readEEPROM(0x97);
+(Busy_eep(), Write_b_eep(0x97,val));
+rv = Read_b_eep(0x97);
 break;
 
 
 case 0x6F:
-writeEEPROM(0x98, val);
-rv = readEEPROM(0x98);
+(Busy_eep(), Write_b_eep(0x98,val));
+rv = Read_b_eep(0x98);
 break;
 
 
 case 0x70:
-writeEEPROM(0x99, val);
-rv = readEEPROM(0x99);
+(Busy_eep(), Write_b_eep(0x99,val));
+rv = Read_b_eep(0x99);
 
 
 case 0x71:
-writeEEPROM(0x9A, val);
-rv = readEEPROM(0x9A);
+(Busy_eep(), Write_b_eep(0x9A,val));
+rv = Read_b_eep(0x9A);
 break;
 
 
 case 0x72:
-writeEEPROM(0x9B, val);
-rv = readEEPROM(0x9B);
+(Busy_eep(), Write_b_eep(0x9B,val));
+rv = Read_b_eep(0x9B);
 break;
 
 
 case 0x73:
-writeEEPROM(0x9C, val);
-rv = readEEPROM(0x9C);
+(Busy_eep(), Write_b_eep(0x9C,val));
+rv = Read_b_eep(0x9C);
 break;
 
 
@@ -21300,14 +20895,14 @@ break;
 
 
 case 0x76:
-writeEEPROM(0xF2, val);
-rv = readEEPROM(0xF2);
+(Busy_eep(), Write_b_eep(0xF2,val));
+rv = Read_b_eep(0xF2);
 break;
 
 
 case 0x77:
-writeEEPROM(0xF3, val);
-rv = readEEPROM(0xF3);
+(Busy_eep(), Write_b_eep(0xF3,val));
+rv = Read_b_eep(0xF3);
 break;
 
 default:
@@ -21319,8 +20914,8 @@ else if (1 == vscp_page_select) {
 
 
 if (reg < 72) {
-writeEEPROM(0xAA + reg, val);
-rv = readEEPROM(0xAA + reg );
+(Busy_eep(), Write_b_eep(0xAA + reg,val));
+rv = Read_b_eep(0xAA + reg);
 writeCoeffs2Ram();
 }
 
@@ -21333,92 +20928,92 @@ pos--;
 else {
 pos++;
 }
-rv = adc[ pos ];
+rv = adc_high;
 }
 
 else if (reg < 98) {
-writeEEPROM( 0x9E + reg - 84, val );
-rv = readEEPROM( 0x9E + reg - 84 ) ;
+(Busy_eep(), Write_b_eep(0x9E + reg - 84,val));
+rv = Read_b_eep(0x9E + reg - 84) ;
 }
 }
 
 return rv;
 }
 
-# 2567
+# 2474
 unsigned char vscp_getMajorVersion()
 {
 return 1;
 }
 
-# 2576
+# 2483
 unsigned char vscp_getMinorVersion()
 {
-return 2;
+return 0;
 }
 
-# 2585
+# 2492
 unsigned char vscp_getSubMinorVersion()
 {
-return 2;
+return 0;
 }
 
-# 2596
+# 2503
 uint8_t vscp_getGUID(uint8_t idx)
 {
-return readEEPROM(0x12 + idx);
+return Read_b_eep(0x12 + idx);
 }
 
-# 2606
+# 2513
 void vscp_setGUID( uint8_t idx, uint8_t data )
 {
 if ( idx>15 ) return;
-writeEEPROM( 0x12 + idx, data );
+(Busy_eep(), Write_b_eep(0x12 + idx,data));
 }
 
-# 2619
+# 2526
 uint8_t vscp_getMDF_URL(uint8_t idx)
 {
 return vscp_deviceURL[ idx ];
 }
 
-# 2628
+# 2535
 uint8_t vscp_getUserID(uint8_t idx)
 {
-return readEEPROM(0x05 + idx);
+return Read_b_eep(0x05 + idx);
 }
 
-# 2637
+# 2544
 void vscp_setUserID(uint8_t idx, uint8_t data)
 {
-writeEEPROM(idx + 0x05, data);
+(Busy_eep(), Write_b_eep(idx + 0x05,data));
 }
 
-# 2648
+# 2555
 uint8_t vscp_getManufacturerId(uint8_t idx)
 {
-return readEEPROM(0x0A + idx);
+return Read_b_eep(0x0A + idx);
 }
 
-# 2659
+# 2566
 void vscp_setManufacturerId(uint8_t idx, uint8_t data)
 {
-writeEEPROM(0x0A + idx, data);
+(Busy_eep(), Write_b_eep(0x0A + idx,data));
 }
 
-# 2668
+# 2575
 uint8_t vscp_getBootLoaderAlgorithm(void)
 {
 return 0x01;
 }
 
-# 2677
+# 2584
 uint8_t vscp_getBufferSize(void)
 {
 return 8;
 }
 
-# 2686
+# 2593
 void vscp_getMatrixInfo(char *pData)
 {
 uint8_t i;
@@ -21431,7 +21026,7 @@ pData[ i ] = 0;
 
 }
 
-# 2702
+# 2609
 void vscp_getEmbeddedMdfInfo(void)
 {
 
@@ -21449,32 +21044,32 @@ vscp_omsg.data[ 2 ] = 0;
 vscp_sendEvent();
 }
 
-# 2724
+# 2631
 uint8_t vscp_getRegisterPagesUsed(void)
 {
 return 1;
 }
 
-# 2733
+# 2640
 uint8_t vscp_getZone(void)
 {
-return readEEPROM(0x41);
+return Read_b_eep(0x41);
 }
 
-# 2742
+# 2649
 uint8_t vscp_getSubzone(void)
 {
-return readEEPROM(0x42);
+return Read_b_eep(0x42);
 }
 
-# 2751
+# 2658
 void vscp_goBootloaderMode( uint8_t algorithm )
 {
 if ( 0x01 != algorithm ) return;
 
 
 
-writeEEPROM(0x00, 0xff);
+(Busy_eep(), Write_b_eep(0x00,0xff));
 
 
 ECANSetOperationMode( ECAN_OP_MODE_CONFIG );
@@ -21483,70 +21078,58 @@ ECANSetOperationMode( ECAN_OP_MODE_CONFIG );
 asm("reset");
 }
 
-# 2770
+# 2677
 uint8_t vscp_readNicknamePermanent(void)
 {
-return readEEPROM( 0x01 );
+return Read_b_eep(0x01);
 }
 
-# 2779
+# 2686
 void vscp_writeNicknamePermanent(uint8_t nickname)
 {
-writeEEPROM( 0x01, nickname );
+(Busy_eep(), Write_b_eep(0x01,nickname));
 }
 
-# 2788
-uint8_t vscp_getSegmentCRC(void)
-{
-return readEEPROM(0x02);
-}
-
-# 2797
-void vscp_setSegmentCRC(uint8_t crc)
-{
-writeEEPROM(0x02, crc);
-}
-
-# 2806
+# 2695
 void vscp_setControlByte( uint8_t ctrl, uint8_t idx )
 {
 if ( idx > 1 ) return;
-writeEEPROM( 0x03 + idx, ctrl );
+(Busy_eep(), Write_b_eep(0x03 + idx,ctrl));
 }
 
-# 2817
+# 2706
 uint8_t vscp_getControlByte( uint8_t idx )
 {
 if ( idx > 1 ) return 0;
-return readEEPROM( 0x03 + idx );
+return Read_b_eep(0x03 + idx);
 }
 
-# 2827
+# 2716
 void vscp_init_pstorage( void )
 {
 init_app_eeprom();
 }
 
-# 2836
+# 2725
 uint32_t vscp_getFamilyCode()
 {
 return 0L;
 }
 
-# 2846
+# 2735
 uint32_t vscp_getFamilyType()
 {
 return 0;
 }
 
-# 2855
+# 2744
 void vscp_restoreDefaults()
 {
 init_app_eeprom();
 init_app_ram();
 }
 
-# 2865
+# 2754
 int8_t sendVSCPFrame(uint16_t vscpclass,
 uint8_t vscptype,
 uint8_t nodeid,
@@ -21568,7 +21151,7 @@ return 0;
 return 1;
 }
 
-# 2891
+# 2780
 int8_t getVSCPFrame( uint16_t *pvscpclass,
 uint8_t *pvscptype,
 uint8_t *pNodeId,
@@ -21590,7 +21173,7 @@ return 0;
 return 1;
 }
 
-# 2917
+# 2806
 int8_t sendCANFrame(uint32_t id, uint8_t dlc, uint8_t *pdata)
 {
 uint8_t rv = 0;
@@ -21608,7 +21191,7 @@ vscp_omsg.flags = 0;
 return rv;
 }
 
-# 2938
+# 2827
 int8_t getCANFrame(uint32_t *pid, uint8_t *pdlc, uint8_t *pdata)
 {
 ECAN_RX_MSG_FLAGS flags;

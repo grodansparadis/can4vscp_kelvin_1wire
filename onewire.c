@@ -42,9 +42,17 @@
 #include <math.h>
 #include "onewire.h"
 
+// -----------------------------------------------------------------------------
+//                         External prototypes 
+// -----------------------------------------------------------------------------
+
+extern void output_low( uint8_t pin );
+extern void output_high( uint8_t pin );
+extern uint8_t  input( uint8_t pin );
+extern void output( uint8_t pin );
 
 // -----------------------------------------------------------------------------
-//                            static variables                                
+//                          Static variables                                
 // -----------------------------------------------------------------------------
 
 static uint8_t bDoneFlag;
@@ -93,7 +101,6 @@ double Kelvin2Celsius(double tf)
 
 
 
-
 // -----------------------------------------------------------------------------
 //                          DS1820 Low-Level Functions                         
 // -----------------------------------------------------------------------------
@@ -107,7 +114,7 @@ double Kelvin2Celsius(double tf)
 // @param dly_us      number of micro seconds to delay
 //
 
-#define DS1820_DelayUs(dly_us)       delay_us( dly_us )
+#define DS1820_DelayUs( dly_us )    delay_us( dly_us )
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -118,7 +125,7 @@ double Kelvin2Celsius(double tf)
 // @param dly_ms number of milliseconds to delay
 // 
 
-#define DS1820_DelayMs(dly_ms)   delay_ms(dly_ms)
+#define DS1820_DelayMs( dly_ms )    delay_ms( dly_ms )
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -152,28 +159,28 @@ double Kelvin2Celsius(double tf)
 ////////////////////////////////////////////////////////////////////////////////
 // DS1820_Reset
 //
-// Initializes the DS1820 device.
+// Initialises the DS1820 device.
 //
 // @return FALSE if at least one device is on the 1-wire bus, TRUE otherwise
 
-uint8_t DS1820_Reset(void)
+uint8_t DS1820_Reset( uint8_t pin )
 {
    uint8_t bPresPulse;
 
    DS1820_DisableInterrupts();
    
-   /* reset pulse */
-   output_low(DS1820_DATAPIN);
-   DS1820_DelayUs(DS1820_RST_PULSE);
-   output_high(DS1820_DATAPIN);
+   // Reset pulse 
+   output_low( pin );
+   DS1820_DelayUs( DS1820_RST_PULSE );
+   output_high( pin );
 
-   /* wait until pullup pull 1-wire bus to high */
-   DS1820_DelayUs(DS1820_PRESENCE_WAIT);
+   // Wait until pullup pull 1-wire bus to high 
+   DS1820_DelayUs (DS1820_PRESENCE_WAIT );
 
-   /* get presence pulse */
-   bPresPulse = input(DS1820_DATAPIN);
+   // Get presence pulse 
+   bPresPulse = input( pin );
 
-   DS1820_DelayUs(424);
+   DS1820_DelayUs( 424 );
    
    DS1820_EnableInterrupts();
 
@@ -188,22 +195,22 @@ uint8_t DS1820_Reset(void)
 //
 // @return uint8_t value of the bit which as been read form the DS1820
 
-uint8_t DS1820_ReadBit(void)
+uint8_t DS1820_ReadBit( uint8_t pin )
 {
    uint8_t bBit;
 
    DS1820_DisableInterrupts();
    
-   output_low(DS1820_DATAPIN);
-   DS1820_DelayUs(DS1820_MSTR_BITSTART);
-   input(DS1820_DATAPIN);
-   DS1820_DelayUs(DS1820_BITREAD_DLY);
+   output_low( pin );
+   DS1820_DelayUs( DS1820_MSTR_BITSTART );
+   input( pin );
+   DS1820_DelayUs( DS1820_BITREAD_DLY );
 
-   bBit = input(DS1820_DATAPIN);
+   bBit = input( pin );
    
    DS1820_EnableInterrupts();
 
-   return (bBit);
+   return bBit;
 }
 
 
@@ -215,20 +222,19 @@ uint8_t DS1820_ReadBit(void)
 // @param bBitvalue of bit to be written
 // 
 
-void DS1820_WriteBit(uint8_t bBit)
+void DS1820_WriteBit( uint8_t pin, uint8_t bBit )
 {
    DS1820_DisableInterrupts();
    
-   output_low(DS1820_DATAPIN);
-   DS1820_DelayUs(DS1820_MSTR_BITSTART);
+   output_low( pin );
+   DS1820_DelayUs( DS1820_MSTR_BITSTART );
 
-   if (bBit != FALSE)
-   {
-      output_high(DS1820_DATAPIN);
+   if ( bBit != FALSE ) {
+      output_high( pin );
    }
 
-   DS1820_DelayUs(DS1820_BITWRITE_DLY);
-   output_high(DS1820_DATAPIN);
+   DS1820_DelayUs( DS1820_BITWRITE_DLY );
+   output_high( pin );
    
    DS1820_EnableInterrupts();
 }
@@ -242,20 +248,18 @@ void DS1820_WriteBit(uint8_t bBit)
 // @return uint8_t byte which has been read from the DS1820
 //
 
-uint8_t DS1820_ReadByte(void)
+uint8_t DS1820_ReadByte( uint8_t pin )
 {
    uint8_t i;
    uint8_t value = 0;
 
-   for (i=0 ; i < 8; i++)
-   {
-      if ( DS1820_ReadBit() )
-      {
+   for (i=0 ;i<8; i++ ) {
+      if ( DS1820_ReadBit( pin ) ) {
          value |= (1 << i);
       }
       DS1820_DelayUs(120);
    }
-   return(value);
+   return value;
 }
 
 
@@ -267,19 +271,18 @@ uint8_t DS1820_ReadByte(void)
 // @param      val_u8         byte to be written
 // 
 
-void DS1820_WriteByte(uint8_t val_u8)
+void DS1820_WriteByte( uint8_t pin, uint8_t val_u8 )
 {
    uint8_t i;
    uint8_t temp;
 
-   for (i=0; i < 8; i++)      /* writes byte, one bit at a time///
-   {
-      temp = val_u8 >> i;     /* shifts val right 'i' spaces */
-      temp &= 0x01;           /* copy that bit to temp */
-      DS1820_WriteBit(temp);  /* write bit in temp into */
+   for (i=0 ;i<8; i++) {            // Writes byte, one bit at a time
+      temp = val_u8 >> i;           // Shifts val right 'i' spaces 
+      temp &= 0x01;                 // Copy that bit to temp 
+      DS1820_WriteBit( pin, temp);  // Write bit in temp into 
    }
 
-   DS1820_DelayUs(105);
+   DS1820_DelayUs( 105 );
 }
 
 
@@ -298,22 +301,21 @@ void DS1820_WriteByte(uint8_t val_u8)
 //                               device or DS1820_CMD_SKIPROM to select all
 // 
 
-void DS1820_AddrDevice(uint8_t nAddrMethod)
+void DS1820_AddrDevice( uint8_t pin, uint8_t nAddrMethod )
 {
-   uint8_t i;
+    uint8_t i;
    
-   if (nAddrMethod == DS1820_CMD_MATCHROM)
-   {
-      DS1820_WriteByte(DS1820_CMD_MATCHROM);     /* address single devices on bus */
-      for (i = 0; i < DS1820_ADDR_LEN; i ++)
-      {
-         DS1820_WriteByte(nRomAddr_au8[i]);
-      }
-   }
-   else
-   {
-      DS1820_WriteByte(DS1820_CMD_SKIPROM);     /* address all devices on bus */
-   }
+    if ( nAddrMethod == DS1820_CMD_MATCHROM ) {
+        // address single devices on bus
+        DS1820_WriteByte( pin, DS1820_CMD_MATCHROM );      
+        for (i = 0; i<DS1820_ADDR_LEN; i ++ ) {
+             DS1820_WriteByte( pin, nRomAddr_au8[i] );
+        }
+    } 
+    else {
+        // address all devices on bus
+        DS1820_WriteByte( pin, DS1820_CMD_SKIPROM);    
+    }
 }
 
 
@@ -326,7 +328,7 @@ void DS1820_AddrDevice(uint8_t nAddrMethod)
 // @return uint8_t                 TRUE if there are more devices on the 1-wire
 //                                  bus, FALSE otherwise
 
-uint8_t DS1820_FindNextDevice(void)
+uint8_t DS1820_FindNextDevice( uint8_t pin )
 {
     uint8_t state_u8;
     uint8_t byteidx_u8;
@@ -337,38 +339,33 @@ uint8_t DS1820_FindNextDevice(void)
     uint8_t bStatus;
     uint8_t next_b = FALSE;
 
-    /* init ROM address */
-    for (byteidx_u8=0; byteidx_u8 < 8; byteidx_u8 ++)
-    {
+    // init ROM address 
+    for (byteidx_u8=0; byteidx_u8 < 8; byteidx_u8 ++) {
         nRomAddr_au8[byteidx_u8] = 0x00;
     }
 
-    bStatus = DS1820_Reset();        /* reset the 1-wire */
+    bStatus = DS1820_Reset( pin );      // reset the 1-wire 
 
-    if (bStatus || bDoneFlag)        /* no device found */
-    {
-        nLastDiscrepancy_u8 = 0;     /* reset the search */
+    if ( bStatus || bDoneFlag ) {       // no device found 
+        nLastDiscrepancy_u8 = 0;        // reset the search 
         return FALSE;
     }
 
-    /* send search rom command */
-    DS1820_WriteByte(DS1820_CMD_SEARCHROM);
+    // send search rom command 
+    DS1820_WriteByte( pin, DS1820_CMD_SEARCHROM );
 
     byteidx_u8 = 0;
-    do
-    {
+    do {
         state_u8 = 0;
 
-        /* read bit */
-        if ( DS1820_ReadBit() != 0 )
-        {
+        // read bit 
+        if ( DS1820_ReadBit( pin ) != 0 ) {
             state_u8 = 2;
         }
         DS1820_DelayUs(120);
 
-        /* read bit complement */
-        if ( DS1820_ReadBit() != 0 )
-        {
+        // read bit complement
+        if ( DS1820_ReadBit( pin ) != 0 ) {
             state_u8 |= 1;
         }
         DS1820_DelayUs(120);
@@ -380,80 +377,69 @@ uint8_t DS1820_FindNextDevice(void)
         /* 10    All devices connected to the bus have a 1 in this bit position. */
         /* 11    There are no devices connected to the 1-wire bus. */
 
-        /* if there are no devices on the bus */
-        if (state_u8 == 3)
-        {
+        // if there are no devices on the bus 
+        if ( state_u8 == 3 ) {
             break;
         }
-        else
-        {
-            /* devices have the same logical value at this position */
-            if (state_u8 > 0)
-            {
-                /* get bit value */
+        else {
+            // devices have the same logical value at this position 
+            if ( state_u8 > 0 ) {
+                // get bit value 
                 bit_b = (uint8_t)(state_u8 >> 1);
             }
-            /* devices have confilcting bits in the current ROM code */
-            else
-            {
-                /* if there was a conflict on the last iteration */
-                if (bitpos_u8 < nLastDiscrepancy_u8)
-                {
-                    /* take same bit as in last iteration */
-                    bit_b = ( (nRomAddr_au8[byteidx_u8] & mask_u8) > 0 );
+            // devices have confilcting bits in the current ROM code 
+            else {
+                // if there was a conflict on the last iteration 
+                if ( bitpos_u8 < nLastDiscrepancy_u8 ) {
+                    // take same bit as in last iteration 
+                    bit_b = ( ( nRomAddr_au8[ byteidx_u8 ] & mask_u8 ) > 0 );
                 }
-                else
-                {
-                    bit_b = (bitpos_u8 == nLastDiscrepancy_u8);
+                else {
+                    bit_b = ( bitpos_u8 == nLastDiscrepancy_u8 );
                 }
 
-                if (bit_b == 0)
+                if ( bit_b == 0 )
                 {
                     nDiscrepancyMarker_u8 = bitpos_u8;
                 }
             }
 
-            /* store bit in ROM address */
-           if (bit_b != 0)
-           {
-               nRomAddr_au8[byteidx_u8] |= mask_u8;
-           }
-           else
-           {
-               nRomAddr_au8[byteidx_u8] &= ~mask_u8;
-           }
+            // store bit in ROM address 
+            if ( bit_b != 0 ) {
+               nRomAddr_au8[ byteidx_u8 ] |= mask_u8;
+            }
+            else {
+               nRomAddr_au8[ byteidx_u8 ] &= ~mask_u8;
+            }
 
-           DS1820_WriteBit(bit_b);
+            DS1820_WriteBit( pin, bit_b );
 
-           /* increment bit position */
-           bitpos_u8 ++;
+            // increment bit position 
+            bitpos_u8 ++;
 
-           /* calculate next mask value */
-           mask_u8 = mask_u8 << 1;
+            // calculate next mask value 
+            mask_u8 = mask_u8 << 1;
 
-           /* check if this byte has finished */
-           if (mask_u8 == 0)
-           {
-               byteidx_u8 ++;  /* advance to next byte of ROM mask */
-               mask_u8 = 1;    /* update mask */
-           }
+            // check if this byte has finished 
+            if ( mask_u8 == 0 ) {
+                byteidx_u8 ++;  // advance to next byte of ROM mask 
+                mask_u8 = 1;    // update mask 
+            }
         }
-    } while (byteidx_u8 < DS1820_ADDR_LEN);
+    } while ( byteidx_u8 < DS1820_ADDR_LEN );
 
 
-    /* if search was unsuccessful then */
-    if (bitpos_u8 < 65)
-    {
-        /* reset the last discrepancy to 0 */
+    // if search was unsuccessful then 
+    if ( bitpos_u8 < 65 ) {
+        // reset the last discrepancy to 0 
         nLastDiscrepancy_u8 = 0;
     }
-    else
-    {
-        /* search was successful */
+    else {
+        // search was successful 
         nLastDiscrepancy_u8 = nDiscrepancyMarker_u8;
-        bDoneFlag = (nLastDiscrepancy_u8 == 0);
+        bDoneFlag = ( nLastDiscrepancy_u8 == 0 );
 
-        /* indicates search is not complete yet, more parts remain */
+        // indicates search is not complete yet, more parts remain 
         next_b = TRUE;
     }
 
@@ -470,12 +456,12 @@ uint8_t DS1820_FindNextDevice(void)
 // @return uint8_t                 TRUE if there are more devices on the 1-wire
 //                                  bus, FALSE otherwise
 
-uint8_t DS1820_FindFirstDevice(void)
+uint8_t DS1820_FindFirstDevice( uint8_t pin )
 {
     nLastDiscrepancy_u8 = 0;
     bDoneFlag = FALSE;
 
-    return ( DS1820_FindNextDevice() );
+    return ( DS1820_FindNextDevice( pin ) );
 }
 
 
@@ -484,26 +470,26 @@ uint8_t DS1820_FindFirstDevice(void)
 //
 // Writes to the DS1820 EEPROM memory (2 bytes available).
 //
-// @param      nTHigh         high byte of EEPROM
-// @param            nTLow          low byte of EEPROM
+// @param nTHigh high byte of EEPROM
+// @param nTLow  low byte of EEPROM
 // 
 
-void DS1820_WriteEEPROM(uint8_t nTHigh, uint8_t nTLow)
+void DS1820_WriteEEPROM( uint8_t pin, uint8_t nTHigh, uint8_t nTLow )
 {
-    /* --- write to scratchpad ----------------------------------------------- */
-    DS1820_Reset();
-    DS1820_AddrDevice(DS1820_CMD_MATCHROM);
-    DS1820_WriteByte(DS1820_CMD_WRITESCRPAD); /* start conversion */
-    DS1820_WriteByte(nTHigh);
-    DS1820_WriteByte(nTLow);
+    // --- write to scratchpad ----------------------------------------------- 
+    DS1820_Reset( pin );
+    DS1820_AddrDevice( pin, DS1820_CMD_MATCHROM );
+    DS1820_WriteByte( pin, DS1820_CMD_WRITESCRPAD ); // start conversion 
+    DS1820_WriteByte( pin, nTHigh );
+    DS1820_WriteByte( pin, nTLow );
 
-    DS1820_DelayUs(10);
+    DS1820_DelayUs( 10 );
 
-    DS1820_Reset();
-    DS1820_AddrDevice(DS1820_CMD_MATCHROM);
-    DS1820_WriteByte(DS1820_CMD_COPYSCRPAD); /* start conversion */
+    DS1820_Reset( pin );
+    DS1820_AddrDevice( pin, DS1820_CMD_MATCHROM );
+    DS1820_WriteByte( pin, DS1820_CMD_COPYSCRPAD ); // start conversion 
 
-    delay_ms(10);
+    delay_ms( 10 );
 }
 
 
@@ -549,31 +535,30 @@ void DS1820_WriteEEPROM(uint8_t nTHigh, uint8_t nTLow)
 // @return     sint16         raw temperature value with a resolution
 //                            of 1/256°C
 
-sint16 DS1820_GetTempRaw(void)
+int16_t DS1820_GetTempRaw( uint8_t pin )
 {
     uint8_t i;
     uint16_t temp_u16;
     uint16_t highres_u16;
     uint8_t scrpad[DS1820_SCRPADMEM_LEN];
 
-    /* --- start temperature conversion -------------------------------------- */
-    DS1820_Reset();
-    DS1820_AddrDevice(DS1820_CMD_MATCHROM);     /* address the device */
-    output_high(DS1820_DATAPIN);
-    DS1820_WriteByte(DS1820_CMD_CONVERTTEMP);   /* start conversion */
-    //DS1820_DelayMs(DS1820_TEMPCONVERT_DLY);   /* wait for temperature conversion */
+    // --- start temperature conversion -------------------------------------- 
+    DS1820_Reset( pin );
+    DS1820_AddrDevice( pin, DS1820_CMD_MATCHROM);       // address the device 
+    output_high( pin );
+    DS1820_WriteByte( pin, DS1820_CMD_CONVERTTEMP );    // start conversion 
+    //DS1820_DelayMs(DS1820_TEMPCONVERT_DLY);           // wait for temperature conversion 
     DS1820_DelayMs(750);
 
 
-    /* --- read sratchpad ---------------------------------------------------- */
-    DS1820_Reset();
-    DS1820_AddrDevice(DS1820_CMD_MATCHROM);   /* address the device */
-    DS1820_WriteByte(DS1820_CMD_READSCRPAD);  /* read scratch pad */
+    // --- read sratchpad ---------------------------------------------------- 
+    DS1820_Reset( pin );
+    DS1820_AddrDevice( pin, DS1820_CMD_MATCHROM);       // address the device 
+    DS1820_WriteByte( pin, DS1820_CMD_READSCRPAD);      // read scratch pad 
 
-    /* read scratch pad data */
-    for (i=0; i < DS1820_SCRPADMEM_LEN; i++)
-    {
-        scrpad[i] = DS1820_ReadByte();
+    // read scratch pad data 
+    for (i=0; i<DS1820_SCRPADMEM_LEN; i++ ) {
+        scrpad[i] = DS1820_ReadByte( pin );
     }
 
 
@@ -581,43 +566,40 @@ sint16 DS1820_GetTempRaw(void)
     /* Formular for temperature calculation: */
     /* Temp = Temp_read - 0.25 + ((Count_per_C - Count_Remain)/Count_per_C) */
 
-    /* get raw value of temperature (0.5°C resolution) */
+    // get raw value of temperature (0.5°C resolution) 
     temp_u16 = 0;
     temp_u16 = (uint16_t)((uint16_t)scrpad[DS1820_REG_TEMPMSB] << 8);
     temp_u16 |= (uint16_t)(scrpad[DS1820_REG_TEMPLSB]);
 
-    if (nRomAddr_au8[0] == DS1820_FAMILY_CODE_DS18S20)
-    {
-        /* get temperature value in 1°C resolution */
+    if ( nRomAddr_au8[0] == DS1820_FAMILY_CODE_DS18S20 ) {
+        // get temperature value in 1°C resolution 
         temp_u16 >>= 1;
     
-        /* temperature resolution is TEMP_RES (0x100), so 1°C equals 0x100 */
-        /* => convert to temperature to 1/256°C resolution */
+        // temperature resolution is TEMP_RES (0x100), so 1°C equals 0x100 
+        // => convert to temperature to 1/256°C resolution 
         temp_u16 = ((uint16_t)temp_u16 << 8);
     
-        /* now substract 0.25°C */
+        // now substract 0.25°C 
         temp_u16 -= ((uint16_t)TEMP_RES >> 2);
     
-        /* now calculate high resolution */
+        // now calculate high resolution 
         highres_u16 = scrpad[DS1820_REG_CNTPERSEC] - scrpad[DS1820_REG_CNTREMAIN];
         highres_u16 = ((uint16_t)highres_u16 << 8);
-        if (scrpad[DS1820_REG_CNTPERSEC])
-        {
-            highres_u16 = highres_u16 / (uint16_t)scrpad[DS1820_REG_CNTPERSEC];
+        if ( scrpad[ DS1820_REG_CNTPERSEC ] ) {
+            highres_u16 = highres_u16 / (uint16_t)scrpad[ DS1820_REG_CNTPERSEC ];
         }
     
-        /* now calculate result */
+        // now calculate result 
         highres_u16 = highres_u16 + temp_u16;
     }
-    else
-    {
-        /* 12 bit temperature value has 0.0625°C resolution */
-        /* shift left by 4 to get 1/256°C resolution */
+    else {
+        // 12 bit temperature value has 0.0625°C resolution 
+        // shift left by 4 to get 1/256°C resolution 
         highres_u16 = temp_u16;
         highres_u16 <<= 4;
     }
 
-    return (highres_u16);
+    return ( highres_u16 );
 }
 
 
@@ -628,9 +610,9 @@ sint16 DS1820_GetTempRaw(void)
 //
 // @return    float          temperature value with as float value
 
-float DS1820_GetTempFloat(void)
+float DS1820_GetTempFloat( uint8_t pin )
 {
-    return ((float)DS1820_GetTempRaw() / (float)TEMP_RES);
+    return ( (float)DS1820_GetTempRaw( pin ) / (float)TEMP_RES );
 }
 
 
@@ -644,21 +626,22 @@ float DS1820_GetTempFloat(void)
 // @return sint16         temperature value with an internal resolution
 //                            of TEMP_RES
 
-void DS1820_GetTempString(sint16 tRaw_s16, char *strTemp_pc)
+void DS1820_GetTempString( int16_t tRaw_s16, char *strTemp_pc )
 {
     sint16 tPhyLow_s16;
     sint8 tPhy_s8;
 
-    /* convert from raw value (1/256°C resolution) to physical value */
-    tPhy_s8 = (sint8)(tRaw_s16/TEMP_RES);
+    // convert from raw value (1/256°C resolution) to physical value 
+    tPhy_s8 = (sint8)(tRaw_s16/TEMP_RES );
 
-    /* convert digits from raw value (1/256°C resolution) to physical value */
-    /*tPhyLow_u16 = tInt_s16 % TEMP_RES;*/
-    tPhyLow_s16 = tRaw_s16 & 0xFF;      /* this operation is the same as */
-                                        /* but saves flash memory tInt_s16 % TEMP_RES */
+    // convert digits from raw value (1/256°C resolution) to physical value 
+    // tPhyLow_u16 = tInt_s16 % TEMP_RES;
+    tPhyLow_s16 = tRaw_s16 & 0xFF;      // this operation is the same as 
+                                        // but saves flash memory tInt_s16 % TEMP_RES 
     tPhyLow_s16 = tPhyLow_s16 * 100;
     tPhyLow_s16 = (uint16_t)tPhyLow_s16 / TEMP_RES;
 
-    /* write physical temperature value to string */
+    // write physical temperature value to string 
     sprintf(strTemp_pc, "%d.%02d", tPhy_s8, (sint8)tPhyLow_s16);
 }
+

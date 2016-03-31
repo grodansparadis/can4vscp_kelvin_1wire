@@ -26,7 +26,7 @@
 #include "vscp_compiler.h"
 #include "vscp_projdefs.h"
 
-#include <p18cxxx.h>
+#include <xc.h>
 #include <timers.h>
 #include <adc.h>
 #include <math.h>
@@ -220,6 +220,27 @@ void interrupt low_priority interrupt_at_low_vector( void )
     } // ADC
 
     return;
+}
+
+
+void output_low( uint8_t pin )
+{
+
+}
+
+void output_high( uint8_t pin )
+{
+
+}
+
+extern uint8_t input( uint8_t pin )
+{
+    return 1;
+}
+
+extern void output( uint8_t pin )
+{
+
 }
 
 

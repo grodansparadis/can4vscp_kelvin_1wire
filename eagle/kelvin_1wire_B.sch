@@ -17602,7 +17602,7 @@ Digikey ED2737ND</description>
 <text x="175.26" y="246.38" size="1.778" layer="91">Connector</text>
 <text x="200.66" y="177.8" size="1.778" layer="91">ALPS SKHH</text>
 <text x="200.66" y="175.26" size="1.778" layer="91">Horizontal type</text>
-<text x="378.46" y="7.62" size="1.778" layer="91">A</text>
+<text x="378.46" y="7.62" size="1.778" layer="91">B</text>
 <text x="289.56" y="27.94" size="5.08" layer="91">Kelvin 1-Wire</text>
 <text x="365.76" y="25.4" size="1.778" layer="91">http://www.vscp.org</text>
 <text x="289.56" y="25.4" size="1.778" layer="91">Temperature module</text>
@@ -18318,12 +18318,15 @@ Digikey ED2737ND</description>
 <pinref part="PAD1" gate="P" pin="P"/>
 </segment>
 </net>
-<net name="T1" class="0">
+<net name="N$9" class="0">
 <segment>
-<pinref part="IC1" gate="G$1" pin="RC3/SCK/SCL"/>
-<wire x1="142.24" y1="195.58" x2="147.32" y2="195.58" width="0.1524" layer="91"/>
-<label x="147.32" y="195.58" size="1.778" layer="95"/>
+<wire x1="10.16" y1="203.2" x2="10.16" y2="198.12" width="0.1524" layer="91"/>
+<wire x1="81.28" y1="203.2" x2="10.16" y2="203.2" width="0.1524" layer="91"/>
+<pinref part="C14" gate="G$1" pin="2"/>
+<pinref part="IC1" gate="G$1" pin="RA4/T0CKIN"/>
 </segment>
+</net>
+<net name="T4" class="0">
 <segment>
 <wire x1="353.06" y1="200.66" x2="358.14" y2="200.66" width="0.1524" layer="91"/>
 <wire x1="358.14" y1="200.66" x2="373.38" y2="200.66" width="0.1524" layer="91"/>
@@ -18333,45 +18336,13 @@ Digikey ED2737ND</description>
 <pinref part="R7" gate="G$1" pin="1"/>
 <pinref part="C10" gate="G$1" pin="1"/>
 </segment>
-</net>
-<net name="T2" class="0">
-<segment>
-<pinref part="IC1" gate="G$1" pin="RC4/SDI/SDA"/>
-<wire x1="142.24" y1="193.04" x2="147.32" y2="193.04" width="0.1524" layer="91"/>
-<label x="147.32" y="193.04" size="1.778" layer="95"/>
-</segment>
-<segment>
-<wire x1="353.06" y1="180.34" x2="358.14" y2="180.34" width="0.1524" layer="91"/>
-<wire x1="358.14" y1="180.34" x2="373.38" y2="180.34" width="0.1524" layer="91"/>
-<wire x1="358.14" y1="180.34" x2="358.14" y2="177.8" width="0.1524" layer="91"/>
-<junction x="358.14" y="180.34"/>
-<label x="375.92" y="180.34" size="1.778" layer="95"/>
-<pinref part="R12" gate="G$1" pin="1"/>
-<pinref part="C11" gate="G$1" pin="1"/>
-</segment>
-</net>
-<net name="T3" class="0">
-<segment>
-<pinref part="IC1" gate="G$1" pin="RC6/TX/CK"/>
-<wire x1="142.24" y1="187.96" x2="147.32" y2="187.96" width="0.1524" layer="91"/>
-<label x="147.32" y="187.96" size="1.778" layer="95"/>
-</segment>
-<segment>
-<wire x1="353.06" y1="162.56" x2="358.14" y2="162.56" width="0.1524" layer="91"/>
-<wire x1="358.14" y1="162.56" x2="373.38" y2="162.56" width="0.1524" layer="91"/>
-<wire x1="358.14" y1="162.56" x2="358.14" y2="160.02" width="0.1524" layer="91"/>
-<junction x="358.14" y="162.56"/>
-<label x="375.92" y="162.56" size="1.778" layer="95"/>
-<pinref part="R14" gate="G$1" pin="1"/>
-<pinref part="C12" gate="G$1" pin="1"/>
-</segment>
-</net>
-<net name="T4" class="0">
 <segment>
 <pinref part="IC1" gate="G$1" pin="RC7/RX/DT"/>
 <wire x1="142.24" y1="185.42" x2="147.32" y2="185.42" width="0.1524" layer="91"/>
 <label x="147.32" y="185.42" size="1.778" layer="95"/>
 </segment>
+</net>
+<net name="T1" class="0">
 <segment>
 <wire x1="353.06" y1="144.78" x2="358.14" y2="144.78" width="0.1524" layer="91"/>
 <wire x1="358.14" y1="144.78" x2="373.38" y2="144.78" width="0.1524" layer="91"/>
@@ -18381,13 +18352,42 @@ Digikey ED2737ND</description>
 <pinref part="R16" gate="G$1" pin="1"/>
 <pinref part="C13" gate="G$1" pin="1"/>
 </segment>
-</net>
-<net name="N$9" class="0">
 <segment>
-<wire x1="10.16" y1="203.2" x2="10.16" y2="198.12" width="0.1524" layer="91"/>
-<wire x1="81.28" y1="203.2" x2="10.16" y2="203.2" width="0.1524" layer="91"/>
-<pinref part="C14" gate="G$1" pin="2"/>
-<pinref part="IC1" gate="G$1" pin="RA4/T0CKIN"/>
+<pinref part="IC1" gate="G$1" pin="RC3/SCK/SCL"/>
+<wire x1="142.24" y1="195.58" x2="147.32" y2="195.58" width="0.1524" layer="91"/>
+<label x="147.32" y="195.58" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="T2" class="0">
+<segment>
+<wire x1="353.06" y1="162.56" x2="358.14" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="358.14" y1="162.56" x2="373.38" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="358.14" y1="162.56" x2="358.14" y2="160.02" width="0.1524" layer="91"/>
+<junction x="358.14" y="162.56"/>
+<label x="375.92" y="162.56" size="1.778" layer="95"/>
+<pinref part="R14" gate="G$1" pin="1"/>
+<pinref part="C12" gate="G$1" pin="1"/>
+</segment>
+<segment>
+<pinref part="IC1" gate="G$1" pin="RC4/SDI/SDA"/>
+<wire x1="142.24" y1="193.04" x2="147.32" y2="193.04" width="0.1524" layer="91"/>
+<label x="147.32" y="193.04" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="T3" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="RC6/TX/CK"/>
+<wire x1="142.24" y1="187.96" x2="147.32" y2="187.96" width="0.1524" layer="91"/>
+<label x="147.32" y="187.96" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="353.06" y1="180.34" x2="358.14" y2="180.34" width="0.1524" layer="91"/>
+<wire x1="358.14" y1="180.34" x2="373.38" y2="180.34" width="0.1524" layer="91"/>
+<wire x1="358.14" y1="180.34" x2="358.14" y2="177.8" width="0.1524" layer="91"/>
+<junction x="358.14" y="180.34"/>
+<label x="375.92" y="180.34" size="1.778" layer="95"/>
+<pinref part="R12" gate="G$1" pin="1"/>
+<pinref part="C11" gate="G$1" pin="1"/>
 </segment>
 </net>
 </nets>

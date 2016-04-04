@@ -227,26 +227,140 @@ void interrupt low_priority interrupt_at_low_vector( void )
     return;
 }
 
+///////////////////////////////////////////////////////////////////////////////
+// input
+//
+// Set pin as input
+//  
 
-void output_low( uint8_t pin )
+uint8_t input( uint8_t pin )
 {
-
-}
-
-void output_high( uint8_t pin )
-{
-
-}
-
-extern uint8_t input( uint8_t pin )
-{
+    uint8_t rv = 0;
+    
+    switch ( pin ) {
+        
+        case TEMP1:
+            TRISCbits.TRISC7 = 0;
+            rv = PORTCbits.RC7;
+            break;
+                    
+        case TEMP2:
+            TRISCbits.TRISC6 = 0;
+            rv = PORTCbits.RC6;
+            break;
+                    
+        case TEMP3:
+            TRISCbits.TRISC4 = 0;
+            rv = PORTCbits.RC4;
+            break;
+                    
+        case TEMP4:
+            TRISCbits.TRISC3 = 0;
+            rv = PORTCbits.RC3;
+            break;            
+            
+    }
+        
     return 1;
 }
 
+///////////////////////////////////////////////////////////////////////////////
+// output
+//
+// Set pin as output
+//  
+
 extern void output( uint8_t pin )
 {
-
+    switch ( pin ) {
+        
+        case TEMP1:
+            TRISCbits.TRISC7 = 1;
+            break;
+                    
+        case TEMP2:
+            TRISCbits.TRISC6 = 1;
+            break;
+                    
+        case TEMP3:
+            TRISCbits.TRISC4 = 1;
+            break;
+                    
+        case TEMP4:
+            TRISCbits.TRISC3 = 1;
+            break;            
+            
+    }
+        
 }
+
+///////////////////////////////////////////////////////////////////////////////
+// output_low
+//
+// Set output pin low
+//    
+    
+void output_low( uint8_t pin )
+{
+    switch ( pin ) {
+        
+        case TEMP1:
+            TRISCbits.TRISC7 = 1;
+            PORTCbits.RC7 = 0;
+            break;
+                    
+        case TEMP2:
+            TRISCbits.TRISC6 = 1;
+            PORTCbits.RC6 = 0;
+            break;
+                    
+        case TEMP3:
+            TRISCbits.TRISC4 = 1;
+            PORTCbits.RC4 = 0;
+            break;
+                    
+        case TEMP4:
+            TRISCbits.TRISC3 = 1;
+            PORTCbits.RC3 = 0;
+            break;            
+            
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// output_high
+//
+// Set output pin high
+//  
+
+void output_high( uint8_t pin )
+{
+    switch ( pin ) {
+        
+        case TEMP1:
+            TRISCbits.TRISC7 = 1;
+            PORTCbits.RC7 = 1;
+            break;
+                    
+        case TEMP2:
+            TRISCbits.TRISC6 = 1;
+            PORTCbits.RC6 = 1;
+            break;
+                    
+        case TEMP3:
+            TRISCbits.TRISC4 = 1;
+            PORTCbits.RC4 = 1;
+            break;
+                    
+        case TEMP4:
+            TRISCbits.TRISC3 = 1;
+            PORTCbits.RC3 = 1;
+            break;            
+            
+    }
+}
+
+
 
 
 //***************************************************************************
@@ -386,7 +500,7 @@ void main()
 
 void doWork(void)
 {
-
+    //PORTC &= ~0x40;
 
 }
 
@@ -722,10 +836,12 @@ void setEventData(int v, unsigned char unit)
     if (TEMP_UNIT_KELVIN == unit) {
         // Convert to Kelvin
         newval = Celsius2Kelvin(v);
-    } else if (TEMP_UNIT_FAHRENHEIT == unit) {
+    } 
+    else if (TEMP_UNIT_FAHRENHEIT == unit) {
         // Convert to Fahrenheit
         newval = Celsius2Fahrenheit(v);
-    } else {
+    } 
+    else {
         // Defaults to Celsius
         newval = v;
     }
@@ -748,14 +864,13 @@ int16_t getCalibrationValue(uint8_t i)
 
     cal = construct_signed16( eeprom_read(2 * i + EEPROM_CALIBRATION_SENSOR0_MSB),
 				eeprom_read(2 * i + EEPROM_CALIBRATION_SENSOR0_LSB) );
-    //cal = ((int16_t)eeprom_read(2 * i + EEPROM_CALIBRATION_SENSOR0_MSB))<<8 +
-    //        eeprom_read(2 * i + EEPROM_CALIBRATION_SENSOR0_LSB);
+
 
     return cal;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-// Init - Initialization Routine
+// Init - Initialisation Routine
 //  
 
 void init()
@@ -765,7 +880,7 @@ void init()
     // Initialise data
     init_app_ram();
 
-    // Initialse the uP
+    // Initialise the uP
 
     // PORTA
     // RA0/AN0 - input
@@ -793,7 +908,7 @@ void init()
     // RC1 - Output - Status LED - Default off
     // RC0 - Input  - Init. button
 
-    PORTC = 0b00000000;
+    PORTC = 0b11011001;
     TRISC = 0b11011001;    
 
     OpenTimer0(TIMER_INT_ON & T0_16BIT & T0_SOURCE_INT & T0_PS_1_8);

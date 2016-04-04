@@ -28,6 +28,11 @@
 #include <inttypes.h>
 #include "main.h"
 
+#define TEMP1   0
+#define TEMP2   1
+#define TEMP3   2
+#define TEMP4   3
+
 //
 // Defaults
 //

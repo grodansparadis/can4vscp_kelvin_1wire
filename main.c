@@ -26,6 +26,8 @@
 #include "vscp_compiler.h"
 #include "vscp_projdefs.h"
 
+#define _XTAL_FREQ 40000000 // Fro delay functions
+
 #include <xc.h>
 #include <timers.h>
 #include <adc.h>
@@ -123,7 +125,7 @@
 const uint8_t vscp_deviceURL[] = "www.eurosource.se/1wire_1.xml";
 
 // Global Variable Declarations
-int16_t current_temp;  // Current temperatures, pos 0 = thermistor
+int16_t current_temp;  // Current temperatures, thermistor
 
 volatile uint16_t sendTimer;            // Timer for CAN send
 volatile uint32_t measurement_clock;    // Clock for measurements
@@ -140,8 +142,6 @@ uint8_t high_alarm;
 uint8_t adc_low;
 uint8_t adc_high;
 
-// Thermistor coefficients
-double sh_coefficient;    // 1 sensor with 3 32-bit constants
 
 ///////////////////////////////////////////////////////////////////////////////
 // Isr() 	- Interrupt Service Routine
@@ -164,7 +164,7 @@ void interrupt low_priority interrupt_at_low_vector( void )
         sendTimer++;
 
         // Check for init. button
-        if (!(PORTC & 0x01)) {
+        if ( !( PORTC & 0x01 ) ) {
             // Active
             vscp_initbtncnt++;
         }
@@ -200,9 +200,14 @@ void interrupt low_priority interrupt_at_low_vector( void )
     // Check ADC
     if ( PIR1bits.ADIF ) {
 
+#if defined(_18F2580)        
         switch (0x3C & ADCON0) {
+#else
+        switch (0x7C & ADCON0) {   
+#endif
 
             case SELECT_ADC_TEMP0:
+                
                 // Read conversion
                 adc_low = ADRESH;
                 adc_high = ADRESL;
@@ -212,7 +217,7 @@ void interrupt low_priority interrupt_at_low_vector( void )
 
         }
 
-        // Start conversion
+        // Start another conversion
         ConvertADC();
 
         PIR1bits.ADIF = 0; // Reset interrupt flag
@@ -381,42 +386,7 @@ void main()
 
 void doWork(void)
 {
-    uint8_t i, j;
-    uint16_t B;
-    double resistance;
-    double Rinf;
-    double temp;
-    double v;
-    double calVoltage;
 
-    calVoltage = ((uint16_t) eeprom_read(EEPROM_CALIBRATED_VOLTAGE_MSB)*256 +
-                    eeprom_read(EEPROM_CALIBRATED_VOLTAGE_LSB));
-
-    // Check if there are new adc values to
-    // convert to temperatures
-
-    // Use B-constant
-    // ==============
-    // http://en.wikipedia.org/wiki/Thermistor
-    // R1 = (R2V - R2V2) / V2  R2= 10K, V = 5V,  V2 = adc * voltage/1024
-    // T = B / ln(r/Rinf)
-    // Rinf = R0 e (-B/T0), R0=10K, T0 = 273.15 + 25 = 298.15
-    B = (uint16_t)eeprom_read(2 * i + EEPROM_B_CONSTANT0_MSB)*256 +
-                        eeprom_read(2 * i + EEPROM_B_CONSTANT0_LSB);
-            
-    Rinf = 10000.0 * exp(B / -298.15);
-    //itemp = Rinf * 10000;
-    v = 5.0 * (double) ( ( adc_high << 8 ) + adc_low) / 1025; // TODO 12-bit resolution
-    //itemp = v * 100;
-    resistance = (calVoltage - 10000.0 * v) / v;
-    //itemp = r;
-    temp = ((double) B) / log(resistance / Rinf);
-    //itemp = log(r/Rinf);
-    temp -= 273.15; // Convert Kelvin to Celsius            
-
-    current_temp = (current_temp + 
-                            ((long)(temp * 100) + 
-                            getCalibrationValue(i) ) ) / 2;
 
 }
 
@@ -792,10 +762,10 @@ void init()
 {
     //uint8_t msgdata[ 8 ];
 
-    // Initialize data
+    // Initialise data
     init_app_ram();
 
-    // Initialize the uP
+    // Initialse the uP
 
     // PORTA
     // RA0/AN0 - input
@@ -814,33 +784,47 @@ void init()
     // RB0/AN10 -input
     TRISB = 0x1B;
 
-    // RC7 - Output - Not used.
-    // RC6 - Output - Not used.
+    // RC7 - Input - T4.
+    // RC6 - Input - T3.
     // RC5 - Output - Not used.
-    // RC3 - Output - Not used.
+    // RC4 - Input - T2
+    // RC3 - Input - T1.
     // RC2 - Output - Not used.
     // RC1 - Output - Status LED - Default off
     // RC0 - Input  - Init. button
 
-    TRISC = 0x01;
-    PORTC = 0x00;
+    PORTC = 0b00000000;
+    TRISC = 0b11011001;    
 
     OpenTimer0(TIMER_INT_ON & T0_16BIT & T0_SOURCE_INT & T0_PS_1_8);
     WriteTimer0(TIMER0_RELOAD_VALUE);
-
-#if defined(_18F2580)     
-    OpenADC(ADC_FOSC_64 & ADC_RIGHT_JUST & ADC_20_TAD,
+    
+    #if defined(_18F2580)     
+    OpenADC(ADC_FOSC_32 & ADC_RIGHT_JUST & ADC_20_TAD,
                 ADC_CH0 & ADC_INT_ON & ADC_11ANA &
                     ADC_VREFPLUS_VDD & ADC_VREFMINUS_VSS,
-                15);
+                15 );
 #else if defined(_18F25K80) || defined(_18F26K80) || defined(_18F45K80) || defined(_18F46K80) || defined(_18F65K80) || defined(_18F66K80)
-    OpenADC(ADC_FOSC_64 & ADC_RIGHT_JUST & ADC_20_TAD,
-                ADC_CH0 & ADC_INT_ON,
-                15);
-#endif    
-   
+        
+    // Disable comparators
+    CM1CON = 0x00;
+    CM2CON = 0x00;
+    CVRCON = 0; 
+    
+    ANCON0bits.ANSEL0=1;
+    ANCON0bits.ANSEL1=1;
+    ANCON0bits.ANSEL2=1;
+    ANCON1bits.ANSEL8=1;
+    ANCON1bits.ANSEL9=1;
+    ANCON1bits.ANSEL10=1;
 
-    // Initialize CAN
+    // OpenADC_Page16
+    OpenADC( ADC_FOSC_32 & ADC_RIGHT_JUST & ADC_20_TAD,
+                ADC_CH0 & ADC_INT_ON,
+                ADC_NEG_CH0 & ADC_REF_VDD_VDD & ADC_REF_VDD_VSS );
+#endif  
+
+    // Initialise CAN
     ECANInitialize();
 
     // Must be in Config. mode to change many of settings.
@@ -866,30 +850,11 @@ void init()
 
     // Enable global interrupt
     INTCONbits.GIE = 1;
-
+    
+    // Start ADC conversions
     ConvertADC();
 
     return;
-}
-
-///////////////////////////////////////////////////////////////////////////////
-// writeCoeffs2Ram
-//
-
-void writeCoeffs2Ram(void)
-{
-    int i, j;
-    uint8_t c[3];
-
-/* TODO   
-    for (i = 0; i < 6; i++) {
-        for (j = 2; j > 0; j--) {
-            // Store Microchip order (Little endian)
-            c[2 - j] = eeprom_read(EEPROM_COEFFICIENT_A_SENSOR0_0 + i * 3 + j);
-        }
-        sh_coefficients[i] = *((double*) c);
-    }
-*/    
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -915,8 +880,6 @@ void init_app_ram(void)
     // No high temperature alarms
     high_alarm = 0;
 
-    // Write coefficients to ram
-    //writeCoeffs2Ram();
 }
 
 
@@ -949,21 +912,6 @@ void init_app_eeprom(void)
 
     eeprom_write(EEPROM_B_CONSTANT0_MSB, DEFAULT_B_CONSTANT_SENSOR0_MSB);
     eeprom_write(EEPROM_B_CONSTANT0_LSB, DEFAULT_B_CONSTANT_SENSOR0_LSB);
-
-    eeprom_write(EEPROM_B_CONSTANT1_MSB, DEFAULT_B_CONSTANT_MSB);
-    eeprom_write(EEPROM_B_CONSTANT1_LSB, DEFAULT_B_CONSTANT_LSB);
-
-    eeprom_write(EEPROM_B_CONSTANT2_MSB, DEFAULT_B_CONSTANT_MSB);
-    eeprom_write(EEPROM_B_CONSTANT2_LSB, DEFAULT_B_CONSTANT_LSB);
-
-    eeprom_write(EEPROM_B_CONSTANT3_MSB, DEFAULT_B_CONSTANT_MSB);
-    eeprom_write(EEPROM_B_CONSTANT3_LSB, DEFAULT_B_CONSTANT_LSB);
-
-    eeprom_write(EEPROM_B_CONSTANT4_MSB, DEFAULT_B_CONSTANT_MSB);
-    eeprom_write(EEPROM_B_CONSTANT4_LSB, DEFAULT_B_CONSTANT_LSB);
-
-    eeprom_write(EEPROM_B_CONSTANT5_MSB, DEFAULT_B_CONSTANT_MSB);
-    eeprom_write(EEPROM_B_CONSTANT5_LSB, DEFAULT_B_CONSTANT_LSB);
 
     // Low alarms
 
@@ -1074,11 +1022,6 @@ void init_app_eeprom(void)
     eeprom_write(EEPROM_HYSTERESIS_SENSOR4, DEFAULT_HYSTERESIS);
     eeprom_write(EEPROM_HYSTERESIS_SENSOR5, DEFAULT_HYSTERESIS);
 
-    // Calibrated voltage
-    
-    eeprom_write(EEPROM_CALIBRATED_VOLTAGE_MSB, DEFAULT_CALIBRATED_VOLTAGE_MSB);
-    eeprom_write(EEPROM_CALIBRATED_VOLTAGE_LSB, DEFAULT_CALIBRATED_VOLTAGE_LSB);
-
     // Calibration
 
     eeprom_write(EEPROM_CALIBRATION_SENSOR0_MSB, 0);
@@ -1093,40 +1036,6 @@ void init_app_eeprom(void)
     eeprom_write(EEPROM_CALIBRATION_SENSOR4_LSB, 0);
     eeprom_write(EEPROM_CALIBRATION_SENSOR5_MSB, 0);
     eeprom_write(EEPROM_CALIBRATION_SENSOR5_LSB, 0);
-
-    // S-H Coefficients sensor 0
-
-    /*
-    eeprom_write(EEPROM_COEFFICIENT_A_SENSOR0_0, 0);
-    eeprom_write(EEPROM_COEFFICIENT_A_SENSOR0_1, 0);
-    eeprom_write(EEPROM_COEFFICIENT_A_SENSOR0_2, 0);
-    eeprom_write(EEPROM_COEFFICIENT_A_SENSOR0_3, 0);
-    eeprom_write(EEPROM_COEFFICIENT_B_SENSOR0_0, 0);
-    eeprom_write(EEPROM_COEFFICIENT_B_SENSOR0_1, 0);
-    eeprom_write(EEPROM_COEFFICIENT_B_SENSOR0_2, 0);
-    eeprom_write(EEPROM_COEFFICIENT_B_SENSOR0_3, 0);
-    eeprom_write(EEPROM_COEFFICIENT_C_SENSOR0_0, 0);
-    eeprom_write(EEPROM_COEFFICIENT_C_SENSOR0_1, 0);
-    eeprom_write(EEPROM_COEFFICIENT_C_SENSOR0_2, 0);
-    eeprom_write(EEPROM_COEFFICIENT_C_SENSOR0_3, 0);
-
-    // S-H Coefficients sensor 1-5
-    
-    for (uint8_t i = 0; i < 6; i++) {
-        eeprom_write(EEPROM_COEFFICIENT_A_SENSOR1_0 + i * 12, 0);
-        eeprom_write(EEPROM_COEFFICIENT_A_SENSOR1_1 + i * 12, 0);
-        eeprom_write(EEPROM_COEFFICIENT_A_SENSOR1_2 + i * 12, 0);
-        eeprom_write(EEPROM_COEFFICIENT_A_SENSOR1_3 + i * 12, 0);
-        eeprom_write(EEPROM_COEFFICIENT_B_SENSOR1_0 + i * 12, 0);
-        eeprom_write(EEPROM_COEFFICIENT_B_SENSOR1_1 + i * 12, 0);
-        eeprom_write(EEPROM_COEFFICIENT_B_SENSOR1_2 + i * 12, 0);
-        eeprom_write(EEPROM_COEFFICIENT_B_SENSOR1_3 + i * 12, 0);
-        eeprom_write(EEPROM_COEFFICIENT_C_SENSOR1_0 + i * 12, 0);
-        eeprom_write(EEPROM_COEFFICIENT_C_SENSOR1_1 + i * 12, 0);
-        eeprom_write(EEPROM_COEFFICIENT_C_SENSOR1_2 + i * 12, 0);
-        eeprom_write(EEPROM_COEFFICIENT_C_SENSOR1_3 + i * 12, 0);
-    }
-    */
     
 }
 
@@ -1188,9 +1097,6 @@ void handle_sync(void)
 uint8_t vscp_readAppReg(unsigned char reg)
 {
     uint8_t rv;
-    //int tmpval;
-    //uint8_t val, checksum;
-    //uint8_t unit = (0x03 & eeprom_read(EEPROM_CONTROLREG0));
 
     if (0 == vscp_page_select) {
 
@@ -2436,7 +2342,7 @@ uint8_t vscp_writeAppReg(unsigned char reg, unsigned char val)
         if (reg < 72) {
             eeprom_write(EEPROM_COEFFICIENT_A_SENSOR0_0 + reg, val);
             rv = eeprom_read(EEPROM_COEFFICIENT_A_SENSOR0_0 + reg );
-            writeCoeffs2Ram();
+            //writeCoeffs2Ram();
         }
         // Raw A/D values is not writable
         else if (reg < 84) {

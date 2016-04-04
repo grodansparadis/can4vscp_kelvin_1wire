@@ -390,7 +390,7 @@
     <conf name="Debug_26K80" type="2">
       <toolsSet>
         <developmentServer>localhost</developmentServer>
-        <targetDevice>PIC18LF26K80</targetDevice>
+        <targetDevice>PIC18F26K80</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
         <platformTool>RealICEPlatformTool</platformTool>

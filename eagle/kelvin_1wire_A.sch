@@ -17580,7 +17580,7 @@ Digikey ED2737ND</description>
 <part name="R16" library="rcl" deviceset="R-EU_" device="R0805" value="100"/>
 <part name="C13" library="rcl" deviceset="C-EU" device="C0805" value="10uF"/>
 <part name="GND31" library="SUPPLY1" deviceset="GND" device=""/>
-<part name="C14" library="rcl" deviceset="C-EU" device="C0805" value="1 uF"/>
+<part name="C14" library="rcl" deviceset="C-EU" device="C0805" value="10 uF"/>
 <part name="GND32" library="SUPPLY1" deviceset="GND" device=""/>
 <part name="R17" library="rcl" deviceset="R-EU_" device="R0805" value="120"/>
 <part name="PAD1" library="wirepad" deviceset="1,6/0,8" device=""/>

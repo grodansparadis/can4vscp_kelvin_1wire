@@ -1,6 +1,7 @@
 Kelvin NTC
 ==========
 
+2016-03-04 AKHE - Changed value of C14 to 10uF
 2015-11-26 AKHE - Fixed problem with low/high limits with negative values. Also
                     limits now are in degrees as is hysteresis as well.
 2015-11-25 AKHE - Fixed problem with overwritten calibration value on bootload

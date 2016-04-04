@@ -22,8 +22,8 @@
  * ******************************************************************************
  */
 
-#ifndef NTC_H
-#define NTC_H
+#ifndef ONEWIRE_H
+#define ONEWIRE_H
 
 #include <inttypes.h>
 #include "main.h"
@@ -61,24 +61,6 @@
 #define DEFAULT_B_CONSTANT_SENSOR0_MSB      0x0F
 #define DEFAULT_B_CONSTANT_SENSOR0_LSB      0x68
 
-// Default B constant for sensor 1-5
-// Digikey 490-4653-ND  - End of life and not available anymore
-#define DEFAULT_B_CONSTANT_MSB              0x0D
-#define DEFAULT_B_CONSTANT_LSB              0x7F
-
-// Elfa 60-279-32  - RH16-3H103FB
-
-// Default coefficients for sensor 0
-#define DEFAULT_INTERNAL_COEFFICIENT_A1     4.524024725919526e-004
-#define DEFAULT_INTERNAL_COEFFICIENT_A2     3.934722516618191e-004
-#define DEFAULT_INTERNAL_COEFFICIENT_A3     -7.642331765196044e-006
-#define DEFAULT_INTERNAL_COEFFICIENT_A4     4.048572707661904e-007
-
-// Default coefficients for sensor 1-5
-#define DEFAULT_EXTERNAL_COEFFICIENT_A1     4.524024725919526e-004
-#define DEFAULT_EXTERNAL_COEFFICIENT_A2     3.934722516618191e-004
-#define DEFAULT_EXTERNAL_COEFFICIENT_A3     -7.642331765196044e-006
-#define DEFAULT_EXTERNAL_COEFFICIENT_A4     4.048572707661904e-007
 
 // Default value for low alarm point -327.68 degrees Celsius
 // A point that will not be reached

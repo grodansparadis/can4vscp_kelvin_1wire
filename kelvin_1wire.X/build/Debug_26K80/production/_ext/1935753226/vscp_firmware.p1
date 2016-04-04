@@ -1,72 +1,72 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"218 ../../vscp_firmware/common/vscp_firmware.h
+"219 ../../vscp_firmware/common/vscp_firmware.h
 [s S5 `uc 1 `uc 1 `us 1 `uc 1 `uc 1 `uc -> 8 `i ]
 [n S5 . flags priority vscp_class vscp_type oaddr data ]
-"572
+"606
 [v _vscp_readNicknamePermanent `(uc ~T0 @X0 0 ef ]
-"583
+"617
 [v _vscp_getControlByte `(uc ~T0 @X0 0 ef1`uc ]
-"593
+"627
 [v _vscp_init_pstorage `(v ~T0 @X0 0 ef ]
-"578
+"612
 [v _vscp_writeNicknamePermanent `(v ~T0 @X0 0 ef1`uc ]
-"588
-[v _vscp_setControlByte `(v ~T0 @X0 0 ef2`uc`uc ]
-"456
-[v _vscp_sendEvent `(uc ~T0 @X0 0 ef ]
-"377
-[v _vscp_goActiveState `(v ~T0 @X0 0 ef ]
-"657
-[v _vscp_getZone `(uc ~T0 @X0 0 ef ]
-"663
-[v _vscp_getSubzone `(uc ~T0 @X0 0 ef ]
-"421
-[v _vscp_readStdReg `(uc ~T0 @X0 0 ef1`uc ]
-"614
-[v _vscp_readAppReg `(uc ~T0 @X0 0 ef1`uc ]
-"511
-[v _vscp_getMajorVersion `(uc ~T0 @X0 0 ef ]
-"512
-[v _vscp_getMinorVersion `(uc ~T0 @X0 0 ef ]
-"513
-[v _vscp_getSubMinorVersion `(uc ~T0 @X0 0 ef ]
-"528
-[v _vscp_getUserID `(uc ~T0 @X0 0 ef1`uc ]
-"544
-[v _vscp_getManufacturerId `(uc ~T0 @X0 0 ef1`uc ]
-"550
-[v _vscp_getBootLoaderAlgorithm `(uc ~T0 @X0 0 ef ]
-"555
-[v _vscp_getBufferSize `(uc ~T0 @X0 0 ef ]
-"560
-[v _vscp_getRegisterPagesUsed `(uc ~T0 @X0 0 ef ]
-"669
-[v _vscp_getFamilyCode `(ul ~T0 @X0 0 ef ]
-"675
-[v _vscp_getFamilyType `(ul ~T0 @X0 0 ef ]
-"518
-[v _vscp_getGUID `(uc ~T0 @X0 0 ef1`uc ]
-"566
-[v _vscp_getMDF_URL `(uc ~T0 @X0 0 ef1`uc ]
-"437
-[v _vscp_writeStdReg `(uc ~T0 @X0 0 ef2`uc`uc ]
 "622
-[v _vscp_writeAppReg `(uc ~T0 @X0 0 ef2`uc`uc ]
-"529
-[v _vscp_setUserID `(v ~T0 @X0 0 ef2`uc`uc ]
+[v _vscp_setControlByte `(v ~T0 @X0 0 ef2`uc`uc ]
+"458
+[v _vscp_sendEvent `(uc ~T0 @X0 0 ef ]
+"379
+[v _vscp_goActiveState `(v ~T0 @X0 0 ef ]
+"691
+[v _vscp_getZone `(uc ~T0 @X0 0 ef ]
+"697
+[v _vscp_getSubzone `(uc ~T0 @X0 0 ef ]
+"423
+[v _vscp_readStdReg `(uc ~T0 @X0 0 ef1`uc ]
+"648
+[v _vscp_readAppReg `(uc ~T0 @X0 0 ef1`uc ]
 "545
+[v _vscp_getMajorVersion `(uc ~T0 @X0 0 ef ]
+"546
+[v _vscp_getMinorVersion `(uc ~T0 @X0 0 ef ]
+"547
+[v _vscp_getSubMinorVersion `(uc ~T0 @X0 0 ef ]
+"562
+[v _vscp_getUserID `(uc ~T0 @X0 0 ef1`uc ]
+"578
+[v _vscp_getManufacturerId `(uc ~T0 @X0 0 ef1`uc ]
+"584
+[v _vscp_getBootLoaderAlgorithm `(uc ~T0 @X0 0 ef ]
+"589
+[v _vscp_getBufferSize `(uc ~T0 @X0 0 ef ]
+"594
+[v _vscp_getRegisterPagesUsed `(uc ~T0 @X0 0 ef ]
+"703
+[v _vscp_getFamilyCode `(ul ~T0 @X0 0 ef ]
+"709
+[v _vscp_getFamilyType `(ul ~T0 @X0 0 ef ]
+"552
+[v _vscp_getGUID `(uc ~T0 @X0 0 ef1`uc ]
+"600
+[v _vscp_getMDF_URL `(uc ~T0 @X0 0 ef1`uc ]
+"439
+[v _vscp_writeStdReg `(uc ~T0 @X0 0 ef2`uc`uc ]
+"656
+[v _vscp_writeAppReg `(uc ~T0 @X0 0 ef2`uc`uc ]
+"563
+[v _vscp_setUserID `(v ~T0 @X0 0 ef2`uc`uc ]
+"579
 [v _vscp_setManufacturerId `(v ~T0 @X0 0 ef2`uc`uc ]
-"519
+"553
 [v _vscp_setGUID `(v ~T0 @X0 0 ef2`uc`uc ]
-"683
+"717
 [v _vscp_restoreDefaults `(v ~T0 @X0 0 ef ]
-"651
+"685
 [v _vscp_goBootloaderMode `(v ~T0 @X0 0 ef1`uc ]
-"636
+"670
 [v _vscp_getMatrixInfo `(v ~T0 @X0 0 ef1`*uc ]
-"505
+"539
 [v _sendVSCPFrame `(uc ~T0 @X0 0 ef6`us`uc`uc`uc`uc`*uc ]
-"488
+"522
 [v _getVSCPFrame `(uc ~T0 @X0 0 ef6`*us`*uc`*uc`*uc`*uc`*uc ]
 [; ;string.h: 4: typedef int ptrdiff_t;
 [; ;string.h: 5: typedef unsigned size_t;
@@ -157,100 +157,100 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;inttypes.h: 57: typedef unsigned long uint32_t;
 [; ;inttypes.h: 61: typedef unsigned short uint16_t;
 [; ;inttypes.h: 65: typedef unsigned char uint8_t;
-[; ;vscp_firmware.h: 218: typedef struct {
-[; ;vscp_firmware.h: 230: uint8_t flags;
-[; ;vscp_firmware.h: 232: uint8_t priority;
-[; ;vscp_firmware.h: 233: uint16_t vscp_class;
-[; ;vscp_firmware.h: 234: uint8_t vscp_type;
-[; ;vscp_firmware.h: 235: uint8_t oaddr;
-[; ;vscp_firmware.h: 236: uint8_t data[8];
-[; ;vscp_firmware.h: 237: } vscpevent_t;
-[; ;vscp_firmware.h: 295: struct _dmrow {
-[; ;vscp_firmware.h: 296: uint8_t oaddr;
-[; ;vscp_firmware.h: 297: uint8_t flags;
-[; ;vscp_firmware.h: 298: uint8_t class_mask;
-[; ;vscp_firmware.h: 299: uint8_t class_filter;
-[; ;vscp_firmware.h: 300: uint8_t type_mask;
-[; ;vscp_firmware.h: 301: uint8_t type_filter;
-[; ;vscp_firmware.h: 302: uint8_t action;
-[; ;vscp_firmware.h: 303: uint8_t action_param;
-[; ;vscp_firmware.h: 304: };
-[; ;vscp_firmware.h: 309: extern uint8_t vscp_nickname;
-[; ;vscp_firmware.h: 310: extern uint8_t vscp_errorcnt;
-[; ;vscp_firmware.h: 311: extern uint8_t vscp_alarmstatus;
-[; ;vscp_firmware.h: 312: extern uint8_t vscp_node_state;
-[; ;vscp_firmware.h: 313: extern uint8_t vscp_node_substate;
-[; ;vscp_firmware.h: 314: extern uint8_t vscp_initledfunc;
-[; ;vscp_firmware.h: 316: extern vscpevent_t vscp_imsg;
-[; ;vscp_firmware.h: 317: extern vscpevent_t vscp_omsg;
-[; ;vscp_firmware.h: 318: extern volatile uint16_t vscp_timer;
-[; ;vscp_firmware.h: 319: extern uint8_t vscp_probe_address;
-[; ;vscp_firmware.h: 320: extern volatile uint8_t vscp_initbtncnt;
-[; ;vscp_firmware.h: 321: extern volatile uint8_t vscp_statuscnt;
-[; ;vscp_firmware.h: 322: extern uint16_t vscp_page_select;
-[; ;vscp_firmware.h: 323: extern volatile uint16_t vscp_configtimer;
-[; ;vscp_firmware.h: 325: extern const uint8_t vscp_deviceURL[];
-[; ;vscp_firmware.h: 335: void vscp_init(void);
-[; ;vscp_firmware.h: 341: void vscp_error(void);
-[; ;vscp_firmware.h: 349: void vscp_handleProbeState(void);
-[; ;vscp_firmware.h: 362: void vscp_handlePreActiveState(void);
-[; ;vscp_firmware.h: 369: void vscp_handleProtocolEvent(void);
-[; ;vscp_firmware.h: 377: void vscp_goActiveState(void);
-[; ;vscp_firmware.h: 387: void vscp_sendHeartBeat(uint8_t zone, uint8_t subzone);
-[; ;vscp_firmware.h: 392: void vscp_handleHeartbeat(void);
-[; ;vscp_firmware.h: 397: void vscp_handleSetNickname(void);
-[; ;vscp_firmware.h: 402: void vscp_handleDropNickname(void);
-[; ;vscp_firmware.h: 407: void vscp_newNodeOnline(void);
-[; ;vscp_firmware.h: 414: uint8_t vscp_readRegister(uint8_t reg);
-[; ;vscp_firmware.h: 421: uint8_t vscp_readStdReg(uint8_t reg);
-[; ;vscp_firmware.h: 429: uint8_t vscp_writeRegister(uint8_t reg, uint8_t value);
-[; ;vscp_firmware.h: 437: uint8_t vscp_writeStdReg(uint8_t reg, uint8_t value);
-[; ;vscp_firmware.h: 445: void vscp_doOneSecondWork(void);
-[; ;vscp_firmware.h: 450: int8_t vscp_check_pstorage(void);
-[; ;vscp_firmware.h: 456: int8_t vscp_sendEvent(void);
-[; ;vscp_firmware.h: 462: int8_t vscp_getEvent(void);
-[; ;vscp_firmware.h: 483: int8_t getVSCPFrame( uint16_t *pvscpclass,
-[; ;vscp_firmware.h: 484: uint8_t *pvscptype,
-[; ;vscp_firmware.h: 485: uint8_t *pNodeId,
-[; ;vscp_firmware.h: 486: uint8_t *pPriority,
-[; ;vscp_firmware.h: 487: uint8_t *pSize,
-[; ;vscp_firmware.h: 488: uint8_t *pData);
-[; ;vscp_firmware.h: 500: int8_t sendVSCPFrame( uint16_t vscpclass,
-[; ;vscp_firmware.h: 501: uint8_t vscptype,
-[; ;vscp_firmware.h: 502: uint8_t nodeid,
-[; ;vscp_firmware.h: 503: uint8_t priority,
-[; ;vscp_firmware.h: 504: uint8_t size,
-[; ;vscp_firmware.h: 505: uint8_t *pData );
-[; ;vscp_firmware.h: 511: uint8_t vscp_getMajorVersion( void );
-[; ;vscp_firmware.h: 512: uint8_t vscp_getMinorVersion( void );
-[; ;vscp_firmware.h: 513: uint8_t vscp_getSubMinorVersion( void );
-[; ;vscp_firmware.h: 518: uint8_t vscp_getGUID(uint8_t idx);
-[; ;vscp_firmware.h: 519: void vscp_setGUID(uint8_t idx, uint8_t data);
-[; ;vscp_firmware.h: 528: uint8_t vscp_getUserID(uint8_t idx);
-[; ;vscp_firmware.h: 529: void vscp_setUserID(uint8_t idx, uint8_t data);
-[; ;vscp_firmware.h: 544: uint8_t vscp_getManufacturerId(uint8_t idx);
-[; ;vscp_firmware.h: 545: void vscp_setManufacturerId(uint8_t idx, uint8_t data);
-[; ;vscp_firmware.h: 550: uint8_t vscp_getBootLoaderAlgorithm( void );
-[; ;vscp_firmware.h: 555: uint8_t vscp_getBufferSize(void);
-[; ;vscp_firmware.h: 560: uint8_t vscp_getRegisterPagesUsed(void);
-[; ;vscp_firmware.h: 566: uint8_t vscp_getMDF_URL(uint8_t idx);
-[; ;vscp_firmware.h: 572: uint8_t vscp_readNicknamePermanent(void);
-[; ;vscp_firmware.h: 578: void vscp_writeNicknamePermanent(uint8_t nickname);
-[; ;vscp_firmware.h: 583: uint8_t vscp_getControlByte( uint8_t idx );
-[; ;vscp_firmware.h: 588: void vscp_setControlByte(uint8_t idx, uint8_t ctrl);
-[; ;vscp_firmware.h: 593: void vscp_init_pstorage( void );
-[; ;vscp_firmware.h: 600: uint8_t vscp_getPageSelect(uint8_t idx);
-[; ;vscp_firmware.h: 607: void vscp_setPageSelect(uint8_t idx, uint8_t data);
-[; ;vscp_firmware.h: 614: uint8_t vscp_readAppReg(uint8_t reg);
-[; ;vscp_firmware.h: 622: uint8_t vscp_writeAppReg(uint8_t reg, uint8_t value);
-[; ;vscp_firmware.h: 636: void vscp_getMatrixInfo(char *pData);
-[; ;vscp_firmware.h: 644: void vscp_getEmbeddedMdfInfo(void);
-[; ;vscp_firmware.h: 651: void vscp_goBootloaderMode( uint8_t algorithm );
-[; ;vscp_firmware.h: 657: uint8_t vscp_getZone(void);
-[; ;vscp_firmware.h: 663: uint8_t vscp_getSubzone(void);
-[; ;vscp_firmware.h: 669: uint32_t vscp_getFamilyCode(void);
-[; ;vscp_firmware.h: 675: uint32_t vscp_getFamilyType(void);
-[; ;vscp_firmware.h: 683: void vscp_restoreDefaults(void);
+[; ;vscp_firmware.h: 219: typedef struct {
+[; ;vscp_firmware.h: 231: uint8_t flags;
+[; ;vscp_firmware.h: 233: uint8_t priority;
+[; ;vscp_firmware.h: 234: uint16_t vscp_class;
+[; ;vscp_firmware.h: 235: uint8_t vscp_type;
+[; ;vscp_firmware.h: 236: uint8_t oaddr;
+[; ;vscp_firmware.h: 237: uint8_t data[8];
+[; ;vscp_firmware.h: 238: } vscpevent_t;
+[; ;vscp_firmware.h: 296: struct _dmrow {
+[; ;vscp_firmware.h: 297: uint8_t oaddr;
+[; ;vscp_firmware.h: 298: uint8_t flags;
+[; ;vscp_firmware.h: 299: uint8_t class_mask;
+[; ;vscp_firmware.h: 300: uint8_t class_filter;
+[; ;vscp_firmware.h: 301: uint8_t type_mask;
+[; ;vscp_firmware.h: 302: uint8_t type_filter;
+[; ;vscp_firmware.h: 303: uint8_t action;
+[; ;vscp_firmware.h: 304: uint8_t action_param;
+[; ;vscp_firmware.h: 305: };
+[; ;vscp_firmware.h: 310: extern uint8_t vscp_nickname;
+[; ;vscp_firmware.h: 311: extern uint8_t vscp_errorcnt;
+[; ;vscp_firmware.h: 312: extern uint8_t vscp_alarmstatus;
+[; ;vscp_firmware.h: 313: extern uint8_t vscp_node_state;
+[; ;vscp_firmware.h: 314: extern uint8_t vscp_node_substate;
+[; ;vscp_firmware.h: 315: extern uint8_t vscp_initledfunc;
+[; ;vscp_firmware.h: 317: extern vscpevent_t vscp_imsg;
+[; ;vscp_firmware.h: 318: extern vscpevent_t vscp_omsg;
+[; ;vscp_firmware.h: 319: extern volatile uint16_t vscp_timer;
+[; ;vscp_firmware.h: 320: extern uint8_t vscp_probe_address;
+[; ;vscp_firmware.h: 321: extern volatile uint8_t vscp_initbtncnt;
+[; ;vscp_firmware.h: 322: extern volatile uint8_t vscp_statuscnt;
+[; ;vscp_firmware.h: 323: extern uint16_t vscp_page_select;
+[; ;vscp_firmware.h: 324: extern volatile uint16_t vscp_configtimer;
+[; ;vscp_firmware.h: 326: extern const uint8_t vscp_deviceURL[];
+[; ;vscp_firmware.h: 336: void vscp_init(void);
+[; ;vscp_firmware.h: 343: void vscp_error(void);
+[; ;vscp_firmware.h: 351: void vscp_handleProbeState(void);
+[; ;vscp_firmware.h: 364: void vscp_handlePreActiveState(void);
+[; ;vscp_firmware.h: 371: void vscp_handleProtocolEvent(void);
+[; ;vscp_firmware.h: 379: void vscp_goActiveState(void);
+[; ;vscp_firmware.h: 389: void vscp_sendHeartBeat(uint8_t zone, uint8_t subzone);
+[; ;vscp_firmware.h: 394: void vscp_handleHeartbeat(void);
+[; ;vscp_firmware.h: 399: void vscp_handleSetNickname(void);
+[; ;vscp_firmware.h: 404: void vscp_handleDropNickname(void);
+[; ;vscp_firmware.h: 409: void vscp_newNodeOnline(void);
+[; ;vscp_firmware.h: 416: uint8_t vscp_readRegister(uint8_t reg);
+[; ;vscp_firmware.h: 423: uint8_t vscp_readStdReg(uint8_t reg);
+[; ;vscp_firmware.h: 431: uint8_t vscp_writeRegister(uint8_t reg, uint8_t value);
+[; ;vscp_firmware.h: 439: uint8_t vscp_writeStdReg(uint8_t reg, uint8_t value);
+[; ;vscp_firmware.h: 447: void vscp_doOneSecondWork(void);
+[; ;vscp_firmware.h: 452: int8_t vscp_check_pstorage(void);
+[; ;vscp_firmware.h: 458: int8_t vscp_sendEvent(void);
+[; ;vscp_firmware.h: 464: int8_t vscp_getEvent(void);
+[; ;vscp_firmware.h: 517: int8_t getVSCPFrame( uint16_t *pvscpclass,
+[; ;vscp_firmware.h: 518: uint8_t *pvscptype,
+[; ;vscp_firmware.h: 519: uint8_t *pNodeId,
+[; ;vscp_firmware.h: 520: uint8_t *pPriority,
+[; ;vscp_firmware.h: 521: uint8_t *pSize,
+[; ;vscp_firmware.h: 522: uint8_t *pData);
+[; ;vscp_firmware.h: 534: int8_t sendVSCPFrame( uint16_t vscpclass,
+[; ;vscp_firmware.h: 535: uint8_t vscptype,
+[; ;vscp_firmware.h: 536: uint8_t nodeid,
+[; ;vscp_firmware.h: 537: uint8_t priority,
+[; ;vscp_firmware.h: 538: uint8_t size,
+[; ;vscp_firmware.h: 539: uint8_t *pData );
+[; ;vscp_firmware.h: 545: uint8_t vscp_getMajorVersion( void );
+[; ;vscp_firmware.h: 546: uint8_t vscp_getMinorVersion( void );
+[; ;vscp_firmware.h: 547: uint8_t vscp_getSubMinorVersion( void );
+[; ;vscp_firmware.h: 552: uint8_t vscp_getGUID(uint8_t idx);
+[; ;vscp_firmware.h: 553: void vscp_setGUID(uint8_t idx, uint8_t data);
+[; ;vscp_firmware.h: 562: uint8_t vscp_getUserID(uint8_t idx);
+[; ;vscp_firmware.h: 563: void vscp_setUserID(uint8_t idx, uint8_t data);
+[; ;vscp_firmware.h: 578: uint8_t vscp_getManufacturerId(uint8_t idx);
+[; ;vscp_firmware.h: 579: void vscp_setManufacturerId(uint8_t idx, uint8_t data);
+[; ;vscp_firmware.h: 584: uint8_t vscp_getBootLoaderAlgorithm( void );
+[; ;vscp_firmware.h: 589: uint8_t vscp_getBufferSize(void);
+[; ;vscp_firmware.h: 594: uint8_t vscp_getRegisterPagesUsed(void);
+[; ;vscp_firmware.h: 600: uint8_t vscp_getMDF_URL(uint8_t idx);
+[; ;vscp_firmware.h: 606: uint8_t vscp_readNicknamePermanent(void);
+[; ;vscp_firmware.h: 612: void vscp_writeNicknamePermanent(uint8_t nickname);
+[; ;vscp_firmware.h: 617: uint8_t vscp_getControlByte( uint8_t idx );
+[; ;vscp_firmware.h: 622: void vscp_setControlByte(uint8_t idx, uint8_t ctrl);
+[; ;vscp_firmware.h: 627: void vscp_init_pstorage( void );
+[; ;vscp_firmware.h: 634: uint8_t vscp_getPageSelect(uint8_t idx);
+[; ;vscp_firmware.h: 641: void vscp_setPageSelect(uint8_t idx, uint8_t data);
+[; ;vscp_firmware.h: 648: uint8_t vscp_readAppReg(uint8_t reg);
+[; ;vscp_firmware.h: 656: uint8_t vscp_writeAppReg(uint8_t reg, uint8_t value);
+[; ;vscp_firmware.h: 670: void vscp_getMatrixInfo(char *pData);
+[; ;vscp_firmware.h: 678: void vscp_getEmbeddedMdfInfo(void);
+[; ;vscp_firmware.h: 685: void vscp_goBootloaderMode( uint8_t algorithm );
+[; ;vscp_firmware.h: 691: uint8_t vscp_getZone(void);
+[; ;vscp_firmware.h: 697: uint8_t vscp_getSubzone(void);
+[; ;vscp_firmware.h: 703: uint32_t vscp_getFamilyCode(void);
+[; ;vscp_firmware.h: 709: uint32_t vscp_getFamilyType(void);
+[; ;vscp_firmware.h: 717: void vscp_restoreDefaults(void);
 "63 ../../vscp_firmware/common/vscp_firmware.c
 [v _vscp_nickname `uc ~T0 @X0 1 e ]
 [; ;vscp_firmware.c: 63: uint8_t vscp_nickname;
@@ -315,2446 +315,2454 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;vscp_firmware.c: 119: {
 [e :U _vscp_init ]
 [f ]
-[; ;vscp_firmware.c: 120: vscp_initledfunc = 0x02;
+[; ;vscp_firmware.c: 120: vscp_initledfunc = 0x01;
 "120
-[e = _vscp_initledfunc -> -> 2 `i `uc ]
+[e = _vscp_initledfunc -> -> 1 `i `uc ]
 [; ;vscp_firmware.c: 123: vscp_nickname = vscp_readNicknamePermanent();
 "123
 [e = _vscp_nickname ( _vscp_readNicknamePermanent ..  ]
-[; ;vscp_firmware.c: 126: if (!vscp_nickname) vscp_nickname = 0xff;
+[; ;vscp_firmware.c: 126: if ( 0 == vscp_nickname) vscp_nickname = 0xff;
 "126
-[e $ ! ! != -> _vscp_nickname `i -> -> -> 0 `i `uc `i 8  ]
+[e $ ! == -> 0 `i -> _vscp_nickname `i 8  ]
 [e = _vscp_nickname -> -> 255 `i `uc ]
 [e :U 8 ]
-[; ;vscp_firmware.c: 129: vscp_imsg.flags = 0;
+[; ;vscp_firmware.c: 129: if ( 0xff == vscp_nickname ) vscp_initledfunc = 0x02;
 "129
-[e = . _vscp_imsg 0 -> -> 0 `i `uc ]
-[; ;vscp_firmware.c: 130: vscp_imsg.priority = 0;
-"130
-[e = . _vscp_imsg 1 -> -> 0 `i `uc ]
-[; ;vscp_firmware.c: 131: vscp_imsg.vscp_class = 0;
-"131
-[e = . _vscp_imsg 2 -> -> 0 `i `us ]
-[; ;vscp_firmware.c: 132: vscp_imsg.vscp_type = 0;
+[e $ ! == -> 255 `i -> _vscp_nickname `i 9  ]
+[e = _vscp_initledfunc -> -> 2 `i `uc ]
+[e :U 9 ]
+[; ;vscp_firmware.c: 132: vscp_imsg.flags = 0;
 "132
-[e = . _vscp_imsg 3 -> -> 0 `i `uc ]
-[; ;vscp_firmware.c: 135: vscp_omsg.flags = 0;
+[e = . _vscp_imsg 0 -> -> 0 `i `uc ]
+[; ;vscp_firmware.c: 133: vscp_imsg.priority = 0;
+"133
+[e = . _vscp_imsg 1 -> -> 0 `i `uc ]
+[; ;vscp_firmware.c: 134: vscp_imsg.vscp_class = 0;
+"134
+[e = . _vscp_imsg 2 -> -> 0 `i `us ]
+[; ;vscp_firmware.c: 135: vscp_imsg.vscp_type = 0;
 "135
-[e = . _vscp_omsg 0 -> -> 0 `i `uc ]
-[; ;vscp_firmware.c: 136: vscp_omsg.priority = 0;
-"136
-[e = . _vscp_omsg 1 -> -> 0 `i `uc ]
-[; ;vscp_firmware.c: 137: vscp_omsg.vscp_class = 0;
-"137
-[e = . _vscp_omsg 2 -> -> 0 `i `us ]
-[; ;vscp_firmware.c: 138: vscp_omsg.vscp_type = 0;
+[e = . _vscp_imsg 3 -> -> 0 `i `uc ]
+[; ;vscp_firmware.c: 138: vscp_omsg.flags = 0;
 "138
-[e = . _vscp_omsg 3 -> -> 0 `i `uc ]
-[; ;vscp_firmware.c: 140: vscp_errorcnt = 0;
+[e = . _vscp_omsg 0 -> -> 0 `i `uc ]
+[; ;vscp_firmware.c: 139: vscp_omsg.priority = 0;
+"139
+[e = . _vscp_omsg 1 -> -> 0 `i `uc ]
+[; ;vscp_firmware.c: 140: vscp_omsg.vscp_class = 0;
 "140
-[e = _vscp_errorcnt -> -> 0 `i `uc ]
-[; ;vscp_firmware.c: 141: vscp_alarmstatus = 0;
+[e = . _vscp_omsg 2 -> -> 0 `i `us ]
+[; ;vscp_firmware.c: 141: vscp_omsg.vscp_type = 0;
 "141
-[e = _vscp_alarmstatus -> -> 0 `i `uc ]
-[; ;vscp_firmware.c: 143: vscp_probe_address = 0;
+[e = . _vscp_omsg 3 -> -> 0 `i `uc ]
+[; ;vscp_firmware.c: 143: vscp_errorcnt = 0;
 "143
-[e = _vscp_probe_address -> -> 0 `i `uc ]
-[; ;vscp_firmware.c: 146: vscp_node_state = 0x00;
+[e = _vscp_errorcnt -> -> 0 `i `uc ]
+[; ;vscp_firmware.c: 144: vscp_alarmstatus = 0;
+"144
+[e = _vscp_alarmstatus -> -> 0 `i `uc ]
+[; ;vscp_firmware.c: 146: vscp_probe_address = 0;
 "146
-[e = _vscp_node_state -> -> 0 `i `uc ]
-[; ;vscp_firmware.c: 147: vscp_node_substate = 0x00;
-"147
-[e = _vscp_node_substate -> -> 0 `i `uc ]
-[; ;vscp_firmware.c: 149: vscp_probe_cnt = 0;
+[e = _vscp_probe_address -> -> 0 `i `uc ]
+[; ;vscp_firmware.c: 149: vscp_node_state = 0x00;
 "149
-[e = _vscp_probe_cnt -> -> 0 `i `uc ]
-[; ;vscp_firmware.c: 150: vscp_page_select = 0;
+[e = _vscp_node_state -> -> 0 `i `uc ]
+[; ;vscp_firmware.c: 150: vscp_node_substate = 0x00;
 "150
-[e = _vscp_page_select -> -> 0 `i `us ]
-[; ;vscp_firmware.c: 153: vscp_timer = 0;
+[e = _vscp_node_substate -> -> 0 `i `uc ]
+[; ;vscp_firmware.c: 152: vscp_probe_cnt = 0;
+"152
+[e = _vscp_probe_cnt -> -> 0 `i `uc ]
+[; ;vscp_firmware.c: 153: vscp_page_select = 0;
 "153
-[e = _vscp_timer -> -> 0 `i `us ]
-[; ;vscp_firmware.c: 154: vscp_configtimer = 0;
-"154
-[e = _vscp_configtimer -> -> 0 `i `us ]
-[; ;vscp_firmware.c: 155: vscp_second = 0;
-"155
-[e = _vscp_second -> -> 0 `i `uc ]
-[; ;vscp_firmware.c: 156: vscp_minute = 0;
+[e = _vscp_page_select -> -> 0 `i `us ]
+[; ;vscp_firmware.c: 156: vscp_timer = 0;
 "156
-[e = _vscp_minute -> -> 0 `i `uc ]
-[; ;vscp_firmware.c: 157: vscp_hour = 0;
+[e = _vscp_timer -> -> 0 `i `us ]
+[; ;vscp_firmware.c: 157: vscp_configtimer = 0;
 "157
-[e = _vscp_hour -> -> 0 `i `uc ]
-[; ;vscp_firmware.c: 158: }
+[e = _vscp_configtimer -> -> 0 `i `us ]
+[; ;vscp_firmware.c: 158: vscp_second = 0;
 "158
+[e = _vscp_second -> -> 0 `i `uc ]
+[; ;vscp_firmware.c: 159: vscp_minute = 0;
+"159
+[e = _vscp_minute -> -> 0 `i `uc ]
+[; ;vscp_firmware.c: 160: vscp_hour = 0;
+"160
+[e = _vscp_hour -> -> 0 `i `uc ]
+[; ;vscp_firmware.c: 161: }
+"161
 [e :UE 7 ]
 }
-"168
+"171
 [v _vscp_check_pstorage `(uc ~T0 @X0 1 ef ]
 {
-[; ;vscp_firmware.c: 167: int8_t vscp_check_pstorage(void)
-[; ;vscp_firmware.c: 168: {
+[; ;vscp_firmware.c: 170: int8_t vscp_check_pstorage(void)
+[; ;vscp_firmware.c: 171: {
 [e :U _vscp_check_pstorage ]
 [f ]
-[; ;vscp_firmware.c: 170: if ( ( 0x55 ==
-[; ;vscp_firmware.c: 171: vscp_getControlByte( 0 ) ) &&
-[; ;vscp_firmware.c: 172: ( 0xAA ==
-[; ;vscp_firmware.c: 173: vscp_getControlByte( 1 ) ) ) {
-"173
-[e $ ! && == -> 85 `i -> ( _vscp_getControlByte (1 -> -> 0 `i `uc `i == -> 170 `i -> ( _vscp_getControlByte (1 -> -> 1 `i `uc `i 10  ]
+[; ;vscp_firmware.c: 173: if ( ( 0x55 ==
+[; ;vscp_firmware.c: 174: vscp_getControlByte( 0 ) ) &&
+[; ;vscp_firmware.c: 175: ( 0xAA ==
+[; ;vscp_firmware.c: 176: vscp_getControlByte( 1 ) ) ) {
+"176
+[e $ ! && == -> 85 `i -> ( _vscp_getControlByte (1 -> -> 0 `i `uc `i == -> 170 `i -> ( _vscp_getControlByte (1 -> -> 1 `i `uc `i 11  ]
 {
-[; ;vscp_firmware.c: 174: return !0;
-"174
+[; ;vscp_firmware.c: 177: return !0;
+"177
 [e ) -> -> ! != -> 0 `i -> 0 `i `i `uc ]
-[e $UE 9  ]
-"175
-}
-[e :U 10 ]
-[; ;vscp_firmware.c: 175: }
-[; ;vscp_firmware.c: 178: vscp_init_pstorage();
+[e $UE 10  ]
 "178
-[e ( _vscp_init_pstorage ..  ]
-[; ;vscp_firmware.c: 181: vscp_writeNicknamePermanent( 0xff );
-"181
-[e ( _vscp_writeNicknamePermanent (1 -> -> 255 `i `uc ]
-[; ;vscp_firmware.c: 184: vscp_setControlByte( 0,
-[; ;vscp_firmware.c: 185: 0x55 );
-"185
-[e ( _vscp_setControlByte (2 , -> -> 0 `i `uc -> -> 85 `i `uc ]
-[; ;vscp_firmware.c: 186: vscp_setControlByte( 1,
-[; ;vscp_firmware.c: 187: 0xAA );
-"187
-[e ( _vscp_setControlByte (2 , -> -> 1 `i `uc -> -> 170 `i `uc ]
-[; ;vscp_firmware.c: 189: return 0;
-"189
-[e ) -> -> 0 `i `uc ]
-[e $UE 9  ]
-[; ;vscp_firmware.c: 190: }
-"190
-[e :UE 9 ]
 }
-"197
+[e :U 11 ]
+[; ;vscp_firmware.c: 178: }
+[; ;vscp_firmware.c: 180: vscp_initledfunc = 0x02;
+"180
+[e = _vscp_initledfunc -> -> 2 `i `uc ]
+[; ;vscp_firmware.c: 183: vscp_init_pstorage();
+"183
+[e ( _vscp_init_pstorage ..  ]
+[; ;vscp_firmware.c: 186: vscp_writeNicknamePermanent( 0xff );
+"186
+[e ( _vscp_writeNicknamePermanent (1 -> -> 255 `i `uc ]
+[; ;vscp_firmware.c: 189: vscp_setControlByte( 0,
+[; ;vscp_firmware.c: 190: 0x55 );
+"190
+[e ( _vscp_setControlByte (2 , -> -> 0 `i `uc -> -> 85 `i `uc ]
+[; ;vscp_firmware.c: 191: vscp_setControlByte( 1,
+[; ;vscp_firmware.c: 192: 0xAA );
+"192
+[e ( _vscp_setControlByte (2 , -> -> 1 `i `uc -> -> 170 `i `uc ]
+[; ;vscp_firmware.c: 194: return 0;
+"194
+[e ) -> -> 0 `i `uc ]
+[e $UE 10  ]
+[; ;vscp_firmware.c: 195: }
+"195
+[e :UE 10 ]
+}
+"202
 [v _vscp_error `(v ~T0 @X0 1 ef ]
 {
-[; ;vscp_firmware.c: 196: void vscp_error(void)
-[; ;vscp_firmware.c: 197: {
+[; ;vscp_firmware.c: 201: void vscp_error(void)
+[; ;vscp_firmware.c: 202: {
 [e :U _vscp_error ]
 [f ]
-[; ;vscp_firmware.c: 198: vscp_initledfunc = 0x00;
-"198
+[; ;vscp_firmware.c: 203: vscp_initledfunc = 0x00;
+"203
 [e = _vscp_initledfunc -> -> 0 `i `uc ]
-[; ;vscp_firmware.c: 199: }
-"199
-[e :UE 11 ]
-}
-"206
-[v _vscp_handleProbeState `(v ~T0 @X0 1 ef ]
-{
-[; ;vscp_firmware.c: 205: void vscp_handleProbeState(void)
-[; ;vscp_firmware.c: 206: {
-[e :U _vscp_handleProbeState ]
-[f ]
-[; ;vscp_firmware.c: 207: switch (vscp_node_substate) {
-"207
-[e $U 14  ]
-{
-[; ;vscp_firmware.c: 209: case 0x00:
-"209
-[e :U 15 ]
-[; ;vscp_firmware.c: 211: if (0xff != vscp_probe_address) {
-"211
-[e $ ! != -> 255 `i -> _vscp_probe_address `i 16  ]
-{
-[; ;vscp_firmware.c: 213: vscp_omsg.flags = 0x80 + 1;
-"213
-[e = . _vscp_omsg 0 -> + -> 128 `i -> 1 `i `uc ]
-[; ;vscp_firmware.c: 214: vscp_omsg.priority = 0x00;
-"214
-[e = . _vscp_omsg 1 -> -> 0 `i `uc ]
-[; ;vscp_firmware.c: 215: vscp_omsg.vscp_class = 0;
-"215
-[e = . _vscp_omsg 2 -> -> 0 `i `us ]
-[; ;vscp_firmware.c: 216: vscp_omsg.vscp_type = 2;
-"216
-[e = . _vscp_omsg 3 -> -> 2 `i `uc ]
-[; ;vscp_firmware.c: 217: vscp_omsg.data[ 0 ] = vscp_probe_address;
-"217
-[e = *U + &U . _vscp_omsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux _vscp_probe_address ]
-[; ;vscp_firmware.c: 220: vscp_sendEvent();
-"220
-[e ( _vscp_sendEvent ..  ]
-[; ;vscp_firmware.c: 222: vscp_node_substate = 0x01;
-"222
-[e = _vscp_node_substate -> -> 1 `i `uc ]
-[; ;vscp_firmware.c: 223: vscp_timer = 0;
-"223
-[e = _vscp_timer -> -> 0 `i `us ]
-"225
-}
-[; ;vscp_firmware.c: 225: }
-[e $U 17  ]
-"226
-[e :U 16 ]
-[; ;vscp_firmware.c: 226: else {
-{
-[; ;vscp_firmware.c: 229: vscp_node_state = 0x04;
-"229
-[e = _vscp_node_state -> -> 4 `i `uc ]
-[; ;vscp_firmware.c: 232: vscp_omsg.flags = 0x80 + 1;
-"232
-[e = . _vscp_omsg 0 -> + -> 128 `i -> 1 `i `uc ]
-[; ;vscp_firmware.c: 233: vscp_omsg.data[ 0 ] = 0xff;
-"233
-[e = *U + &U . _vscp_omsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux -> -> 255 `i `uc ]
-[; ;vscp_firmware.c: 234: vscp_omsg.priority = 0x07;
-"234
-[e = . _vscp_omsg 1 -> -> 7 `i `uc ]
-[; ;vscp_firmware.c: 235: vscp_omsg.vscp_class = 0;
-"235
-[e = . _vscp_omsg 2 -> -> 0 `i `us ]
-[; ;vscp_firmware.c: 236: vscp_omsg.vscp_type = 3;
-"236
-[e = . _vscp_omsg 3 -> -> 3 `i `uc ]
-[; ;vscp_firmware.c: 239: vscp_sendEvent();
-"239
-[e ( _vscp_sendEvent ..  ]
-"241
-}
-[e :U 17 ]
-[; ;vscp_firmware.c: 241: }
-[; ;vscp_firmware.c: 242: break;
-"242
-[e $U 13  ]
-[; ;vscp_firmware.c: 244: case 0x01:
-"244
-[e :U 18 ]
-[; ;vscp_firmware.c: 246: if (vscp_imsg.flags & 0x80) {
-"246
-[e $ ! != & -> . _vscp_imsg 0 `i -> 128 `i -> 0 `i 19  ]
-{
-[; ;vscp_firmware.c: 249: if ((0 == vscp_imsg.vscp_class) &&
-[; ;vscp_firmware.c: 250: (3 == vscp_imsg.vscp_type)) {
-"250
-[e $ ! && == -> -> 0 `i `ui -> . _vscp_imsg 2 `ui == -> 3 `i -> . _vscp_imsg 3 `i 20  ]
-{
-[; ;vscp_firmware.c: 253: if (0 == vscp_probe_address) {
-"253
-[e $ ! == -> 0 `i -> _vscp_probe_address `i 21  ]
-{
-[; ;vscp_firmware.c: 257: vscp_node_state = 0x02;
-"257
-[e = _vscp_node_state -> -> 2 `i `uc ]
-[; ;vscp_firmware.c: 258: vscp_timer = 0;
-"258
-[e = _vscp_timer -> -> 0 `i `us ]
-"260
-}
-[; ;vscp_firmware.c: 260: }
-[e $U 22  ]
-"261
-[e :U 21 ]
-[; ;vscp_firmware.c: 261: else {
-{
-[; ;vscp_firmware.c: 264: vscp_probe_address++;
-"264
-[e ++ _vscp_probe_address -> -> 1 `i `uc ]
-[; ;vscp_firmware.c: 265: vscp_node_substate = 0x00;
-"265
-[e = _vscp_node_substate -> -> 0 `i `uc ]
-[; ;vscp_firmware.c: 266: vscp_probe_cnt = 0;
-"266
-[e = _vscp_probe_cnt -> -> 0 `i `uc ]
-"268
-}
-[e :U 22 ]
-"269
-}
-[e :U 20 ]
-"270
-}
-[; ;vscp_firmware.c: 268: }
-[; ;vscp_firmware.c: 269: }
-[; ;vscp_firmware.c: 270: }
-[e $U 23  ]
-"271
-[e :U 19 ]
-[; ;vscp_firmware.c: 271: else {
-{
-[; ;vscp_firmware.c: 273: if (vscp_timer > 1000) {
-"273
-[e $ ! > -> _vscp_timer `ui -> -> 1000 `i `ui 24  ]
-{
-[; ;vscp_firmware.c: 275: vscp_probe_cnt++;
-"275
-[e ++ _vscp_probe_cnt -> -> 1 `i `uc ]
-[; ;vscp_firmware.c: 277: if (vscp_probe_cnt >= 3) {
-"277
-[e $ ! >= -> _vscp_probe_cnt `i -> 3 `i 25  ]
-{
-[; ;vscp_firmware.c: 280: if (0 == vscp_probe_address) {
-"280
-[e $ ! == -> 0 `i -> _vscp_probe_address `i 26  ]
-{
-[; ;vscp_firmware.c: 283: vscp_probe_address++;
-"283
-[e ++ _vscp_probe_address -> -> 1 `i `uc ]
-[; ;vscp_firmware.c: 284: vscp_node_substate = 0x00;
-"284
-[e = _vscp_node_substate -> -> 0 `i `uc ]
-[; ;vscp_firmware.c: 285: vscp_timer = 0;
-"285
-[e = _vscp_timer -> -> 0 `i `us ]
-[; ;vscp_firmware.c: 286: vscp_probe_cnt = 0;
-"286
-[e = _vscp_probe_cnt -> -> 0 `i `uc ]
-"288
-}
-[; ;vscp_firmware.c: 288: }
-[e $U 27  ]
-"289
-[e :U 26 ]
-[; ;vscp_firmware.c: 289: else {
-{
-[; ;vscp_firmware.c: 292: vscp_nickname = vscp_probe_address;
-"292
-[e = _vscp_nickname _vscp_probe_address ]
-[; ;vscp_firmware.c: 293: vscp_node_state = 0x03;
-"293
-[e = _vscp_node_state -> -> 3 `i `uc ]
-[; ;vscp_firmware.c: 294: vscp_node_substate = 0x00;
-"294
-[e = _vscp_node_substate -> -> 0 `i `uc ]
-[; ;vscp_firmware.c: 295: vscp_writeNicknamePermanent(vscp_nickname);
-"295
-[e ( _vscp_writeNicknamePermanent (1 _vscp_nickname ]
-[; ;vscp_firmware.c: 298: vscp_probe_cnt = 0;
-"298
-[e = _vscp_probe_cnt -> -> 0 `i `uc ]
-[; ;vscp_firmware.c: 299: vscp_goActiveState();
-"299
-[e ( _vscp_goActiveState ..  ]
-"301
-}
-[e :U 27 ]
-"302
-}
-[; ;vscp_firmware.c: 301: }
-[; ;vscp_firmware.c: 302: }
-[e $U 28  ]
-"303
-[e :U 25 ]
-[; ;vscp_firmware.c: 303: else {
-{
-[; ;vscp_firmware.c: 304: vscp_node_substate = 0x00;
-"304
-[e = _vscp_node_substate -> -> 0 `i `uc ]
-"305
-}
-[e :U 28 ]
-"306
-}
-[e :U 24 ]
-"308
-}
-[e :U 23 ]
-[; ;vscp_firmware.c: 305: }
-[; ;vscp_firmware.c: 306: }
-[; ;vscp_firmware.c: 308: }
-[; ;vscp_firmware.c: 309: break;
-"309
-[e $U 13  ]
-[; ;vscp_firmware.c: 311: case 0x02:
-"311
-[e :U 29 ]
-[; ;vscp_firmware.c: 312: break;
-"312
-[e $U 13  ]
-[; ;vscp_firmware.c: 314: default:
-"314
-[e :U 30 ]
-[; ;vscp_firmware.c: 315: vscp_node_substate = 0x00;
-"315
-[e = _vscp_node_substate -> -> 0 `i `uc ]
-[; ;vscp_firmware.c: 316: break;
-"316
-[e $U 13  ]
-"317
-}
-[; ;vscp_firmware.c: 317: }
-[e $U 13  ]
-"207
-[e :U 14 ]
-[e [\ _vscp_node_substate , $ -> -> 0 `i `uc 15
- , $ -> -> 1 `i `uc 18
- , $ -> -> 2 `i `uc 29
- 30 ]
-"317
-[e :U 13 ]
-[; ;vscp_firmware.c: 319: vscp_imsg.flags = 0;
-"319
-[e = . _vscp_imsg 0 -> -> 0 `i `uc ]
-[; ;vscp_firmware.c: 321: }
-"321
+[; ;vscp_firmware.c: 204: }
+"204
 [e :UE 12 ]
 }
-"328
+"211
+[v _vscp_handleProbeState `(v ~T0 @X0 1 ef ]
+{
+[; ;vscp_firmware.c: 210: void vscp_handleProbeState(void)
+[; ;vscp_firmware.c: 211: {
+[e :U _vscp_handleProbeState ]
+[f ]
+[; ;vscp_firmware.c: 212: switch (vscp_node_substate) {
+"212
+[e $U 15  ]
+{
+[; ;vscp_firmware.c: 214: case 0x00:
+"214
+[e :U 16 ]
+[; ;vscp_firmware.c: 216: if (0xff != vscp_probe_address) {
+"216
+[e $ ! != -> 255 `i -> _vscp_probe_address `i 17  ]
+{
+[; ;vscp_firmware.c: 218: vscp_omsg.flags = 0x80 + 1;
+"218
+[e = . _vscp_omsg 0 -> + -> 128 `i -> 1 `i `uc ]
+[; ;vscp_firmware.c: 219: vscp_omsg.priority = 0x00;
+"219
+[e = . _vscp_omsg 1 -> -> 0 `i `uc ]
+[; ;vscp_firmware.c: 220: vscp_omsg.vscp_class = 0;
+"220
+[e = . _vscp_omsg 2 -> -> 0 `i `us ]
+[; ;vscp_firmware.c: 221: vscp_omsg.vscp_type = 2;
+"221
+[e = . _vscp_omsg 3 -> -> 2 `i `uc ]
+[; ;vscp_firmware.c: 222: vscp_omsg.data[ 0 ] = vscp_probe_address;
+"222
+[e = *U + &U . _vscp_omsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux _vscp_probe_address ]
+[; ;vscp_firmware.c: 225: vscp_sendEvent();
+"225
+[e ( _vscp_sendEvent ..  ]
+[; ;vscp_firmware.c: 227: vscp_node_substate = 0x01;
+"227
+[e = _vscp_node_substate -> -> 1 `i `uc ]
+[; ;vscp_firmware.c: 228: vscp_timer = 0;
+"228
+[e = _vscp_timer -> -> 0 `i `us ]
+"230
+}
+[; ;vscp_firmware.c: 230: }
+[e $U 18  ]
+"231
+[e :U 17 ]
+[; ;vscp_firmware.c: 231: else {
+{
+[; ;vscp_firmware.c: 234: vscp_node_state = 0x04;
+"234
+[e = _vscp_node_state -> -> 4 `i `uc ]
+[; ;vscp_firmware.c: 237: vscp_omsg.flags = 0x80 + 1;
+"237
+[e = . _vscp_omsg 0 -> + -> 128 `i -> 1 `i `uc ]
+[; ;vscp_firmware.c: 238: vscp_omsg.data[ 0 ] = 0xff;
+"238
+[e = *U + &U . _vscp_omsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux -> -> 255 `i `uc ]
+[; ;vscp_firmware.c: 239: vscp_omsg.priority = 0x07;
+"239
+[e = . _vscp_omsg 1 -> -> 7 `i `uc ]
+[; ;vscp_firmware.c: 240: vscp_omsg.vscp_class = 0;
+"240
+[e = . _vscp_omsg 2 -> -> 0 `i `us ]
+[; ;vscp_firmware.c: 241: vscp_omsg.vscp_type = 3;
+"241
+[e = . _vscp_omsg 3 -> -> 3 `i `uc ]
+[; ;vscp_firmware.c: 244: vscp_sendEvent();
+"244
+[e ( _vscp_sendEvent ..  ]
+"246
+}
+[e :U 18 ]
+[; ;vscp_firmware.c: 246: }
+[; ;vscp_firmware.c: 247: break;
+"247
+[e $U 14  ]
+[; ;vscp_firmware.c: 249: case 0x01:
+"249
+[e :U 19 ]
+[; ;vscp_firmware.c: 251: if (vscp_imsg.flags & 0x80) {
+"251
+[e $ ! != & -> . _vscp_imsg 0 `i -> 128 `i -> 0 `i 20  ]
+{
+[; ;vscp_firmware.c: 254: if ((0 == vscp_imsg.vscp_class) &&
+[; ;vscp_firmware.c: 255: (3 == vscp_imsg.vscp_type)) {
+"255
+[e $ ! && == -> -> 0 `i `ui -> . _vscp_imsg 2 `ui == -> 3 `i -> . _vscp_imsg 3 `i 21  ]
+{
+[; ;vscp_firmware.c: 258: if (0 == vscp_probe_address) {
+"258
+[e $ ! == -> 0 `i -> _vscp_probe_address `i 22  ]
+{
+[; ;vscp_firmware.c: 262: vscp_node_state = 0x02;
+"262
+[e = _vscp_node_state -> -> 2 `i `uc ]
+[; ;vscp_firmware.c: 263: vscp_timer = 0;
+"263
+[e = _vscp_timer -> -> 0 `i `us ]
+"265
+}
+[; ;vscp_firmware.c: 265: }
+[e $U 23  ]
+"266
+[e :U 22 ]
+[; ;vscp_firmware.c: 266: else {
+{
+[; ;vscp_firmware.c: 269: vscp_probe_address++;
+"269
+[e ++ _vscp_probe_address -> -> 1 `i `uc ]
+[; ;vscp_firmware.c: 270: vscp_node_substate = 0x00;
+"270
+[e = _vscp_node_substate -> -> 0 `i `uc ]
+[; ;vscp_firmware.c: 271: vscp_probe_cnt = 0;
+"271
+[e = _vscp_probe_cnt -> -> 0 `i `uc ]
+"273
+}
+[e :U 23 ]
+"274
+}
+[e :U 21 ]
+"275
+}
+[; ;vscp_firmware.c: 273: }
+[; ;vscp_firmware.c: 274: }
+[; ;vscp_firmware.c: 275: }
+[e $U 24  ]
+"276
+[e :U 20 ]
+[; ;vscp_firmware.c: 276: else {
+{
+[; ;vscp_firmware.c: 278: if (vscp_timer > 1000) {
+"278
+[e $ ! > -> _vscp_timer `ui -> -> 1000 `i `ui 25  ]
+{
+[; ;vscp_firmware.c: 280: vscp_probe_cnt++;
+"280
+[e ++ _vscp_probe_cnt -> -> 1 `i `uc ]
+[; ;vscp_firmware.c: 282: if (vscp_probe_cnt >= 3) {
+"282
+[e $ ! >= -> _vscp_probe_cnt `i -> 3 `i 26  ]
+{
+[; ;vscp_firmware.c: 285: if (0 == vscp_probe_address) {
+"285
+[e $ ! == -> 0 `i -> _vscp_probe_address `i 27  ]
+{
+[; ;vscp_firmware.c: 288: vscp_probe_address++;
+"288
+[e ++ _vscp_probe_address -> -> 1 `i `uc ]
+[; ;vscp_firmware.c: 289: vscp_node_substate = 0x00;
+"289
+[e = _vscp_node_substate -> -> 0 `i `uc ]
+[; ;vscp_firmware.c: 290: vscp_timer = 0;
+"290
+[e = _vscp_timer -> -> 0 `i `us ]
+[; ;vscp_firmware.c: 291: vscp_probe_cnt = 0;
+"291
+[e = _vscp_probe_cnt -> -> 0 `i `uc ]
+"293
+}
+[; ;vscp_firmware.c: 293: }
+[e $U 28  ]
+"294
+[e :U 27 ]
+[; ;vscp_firmware.c: 294: else {
+{
+[; ;vscp_firmware.c: 297: vscp_nickname = vscp_probe_address;
+"297
+[e = _vscp_nickname _vscp_probe_address ]
+[; ;vscp_firmware.c: 298: vscp_node_state = 0x03;
+"298
+[e = _vscp_node_state -> -> 3 `i `uc ]
+[; ;vscp_firmware.c: 299: vscp_node_substate = 0x00;
+"299
+[e = _vscp_node_substate -> -> 0 `i `uc ]
+[; ;vscp_firmware.c: 300: vscp_writeNicknamePermanent(vscp_nickname);
+"300
+[e ( _vscp_writeNicknamePermanent (1 _vscp_nickname ]
+[; ;vscp_firmware.c: 303: vscp_probe_cnt = 0;
+"303
+[e = _vscp_probe_cnt -> -> 0 `i `uc ]
+[; ;vscp_firmware.c: 304: vscp_goActiveState();
+"304
+[e ( _vscp_goActiveState ..  ]
+"306
+}
+[e :U 28 ]
+"307
+}
+[; ;vscp_firmware.c: 306: }
+[; ;vscp_firmware.c: 307: }
+[e $U 29  ]
+"308
+[e :U 26 ]
+[; ;vscp_firmware.c: 308: else {
+{
+[; ;vscp_firmware.c: 309: vscp_node_substate = 0x00;
+"309
+[e = _vscp_node_substate -> -> 0 `i `uc ]
+"310
+}
+[e :U 29 ]
+"311
+}
+[e :U 25 ]
+"313
+}
+[e :U 24 ]
+[; ;vscp_firmware.c: 310: }
+[; ;vscp_firmware.c: 311: }
+[; ;vscp_firmware.c: 313: }
+[; ;vscp_firmware.c: 314: break;
+"314
+[e $U 14  ]
+[; ;vscp_firmware.c: 316: case 0x02:
+"316
+[e :U 30 ]
+[; ;vscp_firmware.c: 317: break;
+"317
+[e $U 14  ]
+[; ;vscp_firmware.c: 319: default:
+"319
+[e :U 31 ]
+[; ;vscp_firmware.c: 320: vscp_node_substate = 0x00;
+"320
+[e = _vscp_node_substate -> -> 0 `i `uc ]
+[; ;vscp_firmware.c: 321: break;
+"321
+[e $U 14  ]
+"322
+}
+[; ;vscp_firmware.c: 322: }
+[e $U 14  ]
+"212
+[e :U 15 ]
+[e [\ _vscp_node_substate , $ -> -> 0 `i `uc 16
+ , $ -> -> 1 `i `uc 19
+ , $ -> -> 2 `i `uc 30
+ 31 ]
+"322
+[e :U 14 ]
+[; ;vscp_firmware.c: 324: vscp_imsg.flags = 0;
+"324
+[e = . _vscp_imsg 0 -> -> 0 `i `uc ]
+[; ;vscp_firmware.c: 326: }
+"326
+[e :UE 13 ]
+}
+"333
 [v _vscp_handlePreActiveState `(v ~T0 @X0 1 ef ]
 {
-[; ;vscp_firmware.c: 327: void vscp_handlePreActiveState(void)
-[; ;vscp_firmware.c: 328: {
+[; ;vscp_firmware.c: 332: void vscp_handlePreActiveState(void)
+[; ;vscp_firmware.c: 333: {
 [e :U _vscp_handlePreActiveState ]
 [f ]
-[; ;vscp_firmware.c: 330: if ( vscp_imsg.flags & 0x80 ) {
-"330
-[e $ ! != & -> . _vscp_imsg 0 `i -> 128 `i -> 0 `i 32  ]
+[; ;vscp_firmware.c: 335: if ( vscp_imsg.flags & 0x80 ) {
+"335
+[e $ ! != & -> . _vscp_imsg 0 `i -> 128 `i -> 0 `i 33  ]
 {
-[; ;vscp_firmware.c: 332: if ((0 == vscp_imsg.vscp_class) &&
-[; ;vscp_firmware.c: 333: (6 == vscp_imsg.vscp_type) &&
-[; ;vscp_firmware.c: 334: (0xff == vscp_imsg.data[ 0 ])) {
-"334
-[e $ ! && && == -> -> 0 `i `ui -> . _vscp_imsg 2 `ui == -> 6 `i -> . _vscp_imsg 3 `i == -> 255 `i -> *U + &U . _vscp_imsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i 33  ]
+[; ;vscp_firmware.c: 337: if ((0 == vscp_imsg.vscp_class) &&
+[; ;vscp_firmware.c: 338: (6 == vscp_imsg.vscp_type) &&
+[; ;vscp_firmware.c: 339: (0xff == vscp_imsg.data[ 0 ])) {
+"339
+[e $ ! && && == -> -> 0 `i `ui -> . _vscp_imsg 2 `ui == -> 6 `i -> . _vscp_imsg 3 `i == -> 255 `i -> *U + &U . _vscp_imsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i 34  ]
 {
-[; ;vscp_firmware.c: 337: vscp_nickname = vscp_imsg.data[ 1 ];
-"337
-[e = _vscp_nickname *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
-[; ;vscp_firmware.c: 338: vscp_writeNicknamePermanent(vscp_nickname);
-"338
-[e ( _vscp_writeNicknamePermanent (1 _vscp_nickname ]
-[; ;vscp_firmware.c: 341: vscp_node_state = 0x03;
-"341
-[e = _vscp_node_state -> -> 3 `i `uc ]
+[; ;vscp_firmware.c: 342: vscp_nickname = vscp_imsg.data[ 1 ];
 "342
-}
-[e :U 33 ]
+[e = _vscp_nickname *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
+[; ;vscp_firmware.c: 343: vscp_writeNicknamePermanent(vscp_nickname);
 "343
-}
-[; ;vscp_firmware.c: 342: }
-[; ;vscp_firmware.c: 343: }
-[e $U 34  ]
-"344
-[e :U 32 ]
-[; ;vscp_firmware.c: 344: else {
-{
-[; ;vscp_firmware.c: 346: if (vscp_timer > 1000) {
+[e ( _vscp_writeNicknamePermanent (1 _vscp_nickname ]
+[; ;vscp_firmware.c: 346: vscp_node_state = 0x03;
 "346
-[e $ ! > -> _vscp_timer `ui -> -> 1000 `i `ui 35  ]
-{
-[; ;vscp_firmware.c: 348: vscp_nickname = 0xff;
-"348
-[e = _vscp_nickname -> -> 255 `i `uc ]
-[; ;vscp_firmware.c: 349: vscp_writeNicknamePermanent(0xff);
-"349
-[e ( _vscp_writeNicknamePermanent (1 -> -> 255 `i `uc ]
-[; ;vscp_firmware.c: 350: vscp_init();
-"350
-[e ( _vscp_init ..  ]
-"351
-}
-[e :U 35 ]
-"352
+[e = _vscp_node_state -> -> 3 `i `uc ]
+"347
 }
 [e :U 34 ]
-[; ;vscp_firmware.c: 351: }
-[; ;vscp_firmware.c: 352: }
-[; ;vscp_firmware.c: 353: }
-"353
-[e :UE 31 ]
+"348
 }
-"362
+[; ;vscp_firmware.c: 347: }
+[; ;vscp_firmware.c: 348: }
+[e $U 35  ]
+"349
+[e :U 33 ]
+[; ;vscp_firmware.c: 349: else {
+{
+[; ;vscp_firmware.c: 351: if (vscp_timer > 1000) {
+"351
+[e $ ! > -> _vscp_timer `ui -> -> 1000 `i `ui 36  ]
+{
+[; ;vscp_firmware.c: 353: vscp_nickname = 0xff;
+"353
+[e = _vscp_nickname -> -> 255 `i `uc ]
+[; ;vscp_firmware.c: 354: vscp_writeNicknamePermanent(0xff);
+"354
+[e ( _vscp_writeNicknamePermanent (1 -> -> 255 `i `uc ]
+[; ;vscp_firmware.c: 355: vscp_init();
+"355
+[e ( _vscp_init ..  ]
+"356
+}
+[e :U 36 ]
+"357
+}
+[e :U 35 ]
+[; ;vscp_firmware.c: 356: }
+[; ;vscp_firmware.c: 357: }
+[; ;vscp_firmware.c: 358: }
+"358
+[e :UE 32 ]
+}
+"367
 [v _vscp_goActiveState `(v ~T0 @X0 1 ef ]
 {
-[; ;vscp_firmware.c: 361: void vscp_goActiveState(void)
-[; ;vscp_firmware.c: 362: {
+[; ;vscp_firmware.c: 366: void vscp_goActiveState(void)
+[; ;vscp_firmware.c: 367: {
 [e :U _vscp_goActiveState ]
 [f ]
-[; ;vscp_firmware.c: 363: vscp_omsg.flags = 0x80 + 1;
-"363
+[; ;vscp_firmware.c: 368: vscp_omsg.flags = 0x80 + 1;
+"368
 [e = . _vscp_omsg 0 -> + -> 128 `i -> 1 `i `uc ]
-[; ;vscp_firmware.c: 364: vscp_omsg.priority = 0x00;
-"364
+[; ;vscp_firmware.c: 369: vscp_omsg.priority = 0x00;
+"369
 [e = . _vscp_omsg 1 -> -> 0 `i `uc ]
-[; ;vscp_firmware.c: 365: vscp_omsg.vscp_class = 0;
-"365
-[e = . _vscp_omsg 2 -> -> 0 `i `us ]
-[; ;vscp_firmware.c: 366: vscp_omsg.vscp_type = 2;
-"366
-[e = . _vscp_omsg 3 -> -> 2 `i `uc ]
-[; ;vscp_firmware.c: 367: vscp_omsg.data[ 0 ] = vscp_nickname;
-"367
-[e = *U + &U . _vscp_omsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux _vscp_nickname ]
-[; ;vscp_firmware.c: 370: vscp_sendEvent();
+[; ;vscp_firmware.c: 370: vscp_omsg.vscp_class = 0;
 "370
-[e ( _vscp_sendEvent ..  ]
-[; ;vscp_firmware.c: 372: vscp_initledfunc = 0x01;
+[e = . _vscp_omsg 2 -> -> 0 `i `us ]
+[; ;vscp_firmware.c: 371: vscp_omsg.vscp_type = 2;
+"371
+[e = . _vscp_omsg 3 -> -> 2 `i `uc ]
+[; ;vscp_firmware.c: 372: vscp_omsg.data[ 0 ] = vscp_nickname;
 "372
+[e = *U + &U . _vscp_omsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux _vscp_nickname ]
+[; ;vscp_firmware.c: 375: vscp_sendEvent();
+"375
+[e ( _vscp_sendEvent ..  ]
+[; ;vscp_firmware.c: 377: vscp_initledfunc = 0x01;
+"377
 [e = _vscp_initledfunc -> -> 1 `i `uc ]
-[; ;vscp_firmware.c: 373: }
-"373
-[e :UE 36 ]
+[; ;vscp_firmware.c: 378: }
+"378
+[e :UE 37 ]
 }
-"382
+"387
 [v _vscp_sendHeartBeat `(v ~T0 @X0 1 ef2`uc`uc ]
 {
-[; ;vscp_firmware.c: 381: void vscp_sendHeartBeat(uint8_t zone, uint8_t subzone)
-[; ;vscp_firmware.c: 382: {
+[; ;vscp_firmware.c: 386: void vscp_sendHeartBeat(uint8_t zone, uint8_t subzone)
+[; ;vscp_firmware.c: 387: {
 [e :U _vscp_sendHeartBeat ]
 [v _zone `uc ~T0 @X0 1 r1 ]
 [v _subzone `uc ~T0 @X0 1 r2 ]
 [f ]
-[; ;vscp_firmware.c: 383: vscp_omsg.flags = 0x80 + 3;
-"383
-[e = . _vscp_omsg 0 -> + -> 128 `i -> 3 `i `uc ]
-[; ;vscp_firmware.c: 384: vscp_omsg.priority = 0x07;
-"384
-[e = . _vscp_omsg 1 -> -> 7 `i `uc ]
-[; ;vscp_firmware.c: 385: vscp_omsg.vscp_class = 20;
-"385
-[e = . _vscp_omsg 2 -> -> 20 `i `us ]
-[; ;vscp_firmware.c: 386: vscp_omsg.vscp_type = 9;
-"386
-[e = . _vscp_omsg 3 -> -> 9 `i `uc ]
-[; ;vscp_firmware.c: 387: vscp_omsg.data[ 0 ] = 0;
-"387
-[e = *U + &U . _vscp_omsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux -> -> 0 `i `uc ]
-[; ;vscp_firmware.c: 388: vscp_omsg.data[ 1 ] = zone;
+[; ;vscp_firmware.c: 388: vscp_omsg.flags = 0x80 + 3;
 "388
-[e = *U + &U . _vscp_omsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux _zone ]
-[; ;vscp_firmware.c: 389: vscp_omsg.data[ 2 ] = subzone;
+[e = . _vscp_omsg 0 -> + -> 128 `i -> 3 `i `uc ]
+[; ;vscp_firmware.c: 389: vscp_omsg.priority = 0x07;
 "389
-[e = *U + &U . _vscp_omsg 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux _subzone ]
-[; ;vscp_firmware.c: 392: vscp_sendEvent();
+[e = . _vscp_omsg 1 -> -> 7 `i `uc ]
+[; ;vscp_firmware.c: 390: vscp_omsg.vscp_class = 20;
+"390
+[e = . _vscp_omsg 2 -> -> 20 `i `us ]
+[; ;vscp_firmware.c: 391: vscp_omsg.vscp_type = 9;
+"391
+[e = . _vscp_omsg 3 -> -> 9 `i `uc ]
+[; ;vscp_firmware.c: 392: vscp_omsg.data[ 0 ] = 0;
 "392
-[e ( _vscp_sendEvent ..  ]
-[; ;vscp_firmware.c: 393: }
+[e = *U + &U . _vscp_omsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux -> -> 0 `i `uc ]
+[; ;vscp_firmware.c: 393: vscp_omsg.data[ 1 ] = zone;
 "393
-[e :UE 37 ]
-}
-"400
-[v _vscp_handleHeartbeat `(v ~T0 @X0 1 ef ]
-{
-[; ;vscp_firmware.c: 399: void vscp_handleHeartbeat(void)
-[; ;vscp_firmware.c: 400: {
-[e :U _vscp_handleHeartbeat ]
-[f ]
-[; ;vscp_firmware.c: 401: ;
-[; ;vscp_firmware.c: 402: }
-"402
+[e = *U + &U . _vscp_omsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux _zone ]
+[; ;vscp_firmware.c: 394: vscp_omsg.data[ 2 ] = subzone;
+"394
+[e = *U + &U . _vscp_omsg 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux _subzone ]
+[; ;vscp_firmware.c: 397: vscp_sendEvent();
+"397
+[e ( _vscp_sendEvent ..  ]
+[; ;vscp_firmware.c: 398: }
+"398
 [e :UE 38 ]
 }
-"409
-[v _vscp_handleSetNickname `(v ~T0 @X0 1 ef ]
+"405
+[v _vscp_handleHeartbeat `(v ~T0 @X0 1 ef ]
 {
-[; ;vscp_firmware.c: 408: void vscp_handleSetNickname(void)
-[; ;vscp_firmware.c: 409: {
-[e :U _vscp_handleSetNickname ]
+[; ;vscp_firmware.c: 404: void vscp_handleHeartbeat(void)
+[; ;vscp_firmware.c: 405: {
+[e :U _vscp_handleHeartbeat ]
 [f ]
-[; ;vscp_firmware.c: 410: if ( ( 2 == (vscp_imsg.flags & 0x0f ) ) &&
-[; ;vscp_firmware.c: 411: (vscp_nickname == vscp_imsg.data[ 0 ])) {
-"411
-[e $ ! && == -> 2 `i & -> . _vscp_imsg 0 `i -> 15 `i == -> _vscp_nickname `i -> *U + &U . _vscp_imsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i 40  ]
-{
-[; ;vscp_firmware.c: 414: vscp_nickname = vscp_imsg.data[ 1 ];
-"414
-[e = _vscp_nickname *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
-[; ;vscp_firmware.c: 415: vscp_writeNicknamePermanent(vscp_nickname);
-"415
-[e ( _vscp_writeNicknamePermanent (1 _vscp_nickname ]
-"417
-}
-[e :U 40 ]
-[; ;vscp_firmware.c: 417: }
-[; ;vscp_firmware.c: 418: }
-"418
+[; ;vscp_firmware.c: 406: ;
+[; ;vscp_firmware.c: 407: }
+"407
 [e :UE 39 ]
 }
-"425
+"414
+[v _vscp_handleSetNickname `(v ~T0 @X0 1 ef ]
+{
+[; ;vscp_firmware.c: 413: void vscp_handleSetNickname(void)
+[; ;vscp_firmware.c: 414: {
+[e :U _vscp_handleSetNickname ]
+[f ]
+[; ;vscp_firmware.c: 415: if ( ( 2 == (vscp_imsg.flags & 0x0f ) ) &&
+[; ;vscp_firmware.c: 416: (vscp_nickname == vscp_imsg.data[ 0 ])) {
+"416
+[e $ ! && == -> 2 `i & -> . _vscp_imsg 0 `i -> 15 `i == -> _vscp_nickname `i -> *U + &U . _vscp_imsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i 41  ]
+{
+[; ;vscp_firmware.c: 419: vscp_nickname = vscp_imsg.data[ 1 ];
+"419
+[e = _vscp_nickname *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
+[; ;vscp_firmware.c: 420: vscp_writeNicknamePermanent(vscp_nickname);
+"420
+[e ( _vscp_writeNicknamePermanent (1 _vscp_nickname ]
+"422
+}
+[e :U 41 ]
+[; ;vscp_firmware.c: 422: }
+[; ;vscp_firmware.c: 423: }
+"423
+[e :UE 40 ]
+}
+"430
 [v _vscp_handleDropNickname `(v ~T0 @X0 1 ef ]
 {
-[; ;vscp_firmware.c: 424: void vscp_handleDropNickname(void)
-[; ;vscp_firmware.c: 425: {
+[; ;vscp_firmware.c: 429: void vscp_handleDropNickname(void)
+[; ;vscp_firmware.c: 430: {
 [e :U _vscp_handleDropNickname ]
 [f ]
-"426
+"431
 [v _bytes `uc ~T0 @X0 1 a ]
-[; ;vscp_firmware.c: 426: uint8_t bytes = vscp_imsg.flags & 0x0f;
+[; ;vscp_firmware.c: 431: uint8_t bytes = vscp_imsg.flags & 0x0f;
 [e = _bytes -> & -> . _vscp_imsg 0 `i -> 15 `i `uc ]
-[; ;vscp_firmware.c: 432: if ((bytes >= 1) && (vscp_nickname == vscp_imsg.data[ 0 ])) {
-"432
-[e $ ! && >= -> _bytes `i -> 1 `i == -> _vscp_nickname `i -> *U + &U . _vscp_imsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i 42  ]
+[; ;vscp_firmware.c: 437: if ((bytes >= 1) && (vscp_nickname == vscp_imsg.data[ 0 ])) {
+"437
+[e $ ! && >= -> _bytes `i -> 1 `i == -> _vscp_nickname `i -> *U + &U . _vscp_imsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i 43  ]
 {
-[; ;vscp_firmware.c: 465: if ((bytes == 1) || ((bytes > 1) && (vscp_imsg.data[1] == 0))) {
-"465
-[e $ ! || == -> _bytes `i -> 1 `i && > -> _bytes `i -> 1 `i == -> *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i -> 0 `i 43  ]
-{
-[; ;vscp_firmware.c: 467: vscp_nickname = 0xff;
-"467
-[e = _vscp_nickname -> -> 255 `i `uc ]
-[; ;vscp_firmware.c: 468: vscp_writeNicknamePermanent(0xff);
-"468
-[e ( _vscp_writeNicknamePermanent (1 -> -> 255 `i `uc ]
-[; ;vscp_firmware.c: 469: vscp_init();
-"469
-[e ( _vscp_init ..  ]
+[; ;vscp_firmware.c: 470: if ((bytes == 1) || ((bytes > 1) && (vscp_imsg.data[1] == 0))) {
 "470
+[e $ ! || == -> _bytes `i -> 1 `i && > -> _bytes `i -> 1 `i == -> *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i -> 0 `i 44  ]
+{
+[; ;vscp_firmware.c: 472: vscp_nickname = 0xff;
+"472
+[e = _vscp_nickname -> -> 255 `i `uc ]
+[; ;vscp_firmware.c: 473: vscp_writeNicknamePermanent(0xff);
+"473
+[e ( _vscp_writeNicknamePermanent (1 -> -> 255 `i `uc ]
+[; ;vscp_firmware.c: 474: vscp_init();
+"474
+[e ( _vscp_init ..  ]
+"475
+}
+[e :U 44 ]
+"488
 }
 [e :U 43 ]
-"483
+[; ;vscp_firmware.c: 475: }
+[; ;vscp_firmware.c: 488: }
+[; ;vscp_firmware.c: 489: }
+"489
+[e :UE 42 ]
 }
-[e :U 42 ]
-[; ;vscp_firmware.c: 470: }
-[; ;vscp_firmware.c: 483: }
-[; ;vscp_firmware.c: 484: }
-"484
-[e :UE 41 ]
-}
-"491
+"496
 [v _vscp_newNodeOnline `(v ~T0 @X0 1 ef ]
 {
-[; ;vscp_firmware.c: 490: void vscp_newNodeOnline(void)
-[; ;vscp_firmware.c: 491: {
+[; ;vscp_firmware.c: 495: void vscp_newNodeOnline(void)
+[; ;vscp_firmware.c: 496: {
 [e :U _vscp_newNodeOnline ]
 [f ]
-[; ;vscp_firmware.c: 492: if ( ( 1 == ( vscp_imsg.flags & 0x0f ) ) &&
-[; ;vscp_firmware.c: 493: (vscp_nickname == vscp_imsg.data[ 0 ])) {
-"493
-[e $ ! && == -> 1 `i & -> . _vscp_imsg 0 `i -> 15 `i == -> _vscp_nickname `i -> *U + &U . _vscp_imsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i 45  ]
+[; ;vscp_firmware.c: 497: if ( ( 1 == ( vscp_imsg.flags & 0x0f ) ) &&
+[; ;vscp_firmware.c: 498: (vscp_nickname == vscp_imsg.data[ 0 ])) {
+"498
+[e $ ! && == -> 1 `i & -> . _vscp_imsg 0 `i -> 15 `i == -> _vscp_nickname `i -> *U + &U . _vscp_imsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i 46  ]
 {
-[; ;vscp_firmware.c: 499: vscp_omsg.flags = 0x80;
-"499
+[; ;vscp_firmware.c: 504: vscp_omsg.flags = 0x80;
+"504
 [e = . _vscp_omsg 0 -> -> 128 `i `uc ]
-[; ;vscp_firmware.c: 500: vscp_omsg.priority = 0x00;
-"500
-[e = . _vscp_omsg 1 -> -> 0 `i `uc ]
-[; ;vscp_firmware.c: 501: vscp_omsg.vscp_class = 0;
-"501
-[e = . _vscp_omsg 2 -> -> 0 `i `us ]
-[; ;vscp_firmware.c: 502: vscp_omsg.vscp_type = 3;
-"502
-[e = . _vscp_omsg 3 -> -> 3 `i `uc ]
-[; ;vscp_firmware.c: 503: vscp_sendEvent();
-"503
-[e ( _vscp_sendEvent ..  ]
+[; ;vscp_firmware.c: 505: vscp_omsg.priority = 0x00;
 "505
-}
-[e :U 45 ]
-[; ;vscp_firmware.c: 505: }
-[; ;vscp_firmware.c: 506: }
+[e = . _vscp_omsg 1 -> -> 0 `i `uc ]
+[; ;vscp_firmware.c: 506: vscp_omsg.vscp_class = 0;
 "506
-[e :UE 44 ]
+[e = . _vscp_omsg 2 -> -> 0 `i `us ]
+[; ;vscp_firmware.c: 507: vscp_omsg.vscp_type = 3;
+"507
+[e = . _vscp_omsg 3 -> -> 3 `i `uc ]
+[; ;vscp_firmware.c: 508: vscp_sendEvent();
+"508
+[e ( _vscp_sendEvent ..  ]
+"510
 }
-"513
+[e :U 46 ]
+[; ;vscp_firmware.c: 510: }
+[; ;vscp_firmware.c: 511: }
+"511
+[e :UE 45 ]
+}
+"518
 [v _vscp_doOneSecondWork `(v ~T0 @X0 1 ef ]
 {
-[; ;vscp_firmware.c: 512: void vscp_doOneSecondWork(void)
-[; ;vscp_firmware.c: 513: {
+[; ;vscp_firmware.c: 517: void vscp_doOneSecondWork(void)
+[; ;vscp_firmware.c: 518: {
 [e :U _vscp_doOneSecondWork ]
 [f ]
-[; ;vscp_firmware.c: 515: ++vscp_second;
-"515
+[; ;vscp_firmware.c: 520: ++vscp_second;
+"520
 [e =+ _vscp_second -> -> 1 `i `uc ]
-[; ;vscp_firmware.c: 517: if (vscp_second > 59) {
-"517
-[e $ ! > -> _vscp_second `i -> 59 `i 47  ]
-{
-[; ;vscp_firmware.c: 518: vscp_second = 0;
-"518
-[e = _vscp_second -> -> 0 `i `uc ]
-[; ;vscp_firmware.c: 519: vscp_minute++;
-"519
-[e ++ _vscp_minute -> -> 1 `i `uc ]
-[; ;vscp_firmware.c: 522: if (0x03 == vscp_node_state) {
+[; ;vscp_firmware.c: 522: if (vscp_second > 59) {
 "522
-[e $ ! == -> 3 `i -> _vscp_node_state `i 48  ]
+[e $ ! > -> _vscp_second `i -> 59 `i 48  ]
 {
-[; ;vscp_firmware.c: 523: vscp_sendHeartBeat(vscp_getZone(),
-[; ;vscp_firmware.c: 524: vscp_getSubzone());
+[; ;vscp_firmware.c: 523: vscp_second = 0;
+"523
+[e = _vscp_second -> -> 0 `i `uc ]
+[; ;vscp_firmware.c: 524: vscp_minute++;
 "524
-[e ( _vscp_sendHeartBeat (2 , ( _vscp_getZone ..  ( _vscp_getSubzone ..  ]
-"525
-}
-[e :U 48 ]
-"526
-}
-[e :U 47 ]
-[; ;vscp_firmware.c: 525: }
-[; ;vscp_firmware.c: 526: }
-[; ;vscp_firmware.c: 528: if (vscp_minute > 59) {
-"528
-[e $ ! > -> _vscp_minute `i -> 59 `i 49  ]
+[e ++ _vscp_minute -> -> 1 `i `uc ]
+[; ;vscp_firmware.c: 527: if (0x03 == vscp_node_state) {
+"527
+[e $ ! == -> 3 `i -> _vscp_node_state `i 49  ]
 {
-[; ;vscp_firmware.c: 529: vscp_minute = 0;
+[; ;vscp_firmware.c: 528: vscp_sendHeartBeat(vscp_getZone(),
+[; ;vscp_firmware.c: 529: vscp_getSubzone());
 "529
-[e = _vscp_minute -> -> 0 `i `uc ]
-[; ;vscp_firmware.c: 530: vscp_hour++;
+[e ( _vscp_sendHeartBeat (2 , ( _vscp_getZone ..  ( _vscp_getSubzone ..  ]
 "530
-[e ++ _vscp_hour -> -> 1 `i `uc ]
-"531
 }
 [e :U 49 ]
+"531
+}
+[e :U 48 ]
+[; ;vscp_firmware.c: 530: }
 [; ;vscp_firmware.c: 531: }
-[; ;vscp_firmware.c: 533: if (vscp_hour > 23) vscp_hour = 0;
+[; ;vscp_firmware.c: 533: if (vscp_minute > 59) {
 "533
-[e $ ! > -> _vscp_hour `i -> 23 `i 50  ]
-[e = _vscp_hour -> -> 0 `i `uc ]
+[e $ ! > -> _vscp_minute `i -> 59 `i 50  ]
+{
+[; ;vscp_firmware.c: 534: vscp_minute = 0;
+"534
+[e = _vscp_minute -> -> 0 `i `uc ]
+[; ;vscp_firmware.c: 535: vscp_hour++;
+"535
+[e ++ _vscp_hour -> -> 1 `i `uc ]
+"536
+}
 [e :U 50 ]
-[; ;vscp_firmware.c: 537: if (0x03 == vscp_node_state) {
-"537
-[e $ ! == -> 3 `i -> _vscp_node_state `i 51  ]
-{
-[; ;vscp_firmware.c: 538: vscp_guid_reset++;
+[; ;vscp_firmware.c: 536: }
+[; ;vscp_firmware.c: 538: if (vscp_hour > 23) vscp_hour = 0;
 "538
-[e ++ _vscp_guid_reset -> -> 1 `i `uc ]
-[; ;vscp_firmware.c: 539: if ((vscp_guid_reset & 0x0f) >= 2) {
-"539
-[e $ ! >= & -> _vscp_guid_reset `i -> 15 `i -> 2 `i 52  ]
+[e $ ! > -> _vscp_hour `i -> 23 `i 51  ]
+[e = _vscp_hour -> -> 0 `i `uc ]
+[e :U 51 ]
+[; ;vscp_firmware.c: 542: if (0x03 == vscp_node_state) {
+"542
+[e $ ! == -> 3 `i -> _vscp_node_state `i 52  ]
 {
-[; ;vscp_firmware.c: 540: vscp_guid_reset = 0;
-"540
+[; ;vscp_firmware.c: 543: vscp_guid_reset++;
+"543
+[e ++ _vscp_guid_reset -> -> 1 `i `uc ]
+[; ;vscp_firmware.c: 544: if ((vscp_guid_reset & 0x0f) >= 2) {
+"544
+[e $ ! >= & -> _vscp_guid_reset `i -> 15 `i -> 2 `i 53  ]
+{
+[; ;vscp_firmware.c: 545: vscp_guid_reset = 0;
+"545
 [e = _vscp_guid_reset -> -> 0 `i `uc ]
-"541
+"546
+}
+[e :U 53 ]
+"547
 }
 [e :U 52 ]
-"542
+[; ;vscp_firmware.c: 546: }
+[; ;vscp_firmware.c: 547: }
+[; ;vscp_firmware.c: 548: }
+"548
+[e :UE 47 ]
 }
-[e :U 51 ]
-[; ;vscp_firmware.c: 541: }
-[; ;vscp_firmware.c: 542: }
-[; ;vscp_firmware.c: 543: }
-"543
-[e :UE 46 ]
-}
-"550
+"555
 [v _vscp_readRegister `(uc ~T0 @X0 1 ef1`uc ]
 {
-[; ;vscp_firmware.c: 549: uint8_t vscp_readRegister(uint8_t reg)
-[; ;vscp_firmware.c: 550: {
+[; ;vscp_firmware.c: 554: uint8_t vscp_readRegister(uint8_t reg)
+[; ;vscp_firmware.c: 555: {
 [e :U _vscp_readRegister ]
 [v _reg `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;vscp_firmware.c: 551: if (reg >= 0x80) {
-"551
-[e $ ! >= -> _reg `i -> 128 `i 54  ]
-{
-[; ;vscp_firmware.c: 552: return vscp_readStdReg(reg);
-"552
-[e ) ( _vscp_readStdReg (1 _reg ]
-[e $UE 53  ]
-"553
-}
-[; ;vscp_firmware.c: 553: }
-[e $U 55  ]
-"554
-[e :U 54 ]
-[; ;vscp_firmware.c: 554: else {
-{
-[; ;vscp_firmware.c: 555: return vscp_readAppReg(reg);
-"555
-[e ) ( _vscp_readAppReg (1 _reg ]
-[e $UE 53  ]
+[; ;vscp_firmware.c: 556: if (reg >= 0x80) {
 "556
-}
-[e :U 55 ]
-[; ;vscp_firmware.c: 556: }
-[; ;vscp_firmware.c: 557: }
+[e $ ! >= -> _reg `i -> 128 `i 55  ]
+{
+[; ;vscp_firmware.c: 557: return vscp_readStdReg(reg);
 "557
-[e :UE 53 ]
+[e ) ( _vscp_readStdReg (1 _reg ]
+[e $UE 54  ]
+"558
 }
-"564
+[; ;vscp_firmware.c: 558: }
+[e $U 56  ]
+"559
+[e :U 55 ]
+[; ;vscp_firmware.c: 559: else {
+{
+[; ;vscp_firmware.c: 560: return vscp_readAppReg(reg);
+"560
+[e ) ( _vscp_readAppReg (1 _reg ]
+[e $UE 54  ]
+"561
+}
+[e :U 56 ]
+[; ;vscp_firmware.c: 561: }
+[; ;vscp_firmware.c: 562: }
+"562
+[e :UE 54 ]
+}
+"569
 [v _vscp_readStdReg `(uc ~T0 @X0 1 ef1`uc ]
 {
-[; ;vscp_firmware.c: 563: uint8_t vscp_readStdReg(uint8_t reg)
-[; ;vscp_firmware.c: 564: {
+[; ;vscp_firmware.c: 568: uint8_t vscp_readStdReg(uint8_t reg)
+[; ;vscp_firmware.c: 569: {
 [e :U _vscp_readStdReg ]
 [v _reg `uc ~T0 @X0 1 r1 ]
 [f ]
-"565
-[v _rv `uc ~T0 @X0 1 a ]
-[; ;vscp_firmware.c: 565: uint8_t rv = 0;
-[e = _rv -> -> 0 `i `uc ]
-[; ;vscp_firmware.c: 567: if (0x80 == reg) {
-"567
-[e $ ! == -> 128 `i -> _reg `i 57  ]
-{
-[; ;vscp_firmware.c: 570: rv = vscp_alarmstatus;
 "570
+[v _rv `uc ~T0 @X0 1 a ]
+[; ;vscp_firmware.c: 570: uint8_t rv = 0;
+[e = _rv -> -> 0 `i `uc ]
+[; ;vscp_firmware.c: 572: if (0x80 == reg) {
+"572
+[e $ ! == -> 128 `i -> _reg `i 58  ]
+{
+[; ;vscp_firmware.c: 575: rv = vscp_alarmstatus;
+"575
 [e = _rv _vscp_alarmstatus ]
-[; ;vscp_firmware.c: 571: vscp_alarmstatus = 0x00;
-"571
+[; ;vscp_firmware.c: 576: vscp_alarmstatus = 0x00;
+"576
 [e = _vscp_alarmstatus -> -> 0 `i `uc ]
-"573
+"578
 }
-[; ;vscp_firmware.c: 573: }
-[e $U 58  ]
-"574
-[e :U 57 ]
-[; ;vscp_firmware.c: 574: else if (0x81 == reg) {
-[e $ ! == -> 129 `i -> _reg `i 59  ]
-{
-[; ;vscp_firmware.c: 577: rv = 1;
-"577
-[e = _rv -> -> 1 `i `uc ]
+[; ;vscp_firmware.c: 578: }
+[e $U 59  ]
 "579
-}
-[; ;vscp_firmware.c: 579: }
-[e $U 60  ]
-"580
-[e :U 59 ]
-[; ;vscp_firmware.c: 580: else if (0x82 == reg) {
-[e $ ! == -> 130 `i -> _reg `i 61  ]
-{
-[; ;vscp_firmware.c: 583: rv = 6;
-"583
-[e = _rv -> -> 6 `i `uc ]
-"585
-}
-[; ;vscp_firmware.c: 585: }
-[e $U 62  ]
-"586
-[e :U 61 ]
-[; ;vscp_firmware.c: 586: else if (0x83 == reg) {
-[e $ ! == -> 131 `i -> _reg `i 63  ]
-{
-[; ;vscp_firmware.c: 589: rv = vscp_errorcnt;
-"589
-[e = _rv _vscp_errorcnt ]
-"591
-}
-[; ;vscp_firmware.c: 591: }
-[e $U 64  ]
-"592
-[e :U 63 ]
-[; ;vscp_firmware.c: 592: else if (0x94 == reg) {
-[e $ ! == -> 148 `i -> _reg `i 65  ]
-{
-[; ;vscp_firmware.c: 595: rv = vscp_getMajorVersion();
-"595
-[e = _rv ( _vscp_getMajorVersion ..  ]
-"597
-}
-[; ;vscp_firmware.c: 597: }
-[e $U 66  ]
-"598
-[e :U 65 ]
-[; ;vscp_firmware.c: 598: else if (0x95 == reg) {
-[e $ ! == -> 149 `i -> _reg `i 67  ]
-{
-[; ;vscp_firmware.c: 601: rv = vscp_getMinorVersion();
-"601
-[e = _rv ( _vscp_getMinorVersion ..  ]
-"603
-}
-[; ;vscp_firmware.c: 603: }
-[e $U 68  ]
-"604
-[e :U 67 ]
-[; ;vscp_firmware.c: 604: else if (0x96 == reg) {
-[e $ ! == -> 150 `i -> _reg `i 69  ]
-{
-[; ;vscp_firmware.c: 607: rv = vscp_getSubMinorVersion();
-"607
-[e = _rv ( _vscp_getSubMinorVersion ..  ]
-"609
-}
-[; ;vscp_firmware.c: 609: }
-[e $U 70  ]
-"610
-[e :U 69 ]
-[; ;vscp_firmware.c: 610: else if (reg < 0x89) {
-[e $ ! < -> _reg `i -> 137 `i 71  ]
-{
-[; ;vscp_firmware.c: 613: rv = vscp_getUserID(reg - 0x84);
-"613
-[e = _rv ( _vscp_getUserID (1 -> - -> _reg `i -> 132 `i `uc ]
-"615
-}
-[; ;vscp_firmware.c: 615: }
-[e $U 72  ]
-"616
-[e :U 71 ]
-[; ;vscp_firmware.c: 616: else if ((reg > 0x88) &&
-[; ;vscp_firmware.c: 617: (reg < 0x91)) {
-"617
-[e $ ! && > -> _reg `i -> 136 `i < -> _reg `i -> 145 `i 73  ]
-{
-[; ;vscp_firmware.c: 620: rv = vscp_getManufacturerId(reg - 0x89);
-"620
-[e = _rv ( _vscp_getManufacturerId (1 -> - -> _reg `i -> 137 `i `uc ]
-"622
-}
-[; ;vscp_firmware.c: 622: }
-[e $U 74  ]
-"623
-[e :U 73 ]
-[; ;vscp_firmware.c: 623: else if (0x91 == reg) {
-[e $ ! == -> 145 `i -> _reg `i 75  ]
-{
-[; ;vscp_firmware.c: 626: rv = vscp_nickname;
-"626
-[e = _rv _vscp_nickname ]
-"628
-}
-[; ;vscp_firmware.c: 628: }
-[e $U 76  ]
-"629
-[e :U 75 ]
-[; ;vscp_firmware.c: 629: else if (0x93 == reg) {
-[e $ ! == -> 147 `i -> _reg `i 77  ]
-{
-[; ;vscp_firmware.c: 632: rv = (vscp_page_select & 0xff);
-"632
-[e = _rv -> & -> _vscp_page_select `ui -> -> 255 `i `ui `uc ]
-"634
-}
-[; ;vscp_firmware.c: 634: }
-[e $U 78  ]
-"636
-[e :U 77 ]
-[; ;vscp_firmware.c: 636: else if (0x92 == reg) {
-[e $ ! == -> 146 `i -> _reg `i 79  ]
-{
-[; ;vscp_firmware.c: 639: rv = (vscp_page_select >> 8) & 0xff;
-"639
-[e = _rv -> & >> -> _vscp_page_select `ui -> 8 `i -> -> 255 `i `ui `uc ]
-"641
-}
-[; ;vscp_firmware.c: 641: }
-[e $U 80  ]
-"642
-[e :U 79 ]
-[; ;vscp_firmware.c: 642: else if (0x97 == reg) {
-[e $ ! == -> 151 `i -> _reg `i 81  ]
-{
-[; ;vscp_firmware.c: 644: rv = vscp_getBootLoaderAlgorithm();
-"644
-[e = _rv ( _vscp_getBootLoaderAlgorithm ..  ]
-"645
-}
-[; ;vscp_firmware.c: 645: }
-[e $U 82  ]
-"646
-[e :U 81 ]
-[; ;vscp_firmware.c: 646: else if (0x98 == reg) {
-[e $ ! == -> 152 `i -> _reg `i 83  ]
-{
-[; ;vscp_firmware.c: 648: rv = vscp_getBufferSize();
-"648
-[e = _rv ( _vscp_getBufferSize ..  ]
-"649
-}
-[; ;vscp_firmware.c: 649: }
-[e $U 84  ]
-"650
-[e :U 83 ]
-[; ;vscp_firmware.c: 650: else if (0x99 == reg) {
-[e $ ! == -> 153 `i -> _reg `i 85  ]
-{
-[; ;vscp_firmware.c: 652: rv = vscp_getRegisterPagesUsed();
-"652
-[e = _rv ( _vscp_getRegisterPagesUsed ..  ]
-"653
-}
-[; ;vscp_firmware.c: 653: }
-[e $U 86  ]
-"654
-[e :U 85 ]
-[; ;vscp_firmware.c: 654: else if ( ( reg >= 0x9A ) &&
-[; ;vscp_firmware.c: 655: ( reg < ( 0x9A + 4 ) ) ) {
-"655
-[e $ ! && >= -> _reg `i -> 154 `i < -> _reg `i + -> 154 `i -> 4 `i 87  ]
-{
-"657
-[v _code `ul ~T0 @X0 1 a ]
-[; ;vscp_firmware.c: 657: uint32_t code = vscp_getFamilyCode();
-[e = _code ( _vscp_getFamilyCode ..  ]
-"658
-[v _idx `uc ~T0 @X0 1 a ]
-[; ;vscp_firmware.c: 658: uint8_t idx = reg - 0x9A;
-[e = _idx -> - -> _reg `i -> 154 `i `uc ]
-[; ;vscp_firmware.c: 659: rv = code >> ( ( ( 3 - idx ) * 8 ) & 0xff );
-"659
-[e = _rv -> >> _code & * - -> 3 `i -> _idx `i -> 8 `i -> 255 `i `uc ]
-"660
-}
-[; ;vscp_firmware.c: 660: }
-[e $U 88  ]
-"661
-[e :U 87 ]
-[; ;vscp_firmware.c: 661: else if ( ( reg >= 0x9E ) &&
-[; ;vscp_firmware.c: 662: ( reg < ( 0x9E + 4 ) ) ) {
-"662
-[e $ ! && >= -> _reg `i -> 158 `i < -> _reg `i + -> 158 `i -> 4 `i 89  ]
-{
-"664
-[v _code `ul ~T0 @X0 1 a ]
-[; ;vscp_firmware.c: 664: uint32_t code = vscp_getFamilyType();
-[e = _code ( _vscp_getFamilyType ..  ]
-"665
-[v _idx `uc ~T0 @X0 1 a ]
-[; ;vscp_firmware.c: 665: uint8_t idx = reg - 0x9E;
-[e = _idx -> - -> _reg `i -> 158 `i `uc ]
-[; ;vscp_firmware.c: 666: rv = code >> ( ( ( 3 - idx ) * 8 ) & 0xff );
-"666
-[e = _rv -> >> _code & * - -> 3 `i -> _idx `i -> 8 `i -> 255 `i `uc ]
-"667
-}
-[; ;vscp_firmware.c: 667: }
-[e $U 90  ]
-"668
-[e :U 89 ]
-[; ;vscp_firmware.c: 668: else if ((reg > (0xD0 - 1)) &&
-[; ;vscp_firmware.c: 669: (reg < 0xE0)) {
-"669
-[e $ ! && > -> _reg `i - -> 208 `i -> 1 `i < -> _reg `i -> 224 `i 91  ]
-{
-[; ;vscp_firmware.c: 672: rv = vscp_getGUID(reg - 0xD0);
-"672
-[e = _rv ( _vscp_getGUID (1 -> - -> _reg `i -> 208 `i `uc ]
-"674
-}
-[; ;vscp_firmware.c: 674: }
-[e $U 92  ]
-"675
-[e :U 91 ]
-[; ;vscp_firmware.c: 675: else if ( reg >= 0xE0 ) {
-[e $ ! >= -> _reg `i -> 224 `i 93  ]
-{
-[; ;vscp_firmware.c: 678: rv = vscp_getMDF_URL(reg - 0xE0);
-"678
-[e = _rv ( _vscp_getMDF_URL (1 -> - -> _reg `i -> 224 `i `uc ]
-"680
-}
-[e :U 93 ]
-"682
-[e :U 92 ]
-[e :U 90 ]
-[e :U 88 ]
-[e :U 86 ]
-[e :U 84 ]
-[e :U 82 ]
-[e :U 80 ]
-[e :U 78 ]
-[e :U 76 ]
-[e :U 74 ]
-[e :U 72 ]
-[e :U 70 ]
-[e :U 68 ]
-[e :U 66 ]
-[e :U 64 ]
-[e :U 62 ]
-[e :U 60 ]
 [e :U 58 ]
-[; ;vscp_firmware.c: 680: }
-[; ;vscp_firmware.c: 682: return rv;
-[e ) _rv ]
-[e $UE 56  ]
-[; ;vscp_firmware.c: 683: }
-"683
-[e :UE 56 ]
+[; ;vscp_firmware.c: 579: else if (0x81 == reg) {
+[e $ ! == -> 129 `i -> _reg `i 60  ]
+{
+[; ;vscp_firmware.c: 582: rv = 1;
+"582
+[e = _rv -> -> 1 `i `uc ]
+"584
 }
-"690
+[; ;vscp_firmware.c: 584: }
+[e $U 61  ]
+"585
+[e :U 60 ]
+[; ;vscp_firmware.c: 585: else if (0x82 == reg) {
+[e $ ! == -> 130 `i -> _reg `i 62  ]
+{
+[; ;vscp_firmware.c: 588: rv = 6;
+"588
+[e = _rv -> -> 6 `i `uc ]
+"590
+}
+[; ;vscp_firmware.c: 590: }
+[e $U 63  ]
+"591
+[e :U 62 ]
+[; ;vscp_firmware.c: 591: else if (0x83 == reg) {
+[e $ ! == -> 131 `i -> _reg `i 64  ]
+{
+[; ;vscp_firmware.c: 594: rv = vscp_errorcnt;
+"594
+[e = _rv _vscp_errorcnt ]
+"596
+}
+[; ;vscp_firmware.c: 596: }
+[e $U 65  ]
+"597
+[e :U 64 ]
+[; ;vscp_firmware.c: 597: else if (0x94 == reg) {
+[e $ ! == -> 148 `i -> _reg `i 66  ]
+{
+[; ;vscp_firmware.c: 600: rv = vscp_getMajorVersion();
+"600
+[e = _rv ( _vscp_getMajorVersion ..  ]
+"602
+}
+[; ;vscp_firmware.c: 602: }
+[e $U 67  ]
+"603
+[e :U 66 ]
+[; ;vscp_firmware.c: 603: else if (0x95 == reg) {
+[e $ ! == -> 149 `i -> _reg `i 68  ]
+{
+[; ;vscp_firmware.c: 606: rv = vscp_getMinorVersion();
+"606
+[e = _rv ( _vscp_getMinorVersion ..  ]
+"608
+}
+[; ;vscp_firmware.c: 608: }
+[e $U 69  ]
+"609
+[e :U 68 ]
+[; ;vscp_firmware.c: 609: else if (0x96 == reg) {
+[e $ ! == -> 150 `i -> _reg `i 70  ]
+{
+[; ;vscp_firmware.c: 612: rv = vscp_getSubMinorVersion();
+"612
+[e = _rv ( _vscp_getSubMinorVersion ..  ]
+"614
+}
+[; ;vscp_firmware.c: 614: }
+[e $U 71  ]
+"615
+[e :U 70 ]
+[; ;vscp_firmware.c: 615: else if (reg < 0x89) {
+[e $ ! < -> _reg `i -> 137 `i 72  ]
+{
+[; ;vscp_firmware.c: 618: rv = vscp_getUserID(reg - 0x84);
+"618
+[e = _rv ( _vscp_getUserID (1 -> - -> _reg `i -> 132 `i `uc ]
+"620
+}
+[; ;vscp_firmware.c: 620: }
+[e $U 73  ]
+"621
+[e :U 72 ]
+[; ;vscp_firmware.c: 621: else if ((reg > 0x88) &&
+[; ;vscp_firmware.c: 622: (reg < 0x91)) {
+"622
+[e $ ! && > -> _reg `i -> 136 `i < -> _reg `i -> 145 `i 74  ]
+{
+[; ;vscp_firmware.c: 625: rv = vscp_getManufacturerId(reg - 0x89);
+"625
+[e = _rv ( _vscp_getManufacturerId (1 -> - -> _reg `i -> 137 `i `uc ]
+"627
+}
+[; ;vscp_firmware.c: 627: }
+[e $U 75  ]
+"628
+[e :U 74 ]
+[; ;vscp_firmware.c: 628: else if (0x91 == reg) {
+[e $ ! == -> 145 `i -> _reg `i 76  ]
+{
+[; ;vscp_firmware.c: 631: rv = vscp_nickname;
+"631
+[e = _rv _vscp_nickname ]
+"633
+}
+[; ;vscp_firmware.c: 633: }
+[e $U 77  ]
+"634
+[e :U 76 ]
+[; ;vscp_firmware.c: 634: else if (0x93 == reg) {
+[e $ ! == -> 147 `i -> _reg `i 78  ]
+{
+[; ;vscp_firmware.c: 637: rv = (vscp_page_select & 0xff);
+"637
+[e = _rv -> & -> _vscp_page_select `ui -> -> 255 `i `ui `uc ]
+"639
+}
+[; ;vscp_firmware.c: 639: }
+[e $U 79  ]
+"641
+[e :U 78 ]
+[; ;vscp_firmware.c: 641: else if (0x92 == reg) {
+[e $ ! == -> 146 `i -> _reg `i 80  ]
+{
+[; ;vscp_firmware.c: 644: rv = (vscp_page_select >> 8) & 0xff;
+"644
+[e = _rv -> & >> -> _vscp_page_select `ui -> 8 `i -> -> 255 `i `ui `uc ]
+"646
+}
+[; ;vscp_firmware.c: 646: }
+[e $U 81  ]
+"647
+[e :U 80 ]
+[; ;vscp_firmware.c: 647: else if (0x97 == reg) {
+[e $ ! == -> 151 `i -> _reg `i 82  ]
+{
+[; ;vscp_firmware.c: 649: rv = vscp_getBootLoaderAlgorithm();
+"649
+[e = _rv ( _vscp_getBootLoaderAlgorithm ..  ]
+"650
+}
+[; ;vscp_firmware.c: 650: }
+[e $U 83  ]
+"651
+[e :U 82 ]
+[; ;vscp_firmware.c: 651: else if (0x98 == reg) {
+[e $ ! == -> 152 `i -> _reg `i 84  ]
+{
+[; ;vscp_firmware.c: 653: rv = vscp_getBufferSize();
+"653
+[e = _rv ( _vscp_getBufferSize ..  ]
+"654
+}
+[; ;vscp_firmware.c: 654: }
+[e $U 85  ]
+"655
+[e :U 84 ]
+[; ;vscp_firmware.c: 655: else if (0x99 == reg) {
+[e $ ! == -> 153 `i -> _reg `i 86  ]
+{
+[; ;vscp_firmware.c: 657: rv = vscp_getRegisterPagesUsed();
+"657
+[e = _rv ( _vscp_getRegisterPagesUsed ..  ]
+"658
+}
+[; ;vscp_firmware.c: 658: }
+[e $U 87  ]
+"659
+[e :U 86 ]
+[; ;vscp_firmware.c: 659: else if ( ( reg >= 0x9A ) &&
+[; ;vscp_firmware.c: 660: ( reg < ( 0x9A + 4 ) ) ) {
+"660
+[e $ ! && >= -> _reg `i -> 154 `i < -> _reg `i + -> 154 `i -> 4 `i 88  ]
+{
+"662
+[v _code `ul ~T0 @X0 1 a ]
+[; ;vscp_firmware.c: 662: uint32_t code = vscp_getFamilyCode();
+[e = _code ( _vscp_getFamilyCode ..  ]
+"663
+[v _idx `uc ~T0 @X0 1 a ]
+[; ;vscp_firmware.c: 663: uint8_t idx = reg - 0x9A;
+[e = _idx -> - -> _reg `i -> 154 `i `uc ]
+[; ;vscp_firmware.c: 664: rv = code >> ( ( ( 3 - idx ) * 8 ) & 0xff );
+"664
+[e = _rv -> >> _code & * - -> 3 `i -> _idx `i -> 8 `i -> 255 `i `uc ]
+"665
+}
+[; ;vscp_firmware.c: 665: }
+[e $U 89  ]
+"666
+[e :U 88 ]
+[; ;vscp_firmware.c: 666: else if ( ( reg >= 0x9E ) &&
+[; ;vscp_firmware.c: 667: ( reg < ( 0x9E + 4 ) ) ) {
+"667
+[e $ ! && >= -> _reg `i -> 158 `i < -> _reg `i + -> 158 `i -> 4 `i 90  ]
+{
+"669
+[v _code `ul ~T0 @X0 1 a ]
+[; ;vscp_firmware.c: 669: uint32_t code = vscp_getFamilyType();
+[e = _code ( _vscp_getFamilyType ..  ]
+"670
+[v _idx `uc ~T0 @X0 1 a ]
+[; ;vscp_firmware.c: 670: uint8_t idx = reg - 0x9E;
+[e = _idx -> - -> _reg `i -> 158 `i `uc ]
+[; ;vscp_firmware.c: 671: rv = code >> ( ( ( 3 - idx ) * 8 ) & 0xff );
+"671
+[e = _rv -> >> _code & * - -> 3 `i -> _idx `i -> 8 `i -> 255 `i `uc ]
+"672
+}
+[; ;vscp_firmware.c: 672: }
+[e $U 91  ]
+"673
+[e :U 90 ]
+[; ;vscp_firmware.c: 673: else if ((reg > (0xD0 - 1)) &&
+[; ;vscp_firmware.c: 674: (reg < 0xE0)) {
+"674
+[e $ ! && > -> _reg `i - -> 208 `i -> 1 `i < -> _reg `i -> 224 `i 92  ]
+{
+[; ;vscp_firmware.c: 677: rv = vscp_getGUID(reg - 0xD0);
+"677
+[e = _rv ( _vscp_getGUID (1 -> - -> _reg `i -> 208 `i `uc ]
+"679
+}
+[; ;vscp_firmware.c: 679: }
+[e $U 93  ]
+"680
+[e :U 92 ]
+[; ;vscp_firmware.c: 680: else if ( reg >= 0xE0 ) {
+[e $ ! >= -> _reg `i -> 224 `i 94  ]
+{
+[; ;vscp_firmware.c: 683: rv = vscp_getMDF_URL(reg - 0xE0);
+"683
+[e = _rv ( _vscp_getMDF_URL (1 -> - -> _reg `i -> 224 `i `uc ]
+"685
+}
+[e :U 94 ]
+"687
+[e :U 93 ]
+[e :U 91 ]
+[e :U 89 ]
+[e :U 87 ]
+[e :U 85 ]
+[e :U 83 ]
+[e :U 81 ]
+[e :U 79 ]
+[e :U 77 ]
+[e :U 75 ]
+[e :U 73 ]
+[e :U 71 ]
+[e :U 69 ]
+[e :U 67 ]
+[e :U 65 ]
+[e :U 63 ]
+[e :U 61 ]
+[e :U 59 ]
+[; ;vscp_firmware.c: 685: }
+[; ;vscp_firmware.c: 687: return rv;
+[e ) _rv ]
+[e $UE 57  ]
+[; ;vscp_firmware.c: 688: }
+"688
+[e :UE 57 ]
+}
+"695
 [v _vscp_writeRegister `(uc ~T0 @X0 1 ef2`uc`uc ]
 {
-[; ;vscp_firmware.c: 689: uint8_t vscp_writeRegister(uint8_t reg, uint8_t value)
-[; ;vscp_firmware.c: 690: {
+[; ;vscp_firmware.c: 694: uint8_t vscp_writeRegister(uint8_t reg, uint8_t value)
+[; ;vscp_firmware.c: 695: {
 [e :U _vscp_writeRegister ]
 [v _reg `uc ~T0 @X0 1 r1 ]
 [v _value `uc ~T0 @X0 1 r2 ]
 [f ]
-[; ;vscp_firmware.c: 691: if (reg >= 0x80) {
-"691
-[e $ ! >= -> _reg `i -> 128 `i 95  ]
-{
-[; ;vscp_firmware.c: 692: return vscp_writeStdReg(reg, value);
-"692
-[e ) ( _vscp_writeStdReg (2 , _reg _value ]
-[e $UE 94  ]
-"693
-}
-[; ;vscp_firmware.c: 693: }
-[e $U 96  ]
-"694
-[e :U 95 ]
-[; ;vscp_firmware.c: 694: else {
-{
-[; ;vscp_firmware.c: 695: return vscp_writeAppReg(reg, value);
-"695
-[e ) ( _vscp_writeAppReg (2 , _reg _value ]
-[e $UE 94  ]
+[; ;vscp_firmware.c: 696: if (reg >= 0x80) {
 "696
-}
-[e :U 96 ]
-[; ;vscp_firmware.c: 696: }
-[; ;vscp_firmware.c: 697: }
+[e $ ! >= -> _reg `i -> 128 `i 96  ]
+{
+[; ;vscp_firmware.c: 697: return vscp_writeStdReg(reg, value);
 "697
-[e :UE 94 ]
+[e ) ( _vscp_writeStdReg (2 , _reg _value ]
+[e $UE 95  ]
+"698
 }
-"704
+[; ;vscp_firmware.c: 698: }
+[e $U 97  ]
+"699
+[e :U 96 ]
+[; ;vscp_firmware.c: 699: else {
+{
+[; ;vscp_firmware.c: 700: return vscp_writeAppReg(reg, value);
+"700
+[e ) ( _vscp_writeAppReg (2 , _reg _value ]
+[e $UE 95  ]
+"701
+}
+[e :U 97 ]
+[; ;vscp_firmware.c: 701: }
+[; ;vscp_firmware.c: 702: }
+"702
+[e :UE 95 ]
+}
+"709
 [v _vscp_writeStdReg `(uc ~T0 @X0 1 ef2`uc`uc ]
 {
-[; ;vscp_firmware.c: 703: uint8_t vscp_writeStdReg(uint8_t reg, uint8_t value)
-[; ;vscp_firmware.c: 704: {
+[; ;vscp_firmware.c: 708: uint8_t vscp_writeStdReg(uint8_t reg, uint8_t value)
+[; ;vscp_firmware.c: 709: {
 [e :U _vscp_writeStdReg ]
 [v _reg `uc ~T0 @X0 1 r1 ]
 [v _value `uc ~T0 @X0 1 r2 ]
 [f ]
-"705
-[v _rv `uc ~T0 @X0 1 a ]
-[; ;vscp_firmware.c: 705: uint8_t rv = ~value;
-[e = _rv -> ~ -> _value `i `uc ]
-[; ;vscp_firmware.c: 707: if ( reg == 0x83 ) {
-"707
-[e $ ! == -> _reg `i -> 131 `i 98  ]
-{
-[; ;vscp_firmware.c: 708: rv = vscp_errorcnt = 0;
-"708
-[e = _rv = _vscp_errorcnt -> -> 0 `i `uc ]
-"709
-}
-[; ;vscp_firmware.c: 709: }
-[e $U 99  ]
 "710
-[e :U 98 ]
-[; ;vscp_firmware.c: 710: else if ((reg >= (0x84)) &&
-[; ;vscp_firmware.c: 711: (reg < 0x89)) {
-"711
-[e $ ! && >= -> _reg `i -> 132 `i < -> _reg `i -> 137 `i 100  ]
-{
-[; ;vscp_firmware.c: 714: vscp_setUserID((reg - 0x84), value);
-"714
-[e ( _vscp_setUserID (2 , -> - -> _reg `i -> 132 `i `uc _value ]
-[; ;vscp_firmware.c: 715: rv = vscp_getUserID((reg - 0x84));
-"715
-[e = _rv ( _vscp_getUserID (1 -> - -> _reg `i -> 132 `i `uc ]
-"717
-}
-[; ;vscp_firmware.c: 717: }
-[e $U 101  ]
-"718
-[e :U 100 ]
-[; ;vscp_firmware.c: 718: else if (0x92 == reg) {
-[e $ ! == -> 146 `i -> _reg `i 102  ]
-{
-[; ;vscp_firmware.c: 721: vscp_page_select = (vscp_page_select & 0xff) | ((uint16_t) value << 8);
-"721
-[e = _vscp_page_select -> | & -> _vscp_page_select `ui -> -> 255 `i `ui << -> -> _value `us `ui -> 8 `i `us ]
-[; ;vscp_firmware.c: 722: rv = (vscp_page_select >> 8) & 0xff;
-"722
-[e = _rv -> & >> -> _vscp_page_select `ui -> 8 `i -> -> 255 `i `ui `uc ]
-"723
-}
-[; ;vscp_firmware.c: 723: }
-[e $U 103  ]
-"724
-[e :U 102 ]
-[; ;vscp_firmware.c: 724: else if (0x93 == reg) {
-[e $ ! == -> 147 `i -> _reg `i 104  ]
-{
-[; ;vscp_firmware.c: 727: vscp_page_select = (vscp_page_select & 0xff00) | value;
-"727
-[e = _vscp_page_select -> | & -> _vscp_page_select `ui -> 65280 `ui -> _value `ui `us ]
-[; ;vscp_firmware.c: 728: rv = (vscp_page_select & 0xff);
-"728
-[e = _rv -> & -> _vscp_page_select `ui -> -> 255 `i `ui `uc ]
-"729
-}
-[; ;vscp_firmware.c: 729: }
-[e $U 105  ]
-"734
-[e :U 104 ]
-[; ;vscp_firmware.c: 734: else if ((reg > 0x88) && (reg < 0x91)) {
-[e $ ! && > -> _reg `i -> 136 `i < -> _reg `i -> 145 `i 106  ]
-{
-[; ;vscp_firmware.c: 736: if ((0xff != ((vscp_page_select >> 8) & 0xff)) ||
-[; ;vscp_firmware.c: 737: (0xff != (vscp_page_select & 0xff))) {
-"737
-[e $ ! || != -> -> 255 `i `ui & >> -> _vscp_page_select `ui -> 8 `i -> -> 255 `i `ui != -> -> 255 `i `ui & -> _vscp_page_select `ui -> -> 255 `i `ui 107  ]
-{
-[; ;vscp_firmware.c: 739: rv = ~value;
-"739
+[v _rv `uc ~T0 @X0 1 a ]
+[; ;vscp_firmware.c: 710: uint8_t rv = ~value;
 [e = _rv -> ~ -> _value `i `uc ]
-"740
-}
-[; ;vscp_firmware.c: 740: }
-[e $U 108  ]
-"741
-[e :U 107 ]
-[; ;vscp_firmware.c: 741: else {
+[; ;vscp_firmware.c: 712: if ( reg == 0x83 ) {
+"712
+[e $ ! == -> _reg `i -> 131 `i 99  ]
 {
-[; ;vscp_firmware.c: 743: vscp_setManufacturerId(reg - 0x89, value);
-"743
-[e ( _vscp_setManufacturerId (2 , -> - -> _reg `i -> 137 `i `uc _value ]
-[; ;vscp_firmware.c: 744: rv = vscp_getManufacturerId(reg - 0x89);
+[; ;vscp_firmware.c: 713: rv = vscp_errorcnt = 0;
+"713
+[e = _rv = _vscp_errorcnt -> -> 0 `i `uc ]
+"714
+}
+[; ;vscp_firmware.c: 714: }
+[e $U 100  ]
+"715
+[e :U 99 ]
+[; ;vscp_firmware.c: 715: else if ((reg >= (0x84)) &&
+[; ;vscp_firmware.c: 716: (reg < 0x89)) {
+"716
+[e $ ! && >= -> _reg `i -> 132 `i < -> _reg `i -> 137 `i 101  ]
+{
+[; ;vscp_firmware.c: 719: vscp_setUserID((reg - 0x84), value);
+"719
+[e ( _vscp_setUserID (2 , -> - -> _reg `i -> 132 `i `uc _value ]
+[; ;vscp_firmware.c: 720: rv = vscp_getUserID((reg - 0x84));
+"720
+[e = _rv ( _vscp_getUserID (1 -> - -> _reg `i -> 132 `i `uc ]
+"722
+}
+[; ;vscp_firmware.c: 722: }
+[e $U 102  ]
+"723
+[e :U 101 ]
+[; ;vscp_firmware.c: 723: else if (0x92 == reg) {
+[e $ ! == -> 146 `i -> _reg `i 103  ]
+{
+[; ;vscp_firmware.c: 726: vscp_page_select = (vscp_page_select & 0xff) | ((uint16_t) value << 8);
+"726
+[e = _vscp_page_select -> | & -> _vscp_page_select `ui -> -> 255 `i `ui << -> -> _value `us `ui -> 8 `i `us ]
+[; ;vscp_firmware.c: 727: rv = (vscp_page_select >> 8) & 0xff;
+"727
+[e = _rv -> & >> -> _vscp_page_select `ui -> 8 `i -> -> 255 `i `ui `uc ]
+"728
+}
+[; ;vscp_firmware.c: 728: }
+[e $U 104  ]
+"729
+[e :U 103 ]
+[; ;vscp_firmware.c: 729: else if (0x93 == reg) {
+[e $ ! == -> 147 `i -> _reg `i 105  ]
+{
+[; ;vscp_firmware.c: 732: vscp_page_select = (vscp_page_select & 0xff00) | value;
+"732
+[e = _vscp_page_select -> | & -> _vscp_page_select `ui -> 65280 `ui -> _value `ui `us ]
+[; ;vscp_firmware.c: 733: rv = (vscp_page_select & 0xff);
+"733
+[e = _rv -> & -> _vscp_page_select `ui -> -> 255 `i `ui `uc ]
+"734
+}
+[; ;vscp_firmware.c: 734: }
+[e $U 106  ]
+"739
+[e :U 105 ]
+[; ;vscp_firmware.c: 739: else if ((reg > 0x88) && (reg < 0x91)) {
+[e $ ! && > -> _reg `i -> 136 `i < -> _reg `i -> 145 `i 107  ]
+{
+[; ;vscp_firmware.c: 741: if ((0xff != ((vscp_page_select >> 8) & 0xff)) ||
+[; ;vscp_firmware.c: 742: (0xff != (vscp_page_select & 0xff))) {
+"742
+[e $ ! || != -> -> 255 `i `ui & >> -> _vscp_page_select `ui -> 8 `i -> -> 255 `i `ui != -> -> 255 `i `ui & -> _vscp_page_select `ui -> -> 255 `i `ui 108  ]
+{
+[; ;vscp_firmware.c: 744: rv = ~value;
 "744
-[e = _rv ( _vscp_getManufacturerId (1 -> - -> _reg `i -> 137 `i `uc ]
+[e = _rv -> ~ -> _value `i `uc ]
 "745
 }
-[e :U 108 ]
-"746
-}
 [; ;vscp_firmware.c: 745: }
-[; ;vscp_firmware.c: 746: }
 [e $U 109  ]
-"747
-[e :U 106 ]
-[; ;vscp_firmware.c: 747: else if ((reg > (0xD0 - 1)) && (reg < 0xE0)) {
-[e $ ! && > -> _reg `i - -> 208 `i -> 1 `i < -> _reg `i -> 224 `i 110  ]
+"746
+[e :U 108 ]
+[; ;vscp_firmware.c: 746: else {
 {
-[; ;vscp_firmware.c: 749: if ((0xff != ((vscp_page_select >> 8) & 0xff)) ||
-[; ;vscp_firmware.c: 750: (0xff != (vscp_page_select & 0xff))) {
+[; ;vscp_firmware.c: 748: vscp_setManufacturerId(reg - 0x89, value);
+"748
+[e ( _vscp_setManufacturerId (2 , -> - -> _reg `i -> 137 `i `uc _value ]
+[; ;vscp_firmware.c: 749: rv = vscp_getManufacturerId(reg - 0x89);
+"749
+[e = _rv ( _vscp_getManufacturerId (1 -> - -> _reg `i -> 137 `i `uc ]
 "750
-[e $ ! || != -> -> 255 `i `ui & >> -> _vscp_page_select `ui -> 8 `i -> -> 255 `i `ui != -> -> 255 `i `ui & -> _vscp_page_select `ui -> -> 255 `i `ui 111  ]
-{
-[; ;vscp_firmware.c: 752: rv = ~value;
+}
+[e :U 109 ]
+"751
+}
+[; ;vscp_firmware.c: 750: }
+[; ;vscp_firmware.c: 751: }
+[e $U 110  ]
 "752
-[e = _rv -> ~ -> _value `i `uc ]
-"753
-}
-[; ;vscp_firmware.c: 753: }
-[e $U 112  ]
-"754
-[e :U 111 ]
-[; ;vscp_firmware.c: 754: else {
+[e :U 107 ]
+[; ;vscp_firmware.c: 752: else if ((reg > (0xD0 - 1)) && (reg < 0xE0)) {
+[e $ ! && > -> _reg `i - -> 208 `i -> 1 `i < -> _reg `i -> 224 `i 111  ]
 {
-[; ;vscp_firmware.c: 755: vscp_setGUID(reg - 0xD0, value);
+[; ;vscp_firmware.c: 754: if ((0xff != ((vscp_page_select >> 8) & 0xff)) ||
+[; ;vscp_firmware.c: 755: (0xff != (vscp_page_select & 0xff))) {
 "755
-[e ( _vscp_setGUID (2 , -> - -> _reg `i -> 208 `i `uc _value ]
-[; ;vscp_firmware.c: 756: rv = vscp_getGUID(reg - 0xD0);
-"756
-[e = _rv ( _vscp_getGUID (1 -> - -> _reg `i -> 208 `i `uc ]
+[e $ ! || != -> -> 255 `i `ui & >> -> _vscp_page_select `ui -> 8 `i -> -> 255 `i `ui != -> -> 255 `i `ui & -> _vscp_page_select `ui -> -> 255 `i `ui 112  ]
+{
+[; ;vscp_firmware.c: 757: rv = ~value;
 "757
-}
-[e :U 112 ]
+[e = _rv -> ~ -> _value `i `uc ]
 "758
 }
-[; ;vscp_firmware.c: 757: }
 [; ;vscp_firmware.c: 758: }
 [e $U 113  ]
+"759
+[e :U 112 ]
+[; ;vscp_firmware.c: 759: else {
+{
+[; ;vscp_firmware.c: 760: vscp_setGUID(reg - 0xD0, value);
 "760
-[e :U 110 ]
-[; ;vscp_firmware.c: 760: else if ( 0xA2 == reg ) {
-[e $ ! == -> 162 `i -> _reg `i 114  ]
-{
-[; ;vscp_firmware.c: 761: if ( 0x55 == value ) {
+[e ( _vscp_setGUID (2 , -> - -> _reg `i -> 208 `i `uc _value ]
+[; ;vscp_firmware.c: 761: rv = vscp_getGUID(reg - 0xD0);
 "761
-[e $ ! == -> 85 `i -> _value `i 115  ]
-{
-[; ;vscp_firmware.c: 762: vscp_configtimer = 0;
+[e = _rv ( _vscp_getGUID (1 -> - -> _reg `i -> 208 `i `uc ]
 "762
-[e = _vscp_configtimer -> -> 0 `i `us ]
-[; ;vscp_firmware.c: 763: rv = 0x55;
-"763
-[e = _rv -> -> 85 `i `uc ]
-"764
 }
-[; ;vscp_firmware.c: 764: }
-[e $U 116  ]
+[e :U 113 ]
+"763
+}
+[; ;vscp_firmware.c: 762: }
+[; ;vscp_firmware.c: 763: }
+[e $U 114  ]
 "765
-[e :U 115 ]
-[; ;vscp_firmware.c: 765: else if ( 0xaa == value ) {
-[e $ ! == -> 170 `i -> _value `i 117  ]
+[e :U 111 ]
+[; ;vscp_firmware.c: 765: else if ( 0xA2 == reg ) {
+[e $ ! == -> 162 `i -> _reg `i 115  ]
 {
-[; ;vscp_firmware.c: 766: if ( vscp_configtimer < 1000 ) {
+[; ;vscp_firmware.c: 766: if ( 0x55 == value ) {
 "766
-[e $ ! < -> _vscp_configtimer `ui -> -> 1000 `i `ui 118  ]
+[e $ ! == -> 85 `i -> _value `i 116  ]
 {
-[; ;vscp_firmware.c: 767: vscp_restoreDefaults();
+[; ;vscp_firmware.c: 767: vscp_configtimer = 0;
 "767
-[e ( _vscp_restoreDefaults ..  ]
-[; ;vscp_firmware.c: 768: rv = 0xaa;
+[e = _vscp_configtimer -> -> 0 `i `us ]
+[; ;vscp_firmware.c: 768: rv = 0x55;
 "768
-[e = _rv -> -> 170 `i `uc ]
+[e = _rv -> -> 85 `i `uc ]
 "769
 }
 [; ;vscp_firmware.c: 769: }
-[e $U 119  ]
+[e $U 117  ]
 "770
-[e :U 118 ]
-[; ;vscp_firmware.c: 770: else {
-{
-[; ;vscp_firmware.c: 771: rv = 0;
-"771
-[e = _rv -> -> 0 `i `uc ]
-"772
-}
-[e :U 119 ]
-"773
-}
-[e :U 117 ]
-"775
 [e :U 116 ]
-}
-[; ;vscp_firmware.c: 772: }
-[; ;vscp_firmware.c: 773: }
-[; ;vscp_firmware.c: 775: }
-[e $U 120  ]
-"776
-[e :U 114 ]
-[; ;vscp_firmware.c: 776: else {
+[; ;vscp_firmware.c: 770: else if ( 0xaa == value ) {
+[e $ ! == -> 170 `i -> _value `i 118  ]
 {
-[; ;vscp_firmware.c: 778: rv = ~value;
-"778
-[e = _rv -> ~ -> _value `i `uc ]
-"779
+[; ;vscp_firmware.c: 771: if ( vscp_configtimer < 1000 ) {
+"771
+[e $ ! < -> _vscp_configtimer `ui -> -> 1000 `i `ui 119  ]
+{
+[; ;vscp_firmware.c: 772: vscp_restoreDefaults();
+"772
+[e ( _vscp_restoreDefaults ..  ]
+[; ;vscp_firmware.c: 773: rv = 0xaa;
+"773
+[e = _rv -> -> 170 `i `uc ]
+"774
+}
+[; ;vscp_firmware.c: 774: }
+[e $U 120  ]
+"775
+[e :U 119 ]
+[; ;vscp_firmware.c: 775: else {
+{
+[; ;vscp_firmware.c: 776: rv = 0;
+"776
+[e = _rv -> -> 0 `i `uc ]
+"777
 }
 [e :U 120 ]
-[e :U 113 ]
-[e :U 109 ]
-[e :U 105 ]
-[e :U 103 ]
-[e :U 101 ]
-[e :U 99 ]
-[; ;vscp_firmware.c: 779: }
-[; ;vscp_firmware.c: 781: return rv;
-"781
-[e ) _rv ]
-[e $UE 97  ]
-[; ;vscp_firmware.c: 782: }
-"782
-[e :UE 97 ]
+"778
 }
-"789
+[e :U 118 ]
+"780
+[e :U 117 ]
+}
+[; ;vscp_firmware.c: 777: }
+[; ;vscp_firmware.c: 778: }
+[; ;vscp_firmware.c: 780: }
+[e $U 121  ]
+"781
+[e :U 115 ]
+[; ;vscp_firmware.c: 781: else {
+{
+[; ;vscp_firmware.c: 783: rv = ~value;
+"783
+[e = _rv -> ~ -> _value `i `uc ]
+"784
+}
+[e :U 121 ]
+[e :U 114 ]
+[e :U 110 ]
+[e :U 106 ]
+[e :U 104 ]
+[e :U 102 ]
+[e :U 100 ]
+[; ;vscp_firmware.c: 784: }
+[; ;vscp_firmware.c: 786: return rv;
+"786
+[e ) _rv ]
+[e $UE 98  ]
+[; ;vscp_firmware.c: 787: }
+"787
+[e :UE 98 ]
+}
+"794
 [v _vscp_handleProtocolEvent `(v ~T0 @X0 1 ef ]
 {
-[; ;vscp_firmware.c: 788: void vscp_handleProtocolEvent(void)
-[; ;vscp_firmware.c: 789: {
+[; ;vscp_firmware.c: 793: void vscp_handleProtocolEvent(void)
+[; ;vscp_firmware.c: 794: {
 [e :U _vscp_handleProtocolEvent ]
 [f ]
-[; ;vscp_firmware.c: 791: if (0 == vscp_imsg.vscp_class) {
-"791
-[e $ ! == -> -> 0 `i `ui -> . _vscp_imsg 2 `ui 122  ]
-{
-[; ;vscp_firmware.c: 794: switch (vscp_imsg.vscp_type) {
-"794
-[e $U 124  ]
-{
-[; ;vscp_firmware.c: 796: case 1:
+[; ;vscp_firmware.c: 796: if (0 == vscp_imsg.vscp_class) {
 "796
-[e :U 125 ]
-[; ;vscp_firmware.c: 798: vscp_handleHeartbeat();
-"798
-[e ( _vscp_handleHeartbeat ..  ]
-[; ;vscp_firmware.c: 799: break;
+[e $ ! == -> -> 0 `i `ui -> . _vscp_imsg 2 `ui 123  ]
+{
+[; ;vscp_firmware.c: 799: switch (vscp_imsg.vscp_type) {
 "799
-[e $U 123  ]
-[; ;vscp_firmware.c: 801: case 2:
+[e $U 125  ]
+{
+[; ;vscp_firmware.c: 801: case 1:
 "801
 [e :U 126 ]
-[; ;vscp_firmware.c: 803: vscp_newNodeOnline();
+[; ;vscp_firmware.c: 803: vscp_handleHeartbeat();
 "803
-[e ( _vscp_newNodeOnline ..  ]
+[e ( _vscp_handleHeartbeat ..  ]
 [; ;vscp_firmware.c: 804: break;
 "804
-[e $U 123  ]
-[; ;vscp_firmware.c: 806: case 6:
+[e $U 124  ]
+[; ;vscp_firmware.c: 806: case 2:
 "806
 [e :U 127 ]
-[; ;vscp_firmware.c: 808: vscp_handleSetNickname();
+[; ;vscp_firmware.c: 808: vscp_newNodeOnline();
 "808
-[e ( _vscp_handleSetNickname ..  ]
+[e ( _vscp_newNodeOnline ..  ]
 [; ;vscp_firmware.c: 809: break;
 "809
-[e $U 123  ]
-[; ;vscp_firmware.c: 811: case 8:
+[e $U 124  ]
+[; ;vscp_firmware.c: 811: case 6:
 "811
 [e :U 128 ]
-[; ;vscp_firmware.c: 813: vscp_handleDropNickname();
+[; ;vscp_firmware.c: 813: vscp_handleSetNickname();
 "813
-[e ( _vscp_handleDropNickname ..  ]
+[e ( _vscp_handleSetNickname ..  ]
 [; ;vscp_firmware.c: 814: break;
 "814
-[e $U 123  ]
-[; ;vscp_firmware.c: 816: case 9:
+[e $U 124  ]
+[; ;vscp_firmware.c: 816: case 8:
 "816
 [e :U 129 ]
-[; ;vscp_firmware.c: 818: if ( ( 2 == (vscp_imsg.flags & 0x0f) ) &&
-[; ;vscp_firmware.c: 819: (vscp_nickname == vscp_imsg.data[ 0 ])) {
+[; ;vscp_firmware.c: 818: vscp_handleDropNickname();
+"818
+[e ( _vscp_handleDropNickname ..  ]
+[; ;vscp_firmware.c: 819: break;
 "819
-[e $ ! && == -> 2 `i & -> . _vscp_imsg 0 `i -> 15 `i == -> _vscp_nickname `i -> *U + &U . _vscp_imsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i 130  ]
-{
-[; ;vscp_firmware.c: 821: if (vscp_imsg.data[ 1 ] < 0x80) {
+[e $U 124  ]
+[; ;vscp_firmware.c: 821: case 9:
 "821
-[e $ ! < -> *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i -> 128 `i 131  ]
-{
-[; ;vscp_firmware.c: 824: vscp_omsg.data[ 1 ] = vscp_readAppReg(vscp_imsg.data[ 1 ]);
-"824
-[e = *U + &U . _vscp_omsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux ( _vscp_readAppReg (1 *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
-[; ;vscp_firmware.c: 827: vscp_omsg.data[ 0 ] = vscp_imsg.data[ 1 ];
-"827
-[e = *U + &U . _vscp_omsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
-[; ;vscp_firmware.c: 829: vscp_omsg.priority = 0x03;
-"829
-[e = . _vscp_omsg 1 -> -> 3 `i `uc ]
-[; ;vscp_firmware.c: 830: vscp_omsg.flags = 0x80 + 2;
-"830
-[e = . _vscp_omsg 0 -> + -> 128 `i -> 2 `i `uc ]
-[; ;vscp_firmware.c: 831: vscp_omsg.vscp_class = 0;
-"831
-[e = . _vscp_omsg 2 -> -> 0 `i `us ]
-[; ;vscp_firmware.c: 832: vscp_omsg.vscp_type = 10;
-"832
-[e = . _vscp_omsg 3 -> -> 10 `i `uc ]
-[; ;vscp_firmware.c: 835: vscp_sendEvent();
-"835
-[e ( _vscp_sendEvent ..  ]
-"836
-}
-[; ;vscp_firmware.c: 836: }
-[e $U 132  ]
-"837
-[e :U 131 ]
-[; ;vscp_firmware.c: 837: else {
-{
-[; ;vscp_firmware.c: 840: vscp_omsg.data[ 1 ] =
-[; ;vscp_firmware.c: 841: vscp_readStdReg(vscp_imsg.data[ 1 ]);
-"841
-[e = *U + &U . _vscp_omsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux ( _vscp_readStdReg (1 *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
-[; ;vscp_firmware.c: 844: vscp_omsg.data[ 0 ] = vscp_imsg.data[ 1 ];
-"844
-[e = *U + &U . _vscp_omsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
-[; ;vscp_firmware.c: 846: vscp_omsg.priority = 0x03;
-"846
-[e = . _vscp_omsg 1 -> -> 3 `i `uc ]
-[; ;vscp_firmware.c: 847: vscp_omsg.flags = 0x80 + 2;
-"847
-[e = . _vscp_omsg 0 -> + -> 128 `i -> 2 `i `uc ]
-[; ;vscp_firmware.c: 848: vscp_omsg.vscp_class = 0;
-"848
-[e = . _vscp_omsg 2 -> -> 0 `i `us ]
-[; ;vscp_firmware.c: 849: vscp_omsg.vscp_type = 10;
-"849
-[e = . _vscp_omsg 3 -> -> 10 `i `uc ]
-[; ;vscp_firmware.c: 852: vscp_sendEvent();
-"852
-[e ( _vscp_sendEvent ..  ]
-"853
-}
-[e :U 132 ]
-"854
-}
 [e :U 130 ]
-[; ;vscp_firmware.c: 853: }
-[; ;vscp_firmware.c: 854: }
-[; ;vscp_firmware.c: 855: break;
-"855
-[e $U 123  ]
-[; ;vscp_firmware.c: 857: case 11:
+[; ;vscp_firmware.c: 823: if ( ( 2 == (vscp_imsg.flags & 0x0f) ) &&
+[; ;vscp_firmware.c: 824: (vscp_nickname == vscp_imsg.data[ 0 ])) {
+"824
+[e $ ! && == -> 2 `i & -> . _vscp_imsg 0 `i -> 15 `i == -> _vscp_nickname `i -> *U + &U . _vscp_imsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i 131  ]
+{
+[; ;vscp_firmware.c: 826: if (vscp_imsg.data[ 1 ] < 0x80) {
+"826
+[e $ ! < -> *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i -> 128 `i 132  ]
+{
+[; ;vscp_firmware.c: 829: vscp_omsg.data[ 1 ] = vscp_readAppReg(vscp_imsg.data[ 1 ]);
+"829
+[e = *U + &U . _vscp_omsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux ( _vscp_readAppReg (1 *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
+[; ;vscp_firmware.c: 832: vscp_omsg.data[ 0 ] = vscp_imsg.data[ 1 ];
+"832
+[e = *U + &U . _vscp_omsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
+[; ;vscp_firmware.c: 834: vscp_omsg.priority = 0x03;
+"834
+[e = . _vscp_omsg 1 -> -> 3 `i `uc ]
+[; ;vscp_firmware.c: 835: vscp_omsg.flags = 0x80 + 2;
+"835
+[e = . _vscp_omsg 0 -> + -> 128 `i -> 2 `i `uc ]
+[; ;vscp_firmware.c: 836: vscp_omsg.vscp_class = 0;
+"836
+[e = . _vscp_omsg 2 -> -> 0 `i `us ]
+[; ;vscp_firmware.c: 837: vscp_omsg.vscp_type = 10;
+"837
+[e = . _vscp_omsg 3 -> -> 10 `i `uc ]
+[; ;vscp_firmware.c: 840: vscp_sendEvent();
+"840
+[e ( _vscp_sendEvent ..  ]
+"841
+}
+[; ;vscp_firmware.c: 841: }
+[e $U 133  ]
+"842
+[e :U 132 ]
+[; ;vscp_firmware.c: 842: else {
+{
+[; ;vscp_firmware.c: 845: vscp_omsg.data[ 1 ] =
+[; ;vscp_firmware.c: 846: vscp_readStdReg(vscp_imsg.data[ 1 ]);
+"846
+[e = *U + &U . _vscp_omsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux ( _vscp_readStdReg (1 *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
+[; ;vscp_firmware.c: 849: vscp_omsg.data[ 0 ] = vscp_imsg.data[ 1 ];
+"849
+[e = *U + &U . _vscp_omsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
+[; ;vscp_firmware.c: 851: vscp_omsg.priority = 0x03;
+"851
+[e = . _vscp_omsg 1 -> -> 3 `i `uc ]
+[; ;vscp_firmware.c: 852: vscp_omsg.flags = 0x80 + 2;
+"852
+[e = . _vscp_omsg 0 -> + -> 128 `i -> 2 `i `uc ]
+[; ;vscp_firmware.c: 853: vscp_omsg.vscp_class = 0;
+"853
+[e = . _vscp_omsg 2 -> -> 0 `i `us ]
+[; ;vscp_firmware.c: 854: vscp_omsg.vscp_type = 10;
+"854
+[e = . _vscp_omsg 3 -> -> 10 `i `uc ]
+[; ;vscp_firmware.c: 857: vscp_sendEvent();
 "857
+[e ( _vscp_sendEvent ..  ]
+"858
+}
 [e :U 133 ]
-[; ;vscp_firmware.c: 859: if ((3 == (vscp_imsg.flags & 0x0f)) &&
-[; ;vscp_firmware.c: 860: (vscp_nickname == vscp_imsg.data[ 0 ])) {
+"859
+}
+[e :U 131 ]
+[; ;vscp_firmware.c: 858: }
+[; ;vscp_firmware.c: 859: }
+[; ;vscp_firmware.c: 860: break;
 "860
-[e $ ! && == -> 3 `i & -> . _vscp_imsg 0 `i -> 15 `i == -> _vscp_nickname `i -> *U + &U . _vscp_imsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i 134  ]
-{
-[; ;vscp_firmware.c: 862: if (vscp_imsg.data[ 1 ] < 0x80) {
+[e $U 124  ]
+[; ;vscp_firmware.c: 862: case 11:
 "862
-[e $ ! < -> *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i -> 128 `i 135  ]
-{
-[; ;vscp_firmware.c: 865: vscp_omsg.data[ 1 ] =
-[; ;vscp_firmware.c: 866: vscp_writeAppReg(vscp_imsg.data[ 1 ], vscp_imsg.data[ 2 ]);
-"866
-[e = *U + &U . _vscp_omsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux ( _vscp_writeAppReg (2 , *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux *U + &U . _vscp_imsg 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
-[; ;vscp_firmware.c: 869: vscp_omsg.data[ 0 ] = vscp_imsg.data[ 1 ];
-"869
-[e = *U + &U . _vscp_omsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
-[; ;vscp_firmware.c: 871: vscp_omsg.priority = 0x03;
-"871
-[e = . _vscp_omsg 1 -> -> 3 `i `uc ]
-[; ;vscp_firmware.c: 872: vscp_omsg.flags = 0x80 + 2;
-"872
-[e = . _vscp_omsg 0 -> + -> 128 `i -> 2 `i `uc ]
-[; ;vscp_firmware.c: 873: vscp_omsg.vscp_class = 0;
-"873
-[e = . _vscp_omsg 2 -> -> 0 `i `us ]
-[; ;vscp_firmware.c: 874: vscp_omsg.vscp_type = 10;
-"874
-[e = . _vscp_omsg 3 -> -> 10 `i `uc ]
-[; ;vscp_firmware.c: 877: vscp_sendEvent();
-"877
-[e ( _vscp_sendEvent ..  ]
-"879
-}
-[; ;vscp_firmware.c: 879: }
-[e $U 136  ]
-"880
-[e :U 135 ]
-[; ;vscp_firmware.c: 880: else {
-{
-[; ;vscp_firmware.c: 883: vscp_omsg.data[ 1 ] =
-[; ;vscp_firmware.c: 884: vscp_writeStdReg(vscp_imsg.data[ 1 ], vscp_imsg.data[ 2 ]);
-"884
-[e = *U + &U . _vscp_omsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux ( _vscp_writeStdReg (2 , *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux *U + &U . _vscp_imsg 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
-[; ;vscp_firmware.c: 887: vscp_omsg.data[ 0 ] = vscp_imsg.data[ 1 ];
-"887
-[e = *U + &U . _vscp_omsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
-[; ;vscp_firmware.c: 889: vscp_omsg.priority = 0x03;
-"889
-[e = . _vscp_omsg 1 -> -> 3 `i `uc ]
-[; ;vscp_firmware.c: 890: vscp_omsg.flags = 0x80 + 2;
-"890
-[e = . _vscp_omsg 0 -> + -> 128 `i -> 2 `i `uc ]
-[; ;vscp_firmware.c: 891: vscp_omsg.vscp_class = 0;
-"891
-[e = . _vscp_omsg 2 -> -> 0 `i `us ]
-[; ;vscp_firmware.c: 892: vscp_omsg.vscp_type = 10;
-"892
-[e = . _vscp_omsg 3 -> -> 10 `i `uc ]
-[; ;vscp_firmware.c: 895: vscp_sendEvent();
-"895
-[e ( _vscp_sendEvent ..  ]
-"896
-}
-[e :U 136 ]
-"897
-}
 [e :U 134 ]
-[; ;vscp_firmware.c: 896: }
-[; ;vscp_firmware.c: 897: }
-[; ;vscp_firmware.c: 898: break;
-"898
-[e $U 123  ]
-[; ;vscp_firmware.c: 900: case 12:
+[; ;vscp_firmware.c: 864: if ((3 == (vscp_imsg.flags & 0x0f)) &&
+[; ;vscp_firmware.c: 865: (vscp_nickname == vscp_imsg.data[ 0 ])) {
+"865
+[e $ ! && == -> 3 `i & -> . _vscp_imsg 0 `i -> 15 `i == -> _vscp_nickname `i -> *U + &U . _vscp_imsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i 135  ]
+{
+[; ;vscp_firmware.c: 867: if (vscp_imsg.data[ 1 ] < 0x80) {
+"867
+[e $ ! < -> *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i -> 128 `i 136  ]
+{
+[; ;vscp_firmware.c: 870: vscp_omsg.data[ 1 ] =
+[; ;vscp_firmware.c: 871: vscp_writeAppReg(vscp_imsg.data[ 1 ], vscp_imsg.data[ 2 ]);
+"871
+[e = *U + &U . _vscp_omsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux ( _vscp_writeAppReg (2 , *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux *U + &U . _vscp_imsg 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
+[; ;vscp_firmware.c: 874: vscp_omsg.data[ 0 ] = vscp_imsg.data[ 1 ];
+"874
+[e = *U + &U . _vscp_omsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
+[; ;vscp_firmware.c: 876: vscp_omsg.priority = 0x03;
+"876
+[e = . _vscp_omsg 1 -> -> 3 `i `uc ]
+[; ;vscp_firmware.c: 877: vscp_omsg.flags = 0x80 + 2;
+"877
+[e = . _vscp_omsg 0 -> + -> 128 `i -> 2 `i `uc ]
+[; ;vscp_firmware.c: 878: vscp_omsg.vscp_class = 0;
+"878
+[e = . _vscp_omsg 2 -> -> 0 `i `us ]
+[; ;vscp_firmware.c: 879: vscp_omsg.vscp_type = 10;
+"879
+[e = . _vscp_omsg 3 -> -> 10 `i `uc ]
+[; ;vscp_firmware.c: 882: vscp_sendEvent();
+"882
+[e ( _vscp_sendEvent ..  ]
+"884
+}
+[; ;vscp_firmware.c: 884: }
+[e $U 137  ]
+"885
+[e :U 136 ]
+[; ;vscp_firmware.c: 885: else {
+{
+[; ;vscp_firmware.c: 888: vscp_omsg.data[ 1 ] =
+[; ;vscp_firmware.c: 889: vscp_writeStdReg(vscp_imsg.data[ 1 ], vscp_imsg.data[ 2 ]);
+"889
+[e = *U + &U . _vscp_omsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux ( _vscp_writeStdReg (2 , *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux *U + &U . _vscp_imsg 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
+[; ;vscp_firmware.c: 892: vscp_omsg.data[ 0 ] = vscp_imsg.data[ 1 ];
+"892
+[e = *U + &U . _vscp_omsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
+[; ;vscp_firmware.c: 894: vscp_omsg.priority = 0x03;
+"894
+[e = . _vscp_omsg 1 -> -> 3 `i `uc ]
+[; ;vscp_firmware.c: 895: vscp_omsg.flags = 0x80 + 2;
+"895
+[e = . _vscp_omsg 0 -> + -> 128 `i -> 2 `i `uc ]
+[; ;vscp_firmware.c: 896: vscp_omsg.vscp_class = 0;
+"896
+[e = . _vscp_omsg 2 -> -> 0 `i `us ]
+[; ;vscp_firmware.c: 897: vscp_omsg.vscp_type = 10;
+"897
+[e = . _vscp_omsg 3 -> -> 10 `i `uc ]
+[; ;vscp_firmware.c: 900: vscp_sendEvent();
 "900
+[e ( _vscp_sendEvent ..  ]
+"901
+}
 [e :U 137 ]
-[; ;vscp_firmware.c: 902: if ((vscp_nickname == vscp_imsg.data[ 0 ]) &&
-[; ;vscp_firmware.c: 904: (vscp_getGUID(0) == vscp_imsg.data[ 2 ]) &&
-[; ;vscp_firmware.c: 905: (vscp_getGUID(3) == vscp_imsg.data[ 3 ]) &&
-[; ;vscp_firmware.c: 906: (vscp_getGUID(5) == vscp_imsg.data[ 4 ]) &&
-[; ;vscp_firmware.c: 907: (vscp_getGUID(7) == vscp_imsg.data[ 5 ]) &&
-[; ;vscp_firmware.c: 908: (((vscp_page_select >> 8) & 0xff) == vscp_imsg.data[ 6 ]) &&
-[; ;vscp_firmware.c: 909: ((vscp_page_select & 0xff) == vscp_imsg.data[ 7 ])) {
-"909
-[e $ ! && && && && && && == -> _vscp_nickname `i -> *U + &U . _vscp_imsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i == -> ( _vscp_getGUID (1 -> -> 0 `i `uc `i -> *U + &U . _vscp_imsg 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i == -> ( _vscp_getGUID (1 -> -> 3 `i `uc `i -> *U + &U . _vscp_imsg 5 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i == -> ( _vscp_getGUID (1 -> -> 5 `i `uc `i -> *U + &U . _vscp_imsg 5 * -> -> -> 4 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i == -> ( _vscp_getGUID (1 -> -> 7 `i `uc `i -> *U + &U . _vscp_imsg 5 * -> -> -> 5 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i == & >> -> _vscp_page_select `ui -> 8 `i -> -> 255 `i `ui -> *U + &U . _vscp_imsg 5 * -> -> -> 6 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `ui == & -> _vscp_page_select `ui -> -> 255 `i `ui -> *U + &U . _vscp_imsg 5 * -> -> -> 7 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `ui 138  ]
-{
-[; ;vscp_firmware.c: 911: vscp_goBootloaderMode( vscp_imsg.data[ 1 ] );
-"911
-[e ( _vscp_goBootloaderMode (1 *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
-"912
+"902
 }
+[e :U 135 ]
+[; ;vscp_firmware.c: 901: }
+[; ;vscp_firmware.c: 902: }
+[; ;vscp_firmware.c: 903: break;
+"903
+[e $U 124  ]
+[; ;vscp_firmware.c: 905: case 12:
+"905
 [e :U 138 ]
-[; ;vscp_firmware.c: 912: }
-[; ;vscp_firmware.c: 913: break;
-"913
-[e $U 123  ]
-[; ;vscp_firmware.c: 915: case 23:
-"915
+[; ;vscp_firmware.c: 907: if ((vscp_nickname == vscp_imsg.data[ 0 ]) &&
+[; ;vscp_firmware.c: 909: (vscp_getGUID(0) == vscp_imsg.data[ 2 ]) &&
+[; ;vscp_firmware.c: 910: (vscp_getGUID(3) == vscp_imsg.data[ 3 ]) &&
+[; ;vscp_firmware.c: 911: (vscp_getGUID(5) == vscp_imsg.data[ 4 ]) &&
+[; ;vscp_firmware.c: 912: (vscp_getGUID(7) == vscp_imsg.data[ 5 ]) &&
+[; ;vscp_firmware.c: 913: (((vscp_page_select >> 8) & 0xff) == vscp_imsg.data[ 6 ]) &&
+[; ;vscp_firmware.c: 914: ((vscp_page_select & 0xff) == vscp_imsg.data[ 7 ])) {
+"914
+[e $ ! && && && && && && == -> _vscp_nickname `i -> *U + &U . _vscp_imsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i == -> ( _vscp_getGUID (1 -> -> 0 `i `uc `i -> *U + &U . _vscp_imsg 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i == -> ( _vscp_getGUID (1 -> -> 3 `i `uc `i -> *U + &U . _vscp_imsg 5 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i == -> ( _vscp_getGUID (1 -> -> 5 `i `uc `i -> *U + &U . _vscp_imsg 5 * -> -> -> 4 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i == -> ( _vscp_getGUID (1 -> -> 7 `i `uc `i -> *U + &U . _vscp_imsg 5 * -> -> -> 5 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i == & >> -> _vscp_page_select `ui -> 8 `i -> -> 255 `i `ui -> *U + &U . _vscp_imsg 5 * -> -> -> 6 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `ui == & -> _vscp_page_select `ui -> -> 255 `i `ui -> *U + &U . _vscp_imsg 5 * -> -> -> 7 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `ui 139  ]
+{
+[; ;vscp_firmware.c: 916: vscp_goBootloaderMode( vscp_imsg.data[ 1 ] );
+"916
+[e ( _vscp_goBootloaderMode (1 *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
+"917
+}
 [e :U 139 ]
-[; ;vscp_firmware.c: 917: switch (vscp_imsg.data[ 0 ] >> 4) {
-"917
-[e $U 141  ]
-{
-[; ;vscp_firmware.c: 919: case 0:
-"919
-[e :U 142 ]
-[; ;vscp_firmware.c: 920: if ((vscp_getGUID(0) == vscp_imsg.data[ 1 ]) &&
-[; ;vscp_firmware.c: 921: (vscp_getGUID(1) == vscp_imsg.data[ 2 ]) &&
-[; ;vscp_firmware.c: 922: (vscp_getGUID(2) == vscp_imsg.data[ 3 ]) &&
-[; ;vscp_firmware.c: 923: (vscp_getGUID(3) == vscp_imsg.data[ 4 ])) {
-"923
-[e $ ! && && && == -> ( _vscp_getGUID (1 -> -> 0 `i `uc `i -> *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i == -> ( _vscp_getGUID (1 -> -> 1 `i `uc `i -> *U + &U . _vscp_imsg 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i == -> ( _vscp_getGUID (1 -> -> 2 `i `uc `i -> *U + &U . _vscp_imsg 5 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i == -> ( _vscp_getGUID (1 -> -> 3 `i `uc `i -> *U + &U . _vscp_imsg 5 * -> -> -> 4 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i 143  ]
-{
-[; ;vscp_firmware.c: 924: vscp_guid_reset |= 0x10;
-"924
-[e =| _vscp_guid_reset -> -> 16 `i `uc ]
-"925
-}
-[e :U 143 ]
-[; ;vscp_firmware.c: 925: }
-[; ;vscp_firmware.c: 926: break;
-"926
-[e $U 140  ]
-[; ;vscp_firmware.c: 928: case 1:
-"928
-[e :U 144 ]
-[; ;vscp_firmware.c: 929: if ((vscp_getGUID(4) == vscp_imsg.data[ 1 ]) &&
-[; ;vscp_firmware.c: 930: (vscp_getGUID(5) == vscp_imsg.data[ 2 ]) &&
-[; ;vscp_firmware.c: 931: (vscp_getGUID(6) == vscp_imsg.data[ 3 ]) &&
-[; ;vscp_firmware.c: 932: (vscp_getGUID(7) == vscp_imsg.data[ 4 ])) {
-"932
-[e $ ! && && && == -> ( _vscp_getGUID (1 -> -> 4 `i `uc `i -> *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i == -> ( _vscp_getGUID (1 -> -> 5 `i `uc `i -> *U + &U . _vscp_imsg 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i == -> ( _vscp_getGUID (1 -> -> 6 `i `uc `i -> *U + &U . _vscp_imsg 5 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i == -> ( _vscp_getGUID (1 -> -> 7 `i `uc `i -> *U + &U . _vscp_imsg 5 * -> -> -> 4 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i 145  ]
-{
-[; ;vscp_firmware.c: 933: vscp_guid_reset |= 0x20;
-"933
-[e =| _vscp_guid_reset -> -> 32 `i `uc ]
-"934
-}
-[e :U 145 ]
-[; ;vscp_firmware.c: 934: }
-[; ;vscp_firmware.c: 935: break;
-"935
-[e $U 140  ]
-[; ;vscp_firmware.c: 937: case 2:
-"937
-[e :U 146 ]
-[; ;vscp_firmware.c: 938: if ((vscp_getGUID(8) == vscp_imsg.data[ 1 ]) &&
-[; ;vscp_firmware.c: 939: (vscp_getGUID(9) == vscp_imsg.data[ 2 ]) &&
-[; ;vscp_firmware.c: 940: (vscp_getGUID(10) == vscp_imsg.data[ 3 ]) &&
-[; ;vscp_firmware.c: 941: (vscp_getGUID(11) == vscp_imsg.data[ 4 ])) {
-"941
-[e $ ! && && && == -> ( _vscp_getGUID (1 -> -> 8 `i `uc `i -> *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i == -> ( _vscp_getGUID (1 -> -> 9 `i `uc `i -> *U + &U . _vscp_imsg 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i == -> ( _vscp_getGUID (1 -> -> 10 `i `uc `i -> *U + &U . _vscp_imsg 5 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i == -> ( _vscp_getGUID (1 -> -> 11 `i `uc `i -> *U + &U . _vscp_imsg 5 * -> -> -> 4 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i 147  ]
-{
-[; ;vscp_firmware.c: 942: vscp_guid_reset |= 0x40;
-"942
-[e =| _vscp_guid_reset -> -> 64 `i `uc ]
-"943
-}
-[e :U 147 ]
-[; ;vscp_firmware.c: 943: }
-[; ;vscp_firmware.c: 944: break;
-"944
-[e $U 140  ]
-[; ;vscp_firmware.c: 946: case 3:
-"946
-[e :U 148 ]
-[; ;vscp_firmware.c: 947: if ((vscp_getGUID(12) == vscp_imsg.data[ 1 ]) &&
-[; ;vscp_firmware.c: 948: (vscp_getGUID(13) == vscp_imsg.data[ 2 ]) &&
-[; ;vscp_firmware.c: 949: (vscp_getGUID(14) == vscp_imsg.data[ 3 ]) &&
-[; ;vscp_firmware.c: 950: (vscp_getGUID(15) == vscp_imsg.data[ 4 ])) {
-"950
-[e $ ! && && && == -> ( _vscp_getGUID (1 -> -> 12 `i `uc `i -> *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i == -> ( _vscp_getGUID (1 -> -> 13 `i `uc `i -> *U + &U . _vscp_imsg 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i == -> ( _vscp_getGUID (1 -> -> 14 `i `uc `i -> *U + &U . _vscp_imsg 5 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i == -> ( _vscp_getGUID (1 -> -> 15 `i `uc `i -> *U + &U . _vscp_imsg 5 * -> -> -> 4 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i 149  ]
-{
-[; ;vscp_firmware.c: 951: vscp_guid_reset |= 0x80;
-"951
-[e =| _vscp_guid_reset -> -> 128 `i `uc ]
-"952
-}
-[e :U 149 ]
-[; ;vscp_firmware.c: 952: }
-[; ;vscp_firmware.c: 953: break;
-"953
-[e $U 140  ]
-[; ;vscp_firmware.c: 955: default:
-"955
-[e :U 150 ]
-[; ;vscp_firmware.c: 956: vscp_guid_reset = 0;
-"956
-[e = _vscp_guid_reset -> -> 0 `i `uc ]
-[; ;vscp_firmware.c: 957: break;
-"957
-[e $U 140  ]
-"958
-}
-[; ;vscp_firmware.c: 958: }
-[e $U 140  ]
-"917
-[e :U 141 ]
-[e [\ >> -> *U + &U . _vscp_imsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i -> 4 `i , $ -> 0 `i 142
- , $ -> 1 `i 144
- , $ -> 2 `i 146
- , $ -> 3 `i 148
- 150 ]
-"958
+[; ;vscp_firmware.c: 917: }
+[; ;vscp_firmware.c: 918: break;
+"918
+[e $U 124  ]
+[; ;vscp_firmware.c: 920: case 23:
+"920
 [e :U 140 ]
-[; ;vscp_firmware.c: 960: if (0xf0 == (vscp_guid_reset & 0xf0)) {
-"960
-[e $ ! == -> 240 `i & -> _vscp_guid_reset `i -> 240 `i 151  ]
+[; ;vscp_firmware.c: 922: switch (vscp_imsg.data[ 0 ] >> 4) {
+"922
+[e $U 142  ]
 {
-[; ;vscp_firmware.c: 962: vscp_init();
+[; ;vscp_firmware.c: 924: case 0:
+"924
+[e :U 143 ]
+[; ;vscp_firmware.c: 925: if ((vscp_getGUID(0) == vscp_imsg.data[ 1 ]) &&
+[; ;vscp_firmware.c: 926: (vscp_getGUID(1) == vscp_imsg.data[ 2 ]) &&
+[; ;vscp_firmware.c: 927: (vscp_getGUID(2) == vscp_imsg.data[ 3 ]) &&
+[; ;vscp_firmware.c: 928: (vscp_getGUID(3) == vscp_imsg.data[ 4 ])) {
+"928
+[e $ ! && && && == -> ( _vscp_getGUID (1 -> -> 0 `i `uc `i -> *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i == -> ( _vscp_getGUID (1 -> -> 1 `i `uc `i -> *U + &U . _vscp_imsg 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i == -> ( _vscp_getGUID (1 -> -> 2 `i `uc `i -> *U + &U . _vscp_imsg 5 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i == -> ( _vscp_getGUID (1 -> -> 3 `i `uc `i -> *U + &U . _vscp_imsg 5 * -> -> -> 4 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i 144  ]
+{
+[; ;vscp_firmware.c: 929: vscp_guid_reset |= 0x10;
+"929
+[e =| _vscp_guid_reset -> -> 16 `i `uc ]
+"930
+}
+[e :U 144 ]
+[; ;vscp_firmware.c: 930: }
+[; ;vscp_firmware.c: 931: break;
+"931
+[e $U 141  ]
+[; ;vscp_firmware.c: 933: case 1:
+"933
+[e :U 145 ]
+[; ;vscp_firmware.c: 934: if ((vscp_getGUID(4) == vscp_imsg.data[ 1 ]) &&
+[; ;vscp_firmware.c: 935: (vscp_getGUID(5) == vscp_imsg.data[ 2 ]) &&
+[; ;vscp_firmware.c: 936: (vscp_getGUID(6) == vscp_imsg.data[ 3 ]) &&
+[; ;vscp_firmware.c: 937: (vscp_getGUID(7) == vscp_imsg.data[ 4 ])) {
+"937
+[e $ ! && && && == -> ( _vscp_getGUID (1 -> -> 4 `i `uc `i -> *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i == -> ( _vscp_getGUID (1 -> -> 5 `i `uc `i -> *U + &U . _vscp_imsg 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i == -> ( _vscp_getGUID (1 -> -> 6 `i `uc `i -> *U + &U . _vscp_imsg 5 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i == -> ( _vscp_getGUID (1 -> -> 7 `i `uc `i -> *U + &U . _vscp_imsg 5 * -> -> -> 4 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i 146  ]
+{
+[; ;vscp_firmware.c: 938: vscp_guid_reset |= 0x20;
+"938
+[e =| _vscp_guid_reset -> -> 32 `i `uc ]
+"939
+}
+[e :U 146 ]
+[; ;vscp_firmware.c: 939: }
+[; ;vscp_firmware.c: 940: break;
+"940
+[e $U 141  ]
+[; ;vscp_firmware.c: 942: case 2:
+"942
+[e :U 147 ]
+[; ;vscp_firmware.c: 943: if ((vscp_getGUID(8) == vscp_imsg.data[ 1 ]) &&
+[; ;vscp_firmware.c: 944: (vscp_getGUID(9) == vscp_imsg.data[ 2 ]) &&
+[; ;vscp_firmware.c: 945: (vscp_getGUID(10) == vscp_imsg.data[ 3 ]) &&
+[; ;vscp_firmware.c: 946: (vscp_getGUID(11) == vscp_imsg.data[ 4 ])) {
+"946
+[e $ ! && && && == -> ( _vscp_getGUID (1 -> -> 8 `i `uc `i -> *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i == -> ( _vscp_getGUID (1 -> -> 9 `i `uc `i -> *U + &U . _vscp_imsg 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i == -> ( _vscp_getGUID (1 -> -> 10 `i `uc `i -> *U + &U . _vscp_imsg 5 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i == -> ( _vscp_getGUID (1 -> -> 11 `i `uc `i -> *U + &U . _vscp_imsg 5 * -> -> -> 4 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i 148  ]
+{
+[; ;vscp_firmware.c: 947: vscp_guid_reset |= 0x40;
+"947
+[e =| _vscp_guid_reset -> -> 64 `i `uc ]
+"948
+}
+[e :U 148 ]
+[; ;vscp_firmware.c: 948: }
+[; ;vscp_firmware.c: 949: break;
+"949
+[e $U 141  ]
+[; ;vscp_firmware.c: 951: case 3:
+"951
+[e :U 149 ]
+[; ;vscp_firmware.c: 952: if ((vscp_getGUID(12) == vscp_imsg.data[ 1 ]) &&
+[; ;vscp_firmware.c: 953: (vscp_getGUID(13) == vscp_imsg.data[ 2 ]) &&
+[; ;vscp_firmware.c: 954: (vscp_getGUID(14) == vscp_imsg.data[ 3 ]) &&
+[; ;vscp_firmware.c: 955: (vscp_getGUID(15) == vscp_imsg.data[ 4 ])) {
+"955
+[e $ ! && && && == -> ( _vscp_getGUID (1 -> -> 12 `i `uc `i -> *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i == -> ( _vscp_getGUID (1 -> -> 13 `i `uc `i -> *U + &U . _vscp_imsg 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i == -> ( _vscp_getGUID (1 -> -> 14 `i `uc `i -> *U + &U . _vscp_imsg 5 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i == -> ( _vscp_getGUID (1 -> -> 15 `i `uc `i -> *U + &U . _vscp_imsg 5 * -> -> -> 4 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i 150  ]
+{
+[; ;vscp_firmware.c: 956: vscp_guid_reset |= 0x80;
+"956
+[e =| _vscp_guid_reset -> -> 128 `i `uc ]
+"957
+}
+[e :U 150 ]
+[; ;vscp_firmware.c: 957: }
+[; ;vscp_firmware.c: 958: break;
+"958
+[e $U 141  ]
+[; ;vscp_firmware.c: 960: default:
+"960
+[e :U 151 ]
+[; ;vscp_firmware.c: 961: vscp_guid_reset = 0;
+"961
+[e = _vscp_guid_reset -> -> 0 `i `uc ]
+[; ;vscp_firmware.c: 962: break;
 "962
-[e ( _vscp_init ..  ]
+[e $U 141  ]
 "963
 }
-[e :U 151 ]
 [; ;vscp_firmware.c: 963: }
-[; ;vscp_firmware.c: 964: break;
-"964
-[e $U 123  ]
-[; ;vscp_firmware.c: 966: case 24:
-"966
-[e :U 152 ]
-[; ;vscp_firmware.c: 968: if (vscp_nickname == vscp_imsg.data[ 0 ]) {
+[e $U 141  ]
+"922
+[e :U 142 ]
+[e [\ >> -> *U + &U . _vscp_imsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i -> 4 `i , $ -> 0 `i 143
+ , $ -> 1 `i 145
+ , $ -> 2 `i 147
+ , $ -> 3 `i 149
+ 151 ]
+"963
+[e :U 141 ]
+[; ;vscp_firmware.c: 965: if (0xf0 == (vscp_guid_reset & 0xf0)) {
+"965
+[e $ ! == -> 240 `i & -> _vscp_guid_reset `i -> 240 `i 152  ]
+{
+[; ;vscp_firmware.c: 967: vscp_init();
+"967
+[e ( _vscp_init ..  ]
 "968
-[e $ ! == -> _vscp_nickname `i -> *U + &U . _vscp_imsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i 153  ]
-{
-"970
-[v _i `uc ~T0 @X0 1 a ]
+}
+[e :U 152 ]
+[; ;vscp_firmware.c: 968: }
+[; ;vscp_firmware.c: 969: break;
+"969
+[e $U 124  ]
+[; ;vscp_firmware.c: 971: case 24:
 "971
-[v _pos `uc ~T0 @X0 1 a ]
-[; ;vscp_firmware.c: 970: uint8_t i;
-[; ;vscp_firmware.c: 971: uint8_t pos = 0;
-[e = _pos -> -> 0 `i `uc ]
-"972
-[v _offset `uc ~T0 @X0 1 a ]
-[; ;vscp_firmware.c: 972: uint8_t offset = vscp_imsg.data[ 1 ];
-[e = _offset *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
-"973
-[v _len `uc ~T0 @X0 1 a ]
-[; ;vscp_firmware.c: 973: uint8_t len = vscp_imsg.data[ 2 ];
-[e = _len *U + &U . _vscp_imsg 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
-[; ;vscp_firmware.c: 975: for (i = 0; i < len; i++) {
-"975
-{
-[e = _i -> -> 0 `i `uc ]
-[e $U 157  ]
-[e :U 154 ]
-{
-[; ;vscp_firmware.c: 976: vscp_omsg.data[ (i % 7) + 1 ] = vscp_readRegister(offset + i);
-"976
-[e = *U + &U . _vscp_omsg 5 * -> -> + % -> _i `i -> 7 `i -> 1 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux ( _vscp_readRegister (1 -> + -> _offset `i -> _i `i `uc ]
-[; ;vscp_firmware.c: 978: if ( (i % 7) == 6 || i == (len - 1) ) {
-"978
-[e $ ! || == % -> _i `i -> 7 `i -> 6 `i == -> _i `i - -> _len `i -> 1 `i 158  ]
-{
-"980
-[v _bytes `uc ~T0 @X0 1 a ]
-[; ;vscp_firmware.c: 980: uint8_t bytes;
-[; ;vscp_firmware.c: 982: if ( ( i % 7 ) == 6 ) {
-"982
-[e $ ! == % -> _i `i -> 7 `i -> 6 `i 159  ]
-{
-[; ;vscp_firmware.c: 983: bytes = 7;
-"983
-[e = _bytes -> -> 7 `i `uc ]
-"984
-}
-[; ;vscp_firmware.c: 984: }
-[e $U 160  ]
-"985
-[e :U 159 ]
-[; ;vscp_firmware.c: 985: else {
-{
-[; ;vscp_firmware.c: 986: bytes = ( i % 7 ) + 1;
-"986
-[e = _bytes -> + % -> _i `i -> 7 `i -> 1 `i `uc ]
-"987
-}
-[e :U 160 ]
-[; ;vscp_firmware.c: 987: }
-[; ;vscp_firmware.c: 989: vscp_omsg.flags = 0x80 + bytes + 1;
-"989
-[e = . _vscp_omsg 0 -> + + -> 128 `i -> _bytes `i -> 1 `i `uc ]
-[; ;vscp_firmware.c: 990: vscp_omsg.priority = 0x07;
-"990
-[e = . _vscp_omsg 1 -> -> 7 `i `uc ]
-[; ;vscp_firmware.c: 991: vscp_omsg.vscp_class = 0;
-"991
-[e = . _vscp_omsg 2 -> -> 0 `i `us ]
-[; ;vscp_firmware.c: 992: vscp_omsg.vscp_type = 26;
-"992
-[e = . _vscp_omsg 3 -> -> 26 `i `uc ]
-[; ;vscp_firmware.c: 993: vscp_omsg.data[ 0 ] = pos;
-"993
-[e = *U + &U . _vscp_omsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux _pos ]
-[; ;vscp_firmware.c: 996: vscp_sendEvent();
-"996
-[e ( _vscp_sendEvent ..  ]
-[; ;vscp_firmware.c: 997: pos++;
-"997
-[e ++ _pos -> -> 1 `i `uc ]
-"998
-}
-[e :U 158 ]
-"999
-}
-"975
-[e ++ _i -> -> 1 `i `uc ]
-[e :U 157 ]
-[e $ < -> _i `i -> _len `i 154  ]
-[e :U 155 ]
-"999
-}
-"1000
-}
 [e :U 153 ]
-[; ;vscp_firmware.c: 998: }
-[; ;vscp_firmware.c: 999: }
-[; ;vscp_firmware.c: 1000: }
-[; ;vscp_firmware.c: 1001: break;
-"1001
-[e $U 123  ]
-[; ;vscp_firmware.c: 1003: case 25:
-"1003
-[e :U 161 ]
-[; ;vscp_firmware.c: 1005: if (vscp_nickname == vscp_imsg.data[ 0 ]) {
-"1005
-[e $ ! == -> _vscp_nickname `i -> *U + &U . _vscp_imsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i 162  ]
+[; ;vscp_firmware.c: 973: if (vscp_nickname == vscp_imsg.data[ 0 ]) {
+"973
+[e $ ! == -> _vscp_nickname `i -> *U + &U . _vscp_imsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i 154  ]
 {
-"1006
+"975
 [v _i `uc ~T0 @X0 1 a ]
-"1007
+"976
 [v _pos `uc ~T0 @X0 1 a ]
-[; ;vscp_firmware.c: 1006: uint8_t i;
-[; ;vscp_firmware.c: 1007: uint8_t pos = vscp_imsg.data[ 1 ];
-[e = _pos *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
-"1008
+[; ;vscp_firmware.c: 975: uint8_t i;
+[; ;vscp_firmware.c: 976: uint8_t pos = 0;
+[e = _pos -> -> 0 `i `uc ]
+"977
+[v _offset `uc ~T0 @X0 1 a ]
+[; ;vscp_firmware.c: 977: uint8_t offset = vscp_imsg.data[ 1 ];
+[e = _offset *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
+"978
 [v _len `uc ~T0 @X0 1 a ]
-[; ;vscp_firmware.c: 1008: uint8_t len = (vscp_imsg.flags - 2) & 0x07;
-[e = _len -> & - -> . _vscp_imsg 0 `i -> 2 `i -> 7 `i `uc ]
-[; ;vscp_firmware.c: 1010: for (i = 0; i < len; i++) {
-"1010
+[; ;vscp_firmware.c: 978: uint8_t len = vscp_imsg.data[ 2 ];
+[e = _len *U + &U . _vscp_imsg 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
+[; ;vscp_firmware.c: 980: for (i = 0; i < len; i++) {
+"980
 {
 [e = _i -> -> 0 `i `uc ]
-[e $U 166  ]
-[e :U 163 ]
+[e $U 158  ]
+[e :U 155 ]
 {
-[; ;vscp_firmware.c: 1012: vscp_writeRegister(pos + i, vscp_imsg.data[ 2 + i ]);
-"1012
-[e ( _vscp_writeRegister (2 , -> + -> _pos `i -> _i `i `uc *U + &U . _vscp_imsg 5 * -> -> + -> 2 `i -> _i `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
-[; ;vscp_firmware.c: 1013: vscp_omsg.data[ 1 + i ] = vscp_readRegister(pos + i);
-"1013
-[e = *U + &U . _vscp_omsg 5 * -> -> + -> 1 `i -> _i `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux ( _vscp_readRegister (1 -> + -> _pos `i -> _i `i `uc ]
-"1014
+[; ;vscp_firmware.c: 981: vscp_omsg.data[ (i % 7) + 1 ] = vscp_readRegister(offset + i);
+"981
+[e = *U + &U . _vscp_omsg 5 * -> -> + % -> _i `i -> 7 `i -> 1 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux ( _vscp_readRegister (1 -> + -> _offset `i -> _i `i `uc ]
+[; ;vscp_firmware.c: 983: if ( (i % 7) == 6 || i == (len - 1) ) {
+"983
+[e $ ! || == % -> _i `i -> 7 `i -> 6 `i == -> _i `i - -> _len `i -> 1 `i 159  ]
+{
+"985
+[v _bytes `uc ~T0 @X0 1 a ]
+[; ;vscp_firmware.c: 985: uint8_t bytes;
+[; ;vscp_firmware.c: 987: if ( ( i % 7 ) == 6 ) {
+"987
+[e $ ! == % -> _i `i -> 7 `i -> 6 `i 160  ]
+{
+[; ;vscp_firmware.c: 988: bytes = 7;
+"988
+[e = _bytes -> -> 7 `i `uc ]
+"989
 }
-"1010
-[e ++ _i -> -> 1 `i `uc ]
-[e :U 166 ]
-[e $ < -> _i `i -> _len `i 163  ]
-[e :U 164 ]
-"1014
+[; ;vscp_firmware.c: 989: }
+[e $U 161  ]
+"990
+[e :U 160 ]
+[; ;vscp_firmware.c: 990: else {
+{
+[; ;vscp_firmware.c: 991: bytes = ( i % 7 ) + 1;
+"991
+[e = _bytes -> + % -> _i `i -> 7 `i -> 1 `i `uc ]
+"992
 }
-[; ;vscp_firmware.c: 1014: }
-[; ;vscp_firmware.c: 1016: vscp_omsg.priority = 0x07;
-"1016
+[e :U 161 ]
+[; ;vscp_firmware.c: 992: }
+[; ;vscp_firmware.c: 994: vscp_omsg.flags = 0x80 + bytes + 1;
+"994
+[e = . _vscp_omsg 0 -> + + -> 128 `i -> _bytes `i -> 1 `i `uc ]
+[; ;vscp_firmware.c: 995: vscp_omsg.priority = 0x07;
+"995
 [e = . _vscp_omsg 1 -> -> 7 `i `uc ]
-[; ;vscp_firmware.c: 1017: vscp_omsg.vscp_class = 0;
-"1017
+[; ;vscp_firmware.c: 996: vscp_omsg.vscp_class = 0;
+"996
 [e = . _vscp_omsg 2 -> -> 0 `i `us ]
-[; ;vscp_firmware.c: 1018: vscp_omsg.vscp_type = 26;
-"1018
+[; ;vscp_firmware.c: 997: vscp_omsg.vscp_type = 26;
+"997
 [e = . _vscp_omsg 3 -> -> 26 `i `uc ]
-[; ;vscp_firmware.c: 1019: vscp_omsg.data[ 0 ] = 0;
-"1019
-[e = *U + &U . _vscp_omsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux -> -> 0 `i `uc ]
-[; ;vscp_firmware.c: 1020: vscp_omsg.flags = 0x80 + len + 1;
-"1020
-[e = . _vscp_omsg 0 -> + + -> 128 `i -> _len `i -> 1 `i `uc ]
-[; ;vscp_firmware.c: 1023: vscp_sendEvent();
-"1023
+[; ;vscp_firmware.c: 998: vscp_omsg.data[ 0 ] = pos;
+"998
+[e = *U + &U . _vscp_omsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux _pos ]
+[; ;vscp_firmware.c: 1001: vscp_sendEvent();
+"1001
 [e ( _vscp_sendEvent ..  ]
-"1025
+[; ;vscp_firmware.c: 1002: pos++;
+"1002
+[e ++ _pos -> -> 1 `i `uc ]
+"1003
 }
+[e :U 159 ]
+"1004
+}
+"980
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 158 ]
+[e $ < -> _i `i -> _len `i 155  ]
+[e :U 156 ]
+"1004
+}
+"1005
+}
+[e :U 154 ]
+[; ;vscp_firmware.c: 1003: }
+[; ;vscp_firmware.c: 1004: }
+[; ;vscp_firmware.c: 1005: }
+[; ;vscp_firmware.c: 1006: break;
+"1006
+[e $U 124  ]
+[; ;vscp_firmware.c: 1008: case 25:
+"1008
 [e :U 162 ]
-[; ;vscp_firmware.c: 1025: }
-[; ;vscp_firmware.c: 1026: break;
-"1026
-[e $U 123  ]
-[; ;vscp_firmware.c: 1028: case 29:
-"1028
+[; ;vscp_firmware.c: 1010: if (vscp_nickname == vscp_imsg.data[ 0 ]) {
+"1010
+[e $ ! == -> _vscp_nickname `i -> *U + &U . _vscp_imsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i 163  ]
+{
+"1011
+[v _i `uc ~T0 @X0 1 a ]
+"1012
+[v _pos `uc ~T0 @X0 1 a ]
+[; ;vscp_firmware.c: 1011: uint8_t i;
+[; ;vscp_firmware.c: 1012: uint8_t pos = vscp_imsg.data[ 1 ];
+[e = _pos *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
+"1013
+[v _len `uc ~T0 @X0 1 a ]
+[; ;vscp_firmware.c: 1013: uint8_t len = (vscp_imsg.flags - 2) & 0x07;
+[e = _len -> & - -> . _vscp_imsg 0 `i -> 2 `i -> 7 `i `uc ]
+[; ;vscp_firmware.c: 1015: for (i = 0; i < len; i++) {
+"1015
+{
+[e = _i -> -> 0 `i `uc ]
+[e $U 167  ]
+[e :U 164 ]
+{
+[; ;vscp_firmware.c: 1017: vscp_writeRegister(pos + i, vscp_imsg.data[ 2 + i ]);
+"1017
+[e ( _vscp_writeRegister (2 , -> + -> _pos `i -> _i `i `uc *U + &U . _vscp_imsg 5 * -> -> + -> 2 `i -> _i `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
+[; ;vscp_firmware.c: 1018: vscp_omsg.data[ 1 + i ] = vscp_readRegister(pos + i);
+"1018
+[e = *U + &U . _vscp_omsg 5 * -> -> + -> 1 `i -> _i `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux ( _vscp_readRegister (1 -> + -> _pos `i -> _i `i `uc ]
+"1019
+}
+"1015
+[e ++ _i -> -> 1 `i `uc ]
 [e :U 167 ]
-[; ;vscp_firmware.c: 1030: if (vscp_nickname == vscp_imsg.data[ 0 ]) {
+[e $ < -> _i `i -> _len `i 164  ]
+[e :U 165 ]
+"1019
+}
+[; ;vscp_firmware.c: 1019: }
+[; ;vscp_firmware.c: 1021: vscp_omsg.priority = 0x07;
+"1021
+[e = . _vscp_omsg 1 -> -> 7 `i `uc ]
+[; ;vscp_firmware.c: 1022: vscp_omsg.vscp_class = 0;
+"1022
+[e = . _vscp_omsg 2 -> -> 0 `i `us ]
+[; ;vscp_firmware.c: 1023: vscp_omsg.vscp_type = 26;
+"1023
+[e = . _vscp_omsg 3 -> -> 26 `i `uc ]
+[; ;vscp_firmware.c: 1024: vscp_omsg.data[ 0 ] = 0;
+"1024
+[e = *U + &U . _vscp_omsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux -> -> 0 `i `uc ]
+[; ;vscp_firmware.c: 1025: vscp_omsg.flags = 0x80 + len + 1;
+"1025
+[e = . _vscp_omsg 0 -> + + -> 128 `i -> _len `i -> 1 `i `uc ]
+[; ;vscp_firmware.c: 1028: vscp_sendEvent();
+"1028
+[e ( _vscp_sendEvent ..  ]
 "1030
-[e $ ! == -> _vscp_nickname `i -> *U + &U . _vscp_imsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i 168  ]
-{
-[; ;vscp_firmware.c: 1032: vscp_omsg.data[ 1 ] = vscp_writeAppReg(
-[; ;vscp_firmware.c: 1033: vscp_imsg.data[ 1 ],
-[; ;vscp_firmware.c: 1034: vscp_readAppReg(vscp_imsg.data[ 1 ]) + 1);
-"1034
-[e = *U + &U . _vscp_omsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux ( _vscp_writeAppReg (2 , *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux -> + -> ( _vscp_readAppReg (1 *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i -> 1 `i `uc ]
-[; ;vscp_firmware.c: 1036: vscp_omsg.data[ 0 ] = vscp_imsg.data[ 1 ];
-"1036
-[e = *U + &U . _vscp_omsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
-[; ;vscp_firmware.c: 1038: vscp_omsg.priority = 0x03;
-"1038
-[e = . _vscp_omsg 1 -> -> 3 `i `uc ]
-[; ;vscp_firmware.c: 1039: vscp_omsg.flags = 0x80 + 2;
-"1039
-[e = . _vscp_omsg 0 -> + -> 128 `i -> 2 `i `uc ]
-[; ;vscp_firmware.c: 1040: vscp_omsg.vscp_class = 0;
-"1040
-[e = . _vscp_omsg 2 -> -> 0 `i `us ]
-[; ;vscp_firmware.c: 1041: vscp_omsg.vscp_type = 10;
-"1041
-[e = . _vscp_omsg 3 -> -> 10 `i `uc ]
-[; ;vscp_firmware.c: 1044: vscp_sendEvent();
-"1044
-[e ( _vscp_sendEvent ..  ]
-"1045
 }
+[e :U 163 ]
+[; ;vscp_firmware.c: 1030: }
+[; ;vscp_firmware.c: 1031: break;
+"1031
+[e $U 124  ]
+[; ;vscp_firmware.c: 1033: case 29:
+"1033
 [e :U 168 ]
-[; ;vscp_firmware.c: 1045: }
-[; ;vscp_firmware.c: 1046: break;
-"1046
-[e $U 123  ]
-[; ;vscp_firmware.c: 1048: case 30:
-"1048
-[e :U 169 ]
-[; ;vscp_firmware.c: 1050: if (vscp_nickname == vscp_imsg.data[ 0 ]) {
-"1050
-[e $ ! == -> _vscp_nickname `i -> *U + &U . _vscp_imsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i 170  ]
+[; ;vscp_firmware.c: 1035: if (vscp_nickname == vscp_imsg.data[ 0 ]) {
+"1035
+[e $ ! == -> _vscp_nickname `i -> *U + &U . _vscp_imsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i 169  ]
 {
-[; ;vscp_firmware.c: 1052: vscp_omsg.data[ 1 ] = vscp_writeAppReg(
-[; ;vscp_firmware.c: 1053: vscp_imsg.data[ 1 ],
-[; ;vscp_firmware.c: 1054: vscp_readAppReg(vscp_imsg.data[ 1 ]) - 1);
-"1054
-[e = *U + &U . _vscp_omsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux ( _vscp_writeAppReg (2 , *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux -> - -> ( _vscp_readAppReg (1 *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i -> 1 `i `uc ]
-[; ;vscp_firmware.c: 1056: vscp_omsg.data[ 0 ] = vscp_imsg.data[ 1 ];
-"1056
+[; ;vscp_firmware.c: 1037: vscp_omsg.data[ 1 ] = vscp_writeAppReg(
+[; ;vscp_firmware.c: 1038: vscp_imsg.data[ 1 ],
+[; ;vscp_firmware.c: 1039: vscp_readAppReg(vscp_imsg.data[ 1 ]) + 1);
+"1039
+[e = *U + &U . _vscp_omsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux ( _vscp_writeAppReg (2 , *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux -> + -> ( _vscp_readAppReg (1 *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i -> 1 `i `uc ]
+[; ;vscp_firmware.c: 1041: vscp_omsg.data[ 0 ] = vscp_imsg.data[ 1 ];
+"1041
 [e = *U + &U . _vscp_omsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
-[; ;vscp_firmware.c: 1058: vscp_omsg.priority = 0x03;
-"1058
+[; ;vscp_firmware.c: 1043: vscp_omsg.priority = 0x03;
+"1043
 [e = . _vscp_omsg 1 -> -> 3 `i `uc ]
-[; ;vscp_firmware.c: 1059: vscp_omsg.flags = 0x80 + 2;
-"1059
+[; ;vscp_firmware.c: 1044: vscp_omsg.flags = 0x80 + 2;
+"1044
 [e = . _vscp_omsg 0 -> + -> 128 `i -> 2 `i `uc ]
-[; ;vscp_firmware.c: 1060: vscp_omsg.vscp_class = 0;
-"1060
+[; ;vscp_firmware.c: 1045: vscp_omsg.vscp_class = 0;
+"1045
 [e = . _vscp_omsg 2 -> -> 0 `i `us ]
-[; ;vscp_firmware.c: 1061: vscp_omsg.vscp_type = 10;
-"1061
+[; ;vscp_firmware.c: 1046: vscp_omsg.vscp_type = 10;
+"1046
 [e = . _vscp_omsg 3 -> -> 10 `i `uc ]
-[; ;vscp_firmware.c: 1064: vscp_sendEvent();
-"1064
+[; ;vscp_firmware.c: 1049: vscp_sendEvent();
+"1049
 [e ( _vscp_sendEvent ..  ]
-"1065
+"1050
 }
+[e :U 169 ]
+[; ;vscp_firmware.c: 1050: }
+[; ;vscp_firmware.c: 1051: break;
+"1051
+[e $U 124  ]
+[; ;vscp_firmware.c: 1053: case 30:
+"1053
 [e :U 170 ]
-[; ;vscp_firmware.c: 1065: }
-[; ;vscp_firmware.c: 1066: break;
-"1066
-[e $U 123  ]
-[; ;vscp_firmware.c: 1068: case 31:
-"1068
-[e :U 171 ]
-[; ;vscp_firmware.c: 1070: if ((vscp_nickname == vscp_imsg.data[ 0 ]) ||
-[; ;vscp_firmware.c: 1071: (0xff == vscp_imsg.data[ 0 ])) {
-"1071
-[e $ ! || == -> _vscp_nickname `i -> *U + &U . _vscp_imsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i == -> 255 `i -> *U + &U . _vscp_imsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i 172  ]
+[; ;vscp_firmware.c: 1055: if (vscp_nickname == vscp_imsg.data[ 0 ]) {
+"1055
+[e $ ! == -> _vscp_nickname `i -> *U + &U . _vscp_imsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i 171  ]
 {
+[; ;vscp_firmware.c: 1057: vscp_omsg.data[ 1 ] = vscp_writeAppReg(
+[; ;vscp_firmware.c: 1058: vscp_imsg.data[ 1 ],
+[; ;vscp_firmware.c: 1059: vscp_readAppReg(vscp_imsg.data[ 1 ]) - 1);
+"1059
+[e = *U + &U . _vscp_omsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux ( _vscp_writeAppReg (2 , *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux -> - -> ( _vscp_readAppReg (1 *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i -> 1 `i `uc ]
+[; ;vscp_firmware.c: 1061: vscp_omsg.data[ 0 ] = vscp_imsg.data[ 1 ];
+"1061
+[e = *U + &U . _vscp_omsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
+[; ;vscp_firmware.c: 1063: vscp_omsg.priority = 0x03;
+"1063
+[e = . _vscp_omsg 1 -> -> 3 `i `uc ]
+[; ;vscp_firmware.c: 1064: vscp_omsg.flags = 0x80 + 2;
+"1064
+[e = . _vscp_omsg 0 -> + -> 128 `i -> 2 `i `uc ]
+[; ;vscp_firmware.c: 1065: vscp_omsg.vscp_class = 0;
+"1065
+[e = . _vscp_omsg 2 -> -> 0 `i `us ]
+[; ;vscp_firmware.c: 1066: vscp_omsg.vscp_type = 10;
+"1066
+[e = . _vscp_omsg 3 -> -> 10 `i `uc ]
+[; ;vscp_firmware.c: 1069: vscp_sendEvent();
+"1069
+[e ( _vscp_sendEvent ..  ]
+"1070
+}
+[e :U 171 ]
+[; ;vscp_firmware.c: 1070: }
+[; ;vscp_firmware.c: 1071: break;
+"1071
+[e $U 124  ]
+[; ;vscp_firmware.c: 1073: case 31:
 "1073
+[e :U 172 ]
+[; ;vscp_firmware.c: 1075: if ((vscp_nickname == vscp_imsg.data[ 0 ]) ||
+[; ;vscp_firmware.c: 1076: (0xff == vscp_imsg.data[ 0 ])) {
+"1076
+[e $ ! || == -> _vscp_nickname `i -> *U + &U . _vscp_imsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i == -> 255 `i -> *U + &U . _vscp_imsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i 173  ]
+{
+"1078
 [v _i `uc ~T0 @X0 1 a ]
 [v _j `uc ~T0 @X0 1 a ]
 [v _k `uc ~T0 @X0 1 a ]
-[; ;vscp_firmware.c: 1073: uint8_t i, j, k = 0;
+[; ;vscp_firmware.c: 1078: uint8_t i, j, k = 0;
 [e = _k -> -> 0 `i `uc ]
-[; ;vscp_firmware.c: 1077: vscp_omsg.priority = 0x03;
-"1077
-[e = . _vscp_omsg 1 -> -> 3 `i `uc ]
-[; ;vscp_firmware.c: 1078: vscp_omsg.flags = 0x80 + 8;
-"1078
-[e = . _vscp_omsg 0 -> + -> 128 `i -> 8 `i `uc ]
-[; ;vscp_firmware.c: 1079: vscp_omsg.vscp_class = 0;
-"1079
-[e = . _vscp_omsg 2 -> -> 0 `i `us ]
-[; ;vscp_firmware.c: 1080: vscp_omsg.vscp_type = 32;
-"1080
-[e = . _vscp_omsg 3 -> -> 32 `i `uc ]
-[; ;vscp_firmware.c: 1082: for (i = 0; i < 3; i++)
+[; ;vscp_firmware.c: 1082: vscp_omsg.priority = 0x03;
 "1082
+[e = . _vscp_omsg 1 -> -> 3 `i `uc ]
+[; ;vscp_firmware.c: 1083: vscp_omsg.flags = 0x80 + 8;
+"1083
+[e = . _vscp_omsg 0 -> + -> 128 `i -> 8 `i `uc ]
+[; ;vscp_firmware.c: 1084: vscp_omsg.vscp_class = 0;
+"1084
+[e = . _vscp_omsg 2 -> -> 0 `i `us ]
+[; ;vscp_firmware.c: 1085: vscp_omsg.vscp_type = 32;
+"1085
+[e = . _vscp_omsg 3 -> -> 32 `i `uc ]
+[; ;vscp_firmware.c: 1087: for (i = 0; i < 3; i++)
+"1087
 {
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 3 `i 173  ]
-[e $U 174  ]
-"1083
-[e :U 173 ]
-[; ;vscp_firmware.c: 1083: {
+[e $ < -> _i `i -> 3 `i 174  ]
+[e $U 175  ]
+"1088
+[e :U 174 ]
+[; ;vscp_firmware.c: 1088: {
 {
-[; ;vscp_firmware.c: 1084: vscp_omsg.data[0] = i;
-"1084
+[; ;vscp_firmware.c: 1089: vscp_omsg.data[0] = i;
+"1089
 [e = *U + &U . _vscp_omsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux _i ]
-[; ;vscp_firmware.c: 1086: for (j = 1; j < 8; j++) {
-"1086
+[; ;vscp_firmware.c: 1091: for (j = 1; j < 8; j++) {
+"1091
 {
 [e = _j -> -> 1 `i `uc ]
-[e $ < -> _j `i -> 8 `i 176  ]
-[e $U 177  ]
-[e :U 176 ]
-{
-[; ;vscp_firmware.c: 1087: vscp_omsg.data[j] = vscp_getGUID(15 - k++);
-"1087
-[e = *U + &U . _vscp_omsg 5 * -> _j `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux ( _vscp_getGUID (1 -> - -> 15 `i -> ++ _k -> -> 1 `i `uc `i `uc ]
-[; ;vscp_firmware.c: 1088: if (k > 16)
-"1088
-[e $ ! > -> _k `i -> 16 `i 179  ]
-[; ;vscp_firmware.c: 1089: break;
-"1089
-[e $U 177  ]
-[e :U 179 ]
-"1090
-}
-"1086
-[e ++ _j -> -> 1 `i `uc ]
-[e $ < -> _j `i -> 8 `i 176  ]
+[e $ < -> _j `i -> 8 `i 177  ]
+[e $U 178  ]
 [e :U 177 ]
-"1090
-}
-[; ;vscp_firmware.c: 1090: }
-[; ;vscp_firmware.c: 1092: if (k > 16)
+{
+[; ;vscp_firmware.c: 1092: vscp_omsg.data[j] = vscp_getGUID(15 - k++);
 "1092
-[e $ ! > -> _k `i -> 16 `i 180  ]
-[; ;vscp_firmware.c: 1093: break;
+[e = *U + &U . _vscp_omsg 5 * -> _j `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux ( _vscp_getGUID (1 -> - -> 15 `i -> ++ _k -> -> 1 `i `uc `i `uc ]
+[; ;vscp_firmware.c: 1093: if (k > 16)
 "1093
-[e $U 174  ]
+[e $ ! > -> _k `i -> 16 `i 180  ]
+[; ;vscp_firmware.c: 1094: break;
+"1094
+[e $U 178  ]
 [e :U 180 ]
-[; ;vscp_firmware.c: 1095: vscp_sendEvent();
 "1095
-[e ( _vscp_sendEvent ..  ]
-"1096
 }
-"1082
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 3 `i 173  ]
-[e :U 174 ]
-"1096
+"1091
+[e ++ _j -> -> 1 `i `uc ]
+[e $ < -> _j `i -> 8 `i 177  ]
+[e :U 178 ]
+"1095
 }
-[; ;vscp_firmware.c: 1096: }
-[; ;vscp_firmware.c: 1098: for (j = 0; j < 5; j++)
+[; ;vscp_firmware.c: 1095: }
+[; ;vscp_firmware.c: 1097: if (k > 16)
+"1097
+[e $ ! > -> _k `i -> 16 `i 181  ]
+[; ;vscp_firmware.c: 1098: break;
 "1098
+[e $U 175  ]
+[e :U 181 ]
+[; ;vscp_firmware.c: 1100: vscp_sendEvent();
+"1100
+[e ( _vscp_sendEvent ..  ]
+"1101
+}
+"1087
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 3 `i 174  ]
+[e :U 175 ]
+"1101
+}
+[; ;vscp_firmware.c: 1101: }
+[; ;vscp_firmware.c: 1103: for (j = 0; j < 5; j++)
+"1103
 {
 [e = _j -> -> 0 `i `uc ]
-[e $ < -> _j `i -> 5 `i 181  ]
-[e $U 182  ]
-"1099
-[e :U 181 ]
-[; ;vscp_firmware.c: 1099: {
-{
-[; ;vscp_firmware.c: 1100: if (vscp_getMDF_URL(j) > 0)
-"1100
-[e $ ! > -> ( _vscp_getMDF_URL (1 _j `i -> 0 `i 184  ]
-[; ;vscp_firmware.c: 1101: vscp_omsg.data[3 + j] = vscp_getMDF_URL(j);
-"1101
-[e = *U + &U . _vscp_omsg 5 * -> -> + -> 3 `i -> _j `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux ( _vscp_getMDF_URL (1 _j ]
-[e $U 185  ]
-"1102
-[e :U 184 ]
-[; ;vscp_firmware.c: 1102: else
-[; ;vscp_firmware.c: 1103: vscp_omsg.data[3 + j] = 0;
-"1103
-[e = *U + &U . _vscp_omsg 5 * -> -> + -> 3 `i -> _j `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux -> -> 0 `i `uc ]
-[e :U 185 ]
+[e $ < -> _j `i -> 5 `i 182  ]
+[e $U 183  ]
 "1104
-}
-"1098
-[e ++ _j -> -> 1 `i `uc ]
-[e $ < -> _j `i -> 5 `i 181  ]
 [e :U 182 ]
-"1104
-}
-[; ;vscp_firmware.c: 1104: }
-[; ;vscp_firmware.c: 1106: vscp_sendEvent();
+[; ;vscp_firmware.c: 1104: {
+{
+[; ;vscp_firmware.c: 1105: if (vscp_getMDF_URL(j) > 0)
+"1105
+[e $ ! > -> ( _vscp_getMDF_URL (1 _j `i -> 0 `i 185  ]
+[; ;vscp_firmware.c: 1106: vscp_omsg.data[3 + j] = vscp_getMDF_URL(j);
 "1106
-[e ( _vscp_sendEvent ..  ]
-[; ;vscp_firmware.c: 1108: k = 5;
+[e = *U + &U . _vscp_omsg 5 * -> -> + -> 3 `i -> _j `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux ( _vscp_getMDF_URL (1 _j ]
+[e $U 186  ]
+"1107
+[e :U 185 ]
+[; ;vscp_firmware.c: 1107: else
+[; ;vscp_firmware.c: 1108: vscp_omsg.data[3 + j] = 0;
 "1108
-[e = _k -> -> 5 `i `uc ]
-[; ;vscp_firmware.c: 1109: for (i = 3; i < 7; i++)
+[e = *U + &U . _vscp_omsg 5 * -> -> + -> 3 `i -> _j `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux -> -> 0 `i `uc ]
+[e :U 186 ]
 "1109
+}
+"1103
+[e ++ _j -> -> 1 `i `uc ]
+[e $ < -> _j `i -> 5 `i 182  ]
+[e :U 183 ]
+"1109
+}
+[; ;vscp_firmware.c: 1109: }
+[; ;vscp_firmware.c: 1111: vscp_sendEvent();
+"1111
+[e ( _vscp_sendEvent ..  ]
+[; ;vscp_firmware.c: 1113: k = 5;
+"1113
+[e = _k -> -> 5 `i `uc ]
+[; ;vscp_firmware.c: 1114: for (i = 3; i < 7; i++)
+"1114
 {
 [e = _i -> -> 3 `i `uc ]
-[e $ < -> _i `i -> 7 `i 186  ]
-[e $U 187  ]
-"1110
-[e :U 186 ]
-[; ;vscp_firmware.c: 1110: {
+[e $ < -> _i `i -> 7 `i 187  ]
+[e $U 188  ]
+"1115
+[e :U 187 ]
+[; ;vscp_firmware.c: 1115: {
 {
-[; ;vscp_firmware.c: 1111: vscp_omsg.data[0] = i;
-"1111
+[; ;vscp_firmware.c: 1116: vscp_omsg.data[0] = i;
+"1116
 [e = *U + &U . _vscp_omsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux _i ]
-[; ;vscp_firmware.c: 1113: for (j = 1; j < 8; j++) {
-"1113
+[; ;vscp_firmware.c: 1118: for (j = 1; j < 8; j++) {
+"1118
 {
 [e = _j -> -> 1 `i `uc ]
-[e $ < -> _j `i -> 8 `i 189  ]
-[e $U 190  ]
-[e :U 189 ]
-{
-[; ;vscp_firmware.c: 1114: vscp_omsg.data[j] = vscp_getMDF_URL(k++);
-"1114
-[e = *U + &U . _vscp_omsg 5 * -> _j `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux ( _vscp_getMDF_URL (1 ++ _k -> -> 1 `i `uc ]
-"1115
-}
-"1113
-[e ++ _j -> -> 1 `i `uc ]
-[e $ < -> _j `i -> 8 `i 189  ]
+[e $ < -> _j `i -> 8 `i 190  ]
+[e $U 191  ]
 [e :U 190 ]
-"1115
-}
-[; ;vscp_firmware.c: 1115: }
-[; ;vscp_firmware.c: 1116: vscp_sendEvent();
-"1116
-[e ( _vscp_sendEvent ..  ]
-"1117
-}
-"1109
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 7 `i 186  ]
-[e :U 187 ]
-"1117
-}
+{
+[; ;vscp_firmware.c: 1119: vscp_omsg.data[j] = vscp_getMDF_URL(k++);
 "1119
-}
-[e :U 172 ]
-[; ;vscp_firmware.c: 1117: }
-[; ;vscp_firmware.c: 1119: }
-[; ;vscp_firmware.c: 1120: break;
+[e = *U + &U . _vscp_omsg 5 * -> _j `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux ( _vscp_getMDF_URL (1 ++ _k -> -> 1 `i `uc ]
 "1120
-[e $U 123  ]
-[; ;vscp_firmware.c: 1123: case 33:
-"1123
-[e :U 192 ]
-[; ;vscp_firmware.c: 1125: if (vscp_nickname == vscp_imsg.data[ 0 ]) {
-"1125
-[e $ ! == -> _vscp_nickname `i -> *U + &U . _vscp_imsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i 193  ]
-{
-[; ;vscp_firmware.c: 1127: vscp_omsg.priority = 0x03;
-"1127
-[e = . _vscp_omsg 1 -> -> 3 `i `uc ]
-[; ;vscp_firmware.c: 1128: vscp_omsg.flags = 0x80 + 7;
-"1128
-[e = . _vscp_omsg 0 -> + -> 128 `i -> 7 `i `uc ]
-[; ;vscp_firmware.c: 1129: vscp_omsg.vscp_class = 0;
-"1129
-[e = . _vscp_omsg 2 -> -> 0 `i `us ]
-[; ;vscp_firmware.c: 1130: vscp_omsg.vscp_type = 34;
-"1130
-[e = . _vscp_omsg 3 -> -> 34 `i `uc ]
-[; ;vscp_firmware.c: 1132: vscp_getMatrixInfo((char *) vscp_omsg.data);
-"1132
-[e ( _vscp_getMatrixInfo (1 &U . _vscp_omsg 5 ]
-[; ;vscp_firmware.c: 1135: vscp_sendEvent();
-"1135
-[e ( _vscp_sendEvent ..  ]
-"1136
 }
+"1118
+[e ++ _j -> -> 1 `i `uc ]
+[e $ < -> _j `i -> 8 `i 190  ]
+[e :U 191 ]
+"1120
+}
+[; ;vscp_firmware.c: 1120: }
+[; ;vscp_firmware.c: 1121: vscp_sendEvent();
+"1121
+[e ( _vscp_sendEvent ..  ]
+"1122
+}
+"1114
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 7 `i 187  ]
+[e :U 188 ]
+"1122
+}
+"1124
+}
+[e :U 173 ]
+[; ;vscp_firmware.c: 1122: }
+[; ;vscp_firmware.c: 1124: }
+[; ;vscp_firmware.c: 1125: break;
+"1125
+[e $U 124  ]
+[; ;vscp_firmware.c: 1128: case 33:
+"1128
 [e :U 193 ]
-[; ;vscp_firmware.c: 1136: }
-[; ;vscp_firmware.c: 1137: break;
-"1137
-[e $U 123  ]
-[; ;vscp_firmware.c: 1146: case 37:
-"1146
-[e :U 194 ]
-[; ;vscp_firmware.c: 1148: if ( vscp_nickname == vscp_imsg.data[0] ) {
-"1148
-[e $ ! == -> _vscp_nickname `i -> *U + &U . _vscp_imsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i 195  ]
+[; ;vscp_firmware.c: 1130: if (vscp_nickname == vscp_imsg.data[ 0 ]) {
+"1130
+[e $ ! == -> _vscp_nickname `i -> *U + &U . _vscp_imsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i 194  ]
 {
-"1150
+[; ;vscp_firmware.c: 1132: vscp_omsg.priority = 0x03;
+"1132
+[e = . _vscp_omsg 1 -> -> 3 `i `uc ]
+[; ;vscp_firmware.c: 1133: vscp_omsg.flags = 0x80 + 7;
+"1133
+[e = . _vscp_omsg 0 -> + -> 128 `i -> 7 `i `uc ]
+[; ;vscp_firmware.c: 1134: vscp_omsg.vscp_class = 0;
+"1134
+[e = . _vscp_omsg 2 -> -> 0 `i `us ]
+[; ;vscp_firmware.c: 1135: vscp_omsg.vscp_type = 34;
+"1135
+[e = . _vscp_omsg 3 -> -> 34 `i `uc ]
+[; ;vscp_firmware.c: 1137: vscp_getMatrixInfo((char *) vscp_omsg.data);
+"1137
+[e ( _vscp_getMatrixInfo (1 &U . _vscp_omsg 5 ]
+[; ;vscp_firmware.c: 1140: vscp_sendEvent();
+"1140
+[e ( _vscp_sendEvent ..  ]
+"1141
+}
+[e :U 194 ]
+[; ;vscp_firmware.c: 1141: }
+[; ;vscp_firmware.c: 1142: break;
+"1142
+[e $U 124  ]
+[; ;vscp_firmware.c: 1151: case 37:
+"1151
+[e :U 195 ]
+[; ;vscp_firmware.c: 1153: if ( vscp_nickname == vscp_imsg.data[0] ) {
+"1153
+[e $ ! == -> _vscp_nickname `i -> *U + &U . _vscp_imsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i 196  ]
+{
+"1155
 [v _page_save `us ~T0 @X0 1 a ]
 [v _bytes `us ~T0 @X0 1 a ]
-[; ;vscp_firmware.c: 1150: uint16_t page_save, bytes = 0;
+[; ;vscp_firmware.c: 1155: uint16_t page_save, bytes = 0;
 [e = _bytes -> -> 0 `i `us ]
-"1151
+"1156
 [v _byte `uc ~T0 @X0 1 a ]
-[; ;vscp_firmware.c: 1151: uint8_t byte = 0;
+[; ;vscp_firmware.c: 1156: uint8_t byte = 0;
 [e = _byte -> -> 0 `i `uc ]
-"1152
+"1157
 [v _bytes_this_time `uc ~T0 @X0 1 a ]
 [v _cb `uc ~T0 @X0 1 a ]
-[; ;vscp_firmware.c: 1152: uint8_t bytes_this_time, cb;
-[; ;vscp_firmware.c: 1156: if ( ( vscp_imsg.flags & 0x0f) > 3 ) {
-"1156
-[e $ ! > & -> . _vscp_imsg 0 `i -> 15 `i -> 3 `i 196  ]
-{
-[; ;vscp_firmware.c: 1159: bytes = (uint16_t)vscp_imsg.data[4];
-"1159
-[e = _bytes -> *U + &U . _vscp_imsg 5 * -> -> -> 4 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `us ]
-[; ;vscp_firmware.c: 1161: if (bytes == 0) bytes = 256;
+[; ;vscp_firmware.c: 1157: uint8_t bytes_this_time, cb;
+[; ;vscp_firmware.c: 1161: if ( ( vscp_imsg.flags & 0x0f) > 3 ) {
 "1161
-[e $ ! == -> _bytes `ui -> -> 0 `i `ui 197  ]
-[e = _bytes -> -> 256 `i `us ]
-[e :U 197 ]
-[; ;vscp_firmware.c: 1163: if (bytes > 256) bytes = 256;
-"1163
-[e $ ! > -> _bytes `ui -> -> 256 `i `ui 198  ]
+[e $ ! > & -> . _vscp_imsg 0 `i -> 15 `i -> 3 `i 197  ]
+{
+[; ;vscp_firmware.c: 1164: bytes = (uint16_t)vscp_imsg.data[4];
+"1164
+[e = _bytes -> *U + &U . _vscp_imsg 5 * -> -> -> 4 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `us ]
+[; ;vscp_firmware.c: 1166: if (bytes == 0) bytes = 256;
+"1166
+[e $ ! == -> _bytes `ui -> -> 0 `i `ui 198  ]
 [e = _bytes -> -> 256 `i `us ]
 [e :U 198 ]
-"1164
-}
-[; ;vscp_firmware.c: 1164: }
-[e $U 199  ]
-"1165
-[e :U 196 ]
-[; ;vscp_firmware.c: 1165: else {
-{
-[; ;vscp_firmware.c: 1166: bytes = 1;
-"1166
-[e = _bytes -> -> 1 `i `us ]
-"1167
-}
+[; ;vscp_firmware.c: 1168: if (bytes > 256) bytes = 256;
+"1168
+[e $ ! > -> _bytes `ui -> -> 256 `i `ui 199  ]
+[e = _bytes -> -> 256 `i `us ]
 [e :U 199 ]
-[; ;vscp_firmware.c: 1167: }
-[; ;vscp_firmware.c: 1170: page_save = vscp_page_select;
-"1170
-[e = _page_save _vscp_page_select ]
-[; ;vscp_firmware.c: 1175: vscp_page_select = ((vscp_imsg.data[1] << 8) | vscp_imsg.data[2]);
-"1175
-[e = _vscp_page_select -> | << -> *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i -> 8 `i -> *U + &U . _vscp_imsg 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i `us ]
-[; ;vscp_firmware.c: 1178: vscp_omsg.priority = 0x07;
-"1178
-[e = . _vscp_omsg 1 -> -> 7 `i `uc ]
-[; ;vscp_firmware.c: 1179: vscp_omsg.vscp_class = 0;
-"1179
-[e = . _vscp_omsg 2 -> -> 0 `i `us ]
-[; ;vscp_firmware.c: 1180: vscp_omsg.vscp_type = 39;
-"1180
-[e = . _vscp_omsg 3 -> -> 39 `i `uc ]
-[; ;vscp_firmware.c: 1181: vscp_omsg.data[0] = 0;
-"1181
-[e = *U + &U . _vscp_omsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux -> -> 0 `i `uc ]
-[; ;vscp_firmware.c: 1182: vscp_omsg.data[1] = vscp_imsg.data[1];
-"1182
-[e = *U + &U . _vscp_omsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
-[; ;vscp_firmware.c: 1183: vscp_omsg.data[2] = vscp_imsg.data[2];
-"1183
-[e = *U + &U . _vscp_omsg 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux *U + &U . _vscp_imsg 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
-[; ;vscp_firmware.c: 1185: do {
-"1185
-[e :U 202 ]
-{
-[; ;vscp_firmware.c: 1187: if ( ( bytes - byte ) >= 4 ) {
-"1187
-[e $ ! >= - -> _bytes `ui -> _byte `ui -> -> 4 `i `ui 203  ]
-{
-[; ;vscp_firmware.c: 1188: bytes_this_time = 4;
-"1188
-[e = _bytes_this_time -> -> 4 `i `uc ]
-"1189
+"1169
 }
-[; ;vscp_firmware.c: 1189: }
-[e $U 204  ]
+[; ;vscp_firmware.c: 1169: }
+[e $U 200  ]
+"1170
+[e :U 197 ]
+[; ;vscp_firmware.c: 1170: else {
+{
+[; ;vscp_firmware.c: 1171: bytes = 1;
+"1171
+[e = _bytes -> -> 1 `i `us ]
+"1172
+}
+[e :U 200 ]
+[; ;vscp_firmware.c: 1172: }
+[; ;vscp_firmware.c: 1175: page_save = vscp_page_select;
+"1175
+[e = _page_save _vscp_page_select ]
+[; ;vscp_firmware.c: 1180: vscp_page_select = ((vscp_imsg.data[1] << 8) | vscp_imsg.data[2]);
+"1180
+[e = _vscp_page_select -> | << -> *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i -> 8 `i -> *U + &U . _vscp_imsg 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i `us ]
+[; ;vscp_firmware.c: 1183: vscp_omsg.priority = 0x07;
+"1183
+[e = . _vscp_omsg 1 -> -> 7 `i `uc ]
+[; ;vscp_firmware.c: 1184: vscp_omsg.vscp_class = 0;
+"1184
+[e = . _vscp_omsg 2 -> -> 0 `i `us ]
+[; ;vscp_firmware.c: 1185: vscp_omsg.vscp_type = 39;
+"1185
+[e = . _vscp_omsg 3 -> -> 39 `i `uc ]
+[; ;vscp_firmware.c: 1186: vscp_omsg.data[0] = 0;
+"1186
+[e = *U + &U . _vscp_omsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux -> -> 0 `i `uc ]
+[; ;vscp_firmware.c: 1187: vscp_omsg.data[1] = vscp_imsg.data[1];
+"1187
+[e = *U + &U . _vscp_omsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
+[; ;vscp_firmware.c: 1188: vscp_omsg.data[2] = vscp_imsg.data[2];
+"1188
+[e = *U + &U . _vscp_omsg 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux *U + &U . _vscp_imsg 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
+[; ;vscp_firmware.c: 1190: do {
 "1190
 [e :U 203 ]
-[; ;vscp_firmware.c: 1190: else {
 {
-[; ;vscp_firmware.c: 1191: bytes_this_time = (bytes - byte);
-"1191
-[e = _bytes_this_time -> - -> _bytes `ui -> _byte `ui `uc ]
+[; ;vscp_firmware.c: 1192: if ( ( bytes - byte ) >= 4 ) {
 "1192
+[e $ ! >= - -> _bytes `ui -> _byte `ui -> -> 4 `i `ui 204  ]
+{
+[; ;vscp_firmware.c: 1193: bytes_this_time = 4;
+"1193
+[e = _bytes_this_time -> -> 4 `i `uc ]
+"1194
 }
-[e :U 204 ]
-[; ;vscp_firmware.c: 1192: }
-[; ;vscp_firmware.c: 1195: vscp_omsg.flags = 0x80 + 4 + bytes_this_time;
+[; ;vscp_firmware.c: 1194: }
+[e $U 205  ]
 "1195
-[e = . _vscp_omsg 0 -> + + -> 128 `i -> 4 `i -> _bytes_this_time `i `uc ]
-[; ;vscp_firmware.c: 1196: vscp_omsg.data[3] =
-[; ;vscp_firmware.c: 1197: vscp_imsg.data[3] + byte;
+[e :U 204 ]
+[; ;vscp_firmware.c: 1195: else {
+{
+[; ;vscp_firmware.c: 1196: bytes_this_time = (bytes - byte);
+"1196
+[e = _bytes_this_time -> - -> _bytes `ui -> _byte `ui `uc ]
 "1197
-[e = *U + &U . _vscp_omsg 5 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux -> + -> *U + &U . _vscp_imsg 5 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i -> _byte `i `uc ]
-[; ;vscp_firmware.c: 1200: for ( cb = 0; cb < bytes_this_time; cb++ ) {
+}
+[e :U 205 ]
+[; ;vscp_firmware.c: 1197: }
+[; ;vscp_firmware.c: 1200: vscp_omsg.flags = 0x80 + 4 + bytes_this_time;
 "1200
+[e = . _vscp_omsg 0 -> + + -> 128 `i -> 4 `i -> _bytes_this_time `i `uc ]
+[; ;vscp_firmware.c: 1201: vscp_omsg.data[3] =
+[; ;vscp_firmware.c: 1202: vscp_imsg.data[3] + byte;
+"1202
+[e = *U + &U . _vscp_omsg 5 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux -> + -> *U + &U . _vscp_imsg 5 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i -> _byte `i `uc ]
+[; ;vscp_firmware.c: 1205: for ( cb = 0; cb < bytes_this_time; cb++ ) {
+"1205
 {
 [e = _cb -> -> 0 `i `uc ]
-[e $U 208  ]
-[e :U 205 ]
-{
-[; ;vscp_firmware.c: 1201: vscp_omsg.data[ (4 + cb) ] =
-[; ;vscp_firmware.c: 1202: vscp_readRegister( ( vscp_imsg.data[3] + byte + cb ) );
-"1202
-[e = *U + &U . _vscp_omsg 5 * -> -> + -> 4 `i -> _cb `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux ( _vscp_readRegister (1 -> + + -> *U + &U . _vscp_imsg 5 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i -> _byte `i -> _cb `i `uc ]
-"1203
-}
-"1200
-[e ++ _cb -> -> 1 `i `uc ]
-[e :U 208 ]
-[e $ < -> _cb `i -> _bytes_this_time `i 205  ]
+[e $U 209  ]
 [e :U 206 ]
-"1203
+{
+[; ;vscp_firmware.c: 1206: vscp_omsg.data[ (4 + cb) ] =
+[; ;vscp_firmware.c: 1207: vscp_readRegister( ( vscp_imsg.data[3] + byte + cb ) );
+"1207
+[e = *U + &U . _vscp_omsg 5 * -> -> + -> 4 `i -> _cb `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux ( _vscp_readRegister (1 -> + + -> *U + &U . _vscp_imsg 5 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i -> _byte `i -> _cb `i `uc ]
+"1208
 }
-[; ;vscp_firmware.c: 1203: }
-[; ;vscp_firmware.c: 1206: vscp_sendEvent();
-"1206
+"1205
+[e ++ _cb -> -> 1 `i `uc ]
+[e :U 209 ]
+[e $ < -> _cb `i -> _bytes_this_time `i 206  ]
+[e :U 207 ]
+"1208
+}
+[; ;vscp_firmware.c: 1208: }
+[; ;vscp_firmware.c: 1211: vscp_sendEvent();
+"1211
 [e ( _vscp_sendEvent ..  ]
-[; ;vscp_firmware.c: 1209: byte += bytes_this_time;
-"1209
-[e =+ _byte _bytes_this_time ]
-[; ;vscp_firmware.c: 1212: vscp_omsg.data[0] += 1;
-"1212
-[e =+ *U + &U . _vscp_omsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux -> -> 1 `i `uc ]
+[; ;vscp_firmware.c: 1214: byte += bytes_this_time;
 "1214
-}
-[; ;vscp_firmware.c: 1214: } while (byte < bytes);
-[e $ < -> _byte `ui -> _bytes `ui 202  ]
-[e :U 201 ]
-[; ;vscp_firmware.c: 1217: vscp_page_select = page_save;
+[e =+ _byte _bytes_this_time ]
+[; ;vscp_firmware.c: 1217: vscp_omsg.data[0] += 1;
 "1217
-[e = _vscp_page_select _page_save ]
+[e =+ *U + &U . _vscp_omsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux -> -> 1 `i `uc ]
 "1219
 }
-[e :U 195 ]
-[; ;vscp_firmware.c: 1219: }
-[; ;vscp_firmware.c: 1220: break;
-"1220
-[e $U 123  ]
-[; ;vscp_firmware.c: 1222: case 38:
+[; ;vscp_firmware.c: 1219: } while (byte < bytes);
+[e $ < -> _byte `ui -> _bytes `ui 203  ]
+[e :U 202 ]
+[; ;vscp_firmware.c: 1222: vscp_page_select = page_save;
 "1222
-[e :U 209 ]
-[; ;vscp_firmware.c: 1224: if ( vscp_nickname == vscp_imsg.data[ 0 ] ) {
+[e = _vscp_page_select _page_save ]
 "1224
-[e $ ! == -> _vscp_nickname `i -> *U + &U . _vscp_imsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i 210  ]
-{
-"1226
-[v _i `uc ~T0 @X0 1 a ]
+}
+[e :U 196 ]
+[; ;vscp_firmware.c: 1224: }
+[; ;vscp_firmware.c: 1225: break;
+"1225
+[e $U 124  ]
+[; ;vscp_firmware.c: 1227: case 38:
 "1227
+[e :U 210 ]
+[; ;vscp_firmware.c: 1229: if ( vscp_nickname == vscp_imsg.data[ 0 ] ) {
+"1229
+[e $ ! == -> _vscp_nickname `i -> *U + &U . _vscp_imsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i 211  ]
+{
+"1231
+[v _i `uc ~T0 @X0 1 a ]
+"1232
 [v _page_save `us ~T0 @X0 1 a ]
-[; ;vscp_firmware.c: 1226: uint8_t i;
-[; ;vscp_firmware.c: 1227: uint16_t page_save;
-[; ;vscp_firmware.c: 1230: page_save = vscp_page_select;
-"1230
+[; ;vscp_firmware.c: 1231: uint8_t i;
+[; ;vscp_firmware.c: 1232: uint16_t page_save;
+[; ;vscp_firmware.c: 1235: page_save = vscp_page_select;
+"1235
 [e = _page_save _vscp_page_select ]
-[; ;vscp_firmware.c: 1234: vscp_page_select = (vscp_imsg.data[1] << 8) | vscp_imsg.data[2];
-"1234
+[; ;vscp_firmware.c: 1239: vscp_page_select = (vscp_imsg.data[1] << 8) | vscp_imsg.data[2];
+"1239
 [e = _vscp_page_select -> | << -> *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i -> 8 `i -> *U + &U . _vscp_imsg 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i `us ]
-[; ;vscp_firmware.c: 1236: for (i = vscp_imsg.data[ 3 ];
-"1236
+[; ;vscp_firmware.c: 1241: for (i = vscp_imsg.data[ 3 ];
+"1241
 {
 [e = _i *U + &U . _vscp_imsg 5 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
-[; ;vscp_firmware.c: 1239: i < (vscp_imsg.data[ 3 ] + ((vscp_imsg.flags & 0x0f) - 4));
-[; ;vscp_firmware.c: 1240: i++) {
-[e $U 214  ]
-"1240
-[e :U 211 ]
-{
-[; ;vscp_firmware.c: 1241: vscp_omsg.data[ 4 + (i - vscp_imsg.data[ 3 ]) ] =
-[; ;vscp_firmware.c: 1242: vscp_writeRegister(i, vscp_imsg.data[ 4 + (i - vscp_imsg.data[ 3 ]) ]);
-"1242
-[e = *U + &U . _vscp_omsg 5 * -> -> + -> 4 `i - -> _i `i -> *U + &U . _vscp_imsg 5 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux ( _vscp_writeRegister (2 , _i *U + &U . _vscp_imsg 5 * -> -> + -> 4 `i - -> _i `i -> *U + &U . _vscp_imsg 5 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
-"1243
-}
-"1240
-[e ++ _i -> -> 1 `i `uc ]
-"1239
-[e :U 214 ]
-[e $ < -> _i `i + -> *U + &U . _vscp_imsg 5 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i - & -> . _vscp_imsg 0 `i -> 15 `i -> 4 `i 211  ]
+[; ;vscp_firmware.c: 1244: i < (vscp_imsg.data[ 3 ] + ((vscp_imsg.flags & 0x0f) - 4));
+[; ;vscp_firmware.c: 1245: i++) {
+[e $U 215  ]
+"1245
 [e :U 212 ]
-"1243
-}
-[; ;vscp_firmware.c: 1243: }
-[; ;vscp_firmware.c: 1246: vscp_page_select = page_save;
-"1246
-[e = _vscp_page_select _page_save ]
-[; ;vscp_firmware.c: 1248: vscp_omsg.priority = 0x07;
+{
+[; ;vscp_firmware.c: 1246: vscp_omsg.data[ 4 + (i - vscp_imsg.data[ 3 ]) ] =
+[; ;vscp_firmware.c: 1247: vscp_writeRegister(i, vscp_imsg.data[ 4 + (i - vscp_imsg.data[ 3 ]) ]);
+"1247
+[e = *U + &U . _vscp_omsg 5 * -> -> + -> 4 `i - -> _i `i -> *U + &U . _vscp_imsg 5 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux ( _vscp_writeRegister (2 , _i *U + &U . _vscp_imsg 5 * -> -> + -> 4 `i - -> _i `i -> *U + &U . _vscp_imsg 5 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
 "1248
-[e = . _vscp_omsg 1 -> -> 7 `i `uc ]
-[; ;vscp_firmware.c: 1249: vscp_omsg.flags = 0x80 + 4 + ((vscp_imsg.flags & 0x0f) - 4);
-"1249
-[e = . _vscp_omsg 0 -> + + -> 128 `i -> 4 `i - & -> . _vscp_imsg 0 `i -> 15 `i -> 4 `i `uc ]
-[; ;vscp_firmware.c: 1250: vscp_omsg.vscp_class = 0;
-"1250
-[e = . _vscp_omsg 2 -> -> 0 `i `us ]
-[; ;vscp_firmware.c: 1251: vscp_omsg.vscp_type = 39;
-"1251
-[e = . _vscp_omsg 3 -> -> 39 `i `uc ]
-[; ;vscp_firmware.c: 1252: vscp_omsg.data[0] = 0;
-"1252
-[e = *U + &U . _vscp_omsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux -> -> 0 `i `uc ]
-[; ;vscp_firmware.c: 1253: vscp_omsg.data[1] = vscp_imsg.data[1];
-"1253
-[e = *U + &U . _vscp_omsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
-[; ;vscp_firmware.c: 1254: vscp_omsg.data[2] = vscp_imsg.data[2];
-"1254
-[e = *U + &U . _vscp_omsg 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux *U + &U . _vscp_imsg 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
-[; ;vscp_firmware.c: 1255: vscp_omsg.data[3] = vscp_imsg.data[3];
-"1255
-[e = *U + &U . _vscp_omsg 5 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux *U + &U . _vscp_imsg 5 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
-[; ;vscp_firmware.c: 1258: vscp_sendEvent();
-"1258
-[e ( _vscp_sendEvent ..  ]
-"1260
 }
-[e :U 210 ]
-[; ;vscp_firmware.c: 1260: }
-[; ;vscp_firmware.c: 1261: break;
-"1261
-[e $U 123  ]
-[; ;vscp_firmware.c: 1264: default:
-"1264
+"1245
+[e ++ _i -> -> 1 `i `uc ]
+"1244
 [e :U 215 ]
+[e $ < -> _i `i + -> *U + &U . _vscp_imsg 5 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux `i - & -> . _vscp_imsg 0 `i -> 15 `i -> 4 `i 212  ]
+[e :U 213 ]
+"1248
+}
+[; ;vscp_firmware.c: 1248: }
+[; ;vscp_firmware.c: 1251: vscp_page_select = page_save;
+"1251
+[e = _vscp_page_select _page_save ]
+[; ;vscp_firmware.c: 1253: vscp_omsg.priority = 0x07;
+"1253
+[e = . _vscp_omsg 1 -> -> 7 `i `uc ]
+[; ;vscp_firmware.c: 1254: vscp_omsg.flags = 0x80 + 4 + ((vscp_imsg.flags & 0x0f) - 4);
+"1254
+[e = . _vscp_omsg 0 -> + + -> 128 `i -> 4 `i - & -> . _vscp_imsg 0 `i -> 15 `i -> 4 `i `uc ]
+[; ;vscp_firmware.c: 1255: vscp_omsg.vscp_class = 0;
+"1255
+[e = . _vscp_omsg 2 -> -> 0 `i `us ]
+[; ;vscp_firmware.c: 1256: vscp_omsg.vscp_type = 39;
+"1256
+[e = . _vscp_omsg 3 -> -> 39 `i `uc ]
+[; ;vscp_firmware.c: 1257: vscp_omsg.data[0] = 0;
+"1257
+[e = *U + &U . _vscp_omsg 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux -> -> 0 `i `uc ]
+[; ;vscp_firmware.c: 1258: vscp_omsg.data[1] = vscp_imsg.data[1];
+"1258
+[e = *U + &U . _vscp_omsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux *U + &U . _vscp_imsg 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
+[; ;vscp_firmware.c: 1259: vscp_omsg.data[2] = vscp_imsg.data[2];
+"1259
+[e = *U + &U . _vscp_omsg 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux *U + &U . _vscp_imsg 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
+[; ;vscp_firmware.c: 1260: vscp_omsg.data[3] = vscp_imsg.data[3];
+"1260
+[e = *U + &U . _vscp_omsg 5 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _vscp_omsg 5 `ui `ux *U + &U . _vscp_imsg 5 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _vscp_imsg 5 `ui `ux ]
+[; ;vscp_firmware.c: 1263: vscp_sendEvent();
+"1263
+[e ( _vscp_sendEvent ..  ]
+"1265
+}
+[e :U 211 ]
+[; ;vscp_firmware.c: 1265: }
 [; ;vscp_firmware.c: 1266: break;
 "1266
-[e $U 123  ]
-"1268
+[e $U 124  ]
+[; ;vscp_firmware.c: 1269: default:
+"1269
+[e :U 216 ]
+[; ;vscp_firmware.c: 1271: break;
+"1271
+[e $U 124  ]
+"1273
 }
-[; ;vscp_firmware.c: 1268: }
-[e $U 123  ]
-"794
+[; ;vscp_firmware.c: 1273: }
+[e $U 124  ]
+"799
+[e :U 125 ]
+[e [\ . _vscp_imsg 3 , $ -> -> 1 `i `uc 126
+ , $ -> -> 2 `i `uc 127
+ , $ -> -> 6 `i `uc 128
+ , $ -> -> 8 `i `uc 129
+ , $ -> -> 9 `i `uc 130
+ , $ -> -> 11 `i `uc 134
+ , $ -> -> 12 `i `uc 138
+ , $ -> -> 23 `i `uc 140
+ , $ -> -> 24 `i `uc 153
+ , $ -> -> 25 `i `uc 162
+ , $ -> -> 29 `i `uc 168
+ , $ -> -> 30 `i `uc 170
+ , $ -> -> 31 `i `uc 172
+ , $ -> -> 33 `i `uc 193
+ , $ -> -> 37 `i `uc 195
+ , $ -> -> 38 `i `uc 210
+ 216 ]
+"1273
 [e :U 124 ]
-[e [\ . _vscp_imsg 3 , $ -> -> 1 `i `uc 125
- , $ -> -> 2 `i `uc 126
- , $ -> -> 6 `i `uc 127
- , $ -> -> 8 `i `uc 128
- , $ -> -> 9 `i `uc 129
- , $ -> -> 11 `i `uc 133
- , $ -> -> 12 `i `uc 137
- , $ -> -> 23 `i `uc 139
- , $ -> -> 24 `i `uc 152
- , $ -> -> 25 `i `uc 161
- , $ -> -> 29 `i `uc 167
- , $ -> -> 30 `i `uc 169
- , $ -> -> 31 `i `uc 171
- , $ -> -> 33 `i `uc 192
- , $ -> -> 37 `i `uc 194
- , $ -> -> 38 `i `uc 209
- 215 ]
-"1268
+"1275
+}
 [e :U 123 ]
-"1270
+[; ;vscp_firmware.c: 1275: }
+[; ;vscp_firmware.c: 1277: }
+"1277
+[e :UE 122 ]
 }
-[e :U 122 ]
-[; ;vscp_firmware.c: 1270: }
-[; ;vscp_firmware.c: 1272: }
-"1272
-[e :UE 121 ]
-}
-"1280
+"1285
 [v _vscp_sendEvent `(uc ~T0 @X0 1 ef ]
 {
-[; ;vscp_firmware.c: 1279: int8_t vscp_sendEvent(void)
-[; ;vscp_firmware.c: 1280: {
+[; ;vscp_firmware.c: 1284: int8_t vscp_sendEvent(void)
+[; ;vscp_firmware.c: 1285: {
 [e :U _vscp_sendEvent ]
 [f ]
-"1281
+"1286
 [v _rv `uc ~T0 @X0 1 a ]
-[; ;vscp_firmware.c: 1281: int8_t rv;
-[; ;vscp_firmware.c: 1283: if ( !(rv = sendVSCPFrame( vscp_omsg.vscp_class,
-[; ;vscp_firmware.c: 1284: vscp_omsg.vscp_type,
-[; ;vscp_firmware.c: 1285: vscp_nickname,
-[; ;vscp_firmware.c: 1286: vscp_omsg.priority,
-[; ;vscp_firmware.c: 1287: (vscp_omsg.flags & 0x0f),
-[; ;vscp_firmware.c: 1288: vscp_omsg.data ) ) ) {
-"1288
-[e $ ! ! != -> = _rv ( _sendVSCPFrame (4 , , , , , . _vscp_omsg 2 . _vscp_omsg 3 _vscp_nickname . _vscp_omsg 1 -> & -> . _vscp_omsg 0 `i -> 15 `i `uc &U . _vscp_omsg 5 `i -> -> -> 0 `i `uc `i 217  ]
-{
-[; ;vscp_firmware.c: 1289: vscp_errorcnt++;
-"1289
-[e ++ _vscp_errorcnt -> -> 1 `i `uc ]
-"1290
-}
-[e :U 217 ]
-[; ;vscp_firmware.c: 1290: }
-[; ;vscp_firmware.c: 1292: return rv;
-"1292
-[e ) _rv ]
-[e $UE 216  ]
-[; ;vscp_firmware.c: 1293: }
+[; ;vscp_firmware.c: 1286: int8_t rv;
+[; ;vscp_firmware.c: 1288: if ( !(rv = sendVSCPFrame( vscp_omsg.vscp_class,
+[; ;vscp_firmware.c: 1289: vscp_omsg.vscp_type,
+[; ;vscp_firmware.c: 1290: vscp_nickname,
+[; ;vscp_firmware.c: 1291: vscp_omsg.priority,
+[; ;vscp_firmware.c: 1292: (vscp_omsg.flags & 0x0f),
+[; ;vscp_firmware.c: 1293: vscp_omsg.data ) ) ) {
 "1293
-[e :UE 216 ]
+[e $ ! ! != -> = _rv ( _sendVSCPFrame (4 , , , , , . _vscp_omsg 2 . _vscp_omsg 3 _vscp_nickname . _vscp_omsg 1 -> & -> . _vscp_omsg 0 `i -> 15 `i `uc &U . _vscp_omsg 5 `i -> -> -> 0 `i `uc `i 218  ]
+{
+[; ;vscp_firmware.c: 1298: vscp_errorcnt++;
+"1298
+[e ++ _vscp_errorcnt -> -> 1 `i `uc ]
+"1299
 }
-"1300
+[e :U 218 ]
+[; ;vscp_firmware.c: 1299: }
+[; ;vscp_firmware.c: 1301: return rv;
+"1301
+[e ) _rv ]
+[e $UE 217  ]
+[; ;vscp_firmware.c: 1302: }
+"1302
+[e :UE 217 ]
+}
+"1309
 [v _vscp_getEvent `(uc ~T0 @X0 1 ef ]
 {
-[; ;vscp_firmware.c: 1299: int8_t vscp_getEvent(void)
-[; ;vscp_firmware.c: 1300: {
+[; ;vscp_firmware.c: 1308: int8_t vscp_getEvent(void)
+[; ;vscp_firmware.c: 1309: {
 [e :U _vscp_getEvent ]
 [f ]
-"1301
+"1310
 [v _rv `uc ~T0 @X0 1 a ]
-[; ;vscp_firmware.c: 1301: int8_t rv;
-[; ;vscp_firmware.c: 1307: if (vscp_imsg.flags & 0x80) return !0;
-"1307
-[e $ ! != & -> . _vscp_imsg 0 `i -> 128 `i -> 0 `i 219  ]
+[; ;vscp_firmware.c: 1310: int8_t rv;
+[; ;vscp_firmware.c: 1316: if (vscp_imsg.flags & 0x80) return !0;
+"1316
+[e $ ! != & -> . _vscp_imsg 0 `i -> 128 `i -> 0 `i 220  ]
 [e ) -> -> ! != -> 0 `i -> 0 `i `i `uc ]
-[e $UE 218  ]
-[e :U 219 ]
-[; ;vscp_firmware.c: 1310: if ((rv = getVSCPFrame( &vscp_imsg.vscp_class,
-[; ;vscp_firmware.c: 1311: &vscp_imsg.vscp_type,
-[; ;vscp_firmware.c: 1312: &vscp_imsg.oaddr,
-[; ;vscp_firmware.c: 1313: &vscp_imsg.priority,
-[; ;vscp_firmware.c: 1314: &vscp_imsg.flags,
-[; ;vscp_firmware.c: 1315: vscp_imsg.data ) ) ) {
-"1315
-[e $ ! != -> = _rv ( _getVSCPFrame (4 , , , , , &U . _vscp_imsg 2 &U . _vscp_imsg 3 &U . _vscp_imsg 4 &U . _vscp_imsg 1 &U . _vscp_imsg 0 &U . _vscp_imsg 5 `i -> -> -> 0 `i `uc `i 220  ]
-{
-[; ;vscp_firmware.c: 1317: vscp_imsg.flags |= 0x80;
-"1317
-[e =| . _vscp_imsg 0 -> -> 128 `i `uc ]
-"1318
-}
+[e $UE 219  ]
 [e :U 220 ]
-[; ;vscp_firmware.c: 1318: }
-[; ;vscp_firmware.c: 1320: return rv;
-"1320
+[; ;vscp_firmware.c: 1319: if ((rv = getVSCPFrame( &vscp_imsg.vscp_class,
+[; ;vscp_firmware.c: 1320: &vscp_imsg.vscp_type,
+[; ;vscp_firmware.c: 1321: &vscp_imsg.oaddr,
+[; ;vscp_firmware.c: 1322: &vscp_imsg.priority,
+[; ;vscp_firmware.c: 1323: &vscp_imsg.flags,
+[; ;vscp_firmware.c: 1324: vscp_imsg.data ) ) ) {
+"1324
+[e $ ! != -> = _rv ( _getVSCPFrame (4 , , , , , &U . _vscp_imsg 2 &U . _vscp_imsg 3 &U . _vscp_imsg 4 &U . _vscp_imsg 1 &U . _vscp_imsg 0 &U . _vscp_imsg 5 `i -> -> -> 0 `i `uc `i 221  ]
+{
+[; ;vscp_firmware.c: 1326: vscp_imsg.flags |= 0x80;
+"1326
+[e =| . _vscp_imsg 0 -> -> 128 `i `uc ]
+"1327
+}
+[e :U 221 ]
+[; ;vscp_firmware.c: 1327: }
+[; ;vscp_firmware.c: 1329: return rv;
+"1329
 [e ) _rv ]
-[e $UE 218  ]
-[; ;vscp_firmware.c: 1322: }
-"1322
-[e :UE 218 ]
+[e $UE 219  ]
+[; ;vscp_firmware.c: 1331: }
+"1331
+[e :UE 219 ]
 }

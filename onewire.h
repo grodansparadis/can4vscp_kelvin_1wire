@@ -28,10 +28,11 @@
 #include <inttypes.h>
 #include "main.h"
 
-#define TEMP1   0
-#define TEMP2   1
-#define TEMP3   2
-#define TEMP4   3
+// The four temperature channels
+#define TEMP_CHANNEL1   0   // RC7
+#define TEMP_CHANNEL2   1   // RC6
+#define TEMP_CHANNEL3   2   // RC4
+#define TEMP_CHANNEL4   3   // RC3
 
 //
 // Defaults
@@ -48,17 +49,16 @@
 // 
 #define DEFAULT_CONTROL_REG                 0b00000001
 
-#define MASK_CONTROL_UNIT                   0x03
-#define MASK_CONTROL_LOW_ALARM              0x08
-#define MASK_CONTROL_HIGH_ALARM             0x10
-#define MASK_CONTROL_TURNX                  0x20
-#define MASK_CONTROL_TURNX_INVERT           0x40
-#define MASK_CONTROL_CONTINUOUS             0x80
+#define MASK_CONTROL0_UNIT                  0x03
+#define MASK_CONTROL0_LOW_ALARM             0x08
+#define MASK_CONTROL0_HIGH_ALARM            0x10
+#define MASK_CONTROL0_TURNX                 0x20
+#define MASK_CONTROL0_TURNX_INVERT          0x40
+#define MASK_CONTROL0_CONTINUOUS            0x80
 
-// Default report interval fro sensor 0
-#define DEFAULT_REPORT_INTERVAL_SENSOR0     30
+#define MASK_CONTROL1_CLASS0                0x03
 
-// Default report interval for sensor 1-5
+// Default report interval for sensor 0-7
 #define DEFAULT_REPORT_INTERVAL             0
 
 // Default B constant for sensor 0
@@ -94,10 +94,6 @@
 // Default hysteresis
 #define DEFAULT_HYSTERESIS                  2
 
-// Default calibrated voltage
-#define DEFAULT_CALIBRATED_VOLTAGE_MSB      0xc3
-#define DEFAULT_CALIBRATED_VOLTAGE_LSB      0x50
-
 //
 // Error
 //
@@ -121,101 +117,38 @@
 #define MODULE_LOW_ALARM                    1
 #define MODULE_HIGH_ALARM                   2
 
+#define TEMP_REPORT_CLASS_10_INT            0   // CLASS=10, Report as int
+#define TEMP_REPORT_CLASS_10_FLOAT          1   // CLASS=10, Report as float
+#define TEMP_REPORT_CLASS_10_STR            2   // CLASS=10, Report as string
+
 //
-// Configuration bits
+// Configuration 0 bits
 //
 // Default value for control register
-// bit 0,1 - Temperature
+// bit 0,1 - Temperature report format
 // Bit 2 - Reserved bit
-// Bit 3 = Low alarm eanble
-// Bit 4 = High alarm enable
-// Bit 5 = Enable TurnOn/Off
-// Bit 6 = Enable invert TurnOn/TurnOff
-// Bit 7 = Continues alarm
-#define CONFIG_ENABLE_LOW_ALARM             (1<<3)
-#define CONFIG_ENABLE_HIGH_ALARM            (1<<4)
-#define CONFIG_ENABLE_TURNX                 (1<<5)
-#define CONFIG_ENABLE_TURNON_INVERT         (1<<6)
-#define CONFIG_ENABLE_CONTINOUS_EVENTS      (1<<7)
+// Bit 3 - Low alarm enable
+// Bit 4 - High alarm enable
+// Bit 5 - Enable TurnOn/Off
+// Bit 6 - Enable invert TurnOn/TurnOff
+// Bit 7 - Continues alarm
+#define CONFIG0_ENABLE_LOW_ALARM             (1<<3)
+#define CONFIG0_ENABLE_HIGH_ALARM            (1<<4)
+#define CONFIG0_ENABLE_TURNX                 (1<<5)
+#define CONFIG0_ENABLE_TURNON_INVERT         (1<<6)
+#define CONFIG0_ENABLE_CONTINOUS_EVENTS      (1<<7)
+
+//
+// Configuration 1 bits
+//
+// Bit 0,1 - Class to use for temperature reports
+
+#define VSCP_EEPROM_END                     0
 
 // EEPROM registers for module persistent data
 
 #define EEPROM_ZONE                         0x41	// Zone node belongs to
 #define EEPROM_SUBZONE                      0x42	// Sub zone node belongs to
-
-#define EEPROM_CONTROLREG0                  0x43
-#define EEPROM_CONTROLREG1                  0x44
-#define EEPROM_CONTROLREG2                  0x45
-#define EEPROM_CONTROLREG3                  0x46
-#define EEPROM_CONTROLREG4                  0x47
-#define EEPROM_CONTROLREG5                  0x48
-
-#define EEPROM_REPORT_INTERVAL0             0x49
-#define EEPROM_REPORT_INTERVAL1             0x4A
-#define EEPROM_REPORT_INTERVAL2             0x4B
-#define EEPROM_REPORT_INTERVAL3             0x4C
-#define EEPROM_REPORT_INTERVAL4             0x4D
-#define EEPROM_REPORT_INTERVAL5             0x4E
-
-// B Constants
-
-#define EEPROM_B_CONSTANT0_MSB              0x4F
-#define EEPROM_B_CONSTANT0_LSB              0x50
-
-#define EEPROM_B_CONSTANT1_MSB              0x51
-#define EEPROM_B_CONSTANT1_LSB              0x52
-
-#define EEPROM_B_CONSTANT2_MSB              0x53
-#define EEPROM_B_CONSTANT2_LSB              0x54
-
-#define EEPROM_B_CONSTANT3_MSB              0x55
-#define EEPROM_B_CONSTANT3_LSB              0x56
-
-#define EEPROM_B_CONSTANT4_MSB              0x57
-#define EEPROM_B_CONSTANT4_LSB              0x58
-
-#define EEPROM_B_CONSTANT5_MSB              0x59
-#define EEPROM_B_CONSTANT5_LSB              0x5A
-
-// Low alarms
-
-#define EEPROM_LOW_ALARM0_MSB               0x5B
-#define EEPROM_LOW_ALARM0_LSB               0x5C
-
-#define EEPROM_LOW_ALARM1_MSB               0x5D
-#define EEPROM_LOW_ALARM1_LSB               0x5E
-
-#define EEPROM_LOW_ALARM2_MSB               0x5F
-#define EEPROM_LOW_ALARM2_LSB               0x60
-
-#define EEPROM_LOW_ALARM3_MSB               0x61
-#define EEPROM_LOW_ALARM3_LSB               0x62
-
-#define EEPROM_LOW_ALARM4_MSB               0x63
-#define EEPROM_LOW_ALARM4_LSB               0x64
-
-#define EEPROM_LOW_ALARM5_MSB               0x65
-#define EEPROM_LOW_ALARM5_LSB               0x66
-
-// High alarms
-
-#define EEPROM_HIGH_ALARM0_MSB              0x67
-#define EEPROM_HIGH_ALARM0_LSB              0x68
-
-#define EEPROM_HIGH_ALARM1_MSB              0x69
-#define EEPROM_HIGH_ALARM1_LSB              0x6A
-
-#define EEPROM_HIGH_ALARM2_MSB              0x6B
-#define EEPROM_HIGH_ALARM2_LSB              0x6C
-
-#define EEPROM_HIGH_ALARM3_MSB              0x6D
-#define EEPROM_HIGH_ALARM3_LSB              0x6E
-
-#define EEPROM_HIGH_ALARM4_MSB              0x6F
-#define EEPROM_HIGH_ALARM4_LSB              0x70
-
-#define EEPROM_HIGH_ALARM5_MSB              0x71
-#define EEPROM_HIGH_ALARM5_LSB              0x72
 
 // Sensor zone/sub zone information
 
@@ -237,6 +170,89 @@
 #define EEPROM_SENSOR5_ZONE                 0x7D
 #define EEPROM_SENSOR5_SUBZONE              0x7E
 
+#define EEPROM_SENSOR6_ZONE                 0x7D
+#define EEPROM_SENSOR6_SUBZONE              0x7E
+
+#define EEPROM_SENSOR7_ZONE                 0x7D
+#define EEPROM_SENSOR7_SUBZONE              0x7E
+
+// Control registers
+
+#define EEPROM_CONTROLREG0                  0x43
+#define EEPROM_CONTROLREG1                  0x44
+#define EEPROM_CONTROLREG2                  0x45
+#define EEPROM_CONTROLREG3                  0x46
+#define EEPROM_CONTROLREG4                  0x47
+#define EEPROM_CONTROLREG5                  0x48
+#define EEPROM_CONTROLREG6                  0x48
+#define EEPROM_CONTROLREG7                  0x48
+
+// Report interval
+
+#define EEPROM_REPORT_INTERVAL0             0x49
+#define EEPROM_REPORT_INTERVAL1             0x4A
+#define EEPROM_REPORT_INTERVAL2             0x4B
+#define EEPROM_REPORT_INTERVAL3             0x4C
+#define EEPROM_REPORT_INTERVAL4             0x4D
+#define EEPROM_REPORT_INTERVAL5             0x4E
+#define EEPROM_REPORT_INTERVAL6             0x4E
+#define EEPROM_REPORT_INTERVAL7             0x4E
+
+
+// Low alarms
+
+#define EEPROM_LOW_ALARM0_MSB               0x5B
+#define EEPROM_LOW_ALARM0_LSB               0x5C
+
+#define EEPROM_LOW_ALARM1_MSB               0x5D
+#define EEPROM_LOW_ALARM1_LSB               0x5E
+
+#define EEPROM_LOW_ALARM2_MSB               0x5F
+#define EEPROM_LOW_ALARM2_LSB               0x60
+
+#define EEPROM_LOW_ALARM3_MSB               0x61
+#define EEPROM_LOW_ALARM3_LSB               0x62
+
+#define EEPROM_LOW_ALARM4_MSB               0x63
+#define EEPROM_LOW_ALARM4_LSB               0x64
+
+#define EEPROM_LOW_ALARM5_MSB               0x65
+#define EEPROM_LOW_ALARM5_LSB               0x66
+
+#define EEPROM_LOW_ALARM6_MSB               0x65
+#define EEPROM_LOW_ALARM6_LSB               0x66
+
+#define EEPROM_LOW_ALARM7_MSB               0x65
+#define EEPROM_LOW_ALARM7_LSB               0x66
+
+// High alarms
+
+#define EEPROM_HIGH_ALARM0_MSB              0x67
+#define EEPROM_HIGH_ALARM0_LSB              0x68
+
+#define EEPROM_HIGH_ALARM1_MSB              0x69
+#define EEPROM_HIGH_ALARM1_LSB              0x6A
+
+#define EEPROM_HIGH_ALARM2_MSB              0x6B
+#define EEPROM_HIGH_ALARM2_LSB              0x6C
+
+#define EEPROM_HIGH_ALARM3_MSB              0x6D
+#define EEPROM_HIGH_ALARM3_LSB              0x6E
+
+#define EEPROM_HIGH_ALARM4_MSB              0x6F
+#define EEPROM_HIGH_ALARM4_LSB              0x70
+
+#define EEPROM_HIGH_ALARM5_MSB              0x71
+#define EEPROM_HIGH_ALARM5_LSB              0x72
+
+#define EEPROM_HIGH_ALARM6_MSB              0x71
+#define EEPROM_HIGH_ALARM6_LSB              0x72
+
+#define EEPROM_HIGH_ALARM7_MSB              0x71
+#define EEPROM_HIGH_ALARM7_LSB              0x72
+
+
+
 // Absolute low temperatures
 
 #define EEPROM_ABSOLUT_LOW0_MSB             0x7F
@@ -256,6 +272,12 @@
 
 #define EEPROM_ABSOLUT_LOW5_MSB             0x89
 #define EEPROM_ABSOLUT_LOW5_LSB             0x8A
+
+#define EEPROM_ABSOLUT_LOW6_MSB             0x89
+#define EEPROM_ABSOLUT_LOW6_LSB             0x8A
+
+#define EEPROM_ABSOLUT_LOW7_MSB             0x89
+#define EEPROM_ABSOLUT_LOW7_LSB             0x8A
 
 // Absolute high temperatures
 
@@ -277,6 +299,12 @@
 #define EEPROM_ABSOLUT_HIGH5_MSB            0x95
 #define EEPROM_ABSOLUT_HIGH5_LSB            0x96
 
+#define EEPROM_ABSOLUT_HIGH6_MSB            0x95
+#define EEPROM_ABSOLUT_HIGH6_LSB            0x96
+
+#define EEPROM_ABSOLUT_HIGH7_MSB            0x95
+#define EEPROM_ABSOLUT_HIGH7_LSB            0x96
+
 // Sensor hysteresis
 
 #define EEPROM_HYSTERESIS_SENSOR0           0x97
@@ -285,112 +313,10 @@
 #define EEPROM_HYSTERESIS_SENSOR3           0x9A
 #define EEPROM_HYSTERESIS_SENSOR4           0x9B
 #define EEPROM_HYSTERESIS_SENSOR5           0x9C
+#define EEPROM_HYSTERESIS_SENSOR6           0x9D
+#define EEPROM_HYSTERESIS_SENSOR7           0x9E
 
-#define EEPROM_CALIBRATION_SENSOR0_MSB      0x9E
-#define EEPROM_CALIBRATION_SENSOR0_LSB      0x9F
-#define EEPROM_CALIBRATION_SENSOR1_MSB      0xA0
-#define EEPROM_CALIBRATION_SENSOR1_LSB      0xA1
-#define EEPROM_CALIBRATION_SENSOR2_MSB      0xA2
-#define EEPROM_CALIBRATION_SENSOR2_LSB      0xA3
-#define EEPROM_CALIBRATION_SENSOR3_MSB      0xA4
-#define EEPROM_CALIBRATION_SENSOR3_LSB      0xA5
-#define EEPROM_CALIBRATION_SENSOR4_MSB      0xA6
-#define EEPROM_CALIBRATION_SENSOR4_LSB      0xA7
-#define EEPROM_CALIBRATION_SENSOR5_MSB      0xA8
-#define EEPROM_CALIBRATION_SENSOR5_LSB      0xA9
 
-#define EEPROM_COEFFICIENT_A_SENSOR0_0      0xAA
-#define EEPROM_COEFFICIENT_A_SENSOR0_1      0xAB
-#define EEPROM_COEFFICIENT_A_SENSOR0_2      0xAC
-#define EEPROM_COEFFICIENT_A_SENSOR0_3      0xAD
-
-#define EEPROM_COEFFICIENT_B_SENSOR0_0      0xAE
-#define EEPROM_COEFFICIENT_B_SENSOR0_1      0xAF
-#define EEPROM_COEFFICIENT_B_SENSOR0_2      0xB0
-#define EEPROM_COEFFICIENT_B_SENSOR0_3      0xB1
-
-#define EEPROM_COEFFICIENT_C_SENSOR0_0      0xB2
-#define EEPROM_COEFFICIENT_C_SENSOR0_1      0xB3
-#define EEPROM_COEFFICIENT_C_SENSOR0_2      0xB4
-#define EEPROM_COEFFICIENT_C_SENSOR0_3      0xB5
-
-#define EEPROM_COEFFICIENT_A_SENSOR1_0      0xB6
-#define EEPROM_COEFFICIENT_A_SENSOR1_1      0xB7
-#define EEPROM_COEFFICIENT_A_SENSOR1_2      0xB8
-#define EEPROM_COEFFICIENT_A_SENSOR1_3      0xB9
-
-#define EEPROM_COEFFICIENT_B_SENSOR1_0      0xBA
-#define EEPROM_COEFFICIENT_B_SENSOR1_1      0xBB
-#define EEPROM_COEFFICIENT_B_SENSOR1_2      0xBC
-#define EEPROM_COEFFICIENT_B_SENSOR1_3      0xBD
-
-#define EEPROM_COEFFICIENT_C_SENSOR1_0      0xBE
-#define EEPROM_COEFFICIENT_C_SENSOR1_1      0xBF
-#define EEPROM_COEFFICIENT_C_SENSOR1_2      0xC0
-#define EEPROM_COEFFICIENT_C_SENSOR1_3      0xC1
-
-#define EEPROM_COEFFICIENT_A_SENSOR2_0      0xC2
-#define EEPROM_COEFFICIENT_A_SENSOR2_1      0xC3
-#define EEPROM_COEFFICIENT_A_SENSOR2_2      0xC4
-#define EEPROM_COEFFICIENT_A_SENSOR2_3      0xC5
-
-#define EEPROM_COEFFICIENT_B_SENSOR2_0      0xC6
-#define EEPROM_COEFFICIENT_B_SENSOR2_1      0xC7
-#define EEPROM_COEFFICIENT_B_SENSOR2_2      0xC8
-#define EEPROM_COEFFICIENT_B_SENSOR2_3      0xC9
-
-#define EEPROM_COEFFICIENT_C_SENSOR2_0      0xCA
-#define EEPROM_COEFFICIENT_C_SENSOR2_1      0xCB
-#define EEPROM_COEFFICIENT_C_SENSOR2_2      0xCC
-#define EEPROM_COEFFICIENT_C_SENSOR2_3      0xCD
-
-#define EEPROM_COEFFICIENT_A_SENSOR3_0      0xCE
-#define EEPROM_COEFFICIENT_A_SENSOR3_1      0xCF
-#define EEPROM_COEFFICIENT_A_SENSOR3_2      0xD0
-#define EEPROM_COEFFICIENT_A_SENSOR3_3      0xD1
-
-#define EEPROM_COEFFICIENT_B_SENSOR3_0      0xD2
-#define EEPROM_COEFFICIENT_B_SENSOR3_1      0xD3
-#define EEPROM_COEFFICIENT_B_SENSOR3_2      0xD4
-#define EEPROM_COEFFICIENT_B_SENSOR3_3      0xD5
-
-#define EEPROM_COEFFICIENT_C_SENSOR3_0      0xD6
-#define EEPROM_COEFFICIENT_C_SENSOR3_1      0xD7
-#define EEPROM_COEFFICIENT_C_SENSOR3_2      0xD8
-#define EEPROM_COEFFICIENT_C_SENSOR3_3      0xD9
-
-#define EEPROM_COEFFICIENT_A_SENSOR4_0      0xDA
-#define EEPROM_COEFFICIENT_A_SENSOR4_1      0xDB
-#define EEPROM_COEFFICIENT_A_SENSOR4_2      0xDC
-#define EEPROM_COEFFICIENT_A_SENSOR4_3      0xDD
-
-#define EEPROM_COEFFICIENT_B_SENSOR4_0      0xDE
-#define EEPROM_COEFFICIENT_B_SENSOR4_1      0xDF
-#define EEPROM_COEFFICIENT_B_SENSOR4_2      0xE0
-#define EEPROM_COEFFICIENT_B_SENSOR4_3      0xE1
-
-#define EEPROM_COEFFICIENT_C_SENSOR4_0      0xE2
-#define EEPROM_COEFFICIENT_C_SENSOR4_1      0xE3
-#define EEPROM_COEFFICIENT_C_SENSOR4_2      0xE4
-#define EEPROM_COEFFICIENT_C_SENSOR4_3      0xE5
-
-#define EEPROM_COEFFICIENT_A_SENSOR5_0      0xE6
-#define EEPROM_COEFFICIENT_A_SENSOR5_1      0xE7
-#define EEPROM_COEFFICIENT_A_SENSOR5_2      0xE8
-#define EEPROM_COEFFICIENT_A_SENSOR5_3      0xE9
-
-#define EEPROM_COEFFICIENT_B_SENSOR5_0      0xEA
-#define EEPROM_COEFFICIENT_B_SENSOR5_1      0xEB
-#define EEPROM_COEFFICIENT_B_SENSOR5_2      0xEC
-#define EEPROM_COEFFICIENT_B_SENSOR5_3      0xED
-
-#define EEPROM_COEFFICIENT_C_SENSOR5_0      0xEE
-#define EEPROM_COEFFICIENT_C_SENSOR5_1      0xEF
-#define EEPROM_COEFFICIENT_C_SENSOR5_2      0xF0
-#define EEPROM_COEFFICIENT_C_SENSOR5_3      0xF1
-
-#define EEPROM_CALIBRATED_VOLTAGE_MSB       0xF2
-#define EEPROM_CALIBRATED_VOLTAGE_LSB       0xF3
 
 // ADCCON0 ADC select bits
 #define SELECT_ADC_TEMP0                    (10<<2)  // ADC10
@@ -405,7 +331,6 @@
 //                                DS1820                                      
 // ----------------------------------------------------------------------------- 
 
-
 #define TEMP_RES              0x100 // temperature resolution => 1/256°C = 0.0039°C 
 
 
@@ -414,40 +339,47 @@
 // -----------------------------------------------------------------------------
 
 #define DS1820_RST_PULSE       480   // master reset pulse time in [us] 
-#define DS1820_MSTR_BITSTART   2     // delay time for bit start by master 
-#define DS1820_PRESENCE_WAIT   40    // delay after master reset pulse in [us] 
-#define DS1820_PRESENCE_FIN    480   // dealy after reading of presence pulse [us] 
-#define DS1820_BITREAD_DLY     5     // bit read delay 
-#define DS1820_BITWRITE_DLY    100   // bit write delay 
+//#define DS1820_PRESENCE_WAIT   40    // delay after master reset pulse in [us] 
+#define DS1820_PRESENCE_WAIT   70
+//#define DS1820_PRESENCE_FIN    480   // delay after reading of presence pulse [us] 
+#define DS1820_PRESENCE_FIN    410
 
+//#define DS1820_MSTR_BITSTART   2     // delay time for bit start by master 
+#define DS1820_MSTR_BITSTART   6
+//#define DS1820_BITREAD_DLY     5     // bit read delay 
+#define DS1820_BITREAD_DLY     9
+#define DS1820_BITREAD_WAIT    55
+
+//#define DS1820_BITWRITE_DLY    100   // bit write delay 
+#define DS1820_BITWRITE_DLY    64
 
 // -----------------------------------------------------------------------------
 //                            DS1820 Registers                                
 // -----------------------------------------------------------------------------
 
-#define DS1820_REG_TEMPLSB    0
-#define DS1820_REG_TEMPMSB    1
-#define DS1820_REG_CNTREMAIN  6
-#define DS1820_REG_CNTPERSEC  7
-#define DS1820_SCRPADMEM_LEN  9     // length of scratchpad memory 
+#define DS1820_REG_TEMPLSB              0
+#define DS1820_REG_TEMPMSB              1
+#define DS1820_REG_CNTREMAIN            6
+#define DS1820_REG_CNTPERSEC            7
+#define DS1820_SCRPADMEM_LEN            9     // length of scratchpad memory 
 
-#define DS1820_ADDR_LEN       8
+#define DS1820_ADDR_LEN                 8
 
 
 // -----------------------------------------------------------------------------
 //                            DS1820 Commands                                 
 // -----------------------------------------------------------------------------
 
-#define DS1820_CMD_SEARCHROM     0xF0
-#define DS1820_CMD_READROM       0x33
-#define DS1820_CMD_MATCHROM      0x55
-#define DS1820_CMD_SKIPROM       0xCC
-#define DS1820_CMD_ALARMSEARCH   0xEC
-#define DS1820_CMD_CONVERTTEMP   0x44
-#define DS1820_CMD_WRITESCRPAD   0x4E
-#define DS1820_CMD_READSCRPAD    0xBE
-#define DS1820_CMD_COPYSCRPAD    0x48
-#define DS1820_CMD_RECALLEE      0xB8
+#define DS1820_CMD_SEARCHROM            0xF0
+#define DS1820_CMD_READROM              0x33
+#define DS1820_CMD_MATCHROM             0x55
+#define DS1820_CMD_SKIPROM              0xCC
+#define DS1820_CMD_ALARMSEARCH          0xEC
+#define DS1820_CMD_CONVERTTEMP          0x44
+#define DS1820_CMD_WRITESCRPAD          0x4E
+#define DS1820_CMD_READSCRPAD           0xBE
+#define DS1820_CMD_COPYSCRPAD           0x48
+#define DS1820_CMD_RECALLEE             0xB8
 
 
 #define DS1820_FAMILY_CODE_DS18B20      0x28
@@ -459,6 +391,20 @@ double Celsius2Fahrenheit(double tc);
 double Fahrenheit2Celsius(double tf);
 double Celsius2Kelvin(double tc);
 double Kelvin2Celsius(double tf);
+
+// DS1820
+uint8_t DS1820_Reset( uint8_t pin );
+uint8_t DS1820_ReadBit( uint8_t pin );
+void DS1820_WriteBit( uint8_t pin, uint8_t bBit );
+uint8_t DS1820_ReadByte( uint8_t pin );
+void DS1820_WriteByte( uint8_t pin, uint8_t val_u8 );
+void DS1820_AddrDevice( uint8_t pin, uint8_t nAddrMethod );
+uint8_t DS1820_FindNextDevice( uint8_t pin );
+uint8_t DS1820_FindFirstDevice( uint8_t pin );
+void DS1820_WriteEEPROM( uint8_t pin, uint8_t high, uint8_t low );
+int16_t DS1820_GetTempRaw( uint8_t pin );
+float DS1820_GetTempFloat( uint8_t pin );
+void DS1820_GetTempString( int16_t rawTemp, char *strTemp );
 
 /*!
 	Send Extended ID CAN frame

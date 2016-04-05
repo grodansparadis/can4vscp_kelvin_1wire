@@ -136,7 +136,7 @@ uint8_t DS1820_Reset( uint8_t pin )
     // Get presence pulse 
     bPresPulse = input( pin );
 
-    __delay_us( 424 );      
+    __delay_us( DS1820_PRESENCE_FIN );      
    
     INTCONbits.GIE = 1;  // Enable interrupts
 
@@ -167,6 +167,8 @@ uint8_t DS1820_ReadBit( uint8_t pin )
     bBit = input( pin );
    
     INTCONbits.GIE = 1;      // Enable interrupts
+    
+    __delay_us( DS1820_BITREAD_WAIT );
 
     return bBit;
 }
@@ -306,7 +308,7 @@ uint8_t DS1820_FindNextDevice( uint8_t pin )
     uint8_t bStatus;
     uint8_t next_b = FALSE;
 
-    // init ROM address 
+    // initialise ROM address 
     memset( romAddr, 0, 8 );
 
     bStatus = DS1820_Reset( pin );      // reset the 1-wire 
@@ -316,7 +318,7 @@ uint8_t DS1820_FindNextDevice( uint8_t pin )
         return FALSE;
     }
 
-    // send search rom command 
+    // send search ROM command 
     DS1820_WriteByte( pin, DS1820_CMD_SEARCHROM );
 
     idxByte = 0;
@@ -516,11 +518,13 @@ int16_t DS1820_GetTempRaw( uint8_t pin )
     DS1820_AddrDevice( pin, DS1820_CMD_MATCHROM );      // address the device 
     output_high( pin );
     DS1820_WriteByte( pin, DS1820_CMD_CONVERTTEMP );    // start conversion 
-    //DS1820_DelayMs(DS1820_TEMPCONVERT_DLY);           // wait for temperature conversion 
-    __delay_ms( 750 );
-
-
-    // --- read sratchpad ---------------------------------------------------- 
+    
+    // wait for temperature conversion 
+    for ( i=0; i<76; i++ ) {
+        __delaywdt_ms( 10 );
+    }
+    
+    // --- read scratch pad ---------------------------------------------------- 
     DS1820_Reset( pin );
     DS1820_AddrDevice( pin, DS1820_CMD_MATCHROM );      // address the device 
     DS1820_WriteByte( pin, DS1820_CMD_READSCRPAD );     // read scratch pad 
@@ -607,12 +611,13 @@ void DS1820_GetTempString( int16_t rawTemp, char *strTemp )
 
     // convert digits from raw value (1/256 degrees C resolution) to physical value 
     // tPhyLow_u16 = tInt_s16 % TEMP_RES;
-    tPhyLow = rawTemp & 0xFF;   // this operation is the same as 
+    tPhyLow = rawTemp & 0xFF;   // this operation is the same as above
                                 // but saves flash memory tInt_s16 % TEMP_RES 
     tPhyLow = tPhyLow * 100;
     tPhyLow = (uint16_t)tPhyLow / TEMP_RES;
 
     // write physical temperature value to string 
     sprintf( strTemp, "%d.%02d", tPhy, (int8_t)tPhyLow );
+    
 }
 

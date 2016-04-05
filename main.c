@@ -142,6 +142,212 @@ uint8_t high_alarm;
 uint8_t adc_low;
 uint8_t adc_high;
 
+// All nine temperature values Index 0 is on-board NTC sensor
+float temperature[ 9 ];
+
+// sensor address array [index 0-7][byte in address 0-7]
+uint8_t addrSensor[8][8];
+
+
+//__EEPROM_DATA(0x11,0x22,0x33,0x44,0x55,0x66,0x77,0x88);
+
+// This table translates registers in page 0 to EEPROM locations
+const uint8_t reg2eeprom_pg0[] = {
+    /* REG0_ONEWIRE_ZONE                    */          VSCP_EEPROM_END + 0,
+    /* REG0_ONEWIRE_SUBZONE                 */          VSCP_EEPROM_END + 1,
+                                                        
+    /* REG0_ONEWIRE_CH0_ZONE                */          VSCP_EEPROM_END + 2,
+    /* REG0_ONEWIRE_CH0_SUBZONE             */          VSCP_EEPROM_END + 3,
+    /* REG0_ONEWIRE_CH1_ZONE                */          VSCP_EEPROM_END + 4,
+    /* REG0_ONEWIRE_CH1_SUBZONE             */          VSCP_EEPROM_END + 5,
+    /* REG0_ONEWIRE_CH2_ZONE                */          VSCP_EEPROM_END + 6,
+    /* REG0_ONEWIRE_CH2_SUBZONE             */          VSCP_EEPROM_END + 7,
+    /* REG0_ONEWIRE_CH3_ZONE                */          VSCP_EEPROM_END + 8,
+    /* REG0_ONEWIRE_CH3_SUBZONE             */          VSCP_EEPROM_END + 10,
+    /* REG0_ONEWIRE_CH4_ZONE                */          VSCP_EEPROM_END + 11,
+    /* REG0_ONEWIRE_CH4_SUBZONE             */          VSCP_EEPROM_END + 12,
+    /* REG0_ONEWIRE_CH5_ZONE                */          VSCP_EEPROM_END + 13,
+    /* REG0_ONEWIRE_CH5_SUBZONE             */          VSCP_EEPROM_END + 14,
+    /* REG0_ONEWIRE_CH6_ZONE                */          VSCP_EEPROM_END + 15,
+    /* REG0_ONEWIRE_CH6_SUBZONE             */          VSCP_EEPROM_END + 16,
+    /* REG0_ONEWIRE_CH7_ZONE                */          VSCP_EEPROM_END + 17,
+    /* REG0_ONEWIRE_CH7_SUBZONE             */          VSCP_EEPROM_END + 18,
+                                                        
+    /* REG0_ONEWIRE_CH0_CTRL_LOW            */          VSCP_EEPROM_END + 19,
+    /* REG0_ONEWIRE_CH0_CTRL_HIGH           */          VSCP_EEPROM_END + 20, 
+    /* REG0_ONEWIRE_CH1_CTRL_LOW            */          VSCP_EEPROM_END + 21,
+    /* REG0_ONEWIRE_CH1_CTRL_HIGH           */          VSCP_EEPROM_END + 22,
+    /* REG0_ONEWIRE_CH2_CTRL_LOW            */          VSCP_EEPROM_END + 23,
+    /* REG0_ONEWIRE_CH2_CTRL_HIGH           */          VSCP_EEPROM_END + 24,
+    /* REG0_ONEWIRE_CH3_CTRL_LOW            */          VSCP_EEPROM_END + 25,
+    /* REG0_ONEWIRE_CH3_CTRL_HIGH           */          VSCP_EEPROM_END + 26,
+    /* REG0_ONEWIRE_CH4_CTRL_LOW            */          VSCP_EEPROM_END + 27,
+    /* REG0_ONEWIRE_CH4_CTRL_HIGH           */          VSCP_EEPROM_END + 28,
+    /* REG0_ONEWIRE_CH5_CTRL_LOW            */          VSCP_EEPROM_END + 29,
+    /* REG0_ONEWIRE_CH5_CTRL_HIGH           */          VSCP_EEPROM_END + 30,
+    /* REG0_ONEWIRE_CH6_CTRL_LOW            */          VSCP_EEPROM_END + 31,
+    /* REG0_ONEWIRE_CH6_CTRL_HIGH           */          VSCP_EEPROM_END + 32,
+    /* REG0_ONEWIRE_CH7_CTRL_LOW            */          VSCP_EEPROM_END + 33,
+    /* REG0_ONEWIRE_CH7_CTRL_HIGH           */          VSCP_EEPROM_END + 34                                                        
+};
+
+// This table translates registers in page 1 to EEPROM locations
+const uint8_t reg2eeprom_pg1[] = {
+    /* EEPROM_REPORT_INTERVAL0              */          VSCP_EEPROM_END + 0,
+    /* EEPROM_REPORT_INTERVAL1              */          VSCP_EEPROM_END + 0,
+    /* EEPROM_REPORT_INTERVAL2              */          VSCP_EEPROM_END + 0,
+    /* EEPROM_REPORT_INTERVAL3              */          VSCP_EEPROM_END + 0,
+    /* EEPROM_REPORT_INTERVAL4              */          VSCP_EEPROM_END + 0,
+    /* EEPROM_REPORT_INTERVAL5              */          VSCP_EEPROM_END + 0,
+    /* EEPROM_REPORT_INTERVAL6              */          VSCP_EEPROM_END + 0,
+    /* EEPROM_REPORT_INTERVAL7              */          VSCP_EEPROM_END + 0,
+                                                        
+    /* EEPROM_LOW_ALARM0_MSB                */          VSCP_EEPROM_END + 0,
+    /* EEPROM_LOW_ALARM0_LSB                */          VSCP_EEPROM_END + 0,
+    /* EEPROM_LOW_ALARM1_MSB                */          VSCP_EEPROM_END + 0,
+    /* EEPROM_LOW_ALARM1_LSB                */          VSCP_EEPROM_END + 0,
+    /* EEPROM_LOW_ALARM2_MSB                */          VSCP_EEPROM_END + 0,
+    /* EEPROM_LOW_ALARM2_LSB                */          VSCP_EEPROM_END + 0,
+    /* EEPROM_LOW_ALARM3_MSB                */          VSCP_EEPROM_END + 0,
+    /* EEPROM_LOW_ALARM3_LSB                */          VSCP_EEPROM_END + 0,
+    /* EEPROM_LOW_ALARM4_MSB                */          VSCP_EEPROM_END + 0,
+    /* EEPROM_LOW_ALARM4_LSB                */          VSCP_EEPROM_END + 0,
+    /* EEPROM_LOW_ALARM5_MSB                */          VSCP_EEPROM_END + 0,
+    /* EEPROM_LOW_ALARM5_LSB                */          VSCP_EEPROM_END + 0,
+    /* EEPROM_LOW_ALARM6_MSB                */          VSCP_EEPROM_END + 0,
+    /* EEPROM_LOW_ALARM6_LSB                */          VSCP_EEPROM_END + 0,
+    /* EEPROM_LOW_ALARM7_MSB                */          VSCP_EEPROM_END + 0,
+    /* EEPROM_LOW_ALARM7_LSB                */          VSCP_EEPROM_END + 0,   
+                                                        
+    /* EEPROM_HIGH_ALARM0_MSB               */          VSCP_EEPROM_END + 0,
+    /* EEPROM_HIGH_ALARM0_LSB               */          VSCP_EEPROM_END + 0,
+    /* EEPROM_HIGH_ALARM1_MSB               */          VSCP_EEPROM_END + 0,
+    /* EEPROM_HIGH_ALARM1_LSB               */          VSCP_EEPROM_END + 0,
+    /* EEPROM_HIGH_ALARM2_MSB               */          VSCP_EEPROM_END + 0,
+    /* EEPROM_HIGH_ALARM2_LSB               */          VSCP_EEPROM_END + 0,
+    /* EEPROM_HIGH_ALARM3_MSB               */          VSCP_EEPROM_END + 0,
+    /* EEPROM_HIGH_ALARM3_LSB               */          VSCP_EEPROM_END + 0,
+    /* EEPROM_HIGH_ALARM4_MSB               */          VSCP_EEPROM_END + 0,
+    /* EEPROM_HIGH_ALARM4_LSB               */          VSCP_EEPROM_END + 0,
+    /* EEPROM_HIGH_ALARM5_MSB               */          VSCP_EEPROM_END + 0,
+    /* EEPROM_HIGH_ALARM5_LSB               */          VSCP_EEPROM_END + 0,
+    /* EEPROM_HIGH_ALARM6_MSB               */          VSCP_EEPROM_END + 0,
+    /* EEPROM_HIGH_ALARM6_LSB               */          VSCP_EEPROM_END + 0,
+    /* EEPROM_HIGH_ALARM7_MSB               */          VSCP_EEPROM_END + 0,
+    /* EEPROM_HIGH_ALARM7_LSB               */          VSCP_EEPROM_END + 0,
+
+    /* EEPROM_ABSOLUT_LOW0_MSB              */          VSCP_EEPROM_END + 0,
+    /* EEPROM_ABSOLUT_LOW0_MSB              */          VSCP_EEPROM_END + 0,
+    /* EEPROM_ABSOLUT_LOW0_MSB              */          VSCP_EEPROM_END + 0,
+    /* EEPROM_ABSOLUT_LOW0_MSB              */          VSCP_EEPROM_END + 0,
+    /* EEPROM_ABSOLUT_LOW0_MSB              */          VSCP_EEPROM_END + 0,
+    /* EEPROM_ABSOLUT_LOW0_MSB              */          VSCP_EEPROM_END + 0,
+    /* EEPROM_ABSOLUT_LOW0_MSB              */          VSCP_EEPROM_END + 0,
+    /* EEPROM_ABSOLUT_LOW0_MSB              */          VSCP_EEPROM_END + 0,
+    /* EEPROM_ABSOLUT_LOW0_MSB              */          VSCP_EEPROM_END + 0,
+    /* EEPROM_ABSOLUT_LOW0_MSB              */          VSCP_EEPROM_END + 0,
+    /* EEPROM_ABSOLUT_LOW0_MSB              */          VSCP_EEPROM_END + 0,
+    /* EEPROM_ABSOLUT_LOW0_MSB              */          VSCP_EEPROM_END + 0,
+    /* EEPROM_ABSOLUT_LOW0_MSB              */          VSCP_EEPROM_END + 0,
+    /* EEPROM_ABSOLUT_LOW0_MSB              */          VSCP_EEPROM_END + 0,
+    /* EEPROM_ABSOLUT_LOW0_MSB              */          VSCP_EEPROM_END + 0,
+    /* EEPROM_ABSOLUT_LOW0_MSB              */          VSCP_EEPROM_END + 0,                                                        
+                                                        
+    /* EEPROM_ABSOLUT_HIGH0_MSB             */          VSCP_EEPROM_END + 0,
+    /* EEPROM_ABSOLUT_HIGH0_MSB             */          VSCP_EEPROM_END + 0, 
+    /* EEPROM_ABSOLUT_HIGH0_MSB             */          VSCP_EEPROM_END + 0,
+    /* EEPROM_ABSOLUT_HIGH0_MSB             */          VSCP_EEPROM_END + 0,
+    /* EEPROM_ABSOLUT_HIGH0_MSB             */          VSCP_EEPROM_END + 0,
+    /* EEPROM_ABSOLUT_HIGH0_MSB             */          VSCP_EEPROM_END + 0,
+    /* EEPROM_ABSOLUT_HIGH0_MSB             */          VSCP_EEPROM_END + 0,
+    /* EEPROM_ABSOLUT_HIGH0_MSB             */          VSCP_EEPROM_END + 0,
+    /* EEPROM_ABSOLUT_HIGH0_MSB             */          VSCP_EEPROM_END + 0,
+    /* EEPROM_ABSOLUT_HIGH0_MSB             */          VSCP_EEPROM_END + 0,
+    /* EEPROM_ABSOLUT_HIGH0_MSB             */          VSCP_EEPROM_END + 0,
+    /* EEPROM_ABSOLUT_HIGH0_MSB             */          VSCP_EEPROM_END + 0,
+    /* EEPROM_ABSOLUT_HIGH0_MSB             */          VSCP_EEPROM_END + 0,
+    /* EEPROM_ABSOLUT_HIGH0_MSB             */          VSCP_EEPROM_END + 0,
+    /* EEPROM_ABSOLUT_HIGH0_MSB             */          VSCP_EEPROM_END + 0,
+    /* EEPROM_ABSOLUT_HIGH0_MSB             */          VSCP_EEPROM_END + 0,
+
+    /* EEPROM_HYSTERESIS_SENSOR0            */          VSCP_EEPROM_END + 0,
+    /* EEPROM_HYSTERESIS_SENSOR1            */          VSCP_EEPROM_END + 0,
+    /* EEPROM_HYSTERESIS_SENSOR2            */          VSCP_EEPROM_END + 0,
+    /* EEPROM_HYSTERESIS_SENSOR3            */          VSCP_EEPROM_END + 0,
+    /* EEPROM_HYSTERESIS_SENSOR4            */          VSCP_EEPROM_END + 0,
+    /* EEPROM_HYSTERESIS_SENSOR5            */          VSCP_EEPROM_END + 0,
+    /* EEPROM_HYSTERESIS_SENSOR6            */          VSCP_EEPROM_END + 0, 
+    /* EEPROM_HYSTERESIS_SENSOR7            */          VSCP_EEPROM_END + 0,                                                        
+};
+
+// This table translates registers in page 2 to EEPROM locations
+const uint8_t reg2eeprom_pg2[] = {
+    /* REG0_ONEWIRE_CH0_ADDR0               */          VSCP_EEPROM_END + 0,
+    /* REG0_ONEWIRE_CH0_ADDR1               */          VSCP_EEPROM_END + 1,
+    /* REG0_ONEWIRE_CH0_ADDR2               */          VSCP_EEPROM_END + 0,
+    /* REG0_ONEWIRE_CH0_ADDR3               */          VSCP_EEPROM_END + 1,
+    /* REG0_ONEWIRE_CH0_ADDR4               */          VSCP_EEPROM_END + 0,
+    /* REG0_ONEWIRE_CH0_ADDR5               */          VSCP_EEPROM_END + 1,
+    /* REG0_ONEWIRE_CH0_ADDR6               */          VSCP_EEPROM_END + 0,
+    /* REG0_ONEWIRE_CH0_ADDR7               */          VSCP_EEPROM_END + 1, 
+    /* REG0_ONEWIRE_CH1_ADDR0               */          VSCP_EEPROM_END + 0,
+    /* REG0_ONEWIRE_CH1_ADDR1               */          VSCP_EEPROM_END + 1,
+    /* REG0_ONEWIRE_CH1_ADDR2               */          VSCP_EEPROM_END + 0,
+    /* REG0_ONEWIRE_CH1_ADDR3               */          VSCP_EEPROM_END + 1,
+    /* REG0_ONEWIRE_CH1_ADDR4               */          VSCP_EEPROM_END + 0,
+    /* REG0_ONEWIRE_CH1_ADDR5               */          VSCP_EEPROM_END + 1,
+    /* REG0_ONEWIRE_CH1_ADDR6               */          VSCP_EEPROM_END + 0,
+    /* REG0_ONEWIRE_CH1_ADDR7               */          VSCP_EEPROM_END + 1, 
+    /* REG0_ONEWIRE_CH2_ADDR0               */          VSCP_EEPROM_END + 0,
+    /* REG0_ONEWIRE_CH2_ADDR1               */          VSCP_EEPROM_END + 1,
+    /* REG0_ONEWIRE_CH2_ADDR2               */          VSCP_EEPROM_END + 0,
+    /* REG0_ONEWIRE_CH2_ADDR3               */          VSCP_EEPROM_END + 1,
+    /* REG0_ONEWIRE_CH2_ADDR4               */          VSCP_EEPROM_END + 0,
+    /* REG0_ONEWIRE_CH2_ADDR5               */          VSCP_EEPROM_END + 1,
+    /* REG0_ONEWIRE_CH2_ADDR6               */          VSCP_EEPROM_END + 0,
+    /* REG0_ONEWIRE_CH2_ADDR7               */          VSCP_EEPROM_END + 1, 
+    /* REG0_ONEWIRE_CH3_ADDR0               */          VSCP_EEPROM_END + 0,
+    /* REG0_ONEWIRE_CH3_ADDR1               */          VSCP_EEPROM_END + 1,
+    /* REG0_ONEWIRE_CH3_ADDR2               */          VSCP_EEPROM_END + 0,
+    /* REG0_ONEWIRE_CH3_ADDR3               */          VSCP_EEPROM_END + 1,
+    /* REG0_ONEWIRE_CH3_ADDR4               */          VSCP_EEPROM_END + 0,
+    /* REG0_ONEWIRE_CH3_ADDR5               */          VSCP_EEPROM_END + 1,
+    /* REG0_ONEWIRE_CH3_ADDR6               */          VSCP_EEPROM_END + 0,
+    /* REG0_ONEWIRE_CH3_ADDR7               */          VSCP_EEPROM_END + 1, 
+    /* REG0_ONEWIRE_CH4_ADDR0               */          VSCP_EEPROM_END + 0,
+    /* REG0_ONEWIRE_CH4_ADDR1               */          VSCP_EEPROM_END + 1,
+    /* REG0_ONEWIRE_CH4_ADDR2               */          VSCP_EEPROM_END + 0,
+    /* REG0_ONEWIRE_CH4_ADDR3               */          VSCP_EEPROM_END + 1,
+    /* REG0_ONEWIRE_CH4_ADDR4               */          VSCP_EEPROM_END + 0,
+    /* REG0_ONEWIRE_CH4_ADDR5               */          VSCP_EEPROM_END + 1,
+    /* REG0_ONEWIRE_CH4_ADDR6               */          VSCP_EEPROM_END + 0,
+    /* REG0_ONEWIRE_CH4_ADDR7               */          VSCP_EEPROM_END + 1, 
+    /* REG0_ONEWIRE_CH5_ADDR0               */          VSCP_EEPROM_END + 0,
+    /* REG0_ONEWIRE_CH5_ADDR1               */          VSCP_EEPROM_END + 1,
+    /* REG0_ONEWIRE_CH5_ADDR2               */          VSCP_EEPROM_END + 0,
+    /* REG0_ONEWIRE_CH5_ADDR3               */          VSCP_EEPROM_END + 1,
+    /* REG0_ONEWIRE_CH5_ADDR4               */          VSCP_EEPROM_END + 0,
+    /* REG0_ONEWIRE_CH5_ADDR5               */          VSCP_EEPROM_END + 1,
+    /* REG0_ONEWIRE_CH5_ADDR6               */          VSCP_EEPROM_END + 0,
+    /* REG0_ONEWIRE_CH5_ADDR7               */          VSCP_EEPROM_END + 1, 
+    /* REG0_ONEWIRE_CH6_ADDR0               */          VSCP_EEPROM_END + 0,
+    /* REG0_ONEWIRE_CH6_ADDR1               */          VSCP_EEPROM_END + 1,
+    /* REG0_ONEWIRE_CH6_ADDR2               */          VSCP_EEPROM_END + 0,
+    /* REG0_ONEWIRE_CH6_ADDR3               */          VSCP_EEPROM_END + 1,
+    /* REG0_ONEWIRE_CH6_ADDR4               */          VSCP_EEPROM_END + 0,
+    /* REG0_ONEWIRE_CH6_ADDR5               */          VSCP_EEPROM_END + 1,
+    /* REG0_ONEWIRE_CH6_ADDR6               */          VSCP_EEPROM_END + 0,
+    /* REG0_ONEWIRE_CH6_ADDR7               */          VSCP_EEPROM_END + 1, 
+    /* REG0_ONEWIRE_CH7_ADDR0               */          VSCP_EEPROM_END + 0,
+    /* REG0_ONEWIRE_CH7_ADDR1               */          VSCP_EEPROM_END + 1,
+    /* REG0_ONEWIRE_CH7_ADDR2               */          VSCP_EEPROM_END + 0,
+    /* REG0_ONEWIRE_CH7_ADDR3               */          VSCP_EEPROM_END + 1,
+    /* REG0_ONEWIRE_CH7_ADDR4               */          VSCP_EEPROM_END + 0,
+    /* REG0_ONEWIRE_CH7_ADDR5               */          VSCP_EEPROM_END + 1,
+    /* REG0_ONEWIRE_CH7_ADDR6               */          VSCP_EEPROM_END + 0,
+    /* REG0_ONEWIRE_CH7_ADDR7               */          VSCP_EEPROM_END + 1                                                        
+};
+
 
 ///////////////////////////////////////////////////////////////////////////////
 // Isr() 	- Interrupt Service Routine
@@ -235,33 +441,33 @@ void interrupt low_priority interrupt_at_low_vector( void )
 
 uint8_t input( uint8_t pin )
 {
-    uint8_t rv = 0;
+    uint8_t rv = 1;
     
     switch ( pin ) {
         
-        case TEMP1:
-            TRISCbits.TRISC7 = 0;
+        case TEMP_CHANNEL1:
+            TRISCbits.TRISC7 = 1;
             rv = PORTCbits.RC7;
             break;
                     
-        case TEMP2:
-            TRISCbits.TRISC6 = 0;
+        case TEMP_CHANNEL2:
+            TRISCbits.TRISC6 = 1;
             rv = PORTCbits.RC6;
             break;
                     
-        case TEMP3:
-            TRISCbits.TRISC4 = 0;
+        case TEMP_CHANNEL3:
+            TRISCbits.TRISC4 = 1;
             rv = PORTCbits.RC4;
             break;
                     
-        case TEMP4:
-            TRISCbits.TRISC3 = 0;
+        case TEMP_CHANNEL4:
+            TRISCbits.TRISC3 = 1;
             rv = PORTCbits.RC3;
             break;            
             
     }
         
-    return 1;
+    return rv;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -274,20 +480,20 @@ extern void output( uint8_t pin )
 {
     switch ( pin ) {
         
-        case TEMP1:
-            TRISCbits.TRISC7 = 1;
+        case TEMP_CHANNEL1:
+            TRISCbits.TRISC7 = 0;
             break;
                     
-        case TEMP2:
-            TRISCbits.TRISC6 = 1;
+        case TEMP_CHANNEL2:
+            TRISCbits.TRISC6 = 0;
             break;
                     
-        case TEMP3:
-            TRISCbits.TRISC4 = 1;
+        case TEMP_CHANNEL3:
+            TRISCbits.TRISC4 = 0;
             break;
                     
-        case TEMP4:
-            TRISCbits.TRISC3 = 1;
+        case TEMP_CHANNEL4:
+            TRISCbits.TRISC3 = 0;
             break;            
             
     }
@@ -304,23 +510,23 @@ void output_low( uint8_t pin )
 {
     switch ( pin ) {
         
-        case TEMP1:
-            TRISCbits.TRISC7 = 1;
-            PORTCbits.RC7 = 0;
+        case TEMP_CHANNEL1:
+            TRISCbits.TRISC7 = 0;
+            LATC7 = 0;
             break;
                     
-        case TEMP2:
-            TRISCbits.TRISC6 = 1;
+        case TEMP_CHANNEL2:
+            TRISCbits.TRISC6 = 0;
             PORTCbits.RC6 = 0;
             break;
                     
-        case TEMP3:
-            TRISCbits.TRISC4 = 1;
+        case TEMP_CHANNEL3:
+            TRISCbits.TRISC4 = 0;
             PORTCbits.RC4 = 0;
             break;
                     
-        case TEMP4:
-            TRISCbits.TRISC3 = 1;
+        case TEMP_CHANNEL4:
+            TRISCbits.TRISC3 = 0;
             PORTCbits.RC3 = 0;
             break;            
             
@@ -337,23 +543,23 @@ void output_high( uint8_t pin )
 {
     switch ( pin ) {
         
-        case TEMP1:
-            TRISCbits.TRISC7 = 1;
-            PORTCbits.RC7 = 1;
+        case TEMP_CHANNEL1:
+            TRISCbits.TRISC7 = 0;
+            LATCbits.LATC7 = 1;
             break;
                     
-        case TEMP2:
-            TRISCbits.TRISC6 = 1;
+        case TEMP_CHANNEL2:
+            TRISCbits.TRISC6 = 0;
             PORTCbits.RC6 = 1;
             break;
                     
-        case TEMP3:
-            TRISCbits.TRISC4 = 1;
+        case TEMP_CHANNEL3:
+            TRISCbits.TRISC4 = 0;
             PORTCbits.RC4 = 1;
             break;
                     
-        case TEMP4:
-            TRISCbits.TRISC3 = 1;
+        case TEMP_CHANNEL4:
+            TRISCbits.TRISC3 = 0;
             PORTCbits.RC3 = 1;
             break;            
             
@@ -500,8 +706,23 @@ void main()
 
 void doWork(void)
 {
-    //PORTC &= ~0x40;
-
+    float temp;
+    char buf[80];
+    /*
+    output_low( TEMP1 );
+    output_high( TEMP1 );
+    output_low( TEMP2 );
+    output_high( TEMP2 );
+    output_low( TEMP3 );
+    output_high( TEMP3 );
+    output_low( TEMP4 );
+    output_high( TEMP4 );
+     */ 
+    adc_low = DS1820_FindFirstDevice( TEMP_CHANNEL4 );
+    temp = DS1820_GetTempFloat( TEMP_CHANNEL4 );
+    uint16_t raw = DS1820_GetTempRaw( TEMP_CHANNEL4 );
+    DS1820_GetTempString( raw, buf );
+    adc_low = 1;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -852,22 +1073,7 @@ void setEventData(int v, unsigned char unit)
     vscp_omsg.data[ 3 ] = (ival & 0xff);
 }
 
-///////////////////////////////////////////////////////////////////////////////
-// getCalibrationValue
-//
-// Get the calibration value for a specific sensor.
-//
 
-int16_t getCalibrationValue(uint8_t i)
-{
-    int16_t cal;
-
-    cal = construct_signed16( eeprom_read(2 * i + EEPROM_CALIBRATION_SENSOR0_MSB),
-				eeprom_read(2 * i + EEPROM_CALIBRATION_SENSOR0_LSB) );
-
-
-    return cal;
-}
 
 ///////////////////////////////////////////////////////////////////////////////
 // Init - Initialisation Routine
@@ -1016,17 +1222,11 @@ void init_app_eeprom(void)
     eeprom_write(EEPROM_CONTROLREG4, DEFAULT_CONTROL_REG);
     eeprom_write(EEPROM_CONTROLREG5, DEFAULT_CONTROL_REG);
 
-    eeprom_write(EEPROM_REPORT_INTERVAL0, DEFAULT_REPORT_INTERVAL_SENSOR0);
     eeprom_write(EEPROM_REPORT_INTERVAL1, DEFAULT_REPORT_INTERVAL);
     eeprom_write(EEPROM_REPORT_INTERVAL2, DEFAULT_REPORT_INTERVAL);
     eeprom_write(EEPROM_REPORT_INTERVAL3, DEFAULT_REPORT_INTERVAL);
     eeprom_write(EEPROM_REPORT_INTERVAL4, DEFAULT_REPORT_INTERVAL);
     eeprom_write(EEPROM_REPORT_INTERVAL5, DEFAULT_REPORT_INTERVAL);
-
-    // B Constants
-
-    eeprom_write(EEPROM_B_CONSTANT0_MSB, DEFAULT_B_CONSTANT_SENSOR0_MSB);
-    eeprom_write(EEPROM_B_CONSTANT0_LSB, DEFAULT_B_CONSTANT_SENSOR0_LSB);
 
     // Low alarms
 
@@ -1136,21 +1336,6 @@ void init_app_eeprom(void)
     eeprom_write(EEPROM_HYSTERESIS_SENSOR3, DEFAULT_HYSTERESIS);
     eeprom_write(EEPROM_HYSTERESIS_SENSOR4, DEFAULT_HYSTERESIS);
     eeprom_write(EEPROM_HYSTERESIS_SENSOR5, DEFAULT_HYSTERESIS);
-
-    // Calibration
-
-    eeprom_write(EEPROM_CALIBRATION_SENSOR0_MSB, 0);
-    eeprom_write(EEPROM_CALIBRATION_SENSOR0_LSB, 0);
-    eeprom_write(EEPROM_CALIBRATION_SENSOR1_MSB, 0);
-    eeprom_write(EEPROM_CALIBRATION_SENSOR1_LSB, 0);
-    eeprom_write(EEPROM_CALIBRATION_SENSOR2_MSB, 0);
-    eeprom_write(EEPROM_CALIBRATION_SENSOR2_LSB, 0);
-    eeprom_write(EEPROM_CALIBRATION_SENSOR3_MSB, 0);
-    eeprom_write(EEPROM_CALIBRATION_SENSOR3_LSB, 0);
-    eeprom_write(EEPROM_CALIBRATION_SENSOR4_MSB, 0);
-    eeprom_write(EEPROM_CALIBRATION_SENSOR4_LSB, 0);
-    eeprom_write(EEPROM_CALIBRATION_SENSOR5_MSB, 0);
-    eeprom_write(EEPROM_CALIBRATION_SENSOR5_LSB, 0);
     
 }
 
@@ -1346,69 +1531,6 @@ uint8_t vscp_readAppReg(unsigned char reg)
             case 0x19:
                 rv = eeprom_read(EEPROM_REPORT_INTERVAL5);
                 break;
-
-            // B Constants
-
-            // B constant MSB for sensor 0
-            case 0x26:
-                rv = eeprom_read(EEPROM_B_CONSTANT0_MSB);
-                break;
-
-            // B constant LSB for sensor 0
-            case 0x27:
-                rv = eeprom_read(EEPROM_B_CONSTANT0_LSB);
-                break;
-
-            // B constant MSB for sensor 1
-            case 0x28:
-                rv = eeprom_read(EEPROM_B_CONSTANT1_MSB);
-                break;
-
-            // B constant LSB for sensor 1
-            case 0x29:
-                rv = eeprom_read(EEPROM_B_CONSTANT1_LSB);
-                break;
-
-            // B constant MSB for sensor 2
-            case 0x2A:
-                rv = eeprom_read(EEPROM_B_CONSTANT2_MSB);
-                break;
-
-            // B constant LSB for sensor 2
-            case 0x2B:
-                rv = eeprom_read(EEPROM_B_CONSTANT2_LSB);
-                break;
-
-            // B constant MSB for sensor 3
-            case 0x2C:
-                rv = eeprom_read(EEPROM_B_CONSTANT3_MSB);
-                break;
-
-            // B constant LSB for sensor 3
-            case 0x2D:
-                rv = eeprom_read(EEPROM_B_CONSTANT3_LSB);
-                break;
-
-            // B constant MSB for sensor 4
-            case 0x2E:
-                rv = eeprom_read(EEPROM_B_CONSTANT4_MSB);
-                break;
-
-            // B constant LSB for sensor 4
-            case 0x2F:
-                rv = eeprom_read(EEPROM_B_CONSTANT4_LSB);
-                break;
-
-            // B constant MSB for sensor 5
-            case 0x30:
-                rv = eeprom_read(EEPROM_B_CONSTANT5_MSB);
-                break;
-
-            // B constant LSB for sensor 5
-            case 0x31:
-                rv = eeprom_read(EEPROM_B_CONSTANT5_LSB);
-                break;
-
 
             // Low alarm registers
 
@@ -1775,16 +1897,6 @@ uint8_t vscp_readAppReg(unsigned char reg)
                 rv = 0;
                 break;
 
-            // Calibration voltage MSB    
-            case 0x76:
-                rv = eeprom_read(EEPROM_CALIBRATED_VOLTAGE_MSB);
-                break;
-
-            // Calibration voltage LSB    
-            case 0x77:
-                rv = eeprom_read(EEPROM_CALIBRATED_VOLTAGE_LSB);
-                break;
-
             default:
                 rv = 0;
                 break;
@@ -1792,26 +1904,7 @@ uint8_t vscp_readAppReg(unsigned char reg)
     }
     else if (1 == vscp_page_select) {
         
-        // SH Coefficients
-        if (reg < 72) {
-            rv = eeprom_read(EEPROM_COEFFICIENT_A_SENSOR0_0 + reg ) ;
-        }
-        // Raw A/D values
-        else if (reg < 84) {
-            // The byte order is different in registers
-            uint8_t pos = reg - 72;
-            if ( pos % 2 ) {
-                pos--;
-            }
-            else {
-                pos++;
-            }
-            rv = adc_low; // TODO
-        }
-        // Sensor calibration values
-        else if (reg < 98) {
-            rv = eeprom_read( EEPROM_CALIBRATION_SENSOR0_MSB + reg - 84 ) ;
-        }
+        
     }
 
     return rv;
@@ -1927,82 +2020,6 @@ uint8_t vscp_writeAppReg(unsigned char reg, unsigned char val)
             case 0x19:
                 eeprom_write(EEPROM_REPORT_INTERVAL5, val);
                 rv = eeprom_read(EEPROM_REPORT_INTERVAL5);
-                break;
-
-
-             // B constant registers
-
-
-            // B constant register MSB for sensor 0
-            case 0x26:
-                eeprom_write(EEPROM_B_CONSTANT0_MSB, val);
-                rv = eeprom_read(EEPROM_B_CONSTANT0_MSB);
-                break;
-
-            // B constant register LSB for sensor 0
-            case 0x27:
-                eeprom_write(EEPROM_B_CONSTANT0_LSB, val);
-                rv = eeprom_read(EEPROM_B_CONSTANT0_LSB);
-                break;
-
-            // B constant register MSB for sensor 1
-            case 0x28:
-                eeprom_write(EEPROM_B_CONSTANT1_MSB, val);
-                rv = eeprom_read(EEPROM_B_CONSTANT1_MSB);
-                break;
-
-            // B constant register LSB for sensor 1
-            case 0x29:
-                eeprom_write(EEPROM_B_CONSTANT1_LSB, val);
-                rv = eeprom_read(EEPROM_B_CONSTANT1_LSB);
-                break;
-
-            // B constant register MSB for sensor 2
-            case 0x2A:
-                eeprom_write(EEPROM_B_CONSTANT2_MSB, val);
-                rv = eeprom_read(EEPROM_B_CONSTANT2_MSB);
-                break;
-
-            // B constant register LSB for sensor 2
-            case 0x2B:
-                eeprom_write(EEPROM_B_CONSTANT2_LSB, val);
-                rv = eeprom_read(EEPROM_B_CONSTANT2_LSB);
-                break;
-
-            // B constant register MSB for sensor 3
-            case 0x2C:
-                eeprom_write(EEPROM_B_CONSTANT3_MSB, val);
-                rv = eeprom_read(EEPROM_B_CONSTANT3_MSB);
-                break;
-
-            // B constant register LSB for sensor 3
-            case 0x2D:
-                eeprom_write(EEPROM_B_CONSTANT3_LSB, val);
-                rv = eeprom_read(EEPROM_B_CONSTANT3_LSB);
-                break;
-
-            // B constant register MSB for sensor 4
-            case 0x2E:
-                eeprom_write(EEPROM_B_CONSTANT4_MSB, val);
-                rv = eeprom_read(EEPROM_B_CONSTANT4_MSB);
-                break;
-
-            // B constant register LSB for sensor 4
-            case 0x2F:
-                eeprom_write(EEPROM_B_CONSTANT4_LSB, val);
-                rv = eeprom_read(EEPROM_B_CONSTANT4_LSB);
-                break;
-
-            // B constant register MSB for sensor 5
-            case 0x30:
-                eeprom_write(EEPROM_B_CONSTANT5_MSB, val);
-                rv = eeprom_read(EEPROM_B_CONSTANT5_MSB);
-                break;
-
-            // B constant register LSB for sensor 5
-            case 0x31:
-                eeprom_write(EEPROM_B_CONSTANT5_LSB, val);
-                rv = eeprom_read(EEPROM_B_CONSTANT5_LSB);
                 break;
 
 
@@ -2434,18 +2451,6 @@ uint8_t vscp_writeAppReg(unsigned char reg, unsigned char val)
                 rv = 0;
                 break;
 
-            // Voltage calibration values MSB                
-            case 0x76:
-                eeprom_write(EEPROM_CALIBRATED_VOLTAGE_MSB, val);
-                rv = eeprom_read(EEPROM_CALIBRATED_VOLTAGE_MSB);
-                break;
-
-            // Voltage calibration values LSB    
-            case 0x77:
-                eeprom_write(EEPROM_CALIBRATED_VOLTAGE_LSB, val);
-                rv = eeprom_read(EEPROM_CALIBRATED_VOLTAGE_LSB);
-                break;
-
             default:
                 rv = ~val; // error return
                 break;
@@ -2453,29 +2458,6 @@ uint8_t vscp_writeAppReg(unsigned char reg, unsigned char val)
     }
     else if (1 == vscp_page_select) {
 
-        // Coefficients
-        if (reg < 72) {
-            eeprom_write(EEPROM_COEFFICIENT_A_SENSOR0_0 + reg, val);
-            rv = eeprom_read(EEPROM_COEFFICIENT_A_SENSOR0_0 + reg );
-            //writeCoeffs2Ram();
-        }
-        // Raw A/D values is not writable
-        else if (reg < 84) {
-            // The byte order is different in registers
-            uint8_t pos = reg - 72;
-            if ( pos % 2 ) {
-                pos--;
-            }
-            else {
-                pos++;
-            }
-            rv = adc_high;
-        }
-        // Sensor calibration values
-        else if (reg < 98) {
-            eeprom_write( EEPROM_CALIBRATION_SENSOR0_MSB + reg - 84, val );
-            rv = eeprom_read( EEPROM_CALIBRATION_SENSOR0_MSB + reg - 84 ) ;
-        }
     }
 
     return rv;

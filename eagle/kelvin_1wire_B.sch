@@ -17641,7 +17641,7 @@ Digikey ED2737ND</description>
 <instance part="IC3" gate="&gt;NAME" x="185.42" y="218.44"/>
 <instance part="GND8" gate="1" x="45.72" y="170.18"/>
 <instance part="GND9" gate="1" x="114.3" y="157.48"/>
-<instance part="GND10" gate="1" x="170.18" y="167.64"/>
+<instance part="GND10" gate="1" x="170.18" y="162.56"/>
 <instance part="GND11" gate="1" x="220.98" y="162.56"/>
 <instance part="GND20" gate="1" x="142.24" y="236.22"/>
 <instance part="J3" gate="1" x="170.18" y="243.84" rot="R180"/>
@@ -17877,7 +17877,7 @@ Digikey ED2737ND</description>
 <pinref part="S1" gate="1" pin="S"/>
 </segment>
 <segment>
-<wire x1="170.18" y1="172.72" x2="170.18" y2="170.18" width="0.1524" layer="91"/>
+<wire x1="170.18" y1="172.72" x2="170.18" y2="165.1" width="0.1524" layer="91"/>
 <pinref part="GND10" gate="1" pin="GND"/>
 <pinref part="LED1" gate="G$1" pin="C"/>
 </segment>
@@ -18062,11 +18062,11 @@ Digikey ED2737ND</description>
 </net>
 <net name="N$6" class="0">
 <segment>
-<wire x1="142.24" y1="203.2" x2="187.96" y2="203.2" width="0.1524" layer="91"/>
+<wire x1="142.24" y1="203.2" x2="190.5" y2="203.2" width="0.1524" layer="91"/>
 <wire x1="198.12" y1="185.42" x2="198.12" y2="180.34" width="0.1524" layer="91"/>
 <wire x1="198.12" y1="180.34" x2="203.2" y2="180.34" width="0.1524" layer="91"/>
-<wire x1="198.12" y1="180.34" x2="187.96" y2="180.34" width="0.1524" layer="91"/>
-<wire x1="187.96" y1="203.2" x2="187.96" y2="180.34" width="0.1524" layer="91"/>
+<wire x1="198.12" y1="180.34" x2="190.5" y2="180.34" width="0.1524" layer="91"/>
+<wire x1="190.5" y1="203.2" x2="190.5" y2="180.34" width="0.1524" layer="91"/>
 <wire x1="198.12" y1="180.34" x2="198.12" y2="175.26" width="0.1524" layer="91"/>
 <junction x="198.12" y="180.34"/>
 <pinref part="S1" gate="1" pin="P"/>

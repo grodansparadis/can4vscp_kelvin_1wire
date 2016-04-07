@@ -17602,7 +17602,7 @@ Digikey ED2737ND</description>
 <text x="175.26" y="246.38" size="1.778" layer="91">Connector</text>
 <text x="200.66" y="177.8" size="1.778" layer="91">ALPS SKHH</text>
 <text x="200.66" y="175.26" size="1.778" layer="91">Horizontal type</text>
-<text x="378.46" y="7.62" size="1.778" layer="91">A</text>
+<text x="378.46" y="7.62" size="1.778" layer="91">B</text>
 <text x="289.56" y="27.94" size="5.08" layer="91">Kelvin 1-Wire</text>
 <text x="365.76" y="25.4" size="1.778" layer="91">http://www.vscp.org</text>
 <text x="289.56" y="25.4" size="1.778" layer="91">Temperature module</text>
@@ -18062,11 +18062,11 @@ Digikey ED2737ND</description>
 </net>
 <net name="N$6" class="0">
 <segment>
-<wire x1="142.24" y1="203.2" x2="187.96" y2="203.2" width="0.1524" layer="91"/>
+<wire x1="142.24" y1="203.2" x2="190.5" y2="203.2" width="0.1524" layer="91"/>
 <wire x1="198.12" y1="185.42" x2="198.12" y2="180.34" width="0.1524" layer="91"/>
 <wire x1="198.12" y1="180.34" x2="203.2" y2="180.34" width="0.1524" layer="91"/>
-<wire x1="198.12" y1="180.34" x2="187.96" y2="180.34" width="0.1524" layer="91"/>
-<wire x1="187.96" y1="203.2" x2="187.96" y2="180.34" width="0.1524" layer="91"/>
+<wire x1="198.12" y1="180.34" x2="190.5" y2="180.34" width="0.1524" layer="91"/>
+<wire x1="190.5" y1="203.2" x2="190.5" y2="180.34" width="0.1524" layer="91"/>
 <wire x1="198.12" y1="180.34" x2="198.12" y2="175.26" width="0.1524" layer="91"/>
 <junction x="198.12" y="180.34"/>
 <pinref part="S1" gate="1" pin="P"/>

@@ -188,19 +188,23 @@ const uint8_t reg2eeprom_pg0[] = {
     /* REG0_ONEWIRE_CH6_CTRL_LOW            */          VSCP_EEPROM_END + 31,
     /* REG0_ONEWIRE_CH6_CTRL_HIGH           */          VSCP_EEPROM_END + 32,
     /* REG0_ONEWIRE_CH7_CTRL_LOW            */          VSCP_EEPROM_END + 33,
-    /* REG0_ONEWIRE_CH7_CTRL_HIGH           */          VSCP_EEPROM_END + 34                                                        
+    /* REG0_ONEWIRE_CH7_CTRL_HIGH           */          VSCP_EEPROM_END + 34,
+                                                        
+    /* EEPROM_REPORT_INTERVAL0              */          VSCP_EEPROM_END + 35,
+    /* EEPROM_REPORT_INTERVAL1              */          VSCP_EEPROM_END + 36,
+    /* EEPROM_REPORT_INTERVAL2              */          VSCP_EEPROM_END + 37,
+    /* EEPROM_REPORT_INTERVAL3              */          VSCP_EEPROM_END + 38,
+    /* EEPROM_REPORT_INTERVAL4              */          VSCP_EEPROM_END + 39,
+    /* EEPROM_REPORT_INTERVAL5              */          VSCP_EEPROM_END + 40,
+    /* EEPROM_REPORT_INTERVAL6              */          VSCP_EEPROM_END + 41,
+    /* EEPROM_REPORT_INTERVAL7              */          VSCP_EEPROM_END + 42,                                                        
 };
 
-// This table translates registers in page 1 to EEPROM locations
-const uint8_t reg2eeprom_pg1[] = {
-    /* EEPROM_REPORT_INTERVAL0              */          VSCP_EEPROM_END + 0,
-    /* EEPROM_REPORT_INTERVAL1              */          VSCP_EEPROM_END + 0,
-    /* EEPROM_REPORT_INTERVAL2              */          VSCP_EEPROM_END + 0,
-    /* EEPROM_REPORT_INTERVAL3              */          VSCP_EEPROM_END + 0,
-    /* EEPROM_REPORT_INTERVAL4              */          VSCP_EEPROM_END + 0,
-    /* EEPROM_REPORT_INTERVAL5              */          VSCP_EEPROM_END + 0,
-    /* EEPROM_REPORT_INTERVAL6              */          VSCP_EEPROM_END + 0,
-    /* EEPROM_REPORT_INTERVAL7              */          VSCP_EEPROM_END + 0,
+// Page 1 is temperature values
+
+// This table translates registers in page 2 to EEPROM locations
+const uint8_t reg2eeprom_pg2[] = {
+    
                                                         
     /* EEPROM_LOW_ALARM0_MSB                */          VSCP_EEPROM_END + 0,
     /* EEPROM_LOW_ALARM0_LSB                */          VSCP_EEPROM_END + 0,
@@ -280,8 +284,8 @@ const uint8_t reg2eeprom_pg1[] = {
     /* EEPROM_HYSTERESIS_SENSOR7            */          VSCP_EEPROM_END + 0,                                                        
 };
 
-// This table translates registers in page 2 to EEPROM locations
-const uint8_t reg2eeprom_pg2[] = {
+// This table translates registers in page 3 to EEPROM locations
+const uint8_t reg2eeprom_pg3[] = {
     /* REG0_ONEWIRE_CH0_ADDR0               */          VSCP_EEPROM_END + 0,
     /* REG0_ONEWIRE_CH0_ADDR1               */          VSCP_EEPROM_END + 1,
     /* REG0_ONEWIRE_CH0_ADDR2               */          VSCP_EEPROM_END + 0,

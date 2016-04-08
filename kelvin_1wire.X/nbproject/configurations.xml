@@ -43,6 +43,7 @@
     <logicalFolder name="OtherFiles" displayName="Other Files" projectFiles="false">
       <itemPath>../readme.txt</itemPath>
       <itemPath>../conversion_C2F.txt</itemPath>
+      <itemPath>../mdf/1wire_1.xml</itemPath>
     </logicalFolder>
     <itemPath>../HISTORY.txt</itemPath>
   </logicalFolder>
@@ -501,6 +502,7 @@
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
         <property key="debugoptions.useswbreakpoints" value="false"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="hwtoolclock.instructionspeed" value="4"/>
         <property key="hwtoolclock.units" value="mips"/>

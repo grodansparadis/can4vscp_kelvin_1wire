@@ -51,6 +51,7 @@
 /kelvin_1wire.X/nbproject/private/
 /kelvin_1wire.X/dist/Relocated_2580/
 /kelvin_1wire.X/html
+/kelvin_1wire.X/dist
 *.b##
 *.s##
 *.p1
@@ -73,3 +74,6 @@
 *.s#7
 *.s#8
 *.s#9
+*.d
+*.pre
+

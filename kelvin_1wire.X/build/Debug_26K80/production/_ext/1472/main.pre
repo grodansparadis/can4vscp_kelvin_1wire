@@ -22115,7 +22115,7 @@ void setEventData(int v, unsigned char unit);
 void read_app_register(unsigned char reg);
 void write_app_register(unsigned char reg, unsigned char val);
 
-# 714 "../onewire.h"
+# 549 "../onewire.h"
 double Celsius2Fahrenheit(double tc);
 double Fahrenheit2Celsius(double tf);
 double Celsius2Kelvin(double tc);
@@ -22135,6 +22135,8 @@ int16_t DS1820_GetTempRaw( uint8_t pin );
 float DS1820_GetTempFloat( uint8_t pin );
 void DS1820_GetTempString( int16_t rawTemp, char *strTemp );
 
+void calculateSetFilterMask( void );
+
 
 void actionScan( uint8_t param );
 void actionScanStore( uint8_t param );
@@ -22143,10 +22145,10 @@ void actionClearAlarm( uint8_t param );
 void actionClearHigh( uint8_t param );
 void actionClearLow( uint8_t param );
 
-# 748
+# 585
 int8_t sendCANFrame( uint32_t id, uint8_t size, uint8_t *pData );
 
-# 757
+# 594
 int8_t getCANFrame( uint32_t *pid, uint8_t *psize, uint8_t *pData );
 
 
@@ -22206,206 +22208,224 @@ uint8_t addrSensor[8][8];
 
 # 155
 const uint8_t reg2eeprom_pg0[] = {
-0 + 0,
-0 + 1,
+10 + 0,
+10 + 1,
 
-0 + 2,
-0 + 3,
-0 + 4,
-0 + 5,
-0 + 6,
-0 + 7,
-0 + 8,
-0 + 10,
-0 + 11,
-0 + 12,
-0 + 13,
-0 + 14,
-0 + 15,
-0 + 16,
-0 + 17,
-0 + 18,
+10 + 2,
+10 + 3,
+10 + 4,
+10 + 5,
+10 + 6,
+10 + 7,
+10 + 8,
+10 + 10,
+10 + 11,
+10 + 12,
+10 + 13,
+10 + 14,
+10 + 15,
+10 + 16,
+10 + 17,
+10 + 18,
 
-0 + 19,
-0 + 20,
-0 + 21,
-0 + 22,
-0 + 23,
-0 + 24,
-0 + 25,
-0 + 26,
-0 + 27,
-0 + 28,
-0 + 29,
-0 + 30,
-0 + 31,
-0 + 32,
-0 + 33,
-0 + 34,
+10 + 19,
+10 + 20,
+10 + 21,
+10 + 22,
+10 + 23,
+10 + 24,
+10 + 25,
+10 + 26,
+10 + 27,
+10 + 28,
+10 + 29,
+10 + 30,
+10 + 31,
+10 + 32,
+10 + 33,
+10 + 34,
 
-0 + 35,
-0 + 36,
-0 + 37,
-0 + 38,
-0 + 39,
-0 + 40,
-0 + 41,
-0 + 42,
+10 + 35,
+10 + 36,
+10 + 37,
+10 + 38,
+10 + 39,
+10 + 40,
+10 + 41,
+10 + 42,
+
+10 + 43,
+10 + 44,
 };
 
 
 
 
 const uint8_t reg2eeprom_pg2[] = {
+10 + 45,
+10 + 46,
+10 + 47,
+10 + 48,
+10 + 49,
+10 + 50,
+10 + 51,
+10 + 52,
+10 + 53,
+10 + 54,
+10 + 55,
+10 + 56,
+10 + 57,
+10 + 58,
+10 + 59,
+10 + 60,
 
+10 + 61,
+10 + 62,
+10 + 63,
+10 + 64,
+10 + 65,
+10 + 66,
+10 + 67,
+10 + 68,
+10 + 69,
+10 + 70,
+10 + 71,
+10 + 72,
+10 + 73,
+10 + 74,
+10 + 75,
+10 + 76,
 
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
+10 + 77,
+10 + 78,
+10 + 79,
+10 + 80,
+10 + 81,
+10 + 82,
+10 + 83,
+10 + 84,
+10 + 85,
+10 + 86,
+10 + 87,
+10 + 88,
+10 + 89,
+10 + 90,
+10 + 91,
+10 + 92,
 
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
+10 + 93,
+10 + 94,
+10 + 95,
+10 + 96,
+10 + 97,
+10 + 98,
+10 + 99,
+10 + 100,
+10 + 101,
+10 + 102,
+10 + 103,
+10 + 104,
+10 + 105,
+10 + 106,
+10 + 107,
+10 + 108,
 
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
+10 + 109,
+10 + 110,
+10 + 111,
+10 + 112,
+10 + 113,
+10 + 114,
+10 + 115,
+10 + 116,
 
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
-0 + 0,
+10 + 117,
+10 + 118,
+10 + 119,
+10 + 120,
+10 + 121,
+10 + 122,
+10 + 123,
+10 + 124,
+10 + 125,
+10 + 126,
+10 + 127,
+10 + 128,
+10 + 129,
+10 + 130,
+10 + 131,
+10 + 132,
 };
 
-
+# 309
 const uint8_t reg2eeprom_pg3[] = {
-0 + 0,
-0 + 1,
-0 + 0,
-0 + 1,
-0 + 0,
-0 + 1,
-0 + 0,
-0 + 1,
-0 + 0,
-0 + 1,
-0 + 0,
-0 + 1,
-0 + 0,
-0 + 1,
-0 + 0,
-0 + 1,
-0 + 0,
-0 + 1,
-0 + 0,
-0 + 1,
-0 + 0,
-0 + 1,
-0 + 0,
-0 + 1,
-0 + 0,
-0 + 1,
-0 + 0,
-0 + 1,
-0 + 0,
-0 + 1,
-0 + 0,
-0 + 1,
-0 + 0,
-0 + 1,
-0 + 0,
-0 + 1,
-0 + 0,
-0 + 1,
-0 + 0,
-0 + 1,
-0 + 0,
-0 + 1,
-0 + 0,
-0 + 1,
-0 + 0,
-0 + 1,
-0 + 0,
-0 + 1,
-0 + 0,
-0 + 1,
-0 + 0,
-0 + 1,
-0 + 0,
-0 + 1,
-0 + 0,
-0 + 1,
-0 + 0,
-0 + 1,
-0 + 0,
-0 + 1,
-0 + 0,
-0 + 1,
-0 + 0,
-0 + 1
+10 + 133,
+10 + 134,
+10 + 135,
+10 + 136,
+10 + 137,
+10 + 138,
+10 + 139,
+10 + 140,
+10 + 141,
+10 + 142,
+10 + 143,
+10 + 144,
+10 + 145,
+10 + 146,
+10 + 147,
+10 + 148,
+10 + 149,
+10 + 150,
+10 + 151,
+10 + 152,
+10 + 153,
+10 + 154,
+10 + 155,
+10 + 156,
+10 + 157,
+10 + 158,
+10 + 159,
+10 + 160,
+10 + 161,
+10 + 162,
+10 + 163,
+10 + 164,
+10 + 165,
+10 + 166,
+10 + 167,
+10 + 168,
+10 + 169,
+10 + 170,
+10 + 171,
+10 + 172,
+10 + 173,
+10 + 174,
+10 + 175,
+10 + 176,
+10 + 177,
+10 + 178,
+10 + 179,
+10 + 180,
+10 + 181,
+10 + 182,
+10 + 183,
+10 + 184,
+10 + 185,
+10 + 186,
+10 + 187,
+10 + 188,
+10 + 189,
+10 + 190,
+10 + 191,
+10 + 192,
+10 + 193,
+10 + 194,
+10 + 195,
+10 + 196
 };
 
-# 362
+# 384
 void interrupt low_priority interrupt_at_low_vector( void )
 {
 
@@ -22484,7 +22504,7 @@ PIR1bits.ADIF = 0;
 return;
 }
 
-# 446
+# 468
 uint8_t input( uint8_t pin )
 {
 uint8_t rv = 1;
@@ -22516,7 +22536,7 @@ break;
 return rv;
 }
 
-# 483
+# 505
 extern void output( uint8_t pin )
 {
 switch ( pin ) {
@@ -22541,7 +22561,7 @@ break;
 
 }
 
-# 513
+# 535
 void output_low( uint8_t pin )
 {
 switch ( pin ) {
@@ -22569,7 +22589,7 @@ break;
 }
 }
 
-# 546
+# 568
 void output_high( uint8_t pin )
 {
 switch ( pin ) {
@@ -22597,7 +22617,7 @@ break;
 }
 }
 
-# 580
+# 602
 void main()
 {
 uint32_t i;
@@ -22722,13 +22742,12 @@ doWork();
 }
 }
 
-# 711
+# 733
 void doWork(void)
 {
 float temp;
 char buf[80];
 
-# 725
 adc_low = DS1820_FindFirstDevice( 3 );
 temp = DS1820_GetTempFloat( 3 );
 uint16_t raw = DS1820_GetTempRaw( 3 );
@@ -22736,17 +22755,17 @@ DS1820_GetTempString( raw, buf );
 adc_low = 1;
 }
 
-# 736
+# 749
 void doOneSecondWork(void)
 {
 uint8_t tmp;
 uint8_t i;
 int16_t setpoint;
 
-# 1021
+# 1034
 }
 
-# 1027
+# 1040
 int8_t sendTempEvent(uint8_t i)
 {
 vscp_omsg.priority = 0x03;
@@ -22754,22 +22773,11 @@ vscp_omsg.flags = 0x80 + 4;
 vscp_omsg.vscp_class = 10;
 vscp_omsg.vscp_type = 6;
 
-
-vscp_omsg.data[ 0 ] = 0x80 |
-((0x03 & Read_b_eep(i + 0x43)) << 3) |
-i;
-
-vscp_omsg.data[ 1 ] = 0x82;
-
-# 1045
-if (!vscp_sendEvent()) {
-return 0;
-}
-
+# 1062
 return 1;
 }
 
-# 1056
+# 1069
 void setEventData(int v, unsigned char unit)
 {
 double newval;
@@ -22794,7 +22802,7 @@ vscp_omsg.data[ 2 ] = ((ival & 0xff00) >> 8);
 vscp_omsg.data[ 3 ] = (ival & 0xff);
 }
 
-# 1086
+# 1099
 void init()
 {
 
@@ -22802,20 +22810,20 @@ void init()
 
 init_app_ram();
 
-# 1099
+# 1112
 TRISA = 0x07;
 
-# 1110
+# 1123
 TRISB = 0x1B;
 
-# 1121
+# 1134
 PORTC = 0b11011001;
 TRISC = 0b11011001;
 
 OpenTimer0(0b11111111 & 0b10111111 & 0b11011111 & 0b11110010);
 WriteTimer0(0xfb1d);
 
-# 1135
+# 1148
 CM1CON = 0x00;
 CM2CON = 0x00;
 CVRCON = 0;
@@ -22836,7 +22844,7 @@ OpenADC( 0b10101111 & 0b11111111 & 0b11111111,
 
 ECANInitialize();
 
-# 1177
+# 1190
 INTCONbits.GIE = 1;
 
 
@@ -22845,7 +22853,7 @@ ConvertADC();
 return;
 }
 
-# 1189
+# 1202
 void init_app_ram(void)
 {
 char i;
@@ -22867,138 +22875,80 @@ high_alarm = 0;
 
 }
 
-# 1216
+# 1229
 void init_app_eeprom(void)
 {
-
-(Busy_eep(), Write_b_eep(0x41,0));
-(Busy_eep(), Write_b_eep(0x41,0));
-
-(Busy_eep(), Write_b_eep(0x43,0b00000001));
-(Busy_eep(), Write_b_eep(0x44,0b00000001));
-(Busy_eep(), Write_b_eep(0x45,0b00000001));
-(Busy_eep(), Write_b_eep(0x46,0b00000001));
-(Busy_eep(), Write_b_eep(0x47,0b00000001));
-(Busy_eep(), Write_b_eep(0x48,0b00000001));
-
-(Busy_eep(), Write_b_eep(0x4A,0));
-(Busy_eep(), Write_b_eep(0x4B,0));
-(Busy_eep(), Write_b_eep(0x4C,0));
-(Busy_eep(), Write_b_eep(0x4D,0));
-(Busy_eep(), Write_b_eep(0x4E,0));
+unsigned char i, j;
 
 
 
-(Busy_eep(), Write_b_eep(0x5B,0x80));
-(Busy_eep(), Write_b_eep(0x5C,0xff));
 
-(Busy_eep(), Write_b_eep(0x5D,0x80));
-(Busy_eep(), Write_b_eep(0x5E,0xff));
-
-(Busy_eep(), Write_b_eep(0x5F,0x80));
-(Busy_eep(), Write_b_eep(0x60,0xff));
-
-(Busy_eep(), Write_b_eep(0x61,0x80));
-(Busy_eep(), Write_b_eep(0x62,0xff));
-
-(Busy_eep(), Write_b_eep(0x63,0x80));
-(Busy_eep(), Write_b_eep(0x64,0xff));
-
-(Busy_eep(), Write_b_eep(0x65,0x80));
-(Busy_eep(), Write_b_eep(0x66,0xff));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 0 ],0));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 0 ],0));
 
 
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 2 ],1));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 3 ],1));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 4 ],2));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 5 ],2));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 6 ],3));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 7 ],3));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 8 ],4));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 9 ],4));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 10 ],5));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 11 ],5));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 12 ],6));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 13 ],6));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 14 ],7));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 15 ],7));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 16 ],8));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 17 ],8));
 
-(Busy_eep(), Write_b_eep(0x67,0x7f));
-(Busy_eep(), Write_b_eep(0x68,0xff));
+for ( i=0; i<8; i++ ) {
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 18 + 2*i ],0b00000001));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 19 + 2*i ],0b00000001));
 
-(Busy_eep(), Write_b_eep(0x69,0x7f));
-(Busy_eep(), Write_b_eep(0x6A,0xff));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 34 + i ],0b00000001));
 
-(Busy_eep(), Write_b_eep(0x6B,0x7f));
-(Busy_eep(), Write_b_eep(0x6C,0xff));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 0 + 2*i ],0x80));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 1 + 2*i ],0xff));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 16 + 2*i ],0x7f));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 17 + 2*i ],0xff));
 
-(Busy_eep(), Write_b_eep(0x6D,0x7f));
-(Busy_eep(), Write_b_eep(0x6E,0xff));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 32 + 2*i ],0x7f));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 33 + 2*i ],0xff));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 48 + 2*i ],0x80));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 49 + 2*i ],0x00));
 
-(Busy_eep(), Write_b_eep(0x6F,0x7f));
-(Busy_eep(), Write_b_eep(0x70,0xff));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 64 + i ],2));
 
-(Busy_eep(), Write_b_eep(0x71,0x7f));
-(Busy_eep(), Write_b_eep(0x72,0xff));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 72 + 2*i ],0));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 73 + 2*i ],0));
+}
+
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 42 ],0x0F));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 43 ],0x68));
 
 
-
-(Busy_eep(), Write_b_eep(0x73,0));
-(Busy_eep(), Write_b_eep(0x74,0));
-
-(Busy_eep(), Write_b_eep(0x75,0));
-(Busy_eep(), Write_b_eep(0x76,0));
-
-(Busy_eep(), Write_b_eep(0x77,0));
-(Busy_eep(), Write_b_eep(0x78,0));
-
-(Busy_eep(), Write_b_eep(0x79,0));
-(Busy_eep(), Write_b_eep(0x7A,0));
-
-(Busy_eep(), Write_b_eep(0x7B,0));
-(Busy_eep(), Write_b_eep(0x7C,0));
-
-(Busy_eep(), Write_b_eep(0x7D,0));
-(Busy_eep(), Write_b_eep(0x7E,0));
+for ( i=0; i<64; i++ ) {
+(Busy_eep(), Write_b_eep(133,0));
+}
 
 
 
-(Busy_eep(), Write_b_eep(0x7F,0x7f));
-(Busy_eep(), Write_b_eep(0x80,0xff));
 
-(Busy_eep(), Write_b_eep(0x81,0x7f));
-(Busy_eep(), Write_b_eep(0x82,0xff));
-
-(Busy_eep(), Write_b_eep(0x83,0x7f));
-(Busy_eep(), Write_b_eep(0x84,0xff));
-
-(Busy_eep(), Write_b_eep(0x85,0x7f));
-(Busy_eep(), Write_b_eep(0x86,0xff));
-
-(Busy_eep(), Write_b_eep(0x87,0x7f));
-(Busy_eep(), Write_b_eep(0x88,0xff));
-
-(Busy_eep(), Write_b_eep(0x89,0x7f));
-(Busy_eep(), Write_b_eep(0x8A,0xff));
+for ( i = 0; i < 8; i++ ) {
+for ( j = 0; j < 8; j++ ) {
+(Busy_eep(), Write_b_eep(197 + i * 8 + j,0));
+}
+}
 
 
-
-(Busy_eep(), Write_b_eep(0x8B,0x80));
-(Busy_eep(), Write_b_eep(0x8C,0x00));
-
-(Busy_eep(), Write_b_eep(0x8D,0x80));
-(Busy_eep(), Write_b_eep(0x8E,0x00));
-
-(Busy_eep(), Write_b_eep(0x8F,0x80));
-(Busy_eep(), Write_b_eep(0x90,0x00));
-
-(Busy_eep(), Write_b_eep(0x91,0x80));
-(Busy_eep(), Write_b_eep(0x92,0x00));
-
-(Busy_eep(), Write_b_eep(0x93,0x80));
-(Busy_eep(), Write_b_eep(0x94,0x00));
-
-(Busy_eep(), Write_b_eep(0x95,0x80));
-(Busy_eep(), Write_b_eep(0x96,0x00));
-
-
-
-(Busy_eep(), Write_b_eep(0x97,2));
-(Busy_eep(), Write_b_eep(0x98,2));
-(Busy_eep(), Write_b_eep(0x99,2));
-(Busy_eep(), Write_b_eep(0x9A,2));
-(Busy_eep(), Write_b_eep(0x9B,2));
-(Busy_eep(), Write_b_eep(0x9C,2));
+calculateSetFilterMask();
 
 }
 
-# 1351
+# 1306
 int8_t convertTemperature(int temp, unsigned char unit)
 {
 int newval;
@@ -23019,513 +22969,53 @@ newval = (int) temp;
 return newval;
 }
 
-# 1377
+# 1332
 void handle_sync(void)
 {
 uint8_t i;
 
-for (i = 0; i < 6; i++) {
-
-if ( ( ( 0xff == vscp_imsg.data[ 1 ] ) ||
-( Read_b_eep(0x73 + 2*i) == vscp_imsg.data[ 1 ] ) ) &&
-( ( 0xff == vscp_imsg.data[ 2 ] ) ||
-( Read_b_eep(0x74 + 2*i) == vscp_imsg.data[ 2 ] ) ) ) {
-
-
-timeout_clock = 0;
-while (!sendTempEvent(i)) {
-if (timeout_clock > 1000) break;
-}
-}
-}
+# 1350
 }
 
-# 1401
+# 1356
 uint8_t vscp_readAppReg(unsigned char reg)
 {
 uint8_t rv;
 
 if (0 == vscp_page_select) {
 
-switch (reg) {
-
-
-case 0x00:
-rv = Read_b_eep(0x41);
-break;
-
-
-case 0x01:
-rv = Read_b_eep(0x42);
-break;
-
-
-case 0x02:
-rv = Read_b_eep(0x43);
-break;
-
-
-case 0x03:
-rv = Read_b_eep(0x44);
-break;
-
-
-case 0x04:
-rv = Read_b_eep(0x45);
-break;
-
-
-case 0x05:
-rv = Read_b_eep(0x46);
-break;
-
-
-case 0x06:
-rv = Read_b_eep(0x47);
-break;
-
-
-case 0x07:
-rv = Read_b_eep(0x48);
-break;
-
-
-case 0x08:
-rv = ((current_temp & 0xff00) >> 8);
-break;
-
-
-case 0x09:
-rv = (current_temp & 0x00ff);
-break;
-
-
-case 0x0A:
-rv = ((current_temp & 0xff00) >> 8);
-break;
-
-
-case 0x0B:
-rv = (current_temp & 0x00ff);
-break;
-
-
-case 0x0C:
-rv = ((current_temp & 0xff00) >> 8);
-break;
-
-
-case 0x0D:
-rv = (current_temp & 0x00ff);
-break;
-
-
-case 0x0E:
-rv = ((current_temp & 0xff00) >> 8);
-break;
-
-
-case 0x0F:
-rv = (current_temp & 0x00ff);
-break;
-
-
-case 0x10:
-rv = ((current_temp & 0xff00) >> 8);
-break;
-
-
-case 0x11:
-rv = (current_temp & 0x00ff);
-break;
-
-
-case 0x12:
-rv = ((current_temp & 0xff00) >> 8);
-break;
-
-
-case 0x13:
-rv = (current_temp & 0x00ff);
-break;
-
-
-case 0x14:
-rv = Read_b_eep(0x49);
-break;
-
-
-case 0x15:
-rv = Read_b_eep(0x4A);
-break;
-
-
-case 0x16:
-rv = Read_b_eep(0x4B);
-break;
-
-
-case 0x17:
-rv = Read_b_eep(0x4C);
-break;
-
-
-case 0x18:
-rv = Read_b_eep(0x4D);
-break;
-
-
-case 0x19:
-rv = Read_b_eep(0x4E);
-break;
-
-# 1543
-case 0x32:
-rv = Read_b_eep(0x5B);
-break;
-
-
-case 0x33:
-rv = Read_b_eep(0x5C);
-break;
-
-
-case 0x34:
-rv = Read_b_eep(0x5D);
-break;
-
-
-case 0x35:
-rv = Read_b_eep(0x5E);
-break;
-
-
-case 0x36:
-rv = Read_b_eep(0x5F);
-break;
-
-
-case 0x37:
-rv = Read_b_eep(0x60);
-break;
-
-
-case 0x38:
-rv = Read_b_eep(0x61);
-break;
-
-
-case 0x39:
-rv = Read_b_eep(0x62);
-break;
-
-
-case 0x3A:
-rv = Read_b_eep(0x63);
-break;
-
-
-case 0x3B:
-rv = Read_b_eep(0x64);
-break;
-
-
-case 0x3C:
-rv = Read_b_eep(0x65);
-break;
-
-
-case 0x3D:
-rv = Read_b_eep(0x66);
-break;
-
-# 1608
-case 0x3E:
-rv = Read_b_eep(0x67);
-break;
-
-
-case 0x3F:
-rv = Read_b_eep(0x68);
-break;
-
-
-case 0x40:
-rv = Read_b_eep(0x69);
-break;
-
-
-case 0x41:
-rv = Read_b_eep(0x6A);
-break;
-
-
-case 0x42:
-rv = Read_b_eep(0x6B);
-break;
-
-
-case 0x43:
-rv = Read_b_eep(0x6C);
-break;
-
-
-case 0x44:
-rv = Read_b_eep(0x6D);
-break;
-
-
-case 0x45:
-rv = Read_b_eep(0x6E);
-break;
-
-
-case 0x46:
-rv = Read_b_eep(0x6F);
-break;
-
-
-case 0x47:
-rv = Read_b_eep(0x70);
-break;
-
-
-case 0x48:
-rv = Read_b_eep(0x71);
-break;
-
-
-case 0x49:
-rv = Read_b_eep(0x72);
-break;
-
-# 1672
-case 0x4A:
-rv = Read_b_eep(0x73);
-break;
-
-
-case 0x4B:
-rv = Read_b_eep(0x74);
-break;
-
-
-case 0x4C:
-rv = Read_b_eep(0x75);
-break;
-
-
-case 0x4D:
-rv = Read_b_eep(0x76);
-break;
-
-
-case 0x4E:
-rv = Read_b_eep(0x77);
-break;
-
-
-case 0x4F:
-rv = Read_b_eep(0x78);
-break;
-
-
-case 0x50:
-rv = Read_b_eep(0x79);
-break;
-
-
-case 0x51:
-rv = Read_b_eep(0x7A);
-break;
-
-
-case 0x52:
-rv = Read_b_eep(0x7B);
-break;
-
-
-case 0x53:
-rv = Read_b_eep(0x7C);
-break;
-
-
-case 0x54:
-rv = Read_b_eep(0x7D);
-break;
-
-
-case 0x55:
-rv = Read_b_eep(0x7E);
-break;
-
-# 1736
-case 0x56:
-rv = Read_b_eep(0x7F);
-break;
-
-
-case 0x57:
-rv = Read_b_eep(0x80);
-break;
-
-
-case 0x58:
-rv = Read_b_eep(0x81);
-break;
-
-
-case 0x59:
-rv = Read_b_eep(0x82);
-break;
-
-
-case 0x5A:
-rv = Read_b_eep(0x83);
-break;
-
-
-case 0x5B:
-rv = Read_b_eep(0x84);
-break;
-
-
-case 0x5C:
-rv = Read_b_eep(0x85);
-break;
-
-
-case 0x5D:
-rv = Read_b_eep(0x86);
-break;
-
-
-case 0x5E:
-rv = Read_b_eep(0x87);
-break;
-
-
-case 0x5F:
-rv = Read_b_eep(0x88);
-break;
-
-
-case 0x60:
-rv = Read_b_eep(0x89);
-break;
-
-
-case 0x61:
-rv = Read_b_eep(0x8A);
-break;
-
-# 1800
-case 0x62:
-rv = Read_b_eep(0x8B);
-break;
-
-
-case 0x63:
-rv = Read_b_eep(0x8C);
-break;
-
-
-case 0x64:
-rv = Read_b_eep(0x8D);
-break;
-
-
-case 0x65:
-rv = Read_b_eep(0x8E);
-break;
-
-
-case 0x66:
-rv = Read_b_eep(0x8F);
-break;
-
-
-case 0x67:
-rv = Read_b_eep(0x90);
-break;
-
-
-case 0x68:
-rv = Read_b_eep(0x91);
-break;
-
-
-case 0x69:
-rv = Read_b_eep(0x92);
-break;
-
-
-case 0x6A:
-rv = Read_b_eep(0x93);
-break;
-
-
-case 0x6B:
-rv = Read_b_eep(0x94);
-break;
-
-
-case 0x6C:
-rv = Read_b_eep(0x95);
-break;
-
-
-case 0x6D:
-rv = Read_b_eep(0x96);
-break;
-
-# 1865
-case 0x6E:
-rv = Read_b_eep(0x97);
-break;
-
-
-case 0x6F:
-rv = Read_b_eep(0x98);
-break;
-
-
-case 0x70:
-rv = Read_b_eep(0x99);
-break;
-
-
-case 0x71:
-rv = Read_b_eep(0x9A);
-break;
-
-
-case 0x72:
-rv = Read_b_eep(0x9B);
-break;
-
-
-case 0x73:
-rv = Read_b_eep(0x9C);
-break;
-
-
-case 0x74:
-rv = 0;
-break;
-
-
-case 0x75:
-rv = 0;
-break;
-
-default:
-rv = 0;
-break;
+if ( ( reg >= 0 ) &&
+( reg <= 43 ) ) {
+rv = Read_b_eep(reg2eeprom_pg0[ reg ]);
 }
+
 }
 else if (1 == vscp_page_select) {
 
+
+}
+else if (2 == vscp_page_select) {
+
+if ( ( reg >= 0 ) &&
+( reg <= 89 ) ) {
+rv = Read_b_eep(reg2eeprom_pg2[ reg ]);
+}
+
+}
+else if (3 == vscp_page_select) {
+
+if ( ( reg >= 1 ) &&
+( reg <= 64 ) ) {
+rv = Read_b_eep(reg2eeprom_pg2[ 133 + reg ]);
+}
+
+
+}
+else if (250 == vscp_page_select) {
+
+if ( reg < ( 0 + 8*8 ) ) {
+rv = Read_b_eep(197 + reg);
+}
 
 }
 
@@ -23533,593 +23023,134 @@ return rv;
 
 }
 
-# 1922
+# 1405
 uint8_t vscp_writeAppReg(unsigned char reg, unsigned char val)
 {
 uint8_t rv;
 
-# 1931
+# 1414
 rv = ~val;
 
 if (0 == vscp_page_select) {
 
-switch (reg) {
 
-
-case 0x00:
-(Busy_eep(), Write_b_eep(0x41,val));
-rv = Read_b_eep(0x41);
-break;
-
-
-case 0x01:
-(Busy_eep(), Write_b_eep(0x42,val));
-rv = Read_b_eep(0x42);
-break;
-
-# 1954
-case 0x02:
-(Busy_eep(), Write_b_eep(0x43,val));
-rv = Read_b_eep(0x43);
-break;
-
-
-case 0x03:
-(Busy_eep(), Write_b_eep(0x44,val));
-rv = Read_b_eep(0x44);
-break;
-
-
-case 0x04:
-(Busy_eep(), Write_b_eep(0x45,val));
-rv = Read_b_eep(0x45);
-break;
-
-
-case 0x05:
-(Busy_eep(), Write_b_eep(0x46,val));
-rv = Read_b_eep(0x46);
-break;
-
-
-case 0x06:
-(Busy_eep(), Write_b_eep(0x47,val));
-rv = Read_b_eep(0x47);
-break;
-
-
-case 0x07:
-(Busy_eep(), Write_b_eep(0x48,val));
-rv = Read_b_eep(0x48);
-break;
-
-# 1994
-case 0x14:
-(Busy_eep(), Write_b_eep(0x49,val));
-rv = Read_b_eep(0x49);
-break;
-
-
-case 0x15:
-(Busy_eep(), Write_b_eep(0x4A,val));
-rv = Read_b_eep(0x4A);
-break;
-
-
-case 0x16:
-(Busy_eep(), Write_b_eep(0x4B,val));
-rv = Read_b_eep(0x4B);
-break;
-
-
-case 0x17:
-(Busy_eep(), Write_b_eep(0x4C,val));
-rv = Read_b_eep(0x4C);
-break;
-
-
-case 0x18:
-(Busy_eep(), Write_b_eep(0x4D,val));
-rv = Read_b_eep(0x4D);
-break;
-
-
-case 0x19:
-(Busy_eep(), Write_b_eep(0x4E,val));
-rv = Read_b_eep(0x4E);
-break;
-
-# 2034
-case 0x32:
-(Busy_eep(), Write_b_eep(0x5B,val));
-rv = Read_b_eep(0x5B);
-break;
-
-
-case 0x33:
-(Busy_eep(), Write_b_eep(0x5C,val));
-rv = Read_b_eep(0x5C);
-break;
-
-
-case 0x34:
-(Busy_eep(), Write_b_eep(0x5D,val));
-rv = Read_b_eep(0x5D);
-break;
-
-
-case 0x35:
-(Busy_eep(), Write_b_eep(0x5E,val));
-rv = Read_b_eep(0x5E);
-break;
-
-
-case 0x36:
-(Busy_eep(), Write_b_eep(0x5F,val));
-rv = Read_b_eep(0x5F);
-break;
-
-
-case 0x37:
-(Busy_eep(), Write_b_eep(0x60,val));
-rv = Read_b_eep(0x60);
-break;
-
-
-case 0x38:
-(Busy_eep(), Write_b_eep(0x61,val));
-rv = Read_b_eep(0x61);
-break;
-
-
-case 0x39:
-(Busy_eep(), Write_b_eep(0x62,val));
-rv = Read_b_eep(0x62);
-break;
-
-
-case 0x3A:
-(Busy_eep(), Write_b_eep(0x63,val));
-rv = Read_b_eep(0x63);
-break;
-
-
-case 0x3B:
-(Busy_eep(), Write_b_eep(0x64,val));
-rv = Read_b_eep(0x64);
-break;
-
-
-case 0x3C:
-(Busy_eep(), Write_b_eep(0x65,val));
-rv = Read_b_eep(0x65);
-break;
-
-
-case 0x3D:
-(Busy_eep(), Write_b_eep(0x66,val));
-rv = Read_b_eep(0x66);
-break;
-
-# 2110
-case 0x3E:
-(Busy_eep(), Write_b_eep(0x67,val));
-rv = Read_b_eep(0x67);
-break;
-
-
-case 0x3F:
-(Busy_eep(), Write_b_eep(0x68,val));
-rv = Read_b_eep(0x68);
-break;
-
-
-case 0x40:
-(Busy_eep(), Write_b_eep(0x69,val));
-rv = Read_b_eep(0x69);
-break;
-
-
-case 0x41:
-(Busy_eep(), Write_b_eep(0x6A,val));
-rv = Read_b_eep(0x6A);
-break;
-
-
-case 0x42:
-(Busy_eep(), Write_b_eep(0x6B,val));
-rv = Read_b_eep(0x6B);
-break;
-
-
-case 0x43:
-(Busy_eep(), Write_b_eep(0x6C,val));
-rv = Read_b_eep(0x6C);
-break;
-
-
-case 0x44:
-(Busy_eep(), Write_b_eep(0x6D,val));
-rv = Read_b_eep(0x6D);
-break;
-
-
-case 0x45:
-(Busy_eep(), Write_b_eep(0x6E,val));
-rv = Read_b_eep(0x6E);
-break;
-
-
-case 0x46:
-(Busy_eep(), Write_b_eep(0x6F,val));
-rv = Read_b_eep(0x6F);
-break;
-
-
-case 0x47:
-(Busy_eep(), Write_b_eep(0x70,val));
-rv = Read_b_eep(0x70);
-break;
-
-
-case 0x48:
-(Busy_eep(), Write_b_eep(0x71,val));
-rv = Read_b_eep(0x71);
-break;
-
-
-case 0x49:
-(Busy_eep(), Write_b_eep(0x72,val));
-rv = Read_b_eep(0x72);
-break;
-
-# 2186
-case 0x4A:
-(Busy_eep(), Write_b_eep(0x73,val));
-rv = Read_b_eep(0x73);
-break;
-
-
-case 0x4B:
-(Busy_eep(), Write_b_eep(0x74,val));
-rv = Read_b_eep(0x74);
-break;
-
-
-case 0x4C:
-(Busy_eep(), Write_b_eep(0x75,val));
-rv = Read_b_eep(0x75);
-break;
-
-
-case 0x4D:
-(Busy_eep(), Write_b_eep(0x76,val));
-rv = Read_b_eep(0x76);
-break;
-
-
-case 0x4E:
-(Busy_eep(), Write_b_eep(0x77,val));
-rv = Read_b_eep(0x77);
-break;
-
-
-case 0x4F:
-(Busy_eep(), Write_b_eep(0x78,val));
-rv = Read_b_eep(0x78);
-break;
-
-
-case 0x50:
-(Busy_eep(), Write_b_eep(0x79,val));
-rv = Read_b_eep(0x79);
-break;
-
-
-case 0x51:
-(Busy_eep(), Write_b_eep(0x7A,val));
-rv = Read_b_eep(0x7A);
-break;
-
-
-case 0x52:
-(Busy_eep(), Write_b_eep(0x7B,val));
-rv = Read_b_eep(0x7B);
-break;
-
-
-case 0x53:
-(Busy_eep(), Write_b_eep(0x7C,val));
-rv = Read_b_eep(0x7C);
-break;
-
-
-case 0x54:
-(Busy_eep(), Write_b_eep(0x7D,val));
-rv = Read_b_eep(0x7D);
-break;
-
-
-case 0x55:
-(Busy_eep(), Write_b_eep(0x7E,val));
-rv = Read_b_eep(0x7E);
-break;
-
-# 2262
-case 0x56:
-(Busy_eep(), Write_b_eep(0x7F,val));
-rv = Read_b_eep(0x7F);
-break;
-
-
-case 0x57:
-(Busy_eep(), Write_b_eep(0x80,val));
-rv = Read_b_eep(0x80);
-break;
-
-
-case 0x58:
-(Busy_eep(), Write_b_eep(0x81,val));
-rv = Read_b_eep(0x81);
-break;
-
-
-case 0x59:
-(Busy_eep(), Write_b_eep(0x82,val));
-rv = Read_b_eep(0x82);
-break;
-
-
-case 0x5A:
-(Busy_eep(), Write_b_eep(0x83,val));
-rv = Read_b_eep(0x83);
-break;
-
-
-case 0x5B:
-(Busy_eep(), Write_b_eep(0x84,val));
-rv = Read_b_eep(0x84);
-break;
-
-
-case 0x5C:
-(Busy_eep(), Write_b_eep(0x85,val));
-rv = Read_b_eep(0x85);
-break;
-
-
-case 0x5D:
-(Busy_eep(), Write_b_eep(0x86,val));
-rv = Read_b_eep(0x86);
-break;
-
-
-case 0x5E:
-(Busy_eep(), Write_b_eep(0x87,val));
-rv = Read_b_eep(0x87);
-break;
-
-
-case 0x5F:
-(Busy_eep(), Write_b_eep(0x88,val));
-rv = Read_b_eep(0x88);
-break;
-
-
-case 0x60:
-(Busy_eep(), Write_b_eep(0x89,val));
-rv = Read_b_eep(0x89);
-break;
-
-
-case 0x61:
-(Busy_eep(), Write_b_eep(0x8A,val));
-rv = Read_b_eep(0x8A);
-break;
-
-# 2338
-case 0x62:
-(Busy_eep(), Write_b_eep(0x8B,val));
-rv = Read_b_eep(0x8B);
-break;
-
-
-case 0x63:
-(Busy_eep(), Write_b_eep(0x8C,val));
-rv = Read_b_eep(0x8C);
-break;
-
-
-case 0x64:
-(Busy_eep(), Write_b_eep(0x8D,val));
-rv = Read_b_eep(0x8D);
-break;
-
-
-case 0x65:
-(Busy_eep(), Write_b_eep(0x8E,val));
-rv = Read_b_eep(0x8E);
-break;
-
-
-case 0x66:
-(Busy_eep(), Write_b_eep(0x8F,val));
-rv = Read_b_eep(0x8F);
-break;
-
-
-case 0x67:
-(Busy_eep(), Write_b_eep(0x90,val));
-rv = Read_b_eep(0x90);
-break;
-
-
-case 0x68:
-(Busy_eep(), Write_b_eep(0x91,val));
-rv = Read_b_eep(0x91);
-break;
-
-
-case 0x69:
-(Busy_eep(), Write_b_eep(0x92,val));
-rv = Read_b_eep(0x92);
-break;
-
-
-case 0x6A:
-(Busy_eep(), Write_b_eep(0x93,val));
-rv = Read_b_eep(0x93);
-break;
-
-
-case 0x6B:
-(Busy_eep(), Write_b_eep(0x94,val));
-rv = Read_b_eep(0x94);
-break;
-
-
-case 0x6C:
-(Busy_eep(), Write_b_eep(0x95,val));
-rv = Read_b_eep(0x95);
-break;
-
-
-case 0x6D:
-(Busy_eep(), Write_b_eep(0x96,val));
-rv = Read_b_eep(0x96);
-break;
-
-# 2414
-case 0x6E:
-(Busy_eep(), Write_b_eep(0x97,val));
-rv = Read_b_eep(0x97);
-break;
-
-
-case 0x6F:
-(Busy_eep(), Write_b_eep(0x98,val));
-rv = Read_b_eep(0x98);
-break;
-
-
-case 0x70:
-(Busy_eep(), Write_b_eep(0x99,val));
-rv = Read_b_eep(0x99);
-
-
-case 0x71:
-(Busy_eep(), Write_b_eep(0x9A,val));
-rv = Read_b_eep(0x9A);
-break;
-
-
-case 0x72:
-(Busy_eep(), Write_b_eep(0x9B,val));
-rv = Read_b_eep(0x9B);
-break;
-
-
-case 0x73:
-(Busy_eep(), Write_b_eep(0x9C,val));
-rv = Read_b_eep(0x9C);
-break;
-
-
-case 0x74:
-rv = 0;
-break;
-
-
-case 0x75:
-rv = 0;
-break;
-
-default:
-rv = ~val;
-break;
+if ( ( reg >= 0 ) &&
+( reg <= 43 ) ) {
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ reg ],val));
+rv = Read_b_eep(reg2eeprom_pg0[ reg ]);
 }
+
 }
 else if (1 == vscp_page_select) {
+
+
+
+}
+else if (2 == vscp_page_select) {
+
+if ( ( reg >= 0 ) &&
+( reg <= 89 ) ) {
+(Busy_eep(), Write_b_eep(reg2eeprom_pg2[ reg ],val));
+rv = Read_b_eep(reg2eeprom_pg2[ reg ]);
+}
+
+}
+else if (3 == vscp_page_select) {
+
+if ( ( reg >= 1 ) &&
+( reg <= 64 ) ) {
+(Busy_eep(), Write_b_eep(reg2eeprom_pg2[ 133 + reg ],val));
+rv = Read_b_eep(reg2eeprom_pg2[ 133 + reg ]);
+}
+
+}
+else if (250 == vscp_page_select) {
+
+if ( reg < (0 + 8 * 8 ) ) {
+(Busy_eep(), Write_b_eep(197 + reg,val));
+calculateSetFilterMask();
+rv = Read_b_eep(197 + reg);
+}
 
 }
 
 return rv;
 }
 
-# 2481
+# 1473
 unsigned char vscp_getMajorVersion()
 {
 return 1;
 }
 
-# 2490
+# 1482
 unsigned char vscp_getMinorVersion()
 {
 return 0;
 }
 
-# 2499
+# 1491
 unsigned char vscp_getSubMinorVersion()
 {
 return 0;
 }
 
-# 2510
+# 1502
 uint8_t vscp_getGUID(uint8_t idx)
 {
 return Read_b_eep(0x12 + idx);
 }
 
-# 2520
+# 1512
 void vscp_setGUID( uint8_t idx, uint8_t data )
 {
 if ( idx>15 ) return;
 (Busy_eep(), Write_b_eep(0x12 + idx,data));
 }
 
-# 2533
+# 1525
 uint8_t vscp_getMDF_URL(uint8_t idx)
 {
 return vscp_deviceURL[ idx ];
 }
 
-# 2542
+# 1534
 uint8_t vscp_getUserID(uint8_t idx)
 {
 return Read_b_eep(0x05 + idx);
 }
 
-# 2551
+# 1543
 void vscp_setUserID(uint8_t idx, uint8_t data)
 {
 (Busy_eep(), Write_b_eep(idx + 0x05,data));
 }
 
-# 2562
+# 1554
 uint8_t vscp_getManufacturerId(uint8_t idx)
 {
 return Read_b_eep(0x0A + idx);
 }
 
-# 2573
+# 1565
 void vscp_setManufacturerId(uint8_t idx, uint8_t data)
 {
 (Busy_eep(), Write_b_eep(0x0A + idx,data));
 }
 
-# 2582
+# 1574
 uint8_t vscp_getBootLoaderAlgorithm(void)
 {
 return 0x01;
 }
 
-# 2591
+# 1583
 uint8_t vscp_getBufferSize(void)
 {
 return 8;
 }
 
-# 2600
+# 1592
 void vscp_getMatrixInfo(char *pData)
 {
 vscp_omsg.data[ 0 ] = 8;
@@ -24131,7 +23162,7 @@ vscp_omsg.data[ 5 ] = 250;
 vscp_omsg.data[ 6 ] = 0;
 }
 
-# 2618
+# 1610
 void doDM(void)
 {
 unsigned char i;
@@ -24147,14 +23178,14 @@ if ( 0 == vscp_imsg.vscp_class ) return;
 for (i = 0; i<8; i++) {
 
 
-dmflags = Read_b_eep(DECISION_MATRIX_EEPROM_START + (8 * i));
+dmflags = Read_b_eep(197 + (8 * i));
 
 
 if ( dmflags & 0x80 ) {
 
 
 if ( ( dmflags & 0x40 ) &&
-( vscp_imsg.oaddr != Read_b_eep(DECISION_MATRIX_EEPROM_START + (8 * i)) ) ) {
+( vscp_imsg.oaddr != Read_b_eep(197 + (8 * i)) ) ) {
 continue;
 }
 
@@ -24177,63 +23208,63 @@ continue;
 }
 
 class_filter = ( ( dmflags & 0x01) << 8 ) +
-Read_b_eep(DECISION_MATRIX_EEPROM_START + (8 * i) + 3);
+Read_b_eep(197 + (8 * i) + 3);
 
-# 2667
+# 1659
 class_mask = ( ( dmflags & 0x02 ) << 7 ) +
-Read_b_eep(DECISION_MATRIX_EEPROM_START + (8 * i) + 2);
+Read_b_eep(197 + (8 * i) + 2);
 
-# 2672
-type_filter = Read_b_eep(DECISION_MATRIX_EEPROM_START + (8 * i) + 5);
+# 1664
+type_filter = Read_b_eep(197 + (8 * i) + 5);
 
-# 2676
-type_mask = Read_b_eep(DECISION_MATRIX_EEPROM_START + (8 * i) + 4);
+# 1668
+type_mask = Read_b_eep(197 + (8 * i) + 4);
 
-# 2680
+# 1672
 if ( !( ( class_filter ^ vscp_imsg.vscp_class ) & class_mask ) &&
 !( ( type_filter ^ vscp_imsg.vscp_type ) & type_mask ) ) {
 
 
-switch ( Read_b_eep(DECISION_MATRIX_EEPROM_START + (8 * i) + 6) ) {
+switch ( Read_b_eep(197 + (8 * i) + 6) ) {
 
-# 2688
+# 1680
 case 0:
 break;
 
 case 1:
-actionScan( Read_b_eep(DECISION_MATRIX_EEPROM_START + (8 * i) + 7) );
+actionScan( Read_b_eep(197 + (8 * i) + 7) );
 
-# 2695
+# 1687
 break;
 
 case 2:
-actionScanStore( Read_b_eep(DECISION_MATRIX_EEPROM_START + (8 * i) + 7) );
+actionScanStore( Read_b_eep(197 + (8 * i) + 7) );
 
-# 2701
+# 1693
 break;
 
 case 3:
-actionReport( Read_b_eep(DECISION_MATRIX_EEPROM_START + (8 * i) + 7) );
+actionReport( Read_b_eep(197 + (8 * i) + 7) );
 
-# 2707
+# 1699
 break;
 
 case 4:
-actionClearAlarm( Read_b_eep(DECISION_MATRIX_EEPROM_START + (8 * i) + 7) );
+actionClearAlarm( Read_b_eep(197 + (8 * i) + 7) );
 
-# 2713
+# 1705
 break;
 
 case 5:
-actionClearHigh( Read_b_eep(DECISION_MATRIX_EEPROM_START + (8 * i) + 7) );
+actionClearHigh( Read_b_eep(197 + (8 * i) + 7) );
 
-# 2719
+# 1711
 break;
 
 case 6:
-actionClearLow( Read_b_eep(DECISION_MATRIX_EEPROM_START + (8 * i) + 7) );
+actionClearLow( Read_b_eep(197 + (8 * i) + 7) );
 
-# 2725
+# 1717
 break;
 
 }
@@ -24246,43 +23277,43 @@ break;
 
 }
 
-# 2741
+# 1733
 void actionScan( uint8_t param )
 {
 
 }
 
-# 2750
+# 1742
 void actionScanStore( uint8_t param )
 {
 
 }
 
-# 2759
+# 1751
 void actionReport( uint8_t param )
 {
 
 }
 
-# 2768
+# 1760
 void actionClearAlarm( uint8_t param )
 {
 
 }
 
-# 2777
+# 1769
 void actionClearHigh( uint8_t param )
 {
 
 }
 
-# 2786
+# 1778
 void actionClearLow( uint8_t param )
 {
 
 }
 
-# 2796
+# 1788
 void vscp_getEmbeddedMdfInfo(void)
 {
 
@@ -24300,25 +23331,25 @@ vscp_omsg.data[ 2 ] = 0;
 vscp_sendEvent();
 }
 
-# 2818
+# 1810
 uint8_t vscp_getRegisterPagesUsed(void)
 {
 return 1;
 }
 
-# 2827
+# 1819
 uint8_t vscp_getZone(void)
 {
-return Read_b_eep(0x41);
+
 }
 
-# 2836
+# 1828
 uint8_t vscp_getSubzone(void)
 {
-return Read_b_eep(0x42);
+
 }
 
-# 2845
+# 1837
 void vscp_goBootloaderMode( uint8_t algorithm )
 {
 if ( 0x01 != algorithm ) return;
@@ -24334,58 +23365,58 @@ ECANSetOperationMode( ECAN_OP_MODE_CONFIG );
 asm("reset");
 }
 
-# 2864
+# 1856
 uint8_t vscp_readNicknamePermanent(void)
 {
 return Read_b_eep(0x01);
 }
 
-# 2873
+# 1865
 void vscp_writeNicknamePermanent(uint8_t nickname)
 {
 (Busy_eep(), Write_b_eep(0x01,nickname));
 }
 
-# 2882
+# 1874
 void vscp_setControlByte( uint8_t ctrl, uint8_t idx )
 {
 if ( idx > 1 ) return;
 (Busy_eep(), Write_b_eep(0x03 + idx,ctrl));
 }
 
-# 2893
+# 1885
 uint8_t vscp_getControlByte( uint8_t idx )
 {
 if ( idx > 1 ) return 0;
 return Read_b_eep(0x03 + idx);
 }
 
-# 2903
+# 1895
 void vscp_init_pstorage( void )
 {
 init_app_eeprom();
 }
 
-# 2912
+# 1904
 uint32_t vscp_getFamilyCode()
 {
 return 0L;
 }
 
-# 2922
+# 1914
 uint32_t vscp_getFamilyType()
 {
 return 0;
 }
 
-# 2931
+# 1923
 void vscp_restoreDefaults()
 {
 init_app_eeprom();
 init_app_ram();
 }
 
-# 2941
+# 1933
 int8_t sendVSCPFrame(uint16_t vscpclass,
 uint8_t vscptype,
 uint8_t nodeid,
@@ -24407,7 +23438,7 @@ return 0;
 return 1;
 }
 
-# 2967
+# 1959
 int8_t getVSCPFrame( uint16_t *pvscpclass,
 uint8_t *pvscptype,
 uint8_t *pNodeId,
@@ -24429,7 +23460,7 @@ return 0;
 return 1;
 }
 
-# 2993
+# 1985
 int8_t sendCANFrame(uint32_t id, uint8_t dlc, uint8_t *pdata)
 {
 uint8_t rv = 0;
@@ -24447,7 +23478,7 @@ vscp_omsg.flags = 0;
 return rv;
 }
 
-# 3014
+# 2006
 int8_t getCANFrame(uint32_t *pid, uint8_t *pdlc, uint8_t *pdata)
 {
 ECAN_RX_MSG_FLAGS flags;
@@ -24467,4 +23498,109 @@ return 1;
 }
 
 return 0;
+}
+
+# 2035
+void calculateSetFilterMask( void )
+{
+uint8_t i,j;
+uint8_t lastOID;
+uint32_t rowmask;
+uint32_t rowfilter;
+
+
+uint32_t mask = 0xffffffff;
+uint32_t filter = 0x00000000;
+
+
+for ( i=0; i < 8; i++ ) {
+
+
+if ( Read_b_eep(10 + 8*i + 1) & 0x80 ) {
+
+# 2059
+rowmask =
+
+( (uint32_t)( Read_b_eep(10 + 8*i + 1) & 0x02 ) << 23 ) |
+
+( (uint32_t)Read_b_eep(10 + 8*i + 2) << 16 ) |
+
+( (uint32_t)Read_b_eep(10 + 8*i + 4) << 8 ) |
+
+
+
+0xff;
+
+# 2075
+rowfilter =
+
+( (uint32_t)( Read_b_eep(10 + 8*i + 1) & 0x01 ) << 24 ) |
+
+( (uint32_t)Read_b_eep(10 + 8*i + 3) << 16 ) |
+
+( (uint32_t)Read_b_eep(10 + 8*i + 5) << 8 ) |
+
+
+Read_b_eep(10 + 8*i);
+
+if ( 0 == i ) filter = rowfilter;
+
+
+
+mask &= rowmask;
+
+
+
+
+for ( j=0; j<32; j++ ) {
+
+if ( ( ( filter >> j ) & 1 ) != ( ( rowfilter >> j ) & 1 ) ) {
+mask &= ~(1<<j);
+}
+}
+
+# 2106
+filter &= rowfilter;
+
+
+if ( !Read_b_eep(10 + 8*i + 1) & 0x40 ) {
+
+
+
+mask &= ~0xff;
+}
+
+if ( i ) {
+
+
+for (j = 0; j < 8; j++) {
+if ((lastOID >> i & 1)
+!= (Read_b_eep(10 + 8*i) >> i & 1)) {
+mask &= (1 << i);
+}
+}
+
+lastOID = Read_b_eep(10 + 8*i);
+
+}
+else {
+
+lastOID = Read_b_eep(10 + 8*i);
+}
+
+}
+}
+
+
+ECANSetOperationMode( ECAN_OP_MODE_CONFIG );
+
+
+_CANIDToRegs((BYTE*)&RXM1SIDH, mask, 1);
+
+
+RXF1EN = 1; _CANIDToRegs((BYTE*)&RXF1SIDH, filter, 1);;
+
+
+ECANSetOperationMode( ECAN_OP_MODE_NORMAL );
+
 }

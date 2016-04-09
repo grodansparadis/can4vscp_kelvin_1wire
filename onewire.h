@@ -339,6 +339,12 @@
 #define REG3_KELVIN1W_ROM_CODE_TEMP7_LSB                64
 
 
+////////////////////////////////////////////////////////////////////////////////
+//                                 Page 250
+////////////////////////////////////////////////////////////////////////////////
+
+// Decision Matrix
+
 
 #define DESCION_MATRIX_ROWS             8       // Number of ros in decision matrix
 #define REG_DESCION_MATRIX              0       // Decision matrix register start offset
@@ -371,7 +377,8 @@
 // Bit 6 = 0 Normal TurnOn/Off
 // Bit 7 = 0 Non continues alarm
 // 
-#define DEFAULT_CONTROL_REG                 0b00000001
+#define DEFAULT_CONTROL_REG_LOW             0b00000001
+#define DEFAULT_CONTROL_REG_HIGH            0b00000001
 
 #define MASK_CONTROL0_UNIT                  0x03
 #define MASK_CONTROL0_LOW_ALARM             0x08
@@ -407,13 +414,13 @@
 
 // Default absolute low value
 // Set to +327.67 degrees Celsius
-#define DEFAULT_LOW_MSB                     0x7f
-#define DEFAULT_LOW_LSB                     0xff
+#define DEFAULT_ABSOLUTE_LOW_MSB            0x7f
+#define DEFAULT_ABSOLUTE_LOW_LSB            0xff
 
 // Default absolute high value
 // Set to -327.68 degrees Celsius
-#define DEFAULT_HIGH_MSB                    0x80
-#define DEFAULT_HIGH_LSB                    0x00
+#define DEFAULT_ABSOLUTE_HIGH_MSB           0x80
+#define DEFAULT_ABSOLUTE_HIGH_LSB           0x00
 
 // Default hysteresis
 #define DEFAULT_HYSTERESIS                  2
@@ -467,179 +474,7 @@
 //
 // Bit 0,1 - Class to use for temperature reports
 
-#define VSCP_EEPROM_END                     0
-
-// EEPROM registers for module persistent data
-
-#define EEPROM_ZONE                         0x41	// Zone node belongs to
-#define EEPROM_SUBZONE                      0x42	// Sub zone node belongs to
-
-// Sensor zone/sub zone information
-
-#define EEPROM_SENSOR0_ZONE                 0x73
-#define EEPROM_SENSOR0_SUBZONE              0x74
-
-#define EEPROM_SENSOR1_ZONE                 0x75
-#define EEPROM_SENSOR1_SUBZONE              0x76
-
-#define EEPROM_SENSOR2_ZONE                 0x77
-#define EEPROM_SENSOR2_SUBZONE              0x78
-
-#define EEPROM_SENSOR3_ZONE                 0x79
-#define EEPROM_SENSOR3_SUBZONE              0x7A
-
-#define EEPROM_SENSOR4_ZONE                 0x7B
-#define EEPROM_SENSOR4_SUBZONE              0x7C
-
-#define EEPROM_SENSOR5_ZONE                 0x7D
-#define EEPROM_SENSOR5_SUBZONE              0x7E
-
-#define EEPROM_SENSOR6_ZONE                 0x7D
-#define EEPROM_SENSOR6_SUBZONE              0x7E
-
-#define EEPROM_SENSOR7_ZONE                 0x7D
-#define EEPROM_SENSOR7_SUBZONE              0x7E
-
-// Control registers
-
-#define EEPROM_CONTROLREG0                  0x43
-#define EEPROM_CONTROLREG1                  0x44
-#define EEPROM_CONTROLREG2                  0x45
-#define EEPROM_CONTROLREG3                  0x46
-#define EEPROM_CONTROLREG4                  0x47
-#define EEPROM_CONTROLREG5                  0x48
-#define EEPROM_CONTROLREG6                  0x48
-#define EEPROM_CONTROLREG7                  0x48
-
-// Report interval
-
-#define EEPROM_REPORT_INTERVAL0             0x49
-#define EEPROM_REPORT_INTERVAL1             0x4A
-#define EEPROM_REPORT_INTERVAL2             0x4B
-#define EEPROM_REPORT_INTERVAL3             0x4C
-#define EEPROM_REPORT_INTERVAL4             0x4D
-#define EEPROM_REPORT_INTERVAL5             0x4E
-#define EEPROM_REPORT_INTERVAL6             0x4E
-#define EEPROM_REPORT_INTERVAL7             0x4E
-
-
-// Low alarms
-
-#define EEPROM_LOW_ALARM0_MSB               0x5B
-#define EEPROM_LOW_ALARM0_LSB               0x5C
-
-#define EEPROM_LOW_ALARM1_MSB               0x5D
-#define EEPROM_LOW_ALARM1_LSB               0x5E
-
-#define EEPROM_LOW_ALARM2_MSB               0x5F
-#define EEPROM_LOW_ALARM2_LSB               0x60
-
-#define EEPROM_LOW_ALARM3_MSB               0x61
-#define EEPROM_LOW_ALARM3_LSB               0x62
-
-#define EEPROM_LOW_ALARM4_MSB               0x63
-#define EEPROM_LOW_ALARM4_LSB               0x64
-
-#define EEPROM_LOW_ALARM5_MSB               0x65
-#define EEPROM_LOW_ALARM5_LSB               0x66
-
-#define EEPROM_LOW_ALARM6_MSB               0x65
-#define EEPROM_LOW_ALARM6_LSB               0x66
-
-#define EEPROM_LOW_ALARM7_MSB               0x65
-#define EEPROM_LOW_ALARM7_LSB               0x66
-
-// High alarms
-
-#define EEPROM_HIGH_ALARM0_MSB              0x67
-#define EEPROM_HIGH_ALARM0_LSB              0x68
-
-#define EEPROM_HIGH_ALARM1_MSB              0x69
-#define EEPROM_HIGH_ALARM1_LSB              0x6A
-
-#define EEPROM_HIGH_ALARM2_MSB              0x6B
-#define EEPROM_HIGH_ALARM2_LSB              0x6C
-
-#define EEPROM_HIGH_ALARM3_MSB              0x6D
-#define EEPROM_HIGH_ALARM3_LSB              0x6E
-
-#define EEPROM_HIGH_ALARM4_MSB              0x6F
-#define EEPROM_HIGH_ALARM4_LSB              0x70
-
-#define EEPROM_HIGH_ALARM5_MSB              0x71
-#define EEPROM_HIGH_ALARM5_LSB              0x72
-
-#define EEPROM_HIGH_ALARM6_MSB              0x71
-#define EEPROM_HIGH_ALARM6_LSB              0x72
-
-#define EEPROM_HIGH_ALARM7_MSB              0x71
-#define EEPROM_HIGH_ALARM7_LSB              0x72
-
-
-
-// Absolute low temperatures
-
-#define EEPROM_ABSOLUT_LOW0_MSB             0x7F
-#define EEPROM_ABSOLUT_LOW0_LSB             0x80
-
-#define EEPROM_ABSOLUT_LOW1_MSB             0x81
-#define EEPROM_ABSOLUT_LOW1_LSB             0x82
-
-#define EEPROM_ABSOLUT_LOW2_MSB             0x83
-#define EEPROM_ABSOLUT_LOW2_LSB             0x84
-
-#define EEPROM_ABSOLUT_LOW3_MSB             0x85
-#define EEPROM_ABSOLUT_LOW3_LSB             0x86
-
-#define EEPROM_ABSOLUT_LOW4_MSB             0x87
-#define EEPROM_ABSOLUT_LOW4_LSB             0x88
-
-#define EEPROM_ABSOLUT_LOW5_MSB             0x89
-#define EEPROM_ABSOLUT_LOW5_LSB             0x8A
-
-#define EEPROM_ABSOLUT_LOW6_MSB             0x89
-#define EEPROM_ABSOLUT_LOW6_LSB             0x8A
-
-#define EEPROM_ABSOLUT_LOW7_MSB             0x89
-#define EEPROM_ABSOLUT_LOW7_LSB             0x8A
-
-// Absolute high temperatures
-
-#define EEPROM_ABSOLUT_HIGH0_MSB            0x8B
-#define EEPROM_ABSOLUT_HIGH0_LSB            0x8C
-
-#define EEPROM_ABSOLUT_HIGH1_MSB            0x8D
-#define EEPROM_ABSOLUT_HIGH1_LSB            0x8E
-
-#define EEPROM_ABSOLUT_HIGH2_MSB            0x8F
-#define EEPROM_ABSOLUT_HIGH2_LSB            0x90
-
-#define EEPROM_ABSOLUT_HIGH3_MSB            0x91
-#define EEPROM_ABSOLUT_HIGH3_LSB            0x92
-
-#define EEPROM_ABSOLUT_HIGH4_MSB            0x93
-#define EEPROM_ABSOLUT_HIGH4_LSB            0x94
-
-#define EEPROM_ABSOLUT_HIGH5_MSB            0x95
-#define EEPROM_ABSOLUT_HIGH5_LSB            0x96
-
-#define EEPROM_ABSOLUT_HIGH6_MSB            0x95
-#define EEPROM_ABSOLUT_HIGH6_LSB            0x96
-
-#define EEPROM_ABSOLUT_HIGH7_MSB            0x95
-#define EEPROM_ABSOLUT_HIGH7_LSB            0x96
-
-// Sensor hysteresis
-
-#define EEPROM_HYSTERESIS_SENSOR0           0x97
-#define EEPROM_HYSTERESIS_SENSOR1           0x98
-#define EEPROM_HYSTERESIS_SENSOR2           0x99
-#define EEPROM_HYSTERESIS_SENSOR3           0x9A
-#define EEPROM_HYSTERESIS_SENSOR4           0x9B
-#define EEPROM_HYSTERESIS_SENSOR5           0x9C
-#define EEPROM_HYSTERESIS_SENSOR6           0x9D
-#define EEPROM_HYSTERESIS_SENSOR7           0x9E
-
+#define VSCP_EEPROM_END                     10
 
 
 // ADCCON0 ADC select bits
@@ -710,7 +545,7 @@
 #define DS1820_FAMILY_CODE_DS18S20      0x10
 
 
-// Temeparture conversions
+// Temparture conversions
 double Celsius2Fahrenheit(double tc);
 double Fahrenheit2Celsius(double tf);
 double Celsius2Kelvin(double tc);
@@ -729,6 +564,8 @@ void DS1820_WriteEEPROM( uint8_t pin, uint8_t high, uint8_t low );
 int16_t DS1820_GetTempRaw( uint8_t pin );
 float DS1820_GetTempFloat( uint8_t pin );
 void DS1820_GetTempString( int16_t rawTemp, char *strTemp );
+
+void calculateSetFilterMask( void );
 
 // Actions
 void actionScan( uint8_t param );

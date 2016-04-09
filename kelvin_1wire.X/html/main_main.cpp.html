@@ -90,7 +90,7 @@
 <tr><td><code>__TRADITIONAL18__</code></td><td>none</td><td>1</td></tr>
 <tr><td><code>__STDC__</code></td><td>none</td><td>1</td></tr>
 <tr><td><code>_18F26K80</code></td><td>none</td><td>1</td></tr>
-<tr><td><code>__TIME__</code></td><td>none</td><td>"14:20:03"</td></tr>
+<tr><td><code>__TIME__</code></td><td>none</td><td>"16:42:08"</td></tr>
 <tr><td><code>_OMNI_CODE_</code></td><td>none</td><td>1</td></tr>
 <tr><td><code>__STACK</code></td><td>none</td><td>__STACK_COMPILED</td></tr>
 <tr><td><code>_18F66K80_FAMILY_</code></td><td>none</td><td>1</td></tr>
@@ -30687,7 +30687,8 @@
 <tr><td><code>TEMP_CHANNEL2</code></td><td>none</td><td>1</td></tr>
 <tr><td><code>TEMP_CHANNEL3</code></td><td>none</td><td>2</td></tr>
 <tr><td><code>TEMP_CHANNEL4</code></td><td>none</td><td>3</td></tr>
-<tr><td><code>DEFAULT_CONTROL_REG</code></td><td>none</td><td>0b00000001</td></tr>
+<tr><td><code>DEFAULT_CONTROL_REG_LOW</code></td><td>none</td><td>0b00000001</td></tr>
+<tr><td><code>DEFAULT_CONTROL_REG_HIGH</code></td><td>none</td><td>0b00000001</td></tr>
 <tr><td><code>MASK_CONTROL0_UNIT</code></td><td>none</td><td>0x03</td></tr>
 <tr><td><code>MASK_CONTROL0_LOW_ALARM</code></td><td>none</td><td>0x08</td></tr>
 <tr><td><code>MASK_CONTROL0_HIGH_ALARM</code></td><td>none</td><td>0x10</td></tr>
@@ -30704,10 +30705,10 @@
 <tr><td><code>DEFAULT_HIGH_ALARM_LSB</code></td><td>none</td><td>0xff</td></tr>
 <tr><td><code>DEFAULT_SENSOR_ZONE</code></td><td>none</td><td>0</td></tr>
 <tr><td><code>DEFAULT_SENSOR_SUBZONE</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>DEFAULT_LOW_MSB</code></td><td>none</td><td>0x7f</td></tr>
-<tr><td><code>DEFAULT_LOW_LSB</code></td><td>none</td><td>0xff</td></tr>
-<tr><td><code>DEFAULT_HIGH_MSB</code></td><td>none</td><td>0x80</td></tr>
-<tr><td><code>DEFAULT_HIGH_LSB</code></td><td>none</td><td>0x00</td></tr>
+<tr><td><code>DEFAULT_ABSOLUTE_LOW_MSB</code></td><td>none</td><td>0x7f</td></tr>
+<tr><td><code>DEFAULT_ABSOLUTE_LOW_LSB</code></td><td>none</td><td>0xff</td></tr>
+<tr><td><code>DEFAULT_ABSOLUTE_HIGH_MSB</code></td><td>none</td><td>0x80</td></tr>
+<tr><td><code>DEFAULT_ABSOLUTE_HIGH_LSB</code></td><td>none</td><td>0x00</td></tr>
 <tr><td><code>DEFAULT_HYSTERESIS</code></td><td>none</td><td>2</td></tr>
 <tr><td><code>ERROR_GENERAL</code></td><td>none</td><td>0x00</td></tr>
 <tr><td><code>ERROR_SENSOR</code></td><td>none</td><td>0x01</td></tr>
@@ -30725,113 +30726,7 @@
 <tr><td><code>CONFIG0_ENABLE_TURNX</code></td><td>none</td><td>(1<<5)</td></tr>
 <tr><td><code>CONFIG0_ENABLE_TURNON_INVERT</code></td><td>none</td><td>(1<<6)</td></tr>
 <tr><td><code>CONFIG0_ENABLE_CONTINOUS_EVENTS</code></td><td>none</td><td>(1<<7)</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>EEPROM_ZONE</code></td><td>none</td><td>0x41</td></tr>
-<tr><td><code>EEPROM_SUBZONE</code></td><td>none</td><td>0x42</td></tr>
-<tr><td><code>EEPROM_SENSOR0_ZONE</code></td><td>none</td><td>0x73</td></tr>
-<tr><td><code>EEPROM_SENSOR0_SUBZONE</code></td><td>none</td><td>0x74</td></tr>
-<tr><td><code>EEPROM_SENSOR1_ZONE</code></td><td>none</td><td>0x75</td></tr>
-<tr><td><code>EEPROM_SENSOR1_SUBZONE</code></td><td>none</td><td>0x76</td></tr>
-<tr><td><code>EEPROM_SENSOR2_ZONE</code></td><td>none</td><td>0x77</td></tr>
-<tr><td><code>EEPROM_SENSOR2_SUBZONE</code></td><td>none</td><td>0x78</td></tr>
-<tr><td><code>EEPROM_SENSOR3_ZONE</code></td><td>none</td><td>0x79</td></tr>
-<tr><td><code>EEPROM_SENSOR3_SUBZONE</code></td><td>none</td><td>0x7A</td></tr>
-<tr><td><code>EEPROM_SENSOR4_ZONE</code></td><td>none</td><td>0x7B</td></tr>
-<tr><td><code>EEPROM_SENSOR4_SUBZONE</code></td><td>none</td><td>0x7C</td></tr>
-<tr><td><code>EEPROM_SENSOR5_ZONE</code></td><td>none</td><td>0x7D</td></tr>
-<tr><td><code>EEPROM_SENSOR5_SUBZONE</code></td><td>none</td><td>0x7E</td></tr>
-<tr><td><code>EEPROM_SENSOR6_ZONE</code></td><td>none</td><td>0x7D</td></tr>
-<tr><td><code>EEPROM_SENSOR6_SUBZONE</code></td><td>none</td><td>0x7E</td></tr>
-<tr><td><code>EEPROM_SENSOR7_ZONE</code></td><td>none</td><td>0x7D</td></tr>
-<tr><td><code>EEPROM_SENSOR7_SUBZONE</code></td><td>none</td><td>0x7E</td></tr>
-<tr><td><code>EEPROM_CONTROLREG0</code></td><td>none</td><td>0x43</td></tr>
-<tr><td><code>EEPROM_CONTROLREG1</code></td><td>none</td><td>0x44</td></tr>
-<tr><td><code>EEPROM_CONTROLREG2</code></td><td>none</td><td>0x45</td></tr>
-<tr><td><code>EEPROM_CONTROLREG3</code></td><td>none</td><td>0x46</td></tr>
-<tr><td><code>EEPROM_CONTROLREG4</code></td><td>none</td><td>0x47</td></tr>
-<tr><td><code>EEPROM_CONTROLREG5</code></td><td>none</td><td>0x48</td></tr>
-<tr><td><code>EEPROM_CONTROLREG6</code></td><td>none</td><td>0x48</td></tr>
-<tr><td><code>EEPROM_CONTROLREG7</code></td><td>none</td><td>0x48</td></tr>
-<tr><td><code>EEPROM_REPORT_INTERVAL0</code></td><td>none</td><td>0x49</td></tr>
-<tr><td><code>EEPROM_REPORT_INTERVAL1</code></td><td>none</td><td>0x4A</td></tr>
-<tr><td><code>EEPROM_REPORT_INTERVAL2</code></td><td>none</td><td>0x4B</td></tr>
-<tr><td><code>EEPROM_REPORT_INTERVAL3</code></td><td>none</td><td>0x4C</td></tr>
-<tr><td><code>EEPROM_REPORT_INTERVAL4</code></td><td>none</td><td>0x4D</td></tr>
-<tr><td><code>EEPROM_REPORT_INTERVAL5</code></td><td>none</td><td>0x4E</td></tr>
-<tr><td><code>EEPROM_REPORT_INTERVAL6</code></td><td>none</td><td>0x4E</td></tr>
-<tr><td><code>EEPROM_REPORT_INTERVAL7</code></td><td>none</td><td>0x4E</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM0_MSB</code></td><td>none</td><td>0x5B</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM0_LSB</code></td><td>none</td><td>0x5C</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM1_MSB</code></td><td>none</td><td>0x5D</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM1_LSB</code></td><td>none</td><td>0x5E</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM2_MSB</code></td><td>none</td><td>0x5F</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM2_LSB</code></td><td>none</td><td>0x60</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM3_MSB</code></td><td>none</td><td>0x61</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM3_LSB</code></td><td>none</td><td>0x62</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM4_MSB</code></td><td>none</td><td>0x63</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM4_LSB</code></td><td>none</td><td>0x64</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM5_MSB</code></td><td>none</td><td>0x65</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM5_LSB</code></td><td>none</td><td>0x66</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM6_MSB</code></td><td>none</td><td>0x65</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM6_LSB</code></td><td>none</td><td>0x66</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM7_MSB</code></td><td>none</td><td>0x65</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM7_LSB</code></td><td>none</td><td>0x66</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM0_MSB</code></td><td>none</td><td>0x67</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM0_LSB</code></td><td>none</td><td>0x68</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM1_MSB</code></td><td>none</td><td>0x69</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM1_LSB</code></td><td>none</td><td>0x6A</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM2_MSB</code></td><td>none</td><td>0x6B</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM2_LSB</code></td><td>none</td><td>0x6C</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM3_MSB</code></td><td>none</td><td>0x6D</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM3_LSB</code></td><td>none</td><td>0x6E</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM4_MSB</code></td><td>none</td><td>0x6F</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM4_LSB</code></td><td>none</td><td>0x70</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM5_MSB</code></td><td>none</td><td>0x71</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM5_LSB</code></td><td>none</td><td>0x72</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM6_MSB</code></td><td>none</td><td>0x71</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM6_LSB</code></td><td>none</td><td>0x72</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM7_MSB</code></td><td>none</td><td>0x71</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM7_LSB</code></td><td>none</td><td>0x72</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW0_MSB</code></td><td>none</td><td>0x7F</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW0_LSB</code></td><td>none</td><td>0x80</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW1_MSB</code></td><td>none</td><td>0x81</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW1_LSB</code></td><td>none</td><td>0x82</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW2_MSB</code></td><td>none</td><td>0x83</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW2_LSB</code></td><td>none</td><td>0x84</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW3_MSB</code></td><td>none</td><td>0x85</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW3_LSB</code></td><td>none</td><td>0x86</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW4_MSB</code></td><td>none</td><td>0x87</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW4_LSB</code></td><td>none</td><td>0x88</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW5_MSB</code></td><td>none</td><td>0x89</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW5_LSB</code></td><td>none</td><td>0x8A</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW6_MSB</code></td><td>none</td><td>0x89</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW6_LSB</code></td><td>none</td><td>0x8A</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW7_MSB</code></td><td>none</td><td>0x89</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW7_LSB</code></td><td>none</td><td>0x8A</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH0_MSB</code></td><td>none</td><td>0x8B</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH0_LSB</code></td><td>none</td><td>0x8C</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH1_MSB</code></td><td>none</td><td>0x8D</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH1_LSB</code></td><td>none</td><td>0x8E</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH2_MSB</code></td><td>none</td><td>0x8F</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH2_LSB</code></td><td>none</td><td>0x90</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH3_MSB</code></td><td>none</td><td>0x91</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH3_LSB</code></td><td>none</td><td>0x92</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH4_MSB</code></td><td>none</td><td>0x93</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH4_LSB</code></td><td>none</td><td>0x94</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH5_MSB</code></td><td>none</td><td>0x95</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH5_LSB</code></td><td>none</td><td>0x96</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH6_MSB</code></td><td>none</td><td>0x95</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH6_LSB</code></td><td>none</td><td>0x96</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH7_MSB</code></td><td>none</td><td>0x95</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH7_LSB</code></td><td>none</td><td>0x96</td></tr>
-<tr><td><code>EEPROM_HYSTERESIS_SENSOR0</code></td><td>none</td><td>0x97</td></tr>
-<tr><td><code>EEPROM_HYSTERESIS_SENSOR1</code></td><td>none</td><td>0x98</td></tr>
-<tr><td><code>EEPROM_HYSTERESIS_SENSOR2</code></td><td>none</td><td>0x99</td></tr>
-<tr><td><code>EEPROM_HYSTERESIS_SENSOR3</code></td><td>none</td><td>0x9A</td></tr>
-<tr><td><code>EEPROM_HYSTERESIS_SENSOR4</code></td><td>none</td><td>0x9B</td></tr>
-<tr><td><code>EEPROM_HYSTERESIS_SENSOR5</code></td><td>none</td><td>0x9C</td></tr>
-<tr><td><code>EEPROM_HYSTERESIS_SENSOR6</code></td><td>none</td><td>0x9D</td></tr>
-<tr><td><code>EEPROM_HYSTERESIS_SENSOR7</code></td><td>none</td><td>0x9E</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
 <tr><td><code>SELECT_ADC_TEMP0</code></td><td>none</td><td>(10<<2)</td></tr>
 <tr><td><code>SELECT_ADC_TEMP1</code></td><td>none</td><td>(2<<2)</td></tr>
 <tr><td><code>SELECT_ADC_TEMP2</code></td><td>none</td><td>(1<<2)</td></tr>
@@ -30864,184 +30759,204 @@
 <tr><td><code>DS1820_CMD_RECALLEE</code></td><td>none</td><td>0xB8</td></tr>
 <tr><td><code>DS1820_FAMILY_CODE_DS18B20</code></td><td>none</td><td>0x28</td></tr>
 <tr><td><code>DS1820_FAMILY_CODE_DS18S20</code></td><td>none</td><td>0x10</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>0</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>ROM_CODE_EEPROM_START</code></td><td>none</td><td>133</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>197</td></tr>
 <tr><td><code>TIMER0_RELOAD_VALUE</code></td><td>none</td><td>0xfb1d</td></tr>
 <tr><td><code>VSCP_LED_BLINK1</code></td><td>none</td><td>0x02</td></tr>
 <tr><td><code>VSCP_LED_ON</code></td><td>none</td><td>0x01</td></tr>
@@ -31093,9 +31008,6 @@
 <tr><td><code>VSCP_VALID_MSG</code></td><td>none</td><td>0x80</td></tr>
 <tr><td><code>VSCP_CLASS1_MEASUREMENT</code></td><td>none</td><td>10</td></tr>
 <tr><td><code>VSCP_TYPE_MEASUREMENT_TEMPERATURE</code></td><td>none</td><td>6</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_CONTROLREG0</code></td><td>none</td><td>0x43</td></tr>
-<tr><td><code>FALSE</code></td><td>none</td><td>0</td></tr>
 <tr><td><code>TRUE</code></td><td>none</td><td>1</td></tr>
 <tr><td><code>TEMP_UNIT_KELVIN</code></td><td>none</td><td>0</td></tr>
 <tr><td><code>TEMP_UNIT_FAHRENHEIT</code></td><td>none</td><td>2</td></tr>
@@ -31113,726 +31025,128 @@
 <tr><td><code>ADC_REF_VDD_VDD</code></td><td>none</td><td>0b11001111</td></tr>
 <tr><td><code>ADC_REF_VDD_VSS</code></td><td>none</td><td>0b11110111</td></tr>
 <tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ZONE</code></td><td>none</td><td>0x41</td></tr>
+<tr><td><code>REG0_KELVIN1W_ZONE</code></td><td>none</td><td>0</td></tr>
 <tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ZONE</code></td><td>none</td><td>0x41</td></tr>
+<tr><td><code>REG0_KELVIN1W_ZONE</code></td><td>none</td><td>0</td></tr>
 <tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_CONTROLREG0</code></td><td>none</td><td>0x43</td></tr>
-<tr><td><code>DEFAULT_CONTROL_REG</code></td><td>none</td><td>0b00000001</td></tr>
+<tr><td><code>REG0_KELVIN1W_TEMP0_ZONE</code></td><td>none</td><td>2</td></tr>
 <tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_CONTROLREG1</code></td><td>none</td><td>0x44</td></tr>
-<tr><td><code>DEFAULT_CONTROL_REG</code></td><td>none</td><td>0b00000001</td></tr>
+<tr><td><code>REG0_KELVIN1W_TEMP0_SUBZONE</code></td><td>none</td><td>3</td></tr>
 <tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_CONTROLREG2</code></td><td>none</td><td>0x45</td></tr>
-<tr><td><code>DEFAULT_CONTROL_REG</code></td><td>none</td><td>0b00000001</td></tr>
+<tr><td><code>REG0_KELVIN1W_TEMP1_ZONE</code></td><td>none</td><td>4</td></tr>
 <tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_CONTROLREG3</code></td><td>none</td><td>0x46</td></tr>
-<tr><td><code>DEFAULT_CONTROL_REG</code></td><td>none</td><td>0b00000001</td></tr>
+<tr><td><code>REG0_KELVIN1W_TEMP1_SUBZONE</code></td><td>none</td><td>5</td></tr>
 <tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_CONTROLREG4</code></td><td>none</td><td>0x47</td></tr>
-<tr><td><code>DEFAULT_CONTROL_REG</code></td><td>none</td><td>0b00000001</td></tr>
+<tr><td><code>REG0_KELVIN1W_TEMP2_ZONE</code></td><td>none</td><td>6</td></tr>
 <tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_CONTROLREG5</code></td><td>none</td><td>0x48</td></tr>
-<tr><td><code>DEFAULT_CONTROL_REG</code></td><td>none</td><td>0b00000001</td></tr>
+<tr><td><code>REG0_KELVIN1W_TEMP2_SUBZONE</code></td><td>none</td><td>7</td></tr>
 <tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_REPORT_INTERVAL1</code></td><td>none</td><td>0x4A</td></tr>
-<tr><td><code>DEFAULT_REPORT_INTERVAL</code></td><td>none</td><td>0</td></tr>
+<tr><td><code>REG0_KELVIN1W_TEMP3_ZONE</code></td><td>none</td><td>8</td></tr>
 <tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_REPORT_INTERVAL2</code></td><td>none</td><td>0x4B</td></tr>
-<tr><td><code>DEFAULT_REPORT_INTERVAL</code></td><td>none</td><td>0</td></tr>
+<tr><td><code>REG0_KELVIN1W_TEMP3_SUBZONE</code></td><td>none</td><td>9</td></tr>
 <tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_REPORT_INTERVAL3</code></td><td>none</td><td>0x4C</td></tr>
-<tr><td><code>DEFAULT_REPORT_INTERVAL</code></td><td>none</td><td>0</td></tr>
+<tr><td><code>REG0_KELVIN1W_TEMP4_ZONE</code></td><td>none</td><td>10</td></tr>
 <tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_REPORT_INTERVAL4</code></td><td>none</td><td>0x4D</td></tr>
-<tr><td><code>DEFAULT_REPORT_INTERVAL</code></td><td>none</td><td>0</td></tr>
+<tr><td><code>REG0_KELVIN1W_TEMP4_SUBZONE</code></td><td>none</td><td>11</td></tr>
 <tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_REPORT_INTERVAL5</code></td><td>none</td><td>0x4E</td></tr>
-<tr><td><code>DEFAULT_REPORT_INTERVAL</code></td><td>none</td><td>0</td></tr>
+<tr><td><code>REG0_KELVIN1W_TEMP5_ZONE</code></td><td>none</td><td>12</td></tr>
 <tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM0_MSB</code></td><td>none</td><td>0x5B</td></tr>
+<tr><td><code>REG0_KELVIN1W_TEMP5_SUBZONE</code></td><td>none</td><td>13</td></tr>
+<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
+<tr><td><code>REG0_KELVIN1W_TEMP6_ZONE</code></td><td>none</td><td>14</td></tr>
+<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
+<tr><td><code>REG0_KELVIN1W_TEMP6_SUBZONE</code></td><td>none</td><td>15</td></tr>
+<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
+<tr><td><code>REG0_KELVIN1W_TEMP7_ZONE</code></td><td>none</td><td>16</td></tr>
+<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
+<tr><td><code>REG0_KELVIN1W_TEMP7_SUBZONE</code></td><td>none</td><td>17</td></tr>
+<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
+<tr><td><code>REG0_KELVIN1W_CTRL_REG0_LOW</code></td><td>none</td><td>18</td></tr>
+<tr><td><code>DEFAULT_CONTROL_REG_LOW</code></td><td>none</td><td>0b00000001</td></tr>
+<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
+<tr><td><code>REG0_KELVIN1W_CTRL_REG0_HIGH</code></td><td>none</td><td>19</td></tr>
+<tr><td><code>DEFAULT_CONTROL_REG_HIGH</code></td><td>none</td><td>0b00000001</td></tr>
+<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
+<tr><td><code>REG0_KELVIN1W_REPORT_INTERVAL_0</code></td><td>none</td><td>34</td></tr>
+<tr><td><code>DEFAULT_CONTROL_REG_HIGH</code></td><td>none</td><td>0b00000001</td></tr>
+<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
+<tr><td><code>REG2_KELVIN1W_LOW_ALARM_SET_POINT0_MSB</code></td><td>none</td><td>0</td></tr>
 <tr><td><code>DEFAULT_LOW_ALARM_MSB</code></td><td>none</td><td>0x80</td></tr>
 <tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM0_LSB</code></td><td>none</td><td>0x5C</td></tr>
+<tr><td><code>REG2_KELVIN1W_LOW_ALARM_SET_POINT0_LSB</code></td><td>none</td><td>1</td></tr>
 <tr><td><code>DEFAULT_LOW_ALARM_LSB</code></td><td>none</td><td>0xff</td></tr>
 <tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM1_MSB</code></td><td>none</td><td>0x5D</td></tr>
-<tr><td><code>DEFAULT_LOW_ALARM_MSB</code></td><td>none</td><td>0x80</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM1_LSB</code></td><td>none</td><td>0x5E</td></tr>
-<tr><td><code>DEFAULT_LOW_ALARM_LSB</code></td><td>none</td><td>0xff</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM2_MSB</code></td><td>none</td><td>0x5F</td></tr>
-<tr><td><code>DEFAULT_LOW_ALARM_MSB</code></td><td>none</td><td>0x80</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM2_LSB</code></td><td>none</td><td>0x60</td></tr>
-<tr><td><code>DEFAULT_LOW_ALARM_LSB</code></td><td>none</td><td>0xff</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM3_MSB</code></td><td>none</td><td>0x61</td></tr>
-<tr><td><code>DEFAULT_LOW_ALARM_MSB</code></td><td>none</td><td>0x80</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM3_LSB</code></td><td>none</td><td>0x62</td></tr>
-<tr><td><code>DEFAULT_LOW_ALARM_LSB</code></td><td>none</td><td>0xff</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM4_MSB</code></td><td>none</td><td>0x63</td></tr>
-<tr><td><code>DEFAULT_LOW_ALARM_MSB</code></td><td>none</td><td>0x80</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM4_LSB</code></td><td>none</td><td>0x64</td></tr>
-<tr><td><code>DEFAULT_LOW_ALARM_LSB</code></td><td>none</td><td>0xff</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM5_MSB</code></td><td>none</td><td>0x65</td></tr>
-<tr><td><code>DEFAULT_LOW_ALARM_MSB</code></td><td>none</td><td>0x80</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM5_LSB</code></td><td>none</td><td>0x66</td></tr>
-<tr><td><code>DEFAULT_LOW_ALARM_LSB</code></td><td>none</td><td>0xff</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM0_MSB</code></td><td>none</td><td>0x67</td></tr>
+<tr><td><code>REG2_KELVIN1W_HIGH_ALARM_SET_POINT0_MSB</code></td><td>none</td><td>16</td></tr>
 <tr><td><code>DEFAULT_HIGH_ALARM_MSB</code></td><td>none</td><td>0x7f</td></tr>
 <tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM0_LSB</code></td><td>none</td><td>0x68</td></tr>
+<tr><td><code>REG2_KELVIN1W_HIGH_ALARM_SET_POINT0_LSB</code></td><td>none</td><td>17</td></tr>
 <tr><td><code>DEFAULT_HIGH_ALARM_LSB</code></td><td>none</td><td>0xff</td></tr>
 <tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM1_MSB</code></td><td>none</td><td>0x69</td></tr>
-<tr><td><code>DEFAULT_HIGH_ALARM_MSB</code></td><td>none</td><td>0x7f</td></tr>
+<tr><td><code>REG2_KELVIN1W_ABSOLUTE_LOW_TEMP0_MSB</code></td><td>none</td><td>32</td></tr>
+<tr><td><code>DEFAULT_ABSOLUTE_LOW_MSB</code></td><td>none</td><td>0x7f</td></tr>
 <tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM1_LSB</code></td><td>none</td><td>0x6A</td></tr>
-<tr><td><code>DEFAULT_HIGH_ALARM_LSB</code></td><td>none</td><td>0xff</td></tr>
+<tr><td><code>REG2_KELVIN1W_ABSOLUTE_LOW_TEMP0_LSB</code></td><td>none</td><td>33</td></tr>
+<tr><td><code>DEFAULT_ABSOLUTE_LOW_LSB</code></td><td>none</td><td>0xff</td></tr>
 <tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM2_MSB</code></td><td>none</td><td>0x6B</td></tr>
-<tr><td><code>DEFAULT_HIGH_ALARM_MSB</code></td><td>none</td><td>0x7f</td></tr>
+<tr><td><code>REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP0_MSB</code></td><td>none</td><td>48</td></tr>
+<tr><td><code>DEFAULT_ABSOLUTE_HIGH_MSB</code></td><td>none</td><td>0x80</td></tr>
 <tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM2_LSB</code></td><td>none</td><td>0x6C</td></tr>
-<tr><td><code>DEFAULT_HIGH_ALARM_LSB</code></td><td>none</td><td>0xff</td></tr>
+<tr><td><code>REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP0_LSB</code></td><td>none</td><td>49</td></tr>
+<tr><td><code>DEFAULT_ABSOLUTE_HIGH_LSB</code></td><td>none</td><td>0x00</td></tr>
 <tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM3_MSB</code></td><td>none</td><td>0x6D</td></tr>
-<tr><td><code>DEFAULT_HIGH_ALARM_MSB</code></td><td>none</td><td>0x7f</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM3_LSB</code></td><td>none</td><td>0x6E</td></tr>
-<tr><td><code>DEFAULT_HIGH_ALARM_LSB</code></td><td>none</td><td>0xff</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM4_MSB</code></td><td>none</td><td>0x6F</td></tr>
-<tr><td><code>DEFAULT_HIGH_ALARM_MSB</code></td><td>none</td><td>0x7f</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM4_LSB</code></td><td>none</td><td>0x70</td></tr>
-<tr><td><code>DEFAULT_HIGH_ALARM_LSB</code></td><td>none</td><td>0xff</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM5_MSB</code></td><td>none</td><td>0x71</td></tr>
-<tr><td><code>DEFAULT_HIGH_ALARM_MSB</code></td><td>none</td><td>0x7f</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM5_LSB</code></td><td>none</td><td>0x72</td></tr>
-<tr><td><code>DEFAULT_HIGH_ALARM_LSB</code></td><td>none</td><td>0xff</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_SENSOR0_ZONE</code></td><td>none</td><td>0x73</td></tr>
-<tr><td><code>DEFAULT_SENSOR_ZONE</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_SENSOR0_SUBZONE</code></td><td>none</td><td>0x74</td></tr>
-<tr><td><code>DEFAULT_SENSOR_SUBZONE</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_SENSOR1_ZONE</code></td><td>none</td><td>0x75</td></tr>
-<tr><td><code>DEFAULT_SENSOR_ZONE</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_SENSOR1_SUBZONE</code></td><td>none</td><td>0x76</td></tr>
-<tr><td><code>DEFAULT_SENSOR_SUBZONE</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_SENSOR2_ZONE</code></td><td>none</td><td>0x77</td></tr>
-<tr><td><code>DEFAULT_SENSOR_ZONE</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_SENSOR2_SUBZONE</code></td><td>none</td><td>0x78</td></tr>
-<tr><td><code>DEFAULT_SENSOR_SUBZONE</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_SENSOR3_ZONE</code></td><td>none</td><td>0x79</td></tr>
-<tr><td><code>DEFAULT_SENSOR_ZONE</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_SENSOR3_SUBZONE</code></td><td>none</td><td>0x7A</td></tr>
-<tr><td><code>DEFAULT_SENSOR_SUBZONE</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_SENSOR4_ZONE</code></td><td>none</td><td>0x7B</td></tr>
-<tr><td><code>DEFAULT_SENSOR_ZONE</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_SENSOR4_SUBZONE</code></td><td>none</td><td>0x7C</td></tr>
-<tr><td><code>DEFAULT_SENSOR_SUBZONE</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_SENSOR5_ZONE</code></td><td>none</td><td>0x7D</td></tr>
-<tr><td><code>DEFAULT_SENSOR_ZONE</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_SENSOR5_SUBZONE</code></td><td>none</td><td>0x7E</td></tr>
-<tr><td><code>DEFAULT_SENSOR_SUBZONE</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW0_MSB</code></td><td>none</td><td>0x7F</td></tr>
-<tr><td><code>DEFAULT_LOW_MSB</code></td><td>none</td><td>0x7f</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW0_LSB</code></td><td>none</td><td>0x80</td></tr>
-<tr><td><code>DEFAULT_LOW_LSB</code></td><td>none</td><td>0xff</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW1_MSB</code></td><td>none</td><td>0x81</td></tr>
-<tr><td><code>DEFAULT_LOW_MSB</code></td><td>none</td><td>0x7f</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW1_LSB</code></td><td>none</td><td>0x82</td></tr>
-<tr><td><code>DEFAULT_LOW_LSB</code></td><td>none</td><td>0xff</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW2_MSB</code></td><td>none</td><td>0x83</td></tr>
-<tr><td><code>DEFAULT_LOW_MSB</code></td><td>none</td><td>0x7f</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW2_LSB</code></td><td>none</td><td>0x84</td></tr>
-<tr><td><code>DEFAULT_LOW_LSB</code></td><td>none</td><td>0xff</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW3_MSB</code></td><td>none</td><td>0x85</td></tr>
-<tr><td><code>DEFAULT_LOW_MSB</code></td><td>none</td><td>0x7f</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW3_LSB</code></td><td>none</td><td>0x86</td></tr>
-<tr><td><code>DEFAULT_LOW_LSB</code></td><td>none</td><td>0xff</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW4_MSB</code></td><td>none</td><td>0x87</td></tr>
-<tr><td><code>DEFAULT_LOW_MSB</code></td><td>none</td><td>0x7f</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW4_LSB</code></td><td>none</td><td>0x88</td></tr>
-<tr><td><code>DEFAULT_LOW_LSB</code></td><td>none</td><td>0xff</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW5_MSB</code></td><td>none</td><td>0x89</td></tr>
-<tr><td><code>DEFAULT_LOW_MSB</code></td><td>none</td><td>0x7f</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW5_LSB</code></td><td>none</td><td>0x8A</td></tr>
-<tr><td><code>DEFAULT_LOW_LSB</code></td><td>none</td><td>0xff</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH0_MSB</code></td><td>none</td><td>0x8B</td></tr>
-<tr><td><code>DEFAULT_HIGH_MSB</code></td><td>none</td><td>0x80</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH0_LSB</code></td><td>none</td><td>0x8C</td></tr>
-<tr><td><code>DEFAULT_HIGH_LSB</code></td><td>none</td><td>0x00</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH1_MSB</code></td><td>none</td><td>0x8D</td></tr>
-<tr><td><code>DEFAULT_HIGH_MSB</code></td><td>none</td><td>0x80</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH1_LSB</code></td><td>none</td><td>0x8E</td></tr>
-<tr><td><code>DEFAULT_HIGH_LSB</code></td><td>none</td><td>0x00</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH2_MSB</code></td><td>none</td><td>0x8F</td></tr>
-<tr><td><code>DEFAULT_HIGH_MSB</code></td><td>none</td><td>0x80</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH2_LSB</code></td><td>none</td><td>0x90</td></tr>
-<tr><td><code>DEFAULT_HIGH_LSB</code></td><td>none</td><td>0x00</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH3_MSB</code></td><td>none</td><td>0x91</td></tr>
-<tr><td><code>DEFAULT_HIGH_MSB</code></td><td>none</td><td>0x80</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH3_LSB</code></td><td>none</td><td>0x92</td></tr>
-<tr><td><code>DEFAULT_HIGH_LSB</code></td><td>none</td><td>0x00</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH4_MSB</code></td><td>none</td><td>0x93</td></tr>
-<tr><td><code>DEFAULT_HIGH_MSB</code></td><td>none</td><td>0x80</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH4_LSB</code></td><td>none</td><td>0x94</td></tr>
-<tr><td><code>DEFAULT_HIGH_LSB</code></td><td>none</td><td>0x00</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH5_MSB</code></td><td>none</td><td>0x95</td></tr>
-<tr><td><code>DEFAULT_HIGH_MSB</code></td><td>none</td><td>0x80</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH5_LSB</code></td><td>none</td><td>0x96</td></tr>
-<tr><td><code>DEFAULT_HIGH_LSB</code></td><td>none</td><td>0x00</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_HYSTERESIS_SENSOR0</code></td><td>none</td><td>0x97</td></tr>
+<tr><td><code>REG2_KELVIN1W_HYSTERESIS_TEMP0</code></td><td>none</td><td>64</td></tr>
 <tr><td><code>DEFAULT_HYSTERESIS</code></td><td>none</td><td>2</td></tr>
 <tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_HYSTERESIS_SENSOR1</code></td><td>none</td><td>0x98</td></tr>
-<tr><td><code>DEFAULT_HYSTERESIS</code></td><td>none</td><td>2</td></tr>
+<tr><td><code>REG2_KELVIN1W_CALIBRATION_TEMP0_MSB</code></td><td>none</td><td>72</td></tr>
 <tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_HYSTERESIS_SENSOR2</code></td><td>none</td><td>0x99</td></tr>
-<tr><td><code>DEFAULT_HYSTERESIS</code></td><td>none</td><td>2</td></tr>
+<tr><td><code>REG2_KELVIN1W_CALIBRATION_TEMP0_LSB</code></td><td>none</td><td>73</td></tr>
 <tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_HYSTERESIS_SENSOR3</code></td><td>none</td><td>0x9A</td></tr>
-<tr><td><code>DEFAULT_HYSTERESIS</code></td><td>none</td><td>2</td></tr>
+<tr><td><code>REG0_KELVIN1W_BCONSTANT0_HIGH</code></td><td>none</td><td>42</td></tr>
+<tr><td><code>DEFAULT_B_CONSTANT_SENSOR0_MSB</code></td><td>none</td><td>0x0F</td></tr>
 <tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_HYSTERESIS_SENSOR4</code></td><td>none</td><td>0x9B</td></tr>
-<tr><td><code>DEFAULT_HYSTERESIS</code></td><td>none</td><td>2</td></tr>
+<tr><td><code>REG0_KELVIN1W_BCONSTANT0_LOW</code></td><td>none</td><td>43</td></tr>
+<tr><td><code>DEFAULT_B_CONSTANT_SENSOR0_LSB</code></td><td>none</td><td>0x68</td></tr>
 <tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_HYSTERESIS_SENSOR5</code></td><td>none</td><td>0x9C</td></tr>
-<tr><td><code>DEFAULT_HYSTERESIS</code></td><td>none</td><td>2</td></tr>
+<tr><td><code>ROM_CODE_EEPROM_START</code></td><td>none</td><td>133</td></tr>
+<tr><td><code>DESCION_MATRIX_ROWS</code></td><td>none</td><td>8</td></tr>
+<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
+<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>197</td></tr>
 <tr><td><code>TEMP_UNIT_KELVIN</code></td><td>none</td><td>0</td></tr>
 <tr><td><code>TEMP_UNIT_FAHRENHEIT</code></td><td>none</td><td>2</td></tr>
+<tr><td><code>REG1_KELVIN1W_TEMPERATURE0_MSB</code></td><td>none</td><td>0</td></tr>
+<tr><td><code>REG0_KELVIN1W_BCONSTANT0_LOW</code></td><td>none</td><td>43</td></tr>
 <tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_SENSOR0_ZONE</code></td><td>none</td><td>0x73</td></tr>
+<tr><td><code>REG2_KELVIN1W_LOW_ALARM_SET_POINT0_MSB</code></td><td>none</td><td>0</td></tr>
+<tr><td><code>REG2_KELVIN1W_CALIBRATION_TEMP8_LSB</code></td><td>none</td><td>89</td></tr>
 <tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_SENSOR0_SUBZONE</code></td><td>none</td><td>0x74</td></tr>
+<tr><td><code>REG3_KELVIN1W_ROM_CODE_TEMP0_BYTE0</code></td><td>none</td><td>1</td></tr>
+<tr><td><code>REG3_KELVIN1W_ROM_CODE_TEMP7_BYTE7</code></td><td>none</td><td>64</td></tr>
 <tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ZONE</code></td><td>none</td><td>0x41</td></tr>
+<tr><td><code>ROM_CODE_EEPROM_START</code></td><td>none</td><td>133</td></tr>
+<tr><td><code>REG_DESCION_MATRIX</code></td><td>none</td><td>0</td></tr>
+<tr><td><code>DESCION_MATRIX_ROWS</code></td><td>none</td><td>8</td></tr>
 <tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_SUBZONE</code></td><td>none</td><td>0x42</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_CONTROLREG0</code></td><td>none</td><td>0x43</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_CONTROLREG1</code></td><td>none</td><td>0x44</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_CONTROLREG2</code></td><td>none</td><td>0x45</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_CONTROLREG3</code></td><td>none</td><td>0x46</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_CONTROLREG4</code></td><td>none</td><td>0x47</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_CONTROLREG5</code></td><td>none</td><td>0x48</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_REPORT_INTERVAL0</code></td><td>none</td><td>0x49</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_REPORT_INTERVAL1</code></td><td>none</td><td>0x4A</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_REPORT_INTERVAL2</code></td><td>none</td><td>0x4B</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_REPORT_INTERVAL3</code></td><td>none</td><td>0x4C</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_REPORT_INTERVAL4</code></td><td>none</td><td>0x4D</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_REPORT_INTERVAL5</code></td><td>none</td><td>0x4E</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM0_MSB</code></td><td>none</td><td>0x5B</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM0_LSB</code></td><td>none</td><td>0x5C</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM1_MSB</code></td><td>none</td><td>0x5D</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM1_LSB</code></td><td>none</td><td>0x5E</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM2_MSB</code></td><td>none</td><td>0x5F</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM2_LSB</code></td><td>none</td><td>0x60</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM3_MSB</code></td><td>none</td><td>0x61</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM3_LSB</code></td><td>none</td><td>0x62</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM4_MSB</code></td><td>none</td><td>0x63</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM4_LSB</code></td><td>none</td><td>0x64</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM5_MSB</code></td><td>none</td><td>0x65</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM5_LSB</code></td><td>none</td><td>0x66</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM0_MSB</code></td><td>none</td><td>0x67</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM0_LSB</code></td><td>none</td><td>0x68</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM1_MSB</code></td><td>none</td><td>0x69</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM1_LSB</code></td><td>none</td><td>0x6A</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM2_MSB</code></td><td>none</td><td>0x6B</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM2_LSB</code></td><td>none</td><td>0x6C</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM3_MSB</code></td><td>none</td><td>0x6D</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM3_LSB</code></td><td>none</td><td>0x6E</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM4_MSB</code></td><td>none</td><td>0x6F</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM4_LSB</code></td><td>none</td><td>0x70</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM5_MSB</code></td><td>none</td><td>0x71</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM5_LSB</code></td><td>none</td><td>0x72</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_SENSOR0_ZONE</code></td><td>none</td><td>0x73</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_SENSOR0_SUBZONE</code></td><td>none</td><td>0x74</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_SENSOR1_ZONE</code></td><td>none</td><td>0x75</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_SENSOR1_SUBZONE</code></td><td>none</td><td>0x76</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_SENSOR2_ZONE</code></td><td>none</td><td>0x77</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_SENSOR2_SUBZONE</code></td><td>none</td><td>0x78</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_SENSOR3_ZONE</code></td><td>none</td><td>0x79</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_SENSOR3_SUBZONE</code></td><td>none</td><td>0x7A</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_SENSOR4_ZONE</code></td><td>none</td><td>0x7B</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_SENSOR4_SUBZONE</code></td><td>none</td><td>0x7C</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_SENSOR5_ZONE</code></td><td>none</td><td>0x7D</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_SENSOR5_SUBZONE</code></td><td>none</td><td>0x7E</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW0_MSB</code></td><td>none</td><td>0x7F</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW0_LSB</code></td><td>none</td><td>0x80</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW1_MSB</code></td><td>none</td><td>0x81</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW1_LSB</code></td><td>none</td><td>0x82</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW2_MSB</code></td><td>none</td><td>0x83</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW2_LSB</code></td><td>none</td><td>0x84</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW3_MSB</code></td><td>none</td><td>0x85</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW3_LSB</code></td><td>none</td><td>0x86</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW4_MSB</code></td><td>none</td><td>0x87</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW4_LSB</code></td><td>none</td><td>0x88</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW5_MSB</code></td><td>none</td><td>0x89</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW5_LSB</code></td><td>none</td><td>0x8A</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH0_MSB</code></td><td>none</td><td>0x8B</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH0_LSB</code></td><td>none</td><td>0x8C</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH1_MSB</code></td><td>none</td><td>0x8D</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH1_LSB</code></td><td>none</td><td>0x8E</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH2_MSB</code></td><td>none</td><td>0x8F</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH2_LSB</code></td><td>none</td><td>0x90</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH3_MSB</code></td><td>none</td><td>0x91</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH3_LSB</code></td><td>none</td><td>0x92</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH4_MSB</code></td><td>none</td><td>0x93</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH4_LSB</code></td><td>none</td><td>0x94</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH5_MSB</code></td><td>none</td><td>0x95</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH5_LSB</code></td><td>none</td><td>0x96</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_HYSTERESIS_SENSOR0</code></td><td>none</td><td>0x97</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_HYSTERESIS_SENSOR1</code></td><td>none</td><td>0x98</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_HYSTERESIS_SENSOR2</code></td><td>none</td><td>0x99</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_HYSTERESIS_SENSOR3</code></td><td>none</td><td>0x9A</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_HYSTERESIS_SENSOR4</code></td><td>none</td><td>0x9B</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_HYSTERESIS_SENSOR5</code></td><td>none</td><td>0x9C</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ZONE</code></td><td>none</td><td>0x41</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ZONE</code></td><td>none</td><td>0x41</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_SUBZONE</code></td><td>none</td><td>0x42</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_SUBZONE</code></td><td>none</td><td>0x42</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_CONTROLREG0</code></td><td>none</td><td>0x43</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_CONTROLREG0</code></td><td>none</td><td>0x43</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_CONTROLREG1</code></td><td>none</td><td>0x44</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_CONTROLREG1</code></td><td>none</td><td>0x44</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_CONTROLREG2</code></td><td>none</td><td>0x45</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_CONTROLREG2</code></td><td>none</td><td>0x45</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_CONTROLREG3</code></td><td>none</td><td>0x46</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_CONTROLREG3</code></td><td>none</td><td>0x46</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_CONTROLREG4</code></td><td>none</td><td>0x47</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_CONTROLREG4</code></td><td>none</td><td>0x47</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_CONTROLREG5</code></td><td>none</td><td>0x48</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_CONTROLREG5</code></td><td>none</td><td>0x48</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_REPORT_INTERVAL0</code></td><td>none</td><td>0x49</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_REPORT_INTERVAL0</code></td><td>none</td><td>0x49</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_REPORT_INTERVAL1</code></td><td>none</td><td>0x4A</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_REPORT_INTERVAL1</code></td><td>none</td><td>0x4A</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_REPORT_INTERVAL2</code></td><td>none</td><td>0x4B</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_REPORT_INTERVAL2</code></td><td>none</td><td>0x4B</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_REPORT_INTERVAL3</code></td><td>none</td><td>0x4C</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_REPORT_INTERVAL3</code></td><td>none</td><td>0x4C</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_REPORT_INTERVAL4</code></td><td>none</td><td>0x4D</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_REPORT_INTERVAL4</code></td><td>none</td><td>0x4D</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_REPORT_INTERVAL5</code></td><td>none</td><td>0x4E</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_REPORT_INTERVAL5</code></td><td>none</td><td>0x4E</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM0_MSB</code></td><td>none</td><td>0x5B</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM0_MSB</code></td><td>none</td><td>0x5B</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM0_LSB</code></td><td>none</td><td>0x5C</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM0_LSB</code></td><td>none</td><td>0x5C</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM1_MSB</code></td><td>none</td><td>0x5D</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM1_MSB</code></td><td>none</td><td>0x5D</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM1_LSB</code></td><td>none</td><td>0x5E</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM1_LSB</code></td><td>none</td><td>0x5E</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM2_MSB</code></td><td>none</td><td>0x5F</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM2_MSB</code></td><td>none</td><td>0x5F</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM2_LSB</code></td><td>none</td><td>0x60</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM2_LSB</code></td><td>none</td><td>0x60</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM3_MSB</code></td><td>none</td><td>0x61</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM3_MSB</code></td><td>none</td><td>0x61</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM3_LSB</code></td><td>none</td><td>0x62</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM3_LSB</code></td><td>none</td><td>0x62</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM4_MSB</code></td><td>none</td><td>0x63</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM4_MSB</code></td><td>none</td><td>0x63</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM4_LSB</code></td><td>none</td><td>0x64</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM4_LSB</code></td><td>none</td><td>0x64</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM5_MSB</code></td><td>none</td><td>0x65</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM5_MSB</code></td><td>none</td><td>0x65</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM5_LSB</code></td><td>none</td><td>0x66</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_LOW_ALARM5_LSB</code></td><td>none</td><td>0x66</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM0_MSB</code></td><td>none</td><td>0x67</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM0_MSB</code></td><td>none</td><td>0x67</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM0_LSB</code></td><td>none</td><td>0x68</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM0_LSB</code></td><td>none</td><td>0x68</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM1_MSB</code></td><td>none</td><td>0x69</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM1_MSB</code></td><td>none</td><td>0x69</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM1_LSB</code></td><td>none</td><td>0x6A</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM1_LSB</code></td><td>none</td><td>0x6A</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM2_MSB</code></td><td>none</td><td>0x6B</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM2_MSB</code></td><td>none</td><td>0x6B</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM2_LSB</code></td><td>none</td><td>0x6C</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM2_LSB</code></td><td>none</td><td>0x6C</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM3_MSB</code></td><td>none</td><td>0x6D</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM3_MSB</code></td><td>none</td><td>0x6D</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM3_LSB</code></td><td>none</td><td>0x6E</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM3_LSB</code></td><td>none</td><td>0x6E</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM4_MSB</code></td><td>none</td><td>0x6F</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM4_MSB</code></td><td>none</td><td>0x6F</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM4_LSB</code></td><td>none</td><td>0x70</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM4_LSB</code></td><td>none</td><td>0x70</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM5_MSB</code></td><td>none</td><td>0x71</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM5_MSB</code></td><td>none</td><td>0x71</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM5_LSB</code></td><td>none</td><td>0x72</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_HIGH_ALARM5_LSB</code></td><td>none</td><td>0x72</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_SENSOR0_ZONE</code></td><td>none</td><td>0x73</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_SENSOR0_ZONE</code></td><td>none</td><td>0x73</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_SENSOR0_SUBZONE</code></td><td>none</td><td>0x74</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_SENSOR0_SUBZONE</code></td><td>none</td><td>0x74</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_SENSOR1_ZONE</code></td><td>none</td><td>0x75</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_SENSOR1_ZONE</code></td><td>none</td><td>0x75</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_SENSOR1_SUBZONE</code></td><td>none</td><td>0x76</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_SENSOR1_SUBZONE</code></td><td>none</td><td>0x76</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_SENSOR2_ZONE</code></td><td>none</td><td>0x77</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_SENSOR2_ZONE</code></td><td>none</td><td>0x77</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_SENSOR2_SUBZONE</code></td><td>none</td><td>0x78</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_SENSOR2_SUBZONE</code></td><td>none</td><td>0x78</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_SENSOR3_ZONE</code></td><td>none</td><td>0x79</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_SENSOR3_ZONE</code></td><td>none</td><td>0x79</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_SENSOR3_SUBZONE</code></td><td>none</td><td>0x7A</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_SENSOR3_SUBZONE</code></td><td>none</td><td>0x7A</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_SENSOR4_ZONE</code></td><td>none</td><td>0x7B</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_SENSOR4_ZONE</code></td><td>none</td><td>0x7B</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_SENSOR4_SUBZONE</code></td><td>none</td><td>0x7C</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_SENSOR4_SUBZONE</code></td><td>none</td><td>0x7C</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_SENSOR5_ZONE</code></td><td>none</td><td>0x7D</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_SENSOR5_ZONE</code></td><td>none</td><td>0x7D</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_SENSOR5_SUBZONE</code></td><td>none</td><td>0x7E</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_SENSOR5_SUBZONE</code></td><td>none</td><td>0x7E</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW0_MSB</code></td><td>none</td><td>0x7F</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW0_MSB</code></td><td>none</td><td>0x7F</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW0_LSB</code></td><td>none</td><td>0x80</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW0_LSB</code></td><td>none</td><td>0x80</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW1_MSB</code></td><td>none</td><td>0x81</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW1_MSB</code></td><td>none</td><td>0x81</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW1_LSB</code></td><td>none</td><td>0x82</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW1_LSB</code></td><td>none</td><td>0x82</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW2_MSB</code></td><td>none</td><td>0x83</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW2_MSB</code></td><td>none</td><td>0x83</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW2_LSB</code></td><td>none</td><td>0x84</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW2_LSB</code></td><td>none</td><td>0x84</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW3_MSB</code></td><td>none</td><td>0x85</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW3_MSB</code></td><td>none</td><td>0x85</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW3_LSB</code></td><td>none</td><td>0x86</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW3_LSB</code></td><td>none</td><td>0x86</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW4_MSB</code></td><td>none</td><td>0x87</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW4_MSB</code></td><td>none</td><td>0x87</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW4_LSB</code></td><td>none</td><td>0x88</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW4_LSB</code></td><td>none</td><td>0x88</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW5_MSB</code></td><td>none</td><td>0x89</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW5_MSB</code></td><td>none</td><td>0x89</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW5_LSB</code></td><td>none</td><td>0x8A</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_LOW5_LSB</code></td><td>none</td><td>0x8A</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH0_MSB</code></td><td>none</td><td>0x8B</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH0_MSB</code></td><td>none</td><td>0x8B</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH0_LSB</code></td><td>none</td><td>0x8C</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH0_LSB</code></td><td>none</td><td>0x8C</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH1_MSB</code></td><td>none</td><td>0x8D</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH1_MSB</code></td><td>none</td><td>0x8D</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH1_LSB</code></td><td>none</td><td>0x8E</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH1_LSB</code></td><td>none</td><td>0x8E</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH2_MSB</code></td><td>none</td><td>0x8F</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH2_MSB</code></td><td>none</td><td>0x8F</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH2_LSB</code></td><td>none</td><td>0x90</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH2_LSB</code></td><td>none</td><td>0x90</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH3_MSB</code></td><td>none</td><td>0x91</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH3_MSB</code></td><td>none</td><td>0x91</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH3_LSB</code></td><td>none</td><td>0x92</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH3_LSB</code></td><td>none</td><td>0x92</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH4_MSB</code></td><td>none</td><td>0x93</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH4_MSB</code></td><td>none</td><td>0x93</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH4_LSB</code></td><td>none</td><td>0x94</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH4_LSB</code></td><td>none</td><td>0x94</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH5_MSB</code></td><td>none</td><td>0x95</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH5_MSB</code></td><td>none</td><td>0x95</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH5_LSB</code></td><td>none</td><td>0x96</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ABSOLUT_HIGH5_LSB</code></td><td>none</td><td>0x96</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_HYSTERESIS_SENSOR0</code></td><td>none</td><td>0x97</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_HYSTERESIS_SENSOR0</code></td><td>none</td><td>0x97</td></tr>
-<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_HYSTERESIS_SENSOR1</code></td><td>none</td><td>0x98</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_HYSTERESIS_SENSOR1</code></td><td>none</td><td>0x98</td></tr>
+<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>197</td></tr>
+<tr><td><code>REG0_KELVIN1W_ZONE</code></td><td>none</td><td>0</td></tr>
+<tr><td><code>REG0_KELVIN1W_BCONSTANT0_LOW</code></td><td>none</td><td>43</td></tr>
 <tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_HYSTERESIS_SENSOR2</code></td><td>none</td><td>0x99</td></tr>
 <tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_HYSTERESIS_SENSOR2</code></td><td>none</td><td>0x99</td></tr>
+<tr><td><code>REG2_KELVIN1W_LOW_ALARM_SET_POINT0_MSB</code></td><td>none</td><td>0</td></tr>
+<tr><td><code>REG2_KELVIN1W_CALIBRATION_TEMP8_LSB</code></td><td>none</td><td>89</td></tr>
 <tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_HYSTERESIS_SENSOR3</code></td><td>none</td><td>0x9A</td></tr>
 <tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_HYSTERESIS_SENSOR3</code></td><td>none</td><td>0x9A</td></tr>
+<tr><td><code>REG3_KELVIN1W_ROM_CODE_TEMP0_MSB</code></td><td>none</td><td>1</td></tr>
+<tr><td><code>REG3_KELVIN1W_ROM_CODE_TEMP7_BYTE7</code></td><td>none</td><td>64</td></tr>
 <tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_HYSTERESIS_SENSOR4</code></td><td>none</td><td>0x9B</td></tr>
+<tr><td><code>ROM_CODE_EEPROM_START</code></td><td>none</td><td>133</td></tr>
 <tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_HYSTERESIS_SENSOR4</code></td><td>none</td><td>0x9B</td></tr>
+<tr><td><code>ROM_CODE_EEPROM_START</code></td><td>none</td><td>133</td></tr>
+<tr><td><code>REG_DESCION_MATRIX</code></td><td>none</td><td>0</td></tr>
+<tr><td><code>DESCION_MATRIX_ROWS</code></td><td>none</td><td>8</td></tr>
 <tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>EEPROM_HYSTERESIS_SENSOR5</code></td><td>none</td><td>0x9C</td></tr>
+<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>197</td></tr>
 <tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_HYSTERESIS_SENSOR5</code></td><td>none</td><td>0x9C</td></tr>
+<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>197</td></tr>
 <tr><td><code>FIRMWARE_MAJOR_VERSION</code></td><td>none</td><td>1</td></tr>
 <tr><td><code>FIRMWARE_MINOR_VERSION</code></td><td>none</td><td>0</td></tr>
 <tr><td><code>FIRMWARE_SUB_MINOR_VERSION</code></td><td>none</td><td>0</td></tr>
@@ -31856,9 +31170,11 @@
 <tr><td><code>VSCP_CLASS1_PROTOCOL</code></td><td>none</td><td>0</td></tr>
 <tr><td><code>DESCION_MATRIX_ROWS</code></td><td>none</td><td>8</td></tr>
 <tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
+<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>197</td></tr>
 <tr><td><code>VSCP_DM_FLAG_ENABLED</code></td><td>none</td><td>0x80</td></tr>
 <tr><td><code>VSCP_DM_FLAG_CHECK_OADDR</code></td><td>none</td><td>0x40</td></tr>
 <tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
+<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>197</td></tr>
 <tr><td><code>VSCP_DM_FLAG_CHECK_ZONE</code></td><td>none</td><td>0x10</td></tr>
 <tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
 <tr><td><code>REG0_KELVIN1W_ZONE</code></td><td>none</td><td>0</td></tr>
@@ -31867,43 +31183,50 @@
 <tr><td><code>REG0_KELVIN1W_SUBZONE</code></td><td>none</td><td>1</td></tr>
 <tr><td><code>VSCP_DM_FLAG_CLASS_FILTER</code></td><td>none</td><td>0x01</td></tr>
 <tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
+<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>197</td></tr>
 <tr><td><code>VSCP_DM_POS_CLASSFILTER</code></td><td>none</td><td>3</td></tr>
 <tr><td><code>VSCP_DM_FLAG_CLASS_MASK</code></td><td>none</td><td>0x02</td></tr>
 <tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
+<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>197</td></tr>
 <tr><td><code>VSCP_DM_POS_CLASSMASK</code></td><td>none</td><td>2</td></tr>
 <tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
+<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>197</td></tr>
 <tr><td><code>VSCP_DM_POS_TYPEFILTER</code></td><td>none</td><td>5</td></tr>
 <tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
+<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>197</td></tr>
 <tr><td><code>VSCP_DM_POS_TYPEMASK</code></td><td>none</td><td>4</td></tr>
 <tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
+<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>197</td></tr>
 <tr><td><code>VSCP_DM_POS_ACTION</code></td><td>none</td><td>6</td></tr>
 <tr><td><code>KELVIN1W_ACTION_NOOP</code></td><td>none</td><td>0</td></tr>
 <tr><td><code>KELVIN1W_ACTION_SCAN</code></td><td>none</td><td>1</td></tr>
 <tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
+<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>197</td></tr>
 <tr><td><code>VSCP_DM_POS_ACTIONPARAM</code></td><td>none</td><td>7</td></tr>
 <tr><td><code>KELVIN1W_ACTION_SCANSTORE</code></td><td>none</td><td>2</td></tr>
 <tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
+<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>197</td></tr>
 <tr><td><code>VSCP_DM_POS_ACTIONPARAM</code></td><td>none</td><td>7</td></tr>
 <tr><td><code>KELVIN1W_ACTION_REPORT</code></td><td>none</td><td>3</td></tr>
 <tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
+<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>197</td></tr>
 <tr><td><code>VSCP_DM_POS_ACTIONPARAM</code></td><td>none</td><td>7</td></tr>
 <tr><td><code>KELVIN1W_ACTION_CLEAR_ALARM</code></td><td>none</td><td>4</td></tr>
 <tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
+<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>197</td></tr>
 <tr><td><code>VSCP_DM_POS_ACTIONPARAM</code></td><td>none</td><td>7</td></tr>
 <tr><td><code>KELVIN1W_ACTION_CLEAR_HIGH</code></td><td>none</td><td>5</td></tr>
 <tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
+<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>197</td></tr>
 <tr><td><code>VSCP_DM_POS_ACTIONPARAM</code></td><td>none</td><td>7</td></tr>
 <tr><td><code>KELVIN1W_ACTION_CLEAR_LOW</code></td><td>none</td><td>6</td></tr>
 <tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
+<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>197</td></tr>
 <tr><td><code>VSCP_DM_POS_ACTIONPARAM</code></td><td>none</td><td>7</td></tr>
 <tr><td><code>VSCP_PRIORITY_NORMAL</code></td><td>none</td><td>0x03</td></tr>
 <tr><td><code>VSCP_VALID_MSG</code></td><td>none</td><td>0x80</td></tr>
 <tr><td><code>VSCP_CLASS1_PROTOCOL</code></td><td>none</td><td>0</td></tr>
 <tr><td><code>VSCP_TYPE_PROTOCOL_RW_RESPONSE</code></td><td>none</td><td>10</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_ZONE</code></td><td>none</td><td>0x41</td></tr>
-<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>EEPROM_SUBZONE</code></td><td>none</td><td>0x42</td></tr>
 <tr><td><code>VSCP_BOOTLOADER_PIC1</code></td><td>none</td><td>0x01</td></tr>
 <tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
 <tr><td><code>VSCP_EEPROM_BOOTLOADER_FLAG</code></td><td>none</td><td>0x00</td></tr>
@@ -31927,6 +31250,48 @@
 <tr><td><code>FALSE</code></td><td>none</td><td>0</td></tr>
 <tr><td><code>FALSE</code></td><td>none</td><td>0</td></tr>
 <tr><td><code>TRUE</code></td><td>none</td><td>1</td></tr>
-<tr><td><code>FALSE</code></td><td>none</td><td>0</td></table>
+<tr><td><code>FALSE</code></td><td>none</td><td>0</td></tr>
+<tr><td><code>DESCION_MATRIX_ROWS</code></td><td>none</td><td>8</td></tr>
+<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_DM_POS_FLAGS</code></td><td>none</td><td>1</td></tr>
+<tr><td><code>VSCP_DM_FLAG_ENABLED</code></td><td>none</td><td>0x80</td></tr>
+<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_DM_POS_FLAGS</code></td><td>none</td><td>1</td></tr>
+<tr><td><code>VSCP_DM_FLAG_CLASS_MASK</code></td><td>none</td><td>0x02</td></tr>
+<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_DM_POS_CLASSMASK</code></td><td>none</td><td>2</td></tr>
+<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_DM_POS_TYPEMASK</code></td><td>none</td><td>4</td></tr>
+<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_DM_POS_FLAGS</code></td><td>none</td><td>1</td></tr>
+<tr><td><code>VSCP_DM_FLAG_CLASS_FILTER</code></td><td>none</td><td>0x01</td></tr>
+<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_DM_POS_CLASSFILTER</code></td><td>none</td><td>3</td></tr>
+<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_DM_POS_TYPEFILTER</code></td><td>none</td><td>5</td></tr>
+<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>VSCP_DM_POS_FLAGS</code></td><td>none</td><td>1</td></tr>
+<tr><td><code>VSCP_DM_FLAG_CHECK_OADDR</code></td><td>none</td><td>0x40</td></tr>
+<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
+<tr><td><code>VSCP_EEPROM_END</code></td><td>none</td><td>10</td></tr>
+<tr><td><code>ECANSetRXM1Value</code></td><td>2</td><td>_CANIDToRegs((BYTE*)&RXM1SIDH, <0>, <1>)</td></tr>
+<tr><td><code>ECAN_MSG_XTD</code></td><td>none</td><td>1</td></tr>
+<tr><td><code>ECANSetRXF1Value</code></td><td>2</td><td>RXFCON0_RXF1EN = 1; _CANIDToRegs((BYTE*)&RXF1SIDH, <0>, <1>);</td></tr>
+<tr><td><code>RXFCON0_RXF1EN</code></td><td>none</td><td>RXF1EN</td></tr>
+<tr><td><code>ECAN_MSG_XTD</code></td><td>none</td><td>1</td></table>
 </BODY>
 </HTML>

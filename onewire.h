@@ -28,6 +28,330 @@
 #include <inttypes.h>
 #include "main.h"
 
+////////////////////////////////////////////////////////////////////////////////
+//                                 Page 0
+////////////////////////////////////////////////////////////////////////////////
+
+// Page 0 registers
+#define REG0_KELVIN1W_ZONE                              0
+#define REG0_KELVIN1W_SUBZONE                           1
+
+#define REG0_KELVIN1W_TEMP0_ZONE                        2
+#define REG0_KELVIN1W_TEMP0_SUBZONE                     3
+#define REG0_KELVIN1W_TEMP1_ZONE                        4
+#define REG0_KELVIN1W_TEMP1_SUBZONE                     5
+#define REG0_KELVIN1W_TEMP2_ZONE                        6
+#define REG0_KELVIN1W_TEMP2_SUBZONE                     7
+#define REG0_KELVIN1W_TEMP3_ZONE                        8
+#define REG0_KELVIN1W_TEMP3_SUBZONE                     9
+#define REG0_KELVIN1W_TEMP4_ZONE                        10
+#define REG0_KELVIN1W_TEMP4_SUBZONE                     11
+#define REG0_KELVIN1W_TEMP5_ZONE                        12
+#define REG0_KELVIN1W_TEMP5_SUBZONE                     13
+#define REG0_KELVIN1W_TEMP6_ZONE                        14
+#define REG0_KELVIN1W_TEMP6_SUBZONE                     15
+#define REG0_KELVIN1W_TEMP7_ZONE                        16
+#define REG0_KELVIN1W_TEMP7_SUBZONE                     17
+
+#define REG0_KELVIN1W_CTRL_REG0_LOW                     18
+#define REG0_KELVIN1W_CTRL_REG0_HIGH                    19
+#define REG0_KELVIN1W_CTRL_REG1_LOW                     20
+#define REG0_KELVIN1W_CTRL_REG1_HIGH                    21
+#define REG0_KELVIN1W_CTRL_REG2_LOW                     22
+#define REG0_KELVIN1W_CTRL_REG2_HIGH                    23
+#define REG0_KELVIN1W_CTRL_REG3_LOW                     24
+#define REG0_KELVIN1W_CTRL_REG3_HIGH                    25
+#define REG0_KELVIN1W_CTRL_REG4_LOW                     26
+#define REG0_KELVIN1W_CTRL_REG4_HIGH                    27
+#define REG0_KELVIN1W_CTRL_REG5_LOW                     28
+#define REG0_KELVIN1W_CTRL_REG5_HIGH                    29
+#define REG0_KELVIN1W_CTRL_REG6_LOW                     30
+#define REG0_KELVIN1W_CTRL_REG6_HIGH                    31
+#define REG0_KELVIN1W_CTRL_REG7_LOW                     32
+#define REG0_KELVIN1W_CTRL_REG7_HIGH                    33
+
+#define REG0_KELVIN1W_REPORT_INTERVAL_0                 34
+#define REG0_KELVIN1W_REPORT_INTERVAL_1                 35
+#define REG0_KELVIN1W_REPORT_INTERVAL_2                 36
+#define REG0_KELVIN1W_REPORT_INTERVAL_3                 37
+#define REG0_KELVIN1W_REPORT_INTERVAL_4                 38
+#define REG0_KELVIN1W_REPORT_INTERVAL_5                 39
+#define REG0_KELVIN1W_REPORT_INTERVAL_6                 40
+#define REG0_KELVIN1W_REPORT_INTERVAL_7                 41
+
+#define REG0_KELVIN1W_BCONSTANT0_HIGH                   42
+#define REG0_KELVIN1W_BCONSTANT0_LOW                    43
+
+
+////////////////////////////////////////////////////////////////////////////////
+//                                 Page 1
+////////////////////////////////////////////////////////////////////////////////
+
+#define REG1_KELVIN1W_TEMPERATURE0_MSB                  0
+#define REG1_KELVIN1W_TEMPERATURE0_BYTE0                0
+#define REG1_KELVIN1W_TEMPERATURE0_BYTE1                1
+#define REG1_KELVIN1W_TEMPERATURE0_BYTE2                2
+#define REG1_KELVIN1W_TEMPERATURE0_LSB                  2
+
+#define REG1_KELVIN1W_TEMPERATURE1_MSB                  3
+#define REG1_KELVIN1W_TEMPERATURE1_BYTE0                3
+#define REG1_KELVIN1W_TEMPERATURE1_BYTE1                4
+#define REG1_KELVIN1W_TEMPERATURE1_BYTE2                5
+#define REG1_KELVIN1W_TEMPERATURE1_LSB                  5
+
+#define REG1_KELVIN1W_TEMPERATURE2_MSB                  6
+#define REG1_KELVIN1W_TEMPERATURE2_BYTE0                6
+#define REG1_KELVIN1W_TEMPERATURE2_BYTE1                7
+#define REG1_KELVIN1W_TEMPERATURE2_BYTE2                8
+#define REG1_KELVIN1W_TEMPERATURE2_LSB                  8
+
+#define REG1_KELVIN1W_TEMPERATURE3_MSB                  9
+#define REG1_KELVIN1W_TEMPERATURE3_BYTE0                9
+#define REG1_KELVIN1W_TEMPERATURE3_BYTE1                10
+#define REG1_KELVIN1W_TEMPERATURE3_BYTE2                11
+#define REG1_KELVIN1W_TEMPERATURE3_LSB                  11
+
+#define REG1_KELVIN1W_TEMPERATURE4_MSB                  12
+#define REG1_KELVIN1W_TEMPERATURE4_BYTE0                12
+#define REG1_KELVIN1W_TEMPERATURE4_BYTE1                13
+#define REG1_KELVIN1W_TEMPERATURE4_BYTE2                14
+#define REG1_KELVIN1W_TEMPERATURE4_LSB                  14
+
+#define REG1_KELVIN1W_TEMPERATURE5_MSB                  15
+#define REG1_KELVIN1W_TEMPERATURE5_BYTE0                15
+#define REG1_KELVIN1W_TEMPERATURE5_BYTE1                16
+#define REG1_KELVIN1W_TEMPERATURE5_BYTE2                17
+#define REG1_KELVIN1W_TEMPERATURE5_LSB                  17
+
+#define REG1_KELVIN1W_TEMPERATURE6_MSB                  18
+#define REG1_KELVIN1W_TEMPERATURE6_BYTE0                18
+#define REG1_KELVIN1W_TEMPERATURE6_BYTE1                19
+#define REG1_KELVIN1W_TEMPERATURE6_BYTE2                20
+#define REG1_KELVIN1W_TEMPERATURE6_LSB                  20
+
+#define REG1_KELVIN1W_TEMPERATURE7_MSB                  21
+#define REG1_KELVIN1W_TEMPERATURE7_BYTE0                21
+#define REG1_KELVIN1W_TEMPERATURE7_BYTE1                22
+#define REG1_KELVIN1W_TEMPERATURE7_BYTE2                23
+#define REG1_KELVIN1W_TEMPERATURE7_LSB                  23
+
+#define REG1_KELVIN1W_TEMPERATURE8_MSB                  24
+#define REG1_KELVIN1W_TEMPERATURE8_BYTE0                24
+#define REG1_KELVIN1W_TEMPERATURE8_BYTE1                25
+#define REG1_KELVIN1W_TEMPERATURE8_BYTE2                26
+#define REG1_KELVIN1W_TEMPERATURE8_LSB                  26
+
+
+////////////////////////////////////////////////////////////////////////////////
+//                                 Page 2
+////////////////////////////////////////////////////////////////////////////////
+
+
+#define REG2_KELVIN1W_LOW_ALARM_SET_POINT0_MSB          0
+#define REG2_KELVIN1W_LOW_ALARM_SET_POINT0_LSB          1
+#define REG2_KELVIN1W_LOW_ALARM_SET_POINT1_MSB          2
+#define REG2_KELVIN1W_LOW_ALARM_SET_POINT1_LSB          3
+#define REG2_KELVIN1W_LOW_ALARM_SET_POINT2_MSB          4
+#define REG2_KELVIN1W_LOW_ALARM_SET_POINT2_LSB          5
+#define REG2_KELVIN1W_LOW_ALARM_SET_POINT3_MSB          6
+#define REG2_KELVIN1W_LOW_ALARM_SET_POINT3_LSB          7
+#define REG2_KELVIN1W_LOW_ALARM_SET_POINT4_MSB          8
+#define REG2_KELVIN1W_LOW_ALARM_SET_POINT4_LSB          9
+#define REG2_KELVIN1W_LOW_ALARM_SET_POINT5_MSB          10
+#define REG2_KELVIN1W_LOW_ALARM_SET_POINT5_LSB          11
+#define REG2_KELVIN1W_LOW_ALARM_SET_POINT6_MSB          12
+#define REG2_KELVIN1W_LOW_ALARM_SET_POINT6_LSB          13
+#define REG2_KELVIN1W_LOW_ALARM_SET_POINT7_MSB          14
+#define REG2_KELVIN1W_LOW_ALARM_SET_POINT7_LSB          15
+
+#define REG2_KELVIN1W_HIGH_ALARM_SET_POINT0_MSB         16
+#define REG2_KELVIN1W_HIGH_ALARM_SET_POINT0_LSB         17
+#define REG2_KELVIN1W_HIGH_ALARM_SET_POINT1_MSB         18
+#define REG2_KELVIN1W_HIGH_ALARM_SET_POINT1_LSB         19
+#define REG2_KELVIN1W_HIGH_ALARM_SET_POINT2_MSB         20
+#define REG2_KELVIN1W_HIGH_ALARM_SET_POINT2_LSB         21
+#define REG2_KELVIN1W_HIGH_ALARM_SET_POINT3_MSB         22
+#define REG2_KELVIN1W_HIGH_ALARM_SET_POINT3_LSB         23
+#define REG2_KELVIN1W_HIGH_ALARM_SET_POINT4_MSB         24
+#define REG2_KELVIN1W_HIGH_ALARM_SET_POINT4_LSB         25
+#define REG2_KELVIN1W_HIGH_ALARM_SET_POINT5_MSB         26
+#define REG2_KELVIN1W_HIGH_ALARM_SET_POINT5_LSB         27
+#define REG2_KELVIN1W_HIGH_ALARM_SET_POINT6_MSB         28
+#define REG2_KELVIN1W_HIGH_ALARM_SET_POINT6_LSB         29
+#define REG2_KELVIN1W_HIGH_ALARM_SET_POINT7_MSB         30
+#define REG2_KELVIN1W_HIGH_ALARM_SET_POINT7_LSB         31
+
+#define REG2_KELVIN1W_ABSOLUTE_LOW_TEMP0_MSB            32
+#define REG2_KELVIN1W_ABSOLUTE_LOW_TEMP0_LSB            33
+#define REG2_KELVIN1W_ABSOLUTE_LOW_TEMP1_MSB            34
+#define REG2_KELVIN1W_ABSOLUTE_LOW_TEMP1_LSB            35
+#define REG2_KELVIN1W_ABSOLUTE_LOW_TEMP2_MSB            36
+#define REG2_KELVIN1W_ABSOLUTE_LOW_TEMP2_LSB            37
+#define REG2_KELVIN1W_ABSOLUTE_LOW_TEMP3_MSB            38
+#define REG2_KELVIN1W_ABSOLUTE_LOW_TEMP3_LSB            39
+#define REG2_KELVIN1W_ABSOLUTE_LOW_TEMP4_MSB            40
+#define REG2_KELVIN1W_ABSOLUTE_LOW_TEMP4_LSB            41
+#define REG2_KELVIN1W_ABSOLUTE_LOW_TEMP5_MSB            42
+#define REG2_KELVIN1W_ABSOLUTE_LOW_TEMP5_LSB            43
+#define REG2_KELVIN1W_ABSOLUTE_LOW_TEMP6_MSB            44
+#define REG2_KELVIN1W_ABSOLUTE_LOW_TEMP6_LSB            45
+#define REG2_KELVIN1W_ABSOLUTE_LOW_TEMP7_MSB            46
+#define REG2_KELVIN1W_ABSOLUTE_LOW_TEMP7_LSB            47
+
+#define REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP0_MSB           48
+#define REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP0_LSB           49
+#define REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP1_MSB           50
+#define REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP1_LSB           51
+#define REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP2_MSB           52
+#define REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP2_LSB           53
+#define REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP3_MSB           54
+#define REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP3_LSB           55
+#define REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP4_MSB           56
+#define REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP4_LSB           57
+#define REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP5_MSB           58
+#define REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP5_LSB           59
+#define REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP6_MSB           60
+#define REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP6_LSB           61
+#define REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP7_MSB           62
+#define REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP7_LSB           63
+
+#define REG2_KELVIN1W_HYSTERESIS_TEMP0                  64
+#define REG2_KELVIN1W_HYSTERESIS_TEMP1                  65
+#define REG2_KELVIN1W_HYSTERESIS_TEMP2                  66
+#define REG2_KELVIN1W_HYSTERESIS_TEMP3                  67
+#define REG2_KELVIN1W_HYSTERESIS_TEMP4                  68
+#define REG2_KELVIN1W_HYSTERESIS_TEMP5                  69
+#define REG2_KELVIN1W_HYSTERESIS_TEMP6                  70
+#define REG2_KELVIN1W_HYSTERESIS_TEMP7                  71
+
+#define REG2_KELVIN1W_CALIBRATION_TEMP0_MSB             72
+#define REG2_KELVIN1W_CALIBRATION_TEMP0_LSB             73
+#define REG2_KELVIN1W_CALIBRATION_TEMP1_MSB             74
+#define REG2_KELVIN1W_CALIBRATION_TEMP1_LSB             75
+#define REG2_KELVIN1W_CALIBRATION_TEMP2_MSB             76
+#define REG2_KELVIN1W_CALIBRATION_TEMP2_LSB             77
+#define REG2_KELVIN1W_CALIBRATION_TEMP3_MSB             78
+#define REG2_KELVIN1W_CALIBRATION_TEMP3_LSB             79
+#define REG2_KELVIN1W_CALIBRATION_TEMP4_MSB             80
+#define REG2_KELVIN1W_CALIBRATION_TEMP4_LSB             81
+#define REG2_KELVIN1W_CALIBRATION_TEMP5_MSB             82
+#define REG2_KELVIN1W_CALIBRATION_TEMP5_LSB             83
+#define REG2_KELVIN1W_CALIBRATION_TEMP6_MSB             84
+#define REG2_KELVIN1W_CALIBRATION_TEMP6_LSB             85
+#define REG2_KELVIN1W_CALIBRATION_TEMP7_MSB             86
+#define REG2_KELVIN1W_CALIBRATION_TEMP7_LSB             87
+#define REG2_KELVIN1W_CALIBRATION_TEMP8_MSB             88
+#define REG2_KELVIN1W_CALIBRATION_TEMP8_LSB             89
+
+
+////////////////////////////////////////////////////////////////////////////////
+//                                 Page 3
+////////////////////////////////////////////////////////////////////////////////
+
+#define REG3_KELVIN1W_CHANNEL_CONTROL_REGISTER          0
+
+#define REG3_KELVIN1W_ROM_CODE_TEMP0_MSB                1 
+#define REG3_KELVIN1W_ROM_CODE_TEMP0_BYTE0              1
+#define REG3_KELVIN1W_ROM_CODE_TEMP0_BYTE1              2
+#define REG3_KELVIN1W_ROM_CODE_TEMP0_BYTE2              3
+#define REG3_KELVIN1W_ROM_CODE_TEMP0_BYTE3              4
+#define REG3_KELVIN1W_ROM_CODE_TEMP0_BYTE4              5
+#define REG3_KELVIN1W_ROM_CODE_TEMP0_BYTE5              6
+#define REG3_KELVIN1W_ROM_CODE_TEMP0_BYTE6              7
+#define REG3_KELVIN1W_ROM_CODE_TEMP0_BYTE7              8
+#define REG3_KELVIN1W_ROM_CODE_TEMP0_LSB                8
+
+#define REG3_KELVIN1W_ROM_CODE_TEMP1_MSB                9 
+#define REG3_KELVIN1W_ROM_CODE_TEMP1_BYTE0              9
+#define REG3_KELVIN1W_ROM_CODE_TEMP1_BYTE1              10
+#define REG3_KELVIN1W_ROM_CODE_TEMP1_BYTE2              11
+#define REG3_KELVIN1W_ROM_CODE_TEMP1_BYTE3              12
+#define REG3_KELVIN1W_ROM_CODE_TEMP1_BYTE4              13
+#define REG3_KELVIN1W_ROM_CODE_TEMP1_BYTE5              14
+#define REG3_KELVIN1W_ROM_CODE_TEMP1_BYTE6              15
+#define REG3_KELVIN1W_ROM_CODE_TEMP1_BYTE7              16
+#define REG3_KELVIN1W_ROM_CODE_TEMP1_LSB                16
+
+#define REG3_KELVIN1W_ROM_CODE_TEMP2_MSB                17 
+#define REG3_KELVIN1W_ROM_CODE_TEMP2_BYTE0              17
+#define REG3_KELVIN1W_ROM_CODE_TEMP2_BYTE1              18
+#define REG3_KELVIN1W_ROM_CODE_TEMP2_BYTE2              19
+#define REG3_KELVIN1W_ROM_CODE_TEMP2_BYTE3              20
+#define REG3_KELVIN1W_ROM_CODE_TEMP2_BYTE4              21
+#define REG3_KELVIN1W_ROM_CODE_TEMP2_BYTE5              22
+#define REG3_KELVIN1W_ROM_CODE_TEMP2_BYTE6              23
+#define REG3_KELVIN1W_ROM_CODE_TEMP2_BYTE7              24
+#define REG3_KELVIN1W_ROM_CODE_TEMP2_LSB                24
+
+#define REG3_KELVIN1W_ROM_CODE_TEMP3_MSB                25 
+#define REG3_KELVIN1W_ROM_CODE_TEMP3_BYTE0              25
+#define REG3_KELVIN1W_ROM_CODE_TEMP3_BYTE1              26
+#define REG3_KELVIN1W_ROM_CODE_TEMP3_BYTE2              27
+#define REG3_KELVIN1W_ROM_CODE_TEMP3_BYTE3              28
+#define REG3_KELVIN1W_ROM_CODE_TEMP3_BYTE4              29
+#define REG3_KELVIN1W_ROM_CODE_TEMP3_BYTE5              30
+#define REG3_KELVIN1W_ROM_CODE_TEMP3_BYTE6              31
+#define REG3_KELVIN1W_ROM_CODE_TEMP3_BYTE7              32
+#define REG3_KELVIN1W_ROM_CODE_TEMP3_LSB                32
+
+#define REG3_KELVIN1W_ROM_CODE_TEMP4_MSB                33 
+#define REG3_KELVIN1W_ROM_CODE_TEMP4_BYTE0              33
+#define REG3_KELVIN1W_ROM_CODE_TEMP4_BYTE1              34
+#define REG3_KELVIN1W_ROM_CODE_TEMP4_BYTE2              35
+#define REG3_KELVIN1W_ROM_CODE_TEMP4_BYTE3              36
+#define REG3_KELVIN1W_ROM_CODE_TEMP4_BYTE4              37
+#define REG3_KELVIN1W_ROM_CODE_TEMP4_BYTE5              38
+#define REG3_KELVIN1W_ROM_CODE_TEMP4_BYTE6              39
+#define REG3_KELVIN1W_ROM_CODE_TEMP4_BYTE7              40
+#define REG3_KELVIN1W_ROM_CODE_TEMP4_LSB                40
+
+#define REG3_KELVIN1W_ROM_CODE_TEMP5_MSB                41 
+#define REG3_KELVIN1W_ROM_CODE_TEMP5_BYTE0              41
+#define REG3_KELVIN1W_ROM_CODE_TEMP5_BYTE1              42
+#define REG3_KELVIN1W_ROM_CODE_TEMP5_BYTE2              43
+#define REG3_KELVIN1W_ROM_CODE_TEMP5_BYTE3              44
+#define REG3_KELVIN1W_ROM_CODE_TEMP5_BYTE4              45
+#define REG3_KELVIN1W_ROM_CODE_TEMP5_BYTE5              46
+#define REG3_KELVIN1W_ROM_CODE_TEMP5_BYTE6              47
+#define REG3_KELVIN1W_ROM_CODE_TEMP5_BYTE7              48
+#define REG3_KELVIN1W_ROM_CODE_TEMP5_LSB                48
+
+#define REG3_KELVIN1W_ROM_CODE_TEMP6_MSB                49 
+#define REG3_KELVIN1W_ROM_CODE_TEMP6_BYTE0              49
+#define REG3_KELVIN1W_ROM_CODE_TEMP6_BYTE1              50
+#define REG3_KELVIN1W_ROM_CODE_TEMP6_BYTE2              51
+#define REG3_KELVIN1W_ROM_CODE_TEMP6_BYTE3              52
+#define REG3_KELVIN1W_ROM_CODE_TEMP6_BYTE4              53
+#define REG3_KELVIN1W_ROM_CODE_TEMP6_BYTE5              54
+#define REG3_KELVIN1W_ROM_CODE_TEMP6_BYTE6              55
+#define REG3_KELVIN1W_ROM_CODE_TEMP6_BYTE7              56
+#define REG3_KELVIN1W_ROM_CODE_TEMP6_LSB                56
+
+#define REG3_KELVIN1W_ROM_CODE_TEMP7_MSB                57 
+#define REG3_KELVIN1W_ROM_CODE_TEMP7_BYTE0              57
+#define REG3_KELVIN1W_ROM_CODE_TEMP7_BYTE1              58
+#define REG3_KELVIN1W_ROM_CODE_TEMP7_BYTE2              59
+#define REG3_KELVIN1W_ROM_CODE_TEMP7_BYTE3              60
+#define REG3_KELVIN1W_ROM_CODE_TEMP7_BYTE4              61
+#define REG3_KELVIN1W_ROM_CODE_TEMP7_BYTE5              62
+#define REG3_KELVIN1W_ROM_CODE_TEMP7_BYTE6              63
+#define REG3_KELVIN1W_ROM_CODE_TEMP7_BYTE7              64
+#define REG3_KELVIN1W_ROM_CODE_TEMP7_LSB                64
+
+
+
+#define DESCION_MATRIX_ROWS             8       // Number of ros in decision matrix
+#define REG_DESCION_MATRIX              0       // Decision matrix register start offset
+#define DESCION_MATRIX_PAGE             250     // Decision matrix page
+
+#define KELVIN1W_ACTION_NOOP            0
+#define KELVIN1W_ACTION_SCAN            1
+#define KELVIN1W_ACTION_SCANSTORE       2
+#define KELVIN1W_ACTION_REPORT          3
+#define KELVIN1W_ACTION_CLEAR_ALARM     4
+#define KELVIN1W_ACTION_CLEAR_HIGH      5
+#define KELVIN1W_ACTION_CLEAR_LOW       6
+
 // The four temperature channels
 #define TEMP_CHANNEL1   0   // RC7
 #define TEMP_CHANNEL2   1   // RC6
@@ -405,6 +729,14 @@ void DS1820_WriteEEPROM( uint8_t pin, uint8_t high, uint8_t low );
 int16_t DS1820_GetTempRaw( uint8_t pin );
 float DS1820_GetTempFloat( uint8_t pin );
 void DS1820_GetTempString( int16_t rawTemp, char *strTemp );
+
+// Actions
+void actionScan( uint8_t param );
+void actionScanStore( uint8_t param );
+void actionReport( uint8_t param );
+void actionClearAlarm( uint8_t param );
+void actionClearHigh( uint8_t param );
+void actionClearLow( uint8_t param );
 
 /*!
 	Send Extended ID CAN frame

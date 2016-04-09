@@ -3203,6 +3203,19 @@
 			<description lang="en">8 bit family code of ROM Code for sensor 7</description>
 			<access>rw</access>
         </reg>
+        
+        
+        <!--
+        ///////////////////////////////////////////////////////////////////////
+        // Register Page 250 - Decision Matrix
+        ///////////////////////////////////////////////////////////////////////     
+        -->
+
+        <reg page="250" offset="0" type="dmatrix1" size="64" 
+                oddfg="0x000000" evenfg="0x000000" oddbg="0xCCCCCC" evenbg="0xE6E6E6" >
+            <name lang="en">Decision matrix</name>
+            <description lang="en">Decision matrix for Kelvin 1-wire</description> 
+        </reg>
          
 						
 	</registers>
@@ -4066,6 +4079,294 @@
 		</event>		
 		
 	</events>
+    
+    <!-- Decision matrix -->
+    <dmatrix>
+  
+        <level>1</level>                    
+        <start page="90" offset="0"/>    
+        <rowcnt>8</rowcnt>           
+                
+        <action code="0x00">                
+            <name lang="en">NOOP</name>
+            <description lang="en">
+                No operation
+            </description>
+        </action>
+        
+        <action code="0x01">                
+        <name lang="en">Scan</name>
+            <description lang="en">
+                Scan for ROM codes for channel which have bit set.  
+            </description>
+            <param>                         
+                <name lang="en">Channel select bit-array</name> 
+                <description lang="en">
+                    Set bit 1 to scan channel 0, bit 2 to scan channel 1 and so on.\n
+                    Several bits can be selected at the same time.              
+                </description>
+                <bit pos="0" width="1" default="0" >
+                    <name lang="en">Channel0</name> 
+                    <description lang="en">
+                        Set this bit to one to scan channel 0.
+                    </description>
+                </bit>
+                <bit pos="1" width="1" default="0" >
+                    <name lang="en">Channel1</name> 
+                    <description lang="en">
+                        Set this bit to one to scan channel 1.
+                    </description>
+                </bit>                
+                <bit pos="2" width="1" default="0" >
+                    <name lang="en">Channel2</name> 
+                    <description lang="en">
+                        Set this bit to one to scan channel 2.
+                    </description>
+                </bit>
+                <bit pos="3" width="1" default="0" >
+                    <name lang="en">Channel3</name> 
+                    <description lang="en">
+                        Set this bit to one to scan channel 3.
+                    </description>
+                </bit>
+            </param>
+        </action>
+        
+        <action code="0x02">                
+        <name lang="en">ScanAndStore</name>
+            <description lang="en">
+                Scan for ROM codes for channel which have bit set and store result.  
+            </description>
+            <param>                         
+                <name lang="en">Channel select bit-array</name> 
+                <description lang="en">
+                    Set bit 1 to scan channel 0, bit 2 to scan channel 1 and so on.\n
+                    Several bits can be selected at the same time.             
+                </description>
+                <bit pos="0" width="1" default="0" >
+                    <name lang="en">Channel0</name> 
+                    <description lang="en">
+                        Set this bit to one to scan channel 0.
+                    </description>
+                </bit>
+                <bit pos="1" width="1" default="0" >
+                    <name lang="en">Channel1</name> 
+                    <description lang="en">
+                        Set this bit to one to scan channel 1.
+                    </description>
+                </bit>                
+                <bit pos="2" width="1" default="0" >
+                    <name lang="en">Channel2</name> 
+                    <description lang="en">
+                        Set this bit to one to scan channel 2.
+                    </description>
+                </bit>
+                <bit pos="3" width="1" default="0" >
+                    <name lang="en">Channel3</name> 
+                    <description lang="en">
+                        Set this bit to one to scan channel 3.
+                    </description>
+                </bit>
+            </param>
+        </action>
+        
+        <action code="0x03">                
+        <name lang="en">Report</name>
+            <description lang="en">
+                Report temperatures for sensors that have bit in bit-array set.  
+            </description>
+            <param>                         
+                <name lang="en">Channel select bit-array</name> 
+                <description lang="en">
+                    Set bit 1 to report temperature for sensor  0, 
+                    bit 2 to report temperature for sensor 1 and so on.\n 
+                    Several bits can be selected at the same time.             
+                </description>
+                <bit pos="0" width="1" default="0" >
+                    <name lang="en">TemperatureSensor0</name> 
+                    <description lang="en">
+                        Set this bit to one to report temperature for sensor 0.
+                    </description>
+                </bit>
+                <bit pos="1" width="1" default="0" >
+                    <name lang="en">TemperatureSensor1</name> 
+                    <description lang="en">
+                        Set this bit to one to report temperature for sensor 1.
+                    </description>
+                </bit>
+                <bit pos="2" width="1" default="0" >
+                    <name lang="en">TemperatureSensor2</name> 
+                    <description lang="en">
+                        Set this bit to one to report temperature for sensor 2.
+                    </description>
+                </bit>
+                <bit pos="3" width="1" default="0" >
+                    <name lang="en">TemperatureSensor3</name> 
+                    <description lang="en">
+                        Set this bit to one to report temperature for sensor 3.
+                    </description>
+                </bit>
+                <bit pos="4" width="1" default="0" >
+                    <name lang="en">TemperatureSensor4</name> 
+                    <description lang="en">
+                        Set this bit to one to report temperature for sensor 4.
+                    </description>
+                </bit>
+                <bit pos="5" width="1" default="0" >
+                    <name lang="en">TemperatureSensor5</name> 
+                    <description lang="en">
+                        Set this bit to one to report temperature for sensor 5.
+                    </description>
+                </bit>
+                <bit pos="6" width="1" default="0" >
+                    <name lang="en">TemperatureSensor6</name> 
+                    <description lang="en">
+                        Set this bit to one to report temperature for sensor 6.
+                    </description>
+                </bit>
+                <bit pos="7" width="1" default="0" >
+                    <name lang="en">TemperatureSensor7</name> 
+                    <description lang="en">
+                        Set this bit to one to report temperature for sensor 7.
+                    </description>
+                </bit>
+            </param>
+        </action>
+        
+        <action code="0x04">                
+        <name lang="en">ClearAlarmFlags</name>
+            <description lang="en">
+                Clear alarm flags.  
+            </description>            
+        </action>
+        
+        <action code="0x04">                
+        <name lang="en">ClearHigh</name>
+            <description lang="en">
+                Reset absolute high temperature value.  
+            </description>
+            <param>                         
+                <name lang="en">Temperature sensor select bit-array</name> 
+                <description lang="en">
+                    Set bit 1 to clear absolut high temperature for sensor  0, 
+                    bit 2 to clear absolut high temperature for sensor 1 and so on.\n 
+                    Several bits can be selected at the same time.             
+                </description>
+                <bit pos="0" width="1" default="0" >
+                    <name lang="en">ClearAbsolutHighSensor0</name> 
+                    <description lang="en">
+                        Set this bit to one to clear absolut high value for temperature for sensor 0.
+                    </description>
+                </bit>
+                <bit pos="1" width="1" default="0" >
+                    <name lang="en">ClearAbsolutHighSensor1</name> 
+                    <description lang="en">
+                        Set this bit to one to clear absolut high value for temperature for sensor 1.
+                    </description>
+                </bit>
+                <bit pos="2" width="1" default="0" >
+                    <name lang="en">ClearAbsolutHighSensor2</name> 
+                    <description lang="en">
+                        Set this bit to one to clear absolut high value for temperature for sensor 2.
+                    </description>
+                </bit>
+                <bit pos="3" width="1" default="0" >
+                    <name lang="en">ClearAbsolutHighSensor3</name> 
+                    <description lang="en">
+                        Set this bit to one to clear absolut high value for temperature for sensor 3.
+                    </description>
+                </bit>
+                <bit pos="4" width="1" default="0" >
+                    <name lang="en">ClearAbsolutHighSensor4</name> 
+                    <description lang="en">
+                        Set this bit to one to clear absolut high value for temperature for sensor 4.
+                    </description>
+                </bit>
+                <bit pos="5" width="1" default="0" >
+                    <name lang="en">ClearAbsolutHighSensor5</name> 
+                    <description lang="en">
+                        Set this bit to one to clear absolut high value for temperature for sensor 5.
+                    </description>
+                </bit>
+                <bit pos="6" width="1" default="0" >
+                    <name lang="en">ClearAbsolutHighSensor6</name> 
+                    <description lang="en">
+                        Set this bit to one to report temperature for sensor 6.
+                    </description>
+                </bit>
+                <bit pos="7" width="1" default="0" >
+                    <name lang="en">ClearAbsolutHighSensor7</name> 
+                    <description lang="en">
+                        Set this bit to one to clear absolut high value for temperature for sensor 7.
+                    </description>
+                </bit>
+            </param>
+        </action>
+        
+        <action code="0x05">                
+        <name lang="en">ClearLow</name>
+            <description lang="en">
+                Reset absolute low temperature value.  
+            </description>
+            <param>                         
+                <name lang="en">Temperature sensor select bit-array</name> 
+                <description lang="en">
+                    Set bit 1 to clear absolut low temperature for sensor  0, 
+                    bit 2 to clear absolut low temperature for sensor 1 and so on.\n 
+                    Several bits can be selected at the same time.             
+                </description>
+                <bit pos="0" width="1" default="0" >
+                    <name lang="en">ClearAbsolutLowSensor0</name> 
+                    <description lang="en">
+                        Set this bit to one to clear absolut low value for temperature for sensor 0.
+                    </description>
+                </bit>
+                <bit pos="1" width="1" default="0" >
+                    <name lang="en">ClearAbsolutLowSensor1</name> 
+                    <description lang="en">
+                        Set this bit to one to clear absolut low value for temperature for sensor 1.
+                    </description>
+                </bit>
+                <bit pos="2" width="1" default="0" >
+                    <name lang="en">ClearAbsolutLowSensor2</name> 
+                    <description lang="en">
+                        Set this bit to one to clear absolut low value for temperature for sensor 2.
+                    </description>
+                </bit>
+                <bit pos="3" width="1" default="0" >
+                    <name lang="en">ClearAbsolutLowSensor3</name> 
+                    <description lang="en">
+                        Set this bit to one to clear absolut low value for temperature for sensor 3.
+                    </description>
+                </bit>
+                <bit pos="4" width="1" default="0" >
+                    <name lang="en">ClearAbsolutLowSensor4</name> 
+                    <description lang="en">
+                        Set this bit to one to clear absolut low value for temperature for sensor 4.
+                    </description>
+                </bit>
+                <bit pos="5" width="1" default="0" >
+                    <name lang="en">ClearAbsolutLowSensor5</name> 
+                    <description lang="en">
+                        Set this bit to one to clear absolut low value for temperature for sensor 5.
+                    </description>
+                </bit>
+                <bit pos="6" width="1" default="0" >
+                    <name lang="en">ClearAbsolutLowSensor6</name> 
+                    <description lang="en">
+                        Set this bit to one to clear absolut low value for temperature for sensor 5.
+                    </description>
+                </bit>
+                <bit pos="7" width="1" default="0" >
+                    <name lang="en">ClearAbsolutLowSensor7</name> 
+                    <description lang="en">
+                        Set this bit to one to clear absolut low value for temperature for sensor 7.
+                    </description>
+                </bit>
+            </param>
+        </action>
+        
+    </dmatrix>
 	
 </module>	
 </vscp>	

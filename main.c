@@ -2594,20 +2594,200 @@ uint8_t vscp_getBufferSize(void)
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-//  VSCP_getMatrixInfo
+//  vscp_getMatrixInfo
 //
 
 void vscp_getMatrixInfo(char *pData)
 {
-    uint8_t i;
-
-    // We don't implement a DM for this module
-    // So we just set the data to zero
-    for (i = 0; i < 8; i++) {
-        pData[ i ] = 0;
-    }
-
+    vscp_omsg.data[ 0 ] = DESCION_MATRIX_ROWS;  // Number of matrix rows
+    vscp_omsg.data[ 1 ] = REG_DESCION_MATRIX;   // Matrix start offset
+    vscp_omsg.data[ 2 ] = 0;                    // Matrix start page
+    vscp_omsg.data[ 3 ] = DESCION_MATRIX_PAGE;
+    vscp_omsg.data[ 4 ] = 0;                    // Matrix end page
+    vscp_omsg.data[ 5 ] = DESCION_MATRIX_PAGE;
+    vscp_omsg.data[ 6 ] = 0;
 }
+
+
+///////////////////////////////////////////////////////////////////////////////
+// Do decision Matrix handling
+// 
+// The routine expects vscp_imsg to contain a valid incoming event
+//
+
+void doDM(void)
+{
+    unsigned char i;
+    unsigned char dmflags;
+    unsigned short class_filter;
+    unsigned short class_mask;
+    unsigned char type_filter;
+    unsigned char type_mask;
+
+    // Don't deal with the protocol functionality
+    if ( VSCP_CLASS1_PROTOCOL == vscp_imsg.vscp_class ) return;
+
+    for (i = 0; i<DESCION_MATRIX_ROWS; i++) {
+
+        // Get DM flags for this row
+        dmflags = eeprom_read( DECISION_MATRIX_EEPROM_START + (8 * i) );
+
+        // Is the DM row enabled?
+        if ( dmflags & VSCP_DM_FLAG_ENABLED ) {
+
+            // Should the originating id be checked and if so is it the same?
+            if ( ( dmflags & VSCP_DM_FLAG_CHECK_OADDR ) &&
+                    ( vscp_imsg.oaddr != eeprom_read( DECISION_MATRIX_EEPROM_START + (8 * i) ) ) ) {
+                continue;
+            }
+
+            // Check if zone should match and if so if it match
+            if ( dmflags & VSCP_DM_FLAG_CHECK_ZONE ) {
+                if ( 255 != vscp_imsg.data[ 1 ] ) {
+                    if ( vscp_imsg.data[ 1 ] != eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_ZONE ] ) ) {
+                        continue;
+                    }
+                }
+            }
+
+            // Check if sub zone should match and if so if it match
+            if ( dmflags & VSCP_DM_FLAG_CHECK_SUBZONE ) {
+                if ( 255 != vscp_imsg.data[ 2 ] ) {
+                    if ( vscp_imsg.data[ 2 ] != eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_SUBZONE ] ) ) {
+                        continue;
+                    }
+                }
+            }
+            
+            class_filter = ( ( dmflags & VSCP_DM_FLAG_CLASS_FILTER) << 8 ) +
+                    eeprom_read( DECISION_MATRIX_EEPROM_START +
+                                    (8 * i) +
+                                    VSCP_DM_POS_CLASSFILTER );
+            
+            class_mask = ( ( dmflags & VSCP_DM_FLAG_CLASS_MASK ) << 7 ) +
+                    eeprom_read( DECISION_MATRIX_EEPROM_START +
+                                    (8 * i) +
+                                    VSCP_DM_POS_CLASSMASK);
+            
+            type_filter = eeprom_read( DECISION_MATRIX_EEPROM_START +
+                                        (8 * i) +
+                                        VSCP_DM_POS_TYPEFILTER);
+            
+            type_mask = eeprom_read( DECISION_MATRIX_EEPROM_START +
+                                        (8 * i) +
+                                        VSCP_DM_POS_TYPEMASK);
+                           
+            if ( !( ( class_filter ^ vscp_imsg.vscp_class ) & class_mask ) &&
+                    !( ( type_filter ^ vscp_imsg.vscp_type ) & type_mask ) ) {
+
+                // OK Trigger this action
+                switch ( eeprom_read( DECISION_MATRIX_EEPROM_START + 
+                                        (8 * i) + 
+                                        VSCP_DM_POS_ACTION ) ) {
+
+                    case KELVIN1W_ACTION_NOOP:
+                        break;
+                        
+                    case KELVIN1W_ACTION_SCAN:
+                        actionScan( eeprom_read( DECISION_MATRIX_EEPROM_START + 
+                                        (8 * i) + 
+                                        VSCP_DM_POS_ACTIONPARAM ) );
+                        break;
+        
+                    case KELVIN1W_ACTION_SCANSTORE:
+                        actionScanStore( eeprom_read( DECISION_MATRIX_EEPROM_START + 
+                                        (8 * i) + 
+                                        VSCP_DM_POS_ACTIONPARAM ) );
+                        break;
+
+                    case KELVIN1W_ACTION_REPORT:
+                        actionReport( eeprom_read( DECISION_MATRIX_EEPROM_START + 
+                                        (8 * i) + 
+                                        VSCP_DM_POS_ACTIONPARAM ) );
+                        break;
+                        
+                    case KELVIN1W_ACTION_CLEAR_ALARM:
+                        actionClearAlarm( eeprom_read( DECISION_MATRIX_EEPROM_START + 
+                                        (8 * i) + 
+                                        VSCP_DM_POS_ACTIONPARAM ) );
+                        break;
+                        
+                    case KELVIN1W_ACTION_CLEAR_HIGH:
+                        actionClearHigh( eeprom_read( DECISION_MATRIX_EEPROM_START + 
+                                        (8 * i) + 
+                                        VSCP_DM_POS_ACTIONPARAM ) );
+                        break;
+                        
+                    case KELVIN1W_ACTION_CLEAR_LOW:
+                        actionClearLow( eeprom_read( DECISION_MATRIX_EEPROM_START + 
+                                        (8 * i) + 
+                                        VSCP_DM_POS_ACTIONPARAM ) );
+                        break;    
+                        
+                } // case
+                
+            } // Filter/mask
+            
+        } // Row enabled
+        
+    } // for each row
+    
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// actionScan
+//
+
+void actionScan( uint8_t param )
+{
+    
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// actionScanStore
+//
+
+void actionScanStore( uint8_t param )
+{
+    
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// actionReport
+//
+
+void actionReport( uint8_t param )
+{
+    
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// actionClearAlarm
+//
+
+void actionClearAlarm( uint8_t param )
+{
+    
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// actionClearHigh
+//
+
+void actionClearHigh( uint8_t param )
+{
+    
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// actionClearLow
+//
+
+void actionClearLow( uint8_t param )
+{
+    
+}
+
 
 ///////////////////////////////////////////////////////////////////////////////
 //  vscp_getEmbeddedMdfInfo

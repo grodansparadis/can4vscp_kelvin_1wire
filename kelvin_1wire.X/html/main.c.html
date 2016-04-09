@@ -2601,261 +2601,441 @@
 <tr><td><code><i>  2594</i> </code></td><td><code>&nbsp }</code></td></tr>
 <tr><td><code><i>  2595</i> </code></td><td><code>&nbsp </code></td></tr>
 <tr><td><code><i>  2596</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
-<tr><td><code><i>  2597</i> </code></td><td><code>&nbsp //&nbsp&nbsp VSCP_getMatrixInfo</code></td></tr>
+<tr><td><code><i>  2597</i> </code></td><td><code>&nbsp //&nbsp&nbsp vscp_getMatrixInfo</code></td></tr>
 <tr><td><code><i>  2598</i> </code></td><td><code>&nbsp //</code></td></tr>
 <tr><td><code><i>  2599</i> </code></td><td><code>&nbsp </code></td></tr>
 <tr><td><code><i>  2600</i> </code></td><td><code>&nbsp void&nbsp vscp_getMatrixInfo(char&nbsp *pData)</code></td></tr>
 <tr><td><code><i>  2601</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i>  2602</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp uint8_t&nbsp i;</code></td></tr>
-<tr><td><code><i>  2603</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2604</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp //&nbsp We&nbsp don't&nbsp implement&nbsp a&nbsp DM&nbsp for&nbsp this&nbsp module</code></td></tr>
-<tr><td><code><i>  2605</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp //&nbsp So&nbsp we&nbsp just&nbsp set&nbsp the&nbsp data&nbsp to&nbsp zero</code></td></tr>
-<tr><td><code><i>  2606</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp for&nbsp (i&nbsp =&nbsp 0;&nbsp i&nbsp&lsaquo &nbsp 8;&nbsp i++)&nbsp {</code></td></tr>
-<tr><td><code><i>  2607</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp pData[&nbsp i&nbsp ]&nbsp =&nbsp 0;</code></td></tr>
-<tr><td><code><i>  2608</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp }</code></td></tr>
-<tr><td><code><i>  2609</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2610</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i>  2602</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp vscp_omsg.data[&nbsp 0&nbsp ]&nbsp =&nbsp DESCION_MATRIX_ROWS;&nbsp&nbsp //&nbsp Number&nbsp of&nbsp matrix&nbsp rows</code></td></tr>
+<tr><td><code><i>  2603</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp vscp_omsg.data[&nbsp 1&nbsp ]&nbsp =&nbsp REG_DESCION_MATRIX;&nbsp&nbsp&nbsp //&nbsp Matrix&nbsp start&nbsp offset</code></td></tr>
+<tr><td><code><i>  2604</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp vscp_omsg.data[&nbsp 2&nbsp ]&nbsp =&nbsp 0;&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp //&nbsp Matrix&nbsp start&nbsp page</code></td></tr>
+<tr><td><code><i>  2605</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp vscp_omsg.data[&nbsp 3&nbsp ]&nbsp =&nbsp DESCION_MATRIX_PAGE;</code></td></tr>
+<tr><td><code><i>  2606</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp vscp_omsg.data[&nbsp 4&nbsp ]&nbsp =&nbsp 0;&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp //&nbsp Matrix&nbsp end&nbsp page</code></td></tr>
+<tr><td><code><i>  2607</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp vscp_omsg.data[&nbsp 5&nbsp ]&nbsp =&nbsp DESCION_MATRIX_PAGE;</code></td></tr>
+<tr><td><code><i>  2608</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp vscp_omsg.data[&nbsp 6&nbsp ]&nbsp =&nbsp 0;</code></td></tr>
+<tr><td><code><i>  2609</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i>  2610</i> </code></td><td><code>&nbsp </code></td></tr>
 <tr><td><code><i>  2611</i> </code></td><td><code>&nbsp </code></td></tr>
 <tr><td><code><i>  2612</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
-<tr><td><code><i>  2613</i> </code></td><td><code>&nbsp //&nbsp&nbsp vscp_getEmbeddedMdfInfo</code></td></tr>
-<tr><td><code><i>  2614</i> </code></td><td><code>&nbsp //</code></td></tr>
-<tr><td><code><i>  2615</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2616</i> </code></td><td><code>&nbsp void&nbsp vscp_getEmbeddedMdfInfo(void)</code></td></tr>
-<tr><td><code><i>  2617</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i>  2618</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp //&nbsp No&nbsp embedded&nbsp DM&nbsp so&nbsp we&nbsp respond&nbsp with&nbsp info&nbsp about&nbsp that</code></td></tr>
-<tr><td><code><i>  2619</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2620</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp vscp_omsg.priority&nbsp =&nbsp VSCP_PRIORITY_NORMAL;</code></td></tr>
-<tr><td><code><i>  2621</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp vscp_omsg.flags&nbsp =&nbsp VSCP_VALID_MSG&nbsp +&nbsp 3;</code></td></tr>
-<tr><td><code><i>  2622</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp vscp_omsg.vscp_class&nbsp =&nbsp VSCP_CLASS1_PROTOCOL;</code></td></tr>
-<tr><td><code><i>  2623</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp vscp_omsg.vscp_type&nbsp =&nbsp VSCP_TYPE_PROTOCOL_RW_RESPONSE;</code></td></tr>
-<tr><td><code><i>  2624</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2625</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp vscp_omsg.data[&nbsp 0&nbsp ]&nbsp =&nbsp 0;</code></td></tr>
-<tr><td><code><i>  2626</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp vscp_omsg.data[&nbsp 1&nbsp ]&nbsp =&nbsp 0;</code></td></tr>
-<tr><td><code><i>  2627</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp vscp_omsg.data[&nbsp 2&nbsp ]&nbsp =&nbsp 0;</code></td></tr>
-<tr><td><code><i>  2628</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2629</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp //&nbsp Send&nbsp the&nbsp event</code></td></tr>
-<tr><td><code><i>  2630</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp vscp_sendEvent();</code></td></tr>
-<tr><td><code><i>  2631</i> </code></td><td><code>&nbsp }</code></td></tr>
-<tr><td><code><i>  2632</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2633</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2634</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
-<tr><td><code><i>  2635</i> </code></td><td><code>&nbsp //&nbsp vscp_getRegisterPagesUsed</code></td></tr>
-<tr><td><code><i>  2636</i> </code></td><td><code>&nbsp //</code></td></tr>
+<tr><td><code><i>  2613</i> </code></td><td><code>&nbsp //&nbsp Do&nbsp decision&nbsp Matrix&nbsp handling</code></td></tr>
+<tr><td><code><i>  2614</i> </code></td><td><code>&nbsp //&nbsp </code></td></tr>
+<tr><td><code><i>  2615</i> </code></td><td><code>&nbsp //&nbsp The&nbsp routine&nbsp expects&nbsp vscp_imsg&nbsp to&nbsp contain&nbsp a&nbsp valid&nbsp incoming&nbsp event</code></td></tr>
+<tr><td><code><i>  2616</i> </code></td><td><code>&nbsp //</code></td></tr>
+<tr><td><code><i>  2617</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2618</i> </code></td><td><code>&nbsp void&nbsp doDM(void)</code></td></tr>
+<tr><td><code><i>  2619</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i>  2620</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp unsigned&nbsp char&nbsp i;</code></td></tr>
+<tr><td><code><i>  2621</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp unsigned&nbsp char&nbsp dmflags;</code></td></tr>
+<tr><td><code><i>  2622</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp unsigned&nbsp short&nbsp class_filter;</code></td></tr>
+<tr><td><code><i>  2623</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp unsigned&nbsp short&nbsp class_mask;</code></td></tr>
+<tr><td><code><i>  2624</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp unsigned&nbsp char&nbsp type_filter;</code></td></tr>
+<tr><td><code><i>  2625</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp unsigned&nbsp char&nbsp type_mask;</code></td></tr>
+<tr><td><code><i>  2626</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2627</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp //&nbsp Don't&nbsp deal&nbsp with&nbsp the&nbsp protocol&nbsp functionality</code></td></tr>
+<tr><td><code><i>  2628</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp if&nbsp (&nbsp VSCP_CLASS1_PROTOCOL&nbsp ==&nbsp vscp_imsg.vscp_class&nbsp )&nbsp return;</code></td></tr>
+<tr><td><code><i>  2629</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2630</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp for&nbsp (i&nbsp =&nbsp 0;&nbsp i&lsaquo  DESCION_MATRIX_ROWS;&nbsp i++)&nbsp {</code></td></tr>
+<tr><td><code><i>  2631</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2632</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp //&nbsp Get&nbsp DM&nbsp flags&nbsp for&nbsp this&nbsp row</code></td></tr>
+<tr><td><code><i>  2633</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp dmflags&nbsp =&nbsp eeprom_read(&nbsp DECISION_MATRIX_EEPROM_START&nbsp +&nbsp (8&nbsp *&nbsp i)&nbsp );</code></td></tr>
+<tr><td><code><i>  2634</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2635</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp //&nbsp Is&nbsp the&nbsp DM&nbsp row&nbsp enabled?</code></td></tr>
+<tr><td><code><i>  2636</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp if&nbsp (&nbsp dmflags&nbsp &&nbsp VSCP_DM_FLAG_ENABLED&nbsp )&nbsp {</code></td></tr>
 <tr><td><code><i>  2637</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2638</i> </code></td><td><code>&nbsp uint8_t&nbsp vscp_getRegisterPagesUsed(void)</code></td></tr>
-<tr><td><code><i>  2639</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i>  2640</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp return&nbsp 1;</code></td></tr>
-<tr><td><code><i>  2641</i> </code></td><td><code>&nbsp }</code></td></tr>
-<tr><td><code><i>  2642</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2643</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
-<tr><td><code><i>  2644</i> </code></td><td><code>&nbsp //&nbsp vscp_getZone</code></td></tr>
-<tr><td><code><i>  2645</i> </code></td><td><code>&nbsp //</code></td></tr>
-<tr><td><code><i>  2646</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2647</i> </code></td><td><code>&nbsp uint8_t&nbsp vscp_getZone(void)</code></td></tr>
-<tr><td><code><i>  2648</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i>  2649</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp return&nbsp eeprom_read(EEPROM_ZONE);</code></td></tr>
-<tr><td><code><i>  2650</i> </code></td><td><code>&nbsp }</code></td></tr>
-<tr><td><code><i>  2651</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2652</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
-<tr><td><code><i>  2653</i> </code></td><td><code>&nbsp //&nbsp vscp_getSubzone</code></td></tr>
-<tr><td><code><i>  2654</i> </code></td><td><code>&nbsp //</code></td></tr>
-<tr><td><code><i>  2655</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2656</i> </code></td><td><code>&nbsp uint8_t&nbsp vscp_getSubzone(void)</code></td></tr>
-<tr><td><code><i>  2657</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i>  2658</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp return&nbsp eeprom_read(EEPROM_SUBZONE);</code></td></tr>
-<tr><td><code><i>  2659</i> </code></td><td><code>&nbsp }</code></td></tr>
-<tr><td><code><i>  2660</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2661</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
-<tr><td><code><i>  2662</i> </code></td><td><code>&nbsp //&nbsp vscp_goBootloaderMode</code></td></tr>
-<tr><td><code><i>  2663</i> </code></td><td><code>&nbsp //</code></td></tr>
-<tr><td><code><i>  2664</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2665</i> </code></td><td><code>&nbsp void&nbsp vscp_goBootloaderMode(&nbsp uint8_t&nbsp algorithm&nbsp )</code></td></tr>
-<tr><td><code><i>  2666</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i>  2667</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp if&nbsp (&nbsp VSCP_BOOTLOADER_PIC1&nbsp !=&nbsp algorithm&nbsp&nbsp )&nbsp return;</code></td></tr>
-<tr><td><code><i>  2668</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2669</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp //&nbsp OK,&nbsp We&nbsp should&nbsp enter&nbsp boot&nbsp loader&nbsp mode</code></td></tr>
-<tr><td><code><i>  2670</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp //&nbsp  First,&nbsp activate&nbsp bootloader&nbsp mode</code></td></tr>
-<tr><td><code><i>  2671</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp eeprom_write(VSCP_EEPROM_BOOTLOADER_FLAG,&nbsp VSCP_BOOT_FLAG);</code></td></tr>
-<tr><td><code><i>  2672</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp </code></td></tr>
-<tr><td><code><i>  2673</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp //&nbsp Turn&nbsp off&nbsp CAN</code></td></tr>
-<tr><td><code><i>  2674</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp ECANSetOperationMode(&nbsp ECAN_OP_MODE_CONFIG&nbsp );&nbsp </code></td></tr>
-<tr><td><code><i>  2675</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp </code></td></tr>
-<tr><td><code><i>  2676</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp //&nbsp Reset&nbsp the&nbsp "thingi"</code></td></tr>
-<tr><td><code><i>  2677</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp asm("reset");</code></td></tr>
-<tr><td><code><i>  2678</i> </code></td><td><code>&nbsp }</code></td></tr>
-<tr><td><code><i>  2679</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2680</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
-<tr><td><code><i>  2681</i> </code></td><td><code>&nbsp //&nbsp&nbsp getNickname</code></td></tr>
-<tr><td><code><i>  2682</i> </code></td><td><code>&nbsp //</code></td></tr>
-<tr><td><code><i>  2683</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2684</i> </code></td><td><code>&nbsp uint8_t&nbsp vscp_readNicknamePermanent(void)</code></td></tr>
-<tr><td><code><i>  2685</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i>  2686</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp return&nbsp eeprom_read(&nbsp VSCP_EEPROM_NICKNAME&nbsp );</code></td></tr>
-<tr><td><code><i>  2687</i> </code></td><td><code>&nbsp }</code></td></tr>
-<tr><td><code><i>  2688</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2689</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
-<tr><td><code><i>  2690</i> </code></td><td><code>&nbsp //&nbsp&nbsp setNickname</code></td></tr>
-<tr><td><code><i>  2691</i> </code></td><td><code>&nbsp //</code></td></tr>
-<tr><td><code><i>  2692</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2693</i> </code></td><td><code>&nbsp void&nbsp vscp_writeNicknamePermanent(uint8_t&nbsp nickname)</code></td></tr>
-<tr><td><code><i>  2694</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i>  2695</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp eeprom_write(&nbsp VSCP_EEPROM_NICKNAME,&nbsp nickname&nbsp );</code></td></tr>
-<tr><td><code><i>  2696</i> </code></td><td><code>&nbsp }</code></td></tr>
-<tr><td><code><i>  2697</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2698</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
-<tr><td><code><i>  2699</i> </code></td><td><code>&nbsp //&nbsp&nbsp setVSCPControlByte</code></td></tr>
-<tr><td><code><i>  2700</i> </code></td><td><code>&nbsp //</code></td></tr>
-<tr><td><code><i>  2701</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2702</i> </code></td><td><code>&nbsp void&nbsp vscp_setControlByte(&nbsp uint8_t&nbsp ctrl,&nbsp uint8_t&nbsp idx&nbsp )</code></td></tr>
-<tr><td><code><i>  2703</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i>  2704</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp if&nbsp (&nbsp idx&nbsp&rsaquo &nbsp 1&nbsp )&nbsp return;</code></td></tr>
-<tr><td><code><i>  2705</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp eeprom_write(&nbsp VSCP_EEPROM_CONTROL1&nbsp +&nbsp idx,&nbsp ctrl&nbsp );</code></td></tr>
-<tr><td><code><i>  2706</i> </code></td><td><code>&nbsp }</code></td></tr>
-<tr><td><code><i>  2707</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2708</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2709</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
-<tr><td><code><i>  2710</i> </code></td><td><code>&nbsp //&nbsp&nbsp getVSCPControlByte</code></td></tr>
-<tr><td><code><i>  2711</i> </code></td><td><code>&nbsp //</code></td></tr>
-<tr><td><code><i>  2712</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2713</i> </code></td><td><code>&nbsp uint8_t&nbsp vscp_getControlByte(&nbsp uint8_t&nbsp idx&nbsp )</code></td></tr>
-<tr><td><code><i>  2714</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i>  2715</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp if&nbsp (&nbsp idx&nbsp&rsaquo &nbsp 1&nbsp )&nbsp return&nbsp 0;</code></td></tr>
-<tr><td><code><i>  2716</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp return&nbsp eeprom_read(&nbsp VSCP_EEPROM_CONTROL1&nbsp +&nbsp idx&nbsp );</code></td></tr>
-<tr><td><code><i>  2717</i> </code></td><td><code>&nbsp }</code></td></tr>
-<tr><td><code><i>  2718</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2719</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
-<tr><td><code><i>  2720</i> </code></td><td><code>&nbsp //&nbsp&nbsp vscp_init_pstorage(</code></td></tr>
-<tr><td><code><i>  2721</i> </code></td><td><code>&nbsp //</code></td></tr>
-<tr><td><code><i>  2722</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2723</i> </code></td><td><code>&nbsp void&nbsp vscp_init_pstorage(&nbsp void&nbsp )</code></td></tr>
-<tr><td><code><i>  2724</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i>  2725</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp init_app_eeprom();</code></td></tr>
-<tr><td><code><i>  2726</i> </code></td><td><code>&nbsp }</code></td></tr>
-<tr><td><code><i>  2727</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2728</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
-<tr><td><code><i>  2729</i> </code></td><td><code>&nbsp //&nbsp vscp_getFamilyCode</code></td></tr>
-<tr><td><code><i>  2730</i> </code></td><td><code>&nbsp //</code></td></tr>
-<tr><td><code><i>  2731</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2732</i> </code></td><td><code>&nbsp uint32_t&nbsp vscp_getFamilyCode()</code></td></tr>
-<tr><td><code><i>  2733</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i>  2734</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp return&nbsp 0L;</code></td></tr>
+<tr><td><code><i>  2638</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp //&nbsp Should&nbsp the&nbsp originating&nbsp id&nbsp be&nbsp checked&nbsp and&nbsp if&nbsp so&nbsp is&nbsp it&nbsp the&nbsp same?</code></td></tr>
+<tr><td><code><i>  2639</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp if&nbsp (&nbsp (&nbsp dmflags&nbsp &&nbsp VSCP_DM_FLAG_CHECK_OADDR&nbsp )&nbsp &&</code></td></tr>
+<tr><td><code><i>  2640</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp (&nbsp vscp_imsg.oaddr&nbsp !=&nbsp eeprom_read(&nbsp DECISION_MATRIX_EEPROM_START&nbsp +&nbsp (8&nbsp *&nbsp i)&nbsp )&nbsp )&nbsp )&nbsp {</code></td></tr>
+<tr><td><code><i>  2641</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp continue;</code></td></tr>
+<tr><td><code><i>  2642</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp }</code></td></tr>
+<tr><td><code><i>  2643</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2644</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp //&nbsp Check&nbsp if&nbsp zone&nbsp should&nbsp match&nbsp and&nbsp if&nbsp so&nbsp if&nbsp it&nbsp match</code></td></tr>
+<tr><td><code><i>  2645</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp if&nbsp (&nbsp dmflags&nbsp &&nbsp VSCP_DM_FLAG_CHECK_ZONE&nbsp )&nbsp {</code></td></tr>
+<tr><td><code><i>  2646</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp if&nbsp (&nbsp 255&nbsp !=&nbsp vscp_imsg.data[&nbsp 1&nbsp ]&nbsp )&nbsp {</code></td></tr>
+<tr><td><code><i>  2647</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp if&nbsp (&nbsp vscp_imsg.data[&nbsp 1&nbsp ]&nbsp !=&nbsp eeprom_read(&nbsp reg2eeprom_pg0[&nbsp REG0_KELVIN1W_ZONE&nbsp ]&nbsp )&nbsp )&nbsp {</code></td></tr>
+<tr><td><code><i>  2648</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp continue;</code></td></tr>
+<tr><td><code><i>  2649</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp }</code></td></tr>
+<tr><td><code><i>  2650</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp }</code></td></tr>
+<tr><td><code><i>  2651</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp }</code></td></tr>
+<tr><td><code><i>  2652</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2653</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp //&nbsp Check&nbsp if&nbsp sub&nbsp zone&nbsp should&nbsp match&nbsp and&nbsp if&nbsp so&nbsp if&nbsp it&nbsp match</code></td></tr>
+<tr><td><code><i>  2654</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp if&nbsp (&nbsp dmflags&nbsp &&nbsp VSCP_DM_FLAG_CHECK_SUBZONE&nbsp )&nbsp {</code></td></tr>
+<tr><td><code><i>  2655</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp if&nbsp (&nbsp 255&nbsp !=&nbsp vscp_imsg.data[&nbsp 2&nbsp ]&nbsp )&nbsp {</code></td></tr>
+<tr><td><code><i>  2656</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp if&nbsp (&nbsp vscp_imsg.data[&nbsp 2&nbsp ]&nbsp !=&nbsp eeprom_read(&nbsp reg2eeprom_pg0[&nbsp REG0_KELVIN1W_SUBZONE&nbsp ]&nbsp )&nbsp )&nbsp {</code></td></tr>
+<tr><td><code><i>  2657</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp continue;</code></td></tr>
+<tr><td><code><i>  2658</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp }</code></td></tr>
+<tr><td><code><i>  2659</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp }</code></td></tr>
+<tr><td><code><i>  2660</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp }</code></td></tr>
+<tr><td><code><i>  2661</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </code></td></tr>
+<tr><td><code><i>  2662</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp class_filter&nbsp =&nbsp (&nbsp (&nbsp dmflags&nbsp &&nbsp VSCP_DM_FLAG_CLASS_FILTER)&nbsp&lsaquo &lsaquo &nbsp 8&nbsp )&nbsp +</code></td></tr>
+<tr><td><code><i>  2663</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp eeprom_read(&nbsp DECISION_MATRIX_EEPROM_START&nbsp +</code></td></tr>
+<tr><td><code><i>  2664</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp (8&nbsp *&nbsp i)&nbsp +</code></td></tr>
+<tr><td><code><i>  2665</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp VSCP_DM_POS_CLASSFILTER&nbsp );</code></td></tr>
+<tr><td><code><i>  2666</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </code></td></tr>
+<tr><td><code><i>  2667</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp class_mask&nbsp =&nbsp (&nbsp (&nbsp dmflags&nbsp &&nbsp VSCP_DM_FLAG_CLASS_MASK&nbsp )&nbsp&lsaquo &lsaquo &nbsp 7&nbsp )&nbsp +</code></td></tr>
+<tr><td><code><i>  2668</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp eeprom_read(&nbsp DECISION_MATRIX_EEPROM_START&nbsp +</code></td></tr>
+<tr><td><code><i>  2669</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp (8&nbsp *&nbsp i)&nbsp +</code></td></tr>
+<tr><td><code><i>  2670</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp VSCP_DM_POS_CLASSMASK);</code></td></tr>
+<tr><td><code><i>  2671</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </code></td></tr>
+<tr><td><code><i>  2672</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp type_filter&nbsp =&nbsp eeprom_read(&nbsp DECISION_MATRIX_EEPROM_START&nbsp +</code></td></tr>
+<tr><td><code><i>  2673</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp (8&nbsp *&nbsp i)&nbsp +</code></td></tr>
+<tr><td><code><i>  2674</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp VSCP_DM_POS_TYPEFILTER);</code></td></tr>
+<tr><td><code><i>  2675</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </code></td></tr>
+<tr><td><code><i>  2676</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp type_mask&nbsp =&nbsp eeprom_read(&nbsp DECISION_MATRIX_EEPROM_START&nbsp +</code></td></tr>
+<tr><td><code><i>  2677</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp (8&nbsp *&nbsp i)&nbsp +</code></td></tr>
+<tr><td><code><i>  2678</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp VSCP_DM_POS_TYPEMASK);</code></td></tr>
+<tr><td><code><i>  2679</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </code></td></tr>
+<tr><td><code><i>  2680</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp if&nbsp (&nbsp !(&nbsp (&nbsp class_filter&nbsp ^&nbsp vscp_imsg.vscp_class&nbsp )&nbsp &&nbsp class_mask&nbsp )&nbsp &&</code></td></tr>
+<tr><td><code><i>  2681</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp !(&nbsp (&nbsp type_filter&nbsp ^&nbsp vscp_imsg.vscp_type&nbsp )&nbsp &&nbsp type_mask&nbsp )&nbsp )&nbsp {</code></td></tr>
+<tr><td><code><i>  2682</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2683</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp //&nbsp OK&nbsp Trigger&nbsp this&nbsp action</code></td></tr>
+<tr><td><code><i>  2684</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp switch&nbsp (&nbsp eeprom_read(&nbsp DECISION_MATRIX_EEPROM_START&nbsp +&nbsp </code></td></tr>
+<tr><td><code><i>  2685</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp (8&nbsp *&nbsp i)&nbsp +&nbsp </code></td></tr>
+<tr><td><code><i>  2686</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp VSCP_DM_POS_ACTION&nbsp )&nbsp )&nbsp {</code></td></tr>
+<tr><td><code><i>  2687</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2688</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp case&nbsp KELVIN1W_ACTION_NOOP:</code></td></tr>
+<tr><td><code><i>  2689</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp break;</code></td></tr>
+<tr><td><code><i>  2690</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </code></td></tr>
+<tr><td><code><i>  2691</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp case&nbsp KELVIN1W_ACTION_SCAN:</code></td></tr>
+<tr><td><code><i>  2692</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp actionScan(&nbsp eeprom_read(&nbsp DECISION_MATRIX_EEPROM_START&nbsp +&nbsp </code></td></tr>
+<tr><td><code><i>  2693</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp (8&nbsp *&nbsp i)&nbsp +&nbsp </code></td></tr>
+<tr><td><code><i>  2694</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp VSCP_DM_POS_ACTIONPARAM&nbsp )&nbsp );</code></td></tr>
+<tr><td><code><i>  2695</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp break;</code></td></tr>
+<tr><td><code><i>  2696</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </code></td></tr>
+<tr><td><code><i>  2697</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp case&nbsp KELVIN1W_ACTION_SCANSTORE:</code></td></tr>
+<tr><td><code><i>  2698</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp actionScanStore(&nbsp eeprom_read(&nbsp DECISION_MATRIX_EEPROM_START&nbsp +&nbsp </code></td></tr>
+<tr><td><code><i>  2699</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp (8&nbsp *&nbsp i)&nbsp +&nbsp </code></td></tr>
+<tr><td><code><i>  2700</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp VSCP_DM_POS_ACTIONPARAM&nbsp )&nbsp );</code></td></tr>
+<tr><td><code><i>  2701</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp break;</code></td></tr>
+<tr><td><code><i>  2702</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2703</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp case&nbsp KELVIN1W_ACTION_REPORT:</code></td></tr>
+<tr><td><code><i>  2704</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp actionReport(&nbsp eeprom_read(&nbsp DECISION_MATRIX_EEPROM_START&nbsp +&nbsp </code></td></tr>
+<tr><td><code><i>  2705</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp (8&nbsp *&nbsp i)&nbsp +&nbsp </code></td></tr>
+<tr><td><code><i>  2706</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp VSCP_DM_POS_ACTIONPARAM&nbsp )&nbsp );</code></td></tr>
+<tr><td><code><i>  2707</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp break;</code></td></tr>
+<tr><td><code><i>  2708</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </code></td></tr>
+<tr><td><code><i>  2709</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp case&nbsp KELVIN1W_ACTION_CLEAR_ALARM:</code></td></tr>
+<tr><td><code><i>  2710</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp actionClearAlarm(&nbsp eeprom_read(&nbsp DECISION_MATRIX_EEPROM_START&nbsp +&nbsp </code></td></tr>
+<tr><td><code><i>  2711</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp (8&nbsp *&nbsp i)&nbsp +&nbsp </code></td></tr>
+<tr><td><code><i>  2712</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp VSCP_DM_POS_ACTIONPARAM&nbsp )&nbsp );</code></td></tr>
+<tr><td><code><i>  2713</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp break;</code></td></tr>
+<tr><td><code><i>  2714</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </code></td></tr>
+<tr><td><code><i>  2715</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp case&nbsp KELVIN1W_ACTION_CLEAR_HIGH:</code></td></tr>
+<tr><td><code><i>  2716</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp actionClearHigh(&nbsp eeprom_read(&nbsp DECISION_MATRIX_EEPROM_START&nbsp +&nbsp </code></td></tr>
+<tr><td><code><i>  2717</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp (8&nbsp *&nbsp i)&nbsp +&nbsp </code></td></tr>
+<tr><td><code><i>  2718</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp VSCP_DM_POS_ACTIONPARAM&nbsp )&nbsp );</code></td></tr>
+<tr><td><code><i>  2719</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp break;</code></td></tr>
+<tr><td><code><i>  2720</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </code></td></tr>
+<tr><td><code><i>  2721</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp case&nbsp KELVIN1W_ACTION_CLEAR_LOW:</code></td></tr>
+<tr><td><code><i>  2722</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp actionClearLow(&nbsp eeprom_read(&nbsp DECISION_MATRIX_EEPROM_START&nbsp +&nbsp </code></td></tr>
+<tr><td><code><i>  2723</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp (8&nbsp *&nbsp i)&nbsp +&nbsp </code></td></tr>
+<tr><td><code><i>  2724</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp VSCP_DM_POS_ACTIONPARAM&nbsp )&nbsp );</code></td></tr>
+<tr><td><code><i>  2725</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp break;&nbsp&nbsp&nbsp&nbsp </code></td></tr>
+<tr><td><code><i>  2726</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </code></td></tr>
+<tr><td><code><i>  2727</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp }&nbsp //&nbsp case</code></td></tr>
+<tr><td><code><i>  2728</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </code></td></tr>
+<tr><td><code><i>  2729</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp }&nbsp //&nbsp Filter/mask</code></td></tr>
+<tr><td><code><i>  2730</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </code></td></tr>
+<tr><td><code><i>  2731</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp }&nbsp //&nbsp Row&nbsp enabled</code></td></tr>
+<tr><td><code><i>  2732</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </code></td></tr>
+<tr><td><code><i>  2733</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp }&nbsp //&nbsp for&nbsp each&nbsp row</code></td></tr>
+<tr><td><code><i>  2734</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp </code></td></tr>
 <tr><td><code><i>  2735</i> </code></td><td><code>&nbsp }</code></td></tr>
 <tr><td><code><i>  2736</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2737</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2738</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
-<tr><td><code><i>  2739</i> </code></td><td><code>&nbsp //&nbsp vscp_getFamilyType</code></td></tr>
-<tr><td><code><i>  2740</i> </code></td><td><code>&nbsp //</code></td></tr>
-<tr><td><code><i>  2741</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2742</i> </code></td><td><code>&nbsp uint32_t&nbsp vscp_getFamilyType()</code></td></tr>
-<tr><td><code><i>  2743</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i>  2744</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp return&nbsp 0;</code></td></tr>
-<tr><td><code><i>  2745</i> </code></td><td><code>&nbsp }</code></td></tr>
-<tr><td><code><i>  2746</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2747</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
-<tr><td><code><i>  2748</i> </code></td><td><code>&nbsp //&nbsp vscp_restoreDefaults</code></td></tr>
-<tr><td><code><i>  2749</i> </code></td><td><code>&nbsp //</code></td></tr>
-<tr><td><code><i>  2750</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2751</i> </code></td><td><code>&nbsp void&nbsp vscp_restoreDefaults()</code></td></tr>
-<tr><td><code><i>  2752</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i>  2753</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp init_app_eeprom();</code></td></tr>
-<tr><td><code><i>  2754</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp init_app_ram();</code></td></tr>
-<tr><td><code><i>  2755</i> </code></td><td><code>&nbsp }</code></td></tr>
-<tr><td><code><i>  2756</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2757</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
-<tr><td><code><i>  2758</i> </code></td><td><code>&nbsp //&nbsp sendVSCPFrame</code></td></tr>
-<tr><td><code><i>  2759</i> </code></td><td><code>&nbsp //</code></td></tr>
-<tr><td><code><i>  2760</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2761</i> </code></td><td><code>&nbsp int8_t&nbsp sendVSCPFrame(uint16_t&nbsp vscpclass,</code></td></tr>
-<tr><td><code><i>  2762</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp uint8_t&nbsp vscptype,</code></td></tr>
-<tr><td><code><i>  2763</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp uint8_t&nbsp nodeid,</code></td></tr>
-<tr><td><code><i>  2764</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp uint8_t&nbsp priority,</code></td></tr>
-<tr><td><code><i>  2765</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp uint8_t&nbsp size,</code></td></tr>
-<tr><td><code><i>  2766</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp uint8_t&nbsp *pData)</code></td></tr>
-<tr><td><code><i>  2767</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i>  2768</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp uint32_t&nbsp id&nbsp =&nbsp ((uint32_t)&nbsp priority&nbsp&lsaquo &lsaquo &nbsp 26)&nbsp |</code></td></tr>
-<tr><td><code><i>  2769</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp ((uint32_t)&nbsp vscpclass&nbsp&lsaquo &lsaquo &nbsp 16)&nbsp |</code></td></tr>
-<tr><td><code><i>  2770</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp ((uint32_t)&nbsp vscptype&nbsp&lsaquo &lsaquo &nbsp 8)&nbsp |</code></td></tr>
-<tr><td><code><i>  2771</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp nodeid;&nbsp //&nbsp nodeaddress&nbsp (our&nbsp address)</code></td></tr>
+<tr><td><code><i>  2737</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
+<tr><td><code><i>  2738</i> </code></td><td><code>&nbsp //&nbsp actionScan</code></td></tr>
+<tr><td><code><i>  2739</i> </code></td><td><code>&nbsp //</code></td></tr>
+<tr><td><code><i>  2740</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2741</i> </code></td><td><code>&nbsp void&nbsp actionScan(&nbsp uint8_t&nbsp param&nbsp )</code></td></tr>
+<tr><td><code><i>  2742</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i>  2743</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp </code></td></tr>
+<tr><td><code><i>  2744</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i>  2745</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2746</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
+<tr><td><code><i>  2747</i> </code></td><td><code>&nbsp //&nbsp actionScanStore</code></td></tr>
+<tr><td><code><i>  2748</i> </code></td><td><code>&nbsp //</code></td></tr>
+<tr><td><code><i>  2749</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2750</i> </code></td><td><code>&nbsp void&nbsp actionScanStore(&nbsp uint8_t&nbsp param&nbsp )</code></td></tr>
+<tr><td><code><i>  2751</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i>  2752</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp </code></td></tr>
+<tr><td><code><i>  2753</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i>  2754</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2755</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
+<tr><td><code><i>  2756</i> </code></td><td><code>&nbsp //&nbsp actionReport</code></td></tr>
+<tr><td><code><i>  2757</i> </code></td><td><code>&nbsp //</code></td></tr>
+<tr><td><code><i>  2758</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2759</i> </code></td><td><code>&nbsp void&nbsp actionReport(&nbsp uint8_t&nbsp param&nbsp )</code></td></tr>
+<tr><td><code><i>  2760</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i>  2761</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp </code></td></tr>
+<tr><td><code><i>  2762</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i>  2763</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2764</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
+<tr><td><code><i>  2765</i> </code></td><td><code>&nbsp //&nbsp actionClearAlarm</code></td></tr>
+<tr><td><code><i>  2766</i> </code></td><td><code>&nbsp //</code></td></tr>
+<tr><td><code><i>  2767</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2768</i> </code></td><td><code>&nbsp void&nbsp actionClearAlarm(&nbsp uint8_t&nbsp param&nbsp )</code></td></tr>
+<tr><td><code><i>  2769</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i>  2770</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp </code></td></tr>
+<tr><td><code><i>  2771</i> </code></td><td><code>&nbsp }</code></td></tr>
 <tr><td><code><i>  2772</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2773</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp if&nbsp (!sendCANFrame(id,&nbsp size,&nbsp pData))&nbsp {</code></td></tr>
-<tr><td><code><i>  2774</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp //&nbsp Failed&nbsp to&nbsp send&nbsp message</code></td></tr>
-<tr><td><code><i>  2775</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp vscp_errorcnt++;</code></td></tr>
-<tr><td><code><i>  2776</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp return&nbsp FALSE;</code></td></tr>
-<tr><td><code><i>  2777</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp }</code></td></tr>
-<tr><td><code><i>  2778</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2779</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp return&nbsp TRUE;</code></td></tr>
+<tr><td><code><i>  2773</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
+<tr><td><code><i>  2774</i> </code></td><td><code>&nbsp //&nbsp actionClearHigh</code></td></tr>
+<tr><td><code><i>  2775</i> </code></td><td><code>&nbsp //</code></td></tr>
+<tr><td><code><i>  2776</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2777</i> </code></td><td><code>&nbsp void&nbsp actionClearHigh(&nbsp uint8_t&nbsp param&nbsp )</code></td></tr>
+<tr><td><code><i>  2778</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i>  2779</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp </code></td></tr>
 <tr><td><code><i>  2780</i> </code></td><td><code>&nbsp }</code></td></tr>
 <tr><td><code><i>  2781</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2782</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2783</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
-<tr><td><code><i>  2784</i> </code></td><td><code>&nbsp //&nbsp getVSCPFrame</code></td></tr>
-<tr><td><code><i>  2785</i> </code></td><td><code>&nbsp //</code></td></tr>
-<tr><td><code><i>  2786</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2787</i> </code></td><td><code>&nbsp int8_t&nbsp getVSCPFrame(&nbsp uint16_t&nbsp *pvscpclass,</code></td></tr>
-<tr><td><code><i>  2788</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp uint8_t&nbsp *pvscptype,</code></td></tr>
-<tr><td><code><i>  2789</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp uint8_t&nbsp *pNodeId,</code></td></tr>
-<tr><td><code><i>  2790</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp uint8_t&nbsp *pPriority,</code></td></tr>
-<tr><td><code><i>  2791</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp uint8_t&nbsp *pSize,</code></td></tr>
-<tr><td><code><i>  2792</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp uint8_t&nbsp *pData)</code></td></tr>
-<tr><td><code><i>  2793</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i>  2794</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp uint32_t&nbsp id;</code></td></tr>
+<tr><td><code><i>  2782</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
+<tr><td><code><i>  2783</i> </code></td><td><code>&nbsp //&nbsp actionClearLow</code></td></tr>
+<tr><td><code><i>  2784</i> </code></td><td><code>&nbsp //</code></td></tr>
+<tr><td><code><i>  2785</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2786</i> </code></td><td><code>&nbsp void&nbsp actionClearLow(&nbsp uint8_t&nbsp param&nbsp )</code></td></tr>
+<tr><td><code><i>  2787</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i>  2788</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp </code></td></tr>
+<tr><td><code><i>  2789</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i>  2790</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2791</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2792</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
+<tr><td><code><i>  2793</i> </code></td><td><code>&nbsp //&nbsp&nbsp vscp_getEmbeddedMdfInfo</code></td></tr>
+<tr><td><code><i>  2794</i> </code></td><td><code>&nbsp //</code></td></tr>
 <tr><td><code><i>  2795</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2796</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp if&nbsp (!getCANFrame(&id,&nbsp pSize,&nbsp pData))&nbsp {</code></td></tr>
-<tr><td><code><i>  2797</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp return&nbsp FALSE;</code></td></tr>
-<tr><td><code><i>  2798</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp }</code></td></tr>
+<tr><td><code><i>  2796</i> </code></td><td><code>&nbsp void&nbsp vscp_getEmbeddedMdfInfo(void)</code></td></tr>
+<tr><td><code><i>  2797</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i>  2798</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp //&nbsp No&nbsp embedded&nbsp DM&nbsp so&nbsp we&nbsp respond&nbsp with&nbsp info&nbsp about&nbsp that</code></td></tr>
 <tr><td><code><i>  2799</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2800</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp *pNodeId&nbsp =&nbsp id&nbsp &&nbsp 0x0ff;</code></td></tr>
-<tr><td><code><i>  2801</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp *pvscptype&nbsp =&nbsp (id&nbsp&rsaquo &rsaquo &nbsp 8)&nbsp &&nbsp 0xff;</code></td></tr>
-<tr><td><code><i>  2802</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp *pvscpclass&nbsp =&nbsp (id&nbsp&rsaquo &rsaquo &nbsp 16)&nbsp &&nbsp 0x1ff;</code></td></tr>
-<tr><td><code><i>  2803</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp *pPriority&nbsp =&nbsp (uint16_t)&nbsp (0x07&nbsp &&nbsp (id&nbsp&rsaquo &rsaquo &nbsp 26));</code></td></tr>
+<tr><td><code><i>  2800</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp vscp_omsg.priority&nbsp =&nbsp VSCP_PRIORITY_NORMAL;</code></td></tr>
+<tr><td><code><i>  2801</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp vscp_omsg.flags&nbsp =&nbsp VSCP_VALID_MSG&nbsp +&nbsp 3;</code></td></tr>
+<tr><td><code><i>  2802</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp vscp_omsg.vscp_class&nbsp =&nbsp VSCP_CLASS1_PROTOCOL;</code></td></tr>
+<tr><td><code><i>  2803</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp vscp_omsg.vscp_type&nbsp =&nbsp VSCP_TYPE_PROTOCOL_RW_RESPONSE;</code></td></tr>
 <tr><td><code><i>  2804</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2805</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp return&nbsp TRUE;</code></td></tr>
-<tr><td><code><i>  2806</i> </code></td><td><code>&nbsp }</code></td></tr>
-<tr><td><code><i>  2807</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2805</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp vscp_omsg.data[&nbsp 0&nbsp ]&nbsp =&nbsp 0;</code></td></tr>
+<tr><td><code><i>  2806</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp vscp_omsg.data[&nbsp 1&nbsp ]&nbsp =&nbsp 0;</code></td></tr>
+<tr><td><code><i>  2807</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp vscp_omsg.data[&nbsp 2&nbsp ]&nbsp =&nbsp 0;</code></td></tr>
 <tr><td><code><i>  2808</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2809</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
-<tr><td><code><i>  2810</i> </code></td><td><code>&nbsp //&nbsp sendCANFrame</code></td></tr>
-<tr><td><code><i>  2811</i> </code></td><td><code>&nbsp //</code></td></tr>
+<tr><td><code><i>  2809</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp //&nbsp Send&nbsp the&nbsp event</code></td></tr>
+<tr><td><code><i>  2810</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp vscp_sendEvent();</code></td></tr>
+<tr><td><code><i>  2811</i> </code></td><td><code>&nbsp }</code></td></tr>
 <tr><td><code><i>  2812</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2813</i> </code></td><td><code>&nbsp int8_t&nbsp sendCANFrame(uint32_t&nbsp id,&nbsp uint8_t&nbsp dlc,&nbsp uint8_t&nbsp *pdata)</code></td></tr>
-<tr><td><code><i>  2814</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i>  2815</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp uint8_t&nbsp rv&nbsp =&nbsp FALSE;</code></td></tr>
-<tr><td><code><i>  2816</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp </code></td></tr>
-<tr><td><code><i>  2817</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp sendTimer&nbsp =&nbsp 0;</code></td></tr>
-<tr><td><code><i>  2818</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp while&nbsp (&nbsp sendTimer&nbsp&lsaquo &nbsp 1000&nbsp )&nbsp {</code></td></tr>
-<tr><td><code><i>  2819</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp if&nbsp (&nbsp ECANSendMessage(&nbsp id,&nbsp pdata,&nbsp dlc,&nbsp ECAN_TX_XTD_FRAME&nbsp )&nbsp )&nbsp {</code></td></tr>
-<tr><td><code><i>  2820</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp rv&nbsp =&nbsp TRUE;</code></td></tr>
-<tr><td><code><i>  2821</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp break;</code></td></tr>
-<tr><td><code><i>  2822</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp }</code></td></tr>
-<tr><td><code><i>  2823</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp }</code></td></tr>
-<tr><td><code><i>  2824</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2825</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp vscp_omsg.flags&nbsp =&nbsp 0;</code></td></tr>
+<tr><td><code><i>  2813</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2814</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
+<tr><td><code><i>  2815</i> </code></td><td><code>&nbsp //&nbsp vscp_getRegisterPagesUsed</code></td></tr>
+<tr><td><code><i>  2816</i> </code></td><td><code>&nbsp //</code></td></tr>
+<tr><td><code><i>  2817</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2818</i> </code></td><td><code>&nbsp uint8_t&nbsp vscp_getRegisterPagesUsed(void)</code></td></tr>
+<tr><td><code><i>  2819</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i>  2820</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp return&nbsp 1;</code></td></tr>
+<tr><td><code><i>  2821</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i>  2822</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2823</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
+<tr><td><code><i>  2824</i> </code></td><td><code>&nbsp //&nbsp vscp_getZone</code></td></tr>
+<tr><td><code><i>  2825</i> </code></td><td><code>&nbsp //</code></td></tr>
 <tr><td><code><i>  2826</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2827</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp return&nbsp rv;</code></td></tr>
-<tr><td><code><i>  2828</i> </code></td><td><code>&nbsp }</code></td></tr>
-<tr><td><code><i>  2829</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2830</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
-<tr><td><code><i>  2831</i> </code></td><td><code>&nbsp //&nbsp getCANFrame</code></td></tr>
-<tr><td><code><i>  2832</i> </code></td><td><code>&nbsp //</code></td></tr>
-<tr><td><code><i>  2833</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2834</i> </code></td><td><code>&nbsp int8_t&nbsp getCANFrame(uint32_t&nbsp *pid,&nbsp uint8_t&nbsp *pdlc,&nbsp uint8_t&nbsp *pdata)</code></td></tr>
-<tr><td><code><i>  2835</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i>  2836</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp ECAN_RX_MSG_FLAGS&nbsp flags;</code></td></tr>
-<tr><td><code><i>  2837</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2838</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp //&nbsp Dont&nbsp read&nbsp in&nbsp new&nbsp message&nbsp if&nbsp there&nbsp already&nbsp is&nbsp a&nbsp message</code></td></tr>
-<tr><td><code><i>  2839</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp //&nbsp in&nbsp the&nbsp input&nbsp buffer</code></td></tr>
-<tr><td><code><i>  2840</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp if&nbsp (vscp_imsg.flags&nbsp &&nbsp VSCP_VALID_MSG)&nbsp return&nbsp FALSE;</code></td></tr>
-<tr><td><code><i>  2841</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2842</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp if&nbsp (ECANReceiveMessage((unsigned&nbsp long&nbsp *)&nbsp pid,&nbsp (BYTE*)&nbsp pdata,&nbsp (BYTE*)&nbsp pdlc,&nbsp &flags))&nbsp {</code></td></tr>
-<tr><td><code><i>  2843</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp //&nbsp RTR&nbsp not&nbsp interesting</code></td></tr>
-<tr><td><code><i>  2844</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp if&nbsp (flags&nbsp &&nbsp ECAN_RX_RTR_FRAME)&nbsp return&nbsp FALSE;</code></td></tr>
-<tr><td><code><i>  2845</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2846</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp //&nbsp Must&nbsp be&nbsp extended&nbsp frame</code></td></tr>
-<tr><td><code><i>  2847</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp if&nbsp (!(flags&nbsp &&nbsp ECAN_RX_XTD_FRAME))&nbsp return&nbsp FALSE;</code></td></tr>
+<tr><td><code><i>  2827</i> </code></td><td><code>&nbsp uint8_t&nbsp vscp_getZone(void)</code></td></tr>
+<tr><td><code><i>  2828</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i>  2829</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp return&nbsp eeprom_read(EEPROM_ZONE);</code></td></tr>
+<tr><td><code><i>  2830</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i>  2831</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2832</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
+<tr><td><code><i>  2833</i> </code></td><td><code>&nbsp //&nbsp vscp_getSubzone</code></td></tr>
+<tr><td><code><i>  2834</i> </code></td><td><code>&nbsp //</code></td></tr>
+<tr><td><code><i>  2835</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2836</i> </code></td><td><code>&nbsp uint8_t&nbsp vscp_getSubzone(void)</code></td></tr>
+<tr><td><code><i>  2837</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i>  2838</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp return&nbsp eeprom_read(EEPROM_SUBZONE);</code></td></tr>
+<tr><td><code><i>  2839</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i>  2840</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2841</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
+<tr><td><code><i>  2842</i> </code></td><td><code>&nbsp //&nbsp vscp_goBootloaderMode</code></td></tr>
+<tr><td><code><i>  2843</i> </code></td><td><code>&nbsp //</code></td></tr>
+<tr><td><code><i>  2844</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2845</i> </code></td><td><code>&nbsp void&nbsp vscp_goBootloaderMode(&nbsp uint8_t&nbsp algorithm&nbsp )</code></td></tr>
+<tr><td><code><i>  2846</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i>  2847</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp if&nbsp (&nbsp VSCP_BOOTLOADER_PIC1&nbsp !=&nbsp algorithm&nbsp&nbsp )&nbsp return;</code></td></tr>
 <tr><td><code><i>  2848</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2849</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp return&nbsp TRUE;</code></td></tr>
-<tr><td><code><i>  2850</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp }</code></td></tr>
-<tr><td><code><i>  2851</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>  2852</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp return&nbsp FALSE;</code></td></tr>
-<tr><td><code><i>  2853</i> </code></td><td><code>&nbsp }</code></code></BODY>
+<tr><td><code><i>  2849</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp //&nbsp OK,&nbsp We&nbsp should&nbsp enter&nbsp boot&nbsp loader&nbsp mode</code></td></tr>
+<tr><td><code><i>  2850</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp //&nbsp  First,&nbsp activate&nbsp bootloader&nbsp mode</code></td></tr>
+<tr><td><code><i>  2851</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp eeprom_write(VSCP_EEPROM_BOOTLOADER_FLAG,&nbsp VSCP_BOOT_FLAG);</code></td></tr>
+<tr><td><code><i>  2852</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp </code></td></tr>
+<tr><td><code><i>  2853</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp //&nbsp Turn&nbsp off&nbsp CAN</code></td></tr>
+<tr><td><code><i>  2854</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp ECANSetOperationMode(&nbsp ECAN_OP_MODE_CONFIG&nbsp );&nbsp </code></td></tr>
+<tr><td><code><i>  2855</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp </code></td></tr>
+<tr><td><code><i>  2856</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp //&nbsp Reset&nbsp the&nbsp "thingi"</code></td></tr>
+<tr><td><code><i>  2857</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp asm("reset");</code></td></tr>
+<tr><td><code><i>  2858</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i>  2859</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2860</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
+<tr><td><code><i>  2861</i> </code></td><td><code>&nbsp //&nbsp&nbsp getNickname</code></td></tr>
+<tr><td><code><i>  2862</i> </code></td><td><code>&nbsp //</code></td></tr>
+<tr><td><code><i>  2863</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2864</i> </code></td><td><code>&nbsp uint8_t&nbsp vscp_readNicknamePermanent(void)</code></td></tr>
+<tr><td><code><i>  2865</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i>  2866</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp return&nbsp eeprom_read(&nbsp VSCP_EEPROM_NICKNAME&nbsp );</code></td></tr>
+<tr><td><code><i>  2867</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i>  2868</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2869</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
+<tr><td><code><i>  2870</i> </code></td><td><code>&nbsp //&nbsp&nbsp setNickname</code></td></tr>
+<tr><td><code><i>  2871</i> </code></td><td><code>&nbsp //</code></td></tr>
+<tr><td><code><i>  2872</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2873</i> </code></td><td><code>&nbsp void&nbsp vscp_writeNicknamePermanent(uint8_t&nbsp nickname)</code></td></tr>
+<tr><td><code><i>  2874</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i>  2875</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp eeprom_write(&nbsp VSCP_EEPROM_NICKNAME,&nbsp nickname&nbsp );</code></td></tr>
+<tr><td><code><i>  2876</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i>  2877</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2878</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
+<tr><td><code><i>  2879</i> </code></td><td><code>&nbsp //&nbsp&nbsp setVSCPControlByte</code></td></tr>
+<tr><td><code><i>  2880</i> </code></td><td><code>&nbsp //</code></td></tr>
+<tr><td><code><i>  2881</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2882</i> </code></td><td><code>&nbsp void&nbsp vscp_setControlByte(&nbsp uint8_t&nbsp ctrl,&nbsp uint8_t&nbsp idx&nbsp )</code></td></tr>
+<tr><td><code><i>  2883</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i>  2884</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp if&nbsp (&nbsp idx&nbsp&rsaquo &nbsp 1&nbsp )&nbsp return;</code></td></tr>
+<tr><td><code><i>  2885</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp eeprom_write(&nbsp VSCP_EEPROM_CONTROL1&nbsp +&nbsp idx,&nbsp ctrl&nbsp );</code></td></tr>
+<tr><td><code><i>  2886</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i>  2887</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2888</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2889</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
+<tr><td><code><i>  2890</i> </code></td><td><code>&nbsp //&nbsp&nbsp getVSCPControlByte</code></td></tr>
+<tr><td><code><i>  2891</i> </code></td><td><code>&nbsp //</code></td></tr>
+<tr><td><code><i>  2892</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2893</i> </code></td><td><code>&nbsp uint8_t&nbsp vscp_getControlByte(&nbsp uint8_t&nbsp idx&nbsp )</code></td></tr>
+<tr><td><code><i>  2894</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i>  2895</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp if&nbsp (&nbsp idx&nbsp&rsaquo &nbsp 1&nbsp )&nbsp return&nbsp 0;</code></td></tr>
+<tr><td><code><i>  2896</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp return&nbsp eeprom_read(&nbsp VSCP_EEPROM_CONTROL1&nbsp +&nbsp idx&nbsp );</code></td></tr>
+<tr><td><code><i>  2897</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i>  2898</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2899</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
+<tr><td><code><i>  2900</i> </code></td><td><code>&nbsp //&nbsp&nbsp vscp_init_pstorage(</code></td></tr>
+<tr><td><code><i>  2901</i> </code></td><td><code>&nbsp //</code></td></tr>
+<tr><td><code><i>  2902</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2903</i> </code></td><td><code>&nbsp void&nbsp vscp_init_pstorage(&nbsp void&nbsp )</code></td></tr>
+<tr><td><code><i>  2904</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i>  2905</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp init_app_eeprom();</code></td></tr>
+<tr><td><code><i>  2906</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i>  2907</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2908</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
+<tr><td><code><i>  2909</i> </code></td><td><code>&nbsp //&nbsp vscp_getFamilyCode</code></td></tr>
+<tr><td><code><i>  2910</i> </code></td><td><code>&nbsp //</code></td></tr>
+<tr><td><code><i>  2911</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2912</i> </code></td><td><code>&nbsp uint32_t&nbsp vscp_getFamilyCode()</code></td></tr>
+<tr><td><code><i>  2913</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i>  2914</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp return&nbsp 0L;</code></td></tr>
+<tr><td><code><i>  2915</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i>  2916</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2917</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2918</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
+<tr><td><code><i>  2919</i> </code></td><td><code>&nbsp //&nbsp vscp_getFamilyType</code></td></tr>
+<tr><td><code><i>  2920</i> </code></td><td><code>&nbsp //</code></td></tr>
+<tr><td><code><i>  2921</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2922</i> </code></td><td><code>&nbsp uint32_t&nbsp vscp_getFamilyType()</code></td></tr>
+<tr><td><code><i>  2923</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i>  2924</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp return&nbsp 0;</code></td></tr>
+<tr><td><code><i>  2925</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i>  2926</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2927</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
+<tr><td><code><i>  2928</i> </code></td><td><code>&nbsp //&nbsp vscp_restoreDefaults</code></td></tr>
+<tr><td><code><i>  2929</i> </code></td><td><code>&nbsp //</code></td></tr>
+<tr><td><code><i>  2930</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2931</i> </code></td><td><code>&nbsp void&nbsp vscp_restoreDefaults()</code></td></tr>
+<tr><td><code><i>  2932</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i>  2933</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp init_app_eeprom();</code></td></tr>
+<tr><td><code><i>  2934</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp init_app_ram();</code></td></tr>
+<tr><td><code><i>  2935</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i>  2936</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2937</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
+<tr><td><code><i>  2938</i> </code></td><td><code>&nbsp //&nbsp sendVSCPFrame</code></td></tr>
+<tr><td><code><i>  2939</i> </code></td><td><code>&nbsp //</code></td></tr>
+<tr><td><code><i>  2940</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2941</i> </code></td><td><code>&nbsp int8_t&nbsp sendVSCPFrame(uint16_t&nbsp vscpclass,</code></td></tr>
+<tr><td><code><i>  2942</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp uint8_t&nbsp vscptype,</code></td></tr>
+<tr><td><code><i>  2943</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp uint8_t&nbsp nodeid,</code></td></tr>
+<tr><td><code><i>  2944</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp uint8_t&nbsp priority,</code></td></tr>
+<tr><td><code><i>  2945</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp uint8_t&nbsp size,</code></td></tr>
+<tr><td><code><i>  2946</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp uint8_t&nbsp *pData)</code></td></tr>
+<tr><td><code><i>  2947</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i>  2948</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp uint32_t&nbsp id&nbsp =&nbsp ((uint32_t)&nbsp priority&nbsp&lsaquo &lsaquo &nbsp 26)&nbsp |</code></td></tr>
+<tr><td><code><i>  2949</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp ((uint32_t)&nbsp vscpclass&nbsp&lsaquo &lsaquo &nbsp 16)&nbsp |</code></td></tr>
+<tr><td><code><i>  2950</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp ((uint32_t)&nbsp vscptype&nbsp&lsaquo &lsaquo &nbsp 8)&nbsp |</code></td></tr>
+<tr><td><code><i>  2951</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp nodeid;&nbsp //&nbsp nodeaddress&nbsp (our&nbsp address)</code></td></tr>
+<tr><td><code><i>  2952</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2953</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp if&nbsp (!sendCANFrame(id,&nbsp size,&nbsp pData))&nbsp {</code></td></tr>
+<tr><td><code><i>  2954</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp //&nbsp Failed&nbsp to&nbsp send&nbsp message</code></td></tr>
+<tr><td><code><i>  2955</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp vscp_errorcnt++;</code></td></tr>
+<tr><td><code><i>  2956</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp return&nbsp FALSE;</code></td></tr>
+<tr><td><code><i>  2957</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp }</code></td></tr>
+<tr><td><code><i>  2958</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2959</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp return&nbsp TRUE;</code></td></tr>
+<tr><td><code><i>  2960</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i>  2961</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2962</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2963</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
+<tr><td><code><i>  2964</i> </code></td><td><code>&nbsp //&nbsp getVSCPFrame</code></td></tr>
+<tr><td><code><i>  2965</i> </code></td><td><code>&nbsp //</code></td></tr>
+<tr><td><code><i>  2966</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2967</i> </code></td><td><code>&nbsp int8_t&nbsp getVSCPFrame(&nbsp uint16_t&nbsp *pvscpclass,</code></td></tr>
+<tr><td><code><i>  2968</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp uint8_t&nbsp *pvscptype,</code></td></tr>
+<tr><td><code><i>  2969</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp uint8_t&nbsp *pNodeId,</code></td></tr>
+<tr><td><code><i>  2970</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp uint8_t&nbsp *pPriority,</code></td></tr>
+<tr><td><code><i>  2971</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp uint8_t&nbsp *pSize,</code></td></tr>
+<tr><td><code><i>  2972</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp uint8_t&nbsp *pData)</code></td></tr>
+<tr><td><code><i>  2973</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i>  2974</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp uint32_t&nbsp id;</code></td></tr>
+<tr><td><code><i>  2975</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2976</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp if&nbsp (!getCANFrame(&id,&nbsp pSize,&nbsp pData))&nbsp {</code></td></tr>
+<tr><td><code><i>  2977</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp return&nbsp FALSE;</code></td></tr>
+<tr><td><code><i>  2978</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp }</code></td></tr>
+<tr><td><code><i>  2979</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2980</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp *pNodeId&nbsp =&nbsp id&nbsp &&nbsp 0x0ff;</code></td></tr>
+<tr><td><code><i>  2981</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp *pvscptype&nbsp =&nbsp (id&nbsp&rsaquo &rsaquo &nbsp 8)&nbsp &&nbsp 0xff;</code></td></tr>
+<tr><td><code><i>  2982</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp *pvscpclass&nbsp =&nbsp (id&nbsp&rsaquo &rsaquo &nbsp 16)&nbsp &&nbsp 0x1ff;</code></td></tr>
+<tr><td><code><i>  2983</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp *pPriority&nbsp =&nbsp (uint16_t)&nbsp (0x07&nbsp &&nbsp (id&nbsp&rsaquo &rsaquo &nbsp 26));</code></td></tr>
+<tr><td><code><i>  2984</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2985</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp return&nbsp TRUE;</code></td></tr>
+<tr><td><code><i>  2986</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i>  2987</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2988</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2989</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
+<tr><td><code><i>  2990</i> </code></td><td><code>&nbsp //&nbsp sendCANFrame</code></td></tr>
+<tr><td><code><i>  2991</i> </code></td><td><code>&nbsp //</code></td></tr>
+<tr><td><code><i>  2992</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  2993</i> </code></td><td><code>&nbsp int8_t&nbsp sendCANFrame(uint32_t&nbsp id,&nbsp uint8_t&nbsp dlc,&nbsp uint8_t&nbsp *pdata)</code></td></tr>
+<tr><td><code><i>  2994</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i>  2995</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp uint8_t&nbsp rv&nbsp =&nbsp FALSE;</code></td></tr>
+<tr><td><code><i>  2996</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp </code></td></tr>
+<tr><td><code><i>  2997</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp sendTimer&nbsp =&nbsp 0;</code></td></tr>
+<tr><td><code><i>  2998</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp while&nbsp (&nbsp sendTimer&nbsp&lsaquo &nbsp 1000&nbsp )&nbsp {</code></td></tr>
+<tr><td><code><i>  2999</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp if&nbsp (&nbsp ECANSendMessage(&nbsp id,&nbsp pdata,&nbsp dlc,&nbsp ECAN_TX_XTD_FRAME&nbsp )&nbsp )&nbsp {</code></td></tr>
+<tr><td><code><i>  3000</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp rv&nbsp =&nbsp TRUE;</code></td></tr>
+<tr><td><code><i>  3001</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp break;</code></td></tr>
+<tr><td><code><i>  3002</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp }</code></td></tr>
+<tr><td><code><i>  3003</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp }</code></td></tr>
+<tr><td><code><i>  3004</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  3005</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp vscp_omsg.flags&nbsp =&nbsp 0;</code></td></tr>
+<tr><td><code><i>  3006</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  3007</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp return&nbsp rv;</code></td></tr>
+<tr><td><code><i>  3008</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i>  3009</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  3010</i> </code></td><td><code>&nbsp ///////////////////////////////////////////////////////////////////////////////</code></td></tr>
+<tr><td><code><i>  3011</i> </code></td><td><code>&nbsp //&nbsp getCANFrame</code></td></tr>
+<tr><td><code><i>  3012</i> </code></td><td><code>&nbsp //</code></td></tr>
+<tr><td><code><i>  3013</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  3014</i> </code></td><td><code>&nbsp int8_t&nbsp getCANFrame(uint32_t&nbsp *pid,&nbsp uint8_t&nbsp *pdlc,&nbsp uint8_t&nbsp *pdata)</code></td></tr>
+<tr><td><code><i>  3015</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i>  3016</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp ECAN_RX_MSG_FLAGS&nbsp flags;</code></td></tr>
+<tr><td><code><i>  3017</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  3018</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp //&nbsp Dont&nbsp read&nbsp in&nbsp new&nbsp message&nbsp if&nbsp there&nbsp already&nbsp is&nbsp a&nbsp message</code></td></tr>
+<tr><td><code><i>  3019</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp //&nbsp in&nbsp the&nbsp input&nbsp buffer</code></td></tr>
+<tr><td><code><i>  3020</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp if&nbsp (vscp_imsg.flags&nbsp &&nbsp VSCP_VALID_MSG)&nbsp return&nbsp FALSE;</code></td></tr>
+<tr><td><code><i>  3021</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  3022</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp if&nbsp (ECANReceiveMessage((unsigned&nbsp long&nbsp *)&nbsp pid,&nbsp (BYTE*)&nbsp pdata,&nbsp (BYTE*)&nbsp pdlc,&nbsp &flags))&nbsp {</code></td></tr>
+<tr><td><code><i>  3023</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp //&nbsp RTR&nbsp not&nbsp interesting</code></td></tr>
+<tr><td><code><i>  3024</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp if&nbsp (flags&nbsp &&nbsp ECAN_RX_RTR_FRAME)&nbsp return&nbsp FALSE;</code></td></tr>
+<tr><td><code><i>  3025</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  3026</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp //&nbsp Must&nbsp be&nbsp extended&nbsp frame</code></td></tr>
+<tr><td><code><i>  3027</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp if&nbsp (!(flags&nbsp &&nbsp ECAN_RX_XTD_FRAME))&nbsp return&nbsp FALSE;</code></td></tr>
+<tr><td><code><i>  3028</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  3029</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp return&nbsp TRUE;</code></td></tr>
+<tr><td><code><i>  3030</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp }</code></td></tr>
+<tr><td><code><i>  3031</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i>  3032</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp return&nbsp FALSE;</code></td></tr>
+<tr><td><code><i>  3033</i> </code></td><td><code>&nbsp }</code></code></BODY>
 </HTML>

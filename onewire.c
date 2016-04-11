@@ -58,14 +58,18 @@ extern void output_high( uint8_t pin );
 extern uint8_t input( uint8_t pin );
 extern void output( uint8_t pin );
 
+
+
 // -----------------------------------------------------------------------------
 //                          Static variables                                
 // -----------------------------------------------------------------------------
 
-static uint8_t bDoneFlag;
-static uint8_t nLastDiscrepancy;
-static uint8_t romAddr[ DS1820_ADDR_LEN ];
-
+// bDoneFlag = 0, nLastDiscrepancy = 0, rv = 0  -- No device
+// bDoneFlag = 1, nLastDiscrepancy = 0, rv = 1  -- One device or done
+// bDoneFlag = 0, nLastDiscrepancy = 1, rv = 1  -- More devices left to search
+uint8_t romAddrOneWire[ DS1820_ADDR_LEN ];
+uint8_t bDoneFlagOneWire;   
+uint8_t nLastDiscrepancyOnewire;
 
 ///////////////////////////////////////////////////////////////////////////////
 // Celsius2Fahrenheit
@@ -275,7 +279,7 @@ void DS1820_AddrDevice( uint8_t pin, uint8_t nAddrMethod )
         // address single devices on bus
         DS1820_WriteByte( pin, DS1820_CMD_MATCHROM );      
         for (i = 0; i<DS1820_ADDR_LEN; i ++ ) {
-             DS1820_WriteByte( pin, romAddr[i] );
+             DS1820_WriteByte( pin, romAddrOneWire[ i ] );
         }
     } 
     else {
@@ -309,12 +313,12 @@ uint8_t DS1820_FindNextDevice( uint8_t pin )
     uint8_t next_b = FALSE;
 
     // initialise ROM address 
-    memset( romAddr, 0, 8 );
+    memset( romAddrOneWire, 0, 8 );
 
     bStatus = DS1820_Reset( pin );      // reset the 1-wire 
 
-    if ( bStatus || bDoneFlag ) {       // no device found 
-        nLastDiscrepancy = 0;           // reset the search 
+    if ( bStatus || bDoneFlagOneWire ) {       // no device found 
+        nLastDiscrepancyOnewire = 0;           // reset the search 
         return FALSE;
     }
 
@@ -357,12 +361,12 @@ uint8_t DS1820_FindNextDevice( uint8_t pin )
             // devices have conflicting bits in the current ROM code 
             else {
                 // if there was a conflict on the last iteration 
-                if ( bitpos < nLastDiscrepancy ) {
+                if ( bitpos < nLastDiscrepancyOnewire ) {
                     // take same bit as in last iteration 
-                    bit_b = ( ( romAddr[ idxByte ] & mask ) > 0 );
+                    bit_b = ( ( romAddrOneWire[ idxByte ] & mask ) > 0 );
                 }
                 else {
-                    bit_b = ( bitpos == nLastDiscrepancy );
+                    bit_b = ( bitpos == nLastDiscrepancyOnewire );
                 }
 
                 if ( bit_b == 0 ) {
@@ -372,10 +376,10 @@ uint8_t DS1820_FindNextDevice( uint8_t pin )
 
             // store bit in ROM address 
             if ( bit_b != 0 ) {
-               romAddr[ idxByte ] |= mask;
+               romAddrOneWire[ idxByte ] |= mask;
             }
             else {
-               romAddr[ idxByte ] &= ~mask;
+               romAddrOneWire[ idxByte ] &= ~mask;
             }
 
             DS1820_WriteBit( pin, bit_b );
@@ -399,12 +403,12 @@ uint8_t DS1820_FindNextDevice( uint8_t pin )
     // if search was unsuccessful then 
     if ( bitpos < 65 ) {
         // reset the last discrepancy to 0 
-        nLastDiscrepancy = 0;
+        nLastDiscrepancyOnewire = 0;
     }
     else {
         // search was successful 
-        nLastDiscrepancy = nDiscrepancyMarker;
-        bDoneFlag = ( nLastDiscrepancy == 0 );
+        nLastDiscrepancyOnewire = nDiscrepancyMarker;
+        bDoneFlagOneWire = ( nLastDiscrepancyOnewire == 0 );
 
         // indicates search is not complete yet, more parts remain 
         next_b = TRUE;
@@ -426,8 +430,8 @@ uint8_t DS1820_FindNextDevice( uint8_t pin )
 
 uint8_t DS1820_FindFirstDevice( uint8_t pin )
 {
-    nLastDiscrepancy = 0;
-    bDoneFlag = FALSE;
+    nLastDiscrepancyOnewire = 0;
+    bDoneFlagOneWire = FALSE;
 
     return ( DS1820_FindNextDevice( pin ) );
 }
@@ -461,6 +465,20 @@ void DS1820_WriteEEPROM( uint8_t pin, uint8_t high, uint8_t low )
     __delay_ms( 10 );
 }
 
+////////////////////////////////////////////////////////////////////////////////
+// DS1820_StartTempConversion
+//
+// Start a temp conversion on a  DS1820 device.
+// Before a temperature can be read wait 760 ms  
+
+void DS1820_StartTempConversion( uint8_t pin )
+{
+    // --- start temperature conversion -------------------------------------- 
+    DS1820_Reset( pin );
+    DS1820_AddrDevice( pin, DS1820_CMD_MATCHROM );      // address the device 
+    output_high( pin );
+    DS1820_WriteByte( pin, DS1820_CMD_CONVERTTEMP );    // start conversion   
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 // DS1820_GetTempRaw
@@ -506,23 +524,24 @@ void DS1820_WriteEEPROM( uint8_t pin, uint8_t high, uint8_t low )
 //         of 1/256 degrees C
 //
 
-int16_t DS1820_GetTempRaw( uint8_t pin )
+int16_t DS1820_GetTempRaw( uint8_t pin, BOOL bStartAndWait )
 {
     uint8_t i;
     uint16_t temp;
     uint16_t highres;
     uint8_t scrpad[ DS1820_SCRPADMEM_LEN ];
 
-    // --- start temperature conversion -------------------------------------- 
-    DS1820_Reset( pin );
-    DS1820_AddrDevice( pin, DS1820_CMD_MATCHROM );      // address the device 
-    output_high( pin );
-    DS1820_WriteByte( pin, DS1820_CMD_CONVERTTEMP );    // start conversion 
+    if ( bStartAndWait ) {
+        
+        DS1820_StartTempConversion( pin );
     
-    // wait for temperature conversion 
-    for ( i=0; i<76; i++ ) {
-        __delaywdt_ms( 10 );
+        // wait for temperature conversion 
+        for ( i=0; i<76; i++ ) {
+            __delaywdt_ms( 10 );
+        }
+    
     }
+    
     
     // --- read scratch pad ---------------------------------------------------- 
     DS1820_Reset( pin );
@@ -544,7 +563,7 @@ int16_t DS1820_GetTempRaw( uint8_t pin )
     temp = (uint16_t)((uint16_t)scrpad[ DS1820_REG_TEMPMSB ] << 8);
     temp |= (uint16_t)( scrpad[ DS1820_REG_TEMPLSB ] );
 
-    if ( DS1820_FAMILY_CODE_DS18S20 == romAddr[ 0 ] ) {
+    if ( DS1820_FAMILY_CODE_DS18S20 == romAddrOneWire[ 0 ] ) {
         // get temperature value in 1 degrees C resolution 
         temp >>= 1;
     
@@ -585,9 +604,22 @@ int16_t DS1820_GetTempRaw( uint8_t pin )
 // @return Temperature value with as float value
 //
 
-float DS1820_GetTempFloat( uint8_t pin )
+double DS1820_GetTempFloat( uint8_t pin )
 {
-    return ( (float)DS1820_GetTempRaw( pin ) / (float)TEMP_RES );
+    return ( (float)DS1820_GetTempRaw( pin, TRUE ) / (float)TEMP_RES );
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// DS1820_LateGetTempFloat
+//
+// The temperature conversion must have been issued before this
+// function is issued. Also a delay of at least 760 ms seconds must have been
+// done.
+//
+
+double DS1820_LateGetTempFloat( uint8_t pin )
+{
+    return ( (float)DS1820_GetTempRaw( pin,  FALSE ) / (float)TEMP_RES );
 }
 
 

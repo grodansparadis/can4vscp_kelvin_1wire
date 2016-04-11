@@ -1304,7 +1304,7 @@ vscp_omsg.flags = 0x80 + 7;
 vscp_omsg.vscp_class = 0;
 vscp_omsg.vscp_type = 34;
 
-vscp_getMatrixInfo((char *) vscp_omsg.data);
+vscp_getMatrixInfo( (char *)vscp_omsg.data );
 
 
 vscp_sendEvent();

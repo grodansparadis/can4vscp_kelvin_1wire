@@ -2405,7 +2405,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;vscp_firmware.c: 1135: vscp_omsg.vscp_type = 34;
 "1135
 [e = . _vscp_omsg 3 -> -> 34 `i `uc ]
-[; ;vscp_firmware.c: 1137: vscp_getMatrixInfo((char *) vscp_omsg.data);
+[; ;vscp_firmware.c: 1137: vscp_getMatrixInfo( (char *)vscp_omsg.data );
 "1137
 [e ( _vscp_getMatrixInfo (1 &U . _vscp_omsg 5 ]
 [; ;vscp_firmware.c: 1140: vscp_sendEvent();

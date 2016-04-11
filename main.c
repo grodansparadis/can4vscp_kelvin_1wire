@@ -31,6 +31,8 @@
 #include <xc.h>
 #include <timers.h>
 #include <adc.h>
+#include <stdio.h>
+#include <string.h>
 #include <math.h>
 #include <inttypes.h>
 #include <ECAN.h>
@@ -121,11 +123,16 @@
 
 #endif
 
+
+uint8_t romAddrOneWire[ DS1820_ADDR_LEN ];
+uint8_t bDoneFlagOneWire;   
+uint8_t nLastDiscrepancyOnewire;
+
+
 // The device URL (max 32 characters including null termination)
 const uint8_t vscp_deviceURL[] = "www.eurosource.se/1wire_1.xml";
 
 // Global Variable Declarations
-int16_t current_temp;  // Current temperatures, thermistor
 
 volatile uint16_t sendTimer;            // Timer for CAN send
 volatile uint32_t measurement_clock;    // Clock for measurements
@@ -142,11 +149,13 @@ uint8_t high_alarm;
 uint8_t adc_low;
 uint8_t adc_high;
 
-// All nine temperature values Index 0 is on-board NTC sensor
-float temperature[ 9 ];
+//uint8_t romAddrOneWire[ DS1820_ADDR_LEN ];
 
-// sensor address array [index 0-7][byte in address 0-7]
-uint8_t addrSensor[8][8];
+// All nine temperature values Index 0 is on-board NTC sensor
+double arrayTemp[ 9 ];
+
+// Sensor that is searched
+uint8_t currentSensor = 0;
 
 
 //__EEPROM_DATA(0x11,0x22,0x33,0x44,0x55,0x66,0x77,0x88);
@@ -471,22 +480,22 @@ uint8_t input( uint8_t pin )
     
     switch ( pin ) {
         
-        case TEMP_CHANNEL1:
+        case TEMP_CHANNEL0:
             TRISCbits.TRISC7 = 1;
             rv = PORTCbits.RC7;
             break;
                     
-        case TEMP_CHANNEL2:
+        case TEMP_CHANNEL1:
             TRISCbits.TRISC6 = 1;
             rv = PORTCbits.RC6;
             break;
                     
-        case TEMP_CHANNEL3:
+        case TEMP_CHANNEL2:
             TRISCbits.TRISC4 = 1;
             rv = PORTCbits.RC4;
             break;
                     
-        case TEMP_CHANNEL4:
+        case TEMP_CHANNEL3:
             TRISCbits.TRISC3 = 1;
             rv = PORTCbits.RC3;
             break;            
@@ -506,19 +515,19 @@ extern void output( uint8_t pin )
 {
     switch ( pin ) {
         
-        case TEMP_CHANNEL1:
+        case TEMP_CHANNEL0:
             TRISCbits.TRISC7 = 0;
             break;
                     
-        case TEMP_CHANNEL2:
+        case TEMP_CHANNEL1:
             TRISCbits.TRISC6 = 0;
             break;
                     
-        case TEMP_CHANNEL3:
+        case TEMP_CHANNEL2:
             TRISCbits.TRISC4 = 0;
             break;
                     
-        case TEMP_CHANNEL4:
+        case TEMP_CHANNEL3:
             TRISCbits.TRISC3 = 0;
             break;            
             
@@ -536,22 +545,22 @@ void output_low( uint8_t pin )
 {
     switch ( pin ) {
         
-        case TEMP_CHANNEL1:
+        case TEMP_CHANNEL0:
             TRISCbits.TRISC7 = 0;
             LATC7 = 0;
             break;
                     
-        case TEMP_CHANNEL2:
+        case TEMP_CHANNEL1:
             TRISCbits.TRISC6 = 0;
             PORTCbits.RC6 = 0;
             break;
                     
-        case TEMP_CHANNEL3:
+        case TEMP_CHANNEL2:
             TRISCbits.TRISC4 = 0;
             PORTCbits.RC4 = 0;
             break;
                     
-        case TEMP_CHANNEL4:
+        case TEMP_CHANNEL3:
             TRISCbits.TRISC3 = 0;
             PORTCbits.RC3 = 0;
             break;            
@@ -569,22 +578,22 @@ void output_high( uint8_t pin )
 {
     switch ( pin ) {
         
-        case TEMP_CHANNEL1:
+        case TEMP_CHANNEL0:
             TRISCbits.TRISC7 = 0;
             LATCbits.LATC7 = 1;
             break;
                     
-        case TEMP_CHANNEL2:
+        case TEMP_CHANNEL1:
             TRISCbits.TRISC6 = 0;
             PORTCbits.RC6 = 1;
             break;
                     
-        case TEMP_CHANNEL3:
+        case TEMP_CHANNEL2:
             TRISCbits.TRISC4 = 0;
             PORTCbits.RC4 = 1;
             break;
                     
-        case TEMP_CHANNEL4:
+        case TEMP_CHANNEL3:
             TRISCbits.TRISC3 = 0;
             PORTCbits.RC3 = 1;
             break;            
@@ -609,12 +618,12 @@ void main()
     // restore if needed
     if ( !vscp_check_pstorage() ) {
 
-        // Spoiled or not initialized - reinitialize
+        // Spoiled or not initialised - reinitialise
         init_app_eeprom();
 
     }
 
-    vscp_init(); // Initialize the VSCP functionality
+    vscp_init(); // Initialise the VSCP functionality
 
     while (TRUE) { // Loop Forever
 
@@ -722,375 +731,6 @@ void main()
 
     } // while
 }
-
-
-///////////////////////////////////////////////////////////////////////////////
-// doWork
-//
-// The actual work is done here.
-//
-
-void doWork(void)
-{
-    float temp;
-    char buf[80];
-
-    adc_low = DS1820_FindFirstDevice( TEMP_CHANNEL4 );
-    temp = DS1820_GetTempFloat( TEMP_CHANNEL4 );
-    uint16_t raw = DS1820_GetTempRaw( TEMP_CHANNEL4 );
-    DS1820_GetTempString( raw, buf );
-    adc_low = 1;
-}
-
-///////////////////////////////////////////////////////////////////////////////
-// doOneSecondWork
-//
-
-void doOneSecondWork(void) 
-{
-    uint8_t tmp;
-    uint8_t i;
-    int16_t setpoint;
-
-
-        //*********************************************************************
-        // Check if this is the lowest temperature ever
-        //*********************************************************************
- /*       
-        if (current_temp[ i ] < construct_signed16( eeprom_read(EEPROM_ABSOLUT_LOW0_MSB + 2*i),
-                                                    eeprom_read(EEPROM_ABSOLUT_LOW0_LSB + 2*i) ) ) {
-            // Store new lowest value
-            eeprom_write(EEPROM_ABSOLUT_LOW0_MSB + 2*i, ((uint16_t)current_temp[ i ]) >> 8);
-            eeprom_write(EEPROM_ABSOLUT_LOW0_LSB + 2*i, ((uint16_t)current_temp[ i ]) & 0xff);
-        }
-
-        //*********************************************************************
-        // Check if this is the highest temperature ever
-        //*********************************************************************
-        
-        if (current_temp[ i ] > construct_signed16( eeprom_read(EEPROM_ABSOLUT_HIGH0_MSB + 2*i), 
-                                                    eeprom_read(EEPROM_ABSOLUT_HIGH0_LSB + 2*i ) ) ) {
-            // Store new lowest value
-            eeprom_write(EEPROM_ABSOLUT_HIGH0_MSB + 2*i, ((uint16_t)current_temp[ i ]) >> 8);
-            eeprom_write(EEPROM_ABSOLUT_HIGH0_LSB + 2*i,  ((uint16_t)current_temp[ i ]) & 0xff );
-        }
-        
-        //*********************************************************************
-        // Check if temperature report events should be sent
-        //*********************************************************************
-        tmp = eeprom_read(EEPROM_REPORT_INTERVAL0 + i);
-        if (tmp && (seconds_temp[i] > tmp)) {
-
-            // Send event
-            if (sendTempEvent(i)) {
-                seconds_temp[i] = 0;
-            }
-
-        }
-
-        //*********************************************************************
-        // Check for continuous alarm 
-        //*********************************************************************
-        if (MASK_CONTROL_CONTINUOUS & eeprom_read(EEPROM_CONTROLREG0 + i)) {
-
-            // If low alarm active for sensor
-            if (low_alarm & (1 << i)) {
-
-                // Alarm must be enabled
-                if (eeprom_read(EEPROM_CONTROLREG0 + i) & CONFIG_ENABLE_LOW_ALARM) {
-
-                    vscp_omsg.priority = VSCP_PRIORITY_HIGH;
-                    vscp_omsg.flags = VSCP_VALID_MSG + 3;
-
-                    // Should ALARM or TURNON/TURNOFF events be sent
-                    if (eeprom_read(EEPROM_CONTROLREG0 + i) & CONFIG_ENABLE_TURNX) {
-
-                        if (eeprom_read(EEPROM_CONTROLREG0 + i) & CONFIG_ENABLE_TURNON_INVERT) {
-                            vscp_omsg.vscp_class = VSCP_CLASS1_CONTROL;
-                            vscp_omsg.vscp_type = VSCP_TYPE_CONTROL_TURNON;
-                        } 
-                        else {
-                            vscp_omsg.vscp_class = VSCP_CLASS1_CONTROL;
-                            vscp_omsg.vscp_type = VSCP_TYPE_CONTROL_TURNOFF;
-                        }
-
-                    } 
-                    else {
-                        // Alarm event should be sent
-                        vscp_omsg.vscp_class = VSCP_CLASS1_ALARM;
-                        vscp_omsg.vscp_type = VSCP_TYPE_ALARM_ALARM;
-                    }
-
-                    vscp_omsg.data[ 0 ] = i; // Index = sensor
-                    vscp_omsg.data[ 1 ] =
-                            eeprom_read(EEPROM_SENSOR0_ZONE + 2*i);      // Zone
-                    vscp_omsg.data[ 2 ] =
-                            eeprom_read(EEPROM_SENSOR0_SUBZONE + 2*i);   // Subzone
-
-                    // Send event
-                    // We allow for missing to send this event
-                    // as it will be sent next second instead.
-                    vscp_sendEvent();
-
-                }
-            }
-
-            // If  high alarm active for sensor
-            if (high_alarm & (1 << i)) {
-
-                // Should ALARM or TURNON/TURNOFF events be sent
-                if ((eeprom_read(EEPROM_CONTROLREG0 + i) & CONFIG_ENABLE_HIGH_ALARM)) {
-
-                    vscp_omsg.priority = VSCP_PRIORITY_HIGH;
-                    vscp_omsg.flags = VSCP_VALID_MSG + 3;
-
-                    if (eeprom_read(EEPROM_CONTROLREG0 + i) & CONFIG_ENABLE_TURNX) {
-                        
-                        if (eeprom_read(EEPROM_CONTROLREG0 + i) & CONFIG_ENABLE_TURNON_INVERT) {
-                            vscp_omsg.vscp_class = VSCP_CLASS1_CONTROL;
-                            vscp_omsg.vscp_type = VSCP_TYPE_CONTROL_TURNOFF;
-                        } 
-                        else {
-                            vscp_omsg.vscp_class = VSCP_CLASS1_CONTROL;
-                            vscp_omsg.vscp_type = VSCP_TYPE_CONTROL_TURNON;
-                        }
-                    } 
-                    else {
-                        // Alarm event should be sent
-                        vscp_omsg.vscp_class = VSCP_CLASS1_ALARM;
-                        vscp_omsg.vscp_type = VSCP_TYPE_ALARM_ALARM;
-                    }
-
-                    vscp_omsg.data[ 0 ] = i;                            // Index = sensor
-                    vscp_omsg.data[ 1 ] = 
-                            eeprom_read(EEPROM_SENSOR0_ZONE + 2*i);      // Zone
-                    vscp_omsg.data[ 2 ] = 
-                            eeprom_read(EEPROM_SENSOR0_SUBZONE + 2*i);   // Sub zone
-
-                    // Send event
-                    // We allow for missing to send this event
-                    // as it will be sent next second instead.
-                    vscp_sendEvent();
-                }
-            }
-        }       
-        
-        
-        //*********************************************************************
-        // Check if we have a low alarm condition 
-        //*********************************************************************
-        if (low_alarm & (1 << i)) {
-
-            // We have an alarm condition already
-            setpoint = construct_signed16(eeprom_read(EEPROM_LOW_ALARM0_MSB + 2*i),
-                                            eeprom_read(EEPROM_LOW_ALARM0_LSB + 2*i)) +
-                        (int8_t) eeprom_read(EEPROM_HYSTERESIS_SENSOR0 + i);
-
-            // Check if it is no longer valid
-            // that is under hysteresis so we can rest
-            // alarm condition
-            if (current_temp[ i ] > (setpoint * 100)) {
-
-                // Reset alarm condition
-                low_alarm &= ~(1 << i);
-
-            }
-
-        } 
-        else {
-
-            // We do not have a low alarm condition already
-            // check if we should have
-            setpoint = construct_signed16( eeprom_read(EEPROM_LOW_ALARM0_MSB + 2*i ),
-                                            eeprom_read(EEPROM_LOW_ALARM0_LSB + 2*i ) );
-
-            if (current_temp[ i ] < (setpoint * 100)) {
-
-                // We have a low alarm condition
-                low_alarm |= (1 << i);
-
-                // Set module alarm flag
-                // Note that this bit is set even if we are unable
-                // to send an alarm event.
-                vscp_alarmstatus |= MODULE_LOW_ALARM;
-
-                // Should ALARM events be sent
-                if ( eeprom_read(i + EEPROM_CONTROLREG0) & CONFIG_ENABLE_LOW_ALARM ) {
-
-                    vscp_omsg.priority = VSCP_PRIORITY_HIGH;
-                    vscp_omsg.flags = VSCP_VALID_MSG + 3;
-
-                    // Should TurnOn/TurnOff events be sent
-                    if (eeprom_read(EEPROM_CONTROLREG0 + i) & CONFIG_ENABLE_TURNX) {
-
-                        if (eeprom_read(EEPROM_CONTROLREG0 + i) & CONFIG_ENABLE_TURNON_INVERT) {
-                            vscp_omsg.vscp_class = VSCP_CLASS1_CONTROL;
-                            vscp_omsg.vscp_type = VSCP_TYPE_CONTROL_TURNON;
-                        } 
-                        else {
-                            vscp_omsg.vscp_class = VSCP_CLASS1_CONTROL;
-                            vscp_omsg.vscp_type = VSCP_TYPE_CONTROL_TURNOFF;
-                        }
-
-                    }
-                    else {
-                        vscp_omsg.vscp_class = VSCP_CLASS1_ALARM;
-                        vscp_omsg.vscp_type = VSCP_TYPE_ALARM_ALARM;
-                    }
-
-                    vscp_omsg.data[ 0 ] = i; // Index
-                    vscp_omsg.data[ 1 ] = eeprom_read(EEPROM_SENSOR0_ZONE + 2 * i);    // Zone
-                    vscp_omsg.data[ 2 ] = eeprom_read(EEPROM_SENSOR0_SUBZONE + 2 * i); // Sub zone
-
-                    // Send event
-                    if (!vscp_sendEvent()) {
-                        // Could not send alarm event
-                        // Reset alarm - we try again next round
-                        low_alarm &= ~(1 << i);
-                    }
-
-                }
-            }
-        }
-
-        //*********************************************************************
-        // Check if we have a high alarm condition 
-        //*********************************************************************
-        if (high_alarm & (1 << i)) {
-
-            // We have an alarm condition already
-
-            setpoint = construct_signed16(eeprom_read(EEPROM_HIGH_ALARM0_MSB + 2 * i),
-                                            eeprom_read(EEPROM_HIGH_ALARM0_LSB + 2 * i)) -
-                            (int8_t)eeprom_read(EEPROM_HYSTERESIS_SENSOR0 + i);
-
-            // Under hysteresis so we can reset condition
-            if (current_temp[ i ] < (setpoint * 100) ) {
-
-                // Reset alarm
-                high_alarm &= ~(1 << i);
-
-            }
-
-        } 
-        else {
-
-            // We do not have an alarm condition
-            // check for one
-
-            setpoint = construct_signed16(eeprom_read(EEPROM_HIGH_ALARM0_MSB + 2 * i),
-                                            eeprom_read(EEPROM_HIGH_ALARM0_LSB + 2 * i));
-
-            if (current_temp[ i ] > (setpoint * 100)) {
-
-                // We have a low alarm condition
-                high_alarm |= (1 << i);
-
-                // Set module alarm flag
-                // Note that this bit is set even if we are unable
-                // to send an alarm event.
-
-                vscp_alarmstatus |= MODULE_HIGH_ALARM;
-
-                // Should ALARM or TURNON/TURNOFF events be sent
-                if (eeprom_read(EEPROM_CONTROLREG0 + i) & CONFIG_ENABLE_HIGH_ALARM) {
-
-                    vscp_omsg.priority = VSCP_PRIORITY_HIGH;
-                    vscp_omsg.flags = VSCP_VALID_MSG + 3;
-
-                    if (eeprom_read(EEPROM_CONTROLREG0 + i) & CONFIG_ENABLE_TURNX) {
-
-                        if (eeprom_read(EEPROM_CONTROLREG0 + i) & CONFIG_ENABLE_TURNON_INVERT) {
-                            vscp_omsg.vscp_class = VSCP_CLASS1_CONTROL;
-                            vscp_omsg.vscp_type = VSCP_TYPE_CONTROL_TURNOFF;
-                        } 
-                        else {
-                            vscp_omsg.vscp_class = VSCP_CLASS1_CONTROL;
-                            vscp_omsg.vscp_type = VSCP_TYPE_CONTROL_TURNON;
-                        }
-                    }
-                    else {
-                        vscp_omsg.vscp_class = VSCP_CLASS1_ALARM;
-                        vscp_omsg.vscp_type = VSCP_TYPE_ALARM_ALARM;
-                    }
-
-                    vscp_omsg.data[ 0 ] = i; // Index
-                    vscp_omsg.data[ 1 ] = eeprom_read(EEPROM_SENSOR0_ZONE + 2 * i);      // Zone
-                    vscp_omsg.data[ 2 ] = eeprom_read(EEPROM_SENSOR0_SUBZONE + 2 * i);   // Sub zone
-
-                    // Send event
-                    if (!vscp_sendEvent()) {
-                        // Could not send alarm event
-                        // Reset alarm - we try again next round
-                        high_alarm &= ~(1 << i);
-                    }
-
-                }
-            }
-        }
-        
-    }
-  */ 
-}
-
-///////////////////////////////////////////////////////////////////////////////
-// sendTempEvent
-//
-
-int8_t sendTempEvent(uint8_t i)
-{
-    vscp_omsg.priority = VSCP_PRIORITY_MEDIUM;
-    vscp_omsg.flags = VSCP_VALID_MSG + 4;
-    vscp_omsg.vscp_class = VSCP_CLASS1_MEASUREMENT;
-    vscp_omsg.vscp_type = VSCP_TYPE_MEASUREMENT_TEMPERATURE;
-/*
-    // Data format
-    vscp_omsg.data[ 0 ] = 0x80 | // Normalised integer
-            ((0x03 & eeprom_read(i + EEPROM_CONTROLREG0)) << 3) | // Unit
-            i; // Sensor
-    // Exponent 
-    vscp_omsg.data[ 1 ] = 0x82;
- TODO
-    setEventData( current_temp[i],
-            ( 0x03 & eeprom_read(i + EEPROM_CONTROLREG0 ) ) );
-
-    // Send event
-    if (!vscp_sendEvent()) {
-        return FALSE;
-    }*/
-
-    return TRUE;
-}
-
-///////////////////////////////////////////////////////////////////////////////
-// setEventData
-//
-
-void setEventData(int v, unsigned char unit)
-{
-    double newval;
-    int ival;
-
-    if (TEMP_UNIT_KELVIN == unit) {
-        // Convert to Kelvin
-        newval = Celsius2Kelvin(v);
-    } 
-    else if (TEMP_UNIT_FAHRENHEIT == unit) {
-        // Convert to Fahrenheit
-        newval = Celsius2Fahrenheit(v);
-    } 
-    else {
-        // Defaults to Celsius
-        newval = v;
-    }
-
-    ival = (int) newval;
-
-    vscp_omsg.data[ 2 ] = ((ival & 0xff00) >> 8);
-    vscp_omsg.data[ 3 ] = (ival & 0xff);
-}
-
-
 
 ///////////////////////////////////////////////////////////////////////////////
 // Init - Initialisation Routine
@@ -1207,17 +847,17 @@ void init_app_ram(void)
     seconds = 0;
 
     // no temp. reads yet
-    for (i = 0; i < 6; i++) {
-        //seconds_temp = 0;  TODO
-        current_temp = 0;
+    for ( i=0; i<9; i++ ) {
+        arrayTemp[ i ] = 0;
     }
+    
+    currentSensor = 0;
 
     // No low temperature alarms
     low_alarm = 0;
 
     // No high temperature alarms
     high_alarm = 0;
-
 }
 
 
@@ -1276,8 +916,8 @@ void init_app_eeprom(void)
         eeprom_write( reg2eeprom_pg0[ REG2_KELVIN1W_CALIBRATION_TEMP0_LSB + 2*i ], 0 );
     }
     
-    eeprom_write( reg2eeprom_pg0[ REG0_KELVIN1W_BCONSTANT0_HIGH ], DEFAULT_B_CONSTANT_SENSOR0_MSB );
-    eeprom_write( reg2eeprom_pg0[ REG0_KELVIN1W_BCONSTANT0_LOW ], DEFAULT_B_CONSTANT_SENSOR0_LSB );
+    eeprom_write( reg2eeprom_pg0[ REG0_KELVIN1W_BCONSTANT0_MSB ], DEFAULT_B_CONSTANT_SENSOR0_MSB );
+    eeprom_write( reg2eeprom_pg0[ REG0_KELVIN1W_BCONSTANT0_LSB ], DEFAULT_B_CONSTANT_SENSOR0_LSB );
     
     // ROM Code
     for ( i=0; i<64; i++ ) {
@@ -1298,12 +938,589 @@ void init_app_eeprom(void)
     
 }
 
+///////////////////////////////////////////////////////////////////////////////
+// GetROMCodeFromEEPROM
+//
+// Fill ROM address in working ROM code location and returns TRUE if
+// ROM code is non zero.
+//
+
+BOOL loadROMCodeFromEEPROM( uint8_t currentSensor )
+{
+    uint8_t i;
+    uint8_t sum=0;
+    
+    for ( i=0; i<8; i++ ) {
+        sum |= ( romAddrOneWire[ i ] = eeprom_read( reg2eeprom_pg3[ currentSensor*8 + i ] ) );
+    }
+    
+    return sum;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// saveROMCode
+//
+
+void saveROMCodeToEEPROM( uint8_t channel, uint8_t idxSensor )
+{
+    uint8_t i;
+    
+    for ( i=0; i<8; i++ ) {
+        eeprom_write( reg2eeprom_pg3[ 8*( channel*2 + idxSensor ) + i ], romAddrOneWire[ i ] );
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// doWork
+//
+// The actual work is done here.
+//
+
+void doWork(void)
+{
+    double temp;
+    char buf[80];
+
+    adc_low = DS1820_FindFirstDevice( TEMP_CHANNEL3 );
+    temp = DS1820_GetTempFloat( TEMP_CHANNEL3 );
+    uint16_t raw = DS1820_GetTempRaw( TEMP_CHANNEL3, TRUE );
+    DS1820_GetTempString( raw, buf );
+    adc_low = 1;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// doOneSecondWork
+//
+
+void doOneSecondWork(void) 
+{
+    uint8_t tmp;
+    uint8_t i;
+    int16_t setpoint;
+    
+    // Read temperature (conversion started last round))
+    
+    // Read temp if there is a valid ROM code
+    if ( loadROMCodeFromEEPROM( currentSensor ) ) {
+        arrayTemp[ currentSensor ] = DS1820_LateGetTempFloat( currentSensor/2 );
+    }
+    else {
+        // Non valid ROM code set temp to zero
+        arrayTemp[ currentSensor ] = 0;
+    }
+    currentSensor++;
+    if ( currentSensor > 7 ) currentSensor = 0;
+    
+    // Start next temp conversion if there is a valid ROM code
+    if ( loadROMCodeFromEEPROM( currentSensor/2 ) ) {
+        DS1820_StartTempConversion( TEMP_CHANNEL0 );
+    }
+    
+    
+    //*********************************************************************
+    //                          On-board sensor
+    //*********************************************************************
+    
+    uint16_t B;
+    double resistance;
+    double Rinf;
+    double temp;
+    double v;
+    
+    // Use B-constant
+    // ==============
+    // http://en.wikipedia.org/wiki/Thermistor
+    // R1 = (R2V - R2V2) / V2  R2= 10K, V = 5V,  V2 = adc * voltage/1024
+    // T = B / ln(r/Rinf)
+    // Rinf = R0 e (-B/T0), R0=10K, T0 = 273.15 + 25 = 298.15
+
+    B = construct_unsigned16( eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_BCONSTANT0_MSB + 2*i ] ),
+                                eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_BCONSTANT0_LSB + 2*i ] ) );
+               
+    Rinf = 10000.0 * exp(B/-298.15);
+                
+#if defined(_18F2580)   
+    v = calVoltage * (double)(adc_high<<8 + adc_low)/1024;
+#else  
+    v = 5.0 * (double)(adc_high<<8 + adc_low)/4096;
+#endif                
+    // R1 = (R2V - R2V2) / V2  R2= 10K, V = 5V,  V2 = adc * voltage/1024
+    resistance = ( 10000.0*(5.0 - v) ) / v;
+                
+    //itemp = r;
+    temp = ((double) B) / log(resistance / Rinf);
+    //itemp = log(r/Rinf);
+    temp -= 273.15; // Convert Kelvin to Celsius
+                
+    //avarage = testadc;
+    /*  https://learn.adafruit.com/thermistor/using-a-thermistor
+    avarage = (1023/avarage) - 1;
+    avarage = 10000 / avarage;      // Resistance of termistor
+    //temp = avarage/10000;           // (R/Ro)
+    temp = 10000/avarage;
+    temp = log(temp);               // ln(R/Ro)
+    temp /= B;                      // 1/B * ln(R/Ro)
+    temp += 1.0 / (25 + 273.15);    // + (1/To)
+    temp = 1.0 / temp;              // Invert
+    temp -= 273.15;
+    */
+    arrayTemp[ 8 ] = ( arrayTemp[ 8 ] + 
+            temp + 
+            ( reg2eeprom_pg2[ REG2_KELVIN1W_CALIBRATION_TEMP8_MSB ] << 8 +
+              reg2eeprom_pg2[ REG2_KELVIN1W_CALIBRATION_TEMP8_LSB ] )/100 ) / 2;
+    
+    
+    
+            
+    //*********************************************************************
+    // Check if this is the lowest temperature ever
+    //*********************************************************************
+    for ( i=0; i<8; i++ ) {
+        
+        if ( 100*arrayTemp[ i ] < 
+                construct_signed16( eeprom_read( reg2eeprom_pg2[ REG2_KELVIN1W_ABSOLUTE_LOW_TEMP0_MSB ] + 2*i ), 
+                                    eeprom_read( reg2eeprom_pg2[ REG2_KELVIN1W_ABSOLUTE_LOW_TEMP0_LSB ] + 2*i) ) ) {
+            // Store new lowest value
+            eeprom_write( reg2eeprom_pg2[ REG2_KELVIN1W_ABSOLUTE_LOW_TEMP0_MSB ] + 2*i, 
+                                            ( (uint16_t)( 100 * arrayTemp[ i ] ) ) >> 8);
+            eeprom_write( reg2eeprom_pg2[ REG2_KELVIN1W_ABSOLUTE_LOW_TEMP0_LSB ] + 2*i, 
+                                            ( (uint16_t)( 100 * arrayTemp[ i ] ) ) & 0xff);
+        }
+
+        //*********************************************************************
+        //           Check if this is the highest temperature ever
+        //*********************************************************************
+        
+        if ( 100*arrayTemp[ i ] > 
+                (double)construct_signed16( eeprom_read( reg2eeprom_pg2[ REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP0_MSB ] + 2*i), 
+                                           eeprom_read( reg2eeprom_pg2[ REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP0_LSB ] + 2*i ) ) ) {
+            // Store new lowest value
+            eeprom_write( reg2eeprom_pg2[ REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP0_MSB ] + 2*i, 
+                                            ( (uint16_t)( 100*arrayTemp[ i ] ) ) >> 8 );
+            eeprom_write( reg2eeprom_pg2[ REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP0_LSB ] + 2*i,  
+                                            ( (uint16_t)( 100*arrayTemp[ i ] ) ) & 0xff );
+        }
+        
+        //*********************************************************************
+        //         Check if temperature report events should be sent
+        //*********************************************************************
+        tmp = eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_REPORT_INTERVAL_0 ] + i);
+        if ( tmp && ( seconds_temp[i] > tmp ) ) {
+
+            // Send event
+            if ( sendTempEvent( i ) ) {
+                seconds_temp[i] = 0;
+            }
+
+        }
+
+        //*********************************************************************
+        //                      Check for continuous alarm 
+        //*********************************************************************
+        if ( MASK_CONTROL0_CONTINUOUS & 
+                eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_CTRL_REG0_LOW ] + i ) ) {
+
+            // If low alarm active for sensor
+            if (low_alarm & (1 << i)) {
+
+                // Alarm must be enabled
+                if ( eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_CTRL_REG0_LOW ] + i ) & 
+                        MASK_CONTROL0_LOW_ALARM ) {
+
+                    vscp_omsg.priority = VSCP_PRIORITY_HIGH;
+                    vscp_omsg.flags = VSCP_VALID_MSG + 3;
+
+                    // Should ALARM or TURNON/TURNOFF events be sent
+                    if ( eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_CTRL_REG0_LOW ] + i) & 
+                            MASK_CONTROL0_TURNX ) {
+
+                        if ( eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_CTRL_REG0_LOW ] + i ) & 
+                                MASK_CONTROL0_TURNX_INVERT ) {
+                            vscp_omsg.vscp_class = VSCP_CLASS1_CONTROL;
+                            vscp_omsg.vscp_type = VSCP_TYPE_CONTROL_TURNON;
+                        } 
+                        else {
+                            vscp_omsg.vscp_class = VSCP_CLASS1_CONTROL;
+                            vscp_omsg.vscp_type = VSCP_TYPE_CONTROL_TURNOFF;
+                        }
+
+                    } 
+                    else {
+                        // Alarm event should be sent
+                        vscp_omsg.vscp_class = VSCP_CLASS1_ALARM;
+                        vscp_omsg.vscp_type = VSCP_TYPE_ALARM_ALARM;
+                    }
+
+                    vscp_omsg.data[ 0 ] = i; // Index = sensor
+                    vscp_omsg.data[ 1 ] =
+                            eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_TEMP0_ZONE ] + 2*i);      // Zone
+                    vscp_omsg.data[ 2 ] =
+                            eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_TEMP0_SUBZONE ] + 2*i);   // Subzone
+
+                    // Send event
+                    // We allow for missing to send this event
+                    // as it will be sent next second instead.
+                    vscp_sendEvent();
+
+                }
+            }
+
+            // If  high alarm active for sensor
+            if (high_alarm & (1 << i)) {
+
+                // Should ALARM or TURNON/TURNOFF events be sent
+                if ( ( eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_CTRL_REG0_LOW ] + i) & 
+                                    MASK_CONTROL0_HIGH_ALARM ) ) {
+
+                    vscp_omsg.priority = VSCP_PRIORITY_HIGH;
+                    vscp_omsg.flags = VSCP_VALID_MSG + 3;
+
+                    if ( eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_CTRL_REG0_LOW ] + i) & 
+                                        MASK_CONTROL0_TURNX ) {
+                        
+                        if ( eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_CTRL_REG0_LOW ] + i) & 
+                                        MASK_CONTROL0_TURNX_INVERT ) {
+                            vscp_omsg.vscp_class = VSCP_CLASS1_CONTROL;
+                            vscp_omsg.vscp_type = VSCP_TYPE_CONTROL_TURNOFF;
+                        } 
+                        else {
+                            vscp_omsg.vscp_class = VSCP_CLASS1_CONTROL;
+                            vscp_omsg.vscp_type = VSCP_TYPE_CONTROL_TURNON;
+                        }
+                    } 
+                    else {
+                        // Alarm event should be sent
+                        vscp_omsg.vscp_class = VSCP_CLASS1_ALARM;
+                        vscp_omsg.vscp_type = VSCP_TYPE_ALARM_ALARM;
+                    }
+
+                    vscp_omsg.data[ 0 ] = i;  // Index = sensor
+                    vscp_omsg.data[ 1 ] = 
+                            eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_TEMP0_ZONE ] + 2*i);      // Zone
+                    vscp_omsg.data[ 2 ] = 
+                            eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_TEMP0_SUBZONE ] + 2*i);   // Sub zone
+
+                    // Send event
+                    // We allow for missing to send this event
+                    // as it will be sent next second instead.
+                    vscp_sendEvent();
+                }
+            }
+        }       
+        
+        
+      
+        //*********************************************************************
+        // Check if we have a low alarm condition 
+        //*********************************************************************
+        if ( low_alarm & ( 1 << i ) ) {
+
+            // We have an alarm condition already
+            setpoint = construct_signed16( eeprom_read( reg2eeprom_pg2[ REG2_KELVIN1W_LOW_ALARM_SET_POINT0_MSB ] + 2*i ),
+                                            eeprom_read( reg2eeprom_pg2[ REG2_KELVIN1W_LOW_ALARM_SET_POINT0_LSB ] + 2*i ) ) +
+                        (int8_t) eeprom_read( reg2eeprom_pg2[ REG2_KELVIN1W_HYSTERESIS_TEMP0 ] + i );
+
+            // Check if it is no longer valid
+            // that is under hysteresis so we can rest
+            // alarm condition
+            if ( arrayTemp[ i ] > ( setpoint * 100 ) ) {
+
+                // Reset alarm condition
+                low_alarm &= ~(1 << i);
+
+            }
+
+        } 
+        else {
+
+            // We do not have a low alarm condition already
+            // check if we should have
+            setpoint = construct_signed16( eeprom_read( reg2eeprom_pg2[ REG2_KELVIN1W_LOW_ALARM_SET_POINT0_MSB ] + 2*i ),
+                                            eeprom_read( reg2eeprom_pg2[ REG2_KELVIN1W_LOW_ALARM_SET_POINT0_LSB ] + 2*i ) );
+
+            if ( arrayTemp[ i ] < ( setpoint * 100 ) ) {
+
+                // We have a low alarm condition
+                low_alarm |= (1 << i);
+
+                // Set module alarm flag
+                // Note that this bit is set even if we are unable
+                // to send an alarm event.
+                vscp_alarmstatus |= MODULE_LOW_ALARM;
+
+                // Should ALARM events be sent
+                if ( eeprom_read(i + reg2eeprom_pg0[ REG0_KELVIN1W_CTRL_REG0_LOW ] ) & MASK_CONTROL0_LOW_ALARM ) {
+
+                    vscp_omsg.priority = VSCP_PRIORITY_HIGH;
+                    vscp_omsg.flags = VSCP_VALID_MSG + 3;
+
+                    // Should TurnOn/TurnOff events be sent
+                    if (eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_CTRL_REG0_LOW ] + i ) & 
+                                                            MASK_CONTROL0_TURNX ) {
+
+                        if (eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_CTRL_REG0_LOW ] + i ) & 
+                                                            MASK_CONTROL0_TURNX_INVERT) {
+                            vscp_omsg.vscp_class = VSCP_CLASS1_CONTROL;
+                            vscp_omsg.vscp_type = VSCP_TYPE_CONTROL_TURNON;
+                        } 
+                        else {
+                            vscp_omsg.vscp_class = VSCP_CLASS1_CONTROL;
+                            vscp_omsg.vscp_type = VSCP_TYPE_CONTROL_TURNOFF;
+                        }
+
+                    }
+                    else {
+                        vscp_omsg.vscp_class = VSCP_CLASS1_ALARM;
+                        vscp_omsg.vscp_type = VSCP_TYPE_ALARM_ALARM;
+                    }
+
+                    vscp_omsg.data[ 0 ] = i; // Index
+                    vscp_omsg.data[ 1 ] = 
+                            eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_TEMP0_ZONE ] + 2 * i ) ;    // Zone
+                    vscp_omsg.data[ 2 ] = 
+                            eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_TEMP0_SUBZONE ] + 2 * i ); // Sub zone
+
+                    // Send event
+                    if (!vscp_sendEvent()) {
+                        // Could not send alarm event
+                        // Reset alarm - we try again next round
+                        low_alarm &= ~(1 << i);
+                    }
+
+                }
+            }
+        }
+        
+        
+        //*********************************************************************
+        // Check if we have a high alarm condition 
+        //*********************************************************************
+        if (high_alarm & (1 << i)) {
+
+            // We have an alarm condition already
+
+            setpoint = construct_signed16( eeprom_read( reg2eeprom_pg2[ REG2_KELVIN1W_HIGH_ALARM_SET_POINT0_MSB ] + 2 * i ),
+                                            eeprom_read( reg2eeprom_pg2[ REG2_KELVIN1W_HIGH_ALARM_SET_POINT0_LSB ] + 2 * i ) ) -
+                            (int8_t)eeprom_read( reg2eeprom_pg2[ REG2_KELVIN1W_HYSTERESIS_TEMP0 ] + i);
+
+            // Under hysteresis so we can reset condition
+            if ( arrayTemp[ i ] < (setpoint * 100) ) {
+
+                // Reset alarm
+                high_alarm &= ~(1 << i);
+
+            }
+
+        } 
+        else {
+
+            // We do not have an alarm condition
+            // check for one
+
+            setpoint = construct_signed16( eeprom_read( reg2eeprom_pg2[ REG2_KELVIN1W_HIGH_ALARM_SET_POINT0_MSB ] + 2 * i ),
+                                            eeprom_read( reg2eeprom_pg2[ REG2_KELVIN1W_HIGH_ALARM_SET_POINT0_LSB ] + 2 * i ) );
+
+            if ( arrayTemp[ i ] > (setpoint * 100)) {
+
+                // We have a low alarm condition
+                high_alarm |= (1 << i);
+
+                // Set module alarm flag
+                // Note that this bit is set even if we are unable
+                // to send an alarm event.
+
+                vscp_alarmstatus |= MODULE_HIGH_ALARM;
+
+                // Should ALARM or TURNON/TURNOFF events be sent
+                if ( eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_CTRL_REG0_LOW ] + i ) & 
+                                                    MASK_CONTROL0_HIGH_ALARM ) {
+
+                    vscp_omsg.priority = VSCP_PRIORITY_HIGH;
+                    vscp_omsg.flags = VSCP_VALID_MSG + 3;
+
+                    if ( eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_CTRL_REG0_LOW ] + i) & 
+                                                    MASK_CONTROL0_TURNX ) {
+
+                        if (eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_CTRL_REG0_LOW ] + i) & 
+                                                    MASK_CONTROL0_TURNX_INVERT ) {
+                            vscp_omsg.vscp_class = VSCP_CLASS1_CONTROL;
+                            vscp_omsg.vscp_type = VSCP_TYPE_CONTROL_TURNOFF;
+                        } 
+                        else {
+                            vscp_omsg.vscp_class = VSCP_CLASS1_CONTROL;
+                            vscp_omsg.vscp_type = VSCP_TYPE_CONTROL_TURNON;
+                        }
+                    }
+                    else {
+                        vscp_omsg.vscp_class = VSCP_CLASS1_ALARM;
+                        vscp_omsg.vscp_type = VSCP_TYPE_ALARM_ALARM;
+                    }
+
+                    vscp_omsg.data[ 0 ] = i; // Index
+                    vscp_omsg.data[ 1 ] = 
+                            eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_TEMP0_ZONE ] + 2 * i);      // Zone
+                    vscp_omsg.data[ 2 ] = 
+                            eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_TEMP0_SUBZONE ] + 2 * i);   // Sub zone
+
+                    // Send event
+                    if ( !vscp_sendEvent() ) {
+                        // Could not send alarm event
+                        // Reset alarm - we try again next round
+                        high_alarm &= ~(1 << i);
+                    }
+                
+                }
+            
+            }
+        
+        }
+    
+    }
+
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// sendTempEvent
+//
+
+int8_t sendTempEvent( uint8_t nTemp )
+{
+    uint8_t *p;
+    double newval;
+    int32_t ival;
+    
+    vscp_omsg.priority = VSCP_PRIORITY_MEDIUM;
+    vscp_omsg.vscp_class = VSCP_CLASS1_MEASUREMENT;
+    vscp_omsg.vscp_type = VSCP_TYPE_MEASUREMENT_TEMPERATURE;
+
+    // Convert to correct unit
+    switch( 0x03 & eeprom_read( nTemp + reg2eeprom_pg0[ REG0_KELVIN1W_CTRL_REG0_LOW ] ) ) {
+    
+        case TEMP_UNIT_KELVIN:
+            // Convert to Kelvin
+            newval = Celsius2Kelvin( arrayTemp[ nTemp ] );
+            break;
+    
+        case TEMP_UNIT_FAHRENHEIT:
+            // Convert to Fahrenheit
+            newval = Celsius2Fahrenheit( arrayTemp[ nTemp ] );
+            break;
+    
+        default:    
+            // Defaults to Celsius
+            newval = arrayTemp[ nTemp ];
+            break;
+
+    }
+    
+    // Pack event data in selected format
+    switch ( eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_CTRL_REG0_HIGH ] + 2*nTemp ) & 
+                                            MASK_CONTROL1_REMOTE_FORMAT ) {
+    
+        case REPORT_TEMP_AS_NORMINT:
+            
+            vscp_omsg.flags = VSCP_VALID_MSG + 5;
+            
+            // Data format
+            vscp_omsg.data[ 0 ] = 0b10000000 | // Normalised integer
+                ((0x03 & eeprom_read( nTemp + reg2eeprom_pg0[ REG0_KELVIN1W_CTRL_REG0_LOW ] ) ) << 3 ) | // Unit
+                nTemp; // Sensor
+            
+            // Exponent 
+            vscp_omsg.data[ 1 ] = 0x83;
+
+            ival = (int32_t)newval*1000;
+            vscp_omsg.data[ 2 ] = ( ival >> 16 ) & 0xff;
+            vscp_omsg.data[ 3 ] = ( ival >> 8 ) & 0xff;
+            vscp_omsg.data[ 4 ] = ival & 0xff;
+            break;
+            
+        case REPORT_TEMP_AS_STRING:
+                
+            // Data format
+            vscp_omsg.data[ 0 ] = 0b01000000 | // Normalised integer
+                ((0x03 & eeprom_read( nTemp + reg2eeprom_pg0[ REG0_KELVIN1W_CTRL_REG0_LOW ] ) ) << 3 ) | // Unit
+                nTemp; // Sensor
+            
+            {
+                unsigned char buf[ 8 ];
+                
+                memset( buf, 0, 8 );
+                sprintf( buf, "%3.3f", newval );
+                if ( strlen( buf ) >= 7 ) {
+                    memcpy( vscp_omsg.data + 1, buf, 7 );
+                    vscp_omsg.flags = VSCP_VALID_MSG + 1 + 7;
+                }
+                else {
+                    strcpy( vscp_omsg.data + 1, buf );
+                    vscp_omsg.flags = VSCP_VALID_MSG + 1 + strlen( vscp_omsg.data + 1 );
+                }
+                
+            }
+            
+            break;    
+
+        default:    
+        case REPORT_TEMP_AS_FLOAT:
+            
+            vscp_omsg.flags = VSCP_VALID_MSG + 5;
+            
+            // Data format
+            vscp_omsg.data[ 0 ] = 0b10100000 | // Normalised integer
+                ((0x03 & eeprom_read( nTemp + reg2eeprom_pg0[ REG0_KELVIN1W_CTRL_REG0_LOW ] ) ) << 3 ) | // Unit
+                nTemp; // Sensor
+            
+            // Data
+            p = (uint8_t *)&newval;
+            vscp_omsg.data[ 1 ] = *(p+3);
+            vscp_omsg.data[ 2 ] = *(p+2);
+            vscp_omsg.data[ 3 ] = *(p+1);
+            vscp_omsg.data[ 4 ] = *(p+0);
+            break;    
+    }
+    
+    // Send event
+    if ( !vscp_sendEvent() ) {
+        return FALSE;
+    }
+
+    return TRUE;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// setEventData
+//
+
+void setEventData(int v, unsigned char unit)
+{
+    double newval;
+    int ival;
+
+    if (TEMP_UNIT_KELVIN == unit) {
+        // Convert to Kelvin
+        newval = Celsius2Kelvin( v );
+    } 
+    else if (TEMP_UNIT_FAHRENHEIT == unit) {
+        // Convert to Fahrenheit
+        newval = Celsius2Fahrenheit( v );
+    } 
+    else {
+        // Defaults to Celsius
+        newval = v;
+    }
+
+    ival = (int) newval;
+
+    vscp_omsg.data[ 2 ] = ((ival & 0xff00) >> 8);
+    vscp_omsg.data[ 3 ] = (ival & 0xff);
+}
+
 
 ///////////////////////////////////////////////////////////////////////////////
 // convertTemperature
 //
 
-int8_t convertTemperature(int temp, unsigned char unit)
+int8_t convertTemperature( double temp, unsigned char unit)
 {
     int newval;
 
@@ -1332,13 +1549,13 @@ int8_t convertTemperature(int temp, unsigned char unit)
 void handle_sync(void)
 {
     uint8_t i;
-/* TODO
-    for (i = 0; i < 6; i++) {
+
+    for (i = 0; i < 8; i++) {
 
         if ( ( ( 0xff == vscp_imsg.data[ 1 ] ) ||
-                ( eeprom_read( EEPROM_SENSOR0_ZONE + 2*i ) == vscp_imsg.data[ 1 ] ) ) &&
+                ( eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_TEMP0_ZONE ] + 2*i ) == vscp_imsg.data[ 1 ] ) ) &&
                 ( ( 0xff == vscp_imsg.data[ 2 ] ) ||
-                ( eeprom_read( EEPROM_SENSOR0_SUBZONE + 2*i ) == vscp_imsg.data[ 2 ] ) ) ) {
+                ( eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_TEMP0_SUBZONE ] + 2*i ) == vscp_imsg.data[ 2 ] ) ) ) {
 
             // We have a one second timeout
             timeout_clock = 0;
@@ -1346,7 +1563,7 @@ void handle_sync(void)
                 if (timeout_clock > 1000) break;
             }
         }
-    }*/
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -1360,13 +1577,18 @@ uint8_t vscp_readAppReg(unsigned char reg)
     if (0 == vscp_page_select) {
 
         if ( ( reg >= REG1_KELVIN1W_TEMPERATURE0_MSB ) && 
-                ( reg <= REG0_KELVIN1W_BCONSTANT0_LOW ) ) {
+                ( reg <= REG0_KELVIN1W_BCONSTANT0_LSB ) ) {
             rv = eeprom_read( reg2eeprom_pg0[ reg ] );
         }
 
     }
     else if (1 == vscp_page_select) {
         
+        uint8_t *p = (uint8_t *)arrayTemp;
+        if ( ( reg >= REG1_KELVIN1W_TEMPERATURE0_BYTE0 ) && 
+                ( reg <= REG1_KELVIN1W_TEMPERATURE8_BYTE3 ) ) {
+            rv = *( p + reg + (3-reg%4) );
+        }
         
     }
     else if (2 == vscp_page_select) {
@@ -1417,7 +1639,7 @@ uint8_t vscp_writeAppReg(unsigned char reg, unsigned char val)
 
         // Channel (sub)zones & control registers
         if ( ( reg >= REG0_KELVIN1W_ZONE ) && 
-                    ( reg <= REG0_KELVIN1W_BCONSTANT0_LOW ) ) {
+                    ( reg <= REG0_KELVIN1W_BCONSTANT0_LSB ) ) {
             eeprom_write(reg2eeprom_pg0[ reg ], val);
             rv = eeprom_read(reg2eeprom_pg0[ reg ]);
         }
@@ -1439,8 +1661,11 @@ uint8_t vscp_writeAppReg(unsigned char reg, unsigned char val)
     }
     else if (3 == vscp_page_select) {
         
-        if ( ( reg >= REG3_KELVIN1W_ROM_CODE_TEMP0_MSB ) && 
-                ( reg <= REG3_KELVIN1W_ROM_CODE_TEMP7_BYTE7 ) ) {
+        if ( REG3_KELVIN1W_CHANNEL_CONTROL_REGISTER == reg ) {
+            rv = writeChannelControl( val );
+        }
+        else if ( ( reg >= REG3_KELVIN1W_ROM_CODE_TEMP0_MSB ) && 
+                    ( reg <= REG3_KELVIN1W_ROM_CODE_TEMP7_BYTE7 ) ) {
             eeprom_write( reg2eeprom_pg2[ ROM_CODE_EEPROM_START + reg ], val );
             rv = eeprom_read( reg2eeprom_pg2[ ROM_CODE_EEPROM_START + reg ] );
         }
@@ -1458,6 +1683,150 @@ uint8_t vscp_writeAppReg(unsigned char reg, unsigned char val)
 
     return rv;
 }
+
+///////////////////////////////////////////////////////////////////////////////
+// reportTokenActivity
+//
+
+void reportTokenActivity( void )
+{
+    vscp_omsg.priority = VSCP_PRIORITY_MEDIUM;
+    vscp_omsg.vscp_class = VSCP_CLASS1_INFORMATION;
+    vscp_omsg.vscp_type = VSCP_TYPE_INFORMATION_TOKEN_ACTIVITY;
+    
+    // * * * Frame 1 * * *
+    
+    vscp_omsg.flags = VSCP_VALID_MSG + 8;
+                        
+    // Data
+    vscp_omsg.data[ 0 ] = 0b00000101;
+    vscp_omsg.data[ 1 ] = reg2eeprom_pg0[ REG0_KELVIN1W_ZONE ];
+    vscp_omsg.data[ 2 ] = reg2eeprom_pg0[ REG0_KELVIN1W_SUBZONE ];
+    vscp_omsg.data[ 3 ] = 0;
+    vscp_omsg.data[ 4 ] = romAddrOneWire[ 0 ];
+    vscp_omsg.data[ 5 ] = romAddrOneWire[ 1 ];
+    vscp_omsg.data[ 6 ] = romAddrOneWire[ 2 ];
+    vscp_omsg.data[ 7 ] = romAddrOneWire[ 3 ];
+    
+    vscp_sendEvent();   // Send event
+    
+    // * * * Frame 2 * * *
+    
+    vscp_omsg.flags = VSCP_VALID_MSG + 8;
+                        
+    // Data
+    vscp_omsg.data[ 0 ] = 0b00000101;
+    vscp_omsg.data[ 1 ] = reg2eeprom_pg0[ REG0_KELVIN1W_ZONE ];
+    vscp_omsg.data[ 2 ] = reg2eeprom_pg0[ REG0_KELVIN1W_SUBZONE ];
+    vscp_omsg.data[ 3 ] = 1;
+    vscp_omsg.data[ 4 ] = romAddrOneWire[ 4 ];
+    vscp_omsg.data[ 5 ] = romAddrOneWire[ 5 ];
+    vscp_omsg.data[ 6 ] = romAddrOneWire[ 6 ];
+    vscp_omsg.data[ 7 ] = romAddrOneWire[ 7 ];
+    
+    vscp_sendEvent();   // Send event
+
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// writeChannelControl
+//
+
+uint8_t writeChannelControl( uint8_t val )
+{
+    BOOL rv;
+    uint8_t nFound = 0; // Number of found nodes on channel
+    
+    // Initialise one-wire search
+    nLastDiscrepancyOnewire = 0;
+    bDoneFlagOneWire = FALSE;
+    
+    // Should we search channel 0
+    if ( val & 0b00000001 ) {
+        
+        while( !bDoneFlagOneWire && DS1820_FindNextDevice( TEMP_CHANNEL0 ) ) {
+            
+            // Only handle sensors we recognise
+            if ( ( ROMCODE_18S20== romAddrOneWire[ 7 ] ) || 
+                 ( ROMCODE_18B20== romAddrOneWire[ 7 ] ) ) {
+                   
+                // Save only first two
+                if ( nFound <= 1 ) { 
+                    saveROMCodeToEEPROM( TEMP_CHANNEL0, nFound );
+                }
+                
+                nFound++; // Another one found
+                
+            }
+            
+            // Report Token activity if instructed to do so
+            if ( val & 0b00010000 ) {
+                reportTokenActivity();
+            }
+            
+        }
+    }
+    // Should we search channel 1    
+    else if ( val & 0b00000010 ) {
+        
+        while( !bDoneFlagOneWire && DS1820_FindNextDevice( TEMP_CHANNEL1 ) ) {
+            
+            // Only handle sensors we recognise
+            if ( ( ROMCODE_18S20== romAddrOneWire[ 7 ] ) || 
+                 ( ROMCODE_18B20== romAddrOneWire[ 7 ] ) ) {
+                
+                // Save only first two
+                if ( nFound <= 1 ) { 
+                    saveROMCodeToEEPROM( TEMP_CHANNEL1, nFound );
+                }
+                
+                nFound++; // Another one found
+                
+            }
+        }
+    }
+    // Should we search channel 2
+    else if ( val & 0b00000100 ) {
+        
+        while( !bDoneFlagOneWire && DS1820_FindNextDevice( TEMP_CHANNEL2 ) ) {
+            
+            // Only handle sensors we recognise
+            if ( ( ROMCODE_18S20== romAddrOneWire[ 7 ] ) || 
+                 ( ROMCODE_18B20== romAddrOneWire[ 7 ] ) ) {
+                
+                // Save only first two
+                if ( nFound <= 1 ) { 
+                    saveROMCodeToEEPROM( TEMP_CHANNEL2, nFound );
+                }
+                
+                nFound++; // Another one found
+                
+            }
+        }
+    }
+    // Should we search channel 3
+    else if ( val & 0b00001000 ) {
+        
+        while( !bDoneFlagOneWire && DS1820_FindNextDevice( TEMP_CHANNEL3 ) ) {
+            
+            // Only handle sensors we recognise
+            if ( ( ROMCODE_18S20== romAddrOneWire[ 7 ] ) || 
+                 ( ROMCODE_18B20== romAddrOneWire[ 7 ] ) ) {
+                
+                // Save only first two
+                if ( nFound <= 1 ) { 
+                    saveROMCodeToEEPROM( TEMP_CHANNEL3, nFound );
+                }
+                
+                nFound++; // Another one found
+                
+            }
+        }
+    }
+    
+    return val;
+}
+
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -1591,13 +1960,13 @@ uint8_t vscp_getBufferSize(void)
 
 void vscp_getMatrixInfo(char *pData)
 {
-    vscp_omsg.data[ 0 ] = DESCION_MATRIX_ROWS;  // Number of matrix rows
-    vscp_omsg.data[ 1 ] = REG_DESCION_MATRIX;   // Matrix start offset
-    vscp_omsg.data[ 2 ] = 0;                    // Matrix start page
-    vscp_omsg.data[ 3 ] = DESCION_MATRIX_PAGE;
-    vscp_omsg.data[ 4 ] = 0;                    // Matrix end page
-    vscp_omsg.data[ 5 ] = DESCION_MATRIX_PAGE;
-    vscp_omsg.data[ 6 ] = 0;
+    pData[ 0 ] = DESCION_MATRIX_ROWS;  // Number of matrix rows
+    pData[ 1 ] = REG_DESCION_MATRIX;   // Matrix start offset
+    pData[ 2 ] = 0;                    // Matrix start page
+    pData[ 3 ] = DESCION_MATRIX_PAGE;
+    pData[ 4 ] = 0;                    // Matrix end page
+    pData[ 5 ] = DESCION_MATRIX_PAGE;
+    pData[ 6 ] = 0;
 }
 
 
@@ -1818,7 +2187,7 @@ uint8_t vscp_getRegisterPagesUsed(void)
 
 uint8_t vscp_getZone(void)
 {
-   // TODO return eeprom_read(EEPROM_ZONE);
+   return eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_ZONE ] );
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -1827,7 +2196,7 @@ uint8_t vscp_getZone(void)
 
 uint8_t vscp_getSubzone(void)
 {
-    // TODO return eeprom_read(EEPROM_SUBZONE);
+    return eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_ZONE ] );
 }
 
 ///////////////////////////////////////////////////////////////////////////////

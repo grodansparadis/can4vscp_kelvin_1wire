@@ -100,8 +100,6 @@
 //   (next free position)
 
 
-
-
 // Function Prototypes
 
 void doWork(void);
@@ -111,10 +109,47 @@ void init_app_eeprom(void);
 void doOneSecondWork(void);
 void handle_sync(void);
 int16_t getCalibrationValue( uint8_t i );
-int8_t convertTemperature(int temp, unsigned char unit);
+int8_t convertTemperature(double temp, unsigned char unit );
 int8_t sendTempEvent( uint8_t i );
 void setEventData(int v, unsigned char unit);
 void read_app_register(unsigned char reg);
 void write_app_register(unsigned char reg, unsigned char val);
+void calculateSetFilterMask( void );
+uint8_t writeChannelControl( uint8_t val );
+BOOL loadROMCodeFromEEPROM( uint8_t currentSensor );
+void saveROMCodeToEEPROM( uint8_t channel, uint8_t idxSensor );
+void reportTokenActivity( void );
+
+// Temparture conversions
+double Celsius2Fahrenheit(double tc);
+double Fahrenheit2Celsius(double tf);
+double Celsius2Kelvin(double tc);
+double Kelvin2Celsius(double tf);
+
+// Actions
+void actionScan( uint8_t param );
+void actionScanStore( uint8_t param );
+void actionReport( uint8_t param );
+void actionClearAlarm( uint8_t param );
+void actionClearHigh( uint8_t param );
+void actionClearLow( uint8_t param );
+
+/*!
+	Send Extended ID CAN frame
+	@param id CAN extended ID for frame.
+	@param size Number of data bytes 0-8
+	@param pData Pointer to data bytes of frame.
+	@return TRUE (!=0) on success, FALSE (==0) on failure.
+*/
+int8_t sendCANFrame( uint32_t id, uint8_t size, uint8_t *pData );
+
+/*!
+	Get extended ID CAN frame
+	@param pid Pointer to CAN extended ID for frame.
+	@param psize Pointer to number of databytes 0-8
+	@param pData Pointer to databytes of frame.
+	@return TRUE (!=0) on success, FALSE (==0) on failure.
+*/
+int8_t getCANFrame( uint32_t *pid, uint8_t *psize, uint8_t *pData );
 
 #endif

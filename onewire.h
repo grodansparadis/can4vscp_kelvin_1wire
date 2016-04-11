@@ -79,8 +79,8 @@
 #define REG0_KELVIN1W_REPORT_INTERVAL_6                 40
 #define REG0_KELVIN1W_REPORT_INTERVAL_7                 41
 
-#define REG0_KELVIN1W_BCONSTANT0_HIGH                   42
-#define REG0_KELVIN1W_BCONSTANT0_LOW                    43
+#define REG0_KELVIN1W_BCONSTANT0_MSB                    42
+#define REG0_KELVIN1W_BCONSTANT0_LSB                    43
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -91,55 +91,64 @@
 #define REG1_KELVIN1W_TEMPERATURE0_BYTE0                0
 #define REG1_KELVIN1W_TEMPERATURE0_BYTE1                1
 #define REG1_KELVIN1W_TEMPERATURE0_BYTE2                2
-#define REG1_KELVIN1W_TEMPERATURE0_LSB                  2
+#define REG1_KELVIN1W_TEMPERATURE0_BYTE3                3
+#define REG1_KELVIN1W_TEMPERATURE0_LSB                  3
 
-#define REG1_KELVIN1W_TEMPERATURE1_MSB                  3
-#define REG1_KELVIN1W_TEMPERATURE1_BYTE0                3
-#define REG1_KELVIN1W_TEMPERATURE1_BYTE1                4
-#define REG1_KELVIN1W_TEMPERATURE1_BYTE2                5
-#define REG1_KELVIN1W_TEMPERATURE1_LSB                  5
+#define REG1_KELVIN1W_TEMPERATURE1_MSB                  4
+#define REG1_KELVIN1W_TEMPERATURE1_BYTE0                4
+#define REG1_KELVIN1W_TEMPERATURE1_BYTE1                5
+#define REG1_KELVIN1W_TEMPERATURE1_BYTE2                6
+#define REG1_KELVIN1W_TEMPERATURE1_BYTE3                7
+#define REG1_KELVIN1W_TEMPERATURE1_LSB                  7
 
-#define REG1_KELVIN1W_TEMPERATURE2_MSB                  6
-#define REG1_KELVIN1W_TEMPERATURE2_BYTE0                6
-#define REG1_KELVIN1W_TEMPERATURE2_BYTE1                7
-#define REG1_KELVIN1W_TEMPERATURE2_BYTE2                8
-#define REG1_KELVIN1W_TEMPERATURE2_LSB                  8
+#define REG1_KELVIN1W_TEMPERATURE2_MSB                  8
+#define REG1_KELVIN1W_TEMPERATURE2_BYTE0                8
+#define REG1_KELVIN1W_TEMPERATURE2_BYTE1                9
+#define REG1_KELVIN1W_TEMPERATURE2_BYTE2                10
+#define REG1_KELVIN1W_TEMPERATURE2_BYTE3                11
+#define REG1_KELVIN1W_TEMPERATURE2_LSB                  11
 
-#define REG1_KELVIN1W_TEMPERATURE3_MSB                  9
-#define REG1_KELVIN1W_TEMPERATURE3_BYTE0                9
-#define REG1_KELVIN1W_TEMPERATURE3_BYTE1                10
-#define REG1_KELVIN1W_TEMPERATURE3_BYTE2                11
-#define REG1_KELVIN1W_TEMPERATURE3_LSB                  11
+#define REG1_KELVIN1W_TEMPERATURE3_MSB                  12
+#define REG1_KELVIN1W_TEMPERATURE3_BYTE0                12
+#define REG1_KELVIN1W_TEMPERATURE3_BYTE1                13
+#define REG1_KELVIN1W_TEMPERATURE3_BYTE2                14
+#define REG1_KELVIN1W_TEMPERATURE3_BYTE3                15
+#define REG1_KELVIN1W_TEMPERATURE3_LSB                  15
 
-#define REG1_KELVIN1W_TEMPERATURE4_MSB                  12
-#define REG1_KELVIN1W_TEMPERATURE4_BYTE0                12
-#define REG1_KELVIN1W_TEMPERATURE4_BYTE1                13
-#define REG1_KELVIN1W_TEMPERATURE4_BYTE2                14
-#define REG1_KELVIN1W_TEMPERATURE4_LSB                  14
+#define REG1_KELVIN1W_TEMPERATURE4_MSB                  16
+#define REG1_KELVIN1W_TEMPERATURE4_BYTE0                16
+#define REG1_KELVIN1W_TEMPERATURE4_BYTE1                17
+#define REG1_KELVIN1W_TEMPERATURE4_BYTE2                18
+#define REG1_KELVIN1W_TEMPERATURE4_BYTE3                19
+#define REG1_KELVIN1W_TEMPERATURE4_LSB                  19
 
-#define REG1_KELVIN1W_TEMPERATURE5_MSB                  15
-#define REG1_KELVIN1W_TEMPERATURE5_BYTE0                15
-#define REG1_KELVIN1W_TEMPERATURE5_BYTE1                16
-#define REG1_KELVIN1W_TEMPERATURE5_BYTE2                17
-#define REG1_KELVIN1W_TEMPERATURE5_LSB                  17
+#define REG1_KELVIN1W_TEMPERATURE5_MSB                  20
+#define REG1_KELVIN1W_TEMPERATURE5_BYTE0                20
+#define REG1_KELVIN1W_TEMPERATURE5_BYTE1                21
+#define REG1_KELVIN1W_TEMPERATURE5_BYTE2                22
+#define REG1_KELVIN1W_TEMPERATURE5_BYTE3                23
+#define REG1_KELVIN1W_TEMPERATURE5_LSB                  23
 
-#define REG1_KELVIN1W_TEMPERATURE6_MSB                  18
-#define REG1_KELVIN1W_TEMPERATURE6_BYTE0                18
-#define REG1_KELVIN1W_TEMPERATURE6_BYTE1                19
-#define REG1_KELVIN1W_TEMPERATURE6_BYTE2                20
-#define REG1_KELVIN1W_TEMPERATURE6_LSB                  20
+#define REG1_KELVIN1W_TEMPERATURE6_MSB                  24
+#define REG1_KELVIN1W_TEMPERATURE6_BYTE0                24
+#define REG1_KELVIN1W_TEMPERATURE6_BYTE1                25
+#define REG1_KELVIN1W_TEMPERATURE6_BYTE2                26
+#define REG1_KELVIN1W_TEMPERATURE6_BYTE3                27
+#define REG1_KELVIN1W_TEMPERATURE6_LSB                  27
 
-#define REG1_KELVIN1W_TEMPERATURE7_MSB                  21
-#define REG1_KELVIN1W_TEMPERATURE7_BYTE0                21
-#define REG1_KELVIN1W_TEMPERATURE7_BYTE1                22
-#define REG1_KELVIN1W_TEMPERATURE7_BYTE2                23
-#define REG1_KELVIN1W_TEMPERATURE7_LSB                  23
+#define REG1_KELVIN1W_TEMPERATURE7_MSB                  28
+#define REG1_KELVIN1W_TEMPERATURE7_BYTE0                28
+#define REG1_KELVIN1W_TEMPERATURE7_BYTE1                29
+#define REG1_KELVIN1W_TEMPERATURE7_BYTE2                30
+#define REG1_KELVIN1W_TEMPERATURE7_BYTE3                31
+#define REG1_KELVIN1W_TEMPERATURE7_LSB                  31
 
-#define REG1_KELVIN1W_TEMPERATURE8_MSB                  24
-#define REG1_KELVIN1W_TEMPERATURE8_BYTE0                24
-#define REG1_KELVIN1W_TEMPERATURE8_BYTE1                25
-#define REG1_KELVIN1W_TEMPERATURE8_BYTE2                26
-#define REG1_KELVIN1W_TEMPERATURE8_LSB                  26
+#define REG1_KELVIN1W_TEMPERATURE8_MSB                  32
+#define REG1_KELVIN1W_TEMPERATURE8_BYTE0                32
+#define REG1_KELVIN1W_TEMPERATURE8_BYTE1                33
+#define REG1_KELVIN1W_TEMPERATURE8_BYTE2                34
+#define REG1_KELVIN1W_TEMPERATURE8_BYTE3                35
+#define REG1_KELVIN1W_TEMPERATURE8_LSB                  35
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -359,10 +368,15 @@
 #define KELVIN1W_ACTION_CLEAR_LOW       6
 
 // The four temperature channels
-#define TEMP_CHANNEL1   0   // RC7
-#define TEMP_CHANNEL2   1   // RC6
-#define TEMP_CHANNEL3   2   // RC4
-#define TEMP_CHANNEL4   3   // RC3
+#define TEMP_CHANNEL0               0   // RC7
+#define TEMP_CHANNEL1               1   // RC6
+#define TEMP_CHANNEL2               2   // RC4
+#define TEMP_CHANNEL3               3   // RC3
+
+// Temperature report format (high control low 2 bits))
+#define REPORT_TEMP_AS_NORMINT      0
+#define REPORT_TEMP_AS_FLOAT        1
+#define REPORT_TEMP_AS_STRING       2
 
 //
 // Defaults
@@ -387,7 +401,7 @@
 #define MASK_CONTROL0_TURNX_INVERT          0x40
 #define MASK_CONTROL0_CONTINUOUS            0x80
 
-#define MASK_CONTROL1_CLASS0                0x03
+#define MASK_CONTROL1_REMOTE_FORMAT         0x03
 
 // Default report interval for sensor 0-7
 #define DEFAULT_REPORT_INTERVAL             0
@@ -486,11 +500,20 @@
 #define SELECT_ADC_TEMP5                    (8<<2)   // ADC8
 
 
+
+
+
 // ----------------------------------------------------------------------------- 
 //                                DS1820                                      
 // ----------------------------------------------------------------------------- 
 
-#define TEMP_RES              0x100 // temperature resolution => 1/256°C = 0.0039°C 
+
+// Handled ROM codes
+#define ROMCODE_18S20           10  // Valid for DS1820 also
+#define ROMCODE_18B20           28
+
+
+#define TEMP_RES                0x100 // temperature resolution => 1/256°C = 0.0039°C 
 
 
 // -----------------------------------------------------------------------------
@@ -545,12 +568,6 @@
 #define DS1820_FAMILY_CODE_DS18S20      0x10
 
 
-// Temparture conversions
-double Celsius2Fahrenheit(double tc);
-double Fahrenheit2Celsius(double tf);
-double Celsius2Kelvin(double tc);
-double Kelvin2Celsius(double tf);
-
 // DS1820
 uint8_t DS1820_Reset( uint8_t pin );
 uint8_t DS1820_ReadBit( uint8_t pin );
@@ -561,37 +578,11 @@ void DS1820_AddrDevice( uint8_t pin, uint8_t nAddrMethod );
 uint8_t DS1820_FindNextDevice( uint8_t pin );
 uint8_t DS1820_FindFirstDevice( uint8_t pin );
 void DS1820_WriteEEPROM( uint8_t pin, uint8_t high, uint8_t low );
-int16_t DS1820_GetTempRaw( uint8_t pin );
-float DS1820_GetTempFloat( uint8_t pin );
+void DS1820_StartTempConversion( uint8_t pin );
+int16_t DS1820_GetTempRaw( uint8_t pin, BOOL bStartAndWait  );
+double DS1820_GetTempFloat( uint8_t pin );
+double DS1820_LateGetTempFloat( uint8_t pin );
 void DS1820_GetTempString( int16_t rawTemp, char *strTemp );
-
-void calculateSetFilterMask( void );
-
-// Actions
-void actionScan( uint8_t param );
-void actionScanStore( uint8_t param );
-void actionReport( uint8_t param );
-void actionClearAlarm( uint8_t param );
-void actionClearHigh( uint8_t param );
-void actionClearLow( uint8_t param );
-
-/*!
-	Send Extended ID CAN frame
-	@param id CAN extended ID for frame.
-	@param size Number of data bytes 0-8
-	@param pData Pointer to data bytes of frame.
-	@return TRUE (!=0) on success, FALSE (==0) on failure.
-*/
-int8_t sendCANFrame( uint32_t id, uint8_t size, uint8_t *pData );
-
-/*!
-	Get extended ID CAN frame
-	@param pid Pointer to CAN extended ID for frame.
-	@param psize Pointer to number of databytes 0-8
-	@param pData Pointer to databytes of frame.
-	@return TRUE (!=0) on success, FALSE (==0) on failure.
-*/
-int8_t getCANFrame( uint32_t *pid, uint8_t *psize, uint8_t *pData );
 
 
 #endif

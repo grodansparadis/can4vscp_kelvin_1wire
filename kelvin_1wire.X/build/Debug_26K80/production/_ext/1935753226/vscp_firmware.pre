@@ -1466,11 +1466,12 @@ int8_t vscp_getEvent(void)
 {
 int8_t rv;
 
-# 1316
+
+
+
 if (vscp_imsg.flags & 0x80) return !0;
 
-
-if ((rv = getVSCPFrame( &vscp_imsg.vscp_class,
+if ( ( rv = getVSCPFrame( &vscp_imsg.vscp_class,
 &vscp_imsg.vscp_type,
 &vscp_imsg.oaddr,
 &vscp_imsg.priority,
@@ -1481,6 +1482,5 @@ vscp_imsg.flags |= 0x80;
 }
 
 return rv;
-
 }
 

@@ -491,8 +491,6 @@
 //
 // Bit 0,1 - Class to use for temperature reports
 
-#define VSCP_EEPROM_END                     10
-
 
 // ADCCON0 ADC select bits
 #define SELECT_ADC_TEMP0                    (10<<2)  // ADC10
@@ -512,31 +510,35 @@
 
 
 // Handled ROM codes
-#define ROMCODE_18S20           10  // Valid for DS1820 also
-#define ROMCODE_18B20           28
+#define ROMCODE_18S20               0x10  // Valid for DS1820 also
+#define ROMCODE_18B20               0x28
+
+// Frame positions in ROM code
+#define OW_ROM_FAMILY_CODE          0
+#define OW_ROM_CRC                  7
 
 
-#define TEMP_RES                0x100 // temperature resolution => 1/256°C = 0.0039°C 
+#define TEMP_RES                    0x100 // temperature resolution => 1/256°C = 0.0039°C 
 
 
 // -----------------------------------------------------------------------------
 //                         DS1820 Timing Parameters                           
 // -----------------------------------------------------------------------------
 
-#define DS1820_RST_PULSE       480   // master reset pulse time in [us] 
-//#define DS1820_PRESENCE_WAIT   40    // delay after master reset pulse in [us] 
-#define DS1820_PRESENCE_WAIT   70
+#define DS1820_RST_PULSE                480 // master reset pulse time in [us] 
+//#define DS1820_PRESENCE_WAIT   40         // delay after master reset pulse in [us] 
+#define DS1820_PRESENCE_WAIT            70
 //#define DS1820_PRESENCE_FIN    480   // delay after reading of presence pulse [us] 
-#define DS1820_PRESENCE_FIN    410
+#define DS1820_PRESENCE_FIN             410
 
 //#define DS1820_MSTR_BITSTART   2     // delay time for bit start by master 
-#define DS1820_MSTR_BITSTART   6
-//#define DS1820_BITREAD_DLY     5     // bit read delay 
-#define DS1820_BITREAD_DLY     9
-#define DS1820_BITREAD_WAIT    55
+#define DS1820_MSTR_BITSTART            6
+//#define DS1820_BITREAD_DLY     5      // bit read delay 
+#define DS1820_BITREAD_DLY              9
+#define DS1820_BITREAD_WAIT             55
 
 //#define DS1820_BITWRITE_DLY    100   // bit write delay 
-#define DS1820_BITWRITE_DLY    64
+#define DS1820_BITWRITE_DLY             64
 
 // -----------------------------------------------------------------------------
 //                            DS1820 Registers                                

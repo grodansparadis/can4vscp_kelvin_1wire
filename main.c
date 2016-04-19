@@ -140,13 +140,13 @@ volatile uint32_t timeout_clock;        // Clock used for timeouts
 
 uint8_t seconds;                        // counter for seconds
 
-uint8_t seconds_temp[6];                // timers for temp event
+uint8_t seconds_temp[ 8 ];              // timers for temp event
 
 // Alarm flag bits
 uint8_t low_alarm;
 uint8_t high_alarm;
 
-uint32_t adc_value;             // ADC result for sensor 8 (on-board))
+uint32_t adc_value;                     // ADC result for sensor 8 (on-board))
 
 //uint8_t romAddrOneWire[ DS1820_ADDR_LEN ];
 
@@ -161,227 +161,226 @@ uint8_t currentSensor = 0;
 
 // This table translates registers in page 0 to EEPROM locations
 const uint8_t reg2eeprom_pg0[] = {
-    /* REG0_KELVIN1W_ZONE                   */          VSCP_EEPROM_END + 0,
-    /* REG0_KELVIN1W_SUBZONE                */          VSCP_EEPROM_END + 1,
+    /* REG0_KELVIN1W_ZONE                   */          VSCP_EEPROM_VSCP_END + 0,
+    /* REG0_KELVIN1W_SUBZONE                */          VSCP_EEPROM_VSCP_END + 1,
                                                         
-    /* REG0_KELVIN1W_TEMP0_ZONE             */          VSCP_EEPROM_END + 2,
-    /* REG0_KELVIN1W_TEMP0_SUBZONE          */          VSCP_EEPROM_END + 3,
-    /* REG0_KELVIN1W_TEMP1_ZONE             */          VSCP_EEPROM_END + 4,
-    /* REG0_KELVIN1W_TEMP1_SUBZONE          */          VSCP_EEPROM_END + 5,
-    /* REG0_KELVIN1W_TEMP2_ZONE             */          VSCP_EEPROM_END + 6,
-    /* REG0_KELVIN1W_TEMP2_SUBZONE          */          VSCP_EEPROM_END + 7,
-    /* REG0_KELVIN1W_TEMP3_ZONE             */          VSCP_EEPROM_END + 8,
-    /* REG0_KELVIN1W_TEMP3_SUBZONE          */          VSCP_EEPROM_END + 10,
-    /* REG0_KELVIN1W_TEMP4_ZONE             */          VSCP_EEPROM_END + 11,
-    /* REG0_KELVIN1W_TEMP4_SUBZONE          */          VSCP_EEPROM_END + 12,
-    /* REG0_KELVIN1W_TEMP5_ZONE             */          VSCP_EEPROM_END + 13,
-    /* REG0_KELVIN1W_TEMP5_SUBZONE          */          VSCP_EEPROM_END + 14,
-    /* REG0_KELVIN1W_TEMP6_ZONE             */          VSCP_EEPROM_END + 15,
-    /* REG0_KELVIN1W_TEMP6_SUBZONE          */          VSCP_EEPROM_END + 16,
-    /* REG0_KELVIN1W_TEMP7_ZONE             */          VSCP_EEPROM_END + 17,
-    /* REG0_KELVIN1W_TEMP7_SUBZONE          */          VSCP_EEPROM_END + 18,
+    /* REG0_KELVIN1W_TEMP0_ZONE             */          VSCP_EEPROM_VSCP_END + 2,
+    /* REG0_KELVIN1W_TEMP0_SUBZONE          */          VSCP_EEPROM_VSCP_END + 3,
+    /* REG0_KELVIN1W_TEMP1_ZONE             */          VSCP_EEPROM_VSCP_END + 4,
+    /* REG0_KELVIN1W_TEMP1_SUBZONE          */          VSCP_EEPROM_VSCP_END + 5,
+    /* REG0_KELVIN1W_TEMP2_ZONE             */          VSCP_EEPROM_VSCP_END + 6,
+    /* REG0_KELVIN1W_TEMP2_SUBZONE          */          VSCP_EEPROM_VSCP_END + 7,
+    /* REG0_KELVIN1W_TEMP3_ZONE             */          VSCP_EEPROM_VSCP_END + 8,
+    /* REG0_KELVIN1W_TEMP3_SUBZONE          */          VSCP_EEPROM_VSCP_END + 10,
+    /* REG0_KELVIN1W_TEMP4_ZONE             */          VSCP_EEPROM_VSCP_END + 11,
+    /* REG0_KELVIN1W_TEMP4_SUBZONE          */          VSCP_EEPROM_VSCP_END + 12,
+    /* REG0_KELVIN1W_TEMP5_ZONE             */          VSCP_EEPROM_VSCP_END + 13,
+    /* REG0_KELVIN1W_TEMP5_SUBZONE          */          VSCP_EEPROM_VSCP_END + 14,
+    /* REG0_KELVIN1W_TEMP6_ZONE             */          VSCP_EEPROM_VSCP_END + 15,
+    /* REG0_KELVIN1W_TEMP6_SUBZONE          */          VSCP_EEPROM_VSCP_END + 16,
+    /* REG0_KELVIN1W_TEMP7_ZONE             */          VSCP_EEPROM_VSCP_END + 17,
+    /* REG0_KELVIN1W_TEMP7_SUBZONE          */          VSCP_EEPROM_VSCP_END + 18,
                                                         
-    /* REG0_KELVIN1W_CTRL_REG0_LOW          */          VSCP_EEPROM_END + 19,
-    /* REG0_KELVIN1W_CTRL_REG0_HIGH         */          VSCP_EEPROM_END + 20, 
-    /* REG0_KELVIN1W_CTRL_REG1_LOW          */          VSCP_EEPROM_END + 21,
-    /* REG0_KELVIN1W_CTRL_REG1_HIGH         */          VSCP_EEPROM_END + 22,
-    /* REG0_KELVIN1W_CTRL_REG2_LOW          */          VSCP_EEPROM_END + 23,
-    /* REG0_KELVIN1W_CTRL_REG2_HIGH         */          VSCP_EEPROM_END + 24,
-    /* REG0_KELVIN1W_CTRL_REG3_LOW          */          VSCP_EEPROM_END + 25,
-    /* REG0_KELVIN1W_CTRL_REG3_HIGH         */          VSCP_EEPROM_END + 26,
-    /* REG0_KELVIN1W_CTRL_REG4_LOW          */          VSCP_EEPROM_END + 27,
-    /* REG0_KELVIN1W_CTRL_REG4_HIGH         */          VSCP_EEPROM_END + 28,
-    /* REG0_KELVIN1W_CTRL_REG5_LOW          */          VSCP_EEPROM_END + 29,
-    /* REG0_KELVIN1W_CTRL_REG5_HIGH         */          VSCP_EEPROM_END + 30,
-    /* REG0_KELVIN1W_CTRL_REG6_LOW          */          VSCP_EEPROM_END + 31,
-    /* REG0_KELVIN1W_CTRL_REG6_HIGH         */          VSCP_EEPROM_END + 32,
-    /* REG0_KELVIN1W_CTRL_REG7_LOW          */          VSCP_EEPROM_END + 33,
-    /* REG0_KELVIN1W_CTRL_REG7_HIGH         */          VSCP_EEPROM_END + 34,
+    /* REG0_KELVIN1W_CTRL_REG0_LOW          */          VSCP_EEPROM_VSCP_END + 19,
+    /* REG0_KELVIN1W_CTRL_REG0_HIGH         */          VSCP_EEPROM_VSCP_END + 20, 
+    /* REG0_KELVIN1W_CTRL_REG1_LOW          */          VSCP_EEPROM_VSCP_END + 21,
+    /* REG0_KELVIN1W_CTRL_REG1_HIGH         */          VSCP_EEPROM_VSCP_END + 22,
+    /* REG0_KELVIN1W_CTRL_REG2_LOW          */          VSCP_EEPROM_VSCP_END + 23,
+    /* REG0_KELVIN1W_CTRL_REG2_HIGH         */          VSCP_EEPROM_VSCP_END + 24,
+    /* REG0_KELVIN1W_CTRL_REG3_LOW          */          VSCP_EEPROM_VSCP_END + 25,
+    /* REG0_KELVIN1W_CTRL_REG3_HIGH         */          VSCP_EEPROM_VSCP_END + 26,
+    /* REG0_KELVIN1W_CTRL_REG4_LOW          */          VSCP_EEPROM_VSCP_END + 27,
+    /* REG0_KELVIN1W_CTRL_REG4_HIGH         */          VSCP_EEPROM_VSCP_END + 28,
+    /* REG0_KELVIN1W_CTRL_REG5_LOW          */          VSCP_EEPROM_VSCP_END + 29,
+    /* REG0_KELVIN1W_CTRL_REG5_HIGH         */          VSCP_EEPROM_VSCP_END + 30,
+    /* REG0_KELVIN1W_CTRL_REG6_LOW          */          VSCP_EEPROM_VSCP_END + 31,
+    /* REG0_KELVIN1W_CTRL_REG6_HIGH         */          VSCP_EEPROM_VSCP_END + 32,
+    /* REG0_KELVIN1W_CTRL_REG7_LOW          */          VSCP_EEPROM_VSCP_END + 33,
+    /* REG0_KELVIN1W_CTRL_REG7_HIGH         */          VSCP_EEPROM_VSCP_END + 34,
                                                         
-    /* REG0_KELVIN1W_REPORT_INTERVAL_0      */          VSCP_EEPROM_END + 35,
-    /* REG0_KELVIN1W_REPORT_INTERVAL_1      */          VSCP_EEPROM_END + 36,
-    /* REG0_KELVIN1W_REPORT_INTERVAL_2      */          VSCP_EEPROM_END + 37,
-    /* REG0_KELVIN1W_REPORT_INTERVAL_3      */          VSCP_EEPROM_END + 38,
-    /* REG0_KELVIN1W_REPORT_INTERVAL_4      */          VSCP_EEPROM_END + 39,
-    /* REG0_KELVIN1W_REPORT_INTERVAL_5      */          VSCP_EEPROM_END + 40,
-    /* REG0_KELVIN1W_REPORT_INTERVAL_6      */          VSCP_EEPROM_END + 41,
-    /* REG0_KELVIN1W_REPORT_INTERVAL_7      */          VSCP_EEPROM_END + 42, 
+    /* REG0_KELVIN1W_REPORT_INTERVAL_0      */          VSCP_EEPROM_VSCP_END + 35,
+    /* REG0_KELVIN1W_REPORT_INTERVAL_1      */          VSCP_EEPROM_VSCP_END + 36,
+    /* REG0_KELVIN1W_REPORT_INTERVAL_2      */          VSCP_EEPROM_VSCP_END + 37,
+    /* REG0_KELVIN1W_REPORT_INTERVAL_3      */          VSCP_EEPROM_VSCP_END + 38,
+    /* REG0_KELVIN1W_REPORT_INTERVAL_4      */          VSCP_EEPROM_VSCP_END + 39,
+    /* REG0_KELVIN1W_REPORT_INTERVAL_5      */          VSCP_EEPROM_VSCP_END + 40,
+    /* REG0_KELVIN1W_REPORT_INTERVAL_6      */          VSCP_EEPROM_VSCP_END + 41,
+    /* REG0_KELVIN1W_REPORT_INTERVAL_7      */          VSCP_EEPROM_VSCP_END + 42, 
                                                         
-    /* REG0_KELVIN1W_BCONSTANT0_HIGH        */          VSCP_EEPROM_END + 43,
-    /* REG0_KELVIN1W_BCONSTANT0_LOW         */          VSCP_EEPROM_END + 44,
+    /* REG0_KELVIN1W_BCONSTANT0_HIGH        */          VSCP_EEPROM_VSCP_END + 43,
+    /* REG0_KELVIN1W_BCONSTANT0_LOW         */          VSCP_EEPROM_VSCP_END + 44,
 };
 
 // Page 1 is temperature values
 
 // This table translates registers in page 2 to EEPROM locations
 const uint8_t reg2eeprom_pg2[] = {                                                        
-    /* REG2_KELVIN1W_LOW_ALARM_SET_POINT0_MSB */        VSCP_EEPROM_END + 45,
-    /* REG2_KELVIN1W_LOW_ALARM_SET_POINT0_LSB */        VSCP_EEPROM_END + 46,
-    /* REG2_KELVIN1W_LOW_ALARM_SET_POINT1_MSB */        VSCP_EEPROM_END + 47,
-    /* REG2_KELVIN1W_LOW_ALARM_SET_POINT1_LSB */        VSCP_EEPROM_END + 48,
-    /* REG2_KELVIN1W_LOW_ALARM_SET_POINT2_MSB */        VSCP_EEPROM_END + 49,
-    /* REG2_KELVIN1W_LOW_ALARM_SET_POINT2_LSB */        VSCP_EEPROM_END + 50,
-    /* REG2_KELVIN1W_LOW_ALARM_SET_POINT3_MSB */        VSCP_EEPROM_END + 51,
-    /* REG2_KELVIN1W_LOW_ALARM_SET_POINT3_LSB */        VSCP_EEPROM_END + 52,
-    /* REG2_KELVIN1W_LOW_ALARM_SET_POINT4_MSB */        VSCP_EEPROM_END + 53,
-    /* REG2_KELVIN1W_LOW_ALARM_SET_POINT4_LSB */        VSCP_EEPROM_END + 54,
-    /* REG2_KELVIN1W_LOW_ALARM_SET_POINT5_MSB */        VSCP_EEPROM_END + 55,
-    /* REG2_KELVIN1W_LOW_ALARM_SET_POINT5_LSB */        VSCP_EEPROM_END + 56,
-    /* REG2_KELVIN1W_LOW_ALARM_SET_POINT6_MSB */        VSCP_EEPROM_END + 57,
-    /* REG2_KELVIN1W_LOW_ALARM_SET_POINT6_LSB */        VSCP_EEPROM_END + 58,
-    /* REG2_KELVIN1W_LOW_ALARM_SET_POINT7_MSB */        VSCP_EEPROM_END + 59,
-    /* REG2_KELVIN1W_LOW_ALARM_SET_POINT7_LSB */        VSCP_EEPROM_END + 60,   
+    /* REG2_KELVIN1W_LOW_ALARM_SET_POINT0_MSB */        VSCP_EEPROM_VSCP_END + 45,
+    /* REG2_KELVIN1W_LOW_ALARM_SET_POINT0_LSB */        VSCP_EEPROM_VSCP_END + 46,
+    /* REG2_KELVIN1W_LOW_ALARM_SET_POINT1_MSB */        VSCP_EEPROM_VSCP_END + 47,
+    /* REG2_KELVIN1W_LOW_ALARM_SET_POINT1_LSB */        VSCP_EEPROM_VSCP_END + 48,
+    /* REG2_KELVIN1W_LOW_ALARM_SET_POINT2_MSB */        VSCP_EEPROM_VSCP_END + 49,
+    /* REG2_KELVIN1W_LOW_ALARM_SET_POINT2_LSB */        VSCP_EEPROM_VSCP_END + 50,
+    /* REG2_KELVIN1W_LOW_ALARM_SET_POINT3_MSB */        VSCP_EEPROM_VSCP_END + 51,
+    /* REG2_KELVIN1W_LOW_ALARM_SET_POINT3_LSB */        VSCP_EEPROM_VSCP_END + 52,
+    /* REG2_KELVIN1W_LOW_ALARM_SET_POINT4_MSB */        VSCP_EEPROM_VSCP_END + 53,
+    /* REG2_KELVIN1W_LOW_ALARM_SET_POINT4_LSB */        VSCP_EEPROM_VSCP_END + 54,
+    /* REG2_KELVIN1W_LOW_ALARM_SET_POINT5_MSB */        VSCP_EEPROM_VSCP_END + 55,
+    /* REG2_KELVIN1W_LOW_ALARM_SET_POINT5_LSB */        VSCP_EEPROM_VSCP_END + 56,
+    /* REG2_KELVIN1W_LOW_ALARM_SET_POINT6_MSB */        VSCP_EEPROM_VSCP_END + 57,
+    /* REG2_KELVIN1W_LOW_ALARM_SET_POINT6_LSB */        VSCP_EEPROM_VSCP_END + 58,
+    /* REG2_KELVIN1W_LOW_ALARM_SET_POINT7_MSB */        VSCP_EEPROM_VSCP_END + 59,
+    /* REG2_KELVIN1W_LOW_ALARM_SET_POINT7_LSB */        VSCP_EEPROM_VSCP_END + 60,   
                                                         
-    /* REG2_KELVIN1W_HIGH_ALARM_SET_POINT0_MSB */       VSCP_EEPROM_END + 61,
-    /* REG2_KELVIN1W_HIGH_ALARM_SET_POINT0_LSB */       VSCP_EEPROM_END + 62,
-    /* REG2_KELVIN1W_HIGH_ALARM_SET_POINT1_MSB */       VSCP_EEPROM_END + 63,
-    /* REG2_KELVIN1W_HIGH_ALARM_SET_POINT1_LSB */       VSCP_EEPROM_END + 64,
-    /* REG2_KELVIN1W_HIGH_ALARM_SET_POINT2_MSB */       VSCP_EEPROM_END + 65,
-    /* REG2_KELVIN1W_HIGH_ALARM_SET_POINT2_LSB */       VSCP_EEPROM_END + 66,
-    /* REG2_KELVIN1W_HIGH_ALARM_SET_POINT3_MSB */       VSCP_EEPROM_END + 67,
-    /* REG2_KELVIN1W_HIGH_ALARM_SET_POINT3_LSB */       VSCP_EEPROM_END + 68,
-    /* REG2_KELVIN1W_HIGH_ALARM_SET_POINT4_MSB */       VSCP_EEPROM_END + 69,
-    /* REG2_KELVIN1W_HIGH_ALARM_SET_POINT4_LSB */       VSCP_EEPROM_END + 70,
-    /* REG2_KELVIN1W_HIGH_ALARM_SET_POINT5_MSB */       VSCP_EEPROM_END + 71,
-    /* REG2_KELVIN1W_HIGH_ALARM_SET_POINT5_LSB */       VSCP_EEPROM_END + 72,
-    /* REG2_KELVIN1W_HIGH_ALARM_SET_POINT6_MSB */       VSCP_EEPROM_END + 73,
-    /* REG2_KELVIN1W_HIGH_ALARM_SET_POINT6_LSB */       VSCP_EEPROM_END + 74,
-    /* REG2_KELVIN1W_HIGH_ALARM_SET_POINT7_MSB */       VSCP_EEPROM_END + 75,
-    /* REG2_KELVIN1W_HIGH_ALARM_SET_POINT7_LSB */       VSCP_EEPROM_END + 76,
+    /* REG2_KELVIN1W_HIGH_ALARM_SET_POINT0_MSB */       VSCP_EEPROM_VSCP_END + 61,
+    /* REG2_KELVIN1W_HIGH_ALARM_SET_POINT0_LSB */       VSCP_EEPROM_VSCP_END + 62,
+    /* REG2_KELVIN1W_HIGH_ALARM_SET_POINT1_MSB */       VSCP_EEPROM_VSCP_END + 63,
+    /* REG2_KELVIN1W_HIGH_ALARM_SET_POINT1_LSB */       VSCP_EEPROM_VSCP_END + 64,
+    /* REG2_KELVIN1W_HIGH_ALARM_SET_POINT2_MSB */       VSCP_EEPROM_VSCP_END + 65,
+    /* REG2_KELVIN1W_HIGH_ALARM_SET_POINT2_LSB */       VSCP_EEPROM_VSCP_END + 66,
+    /* REG2_KELVIN1W_HIGH_ALARM_SET_POINT3_MSB */       VSCP_EEPROM_VSCP_END + 67,
+    /* REG2_KELVIN1W_HIGH_ALARM_SET_POINT3_LSB */       VSCP_EEPROM_VSCP_END + 68,
+    /* REG2_KELVIN1W_HIGH_ALARM_SET_POINT4_MSB */       VSCP_EEPROM_VSCP_END + 69,
+    /* REG2_KELVIN1W_HIGH_ALARM_SET_POINT4_LSB */       VSCP_EEPROM_VSCP_END + 70,
+    /* REG2_KELVIN1W_HIGH_ALARM_SET_POINT5_MSB */       VSCP_EEPROM_VSCP_END + 71,
+    /* REG2_KELVIN1W_HIGH_ALARM_SET_POINT5_LSB */       VSCP_EEPROM_VSCP_END + 72,
+    /* REG2_KELVIN1W_HIGH_ALARM_SET_POINT6_MSB */       VSCP_EEPROM_VSCP_END + 73,
+    /* REG2_KELVIN1W_HIGH_ALARM_SET_POINT6_LSB */       VSCP_EEPROM_VSCP_END + 74,
+    /* REG2_KELVIN1W_HIGH_ALARM_SET_POINT7_MSB */       VSCP_EEPROM_VSCP_END + 75,
+    /* REG2_KELVIN1W_HIGH_ALARM_SET_POINT7_LSB */       VSCP_EEPROM_VSCP_END + 76,
 
-    /* REG2_KELVIN1W_ABSOLUTE_LOW_TEMP0_MSB    */       VSCP_EEPROM_END + 77,
-    /* REG2_KELVIN1W_ABSOLUTE_LOW_TEMP0_LSB    */       VSCP_EEPROM_END + 78,
-    /* REG2_KELVIN1W_ABSOLUTE_LOW_TEMP1_MSB    */       VSCP_EEPROM_END + 79,
-    /* REG2_KELVIN1W_ABSOLUTE_LOW_TEMP1_LSB    */       VSCP_EEPROM_END + 80,
-    /* REG2_KELVIN1W_ABSOLUTE_LOW_TEMP2_MSB    */       VSCP_EEPROM_END + 81,
-    /* REG2_KELVIN1W_ABSOLUTE_LOW_TEMP2_LSB    */       VSCP_EEPROM_END + 82,
-    /* REG2_KELVIN1W_ABSOLUTE_LOW_TEMP3_MSB    */       VSCP_EEPROM_END + 83,
-    /* REG2_KELVIN1W_ABSOLUTE_LOW_TEMP3_LSB    */       VSCP_EEPROM_END + 84,
-    /* REG2_KELVIN1W_ABSOLUTE_LOW_TEMP4_MSB    */       VSCP_EEPROM_END + 85,
-    /* REG2_KELVIN1W_ABSOLUTE_LOW_TEMP4_LSB    */       VSCP_EEPROM_END + 86,
-    /* REG2_KELVIN1W_ABSOLUTE_LOW_TEMP5_MSB    */       VSCP_EEPROM_END + 87,
-    /* REG2_KELVIN1W_ABSOLUTE_LOW_TEMP5_LSB    */       VSCP_EEPROM_END + 88,
-    /* REG2_KELVIN1W_ABSOLUTE_LOW_TEMP6_MSB    */       VSCP_EEPROM_END + 89,
-    /* REG2_KELVIN1W_ABSOLUTE_LOW_TEMP6_LSB    */       VSCP_EEPROM_END + 90,
-    /* REG2_KELVIN1W_ABSOLUTE_LOW_TEMP7_MSB    */       VSCP_EEPROM_END + 91,
-    /* REG2_KELVIN1W_ABSOLUTE_LOW_TEMP7_LSB    */       VSCP_EEPROM_END + 92,                                                        
+    /* REG2_KELVIN1W_ABSOLUTE_LOW_TEMP0_MSB    */       VSCP_EEPROM_VSCP_END + 77,
+    /* REG2_KELVIN1W_ABSOLUTE_LOW_TEMP0_LSB    */       VSCP_EEPROM_VSCP_END + 78,
+    /* REG2_KELVIN1W_ABSOLUTE_LOW_TEMP1_MSB    */       VSCP_EEPROM_VSCP_END + 79,
+    /* REG2_KELVIN1W_ABSOLUTE_LOW_TEMP1_LSB    */       VSCP_EEPROM_VSCP_END + 80,
+    /* REG2_KELVIN1W_ABSOLUTE_LOW_TEMP2_MSB    */       VSCP_EEPROM_VSCP_END + 81,
+    /* REG2_KELVIN1W_ABSOLUTE_LOW_TEMP2_LSB    */       VSCP_EEPROM_VSCP_END + 82,
+    /* REG2_KELVIN1W_ABSOLUTE_LOW_TEMP3_MSB    */       VSCP_EEPROM_VSCP_END + 83,
+    /* REG2_KELVIN1W_ABSOLUTE_LOW_TEMP3_LSB    */       VSCP_EEPROM_VSCP_END + 84,
+    /* REG2_KELVIN1W_ABSOLUTE_LOW_TEMP4_MSB    */       VSCP_EEPROM_VSCP_END + 85,
+    /* REG2_KELVIN1W_ABSOLUTE_LOW_TEMP4_LSB    */       VSCP_EEPROM_VSCP_END + 86,
+    /* REG2_KELVIN1W_ABSOLUTE_LOW_TEMP5_MSB    */       VSCP_EEPROM_VSCP_END + 87,
+    /* REG2_KELVIN1W_ABSOLUTE_LOW_TEMP5_LSB    */       VSCP_EEPROM_VSCP_END + 88,
+    /* REG2_KELVIN1W_ABSOLUTE_LOW_TEMP6_MSB    */       VSCP_EEPROM_VSCP_END + 89,
+    /* REG2_KELVIN1W_ABSOLUTE_LOW_TEMP6_LSB    */       VSCP_EEPROM_VSCP_END + 90,
+    /* REG2_KELVIN1W_ABSOLUTE_LOW_TEMP7_MSB    */       VSCP_EEPROM_VSCP_END + 91,
+    /* REG2_KELVIN1W_ABSOLUTE_LOW_TEMP7_LSB    */       VSCP_EEPROM_VSCP_END + 92,                                                        
                                                         
-    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP0_MSB     */     VSCP_EEPROM_END + 93,
-    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP0_LSB     */     VSCP_EEPROM_END + 94,
-    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP1_MSB     */     VSCP_EEPROM_END + 95,
-    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP1_LSB     */     VSCP_EEPROM_END + 96,
-    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP2_MSB     */     VSCP_EEPROM_END + 97,
-    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP2_LSB     */     VSCP_EEPROM_END + 98,
-    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP3_MSB     */     VSCP_EEPROM_END + 99,
-    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP3_LSB     */     VSCP_EEPROM_END + 100,
-    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP4_MSB     */     VSCP_EEPROM_END + 101,
-    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP4_LSB     */     VSCP_EEPROM_END + 102,
-    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP5_MSB     */     VSCP_EEPROM_END + 103,
-    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP5_LSB     */     VSCP_EEPROM_END + 104,
-    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP6_MSB     */     VSCP_EEPROM_END + 105,
-    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP6_LSB     */     VSCP_EEPROM_END + 106,
-    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP7_MSB     */     VSCP_EEPROM_END + 107,
-    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP7_LSB     */     VSCP_EEPROM_END + 108,
+    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP0_MSB     */     VSCP_EEPROM_VSCP_END + 93,
+    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP0_LSB     */     VSCP_EEPROM_VSCP_END + 94,
+    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP1_MSB     */     VSCP_EEPROM_VSCP_END + 95,
+    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP1_LSB     */     VSCP_EEPROM_VSCP_END + 96,
+    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP2_MSB     */     VSCP_EEPROM_VSCP_END + 97,
+    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP2_LSB     */     VSCP_EEPROM_VSCP_END + 98,
+    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP3_MSB     */     VSCP_EEPROM_VSCP_END + 99,
+    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP3_LSB     */     VSCP_EEPROM_VSCP_END + 100,
+    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP4_MSB     */     VSCP_EEPROM_VSCP_END + 101,
+    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP4_LSB     */     VSCP_EEPROM_VSCP_END + 102,
+    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP5_MSB     */     VSCP_EEPROM_VSCP_END + 103,
+    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP5_LSB     */     VSCP_EEPROM_VSCP_END + 104,
+    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP6_MSB     */     VSCP_EEPROM_VSCP_END + 105,
+    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP6_LSB     */     VSCP_EEPROM_VSCP_END + 106,
+    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP7_MSB     */     VSCP_EEPROM_VSCP_END + 107,
+    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP7_LSB     */     VSCP_EEPROM_VSCP_END + 108,
 
-    /* REG2_KELVIN1W_HYSTERESIS_TEMP0            */     VSCP_EEPROM_END + 109,
-    /* REG2_KELVIN1W_HYSTERESIS_TEMP1            */     VSCP_EEPROM_END + 110,
-    /* REG2_KELVIN1W_HYSTERESIS_TEMP2            */     VSCP_EEPROM_END + 111,
-    /* REG2_KELVIN1W_HYSTERESIS_TEMP3            */     VSCP_EEPROM_END + 112,
-    /* REG2_KELVIN1W_HYSTERESIS_TEMP4            */     VSCP_EEPROM_END + 113,
-    /* REG2_KELVIN1W_HYSTERESIS_TEMP5            */     VSCP_EEPROM_END + 114,
-    /* REG2_KELVIN1W_HYSTERESIS_TEMP6            */     VSCP_EEPROM_END + 115, 
-    /* REG2_KELVIN1W_HYSTERESIS_TEMP7            */     VSCP_EEPROM_END + 116, 
+    /* REG2_KELVIN1W_HYSTERESIS_TEMP0            */     VSCP_EEPROM_VSCP_END + 109,
+    /* REG2_KELVIN1W_HYSTERESIS_TEMP1            */     VSCP_EEPROM_VSCP_END + 110,
+    /* REG2_KELVIN1W_HYSTERESIS_TEMP2            */     VSCP_EEPROM_VSCP_END + 111,
+    /* REG2_KELVIN1W_HYSTERESIS_TEMP3            */     VSCP_EEPROM_VSCP_END + 112,
+    /* REG2_KELVIN1W_HYSTERESIS_TEMP4            */     VSCP_EEPROM_VSCP_END + 113,
+    /* REG2_KELVIN1W_HYSTERESIS_TEMP5            */     VSCP_EEPROM_VSCP_END + 114,
+    /* REG2_KELVIN1W_HYSTERESIS_TEMP6            */     VSCP_EEPROM_VSCP_END + 115, 
+    /* REG2_KELVIN1W_HYSTERESIS_TEMP7            */     VSCP_EEPROM_VSCP_END + 116, 
                                                         
-    /* REG2_KELVIN1W_CALIBRATION_TEMP0_MSB       */     VSCP_EEPROM_END + 117,
-    /* REG2_KELVIN1W_CALIBRATION_TEMP0_LSB       */     VSCP_EEPROM_END + 118,
-    /* REG2_KELVIN1W_CALIBRATION_TEMP1_MSB       */     VSCP_EEPROM_END + 119,
-    /* REG2_KELVIN1W_CALIBRATION_TEMP1_LSB       */     VSCP_EEPROM_END + 120,
-    /* REG2_KELVIN1W_CALIBRATION_TEMP2_MSB       */     VSCP_EEPROM_END + 121,
-    /* REG2_KELVIN1W_CALIBRATION_TEMP2_LSB       */     VSCP_EEPROM_END + 122,
-    /* REG2_KELVIN1W_CALIBRATION_TEMP3_MSB       */     VSCP_EEPROM_END + 123,
-    /* REG2_KELVIN1W_CALIBRATION_TEMP3_LSB       */     VSCP_EEPROM_END + 124,
-    /* REG2_KELVIN1W_CALIBRATION_TEMP4_MSB       */     VSCP_EEPROM_END + 125,
-    /* REG2_KELVIN1W_CALIBRATION_TEMP4_LSB       */     VSCP_EEPROM_END + 126,
-    /* REG2_KELVIN1W_CALIBRATION_TEMP5_MSB       */     VSCP_EEPROM_END + 127,
-    /* REG2_KELVIN1W_CALIBRATION_TEMP5_LSB       */     VSCP_EEPROM_END + 128,
-    /* REG2_KELVIN1W_CALIBRATION_TEMP6_MSB       */     VSCP_EEPROM_END + 129,
-    /* REG2_KELVIN1W_CALIBRATION_TEMP6_LSB       */     VSCP_EEPROM_END + 130,
-    /* REG2_KELVIN1W_CALIBRATION_TEMP7_MSB       */     VSCP_EEPROM_END + 131,
-    /* REG2_KELVIN1W_CALIBRATION_TEMP7_LSB       */     VSCP_EEPROM_END + 132,
+    /* REG2_KELVIN1W_CALIBRATION_TEMP0_MSB       */     VSCP_EEPROM_VSCP_END + 117,
+    /* REG2_KELVIN1W_CALIBRATION_TEMP0_LSB       */     VSCP_EEPROM_VSCP_END + 118,
+    /* REG2_KELVIN1W_CALIBRATION_TEMP1_MSB       */     VSCP_EEPROM_VSCP_END + 119,
+    /* REG2_KELVIN1W_CALIBRATION_TEMP1_LSB       */     VSCP_EEPROM_VSCP_END + 120,
+    /* REG2_KELVIN1W_CALIBRATION_TEMP2_MSB       */     VSCP_EEPROM_VSCP_END + 121,
+    /* REG2_KELVIN1W_CALIBRATION_TEMP2_LSB       */     VSCP_EEPROM_VSCP_END + 122,
+    /* REG2_KELVIN1W_CALIBRATION_TEMP3_MSB       */     VSCP_EEPROM_VSCP_END + 123,
+    /* REG2_KELVIN1W_CALIBRATION_TEMP3_LSB       */     VSCP_EEPROM_VSCP_END + 124,
+    /* REG2_KELVIN1W_CALIBRATION_TEMP4_MSB       */     VSCP_EEPROM_VSCP_END + 125,
+    /* REG2_KELVIN1W_CALIBRATION_TEMP4_LSB       */     VSCP_EEPROM_VSCP_END + 126,
+    /* REG2_KELVIN1W_CALIBRATION_TEMP5_MSB       */     VSCP_EEPROM_VSCP_END + 127,
+    /* REG2_KELVIN1W_CALIBRATION_TEMP5_LSB       */     VSCP_EEPROM_VSCP_END + 128,
+    /* REG2_KELVIN1W_CALIBRATION_TEMP6_MSB       */     VSCP_EEPROM_VSCP_END + 129,
+    /* REG2_KELVIN1W_CALIBRATION_TEMP6_LSB       */     VSCP_EEPROM_VSCP_END + 130,
+    /* REG2_KELVIN1W_CALIBRATION_TEMP7_MSB       */     VSCP_EEPROM_VSCP_END + 131,
+    /* REG2_KELVIN1W_CALIBRATION_TEMP7_LSB       */     VSCP_EEPROM_VSCP_END + 132,
 };
-
-#define ROM_CODE_EEPROM_START    133
 
 // This table translates registers in page 3 to EEPROM locations
 
 const uint8_t reg2eeprom_pg3[] = {
-    /* REG3_KELVIN1W_ROM_CODE_TEMP0_BYTE0        */     VSCP_EEPROM_END + 133,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP0_BYTE1        */     VSCP_EEPROM_END + 134,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP0_BYTE2        */     VSCP_EEPROM_END + 135,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP0_BYTE3        */     VSCP_EEPROM_END + 136,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP0_BYTE4        */     VSCP_EEPROM_END + 137,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP0_BYTE5        */     VSCP_EEPROM_END + 138,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP0_BYTE6        */     VSCP_EEPROM_END + 139,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP0_BYTE7        */     VSCP_EEPROM_END + 140, 
-    /* REG3_KELVIN1W_ROM_CODE_TEMP1_BYTE0        */     VSCP_EEPROM_END + 141,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP1_BYTE1        */     VSCP_EEPROM_END + 142,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP1_BYTE2        */     VSCP_EEPROM_END + 143,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP1_BYTE3        */     VSCP_EEPROM_END + 144,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP1_BYTE4        */     VSCP_EEPROM_END + 145,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP1_BYTE5        */     VSCP_EEPROM_END + 146,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP1_BYTE6        */     VSCP_EEPROM_END + 147,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP1_BYTE7        */     VSCP_EEPROM_END + 148, 
-    /* REG3_KELVIN1W_ROM_CODE_TEMP2_BYTE0        */     VSCP_EEPROM_END + 149,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP2_BYTE1        */     VSCP_EEPROM_END + 150,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP2_BYTE2        */     VSCP_EEPROM_END + 151,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP2_BYTE3        */     VSCP_EEPROM_END + 152,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP2_BYTE4        */     VSCP_EEPROM_END + 153,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP2_BYTE5        */     VSCP_EEPROM_END + 154,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP2_BYTE6        */     VSCP_EEPROM_END + 155,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP2_BYTE7        */     VSCP_EEPROM_END + 156, 
-    /* REG3_KELVIN1W_ROM_CODE_TEMP3_BYTE0        */     VSCP_EEPROM_END + 157,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP3_BYTE1        */     VSCP_EEPROM_END + 158,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP3_BYTE2        */     VSCP_EEPROM_END + 159,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP3_BYTE3        */     VSCP_EEPROM_END + 160,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP3_BYTE4        */     VSCP_EEPROM_END + 161,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP3_BYTE5        */     VSCP_EEPROM_END + 162,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP3_BYTE6        */     VSCP_EEPROM_END + 163,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP3_BYTE7        */     VSCP_EEPROM_END + 164, 
-    /* REG3_KELVIN1W_ROM_CODE_TEMP4_BYTE0        */     VSCP_EEPROM_END + 165,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP4_BYTE1        */     VSCP_EEPROM_END + 166,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP4_BYTE2        */     VSCP_EEPROM_END + 167,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP4_BYTE3        */     VSCP_EEPROM_END + 168,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP4_BYTE4        */     VSCP_EEPROM_END + 169,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP4_BYTE5        */     VSCP_EEPROM_END + 170,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP4_BYTE6        */     VSCP_EEPROM_END + 171,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP4_BYTE7        */     VSCP_EEPROM_END + 172, 
-    /* REG3_KELVIN1W_ROM_CODE_TEMP5_BYTE0        */     VSCP_EEPROM_END + 173,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP5_BYTE1        */     VSCP_EEPROM_END + 174,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP5_BYTE2        */     VSCP_EEPROM_END + 175,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP5_BYTE3        */     VSCP_EEPROM_END + 176,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP5_BYTE4        */     VSCP_EEPROM_END + 177,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP5_BYTE5        */     VSCP_EEPROM_END + 178,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP5_BYTE6        */     VSCP_EEPROM_END + 179,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP5_BYTE7        */     VSCP_EEPROM_END + 180, 
-    /* REG3_KELVIN1W_ROM_CODE_TEMP6_BYTE0        */     VSCP_EEPROM_END + 181,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP6_BYTE1        */     VSCP_EEPROM_END + 182,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP6_BYTE2        */     VSCP_EEPROM_END + 183,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP6_BYTE3        */     VSCP_EEPROM_END + 184,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP6_BYTE4        */     VSCP_EEPROM_END + 185,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP6_BYTE5        */     VSCP_EEPROM_END + 186,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP6_BYTE6        */     VSCP_EEPROM_END + 187,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP6_BYTE7        */     VSCP_EEPROM_END + 188, 
-    /* REG3_KELVIN1W_ROM_CODE_TEMP7_BYTE0        */     VSCP_EEPROM_END + 189,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP7_BYTE1        */     VSCP_EEPROM_END + 190,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP7_BYTE2        */     VSCP_EEPROM_END + 191,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP7_BYTE3        */     VSCP_EEPROM_END + 192,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP7_BYTE4        */     VSCP_EEPROM_END + 193,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP7_BYTE5        */     VSCP_EEPROM_END + 194,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP7_BYTE6        */     VSCP_EEPROM_END + 195,
-    /* REG3_KELVIN1W_ROM_CODE_TEMP7_BYTE7        */     VSCP_EEPROM_END + 196                                                        
+    /* REG3_KELVIN1W_CHANNEL_CONTROL_REGISTER    */     VSCP_EEPROM_VSCP_END + 133, // Dummy
+    /* REG3_KELVIN1W_ROM_CODE_TEMP0_BYTE0        */     VSCP_EEPROM_VSCP_END + 134,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP0_BYTE1        */     VSCP_EEPROM_VSCP_END + 135,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP0_BYTE2        */     VSCP_EEPROM_VSCP_END + 136,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP0_BYTE3        */     VSCP_EEPROM_VSCP_END + 137,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP0_BYTE4        */     VSCP_EEPROM_VSCP_END + 138,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP0_BYTE5        */     VSCP_EEPROM_VSCP_END + 139,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP0_BYTE6        */     VSCP_EEPROM_VSCP_END + 140,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP0_BYTE7        */     VSCP_EEPROM_VSCP_END + 141, 
+    /* REG3_KELVIN1W_ROM_CODE_TEMP1_BYTE0        */     VSCP_EEPROM_VSCP_END + 142,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP1_BYTE1        */     VSCP_EEPROM_VSCP_END + 143,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP1_BYTE2        */     VSCP_EEPROM_VSCP_END + 144,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP1_BYTE3        */     VSCP_EEPROM_VSCP_END + 145,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP1_BYTE4        */     VSCP_EEPROM_VSCP_END + 146,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP1_BYTE5        */     VSCP_EEPROM_VSCP_END + 147,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP1_BYTE6        */     VSCP_EEPROM_VSCP_END + 148,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP1_BYTE7        */     VSCP_EEPROM_VSCP_END + 149, 
+    /* REG3_KELVIN1W_ROM_CODE_TEMP2_BYTE0        */     VSCP_EEPROM_VSCP_END + 150,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP2_BYTE1        */     VSCP_EEPROM_VSCP_END + 151,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP2_BYTE2        */     VSCP_EEPROM_VSCP_END + 152,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP2_BYTE3        */     VSCP_EEPROM_VSCP_END + 153,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP2_BYTE4        */     VSCP_EEPROM_VSCP_END + 154,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP2_BYTE5        */     VSCP_EEPROM_VSCP_END + 155,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP2_BYTE6        */     VSCP_EEPROM_VSCP_END + 156,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP2_BYTE7        */     VSCP_EEPROM_VSCP_END + 157, 
+    /* REG3_KELVIN1W_ROM_CODE_TEMP3_BYTE0        */     VSCP_EEPROM_VSCP_END + 158,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP3_BYTE1        */     VSCP_EEPROM_VSCP_END + 159,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP3_BYTE2        */     VSCP_EEPROM_VSCP_END + 160,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP3_BYTE3        */     VSCP_EEPROM_VSCP_END + 161,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP3_BYTE4        */     VSCP_EEPROM_VSCP_END + 162,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP3_BYTE5        */     VSCP_EEPROM_VSCP_END + 163,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP3_BYTE6        */     VSCP_EEPROM_VSCP_END + 164,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP3_BYTE7        */     VSCP_EEPROM_VSCP_END + 165, 
+    /* REG3_KELVIN1W_ROM_CODE_TEMP4_BYTE0        */     VSCP_EEPROM_VSCP_END + 166,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP4_BYTE1        */     VSCP_EEPROM_VSCP_END + 167,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP4_BYTE2        */     VSCP_EEPROM_VSCP_END + 168,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP4_BYTE3        */     VSCP_EEPROM_VSCP_END + 169,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP4_BYTE4        */     VSCP_EEPROM_VSCP_END + 170,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP4_BYTE5        */     VSCP_EEPROM_VSCP_END + 171,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP4_BYTE6        */     VSCP_EEPROM_VSCP_END + 172,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP4_BYTE7        */     VSCP_EEPROM_VSCP_END + 173, 
+    /* REG3_KELVIN1W_ROM_CODE_TEMP5_BYTE0        */     VSCP_EEPROM_VSCP_END + 174,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP5_BYTE1        */     VSCP_EEPROM_VSCP_END + 175,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP5_BYTE2        */     VSCP_EEPROM_VSCP_END + 176,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP5_BYTE3        */     VSCP_EEPROM_VSCP_END + 177,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP5_BYTE4        */     VSCP_EEPROM_VSCP_END + 178,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP5_BYTE5        */     VSCP_EEPROM_VSCP_END + 179,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP5_BYTE6        */     VSCP_EEPROM_VSCP_END + 180,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP5_BYTE7        */     VSCP_EEPROM_VSCP_END + 181, 
+    /* REG3_KELVIN1W_ROM_CODE_TEMP6_BYTE0        */     VSCP_EEPROM_VSCP_END + 182,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP6_BYTE1        */     VSCP_EEPROM_VSCP_END + 183,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP6_BYTE2        */     VSCP_EEPROM_VSCP_END + 184,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP6_BYTE3        */     VSCP_EEPROM_VSCP_END + 185,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP6_BYTE4        */     VSCP_EEPROM_VSCP_END + 186,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP6_BYTE5        */     VSCP_EEPROM_VSCP_END + 187,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP6_BYTE6        */     VSCP_EEPROM_VSCP_END + 188,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP6_BYTE7        */     VSCP_EEPROM_VSCP_END + 189, 
+    /* REG3_KELVIN1W_ROM_CODE_TEMP7_BYTE0        */     VSCP_EEPROM_VSCP_END + 190,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP7_BYTE1        */     VSCP_EEPROM_VSCP_END + 191,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP7_BYTE2        */     VSCP_EEPROM_VSCP_END + 192,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP7_BYTE3        */     VSCP_EEPROM_VSCP_END + 193,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP7_BYTE4        */     VSCP_EEPROM_VSCP_END + 194,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP7_BYTE5        */     VSCP_EEPROM_VSCP_END + 195,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP7_BYTE6        */     VSCP_EEPROM_VSCP_END + 196,
+    /* REG3_KELVIN1W_ROM_CODE_TEMP7_BYTE7        */     VSCP_EEPROM_VSCP_END + 197                                                        
 };
 
-#define DECISION_MATRIX_EEPROM_START    VSCP_EEPROM_END + 197
+#define DECISION_MATRIX_EEPROM_START                    VSCP_EEPROM_VSCP_END + 198
 
 ///////////////////////////////////////////////////////////////////////////////
 // Isr() 	- Interrupt Service Routine
@@ -709,8 +708,8 @@ void main()
             // Temperature report timers are only updated if in active
             // state
             if (VSCP_STATE_ACTIVE == vscp_node_state) {
-                for (i = 0; i < 6; i++) {
-                    seconds_temp[i]++;
+                for (i = 0; i < 8; i++) {
+                    seconds_temp[ i ]++;
                 }
             }
 
@@ -916,10 +915,10 @@ void init_app_eeprom(void)
     eeprom_write( reg2eeprom_pg0[ REG0_KELVIN1W_BCONSTANT0_MSB ], DEFAULT_B_CONSTANT_SENSOR0_MSB );
     eeprom_write( reg2eeprom_pg0[ REG0_KELVIN1W_BCONSTANT0_LSB ], DEFAULT_B_CONSTANT_SENSOR0_LSB );
     
-    // This is a dummy for now
+    // This is a dummy for the channel control register
     eeprom_write( reg2eeprom_pg3[ REG3_KELVIN1W_CHANNEL_CONTROL_REGISTER ] , 0 );
     
-    // ROM Code for eight sensors are set to no rom code
+    // ROM Code for eight sensors are set to no ROM code
     for ( i=0; i<64; i++ ) {
         eeprom_write( reg2eeprom_pg3[ REG3_KELVIN1W_ROM_CODE_TEMP0_MSB + i ] , 0 );
     }
@@ -927,9 +926,9 @@ void init_app_eeprom(void)
     // * * * Decision Matrix * * *
     
     // All elements disabled.
-    for ( i = 0; i < DESCION_MATRIX_ROWS; i++ ) {
+    for ( i = 0; i<DESCION_MATRIX_ROWS; i++ ) {
         for ( j = 0; j < 8; j++ ) {
-            eeprom_write( DECISION_MATRIX_EEPROM_START + i * 8 + j, 0 );
+            eeprom_write( DECISION_MATRIX_EEPROM_START + 8*i + j, 0 );
         }
     }
     
@@ -951,7 +950,8 @@ BOOL loadROMCodeFromEEPROM( uint8_t currentSensor )
     uint8_t sum=0;
     
     for ( i=0; i<8; i++ ) {
-        sum |= ( romAddrOneWire[ i ] = eeprom_read( reg2eeprom_pg3[ currentSensor*8 + i ] ) );
+        sum |= ( romAddrOneWire[ 7-i ] = 
+                eeprom_read( reg2eeprom_pg3[ REG3_KELVIN1W_ROM_CODE_TEMP0_BYTE0+ 8*currentSensor + i ] ) );
     }
     
     return sum;
@@ -966,7 +966,7 @@ void saveROMCodeToEEPROM( uint8_t channel, uint8_t idxSensor )
     uint8_t i;
     
     for ( i=0; i<8; i++ ) {
-        eeprom_write( reg2eeprom_pg3[ 8*( channel*2 + idxSensor ) + i ], romAddrOneWire[ i ] );
+        eeprom_write( reg2eeprom_pg3[ REG3_KELVIN1W_ROM_CODE_TEMP0_BYTE0 + 16*channel + 8*idxSensor + i ], romAddrOneWire[ 7-i ] );
     }
 }
 
@@ -1014,8 +1014,8 @@ void doOneSecondWork(void)
     if ( currentSensor > 7 ) currentSensor = 0;
     
     // Start next temp conversion if there is a valid ROM code
-    if ( loadROMCodeFromEEPROM( currentSensor/2 ) ) {
-        DS1820_StartTempConversion( TEMP_CHANNEL0 );
+    if ( loadROMCodeFromEEPROM( currentSensor ) ) {
+        DS1820_StartTempConversion( TEMP_CHANNEL0 + currentSensor/2 );
     }
     
     
@@ -1066,7 +1066,6 @@ void doOneSecondWork(void)
     arrayTemp[ 8 ] = ( arrayTemp[ 8 ] + temp + 
             ( reg2eeprom_pg2[ REG2_KELVIN1W_CALIBRATION_TEMP8_MSB ] << 8 +
               reg2eeprom_pg2[ REG2_KELVIN1W_CALIBRATION_TEMP8_LSB ] )/100 ) / 2;
-     
             
     //*********************************************************************
     // Check if this is the lowest temperature ever
@@ -1101,11 +1100,11 @@ void doOneSecondWork(void)
         //         Check if temperature report events should be sent
         //*********************************************************************
         tmp = eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_REPORT_INTERVAL_0 ] + i);
-        if ( tmp && ( seconds_temp[i] > tmp ) ) {
+        if ( tmp && ( seconds_temp[ i ] > tmp ) ) {
 
             // Send event
             if ( sendTempEvent( i ) ) {
-                seconds_temp[i] = 0;
+                seconds_temp[ i ] = 0;
             }
 
         }
@@ -1598,8 +1597,11 @@ uint8_t vscp_readAppReg(unsigned char reg)
     }
     else if (3 == vscp_page_select) {
         
-        if ( reg <= REG3_KELVIN1W_ROM_CODE_TEMP7_BYTE7 ) {
-            rv = eeprom_read( reg2eeprom_pg2[ ROM_CODE_EEPROM_START + reg ] );
+        if ( 0 == reg ) {
+            rv = 0;
+        }
+        else if ( reg <= REG3_KELVIN1W_ROM_CODE_TEMP7_BYTE7 ) {
+            rv = eeprom_read( reg2eeprom_pg3[ reg ] );
         }
         
         
@@ -1623,15 +1625,10 @@ uint8_t vscp_readAppReg(unsigned char reg)
 uint8_t vscp_writeAppReg(unsigned char reg, unsigned char val)
 {
     uint8_t rv;
-    //int tmpval;
-    //uint8_t checksum;
-    //uint8_t unit = (0x03 & eeprom_read(EEPROM_CONTROLREG0));
-    //uint16_t page = eeprom_read(EEPROM_CONTROLREG0) +
-    //                    eeprom_read(EEPROM_CONTROLREG0)* 256;
 
     rv = ~val; // error return
 
-    if (0 == vscp_page_select) {
+    if ( 0 == vscp_page_select ) {
 
         // Channel (sub)zones & control registers
         if ( reg <= REG0_KELVIN1W_BCONSTANT0_LSB ) {
@@ -1640,12 +1637,12 @@ uint8_t vscp_writeAppReg(unsigned char reg, unsigned char val)
         }
 
     }
-    else if (1 == vscp_page_select) {
+    else if ( 1 == vscp_page_select ) {
         
         // Can't write temperature registers
         
     }
-    else if (2 == vscp_page_select) {
+    else if ( 2 == vscp_page_select ) {
         
         if ( reg <= REG2_KELVIN1W_CALIBRATION_TEMP8_LSB ) {
             eeprom_write( reg2eeprom_pg2[ reg ], val );
@@ -1653,19 +1650,19 @@ uint8_t vscp_writeAppReg(unsigned char reg, unsigned char val)
         }
         
     }
-    else if (3 == vscp_page_select) {
+    else if ( 3 == vscp_page_select ) {
         
         if ( REG3_KELVIN1W_CHANNEL_CONTROL_REGISTER == reg ) {
             rv = writeChannelControl( val );
         }
         else if ( ( reg >= REG3_KELVIN1W_ROM_CODE_TEMP0_MSB ) && 
                     ( reg <= REG3_KELVIN1W_ROM_CODE_TEMP7_BYTE7 ) ) {
-            eeprom_write( reg2eeprom_pg2[ ROM_CODE_EEPROM_START + reg ], val );
-            rv = eeprom_read( reg2eeprom_pg2[ ROM_CODE_EEPROM_START + reg ] );
+            eeprom_write( reg2eeprom_pg3[ reg ], val );
+            rv = eeprom_read( reg2eeprom_pg3[ reg ] );
         }
         
     }
-    else if (250 == vscp_page_select) {
+    else if ( 250 == vscp_page_select ) {
         
         if ( reg < (REG_DESCION_MATRIX + 8 * DESCION_MATRIX_ROWS  ) ) {
             eeprom_write( DECISION_MATRIX_EEPROM_START + reg, val );
@@ -1740,8 +1737,8 @@ uint8_t writeChannelControl( uint8_t val )
         while( !bDoneFlagOneWire && DS1820_FindNextDevice( TEMP_CHANNEL0 ) ) {
             
             // Only handle sensors we recognise
-            if ( ( ROMCODE_18S20== romAddrOneWire[ 7 ] ) || 
-                 ( ROMCODE_18B20== romAddrOneWire[ 7 ] ) ) {
+            if ( ( ROMCODE_18S20 == romAddrOneWire[ OW_ROM_FAMILY_CODE ] ) || 
+                 ( ROMCODE_18B20 == romAddrOneWire[ OW_ROM_FAMILY_CODE ] ) ) {
                    
                 // Save only first two
                 if ( nFound <= 1 ) { 
@@ -1755,18 +1752,18 @@ uint8_t writeChannelControl( uint8_t val )
             // Report Token activity if instructed to do so
             if ( val & 0b00010000 ) {
                 reportTokenActivity();
-            }
+            }  
             
         }
     }
     // Should we search channel 1    
-    else if ( val & 0b00000010 ) {
+    if ( val & 0b00000010 ) {
         
         while( !bDoneFlagOneWire && DS1820_FindNextDevice( TEMP_CHANNEL1 ) ) {
             
             // Only handle sensors we recognise
-            if ( ( ROMCODE_18S20== romAddrOneWire[ 7 ] ) || 
-                 ( ROMCODE_18B20== romAddrOneWire[ 7 ] ) ) {
+            if ( ( ROMCODE_18S20 == romAddrOneWire[ OW_ROM_FAMILY_CODE ] ) || 
+                 ( ROMCODE_18B20 == romAddrOneWire[ OW_ROM_FAMILY_CODE ] ) ) {
                 
                 // Save only first two
                 if ( nFound <= 1 ) { 
@@ -1776,16 +1773,22 @@ uint8_t writeChannelControl( uint8_t val )
                 nFound++; // Another one found
                 
             }
+            
+            // Report Token activity if instructed to do so
+            if ( val & 0b00100000 ) {
+                reportTokenActivity();
+            }
+            
         }
     }
     // Should we search channel 2
-    else if ( val & 0b00000100 ) {
+    if ( val & 0b00000100 ) {
         
         while( !bDoneFlagOneWire && DS1820_FindNextDevice( TEMP_CHANNEL2 ) ) {
             
             // Only handle sensors we recognise
-            if ( ( ROMCODE_18S20== romAddrOneWire[ 7 ] ) || 
-                 ( ROMCODE_18B20== romAddrOneWire[ 7 ] ) ) {
+            if ( ( ROMCODE_18S20 == romAddrOneWire[ OW_ROM_FAMILY_CODE ] ) || 
+                 ( ROMCODE_18B20 == romAddrOneWire[ OW_ROM_FAMILY_CODE ] ) ) {
                 
                 // Save only first two
                 if ( nFound <= 1 ) { 
@@ -1795,16 +1798,22 @@ uint8_t writeChannelControl( uint8_t val )
                 nFound++; // Another one found
                 
             }
+            
+            // Report Token activity if instructed to do so
+            if ( val & 0b01000000 ) {
+                reportTokenActivity();
+            }
+            
         }
     }
     // Should we search channel 3
-    else if ( val & 0b00001000 ) {
+    if ( val & 0b00001000 ) {
         
         while( !bDoneFlagOneWire && DS1820_FindNextDevice( TEMP_CHANNEL3 ) ) {
             
             // Only handle sensors we recognise
-            if ( ( ROMCODE_18S20== romAddrOneWire[ 7 ] ) || 
-                 ( ROMCODE_18B20== romAddrOneWire[ 7 ] ) ) {
+            if ( ( ROMCODE_18S20 == romAddrOneWire[ OW_ROM_FAMILY_CODE ] ) || 
+                 ( ROMCODE_18B20 == romAddrOneWire[ OW_ROM_FAMILY_CODE ] ) ) {
                 
                 // Save only first two
                 if ( nFound <= 1 ) { 
@@ -1814,10 +1823,17 @@ uint8_t writeChannelControl( uint8_t val )
                 nFound++; // Another one found
                 
             }
+            
+            // Report Token activity if instructed to do so
+            if ( val & 0b10000000 ) {
+                reportTokenActivity();
+            }
+            
         }
     }
     
     return val;
+    
 }
 
 
@@ -2406,10 +2422,10 @@ void calculateSetFilterMask( void )
     uint32_t filter = 0x00000000;
 
     // Go through all DM rows
-    for ( i=0; i < DESCION_MATRIX_ROWS; i++ ) {
+    for ( i=0; i<DESCION_MATRIX_ROWS; i++ ) {
 
         // No need to check not active DM rows
-        if ( eeprom_read( VSCP_EEPROM_END + 8*i + VSCP_DM_POS_FLAGS ) & VSCP_DM_FLAG_ENABLED ) {
+        if ( eeprom_read( VSCP_EEPROM_VSCP_END + 8*i + VSCP_DM_POS_FLAGS ) & VSCP_DM_FLAG_ENABLED ) {
 
             // build the mask
             // ==============
@@ -2420,13 +2436,13 @@ void calculateSetFilterMask( void )
 
             rowmask =
                     // Bit 9 of class mask
-                    ( (uint32_t)( eeprom_read( VSCP_EEPROM_END + 8*i + VSCP_DM_POS_FLAGS ) & VSCP_DM_FLAG_CLASS_MASK ) << 23 ) |
+                    ( (uint32_t)( eeprom_read( VSCP_EEPROM_VSCP_END + 8*i + VSCP_DM_POS_FLAGS ) & VSCP_DM_FLAG_CLASS_MASK ) << 23 ) |
                     // Rest of class mask
-                    ( (uint32_t)eeprom_read( VSCP_EEPROM_END + 8*i + VSCP_DM_POS_CLASSMASK ) << 16 ) |
+                    ( (uint32_t)eeprom_read( VSCP_EEPROM_VSCP_END + 8*i + VSCP_DM_POS_CLASSMASK ) << 16 ) |
                     // Type mask
-                    ( (uint32_t)eeprom_read( VSCP_EEPROM_END + 8*i + VSCP_DM_POS_TYPEMASK ) << 8 ) |
+                    ( (uint32_t)eeprom_read( VSCP_EEPROM_VSCP_END + 8*i + VSCP_DM_POS_TYPEMASK ) << 8 ) |
                     // Hardcoded bit
-                    //( ( eeprom_read( VSCP_EEPROM_END + 8*i + VSCP_DM_POS_FLAGS ) & VSCP_DM_FLAG_HARDCODED ) << 20 ) |   
+                    //( ( eeprom_read( VSCP_EEPROM_VSCP_END + 8*i + VSCP_DM_POS_FLAGS ) & VSCP_DM_FLAG_HARDCODED ) << 20 ) |   
 					// OID  - handle later
 					0xff;
                     
@@ -2436,14 +2452,14 @@ void calculateSetFilterMask( void )
 
             rowfilter =
                     // Bit 9 of class filter
-                    ( (uint32_t)( eeprom_read( VSCP_EEPROM_END + 8*i + VSCP_DM_POS_FLAGS ) & VSCP_DM_FLAG_CLASS_FILTER ) << 24 ) |
+                    ( (uint32_t)( eeprom_read( VSCP_EEPROM_VSCP_END + 8*i + VSCP_DM_POS_FLAGS ) & VSCP_DM_FLAG_CLASS_FILTER ) << 24 ) |
                     // Rest of class filter
-                    ( (uint32_t)eeprom_read( VSCP_EEPROM_END + 8*i + VSCP_DM_POS_CLASSFILTER ) << 16 ) |
+                    ( (uint32_t)eeprom_read( VSCP_EEPROM_VSCP_END + 8*i + VSCP_DM_POS_CLASSFILTER ) << 16 ) |
                     // Type filter
-                    ( (uint32_t)eeprom_read( VSCP_EEPROM_END + 8*i + VSCP_DM_POS_TYPEFILTER ) << 8 ) |
+                    ( (uint32_t)eeprom_read( VSCP_EEPROM_VSCP_END + 8*i + VSCP_DM_POS_TYPEFILTER ) << 8 ) |
                     // OID Mask cleared if not same OID for all or one or more
                     // rows don't have OID check flag set.
-                    eeprom_read( VSCP_EEPROM_END + 8*i );
+                    eeprom_read( VSCP_EEPROM_VSCP_END + 8*i );
 
             if ( 0 == i ) filter = rowfilter;   // Hack for first iteration loop
 
@@ -2468,7 +2484,7 @@ void calculateSetFilterMask( void )
             filter &= rowfilter;
 
             // Not check OID?
-            if ( !eeprom_read( VSCP_EEPROM_END + 8*i + VSCP_DM_POS_FLAGS ) & VSCP_DM_FLAG_CHECK_OADDR ) {
+            if ( !eeprom_read( VSCP_EEPROM_VSCP_END + 8*i + VSCP_DM_POS_FLAGS ) & VSCP_DM_FLAG_CHECK_OADDR ) {
                 // No should not be checked for this position
                 // This mean that we can't filter on a specific OID
                 // so mask must be a don't care
@@ -2480,17 +2496,17 @@ void calculateSetFilterMask( void )
                 // we accept all
                 for (j = 0; j < 8; j++) {
                     if ((lastOID >> i & 1)
-                            != (eeprom_read(VSCP_EEPROM_END + 8*i ) >> i & 1)) {
+                            != (eeprom_read(VSCP_EEPROM_VSCP_END + 8*i ) >> i & 1)) {
                         mask &= (1 << i);
                     }
                 }
 
-                lastOID = eeprom_read(VSCP_EEPROM_END + 8*i );
+                lastOID = eeprom_read(VSCP_EEPROM_VSCP_END + 8*i );
 
             } 
             else {
                 // First round we just store the OID
-                lastOID = eeprom_read(VSCP_EEPROM_END + 8*i );
+                lastOID = eeprom_read(VSCP_EEPROM_VSCP_END + 8*i );
             }
 
         }

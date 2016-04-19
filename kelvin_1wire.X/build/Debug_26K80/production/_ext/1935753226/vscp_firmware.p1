@@ -2736,33 +2736,33 @@ Version 3.2 HI-TECH Software Intermediate Code
 "1310
 [v _rv `uc ~T0 @X0 1 a ]
 [; ;vscp_firmware.c: 1310: int8_t rv;
-[; ;vscp_firmware.c: 1316: if (vscp_imsg.flags & 0x80) return !0;
-"1316
+[; ;vscp_firmware.c: 1315: if (vscp_imsg.flags & 0x80) return !0;
+"1315
 [e $ ! != & -> . _vscp_imsg 0 `i -> 128 `i -> 0 `i 220  ]
 [e ) -> -> ! != -> 0 `i -> 0 `i `i `uc ]
 [e $UE 219  ]
 [e :U 220 ]
-[; ;vscp_firmware.c: 1319: if ((rv = getVSCPFrame( &vscp_imsg.vscp_class,
-[; ;vscp_firmware.c: 1320: &vscp_imsg.vscp_type,
-[; ;vscp_firmware.c: 1321: &vscp_imsg.oaddr,
-[; ;vscp_firmware.c: 1322: &vscp_imsg.priority,
-[; ;vscp_firmware.c: 1323: &vscp_imsg.flags,
-[; ;vscp_firmware.c: 1324: vscp_imsg.data ) ) ) {
-"1324
+[; ;vscp_firmware.c: 1317: if ( ( rv = getVSCPFrame( &vscp_imsg.vscp_class,
+[; ;vscp_firmware.c: 1318: &vscp_imsg.vscp_type,
+[; ;vscp_firmware.c: 1319: &vscp_imsg.oaddr,
+[; ;vscp_firmware.c: 1320: &vscp_imsg.priority,
+[; ;vscp_firmware.c: 1321: &vscp_imsg.flags,
+[; ;vscp_firmware.c: 1322: vscp_imsg.data ) ) ) {
+"1322
 [e $ ! != -> = _rv ( _getVSCPFrame (4 , , , , , &U . _vscp_imsg 2 &U . _vscp_imsg 3 &U . _vscp_imsg 4 &U . _vscp_imsg 1 &U . _vscp_imsg 0 &U . _vscp_imsg 5 `i -> -> -> 0 `i `uc `i 221  ]
 {
-[; ;vscp_firmware.c: 1326: vscp_imsg.flags |= 0x80;
-"1326
+[; ;vscp_firmware.c: 1324: vscp_imsg.flags |= 0x80;
+"1324
 [e =| . _vscp_imsg 0 -> -> 128 `i `uc ]
-"1327
+"1325
 }
 [e :U 221 ]
-[; ;vscp_firmware.c: 1327: }
-[; ;vscp_firmware.c: 1329: return rv;
-"1329
+[; ;vscp_firmware.c: 1325: }
+[; ;vscp_firmware.c: 1327: return rv;
+"1327
 [e ) _rv ]
 [e $UE 219  ]
-[; ;vscp_firmware.c: 1331: }
-"1331
+[; ;vscp_firmware.c: 1328: }
+"1328
 [e :UE 219 ]
 }

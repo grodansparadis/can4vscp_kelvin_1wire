@@ -6,7 +6,7 @@
     <name>Kelvin 1-wire temperature module</name>
     <model>1W</model>
     <version>A</version>
-    <changed>2016-04-18</changed>
+    <changed>2016-04-19</changed>
     <description lang="en">
         This module can report temperature from up to eight temperature sensors plus show tempertature for one sensor
         that is located localy on board.
@@ -2836,9 +2836,21 @@
         
         <!-- Channel control register -->
         
-        <reg page="3" offset="0" default="0" fgcolor="0x000000" bgcolor="0xfff3d4" >
+        <reg page="3" offset="0" default="0" fgcolor="0x000000" bgcolor="0xff4d4d" >
             <name lang="en">ChannelControlRegister</name>
-            <description lang="en">Channel control register</description>
+            <description lang="en">
+            Channel control register.\n
+            Set channel to search in lower nibble\n
+            - Bit 0 set for search of sensors on channel 0.\n
+            - Bit 1 set for search of sensors on channel 1.\n
+            - Bit 2 set for search of sensors on channel 2.\n
+            - Bit 3 set for search of sensors on channel 3.\n\n
+            Set channel to send token activity in high nibble\n
+            - Bit 4 set for token activity event sent for found sensor on channel 0.\n
+            - Bit 5 set for token activity event sent for found sensor on channel 1.\n
+            - Bit 6 set for token activity event sent for found sensor on channel 2.\n
+            - Bit 7 set for token activity event sent for found sensor on channel 3.
+            </description>
             <access>rw</access>
             <bit pos="0" width="1" default="0" >
                 <name lang="en">RomCodeFindChannel0</name>
@@ -2949,8 +2961,8 @@
         </reg>
         
         
-        
         <!-- ROM codes sensor 1 -->
+        
         
         <reg page="3" offset="9" default="0" fgcolor="0x000000" bgcolor="0xfff3d4" >
             <name lang="en">ROMCodeSensor1_Byte0</name>
@@ -3003,6 +3015,7 @@
         
         <!-- ROM codes sensor 2 -->
         
+        
         <reg page="3" offset="17" default="0" fgcolor="0x000000" bgcolor="0xfff3d4" >
             <name lang="en">ROMCodeSensor2_Byte0</name>
             <description lang="en">CRC of ROM Code for sensor 2 MSB </description>
@@ -3054,6 +3067,7 @@
         
         <!-- ROM codes sensor 3 -->
         
+        
         <reg page="3" offset="25" default="0" fgcolor="0x000000" bgcolor="0xfff3d4" >
             <name lang="en">ROMCodeSensor3_Byte0</name>
             <description lang="en">CRC of ROM Code for sensor 3 MSB </description>
@@ -3104,6 +3118,7 @@
         
         
         <!-- ROM codes sensor 4 -->
+        
         
         <reg page="3" offset="33" default="0" fgcolor="0x000000" bgcolor="0xfff3d4" >
             <name lang="en">ROMCodeSensor0_Byte0</name>
@@ -3257,6 +3272,7 @@
         
         
         <!-- ROM codes sensor 0 -->
+        
         
         <reg page="3" offset="57" default="0" fgcolor="0x000000" bgcolor="0xfff3d4" >
             <name lang="en">ROMCodeSensor7_Byte0</name>
@@ -3506,7 +3522,7 @@
                 High alarm set point for sensor 0.
             </description>
             <access>rw</access>
-        </abstraction>	
+        </abstraction>
 
         <abstraction id="highalarm1" type="int16_t"  default="0"
                             page = "2" offset = "18" bgcolor="0xCCFFCC">
@@ -3524,7 +3540,7 @@
                 High alarm set point for sensor 2.
             </description>
             <access>rw</access>
-        </abstraction>		
+        </abstraction>
         
         <abstraction id="highalarm3" type="int16_t"  default="0"
                             page = "2" offset = "22" bgcolor="0xCCFFCC">
@@ -3676,7 +3692,7 @@
                 The value can be rested by writing any value to it.
             </description>
             <access>rw</access>
-        </abstraction>			
+        </abstraction>
 
         <abstraction id="abshigh1" type="int16_t" default="0" 
                             page = "2" offset = "50" bgcolor="0xFFCCCC">
@@ -3765,7 +3781,7 @@
                             page = "2" offset = "72" bgcolor="0xCCE5FF">
             <name lang="en">Calibration value for sensors 0</name>
             <description lang="en">
-                Calibration value for sensor 0. This value signed value is added to 
+                Calibration value for sensor 0. This signed value is added to 
                 the value read form the sensor before it is presented. The value entered 
                 should be a temperature * 100.
             </description>
@@ -3776,7 +3792,7 @@
                             page = "2" offset = "74" bgcolor="0xCCE5FF">
             <name lang="en">Calibration value for sensors 1</name>
             <description lang="en">
-                Calibration value for sensor 1. This value signed value is added to 
+                Calibration value for sensor 1. This signed value is added to 
                 the value read form the sensor before it is presented. The value entered 
                 should be a temperature * 100.
             </description>
@@ -3787,7 +3803,7 @@
                             page = "2" offset = "76" bgcolor="0xCCE5FF">
             <name lang="en">Calibration value for sensors 2</name>
             <description lang="en">
-                Calibration value for sensor 2. This value signed value is added to 
+                Calibration value for sensor 2. This signed value is added to 
                 the value read form the sensor before it is presented. The value entered 
                 should be a temperature * 100.
             </description>
@@ -3798,7 +3814,7 @@
                             page = "2" offset = "78" bgcolor="0xCCE5FF">
             <name lang="en">Calibration value for sensors 3</name>
             <description lang="en">
-                Calibration value for sensor 3. This value signed value is added to 
+                Calibration value for sensor 3. This signed value is added to 
                 the value read form the sensor before it is presented. The value entered 
                 should be a temperature * 100.
             </description>
@@ -3809,7 +3825,7 @@
                             page = "2" offset = "80" bgcolor="0xCCE5FF">
             <name lang="en">Calibration value for sensors 4</name>
             <description lang="en">
-                Calibration value for sensor 4. This value signed value is added to 
+                Calibration value for sensor 4. This signed value is added to 
                 the value read form the sensor before it is presented. The value entered 
                 should be a temperature * 100.
             </description>
@@ -3820,7 +3836,7 @@
                             page = "2" offset = "82" bgcolor="0xCCE5FF">
             <name lang="en">Calibration value for sensors 5</name>
             <description lang="en">
-                Calibration value for sensor 5. This value signed value is added to 
+                Calibration value for sensor 5. This signed value is added to 
                 the value read form the sensor before it is presented. The value entered 
                 should be a temperature * 100.
             </description>
@@ -3831,7 +3847,7 @@
                             page = "2" offset = "84" bgcolor="0xCCE5FF">
             <name lang="en">Calibration value for sensors 6</name>
             <description lang="en">
-                Calibration value for sensor 6. This value signed value is added to 
+                Calibration value for sensor 6. This signed value is added to 
                 the value read form the sensor before it is presented. The value entered 
                 should be a temperature * 100.
             </description>
@@ -3842,7 +3858,7 @@
                             page = "2" offset = "86" bgcolor="0xCCE5FF">
             <name lang="en">Calibration value for sensors 7</name>
             <description lang="en">
-                Calibration value for sensor 7. This value signed value is added to 
+                Calibration value for sensor 7. This vsigned value is added to 
                 the value read form the sensor before it is presented. The value entered 
                 should be a temperature * 100.
             </description>
@@ -3851,9 +3867,9 @@
        
         <abstraction id="calibration8" type="int16_t"  default="0"
                             page = "2" offset = "88" bgcolor="0xCCE5FF">
-            <name lang="en">Calibration value for sensors 7</name>
+            <name lang="en">Calibration value for sensors 8</name>
             <description lang="en">
-                Calibration value for sensor 8 (internal sensor). This value signed value is added to 
+                Calibration value for sensor 8 (internal sensor). This signed value is added to 
                 the value read form the sensor before it is presented. The value entered 
                 should be a temperature * 100.
             </description>
@@ -3932,14 +3948,14 @@
     
         <!-- Normalised integer -->
         <event class="0x00A" type="0x06" direction="out" >
-            <name lang="en">Temperature measurement Event (Normalised integer)</name> 					
+            <name lang="en">Temperature measurement Event (Normalised integer)</name> 
             <description lang="en">
                 A periodic temperature measurement is sent out using this event. 
                 Can also be sent out after a CONTROL.SYNC event has been received
                 by the module.
             </description> 	
             <priority>4</priority>
-            <data offset="0" >						
+            <data offset="0" >
                 <name lang="en">Format</name>
                 <description lang="en">
                     This is one of the formats for measurement reports. Two other formats are available. 
@@ -3947,9 +3963,9 @@
                     measurement is in unit Kelvin (0b00)/Celsius(0b01)/Fahrenheit unit(0b10).
                     That the measurement value is a normalized integer (in bit 5,6,7 = 0b100)
                     and from which sensor it is from (in bits 0,1,2).
-                </description>      	
+                </description>      
             </data>
-            <data offset="1" >						
+            <data offset="1" >
                 <name lang="en">Decimal point shift</name>
                 <description lang="en">
                     Always 3. Divide by 1000.
@@ -3968,26 +3984,26 @@
                 <name lang="en">Temperature</name>
                 <description lang="en">
                     This is the middle byte of the temperature.
-                </description>      	
+                </description>      
             </data>
             <data offset="4" >
                 <name lang="en">Temperature LSB</name>
                 <description lang="en">
                     This is the least significant byte of the temperature.
-                </description>      	
+                </description>      
             </data>
         </event>
         
         <!-- Float -->
         <event class="0x00A" type="0x06" direction="out" >
-            <name lang="en">Temperature measurement Event (float) </name> 					
+            <name lang="en">Temperature measurement Event (float) </name> 
             <description lang="en">
                 A periodic temperature measurement is sent out using this event. 
                 Can also be sent out after a CONTROL.SYNC event has been received
                 by the module.
             </description> 	
             <priority>4</priority>
-            <data offset="0" >						
+            <data offset="0" >
                 <name lang="en">Format</name>
                 <description lang="en">
                     This is one of the formats for measurement reports. Two other formats are available. 
@@ -3995,44 +4011,44 @@
                     measurement is in unit Kelvin (0b00)/Celsius(0b01)/Fahrenheit unit(0b10).
                     That the measurement value is a 24-bit floating point number (in bit 5,6,7 = 0b101)
                     and from which sensor it is from (in bits 0,1,2).
-                </description>      	
+                </description>     
             </data>
-            <data offset="1" >						
+            <data offset="1" >
                 <name lang="en">Temperature MSB</name>
                 <description lang="en">
                     First byte of the 24-bit floating point temperature value stored big-endian. 
-                </description>      	
+                </description>      
             </data>
-            <data offset="2" >						
+            <data offset="2" >
                 <name lang="en">Temperature MSB</name>
                 <description lang="en">
                     Second byte of the 24-bit floating point temperature value stored big-endian. 
-                </description>      	
+                </description>      
             </data>
-            <data offset="3" >						
+            <data offset="3" >
                 <name lang="en">Temperature MSB</name>
                 <description lang="en">
                     Third byte of the 24-bit floating point temperature value stored big-endian. 
-                </description>      	
+                </description>      
             </data>
-            <data offset="4" >						
+            <data offset="4" >
                 <name lang="en">Temperature MSB</name>
                 <description lang="en">
                     Last byte of the 24-bit floating point temperature value stored big-endian. 
-                </description>      	
+                </description>      
             </data>
         </event>
         
         <!-- String -->
         <event class="0x00A" type="0x06" direction="out" >
-            <name lang="en">Temperature measurement Event (string)</name> 					
+            <name lang="en">Temperature measurement Event (string)</name> 
             <description lang="en">
                 A periodic temperature measurement is sent out using this event. 
                 Can also be sent out after a CONTROL.SYNC event has been received
                 by the module.
             </description> 	
             <priority>4</priority>
-            <data offset="0" >						
+            <data offset="0" >
                 <name lang="en">Format</name>
                 <description lang="en">
                     This is one of the formats for measurement reports. Two other formats are available. 
@@ -4046,19 +4062,19 @@
                 <name lang="en">Temperature byte 1</name>
                 <description lang="en">
                     Byte 1 of temperature string. The sting can be 1-7 bytes
-                </description>      	
+                </description>      
             </data>
             <data offset="2" optional="true" >
                 <name lang="en">Temperature byte 2</name>
                 <description lang="en">
                     Byte 2 of temperature string. The sting can be 1-7 bytes
-                </description>      	
+                </description>      
             </data>
             <data offset="3" optional="true" >
                 <name lang="en">Temperature byte 3</name>
                 <description lang="en">
                     Byte 3 of temperature string. The sting can be 1-7 bytes
-                </description>      	
+                </description>      
             </data>
             <data offset="4" optional="true" >
                 <name lang="en">Temperature byte 4</name>
@@ -4070,7 +4086,7 @@
                 <name lang="en">Temperature byte 5</name>
                 <description lang="en">
                     Byte 5 of temperature string. The sting can be 1-7 bytes
-                </description>      	
+                </description>    
             </data>
             <data offset="6" optional="true" >
                 <name lang="en">Temperature byte 6</name>
@@ -4082,18 +4098,18 @@
                 <name lang="en">Temperature byte 7</name>
                 <description lang="en">
                     Byte 7 of temperature string. The sting can be 1-7 bytes
-                </description>      	
+                </description> 
             </data>
         </event>
         
         <event class="0x001" type="0x02" direction="out" >
-            <name lang="en">Alarm Event</name> 					
+            <name lang="en">Alarm Event</name> 
             <description lang="en">
                 One of the temperature sensors have gone below the low alarm point
                 or above the high alarm point.
             </description> 	
             <priority>4</priority>
-            <data offset="0" >						
+            <data offset="0" >
                 <name lang="en">Index</name>
                 <description lang="en">
                     Index = 0 for sensor 0, 1 for sensor 1 ans so on.

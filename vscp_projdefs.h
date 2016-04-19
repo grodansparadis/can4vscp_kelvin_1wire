@@ -37,7 +37,5 @@
 
 #define ENABLE_WRITE_2PROTECTED_LOCATIONS // Enable write to protected locations
 
-// EEPROM bigger then 256 bytes
-//#define EEADRH
 
 #endif

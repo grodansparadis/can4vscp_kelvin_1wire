@@ -542,7 +542,6 @@ int16_t DS1820_GetTempRaw( uint8_t pin, BOOL bStartAndWait )
     
     }
     
-    
     // --- read scratch pad ---------------------------------------------------- 
     DS1820_Reset( pin );
     DS1820_AddrDevice( pin, DS1820_CMD_MATCHROM );      // address the device 

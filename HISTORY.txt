@@ -1,6 +1,8 @@
-Kelvin NTC
-==========
+Kelvin 1-wire
+============
 
+2016-04-19 AKHE - RA4 set to input to prevent collision with VCAP circuits in
+                  PIC18F2580. Brown out raised to maximum (3V & 4.6V). Valuable                    input from Anders Forsgren, AJE Electronics AB.
 2016-03-04 AKHE - Changed value of C14 to 10uF
 2015-11-26 AKHE - Fixed problem with low/high limits with negative values. Also
                     limits now are in degrees as is hysteresis as well.

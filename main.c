@@ -26,7 +26,7 @@
 #include "vscp_compiler.h"
 #include "vscp_projdefs.h"
 
-#define _XTAL_FREQ 40000000 // Fro delay functions
+#define _XTAL_FREQ 40000000 // For delay functions
 
 #include <xc.h>
 #include <timers.h>
@@ -103,7 +103,7 @@
 // CONFIG2H
 #pragma config WDTPS = 1048576  // Watchdog prescaler
 #pragma config BOREN = SBORDIS  // Brown out enabled
-#pragma config BORV  = 1        // 2.7V
+#pragma config BORV  = 0        // 3.0V
 
 // CONFIG3H
 #pragma config CANMX = PORTB    // ECAN TX and RX pins are located on RB2 and RB3, respectively.
@@ -146,8 +146,7 @@ uint8_t seconds_temp[6];                // timers for temp event
 uint8_t low_alarm;
 uint8_t high_alarm;
 
-uint8_t adc_low;
-uint8_t adc_high;
+uint32_t adc_value;             // ADC result for sensor 8 (on-board))
 
 //uint8_t romAddrOneWire[ DS1820_ADDR_LEN ];
 
@@ -267,22 +266,22 @@ const uint8_t reg2eeprom_pg2[] = {
     /* REG2_KELVIN1W_ABSOLUTE_LOW_TEMP7_MSB    */       VSCP_EEPROM_END + 91,
     /* REG2_KELVIN1W_ABSOLUTE_LOW_TEMP7_LSB    */       VSCP_EEPROM_END + 92,                                                        
                                                         
-    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP0_MSB    */      VSCP_EEPROM_END + 93,
-    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP0_LSB    */      VSCP_EEPROM_END + 94,
-    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP1_MSB    */      VSCP_EEPROM_END + 95,
-    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP1_LSB    */      VSCP_EEPROM_END + 96,
-    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP2_MSB    */      VSCP_EEPROM_END + 97,
-    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP2_LSB    */      VSCP_EEPROM_END + 98,
-    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP3_MSB    */      VSCP_EEPROM_END + 99,
-    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP3_LSB    */      VSCP_EEPROM_END + 100,
-    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP4_MSB    */      VSCP_EEPROM_END + 101,
-    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP4_LSB    */      VSCP_EEPROM_END + 102,
-    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP5_MSB    */      VSCP_EEPROM_END + 103,
-    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP5_LSB    */      VSCP_EEPROM_END + 104,
-    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP6_MSB    */      VSCP_EEPROM_END + 105,
-    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP6_LSB    */      VSCP_EEPROM_END + 106,
-    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP7_MSB    */      VSCP_EEPROM_END + 107,
-    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP7_LSB    */      VSCP_EEPROM_END + 108,
+    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP0_MSB     */     VSCP_EEPROM_END + 93,
+    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP0_LSB     */     VSCP_EEPROM_END + 94,
+    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP1_MSB     */     VSCP_EEPROM_END + 95,
+    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP1_LSB     */     VSCP_EEPROM_END + 96,
+    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP2_MSB     */     VSCP_EEPROM_END + 97,
+    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP2_LSB     */     VSCP_EEPROM_END + 98,
+    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP3_MSB     */     VSCP_EEPROM_END + 99,
+    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP3_LSB     */     VSCP_EEPROM_END + 100,
+    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP4_MSB     */     VSCP_EEPROM_END + 101,
+    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP4_LSB     */     VSCP_EEPROM_END + 102,
+    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP5_MSB     */     VSCP_EEPROM_END + 103,
+    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP5_LSB     */     VSCP_EEPROM_END + 104,
+    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP6_MSB     */     VSCP_EEPROM_END + 105,
+    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP6_LSB     */     VSCP_EEPROM_END + 106,
+    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP7_MSB     */     VSCP_EEPROM_END + 107,
+    /* REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP7_LSB     */     VSCP_EEPROM_END + 108,
 
     /* REG2_KELVIN1W_HYSTERESIS_TEMP0            */     VSCP_EEPROM_END + 109,
     /* REG2_KELVIN1W_HYSTERESIS_TEMP1            */     VSCP_EEPROM_END + 110,
@@ -382,7 +381,7 @@ const uint8_t reg2eeprom_pg3[] = {
     /* REG3_KELVIN1W_ROM_CODE_TEMP7_BYTE7        */     VSCP_EEPROM_END + 196                                                        
 };
 
-#define DECISION_MATRIX_EEPROM_START    197
+#define DECISION_MATRIX_EEPROM_START    VSCP_EEPROM_END + 197
 
 ///////////////////////////////////////////////////////////////////////////////
 // Isr() 	- Interrupt Service Routine
@@ -450,13 +449,17 @@ void interrupt low_priority interrupt_at_low_vector( void )
             case SELECT_ADC_TEMP0:
                 
                 // Read conversion
-                adc_low = ADRESH;
-                adc_high = ADRESL;
-                // Start new conversion
+                adc_value = ADRES;                
+                break;
+                
+            default:
                 ADCON0 = SELECT_ADC_TEMP0 + 1;
                 break;
 
         }
+        
+        // Start new conversion
+        ADCON0 = SELECT_ADC_TEMP0 + 1;
 
         // Start another conversion
         ConvertADC();
@@ -612,18 +615,15 @@ void main()
 {
     uint32_t i;
     
+    // Initialise module hardware
     init();
+    
+    // Initialise the VSCP functionality
+    vscp_init(); 
     
     // Check VSCP persistent storage and
     // restore if needed
-    if ( !vscp_check_pstorage() ) {
-
-        // Spoiled or not initialised - reinitialise
-        init_app_eeprom();
-
-    }
-
-    vscp_init(); // Initialise the VSCP functionality
+    vscp_check_pstorage();    
 
     while (TRUE) { // Loop Forever
 
@@ -639,11 +639,9 @@ void main()
 
         }
 
-
         // Check for a valid  event
         vscp_imsg.flags = 0;
         vscp_getEvent();
-
 
         switch (vscp_node_state) {
 
@@ -665,7 +663,7 @@ void main()
                 vscp_handleProbeState();
                 break;
 
-            case VSCP_STATE_PREACTIVE: // Waiting for host initialization
+            case VSCP_STATE_PREACTIVE: // Waiting for host initialisation
                 vscp_goActiveState();
                 break;
 
@@ -703,7 +701,9 @@ void main()
         if ( measurement_clock > 1000 ) {
 
             measurement_clock = 0;
-            doOneSecondWork();
+            if (VSCP_STATE_ACTIVE == vscp_node_state) {
+                doOneSecondWork();
+            }
             seconds++;
 
             // Temperature report timers are only updated if in active
@@ -723,10 +723,12 @@ void main()
             if (VSCP_STATE_ACTIVE == vscp_node_state) {
                 vscp_doOneSecondWork();
             }
-
-            // Also do some work
+      
+        } // One second
+        
+        // Do some work
+        if ( VSCP_STATE_ACTIVE == vscp_node_state ) {           
             doWork();
-
         }
 
     } // while
@@ -790,11 +792,6 @@ void init()
     CVRCON = 0; 
     
     ANCON0bits.ANSEL0=1;
-    ANCON0bits.ANSEL1=1;
-    ANCON0bits.ANSEL2=1;
-    ANCON1bits.ANSEL8=1;
-    ANCON1bits.ANSEL9=1;
-    ANCON1bits.ANSEL10=1;
 
     // OpenADC_Page16
     OpenADC( ADC_FOSC_32 & ADC_RIGHT_JUST & ADC_20_TAD,
@@ -874,7 +871,7 @@ void init_app_eeprom(void)
 
     // Module zone/sub zone
     eeprom_write( reg2eeprom_pg0[ REG0_KELVIN1W_ZONE ], 0 );
-    eeprom_write( reg2eeprom_pg0[ REG0_KELVIN1W_ZONE ], 0 );
+    eeprom_write( reg2eeprom_pg0[ REG0_KELVIN1W_SUBZONE ], 0 );
     
     // Channel zone/sub zone
     eeprom_write( reg2eeprom_pg0[ REG0_KELVIN1W_TEMP0_ZONE ], 1 );
@@ -898,30 +895,33 @@ void init_app_eeprom(void)
         eeprom_write( reg2eeprom_pg0[ REG0_KELVIN1W_CTRL_REG0_LOW + 2*i ], DEFAULT_CONTROL_REG_LOW );
         eeprom_write( reg2eeprom_pg0[ REG0_KELVIN1W_CTRL_REG0_HIGH + 2*i ], DEFAULT_CONTROL_REG_HIGH );
         
-        eeprom_write( reg2eeprom_pg0[ REG0_KELVIN1W_REPORT_INTERVAL_0 + i ], DEFAULT_CONTROL_REG_HIGH );
+        eeprom_write( reg2eeprom_pg0[ REG0_KELVIN1W_REPORT_INTERVAL_0 + i ], 0 );
         
-        eeprom_write( reg2eeprom_pg0[ REG2_KELVIN1W_LOW_ALARM_SET_POINT0_MSB + 2*i ], DEFAULT_LOW_ALARM_MSB );
-        eeprom_write( reg2eeprom_pg0[ REG2_KELVIN1W_LOW_ALARM_SET_POINT0_LSB + 2*i ], DEFAULT_LOW_ALARM_LSB );
-        eeprom_write( reg2eeprom_pg0[ REG2_KELVIN1W_HIGH_ALARM_SET_POINT0_MSB + 2*i ], DEFAULT_HIGH_ALARM_MSB );
-        eeprom_write( reg2eeprom_pg0[ REG2_KELVIN1W_HIGH_ALARM_SET_POINT0_LSB + 2*i ], DEFAULT_HIGH_ALARM_LSB );
+        eeprom_write( reg2eeprom_pg2[ REG2_KELVIN1W_LOW_ALARM_SET_POINT0_MSB + 2*i ], DEFAULT_LOW_ALARM_MSB );
+        eeprom_write( reg2eeprom_pg2[ REG2_KELVIN1W_LOW_ALARM_SET_POINT0_LSB + 2*i ], DEFAULT_LOW_ALARM_LSB );
+        eeprom_write( reg2eeprom_pg2[ REG2_KELVIN1W_HIGH_ALARM_SET_POINT0_MSB + 2*i ], DEFAULT_HIGH_ALARM_MSB );
+        eeprom_write( reg2eeprom_pg2[ REG2_KELVIN1W_HIGH_ALARM_SET_POINT0_LSB + 2*i ], DEFAULT_HIGH_ALARM_LSB );
         
-        eeprom_write( reg2eeprom_pg0[ REG2_KELVIN1W_ABSOLUTE_LOW_TEMP0_MSB + 2*i ], DEFAULT_ABSOLUTE_LOW_MSB);
-        eeprom_write( reg2eeprom_pg0[ REG2_KELVIN1W_ABSOLUTE_LOW_TEMP0_LSB + 2*i ], DEFAULT_ABSOLUTE_LOW_LSB );
-        eeprom_write( reg2eeprom_pg0[ REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP0_MSB + 2*i ], DEFAULT_ABSOLUTE_HIGH_MSB );
-        eeprom_write( reg2eeprom_pg0[ REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP0_LSB + 2*i ], DEFAULT_ABSOLUTE_HIGH_LSB );
+        eeprom_write( reg2eeprom_pg2[ REG2_KELVIN1W_ABSOLUTE_LOW_TEMP0_MSB + 2*i ], DEFAULT_ABSOLUTE_LOW_MSB);
+        eeprom_write( reg2eeprom_pg2[ REG2_KELVIN1W_ABSOLUTE_LOW_TEMP0_LSB + 2*i ], DEFAULT_ABSOLUTE_LOW_LSB );
+        eeprom_write( reg2eeprom_pg2[ REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP0_MSB + 2*i ], DEFAULT_ABSOLUTE_HIGH_MSB );
+        eeprom_write( reg2eeprom_pg2[ REG2_KELVIN1W_ABSOLUTE_HIGH_TEMP0_LSB + 2*i ], DEFAULT_ABSOLUTE_HIGH_LSB );
         
-        eeprom_write( reg2eeprom_pg0[ REG2_KELVIN1W_HYSTERESIS_TEMP0 + i ], DEFAULT_HYSTERESIS );
+        eeprom_write( reg2eeprom_pg2[ REG2_KELVIN1W_HYSTERESIS_TEMP0 + i ], DEFAULT_HYSTERESIS );
         
-        eeprom_write( reg2eeprom_pg0[ REG2_KELVIN1W_CALIBRATION_TEMP0_MSB + 2*i ], 0 );
-        eeprom_write( reg2eeprom_pg0[ REG2_KELVIN1W_CALIBRATION_TEMP0_LSB + 2*i ], 0 );
+        eeprom_write( reg2eeprom_pg2[ REG2_KELVIN1W_CALIBRATION_TEMP0_MSB + 2*i ], 0 );
+        eeprom_write( reg2eeprom_pg2[ REG2_KELVIN1W_CALIBRATION_TEMP0_LSB + 2*i ], 0 );
     }
     
     eeprom_write( reg2eeprom_pg0[ REG0_KELVIN1W_BCONSTANT0_MSB ], DEFAULT_B_CONSTANT_SENSOR0_MSB );
     eeprom_write( reg2eeprom_pg0[ REG0_KELVIN1W_BCONSTANT0_LSB ], DEFAULT_B_CONSTANT_SENSOR0_LSB );
     
-    // ROM Code
+    // This is a dummy for now
+    eeprom_write( reg2eeprom_pg3[ REG3_KELVIN1W_CHANNEL_CONTROL_REGISTER ] , 0 );
+    
+    // ROM Code for eight sensors are set to no rom code
     for ( i=0; i<64; i++ ) {
-        eeprom_write( ROM_CODE_EEPROM_START, 0 );
+        eeprom_write( reg2eeprom_pg3[ REG3_KELVIN1W_ROM_CODE_TEMP0_MSB + i ] , 0 );
     }
     
     // * * * Decision Matrix * * *
@@ -978,6 +978,7 @@ void saveROMCodeToEEPROM( uint8_t channel, uint8_t idxSensor )
 
 void doWork(void)
 {
+/*
     double temp;
     char buf[80];
 
@@ -986,6 +987,7 @@ void doWork(void)
     uint16_t raw = DS1820_GetTempRaw( TEMP_CHANNEL3, TRUE );
     DS1820_GetTempString( raw, buf );
     adc_low = 1;
+*/ 
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -1034,22 +1036,19 @@ void doOneSecondWork(void)
     // T = B / ln(r/Rinf)
     // Rinf = R0 e (-B/T0), R0=10K, T0 = 273.15 + 25 = 298.15
 
-    B = construct_unsigned16( eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_BCONSTANT0_MSB + 2*i ] ),
-                                eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_BCONSTANT0_LSB + 2*i ] ) );
+    B = construct_unsigned16( eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_BCONSTANT0_MSB ] ),
+                                eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_BCONSTANT0_LSB ] ) );
                
-    Rinf = 10000.0 * exp(B/-298.15);
+    Rinf = 10000.0 * exp( B/-298.15 );
                 
 #if defined(_18F2580)   
-    v = calVoltage * (double)(adc_high<<8 + adc_low)/1024;
+    v = 5.0 * (double)adc_value/1024;
 #else  
-    v = 5.0 * (double)(adc_high<<8 + adc_low)/4096;
+    v = 5.0 * (double)adc_value/4096;
 #endif                
-    // R1 = (R2V - R2V2) / V2  R2= 10K, V = 5V,  V2 = adc * voltage/1024
-    resistance = ( 10000.0*(5.0 - v) ) / v;
-                
-    //itemp = r;
-    temp = ((double) B) / log(resistance / Rinf);
-    //itemp = log(r/Rinf);
+    // R1 = (R2V - R2V2) / V2  R2= 10K, V = 5V,  V2 = adc * voltage/4096
+    resistance = ( 10000.0 * ( 5.0 - v ) ) / v;
+    temp = (double)B / log( resistance/Rinf );
     temp -= 273.15; // Convert Kelvin to Celsius
                 
     //avarage = testadc;
@@ -1064,27 +1063,24 @@ void doOneSecondWork(void)
     temp = 1.0 / temp;              // Invert
     temp -= 273.15;
     */
-    arrayTemp[ 8 ] = ( arrayTemp[ 8 ] + 
-            temp + 
+    arrayTemp[ 8 ] = ( arrayTemp[ 8 ] + temp + 
             ( reg2eeprom_pg2[ REG2_KELVIN1W_CALIBRATION_TEMP8_MSB ] << 8 +
               reg2eeprom_pg2[ REG2_KELVIN1W_CALIBRATION_TEMP8_LSB ] )/100 ) / 2;
-    
-    
-    
+     
             
     //*********************************************************************
     // Check if this is the lowest temperature ever
     //*********************************************************************
     for ( i=0; i<8; i++ ) {
-        
+   
         if ( 100*arrayTemp[ i ] < 
                 construct_signed16( eeprom_read( reg2eeprom_pg2[ REG2_KELVIN1W_ABSOLUTE_LOW_TEMP0_MSB ] + 2*i ), 
-                                    eeprom_read( reg2eeprom_pg2[ REG2_KELVIN1W_ABSOLUTE_LOW_TEMP0_LSB ] + 2*i) ) ) {
+                                    eeprom_read( reg2eeprom_pg2[ REG2_KELVIN1W_ABSOLUTE_LOW_TEMP0_LSB ] + 2*i ) ) ) {
             // Store new lowest value
             eeprom_write( reg2eeprom_pg2[ REG2_KELVIN1W_ABSOLUTE_LOW_TEMP0_MSB ] + 2*i, 
-                                            ( (uint16_t)( 100 * arrayTemp[ i ] ) ) >> 8);
+                                            ( (uint16_t)( 100 * arrayTemp[ i ] ) ) >> 8 );
             eeprom_write( reg2eeprom_pg2[ REG2_KELVIN1W_ABSOLUTE_LOW_TEMP0_LSB ] + 2*i, 
-                                            ( (uint16_t)( 100 * arrayTemp[ i ] ) ) & 0xff);
+                                            ( (uint16_t)( 100 * arrayTemp[ i ] ) ) & 0xff );
         }
 
         //*********************************************************************
@@ -1118,23 +1114,23 @@ void doOneSecondWork(void)
         //                      Check for continuous alarm 
         //*********************************************************************
         if ( MASK_CONTROL0_CONTINUOUS & 
-                eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_CTRL_REG0_LOW ] + i ) ) {
+                eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_CTRL_REG0_LOW ] + 2*i ) ) {
 
             // If low alarm active for sensor
             if (low_alarm & (1 << i)) {
 
                 // Alarm must be enabled
-                if ( eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_CTRL_REG0_LOW ] + i ) & 
+                if ( eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_CTRL_REG0_LOW ] + 2*i ) & 
                         MASK_CONTROL0_LOW_ALARM ) {
 
                     vscp_omsg.priority = VSCP_PRIORITY_HIGH;
                     vscp_omsg.flags = VSCP_VALID_MSG + 3;
 
                     // Should ALARM or TURNON/TURNOFF events be sent
-                    if ( eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_CTRL_REG0_LOW ] + i) & 
+                    if ( eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_CTRL_REG0_LOW ] + 2*i) & 
                             MASK_CONTROL0_TURNX ) {
 
-                        if ( eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_CTRL_REG0_LOW ] + i ) & 
+                        if ( eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_CTRL_REG0_LOW ] + 2*i ) & 
                                 MASK_CONTROL0_TURNX_INVERT ) {
                             vscp_omsg.vscp_class = VSCP_CLASS1_CONTROL;
                             vscp_omsg.vscp_type = VSCP_TYPE_CONTROL_TURNON;
@@ -1153,9 +1149,9 @@ void doOneSecondWork(void)
 
                     vscp_omsg.data[ 0 ] = i; // Index = sensor
                     vscp_omsg.data[ 1 ] =
-                            eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_TEMP0_ZONE ] + 2*i);      // Zone
+                            eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_TEMP0_ZONE ] + 2*i );      // Zone
                     vscp_omsg.data[ 2 ] =
-                            eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_TEMP0_SUBZONE ] + 2*i);   // Subzone
+                            eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_TEMP0_SUBZONE ] + 2*i );   // Sub zone
 
                     // Send event
                     // We allow for missing to send this event
@@ -1163,22 +1159,23 @@ void doOneSecondWork(void)
                     vscp_sendEvent();
 
                 }
+                
             }
 
             // If  high alarm active for sensor
-            if (high_alarm & (1 << i)) {
+            if ( high_alarm & (1 << i) ) {
 
                 // Should ALARM or TURNON/TURNOFF events be sent
-                if ( ( eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_CTRL_REG0_LOW ] + i) & 
+                if ( ( eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_CTRL_REG0_LOW ] + 2*i) & 
                                     MASK_CONTROL0_HIGH_ALARM ) ) {
 
                     vscp_omsg.priority = VSCP_PRIORITY_HIGH;
                     vscp_omsg.flags = VSCP_VALID_MSG + 3;
 
-                    if ( eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_CTRL_REG0_LOW ] + i) & 
+                    if ( eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_CTRL_REG0_LOW ] + 2*i) & 
                                         MASK_CONTROL0_TURNX ) {
                         
-                        if ( eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_CTRL_REG0_LOW ] + i) & 
+                        if ( eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_CTRL_REG0_LOW ] + 2*i) & 
                                         MASK_CONTROL0_TURNX_INVERT ) {
                             vscp_omsg.vscp_class = VSCP_CLASS1_CONTROL;
                             vscp_omsg.vscp_type = VSCP_TYPE_CONTROL_TURNOFF;
@@ -1196,15 +1193,17 @@ void doOneSecondWork(void)
 
                     vscp_omsg.data[ 0 ] = i;  // Index = sensor
                     vscp_omsg.data[ 1 ] = 
-                            eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_TEMP0_ZONE ] + 2*i);      // Zone
+                            eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_TEMP0_ZONE ] + 2*i );      // Zone
                     vscp_omsg.data[ 2 ] = 
-                            eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_TEMP0_SUBZONE ] + 2*i);   // Sub zone
+                            eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_TEMP0_SUBZONE ] + 2*i );   // Sub zone
 
                     // Send event
                     // We allow for missing to send this event
                     // as it will be sent next second instead.
                     vscp_sendEvent();
+                    
                 }
+                
             }
         }       
         
@@ -1276,9 +1275,9 @@ void doOneSecondWork(void)
 
                     vscp_omsg.data[ 0 ] = i; // Index
                     vscp_omsg.data[ 1 ] = 
-                            eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_TEMP0_ZONE ] + 2 * i ) ;    // Zone
+                            eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_TEMP0_ZONE ] + 2*i ) ;    // Zone
                     vscp_omsg.data[ 2 ] = 
-                            eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_TEMP0_SUBZONE ] + 2 * i ); // Sub zone
+                            eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_TEMP0_SUBZONE ] + 2*i ); // Sub zone
 
                     // Send event
                     if (!vscp_sendEvent()) {
@@ -1550,7 +1549,7 @@ void handle_sync(void)
 {
     uint8_t i;
 
-    for (i = 0; i < 8; i++) {
+    for (i=0; i<8; i++) {
 
         if ( ( ( 0xff == vscp_imsg.data[ 1 ] ) ||
                 ( eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_TEMP0_ZONE ] + 2*i ) == vscp_imsg.data[ 1 ] ) ) &&
@@ -1574,35 +1573,32 @@ uint8_t vscp_readAppReg(unsigned char reg)
 {
     uint8_t rv;
 
-    if (0 == vscp_page_select) {
+    if ( 0 == vscp_page_select ) {
 
-        if ( ( reg >= REG1_KELVIN1W_TEMPERATURE0_MSB ) && 
-                ( reg <= REG0_KELVIN1W_BCONSTANT0_LSB ) ) {
+        if ( reg <= REG0_KELVIN1W_BCONSTANT0_LSB ) {
             rv = eeprom_read( reg2eeprom_pg0[ reg ] );
         }
 
     }
     else if (1 == vscp_page_select) {
         
-        uint8_t *p = (uint8_t *)arrayTemp;
-        if ( ( reg >= REG1_KELVIN1W_TEMPERATURE0_BYTE0 ) && 
-                ( reg <= REG1_KELVIN1W_TEMPERATURE8_BYTE3 ) ) {
-            rv = *( p + reg + (3-reg%4) );
+        if ( reg <= REG1_KELVIN1W_TEMPERATURE8_BYTE3 ) {
+            uint8_t *p = (uint8_t *)&arrayTemp[reg/4];
+            rv = *( p + (3-reg%4) );
+            //rv = *( p + reg%4 );
         }
         
     }
     else if (2 == vscp_page_select) {
         
-        if ( ( reg >= REG2_KELVIN1W_LOW_ALARM_SET_POINT0_MSB ) && 
-                ( reg <= REG2_KELVIN1W_CALIBRATION_TEMP8_LSB ) ) {
+        if ( reg <= REG2_KELVIN1W_CALIBRATION_TEMP8_LSB ) {
             rv = eeprom_read( reg2eeprom_pg2[ reg ] );
         }
         
     }
     else if (3 == vscp_page_select) {
         
-        if ( ( reg >= REG3_KELVIN1W_ROM_CODE_TEMP0_BYTE0 ) && 
-                ( reg <= REG3_KELVIN1W_ROM_CODE_TEMP7_BYTE7 ) ) {
+        if ( reg <= REG3_KELVIN1W_ROM_CODE_TEMP7_BYTE7 ) {
             rv = eeprom_read( reg2eeprom_pg2[ ROM_CODE_EEPROM_START + reg ] );
         }
         
@@ -1638,8 +1634,7 @@ uint8_t vscp_writeAppReg(unsigned char reg, unsigned char val)
     if (0 == vscp_page_select) {
 
         // Channel (sub)zones & control registers
-        if ( ( reg >= REG0_KELVIN1W_ZONE ) && 
-                    ( reg <= REG0_KELVIN1W_BCONSTANT0_LSB ) ) {
+        if ( reg <= REG0_KELVIN1W_BCONSTANT0_LSB ) {
             eeprom_write(reg2eeprom_pg0[ reg ], val);
             rv = eeprom_read(reg2eeprom_pg0[ reg ]);
         }
@@ -1652,8 +1647,7 @@ uint8_t vscp_writeAppReg(unsigned char reg, unsigned char val)
     }
     else if (2 == vscp_page_select) {
         
-        if ( ( reg >= REG2_KELVIN1W_LOW_ALARM_SET_POINT0_MSB ) && 
-                ( reg <= REG2_KELVIN1W_CALIBRATION_TEMP8_LSB ) ) {
+        if ( reg <= REG2_KELVIN1W_CALIBRATION_TEMP8_LSB ) {
             eeprom_write( reg2eeprom_pg2[ reg ], val );
             rv = eeprom_read( reg2eeprom_pg2[ reg ] );
         }
@@ -1734,7 +1728,6 @@ void reportTokenActivity( void )
 
 uint8_t writeChannelControl( uint8_t val )
 {
-    BOOL rv;
     uint8_t nFound = 0; // Number of found nodes on channel
     
     // Initialise one-wire search
@@ -2376,7 +2369,7 @@ int8_t getCANFrame(uint32_t *pid, uint8_t *pdlc, uint8_t *pdata)
 {
     ECAN_RX_MSG_FLAGS flags;
 
-    // Dont read in new message if there already is a message
+    // Don't read in new message if there already is a message
     // in the input buffer
     if (vscp_imsg.flags & VSCP_VALID_MSG) return FALSE;
 

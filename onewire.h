@@ -87,6 +87,7 @@
 //                                 Page 1
 ////////////////////////////////////////////////////////////////////////////////
 
+
 #define REG1_KELVIN1W_TEMPERATURE0_MSB                  0
 #define REG1_KELVIN1W_TEMPERATURE0_BYTE0                0
 #define REG1_KELVIN1W_TEMPERATURE0_BYTE1                1
@@ -149,6 +150,7 @@
 #define REG1_KELVIN1W_TEMPERATURE8_BYTE2                34
 #define REG1_KELVIN1W_TEMPERATURE8_BYTE3                35
 #define REG1_KELVIN1W_TEMPERATURE8_LSB                  35
+
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -256,6 +258,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 //                                 Page 3
 ////////////////////////////////////////////////////////////////////////////////
+
 
 #define REG3_KELVIN1W_CHANNEL_CONTROL_REGISTER          0
 
@@ -368,15 +371,15 @@
 #define KELVIN1W_ACTION_CLEAR_LOW       6
 
 // The four temperature channels
-#define TEMP_CHANNEL0               0   // RC7
-#define TEMP_CHANNEL1               1   // RC6
-#define TEMP_CHANNEL2               2   // RC4
-#define TEMP_CHANNEL3               3   // RC3
+#define TEMP_CHANNEL0                   0   // RC7
+#define TEMP_CHANNEL1                   1   // RC6
+#define TEMP_CHANNEL2                   2   // RC4
+#define TEMP_CHANNEL3                   3   // RC3
 
 // Temperature report format (high control low 2 bits))
-#define REPORT_TEMP_AS_NORMINT      0
-#define REPORT_TEMP_AS_FLOAT        1
-#define REPORT_TEMP_AS_STRING       2
+#define REPORT_TEMP_AS_NORMINT          0
+#define REPORT_TEMP_AS_FLOAT            1
+#define REPORT_TEMP_AS_STRING           2
 
 //
 // Defaults

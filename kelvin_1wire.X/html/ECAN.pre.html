@@ -1,6 +1,6 @@
 <HTML>
 <HEAD>
-<TITLE>Listing of build/Debug_26K80/production/_ext/1472/ECAN.pre</TITLE>
+<TITLE>Listing of build/Debug_26K80/debug/_ext/1472/ECAN.pre</TITLE>
 <LINK rel=stylesheet href="udf_styles.css" type="text/css">
 </HEAD>
 <BODY>
@@ -21754,652 +21754,660 @@
 <tr><td><code><i> 21747</i> </code></td><td><code>&nbsp #&nbsp 18&nbsp "/opt/microchip/xc8/v1.21/include/pic18.h"</code></td></tr>
 <tr><td><code><i> 21748</i> </code></td><td><code>&nbsp __attribute__((__unsupported__("The&nbsp flash_write&nbsp routine&nbsp is&nbsp no&nbsp longer&nbsp supported.&nbsp Please&nbsp use&nbsp the&nbsp peripheral&nbsp library&nbsp functions:&nbsp WriteBytesFlash,&nbsp WriteBlockFlash&nbsp or&nbsp WriteWordFlash")))&nbsp void&nbsp flash_write(const&nbsp unsigned&nbsp char&nbsp *,&nbsp unsigned&nbsp int,&nbsp __far&nbsp unsigned&nbsp char&nbsp *);</code></td></tr>
 <tr><td><code><i> 21749</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21750</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21751</i> </code></td><td><code>&nbsp #&nbsp 143</code></td></tr>
-<tr><td><code><i> 21752</i> </code></td><td><code>&nbsp #pragma&nbsp intrinsic(_delay)</code></td></tr>
-<tr><td><code><i> 21753</i> </code></td><td><code>&nbsp extern&nbsp void&nbsp _delay(unsigned&nbsp long);</code></td></tr>
-<tr><td><code><i> 21754</i> </code></td><td><code>&nbsp #pragma&nbsp intrinsic(_delaywdt)</code></td></tr>
-<tr><td><code><i> 21755</i> </code></td><td><code>&nbsp extern&nbsp void&nbsp _delaywdt(unsigned&nbsp long);</code></td></tr>
-<tr><td><code><i> 21756</i> </code></td><td><code>&nbsp #pragma&nbsp intrinsic(_delay3)</code></td></tr>
-<tr><td><code><i> 21757</i> </code></td><td><code>&nbsp extern&nbsp void&nbsp _delay3(unsigned&nbsp char);</code></td></tr>
+<tr><td><code><i> 21750</i> </code></td><td><code>&nbsp #&nbsp 226&nbsp "/opt/microchip/xc8/v1.21/include/trace18.h"</code></td></tr>
+<tr><td><code><i> 21751</i> </code></td><td><code>&nbsp extern&nbsp void&nbsp __it_trace_dc(char&nbsp id);</code></td></tr>
+<tr><td><code><i> 21752</i> </code></td><td><code>&nbsp extern&nbsp void&nbsp __it_log_dc(char&nbsp id,&nbsp char&nbsp type,&nbsp ...);</code></td></tr>
+<tr><td><code><i> 21753</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21754</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21755</i> </code></td><td><code>&nbsp extern&nbsp void&nbsp _IT_SAVE_ASM_INTPRI(void);</code></td></tr>
+<tr><td><code><i> 21756</i> </code></td><td><code>&nbsp extern&nbsp void&nbsp _IT_RESTORE_ASM_INTPRI(void);</code></td></tr>
+<tr><td><code><i> 21757</i> </code></td><td><code>&nbsp </code></td></tr>
 <tr><td><code><i> 21758</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21759</i> </code></td><td><code>&nbsp #&nbsp 78&nbsp "../ECAN.h"</code></td></tr>
-<tr><td><code><i> 21760</i> </code></td><td><code>&nbsp typedef&nbsp unsigned&nbsp char&nbsp BYTE;</code></td></tr>
-<tr><td><code><i> 21761</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21762</i> </code></td><td><code>&nbsp typedef&nbsp union&nbsp _BYTE_VAL</code></td></tr>
-<tr><td><code><i> 21763</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i> 21764</i> </code></td><td><code>&nbsp struct</code></td></tr>
-<tr><td><code><i> 21765</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i> 21766</i> </code></td><td><code>&nbsp unsigned&nbsp int&nbsp b0:1;</code></td></tr>
-<tr><td><code><i> 21767</i> </code></td><td><code>&nbsp unsigned&nbsp int&nbsp b1:1;</code></td></tr>
-<tr><td><code><i> 21768</i> </code></td><td><code>&nbsp unsigned&nbsp int&nbsp b2:1;</code></td></tr>
-<tr><td><code><i> 21769</i> </code></td><td><code>&nbsp unsigned&nbsp int&nbsp b3:1;</code></td></tr>
-<tr><td><code><i> 21770</i> </code></td><td><code>&nbsp unsigned&nbsp int&nbsp b4:1;</code></td></tr>
-<tr><td><code><i> 21771</i> </code></td><td><code>&nbsp unsigned&nbsp int&nbsp b5:1;</code></td></tr>
-<tr><td><code><i> 21772</i> </code></td><td><code>&nbsp unsigned&nbsp int&nbsp b6:1;</code></td></tr>
-<tr><td><code><i> 21773</i> </code></td><td><code>&nbsp unsigned&nbsp int&nbsp b7:1;</code></td></tr>
-<tr><td><code><i> 21774</i> </code></td><td><code>&nbsp }&nbsp bits;</code></td></tr>
-<tr><td><code><i> 21775</i> </code></td><td><code>&nbsp BYTE&nbsp Val;</code></td></tr>
-<tr><td><code><i> 21776</i> </code></td><td><code>&nbsp }&nbsp BYTE_VAL;</code></td></tr>
-<tr><td><code><i> 21777</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21778</i> </code></td><td><code>&nbsp #&nbsp 144</code></td></tr>
-<tr><td><code><i> 21779</i> </code></td><td><code>&nbsp void&nbsp ECANInitialize(void);</code></td></tr>
-<tr><td><code><i> 21780</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21781</i> </code></td><td><code>&nbsp #&nbsp 156</code></td></tr>
-<tr><td><code><i> 21782</i> </code></td><td><code>&nbsp typedef&nbsp enum&nbsp _ECAN_TX_MSG_FLAGS</code></td></tr>
-<tr><td><code><i> 21783</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i> 21784</i> </code></td><td><code>&nbsp ECAN_TX_PRIORITY_BITS&nbsp =&nbsp 0b00000011,</code></td></tr>
-<tr><td><code><i> 21785</i> </code></td><td><code>&nbsp ECAN_TX_PRIORITY_0&nbsp =&nbsp 0b00000000,</code></td></tr>
-<tr><td><code><i> 21786</i> </code></td><td><code>&nbsp ECAN_TX_PRIORITY_1&nbsp =&nbsp 0b00000001,</code></td></tr>
-<tr><td><code><i> 21787</i> </code></td><td><code>&nbsp ECAN_TX_PRIORITY_2&nbsp =&nbsp 0b00000010,</code></td></tr>
-<tr><td><code><i> 21788</i> </code></td><td><code>&nbsp ECAN_TX_PRIORITY_3&nbsp =&nbsp 0b00000011,</code></td></tr>
-<tr><td><code><i> 21789</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21790</i> </code></td><td><code>&nbsp ECAN_TX_FRAME_BIT&nbsp =&nbsp 0b00100000,</code></td></tr>
-<tr><td><code><i> 21791</i> </code></td><td><code>&nbsp ECAN_TX_STD_FRAME&nbsp =&nbsp 0b00000000,</code></td></tr>
-<tr><td><code><i> 21792</i> </code></td><td><code>&nbsp ECAN_TX_XTD_FRAME&nbsp =&nbsp 0b00100000,</code></td></tr>
-<tr><td><code><i> 21793</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21794</i> </code></td><td><code>&nbsp ECAN_TX_RTR_BIT&nbsp =&nbsp 0b01000000,</code></td></tr>
-<tr><td><code><i> 21795</i> </code></td><td><code>&nbsp ECAN_TX_NO_RTR_FRAME&nbsp =&nbsp 0b00000000,</code></td></tr>
-<tr><td><code><i> 21796</i> </code></td><td><code>&nbsp ECAN_TX_RTR_FRAME&nbsp =&nbsp 0b01000000</code></td></tr>
-<tr><td><code><i> 21797</i> </code></td><td><code>&nbsp }&nbsp ECAN_TX_MSG_FLAGS;</code></td></tr>
-<tr><td><code><i> 21798</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21799</i> </code></td><td><code>&nbsp #&nbsp 205</code></td></tr>
-<tr><td><code><i> 21800</i> </code></td><td><code>&nbsp BOOL&nbsp ECANSendMessage(&nbsp unsigned&nbsp long&nbsp id,</code></td></tr>
-<tr><td><code><i> 21801</i> </code></td><td><code>&nbsp BYTE&nbsp *data,</code></td></tr>
-<tr><td><code><i> 21802</i> </code></td><td><code>&nbsp BYTE&nbsp dataLen,</code></td></tr>
-<tr><td><code><i> 21803</i> </code></td><td><code>&nbsp ECAN_TX_MSG_FLAGS&nbsp msgFlags);</code></td></tr>
-<tr><td><code><i> 21804</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21805</i> </code></td><td><code>&nbsp #&nbsp 269</code></td></tr>
-<tr><td><code><i> 21806</i> </code></td><td><code>&nbsp typedef&nbsp enum&nbsp _ECAN_RX_MSG_FLAGS</code></td></tr>
-<tr><td><code><i> 21807</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i> 21808</i> </code></td><td><code>&nbsp ECAN_RX_OVERFLOW&nbsp =&nbsp 0b00001000,</code></td></tr>
-<tr><td><code><i> 21809</i> </code></td><td><code>&nbsp ECAN_RX_INVALID_MSG&nbsp =&nbsp 0b00010000,</code></td></tr>
-<tr><td><code><i> 21810</i> </code></td><td><code>&nbsp ECAN_RX_XTD_FRAME&nbsp =&nbsp 0b00100000,</code></td></tr>
-<tr><td><code><i> 21811</i> </code></td><td><code>&nbsp ECAN_RX_RTR_FRAME&nbsp =&nbsp 0b01000000,</code></td></tr>
-<tr><td><code><i> 21812</i> </code></td><td><code>&nbsp ECAN_RX_DBL_BUFFERED&nbsp =&nbsp 0b10000000</code></td></tr>
-<tr><td><code><i> 21813</i> </code></td><td><code>&nbsp }&nbsp ECAN_RX_MSG_FLAGS;</code></td></tr>
-<tr><td><code><i> 21814</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21815</i> </code></td><td><code>&nbsp #&nbsp 312</code></td></tr>
-<tr><td><code><i> 21816</i> </code></td><td><code>&nbsp BOOL&nbsp ECANReceiveMessage(&nbsp unsigned&nbsp long*&nbsp id,</code></td></tr>
-<tr><td><code><i> 21817</i> </code></td><td><code>&nbsp BYTE&nbsp *Data,</code></td></tr>
-<tr><td><code><i> 21818</i> </code></td><td><code>&nbsp BYTE&nbsp *DataLen,</code></td></tr>
-<tr><td><code><i> 21819</i> </code></td><td><code>&nbsp ECAN_RX_MSG_FLAGS&nbsp *MsgFlags);</code></td></tr>
-<tr><td><code><i> 21820</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21821</i> </code></td><td><code>&nbsp #&nbsp 340</code></td></tr>
-<tr><td><code><i> 21822</i> </code></td><td><code>&nbsp extern&nbsp BYTE_VAL&nbsp _ECANRxFilterHitInfo;</code></td></tr>
-<tr><td><code><i> 21823</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21824</i> </code></td><td><code>&nbsp #&nbsp 353</code></td></tr>
-<tr><td><code><i> 21825</i> </code></td><td><code>&nbsp typedef&nbsp enum&nbsp _ECAN_OP_MODE</code></td></tr>
-<tr><td><code><i> 21826</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i> 21827</i> </code></td><td><code>&nbsp ECAN_OP_MODE_BITS&nbsp =&nbsp 0xe0,</code></td></tr>
-<tr><td><code><i> 21828</i> </code></td><td><code>&nbsp ECAN_OP_MODE_NORMAL&nbsp =&nbsp 0x00,</code></td></tr>
-<tr><td><code><i> 21829</i> </code></td><td><code>&nbsp ECAN_OP_MODE_SLEEP&nbsp =&nbsp 0x20,</code></td></tr>
-<tr><td><code><i> 21830</i> </code></td><td><code>&nbsp ECAN_OP_MODE_LOOP&nbsp =&nbsp 0x40,</code></td></tr>
-<tr><td><code><i> 21831</i> </code></td><td><code>&nbsp ECAN_OP_MODE_LISTEN&nbsp =&nbsp 0x60,</code></td></tr>
-<tr><td><code><i> 21832</i> </code></td><td><code>&nbsp ECAN_OP_MODE_CONFIG&nbsp =&nbsp 0x80</code></td></tr>
-<tr><td><code><i> 21833</i> </code></td><td><code>&nbsp }&nbsp ECAN_OP_MODE;</code></td></tr>
-<tr><td><code><i> 21834</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21835</i> </code></td><td><code>&nbsp #&nbsp 384</code></td></tr>
-<tr><td><code><i> 21836</i> </code></td><td><code>&nbsp void&nbsp ECANSetOperationMode(ECAN_OP_MODE&nbsp mode);</code></td></tr>
-<tr><td><code><i> 21837</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21838</i> </code></td><td><code>&nbsp #&nbsp 1329</code></td></tr>
-<tr><td><code><i> 21839</i> </code></td><td><code>&nbsp void&nbsp _CANIDToRegs(BYTE*&nbsp ptr,</code></td></tr>
-<tr><td><code><i> 21840</i> </code></td><td><code>&nbsp unsigned&nbsp long&nbsp val,</code></td></tr>
-<tr><td><code><i> 21841</i> </code></td><td><code>&nbsp BYTE&nbsp type&nbsp );</code></td></tr>
+<tr><td><code><i> 21759</i> </code></td><td><code>&nbsp #&nbsp 143&nbsp "/opt/microchip/xc8/v1.21/include/pic18.h"</code></td></tr>
+<tr><td><code><i> 21760</i> </code></td><td><code>&nbsp #pragma&nbsp intrinsic(_delay)</code></td></tr>
+<tr><td><code><i> 21761</i> </code></td><td><code>&nbsp extern&nbsp void&nbsp _delay(unsigned&nbsp long);</code></td></tr>
+<tr><td><code><i> 21762</i> </code></td><td><code>&nbsp #pragma&nbsp intrinsic(_delaywdt)</code></td></tr>
+<tr><td><code><i> 21763</i> </code></td><td><code>&nbsp extern&nbsp void&nbsp _delaywdt(unsigned&nbsp long);</code></td></tr>
+<tr><td><code><i> 21764</i> </code></td><td><code>&nbsp #pragma&nbsp intrinsic(_delay3)</code></td></tr>
+<tr><td><code><i> 21765</i> </code></td><td><code>&nbsp extern&nbsp void&nbsp _delay3(unsigned&nbsp char);</code></td></tr>
+<tr><td><code><i> 21766</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21767</i> </code></td><td><code>&nbsp #&nbsp 78&nbsp "../ECAN.h"</code></td></tr>
+<tr><td><code><i> 21768</i> </code></td><td><code>&nbsp typedef&nbsp unsigned&nbsp char&nbsp BYTE;</code></td></tr>
+<tr><td><code><i> 21769</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21770</i> </code></td><td><code>&nbsp typedef&nbsp union&nbsp _BYTE_VAL</code></td></tr>
+<tr><td><code><i> 21771</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i> 21772</i> </code></td><td><code>&nbsp struct</code></td></tr>
+<tr><td><code><i> 21773</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i> 21774</i> </code></td><td><code>&nbsp unsigned&nbsp int&nbsp b0:1;</code></td></tr>
+<tr><td><code><i> 21775</i> </code></td><td><code>&nbsp unsigned&nbsp int&nbsp b1:1;</code></td></tr>
+<tr><td><code><i> 21776</i> </code></td><td><code>&nbsp unsigned&nbsp int&nbsp b2:1;</code></td></tr>
+<tr><td><code><i> 21777</i> </code></td><td><code>&nbsp unsigned&nbsp int&nbsp b3:1;</code></td></tr>
+<tr><td><code><i> 21778</i> </code></td><td><code>&nbsp unsigned&nbsp int&nbsp b4:1;</code></td></tr>
+<tr><td><code><i> 21779</i> </code></td><td><code>&nbsp unsigned&nbsp int&nbsp b5:1;</code></td></tr>
+<tr><td><code><i> 21780</i> </code></td><td><code>&nbsp unsigned&nbsp int&nbsp b6:1;</code></td></tr>
+<tr><td><code><i> 21781</i> </code></td><td><code>&nbsp unsigned&nbsp int&nbsp b7:1;</code></td></tr>
+<tr><td><code><i> 21782</i> </code></td><td><code>&nbsp }&nbsp bits;</code></td></tr>
+<tr><td><code><i> 21783</i> </code></td><td><code>&nbsp BYTE&nbsp Val;</code></td></tr>
+<tr><td><code><i> 21784</i> </code></td><td><code>&nbsp }&nbsp BYTE_VAL;</code></td></tr>
+<tr><td><code><i> 21785</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21786</i> </code></td><td><code>&nbsp #&nbsp 144</code></td></tr>
+<tr><td><code><i> 21787</i> </code></td><td><code>&nbsp void&nbsp ECANInitialize(void);</code></td></tr>
+<tr><td><code><i> 21788</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21789</i> </code></td><td><code>&nbsp #&nbsp 156</code></td></tr>
+<tr><td><code><i> 21790</i> </code></td><td><code>&nbsp typedef&nbsp enum&nbsp _ECAN_TX_MSG_FLAGS</code></td></tr>
+<tr><td><code><i> 21791</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i> 21792</i> </code></td><td><code>&nbsp ECAN_TX_PRIORITY_BITS&nbsp =&nbsp 0b00000011,</code></td></tr>
+<tr><td><code><i> 21793</i> </code></td><td><code>&nbsp ECAN_TX_PRIORITY_0&nbsp =&nbsp 0b00000000,</code></td></tr>
+<tr><td><code><i> 21794</i> </code></td><td><code>&nbsp ECAN_TX_PRIORITY_1&nbsp =&nbsp 0b00000001,</code></td></tr>
+<tr><td><code><i> 21795</i> </code></td><td><code>&nbsp ECAN_TX_PRIORITY_2&nbsp =&nbsp 0b00000010,</code></td></tr>
+<tr><td><code><i> 21796</i> </code></td><td><code>&nbsp ECAN_TX_PRIORITY_3&nbsp =&nbsp 0b00000011,</code></td></tr>
+<tr><td><code><i> 21797</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21798</i> </code></td><td><code>&nbsp ECAN_TX_FRAME_BIT&nbsp =&nbsp 0b00100000,</code></td></tr>
+<tr><td><code><i> 21799</i> </code></td><td><code>&nbsp ECAN_TX_STD_FRAME&nbsp =&nbsp 0b00000000,</code></td></tr>
+<tr><td><code><i> 21800</i> </code></td><td><code>&nbsp ECAN_TX_XTD_FRAME&nbsp =&nbsp 0b00100000,</code></td></tr>
+<tr><td><code><i> 21801</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21802</i> </code></td><td><code>&nbsp ECAN_TX_RTR_BIT&nbsp =&nbsp 0b01000000,</code></td></tr>
+<tr><td><code><i> 21803</i> </code></td><td><code>&nbsp ECAN_TX_NO_RTR_FRAME&nbsp =&nbsp 0b00000000,</code></td></tr>
+<tr><td><code><i> 21804</i> </code></td><td><code>&nbsp ECAN_TX_RTR_FRAME&nbsp =&nbsp 0b01000000</code></td></tr>
+<tr><td><code><i> 21805</i> </code></td><td><code>&nbsp }&nbsp ECAN_TX_MSG_FLAGS;</code></td></tr>
+<tr><td><code><i> 21806</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21807</i> </code></td><td><code>&nbsp #&nbsp 205</code></td></tr>
+<tr><td><code><i> 21808</i> </code></td><td><code>&nbsp BOOL&nbsp ECANSendMessage(&nbsp unsigned&nbsp long&nbsp id,</code></td></tr>
+<tr><td><code><i> 21809</i> </code></td><td><code>&nbsp BYTE&nbsp *data,</code></td></tr>
+<tr><td><code><i> 21810</i> </code></td><td><code>&nbsp BYTE&nbsp dataLen,</code></td></tr>
+<tr><td><code><i> 21811</i> </code></td><td><code>&nbsp ECAN_TX_MSG_FLAGS&nbsp msgFlags);</code></td></tr>
+<tr><td><code><i> 21812</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21813</i> </code></td><td><code>&nbsp #&nbsp 269</code></td></tr>
+<tr><td><code><i> 21814</i> </code></td><td><code>&nbsp typedef&nbsp enum&nbsp _ECAN_RX_MSG_FLAGS</code></td></tr>
+<tr><td><code><i> 21815</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i> 21816</i> </code></td><td><code>&nbsp ECAN_RX_OVERFLOW&nbsp =&nbsp 0b00001000,</code></td></tr>
+<tr><td><code><i> 21817</i> </code></td><td><code>&nbsp ECAN_RX_INVALID_MSG&nbsp =&nbsp 0b00010000,</code></td></tr>
+<tr><td><code><i> 21818</i> </code></td><td><code>&nbsp ECAN_RX_XTD_FRAME&nbsp =&nbsp 0b00100000,</code></td></tr>
+<tr><td><code><i> 21819</i> </code></td><td><code>&nbsp ECAN_RX_RTR_FRAME&nbsp =&nbsp 0b01000000,</code></td></tr>
+<tr><td><code><i> 21820</i> </code></td><td><code>&nbsp ECAN_RX_DBL_BUFFERED&nbsp =&nbsp 0b10000000</code></td></tr>
+<tr><td><code><i> 21821</i> </code></td><td><code>&nbsp }&nbsp ECAN_RX_MSG_FLAGS;</code></td></tr>
+<tr><td><code><i> 21822</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21823</i> </code></td><td><code>&nbsp #&nbsp 312</code></td></tr>
+<tr><td><code><i> 21824</i> </code></td><td><code>&nbsp BOOL&nbsp ECANReceiveMessage(&nbsp unsigned&nbsp long*&nbsp id,</code></td></tr>
+<tr><td><code><i> 21825</i> </code></td><td><code>&nbsp BYTE&nbsp *Data,</code></td></tr>
+<tr><td><code><i> 21826</i> </code></td><td><code>&nbsp BYTE&nbsp *DataLen,</code></td></tr>
+<tr><td><code><i> 21827</i> </code></td><td><code>&nbsp ECAN_RX_MSG_FLAGS&nbsp *MsgFlags);</code></td></tr>
+<tr><td><code><i> 21828</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21829</i> </code></td><td><code>&nbsp #&nbsp 340</code></td></tr>
+<tr><td><code><i> 21830</i> </code></td><td><code>&nbsp extern&nbsp BYTE_VAL&nbsp _ECANRxFilterHitInfo;</code></td></tr>
+<tr><td><code><i> 21831</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21832</i> </code></td><td><code>&nbsp #&nbsp 353</code></td></tr>
+<tr><td><code><i> 21833</i> </code></td><td><code>&nbsp typedef&nbsp enum&nbsp _ECAN_OP_MODE</code></td></tr>
+<tr><td><code><i> 21834</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i> 21835</i> </code></td><td><code>&nbsp ECAN_OP_MODE_BITS&nbsp =&nbsp 0xe0,</code></td></tr>
+<tr><td><code><i> 21836</i> </code></td><td><code>&nbsp ECAN_OP_MODE_NORMAL&nbsp =&nbsp 0x00,</code></td></tr>
+<tr><td><code><i> 21837</i> </code></td><td><code>&nbsp ECAN_OP_MODE_SLEEP&nbsp =&nbsp 0x20,</code></td></tr>
+<tr><td><code><i> 21838</i> </code></td><td><code>&nbsp ECAN_OP_MODE_LOOP&nbsp =&nbsp 0x40,</code></td></tr>
+<tr><td><code><i> 21839</i> </code></td><td><code>&nbsp ECAN_OP_MODE_LISTEN&nbsp =&nbsp 0x60,</code></td></tr>
+<tr><td><code><i> 21840</i> </code></td><td><code>&nbsp ECAN_OP_MODE_CONFIG&nbsp =&nbsp 0x80</code></td></tr>
+<tr><td><code><i> 21841</i> </code></td><td><code>&nbsp }&nbsp ECAN_OP_MODE;</code></td></tr>
 <tr><td><code><i> 21842</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21843</i> </code></td><td><code>&nbsp #&nbsp 44&nbsp "../ECAN.c"</code></td></tr>
-<tr><td><code><i> 21844</i> </code></td><td><code>&nbsp void&nbsp _CANIDToRegs(BYTE*&nbsp ptr,</code></td></tr>
-<tr><td><code><i> 21845</i> </code></td><td><code>&nbsp unsigned&nbsp long&nbsp val,</code></td></tr>
-<tr><td><code><i> 21846</i> </code></td><td><code>&nbsp BYTE&nbsp type);</code></td></tr>
-<tr><td><code><i> 21847</i> </code></td><td><code>&nbsp void&nbsp _RegsToCANID(BYTE*&nbsp ptr,</code></td></tr>
-<tr><td><code><i> 21848</i> </code></td><td><code>&nbsp unsigned&nbsp long&nbsp *val,</code></td></tr>
-<tr><td><code><i> 21849</i> </code></td><td><code>&nbsp BYTE&nbsp type);</code></td></tr>
+<tr><td><code><i> 21843</i> </code></td><td><code>&nbsp #&nbsp 384</code></td></tr>
+<tr><td><code><i> 21844</i> </code></td><td><code>&nbsp void&nbsp ECANSetOperationMode(ECAN_OP_MODE&nbsp mode);</code></td></tr>
+<tr><td><code><i> 21845</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21846</i> </code></td><td><code>&nbsp #&nbsp 1329</code></td></tr>
+<tr><td><code><i> 21847</i> </code></td><td><code>&nbsp void&nbsp _CANIDToRegs(BYTE*&nbsp ptr,</code></td></tr>
+<tr><td><code><i> 21848</i> </code></td><td><code>&nbsp unsigned&nbsp long&nbsp val,</code></td></tr>
+<tr><td><code><i> 21849</i> </code></td><td><code>&nbsp BYTE&nbsp type&nbsp );</code></td></tr>
 <tr><td><code><i> 21850</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21851</i> </code></td><td><code>&nbsp #&nbsp 53</code></td></tr>
-<tr><td><code><i> 21852</i> </code></td><td><code>&nbsp static&nbsp BYTE*&nbsp _ECANPointBuffer(BYTE&nbsp b);</code></td></tr>
-<tr><td><code><i> 21853</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21854</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21855</i> </code></td><td><code>&nbsp BYTE_VAL&nbsp _ECANRxFilterHitInfo;</code></td></tr>
-<tr><td><code><i> 21856</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21857</i> </code></td><td><code>&nbsp #&nbsp 167</code></td></tr>
-<tr><td><code><i> 21858</i> </code></td><td><code>&nbsp void&nbsp ECANInitialize(void)</code></td></tr>
-<tr><td><code><i> 21859</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i> 21860</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21851</i> </code></td><td><code>&nbsp #&nbsp 44&nbsp "../ECAN.c"</code></td></tr>
+<tr><td><code><i> 21852</i> </code></td><td><code>&nbsp void&nbsp _CANIDToRegs(BYTE*&nbsp ptr,</code></td></tr>
+<tr><td><code><i> 21853</i> </code></td><td><code>&nbsp unsigned&nbsp long&nbsp val,</code></td></tr>
+<tr><td><code><i> 21854</i> </code></td><td><code>&nbsp BYTE&nbsp type);</code></td></tr>
+<tr><td><code><i> 21855</i> </code></td><td><code>&nbsp void&nbsp _RegsToCANID(BYTE*&nbsp ptr,</code></td></tr>
+<tr><td><code><i> 21856</i> </code></td><td><code>&nbsp unsigned&nbsp long&nbsp *val,</code></td></tr>
+<tr><td><code><i> 21857</i> </code></td><td><code>&nbsp BYTE&nbsp type);</code></td></tr>
+<tr><td><code><i> 21858</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21859</i> </code></td><td><code>&nbsp #&nbsp 53</code></td></tr>
+<tr><td><code><i> 21860</i> </code></td><td><code>&nbsp static&nbsp BYTE*&nbsp _ECANPointBuffer(BYTE&nbsp b);</code></td></tr>
 <tr><td><code><i> 21861</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21862</i> </code></td><td><code>&nbsp ECANSetOperationMode(ECAN_OP_MODE_CONFIG);</code></td></tr>
-<tr><td><code><i> 21863</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21862</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21863</i> </code></td><td><code>&nbsp BYTE_VAL&nbsp _ECANRxFilterHitInfo;</code></td></tr>
 <tr><td><code><i> 21864</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21865</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21866</i> </code></td><td><code>&nbsp BRGCON1&nbsp =&nbsp ((1-1)&nbsp&lsaquo &lsaquo &nbsp 6)&nbsp |&nbsp (10-1);</code></td></tr>
-<tr><td><code><i> 21867</i> </code></td><td><code>&nbsp BRGCON2&nbsp =&nbsp (1&nbsp&lsaquo &lsaquo &nbsp 7)&nbsp |&nbsp (1&nbsp&lsaquo &lsaquo &nbsp 6)&nbsp |&nbsp ((8-1)&nbsp&lsaquo &lsaquo &nbsp 3)&nbsp |&nbsp (5-1);</code></td></tr>
+<tr><td><code><i> 21865</i> </code></td><td><code>&nbsp #&nbsp 167</code></td></tr>
+<tr><td><code><i> 21866</i> </code></td><td><code>&nbsp void&nbsp ECANInitialize(void)</code></td></tr>
+<tr><td><code><i> 21867</i> </code></td><td><code>&nbsp {</code></td></tr>
 <tr><td><code><i> 21868</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21869</i> </code></td><td><code>&nbsp #&nbsp 180</code></td></tr>
-<tr><td><code><i> 21870</i> </code></td><td><code>&nbsp BRGCON3&nbsp =&nbsp (0&nbsp&lsaquo &lsaquo &nbsp 7)&nbsp |</code></td></tr>
-<tr><td><code><i> 21871</i> </code></td><td><code>&nbsp (0&nbsp&lsaquo &lsaquo &nbsp 6)&nbsp |</code></td></tr>
-<tr><td><code><i> 21872</i> </code></td><td><code>&nbsp (2-1);</code></td></tr>
+<tr><td><code><i> 21869</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21870</i> </code></td><td><code>&nbsp ECANSetOperationMode(ECAN_OP_MODE_CONFIG);</code></td></tr>
+<tr><td><code><i> 21871</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21872</i> </code></td><td><code>&nbsp </code></td></tr>
 <tr><td><code><i> 21873</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21874</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21875</i> </code></td><td><code>&nbsp CIOCON&nbsp =&nbsp 0&nbsp&lsaquo &lsaquo &nbsp 7&nbsp |&nbsp 0&nbsp&lsaquo &lsaquo &nbsp 6&nbsp |&nbsp 1&nbsp&lsaquo &lsaquo &nbsp 5&nbsp |&nbsp 0;</code></td></tr>
+<tr><td><code><i> 21874</i> </code></td><td><code>&nbsp BRGCON1&nbsp =&nbsp ((1-1)&nbsp&lsaquo &lsaquo &nbsp 6)&nbsp |&nbsp (10-1);</code></td></tr>
+<tr><td><code><i> 21875</i> </code></td><td><code>&nbsp BRGCON2&nbsp =&nbsp (1&nbsp&lsaquo &lsaquo &nbsp 7)&nbsp |&nbsp (1&nbsp&lsaquo &lsaquo &nbsp 6)&nbsp |&nbsp ((8-1)&nbsp&lsaquo &lsaquo &nbsp 3)&nbsp |&nbsp (5-1);</code></td></tr>
 <tr><td><code><i> 21876</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21877</i> </code></td><td><code>&nbsp #&nbsp 192</code></td></tr>
-<tr><td><code><i> 21878</i> </code></td><td><code>&nbsp MDSEL1&nbsp =&nbsp 0x80&nbsp&rsaquo &rsaquo &nbsp 7;</code></td></tr>
-<tr><td><code><i> 21879</i> </code></td><td><code>&nbsp MDSEL0&nbsp =&nbsp 0x80&nbsp&rsaquo &rsaquo &nbsp 6;</code></td></tr>
-<tr><td><code><i> 21880</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21881</i> </code></td><td><code>&nbsp #&nbsp 205</code></td></tr>
-<tr><td><code><i> 21882</i> </code></td><td><code>&nbsp RXB0CON&nbsp =&nbsp 0;</code></td></tr>
-<tr><td><code><i> 21883</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21884</i> </code></td><td><code>&nbsp #&nbsp 211</code></td></tr>
-<tr><td><code><i> 21885</i> </code></td><td><code>&nbsp RXB1CON&nbsp =&nbsp 0;</code></td></tr>
-<tr><td><code><i> 21886</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21887</i> </code></td><td><code>&nbsp #&nbsp 221</code></td></tr>
-<tr><td><code><i> 21888</i> </code></td><td><code>&nbsp B0CON&nbsp =&nbsp 0;</code></td></tr>
-<tr><td><code><i> 21889</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21890</i> </code></td><td><code>&nbsp #&nbsp 231</code></td></tr>
-<tr><td><code><i> 21891</i> </code></td><td><code>&nbsp B1CON&nbsp =&nbsp 0;</code></td></tr>
-<tr><td><code><i> 21892</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21893</i> </code></td><td><code>&nbsp #&nbsp 241</code></td></tr>
-<tr><td><code><i> 21894</i> </code></td><td><code>&nbsp B2CON&nbsp =&nbsp 0;</code></td></tr>
-<tr><td><code><i> 21895</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21896</i> </code></td><td><code>&nbsp #&nbsp 254</code></td></tr>
-<tr><td><code><i> 21897</i> </code></td><td><code>&nbsp B3CON&nbsp =&nbsp 0&nbsp&lsaquo &lsaquo &nbsp 2;</code></td></tr>
-<tr><td><code><i> 21898</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21899</i> </code></td><td><code>&nbsp #&nbsp 264</code></td></tr>
-<tr><td><code><i> 21900</i> </code></td><td><code>&nbsp B4CON&nbsp =&nbsp 0&nbsp&lsaquo &lsaquo &nbsp 2;</code></td></tr>
-<tr><td><code><i> 21901</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21902</i> </code></td><td><code>&nbsp #&nbsp 274</code></td></tr>
-<tr><td><code><i> 21903</i> </code></td><td><code>&nbsp B5CON&nbsp =&nbsp 0&nbsp&lsaquo &lsaquo &nbsp 2;</code></td></tr>
-<tr><td><code><i> 21904</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21905</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21877</i> </code></td><td><code>&nbsp #&nbsp 180</code></td></tr>
+<tr><td><code><i> 21878</i> </code></td><td><code>&nbsp BRGCON3&nbsp =&nbsp (0&nbsp&lsaquo &lsaquo &nbsp 7)&nbsp |</code></td></tr>
+<tr><td><code><i> 21879</i> </code></td><td><code>&nbsp (0&nbsp&lsaquo &lsaquo &nbsp 6)&nbsp |</code></td></tr>
+<tr><td><code><i> 21880</i> </code></td><td><code>&nbsp (2-1);</code></td></tr>
+<tr><td><code><i> 21881</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21882</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21883</i> </code></td><td><code>&nbsp CIOCON&nbsp =&nbsp 0&nbsp&lsaquo &lsaquo &nbsp 7&nbsp |&nbsp 0&nbsp&lsaquo &lsaquo &nbsp 6&nbsp |&nbsp 1&nbsp&lsaquo &lsaquo &nbsp 5&nbsp |&nbsp 0;</code></td></tr>
+<tr><td><code><i> 21884</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21885</i> </code></td><td><code>&nbsp #&nbsp 192</code></td></tr>
+<tr><td><code><i> 21886</i> </code></td><td><code>&nbsp MDSEL1&nbsp =&nbsp 0x80&nbsp&rsaquo &rsaquo &nbsp 7;</code></td></tr>
+<tr><td><code><i> 21887</i> </code></td><td><code>&nbsp MDSEL0&nbsp =&nbsp 0x80&nbsp&rsaquo &rsaquo &nbsp 6;</code></td></tr>
+<tr><td><code><i> 21888</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21889</i> </code></td><td><code>&nbsp #&nbsp 205</code></td></tr>
+<tr><td><code><i> 21890</i> </code></td><td><code>&nbsp RXB0CON&nbsp =&nbsp 0;</code></td></tr>
+<tr><td><code><i> 21891</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21892</i> </code></td><td><code>&nbsp #&nbsp 211</code></td></tr>
+<tr><td><code><i> 21893</i> </code></td><td><code>&nbsp RXB1CON&nbsp =&nbsp 0;</code></td></tr>
+<tr><td><code><i> 21894</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21895</i> </code></td><td><code>&nbsp #&nbsp 221</code></td></tr>
+<tr><td><code><i> 21896</i> </code></td><td><code>&nbsp B0CON&nbsp =&nbsp 0;</code></td></tr>
+<tr><td><code><i> 21897</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21898</i> </code></td><td><code>&nbsp #&nbsp 231</code></td></tr>
+<tr><td><code><i> 21899</i> </code></td><td><code>&nbsp B1CON&nbsp =&nbsp 0;</code></td></tr>
+<tr><td><code><i> 21900</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21901</i> </code></td><td><code>&nbsp #&nbsp 241</code></td></tr>
+<tr><td><code><i> 21902</i> </code></td><td><code>&nbsp B2CON&nbsp =&nbsp 0;</code></td></tr>
+<tr><td><code><i> 21903</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21904</i> </code></td><td><code>&nbsp #&nbsp 254</code></td></tr>
+<tr><td><code><i> 21905</i> </code></td><td><code>&nbsp B3CON&nbsp =&nbsp 0&nbsp&lsaquo &lsaquo &nbsp 2;</code></td></tr>
 <tr><td><code><i> 21906</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21907</i> </code></td><td><code>&nbsp BSEL0&nbsp =&nbsp 1&nbsp&lsaquo &lsaquo &nbsp 7&nbsp |&nbsp 1&nbsp&lsaquo &lsaquo &nbsp 6&nbsp |&nbsp 1&nbsp&lsaquo &lsaquo &nbsp 5&nbsp |&nbsp 0&nbsp&lsaquo &lsaquo &nbsp 4&nbsp |&nbsp 0&nbsp&lsaquo &lsaquo &nbsp 3&nbsp |&nbsp 0&nbsp&lsaquo &lsaquo &nbsp 2;</code></td></tr>
-<tr><td><code><i> 21908</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21909</i> </code></td><td><code>&nbsp #&nbsp 295</code></td></tr>
-<tr><td><code><i> 21910</i> </code></td><td><code>&nbsp RXF0SIDH&nbsp =&nbsp (long)0x00000000L&nbsp&rsaquo &rsaquo &nbsp 21L;RXF0SIDL&nbsp =&nbsp (((long)0x00000000L&nbsp&rsaquo &rsaquo &nbsp 13L)&nbsp &&nbsp 0xe0)&nbsp |&nbsp ((long)(0x00000000L)&nbsp &&nbsp 0x03L)&nbsp |&nbsp 0x08;RXF0EIDH&nbsp =&nbsp (long)0x00000000L&nbsp&rsaquo &rsaquo &nbsp 8L;RXF0EIDL&nbsp =&nbsp 0x00000000L;;</code></td></tr>
-<tr><td><code><i> 21911</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21912</i> </code></td><td><code>&nbsp #&nbsp 303</code></td></tr>
-<tr><td><code><i> 21913</i> </code></td><td><code>&nbsp RXF1SIDH&nbsp =&nbsp (long)0x001E1A00L&nbsp&rsaquo &rsaquo &nbsp 21L;RXF1SIDL&nbsp =&nbsp (((long)0x001E1A00L&nbsp&rsaquo &rsaquo &nbsp 13L)&nbsp &&nbsp 0xe0)&nbsp |&nbsp ((long)(0x001E1A00L)&nbsp &&nbsp 0x03L)&nbsp |&nbsp 0x08;RXF1EIDH&nbsp =&nbsp (long)0x001E1A00L&nbsp&rsaquo &rsaquo &nbsp 8L;RXF1EIDL&nbsp =&nbsp 0x001E1A00L;;</code></td></tr>
+<tr><td><code><i> 21907</i> </code></td><td><code>&nbsp #&nbsp 264</code></td></tr>
+<tr><td><code><i> 21908</i> </code></td><td><code>&nbsp B4CON&nbsp =&nbsp 0&nbsp&lsaquo &lsaquo &nbsp 2;</code></td></tr>
+<tr><td><code><i> 21909</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21910</i> </code></td><td><code>&nbsp #&nbsp 274</code></td></tr>
+<tr><td><code><i> 21911</i> </code></td><td><code>&nbsp B5CON&nbsp =&nbsp 0&nbsp&lsaquo &lsaquo &nbsp 2;</code></td></tr>
+<tr><td><code><i> 21912</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21913</i> </code></td><td><code>&nbsp </code></td></tr>
 <tr><td><code><i> 21914</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21915</i> </code></td><td><code>&nbsp #&nbsp 428</code></td></tr>
-<tr><td><code><i> 21916</i> </code></td><td><code>&nbsp RXFCON0&nbsp =&nbsp (0&nbsp&lsaquo &lsaquo &nbsp 7)&nbsp |&nbsp (0&nbsp&lsaquo &lsaquo &nbsp 6)&nbsp |&nbsp (0&nbsp&lsaquo &lsaquo &nbsp 5)&nbsp |&nbsp (0&nbsp&lsaquo &lsaquo &nbsp 4)&nbsp |&nbsp (0&nbsp&lsaquo &lsaquo &nbsp 3)&nbsp |&nbsp (0&nbsp&lsaquo &lsaquo &nbsp 2)&nbsp |&nbsp (1&nbsp&lsaquo &lsaquo &nbsp 1)&nbsp |&nbsp (1);</code></td></tr>
-<tr><td><code><i> 21917</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21918</i> </code></td><td><code>&nbsp #&nbsp 436</code></td></tr>
-<tr><td><code><i> 21919</i> </code></td><td><code>&nbsp RXFCON1&nbsp =&nbsp (0&nbsp&lsaquo &lsaquo &nbsp 7)&nbsp |&nbsp (0&nbsp&lsaquo &lsaquo &nbsp 6)&nbsp |&nbsp (0&nbsp&lsaquo &lsaquo &nbsp 5)&nbsp |&nbsp (0&nbsp&lsaquo &lsaquo &nbsp 4)&nbsp |&nbsp (0&nbsp&lsaquo &lsaquo &nbsp 3)&nbsp |&nbsp (0&nbsp&lsaquo &lsaquo &nbsp 2)&nbsp |&nbsp (0&nbsp&lsaquo &lsaquo &nbsp 1)&nbsp |&nbsp (0);</code></td></tr>
-<tr><td><code><i> 21920</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21921</i> </code></td><td><code>&nbsp #&nbsp 449</code></td></tr>
-<tr><td><code><i> 21922</i> </code></td><td><code>&nbsp RXFBCON0&nbsp =&nbsp (0&nbsp&lsaquo &lsaquo &nbsp 4)&nbsp |&nbsp 0;</code></td></tr>
-<tr><td><code><i> 21923</i> </code></td><td><code>&nbsp RXFBCON1&nbsp =&nbsp (1&nbsp&lsaquo &lsaquo &nbsp 4)&nbsp |&nbsp 1;</code></td></tr>
-<tr><td><code><i> 21924</i> </code></td><td><code>&nbsp RXFBCON2&nbsp =&nbsp (1&nbsp&lsaquo &lsaquo &nbsp 4)&nbsp |&nbsp 1;</code></td></tr>
-<tr><td><code><i> 21925</i> </code></td><td><code>&nbsp RXFBCON3&nbsp =&nbsp (0&nbsp&lsaquo &lsaquo &nbsp 4)&nbsp |&nbsp 0;</code></td></tr>
-<tr><td><code><i> 21926</i> </code></td><td><code>&nbsp RXFBCON4&nbsp =&nbsp (0&nbsp&lsaquo &lsaquo &nbsp 4)&nbsp |&nbsp 0;</code></td></tr>
-<tr><td><code><i> 21927</i> </code></td><td><code>&nbsp RXFBCON5&nbsp =&nbsp (0&nbsp&lsaquo &lsaquo &nbsp 4)&nbsp |&nbsp 0;</code></td></tr>
-<tr><td><code><i> 21928</i> </code></td><td><code>&nbsp RXFBCON6&nbsp =&nbsp (0&nbsp&lsaquo &lsaquo &nbsp 4)&nbsp |&nbsp 0;</code></td></tr>
-<tr><td><code><i> 21929</i> </code></td><td><code>&nbsp RXFBCON7&nbsp =&nbsp (0&nbsp&lsaquo &lsaquo &nbsp 4)&nbsp |&nbsp 0;</code></td></tr>
-<tr><td><code><i> 21930</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21931</i> </code></td><td><code>&nbsp MSEL0&nbsp =&nbsp 1&nbsp&lsaquo &lsaquo &nbsp 6&nbsp |&nbsp 1&nbsp&lsaquo &lsaquo &nbsp 4&nbsp |&nbsp 1&nbsp&lsaquo &lsaquo &nbsp 2&nbsp |&nbsp 0;;</code></td></tr>
-<tr><td><code><i> 21932</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21933</i> </code></td><td><code>&nbsp #&nbsp 462</code></td></tr>
-<tr><td><code><i> 21934</i> </code></td><td><code>&nbsp MSEL1&nbsp =&nbsp 0&nbsp&lsaquo &lsaquo &nbsp 6&nbsp |&nbsp 0&nbsp&lsaquo &lsaquo &nbsp 4&nbsp |&nbsp 1&nbsp&lsaquo &lsaquo &nbsp 2&nbsp |&nbsp 1;;</code></td></tr>
-<tr><td><code><i> 21935</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21936</i> </code></td><td><code>&nbsp #&nbsp 466</code></td></tr>
-<tr><td><code><i> 21937</i> </code></td><td><code>&nbsp MSEL2&nbsp =&nbsp 0&nbsp&lsaquo &lsaquo &nbsp 6&nbsp |&nbsp 0&nbsp&lsaquo &lsaquo &nbsp 4&nbsp |&nbsp 0&nbsp&lsaquo &lsaquo &nbsp 2&nbsp |&nbsp 0;;</code></td></tr>
+<tr><td><code><i> 21915</i> </code></td><td><code>&nbsp BSEL0&nbsp =&nbsp 1&nbsp&lsaquo &lsaquo &nbsp 7&nbsp |&nbsp 1&nbsp&lsaquo &lsaquo &nbsp 6&nbsp |&nbsp 1&nbsp&lsaquo &lsaquo &nbsp 5&nbsp |&nbsp 0&nbsp&lsaquo &lsaquo &nbsp 4&nbsp |&nbsp 0&nbsp&lsaquo &lsaquo &nbsp 3&nbsp |&nbsp 0&nbsp&lsaquo &lsaquo &nbsp 2;</code></td></tr>
+<tr><td><code><i> 21916</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21917</i> </code></td><td><code>&nbsp #&nbsp 295</code></td></tr>
+<tr><td><code><i> 21918</i> </code></td><td><code>&nbsp RXF0SIDH&nbsp =&nbsp (long)0x00000000L&nbsp&rsaquo &rsaquo &nbsp 21L;RXF0SIDL&nbsp =&nbsp (((long)0x00000000L&nbsp&rsaquo &rsaquo &nbsp 13L)&nbsp &&nbsp 0xe0)&nbsp |&nbsp ((long)(0x00000000L)&nbsp &&nbsp 0x03L)&nbsp |&nbsp 0x08;RXF0EIDH&nbsp =&nbsp (long)0x00000000L&nbsp&rsaquo &rsaquo &nbsp 8L;RXF0EIDL&nbsp =&nbsp 0x00000000L;;</code></td></tr>
+<tr><td><code><i> 21919</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21920</i> </code></td><td><code>&nbsp #&nbsp 303</code></td></tr>
+<tr><td><code><i> 21921</i> </code></td><td><code>&nbsp RXF1SIDH&nbsp =&nbsp (long)0x001E1A00L&nbsp&rsaquo &rsaquo &nbsp 21L;RXF1SIDL&nbsp =&nbsp (((long)0x001E1A00L&nbsp&rsaquo &rsaquo &nbsp 13L)&nbsp &&nbsp 0xe0)&nbsp |&nbsp ((long)(0x001E1A00L)&nbsp &&nbsp 0x03L)&nbsp |&nbsp 0x08;RXF1EIDH&nbsp =&nbsp (long)0x001E1A00L&nbsp&rsaquo &rsaquo &nbsp 8L;RXF1EIDL&nbsp =&nbsp 0x001E1A00L;;</code></td></tr>
+<tr><td><code><i> 21922</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21923</i> </code></td><td><code>&nbsp #&nbsp 428</code></td></tr>
+<tr><td><code><i> 21924</i> </code></td><td><code>&nbsp RXFCON0&nbsp =&nbsp (0&nbsp&lsaquo &lsaquo &nbsp 7)&nbsp |&nbsp (0&nbsp&lsaquo &lsaquo &nbsp 6)&nbsp |&nbsp (0&nbsp&lsaquo &lsaquo &nbsp 5)&nbsp |&nbsp (0&nbsp&lsaquo &lsaquo &nbsp 4)&nbsp |&nbsp (0&nbsp&lsaquo &lsaquo &nbsp 3)&nbsp |&nbsp (0&nbsp&lsaquo &lsaquo &nbsp 2)&nbsp |&nbsp (1&nbsp&lsaquo &lsaquo &nbsp 1)&nbsp |&nbsp (1);</code></td></tr>
+<tr><td><code><i> 21925</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21926</i> </code></td><td><code>&nbsp #&nbsp 436</code></td></tr>
+<tr><td><code><i> 21927</i> </code></td><td><code>&nbsp RXFCON1&nbsp =&nbsp (0&nbsp&lsaquo &lsaquo &nbsp 7)&nbsp |&nbsp (0&nbsp&lsaquo &lsaquo &nbsp 6)&nbsp |&nbsp (0&nbsp&lsaquo &lsaquo &nbsp 5)&nbsp |&nbsp (0&nbsp&lsaquo &lsaquo &nbsp 4)&nbsp |&nbsp (0&nbsp&lsaquo &lsaquo &nbsp 3)&nbsp |&nbsp (0&nbsp&lsaquo &lsaquo &nbsp 2)&nbsp |&nbsp (0&nbsp&lsaquo &lsaquo &nbsp 1)&nbsp |&nbsp (0);</code></td></tr>
+<tr><td><code><i> 21928</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21929</i> </code></td><td><code>&nbsp #&nbsp 449</code></td></tr>
+<tr><td><code><i> 21930</i> </code></td><td><code>&nbsp RXFBCON0&nbsp =&nbsp (0&nbsp&lsaquo &lsaquo &nbsp 4)&nbsp |&nbsp 0;</code></td></tr>
+<tr><td><code><i> 21931</i> </code></td><td><code>&nbsp RXFBCON1&nbsp =&nbsp (1&nbsp&lsaquo &lsaquo &nbsp 4)&nbsp |&nbsp 1;</code></td></tr>
+<tr><td><code><i> 21932</i> </code></td><td><code>&nbsp RXFBCON2&nbsp =&nbsp (1&nbsp&lsaquo &lsaquo &nbsp 4)&nbsp |&nbsp 1;</code></td></tr>
+<tr><td><code><i> 21933</i> </code></td><td><code>&nbsp RXFBCON3&nbsp =&nbsp (0&nbsp&lsaquo &lsaquo &nbsp 4)&nbsp |&nbsp 0;</code></td></tr>
+<tr><td><code><i> 21934</i> </code></td><td><code>&nbsp RXFBCON4&nbsp =&nbsp (0&nbsp&lsaquo &lsaquo &nbsp 4)&nbsp |&nbsp 0;</code></td></tr>
+<tr><td><code><i> 21935</i> </code></td><td><code>&nbsp RXFBCON5&nbsp =&nbsp (0&nbsp&lsaquo &lsaquo &nbsp 4)&nbsp |&nbsp 0;</code></td></tr>
+<tr><td><code><i> 21936</i> </code></td><td><code>&nbsp RXFBCON6&nbsp =&nbsp (0&nbsp&lsaquo &lsaquo &nbsp 4)&nbsp |&nbsp 0;</code></td></tr>
+<tr><td><code><i> 21937</i> </code></td><td><code>&nbsp RXFBCON7&nbsp =&nbsp (0&nbsp&lsaquo &lsaquo &nbsp 4)&nbsp |&nbsp 0;</code></td></tr>
 <tr><td><code><i> 21938</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21939</i> </code></td><td><code>&nbsp #&nbsp 470</code></td></tr>
-<tr><td><code><i> 21940</i> </code></td><td><code>&nbsp MSEL2&nbsp =&nbsp 0&nbsp&lsaquo &lsaquo &nbsp 6&nbsp |&nbsp 0&nbsp&lsaquo &lsaquo &nbsp 4&nbsp |&nbsp 0&nbsp&lsaquo &lsaquo &nbsp 2&nbsp |&nbsp 0;;</code></td></tr>
-<tr><td><code><i> 21941</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21942</i> </code></td><td><code>&nbsp #&nbsp 481</code></td></tr>
-<tr><td><code><i> 21943</i> </code></td><td><code>&nbsp RXM0SIDH&nbsp =&nbsp (long)0x01FF0000L&nbsp&rsaquo &rsaquo &nbsp 21L;&nbsp RXM0SIDL&nbsp =&nbsp (((long)0x01FF0000L&nbsp&rsaquo &rsaquo &nbsp 13L)&nbsp &&nbsp 0xe0)&nbsp |&nbsp ((long)(0x01FF0000L)&nbsp &&nbsp 0x03L);&nbsp RXM0EIDH&nbsp =&nbsp (long)0x01FF0000L&nbsp&rsaquo &rsaquo &nbsp 8L;&nbsp RXM0EIDL&nbsp =&nbsp 0x01FF0000L;;</code></td></tr>
-<tr><td><code><i> 21944</i> </code></td><td><code>&nbsp RXM0EXIDM&nbsp =&nbsp 1;</code></td></tr>
-<tr><td><code><i> 21945</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21946</i> </code></td><td><code>&nbsp #&nbsp 489</code></td></tr>
-<tr><td><code><i> 21947</i> </code></td><td><code>&nbsp RXM1SIDH&nbsp =&nbsp (long)0x01FFFF00L&nbsp&rsaquo &rsaquo &nbsp 21L;&nbsp RXM1SIDL&nbsp =&nbsp (((long)0x01FFFF00L&nbsp&rsaquo &rsaquo &nbsp 13L)&nbsp &&nbsp 0xe0)&nbsp |&nbsp ((long)(0x01FFFF00L)&nbsp &&nbsp 0x03L);&nbsp RXM1EIDH&nbsp =&nbsp (long)0x01FFFF00L&nbsp&rsaquo &rsaquo &nbsp 8L;&nbsp RXM1EIDL&nbsp =&nbsp 0x01FFFF00L;;</code></td></tr>
-<tr><td><code><i> 21948</i> </code></td><td><code>&nbsp RXM1EXIDEN&nbsp =&nbsp 1;</code></td></tr>
+<tr><td><code><i> 21939</i> </code></td><td><code>&nbsp MSEL0&nbsp =&nbsp 1&nbsp&lsaquo &lsaquo &nbsp 6&nbsp |&nbsp 1&nbsp&lsaquo &lsaquo &nbsp 4&nbsp |&nbsp 1&nbsp&lsaquo &lsaquo &nbsp 2&nbsp |&nbsp 0;;</code></td></tr>
+<tr><td><code><i> 21940</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21941</i> </code></td><td><code>&nbsp #&nbsp 462</code></td></tr>
+<tr><td><code><i> 21942</i> </code></td><td><code>&nbsp MSEL1&nbsp =&nbsp 0&nbsp&lsaquo &lsaquo &nbsp 6&nbsp |&nbsp 0&nbsp&lsaquo &lsaquo &nbsp 4&nbsp |&nbsp 1&nbsp&lsaquo &lsaquo &nbsp 2&nbsp |&nbsp 1;;</code></td></tr>
+<tr><td><code><i> 21943</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21944</i> </code></td><td><code>&nbsp #&nbsp 466</code></td></tr>
+<tr><td><code><i> 21945</i> </code></td><td><code>&nbsp MSEL2&nbsp =&nbsp 0&nbsp&lsaquo &lsaquo &nbsp 6&nbsp |&nbsp 0&nbsp&lsaquo &lsaquo &nbsp 4&nbsp |&nbsp 0&nbsp&lsaquo &lsaquo &nbsp 2&nbsp |&nbsp 0;;</code></td></tr>
+<tr><td><code><i> 21946</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21947</i> </code></td><td><code>&nbsp #&nbsp 470</code></td></tr>
+<tr><td><code><i> 21948</i> </code></td><td><code>&nbsp MSEL2&nbsp =&nbsp 0&nbsp&lsaquo &lsaquo &nbsp 6&nbsp |&nbsp 0&nbsp&lsaquo &lsaquo &nbsp 4&nbsp |&nbsp 0&nbsp&lsaquo &lsaquo &nbsp 2&nbsp |&nbsp 0;;</code></td></tr>
 <tr><td><code><i> 21949</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21950</i> </code></td><td><code>&nbsp #&nbsp 498</code></td></tr>
-<tr><td><code><i> 21951</i> </code></td><td><code>&nbsp ECANSetOperationMode(0x00);</code></td></tr>
-<tr><td><code><i> 21952</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21953</i> </code></td><td><code>&nbsp }</code></td></tr>
-<tr><td><code><i> 21954</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21955</i> </code></td><td><code>&nbsp #&nbsp 613</code></td></tr>
-<tr><td><code><i> 21956</i> </code></td><td><code>&nbsp BOOL&nbsp ECANSendMessage(&nbsp unsigned&nbsp long&nbsp id,</code></td></tr>
-<tr><td><code><i> 21957</i> </code></td><td><code>&nbsp BYTE*&nbsp data,</code></td></tr>
-<tr><td><code><i> 21958</i> </code></td><td><code>&nbsp BYTE&nbsp dataLen,</code></td></tr>
-<tr><td><code><i> 21959</i> </code></td><td><code>&nbsp ECAN_TX_MSG_FLAGS&nbsp msgFlags)</code></td></tr>
-<tr><td><code><i> 21960</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i> 21961</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21962</i> </code></td><td><code>&nbsp BYTE&nbsp mode;</code></td></tr>
-<tr><td><code><i> 21963</i> </code></td><td><code>&nbsp BYTE&nbsp buffers;</code></td></tr>
-<tr><td><code><i> 21964</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21965</i> </code></td><td><code>&nbsp #&nbsp 628</code></td></tr>
-<tr><td><code><i> 21966</i> </code></td><td><code>&nbsp BYTE&nbsp i,j;</code></td></tr>
-<tr><td><code><i> 21967</i> </code></td><td><code>&nbsp BYTE&nbsp *ptr,&nbsp *tempPtr;</code></td></tr>
-<tr><td><code><i> 21968</i> </code></td><td><code>&nbsp BYTE*&nbsp pb[9];</code></td></tr>
-<tr><td><code><i> 21969</i> </code></td><td><code>&nbsp BYTE&nbsp temp;</code></td></tr>
-<tr><td><code><i> 21970</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21971</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21972</i> </code></td><td><code>&nbsp BYTE_VAL&nbsp tempBSEL0;</code></td></tr>
-<tr><td><code><i> 21973</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21974</i> </code></td><td><code>&nbsp #&nbsp 641</code></td></tr>
-<tr><td><code><i> 21975</i> </code></td><td><code>&nbsp pb[0]=(BYTE*)&TXB0CON;</code></td></tr>
-<tr><td><code><i> 21976</i> </code></td><td><code>&nbsp pb[1]=(BYTE*)&TXB1CON;</code></td></tr>
-<tr><td><code><i> 21977</i> </code></td><td><code>&nbsp pb[2]=(BYTE*)&TXB2CON;</code></td></tr>
+<tr><td><code><i> 21950</i> </code></td><td><code>&nbsp #&nbsp 481</code></td></tr>
+<tr><td><code><i> 21951</i> </code></td><td><code>&nbsp RXM0SIDH&nbsp =&nbsp (long)0x01FF0000L&nbsp&rsaquo &rsaquo &nbsp 21L;&nbsp RXM0SIDL&nbsp =&nbsp (((long)0x01FF0000L&nbsp&rsaquo &rsaquo &nbsp 13L)&nbsp &&nbsp 0xe0)&nbsp |&nbsp ((long)(0x01FF0000L)&nbsp &&nbsp 0x03L);&nbsp RXM0EIDH&nbsp =&nbsp (long)0x01FF0000L&nbsp&rsaquo &rsaquo &nbsp 8L;&nbsp RXM0EIDL&nbsp =&nbsp 0x01FF0000L;;</code></td></tr>
+<tr><td><code><i> 21952</i> </code></td><td><code>&nbsp RXM0EXIDM&nbsp =&nbsp 1;</code></td></tr>
+<tr><td><code><i> 21953</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21954</i> </code></td><td><code>&nbsp #&nbsp 489</code></td></tr>
+<tr><td><code><i> 21955</i> </code></td><td><code>&nbsp RXM1SIDH&nbsp =&nbsp (long)0x01FFFF00L&nbsp&rsaquo &rsaquo &nbsp 21L;&nbsp RXM1SIDL&nbsp =&nbsp (((long)0x01FFFF00L&nbsp&rsaquo &rsaquo &nbsp 13L)&nbsp &&nbsp 0xe0)&nbsp |&nbsp ((long)(0x01FFFF00L)&nbsp &&nbsp 0x03L);&nbsp RXM1EIDH&nbsp =&nbsp (long)0x01FFFF00L&nbsp&rsaquo &rsaquo &nbsp 8L;&nbsp RXM1EIDL&nbsp =&nbsp 0x01FFFF00L;;</code></td></tr>
+<tr><td><code><i> 21956</i> </code></td><td><code>&nbsp RXM1EXIDEN&nbsp =&nbsp 1;</code></td></tr>
+<tr><td><code><i> 21957</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21958</i> </code></td><td><code>&nbsp #&nbsp 498</code></td></tr>
+<tr><td><code><i> 21959</i> </code></td><td><code>&nbsp ECANSetOperationMode(0x00);</code></td></tr>
+<tr><td><code><i> 21960</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21961</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i> 21962</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21963</i> </code></td><td><code>&nbsp #&nbsp 613</code></td></tr>
+<tr><td><code><i> 21964</i> </code></td><td><code>&nbsp BOOL&nbsp ECANSendMessage(&nbsp unsigned&nbsp long&nbsp id,</code></td></tr>
+<tr><td><code><i> 21965</i> </code></td><td><code>&nbsp BYTE*&nbsp data,</code></td></tr>
+<tr><td><code><i> 21966</i> </code></td><td><code>&nbsp BYTE&nbsp dataLen,</code></td></tr>
+<tr><td><code><i> 21967</i> </code></td><td><code>&nbsp ECAN_TX_MSG_FLAGS&nbsp msgFlags)</code></td></tr>
+<tr><td><code><i> 21968</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i> 21969</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21970</i> </code></td><td><code>&nbsp BYTE&nbsp mode;</code></td></tr>
+<tr><td><code><i> 21971</i> </code></td><td><code>&nbsp BYTE&nbsp buffers;</code></td></tr>
+<tr><td><code><i> 21972</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21973</i> </code></td><td><code>&nbsp #&nbsp 628</code></td></tr>
+<tr><td><code><i> 21974</i> </code></td><td><code>&nbsp BYTE&nbsp i,j;</code></td></tr>
+<tr><td><code><i> 21975</i> </code></td><td><code>&nbsp BYTE&nbsp *ptr,&nbsp *tempPtr;</code></td></tr>
+<tr><td><code><i> 21976</i> </code></td><td><code>&nbsp BYTE*&nbsp pb[9];</code></td></tr>
+<tr><td><code><i> 21977</i> </code></td><td><code>&nbsp BYTE&nbsp temp;</code></td></tr>
 <tr><td><code><i> 21978</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21979</i> </code></td><td><code>&nbsp #&nbsp 650</code></td></tr>
-<tr><td><code><i> 21980</i> </code></td><td><code>&nbsp pb[3]=(BYTE*)&B0CON;</code></td></tr>
-<tr><td><code><i> 21981</i> </code></td><td><code>&nbsp pb[4]=(BYTE*)&B1CON;</code></td></tr>
-<tr><td><code><i> 21982</i> </code></td><td><code>&nbsp pb[5]=(BYTE*)&B2CON;</code></td></tr>
-<tr><td><code><i> 21983</i> </code></td><td><code>&nbsp pb[6]=(BYTE*)&B3CON;</code></td></tr>
-<tr><td><code><i> 21984</i> </code></td><td><code>&nbsp pb[7]=(BYTE*)&B4CON;</code></td></tr>
-<tr><td><code><i> 21985</i> </code></td><td><code>&nbsp pb[8]=(BYTE*)&B5CON;</code></td></tr>
+<tr><td><code><i> 21979</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21980</i> </code></td><td><code>&nbsp BYTE_VAL&nbsp tempBSEL0;</code></td></tr>
+<tr><td><code><i> 21981</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21982</i> </code></td><td><code>&nbsp #&nbsp 641</code></td></tr>
+<tr><td><code><i> 21983</i> </code></td><td><code>&nbsp pb[0]=(BYTE*)&TXB0CON;</code></td></tr>
+<tr><td><code><i> 21984</i> </code></td><td><code>&nbsp pb[1]=(BYTE*)&TXB1CON;</code></td></tr>
+<tr><td><code><i> 21985</i> </code></td><td><code>&nbsp pb[2]=(BYTE*)&TXB2CON;</code></td></tr>
 <tr><td><code><i> 21986</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21987</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21988</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21989</i> </code></td><td><code>&nbsp mode&nbsp =&nbsp ECANCON&0xC0;</code></td></tr>
-<tr><td><code><i> 21990</i> </code></td><td><code>&nbsp if&nbsp (&nbsp mode&nbsp ==&nbsp 0x00&nbsp )</code></td></tr>
-<tr><td><code><i> 21991</i> </code></td><td><code>&nbsp buffers&nbsp =&nbsp 2;</code></td></tr>
-<tr><td><code><i> 21992</i> </code></td><td><code>&nbsp else</code></td></tr>
-<tr><td><code><i> 21993</i> </code></td><td><code>&nbsp buffers&nbsp =&nbsp 8;</code></td></tr>
+<tr><td><code><i> 21987</i> </code></td><td><code>&nbsp #&nbsp 650</code></td></tr>
+<tr><td><code><i> 21988</i> </code></td><td><code>&nbsp pb[3]=(BYTE*)&B0CON;</code></td></tr>
+<tr><td><code><i> 21989</i> </code></td><td><code>&nbsp pb[4]=(BYTE*)&B1CON;</code></td></tr>
+<tr><td><code><i> 21990</i> </code></td><td><code>&nbsp pb[5]=(BYTE*)&B2CON;</code></td></tr>
+<tr><td><code><i> 21991</i> </code></td><td><code>&nbsp pb[6]=(BYTE*)&B3CON;</code></td></tr>
+<tr><td><code><i> 21992</i> </code></td><td><code>&nbsp pb[7]=(BYTE*)&B4CON;</code></td></tr>
+<tr><td><code><i> 21993</i> </code></td><td><code>&nbsp pb[8]=(BYTE*)&B5CON;</code></td></tr>
 <tr><td><code><i> 21994</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21995</i> </code></td><td><code>&nbsp #&nbsp 684</code></td></tr>
-<tr><td><code><i> 21996</i> </code></td><td><code>&nbsp tempBSEL0.Val&nbsp =&nbsp BSEL0&nbsp&rsaquo &rsaquo &nbsp 1;</code></td></tr>
-<tr><td><code><i> 21997</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 21998</i> </code></td><td><code>&nbsp for&nbsp (&nbsp i&nbsp =&nbsp 0;&nbsp i&nbsp&lsaquo &nbsp buffers;&nbsp i++&nbsp )</code></td></tr>
-<tr><td><code><i> 21999</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22000</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i> 22001</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22002</i> </code></td><td><code>&nbsp #&nbsp 693</code></td></tr>
-<tr><td><code><i> 22003</i> </code></td><td><code>&nbsp ptr&nbsp =&nbsp pb[i];</code></td></tr>
-<tr><td><code><i> 22004</i> </code></td><td><code>&nbsp tempPtr&nbsp =&nbsp ptr;</code></td></tr>
+<tr><td><code><i> 21995</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21996</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 21997</i> </code></td><td><code>&nbsp mode&nbsp =&nbsp ECANCON&0xC0;</code></td></tr>
+<tr><td><code><i> 21998</i> </code></td><td><code>&nbsp if&nbsp (&nbsp mode&nbsp ==&nbsp 0x00&nbsp )</code></td></tr>
+<tr><td><code><i> 21999</i> </code></td><td><code>&nbsp buffers&nbsp =&nbsp 2;</code></td></tr>
+<tr><td><code><i> 22000</i> </code></td><td><code>&nbsp else</code></td></tr>
+<tr><td><code><i> 22001</i> </code></td><td><code>&nbsp buffers&nbsp =&nbsp 8;</code></td></tr>
+<tr><td><code><i> 22002</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22003</i> </code></td><td><code>&nbsp #&nbsp 684</code></td></tr>
+<tr><td><code><i> 22004</i> </code></td><td><code>&nbsp tempBSEL0.Val&nbsp =&nbsp BSEL0&nbsp&rsaquo &rsaquo &nbsp 1;</code></td></tr>
 <tr><td><code><i> 22005</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22006</i> </code></td><td><code>&nbsp #&nbsp 702</code></td></tr>
-<tr><td><code><i> 22007</i> </code></td><td><code>&nbsp if&nbsp (&nbsp i&nbsp&rsaquo &nbsp 2&nbsp )</code></td></tr>
+<tr><td><code><i> 22006</i> </code></td><td><code>&nbsp for&nbsp (&nbsp i&nbsp =&nbsp 0;&nbsp i&nbsp&lsaquo &nbsp buffers;&nbsp i++&nbsp )</code></td></tr>
+<tr><td><code><i> 22007</i> </code></td><td><code>&nbsp </code></td></tr>
 <tr><td><code><i> 22008</i> </code></td><td><code>&nbsp {</code></td></tr>
 <tr><td><code><i> 22009</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22010</i> </code></td><td><code>&nbsp #&nbsp 707</code></td></tr>
-<tr><td><code><i> 22011</i> </code></td><td><code>&nbsp tempBSEL0.Val&nbsp&rsaquo &rsaquo  =&nbsp 1;</code></td></tr>
-<tr><td><code><i> 22012</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22013</i> </code></td><td><code>&nbsp #&nbsp 712</code></td></tr>
-<tr><td><code><i> 22014</i> </code></td><td><code>&nbsp if&nbsp (&nbsp !tempBSEL0.bits.b0&nbsp )</code></td></tr>
-<tr><td><code><i> 22015</i> </code></td><td><code>&nbsp continue;</code></td></tr>
-<tr><td><code><i> 22016</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i> 22010</i> </code></td><td><code>&nbsp #&nbsp 693</code></td></tr>
+<tr><td><code><i> 22011</i> </code></td><td><code>&nbsp ptr&nbsp =&nbsp pb[i];</code></td></tr>
+<tr><td><code><i> 22012</i> </code></td><td><code>&nbsp tempPtr&nbsp =&nbsp ptr;</code></td></tr>
+<tr><td><code><i> 22013</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22014</i> </code></td><td><code>&nbsp #&nbsp 702</code></td></tr>
+<tr><td><code><i> 22015</i> </code></td><td><code>&nbsp if&nbsp (&nbsp i&nbsp&rsaquo &nbsp 2&nbsp )</code></td></tr>
+<tr><td><code><i> 22016</i> </code></td><td><code>&nbsp {</code></td></tr>
 <tr><td><code><i> 22017</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22018</i> </code></td><td><code>&nbsp #&nbsp 720</code></td></tr>
-<tr><td><code><i> 22019</i> </code></td><td><code>&nbsp if&nbsp (&nbsp !(*ptr&nbsp &&nbsp 0x08)&nbsp )</code></td></tr>
-<tr><td><code><i> 22020</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i> 22021</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22022</i> </code></td><td><code>&nbsp *ptr&nbsp &=&nbsp ~ECAN_TX_PRIORITY_BITS;</code></td></tr>
-<tr><td><code><i> 22023</i> </code></td><td><code>&nbsp *ptr&nbsp |=&nbsp msgFlags&nbsp &&nbsp ECAN_TX_PRIORITY_BITS;</code></td></tr>
-<tr><td><code><i> 22024</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22018</i> </code></td><td><code>&nbsp #&nbsp 707</code></td></tr>
+<tr><td><code><i> 22019</i> </code></td><td><code>&nbsp tempBSEL0.Val&nbsp&rsaquo &rsaquo  =&nbsp 1;</code></td></tr>
+<tr><td><code><i> 22020</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22021</i> </code></td><td><code>&nbsp #&nbsp 712</code></td></tr>
+<tr><td><code><i> 22022</i> </code></td><td><code>&nbsp if&nbsp (&nbsp !tempBSEL0.bits.b0&nbsp )</code></td></tr>
+<tr><td><code><i> 22023</i> </code></td><td><code>&nbsp continue;</code></td></tr>
+<tr><td><code><i> 22024</i> </code></td><td><code>&nbsp }</code></td></tr>
 <tr><td><code><i> 22025</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22026</i> </code></td><td><code>&nbsp if&nbsp (&nbsp msgFlags&nbsp &&nbsp ECAN_TX_RTR_BIT&nbsp )</code></td></tr>
-<tr><td><code><i> 22027</i> </code></td><td><code>&nbsp temp&nbsp =&nbsp 0x40&nbsp |&nbsp dataLen;</code></td></tr>
-<tr><td><code><i> 22028</i> </code></td><td><code>&nbsp else</code></td></tr>
-<tr><td><code><i> 22029</i> </code></td><td><code>&nbsp temp&nbsp =&nbsp dataLen;</code></td></tr>
-<tr><td><code><i> 22030</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22031</i> </code></td><td><code>&nbsp *(ptr+5)&nbsp =&nbsp temp;</code></td></tr>
+<tr><td><code><i> 22026</i> </code></td><td><code>&nbsp #&nbsp 720</code></td></tr>
+<tr><td><code><i> 22027</i> </code></td><td><code>&nbsp if&nbsp (&nbsp !(*ptr&nbsp &&nbsp 0x08)&nbsp )</code></td></tr>
+<tr><td><code><i> 22028</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i> 22029</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22030</i> </code></td><td><code>&nbsp *ptr&nbsp &=&nbsp ~ECAN_TX_PRIORITY_BITS;</code></td></tr>
+<tr><td><code><i> 22031</i> </code></td><td><code>&nbsp *ptr&nbsp |=&nbsp msgFlags&nbsp &&nbsp ECAN_TX_PRIORITY_BITS;</code></td></tr>
 <tr><td><code><i> 22032</i> </code></td><td><code>&nbsp </code></td></tr>
 <tr><td><code><i> 22033</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22034</i> </code></td><td><code>&nbsp if&nbsp (&nbsp msgFlags&nbsp &&nbsp ECAN_TX_FRAME_BIT&nbsp )</code></td></tr>
-<tr><td><code><i> 22035</i> </code></td><td><code>&nbsp temp&nbsp =&nbsp 1;</code></td></tr>
-<tr><td><code><i> 22036</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22037</i> </code></td><td><code>&nbsp else</code></td></tr>
-<tr><td><code><i> 22038</i> </code></td><td><code>&nbsp temp&nbsp =&nbsp 0;</code></td></tr>
-<tr><td><code><i> 22039</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22034</i> </code></td><td><code>&nbsp if&nbsp (&nbsp msgFlags&nbsp &&nbsp ECAN_TX_RTR_BIT&nbsp )</code></td></tr>
+<tr><td><code><i> 22035</i> </code></td><td><code>&nbsp temp&nbsp =&nbsp 0x40&nbsp |&nbsp dataLen;</code></td></tr>
+<tr><td><code><i> 22036</i> </code></td><td><code>&nbsp else</code></td></tr>
+<tr><td><code><i> 22037</i> </code></td><td><code>&nbsp temp&nbsp =&nbsp dataLen;</code></td></tr>
+<tr><td><code><i> 22038</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22039</i> </code></td><td><code>&nbsp *(ptr+5)&nbsp =&nbsp temp;</code></td></tr>
 <tr><td><code><i> 22040</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22041</i> </code></td><td><code>&nbsp _CANIDToRegs((BYTE*)(ptr+1),&nbsp id,&nbsp temp);</code></td></tr>
-<tr><td><code><i> 22042</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22043</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22044</i> </code></td><td><code>&nbsp ptr&nbsp +=&nbsp 6;</code></td></tr>
-<tr><td><code><i> 22045</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22046</i> </code></td><td><code>&nbsp for&nbsp (&nbsp j&nbsp =&nbsp 0&nbsp ;&nbsp j&nbsp&lsaquo &nbsp dataLen;&nbsp j++&nbsp )</code></td></tr>
-<tr><td><code><i> 22047</i> </code></td><td><code>&nbsp *ptr++&nbsp =&nbsp *data++;</code></td></tr>
+<tr><td><code><i> 22041</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22042</i> </code></td><td><code>&nbsp if&nbsp (&nbsp msgFlags&nbsp &&nbsp ECAN_TX_FRAME_BIT&nbsp )</code></td></tr>
+<tr><td><code><i> 22043</i> </code></td><td><code>&nbsp temp&nbsp =&nbsp 1;</code></td></tr>
+<tr><td><code><i> 22044</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22045</i> </code></td><td><code>&nbsp else</code></td></tr>
+<tr><td><code><i> 22046</i> </code></td><td><code>&nbsp temp&nbsp =&nbsp 0;</code></td></tr>
+<tr><td><code><i> 22047</i> </code></td><td><code>&nbsp </code></td></tr>
 <tr><td><code><i> 22048</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22049</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22049</i> </code></td><td><code>&nbsp _CANIDToRegs((BYTE*)(ptr+1),&nbsp id,&nbsp temp);</code></td></tr>
 <tr><td><code><i> 22050</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22051</i> </code></td><td><code>&nbsp if&nbsp (&nbsp !(*tempPtr&nbsp &&nbsp 0x04)&nbsp )</code></td></tr>
-<tr><td><code><i> 22052</i> </code></td><td><code>&nbsp *tempPtr&nbsp |=&nbsp 0x08;</code></td></tr>
+<tr><td><code><i> 22051</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22052</i> </code></td><td><code>&nbsp ptr&nbsp +=&nbsp 6;</code></td></tr>
 <tr><td><code><i> 22053</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22054</i> </code></td><td><code>&nbsp return&nbsp TRUE;</code></td></tr>
-<tr><td><code><i> 22055</i> </code></td><td><code>&nbsp }</code></td></tr>
-<tr><td><code><i> 22056</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i> 22054</i> </code></td><td><code>&nbsp for&nbsp (&nbsp j&nbsp =&nbsp 0&nbsp ;&nbsp j&nbsp&lsaquo &nbsp dataLen;&nbsp j++&nbsp )</code></td></tr>
+<tr><td><code><i> 22055</i> </code></td><td><code>&nbsp *ptr++&nbsp =&nbsp *data++;</code></td></tr>
+<tr><td><code><i> 22056</i> </code></td><td><code>&nbsp </code></td></tr>
 <tr><td><code><i> 22057</i> </code></td><td><code>&nbsp </code></td></tr>
 <tr><td><code><i> 22058</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22059</i> </code></td><td><code>&nbsp return&nbsp FALSE;</code></td></tr>
-<tr><td><code><i> 22060</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i> 22059</i> </code></td><td><code>&nbsp if&nbsp (&nbsp !(*tempPtr&nbsp &&nbsp 0x04)&nbsp )</code></td></tr>
+<tr><td><code><i> 22060</i> </code></td><td><code>&nbsp *tempPtr&nbsp |=&nbsp 0x08;</code></td></tr>
 <tr><td><code><i> 22061</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22062</i> </code></td><td><code>&nbsp #&nbsp 799</code></td></tr>
-<tr><td><code><i> 22063</i> </code></td><td><code>&nbsp BOOL&nbsp ECANReceiveMessage(unsigned&nbsp long&nbsp *id,</code></td></tr>
-<tr><td><code><i> 22064</i> </code></td><td><code>&nbsp BYTE&nbsp *data,</code></td></tr>
-<tr><td><code><i> 22065</i> </code></td><td><code>&nbsp BYTE&nbsp *dataLen,</code></td></tr>
-<tr><td><code><i> 22066</i> </code></td><td><code>&nbsp ECAN_RX_MSG_FLAGS&nbsp *msgFlags)</code></td></tr>
-<tr><td><code><i> 22067</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i> 22068</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22069</i> </code></td><td><code>&nbsp BYTE&nbsp mode;</code></td></tr>
-<tr><td><code><i> 22070</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22071</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22072</i> </code></td><td><code>&nbsp BYTE&nbsp *ptr,&nbsp *savedPtr;</code></td></tr>
-<tr><td><code><i> 22073</i> </code></td><td><code>&nbsp char&nbsp i;</code></td></tr>
-<tr><td><code><i> 22074</i> </code></td><td><code>&nbsp BYTE_VAL&nbsp temp;</code></td></tr>
-<tr><td><code><i> 22075</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22076</i> </code></td><td><code>&nbsp _ECANRxFilterHitInfo.Val&nbsp =&nbsp 0;</code></td></tr>
-<tr><td><code><i> 22077</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22062</i> </code></td><td><code>&nbsp return&nbsp TRUE;</code></td></tr>
+<tr><td><code><i> 22063</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i> 22064</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i> 22065</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22066</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22067</i> </code></td><td><code>&nbsp return&nbsp FALSE;</code></td></tr>
+<tr><td><code><i> 22068</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i> 22069</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22070</i> </code></td><td><code>&nbsp #&nbsp 799</code></td></tr>
+<tr><td><code><i> 22071</i> </code></td><td><code>&nbsp BOOL&nbsp ECANReceiveMessage(unsigned&nbsp long&nbsp *id,</code></td></tr>
+<tr><td><code><i> 22072</i> </code></td><td><code>&nbsp BYTE&nbsp *data,</code></td></tr>
+<tr><td><code><i> 22073</i> </code></td><td><code>&nbsp BYTE&nbsp *dataLen,</code></td></tr>
+<tr><td><code><i> 22074</i> </code></td><td><code>&nbsp ECAN_RX_MSG_FLAGS&nbsp *msgFlags)</code></td></tr>
+<tr><td><code><i> 22075</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i> 22076</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22077</i> </code></td><td><code>&nbsp BYTE&nbsp mode;</code></td></tr>
 <tr><td><code><i> 22078</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22079</i> </code></td><td><code>&nbsp mode&nbsp =&nbsp ECANCON&0xC0;</code></td></tr>
-<tr><td><code><i> 22080</i> </code></td><td><code>&nbsp if&nbsp (&nbsp mode&nbsp ==&nbsp 0x00&nbsp )</code></td></tr>
-<tr><td><code><i> 22081</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22082</i> </code></td><td><code>&nbsp #&nbsp 822</code></td></tr>
-<tr><td><code><i> 22083</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i> 22084</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22085</i> </code></td><td><code>&nbsp if&nbsp (&nbsp RXB0FUL&nbsp )</code></td></tr>
-<tr><td><code><i> 22086</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i> 22087</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22088</i> </code></td><td><code>&nbsp RXB0IF&nbsp =&nbsp 0;</code></td></tr>
+<tr><td><code><i> 22079</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22080</i> </code></td><td><code>&nbsp BYTE&nbsp *ptr,&nbsp *savedPtr;</code></td></tr>
+<tr><td><code><i> 22081</i> </code></td><td><code>&nbsp char&nbsp i;</code></td></tr>
+<tr><td><code><i> 22082</i> </code></td><td><code>&nbsp BYTE_VAL&nbsp temp;</code></td></tr>
+<tr><td><code><i> 22083</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22084</i> </code></td><td><code>&nbsp _ECANRxFilterHitInfo.Val&nbsp =&nbsp 0;</code></td></tr>
+<tr><td><code><i> 22085</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22086</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22087</i> </code></td><td><code>&nbsp mode&nbsp =&nbsp ECANCON&0xC0;</code></td></tr>
+<tr><td><code><i> 22088</i> </code></td><td><code>&nbsp if&nbsp (&nbsp mode&nbsp ==&nbsp 0x00&nbsp )</code></td></tr>
 <tr><td><code><i> 22089</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22090</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22091</i> </code></td><td><code>&nbsp if&nbsp (&nbsp RXB0OVFL&nbsp )</code></td></tr>
-<tr><td><code><i> 22092</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i> 22093</i> </code></td><td><code>&nbsp *msgFlags&nbsp |=&nbsp ECAN_RX_OVERFLOW;</code></td></tr>
-<tr><td><code><i> 22094</i> </code></td><td><code>&nbsp RXB0OVFL&nbsp =&nbsp 0;</code></td></tr>
-<tr><td><code><i> 22095</i> </code></td><td><code>&nbsp }</code></td></tr>
-<tr><td><code><i> 22096</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22097</i> </code></td><td><code>&nbsp _ECANRxFilterHitInfo.bits.b0&nbsp =&nbsp RXB0FILHIT0;</code></td></tr>
+<tr><td><code><i> 22090</i> </code></td><td><code>&nbsp #&nbsp 822</code></td></tr>
+<tr><td><code><i> 22091</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i> 22092</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22093</i> </code></td><td><code>&nbsp if&nbsp (&nbsp RXB0FUL&nbsp )</code></td></tr>
+<tr><td><code><i> 22094</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i> 22095</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22096</i> </code></td><td><code>&nbsp RXB0IF&nbsp =&nbsp 0;</code></td></tr>
+<tr><td><code><i> 22097</i> </code></td><td><code>&nbsp </code></td></tr>
 <tr><td><code><i> 22098</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22099</i> </code></td><td><code>&nbsp ptr&nbsp =&nbsp (BYTE*)&RXB0CON;</code></td></tr>
-<tr><td><code><i> 22100</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22101</i> </code></td><td><code>&nbsp }</code></td></tr>
-<tr><td><code><i> 22102</i> </code></td><td><code>&nbsp else&nbsp if&nbsp (&nbsp RXB1CONbits.RXFUL&nbsp )</code></td></tr>
-<tr><td><code><i> 22103</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i> 22099</i> </code></td><td><code>&nbsp if&nbsp (&nbsp RXB0OVFL&nbsp )</code></td></tr>
+<tr><td><code><i> 22100</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i> 22101</i> </code></td><td><code>&nbsp *msgFlags&nbsp |=&nbsp ECAN_RX_OVERFLOW;</code></td></tr>
+<tr><td><code><i> 22102</i> </code></td><td><code>&nbsp RXB0OVFL&nbsp =&nbsp 0;</code></td></tr>
+<tr><td><code><i> 22103</i> </code></td><td><code>&nbsp }</code></td></tr>
 <tr><td><code><i> 22104</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22105</i> </code></td><td><code>&nbsp RXB1IF&nbsp =&nbsp 0;</code></td></tr>
+<tr><td><code><i> 22105</i> </code></td><td><code>&nbsp _ECANRxFilterHitInfo.bits.b0&nbsp =&nbsp RXB0FILHIT0;</code></td></tr>
 <tr><td><code><i> 22106</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22107</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22108</i> </code></td><td><code>&nbsp if&nbsp (&nbsp RXB1OVFL&nbsp )</code></td></tr>
-<tr><td><code><i> 22109</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i> 22110</i> </code></td><td><code>&nbsp *msgFlags&nbsp |=&nbsp ECAN_RX_OVERFLOW;</code></td></tr>
-<tr><td><code><i> 22111</i> </code></td><td><code>&nbsp RXB1OVFL&nbsp =&nbsp 0;</code></td></tr>
-<tr><td><code><i> 22112</i> </code></td><td><code>&nbsp }</code></td></tr>
-<tr><td><code><i> 22113</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22114</i> </code></td><td><code>&nbsp _ECANRxFilterHitInfo.Val&nbsp =&nbsp RXB1CON&nbsp &&nbsp 0x07;</code></td></tr>
+<tr><td><code><i> 22107</i> </code></td><td><code>&nbsp ptr&nbsp =&nbsp (BYTE*)&RXB0CON;</code></td></tr>
+<tr><td><code><i> 22108</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22109</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i> 22110</i> </code></td><td><code>&nbsp else&nbsp if&nbsp (&nbsp RXB1CONbits.RXFUL&nbsp )</code></td></tr>
+<tr><td><code><i> 22111</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i> 22112</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22113</i> </code></td><td><code>&nbsp RXB1IF&nbsp =&nbsp 0;</code></td></tr>
+<tr><td><code><i> 22114</i> </code></td><td><code>&nbsp </code></td></tr>
 <tr><td><code><i> 22115</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22116</i> </code></td><td><code>&nbsp if&nbsp (&nbsp _ECANRxFilterHitInfo.Val&nbsp&lsaquo &nbsp 0x02&nbsp )</code></td></tr>
-<tr><td><code><i> 22117</i> </code></td><td><code>&nbsp *msgFlags&nbsp |=&nbsp ECAN_RX_DBL_BUFFERED;</code></td></tr>
-<tr><td><code><i> 22118</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22119</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22120</i> </code></td><td><code>&nbsp ptr&nbsp =&nbsp (BYTE*)&RXB1CON;</code></td></tr>
-<tr><td><code><i> 22121</i> </code></td><td><code>&nbsp }</code></td></tr>
-<tr><td><code><i> 22122</i> </code></td><td><code>&nbsp else</code></td></tr>
-<tr><td><code><i> 22123</i> </code></td><td><code>&nbsp return&nbsp FALSE;</code></td></tr>
-<tr><td><code><i> 22124</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22125</i> </code></td><td><code>&nbsp goto&nbsp _SaveMessage;</code></td></tr>
-<tr><td><code><i> 22126</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i> 22116</i> </code></td><td><code>&nbsp if&nbsp (&nbsp RXB1OVFL&nbsp )</code></td></tr>
+<tr><td><code><i> 22117</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i> 22118</i> </code></td><td><code>&nbsp *msgFlags&nbsp |=&nbsp ECAN_RX_OVERFLOW;</code></td></tr>
+<tr><td><code><i> 22119</i> </code></td><td><code>&nbsp RXB1OVFL&nbsp =&nbsp 0;</code></td></tr>
+<tr><td><code><i> 22120</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i> 22121</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22122</i> </code></td><td><code>&nbsp _ECANRxFilterHitInfo.Val&nbsp =&nbsp RXB1CON&nbsp &&nbsp 0x07;</code></td></tr>
+<tr><td><code><i> 22123</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22124</i> </code></td><td><code>&nbsp if&nbsp (&nbsp _ECANRxFilterHitInfo.Val&nbsp&lsaquo &nbsp 0x02&nbsp )</code></td></tr>
+<tr><td><code><i> 22125</i> </code></td><td><code>&nbsp *msgFlags&nbsp |=&nbsp ECAN_RX_DBL_BUFFERED;</code></td></tr>
+<tr><td><code><i> 22126</i> </code></td><td><code>&nbsp </code></td></tr>
 <tr><td><code><i> 22127</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22128</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22129</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22130</i> </code></td><td><code>&nbsp else&nbsp if&nbsp (&nbsp mode&nbsp ==&nbsp 0x40&nbsp )</code></td></tr>
-<tr><td><code><i> 22131</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22132</i> </code></td><td><code>&nbsp #&nbsp 875</code></td></tr>
-<tr><td><code><i> 22133</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i> 22134</i> </code></td><td><code>&nbsp if&nbsp (&nbsp RXB0FUL&nbsp )</code></td></tr>
-<tr><td><code><i> 22135</i> </code></td><td><code>&nbsp ptr&nbsp =&nbsp (BYTE*)&RXB0CON;</code></td></tr>
+<tr><td><code><i> 22128</i> </code></td><td><code>&nbsp ptr&nbsp =&nbsp (BYTE*)&RXB1CON;</code></td></tr>
+<tr><td><code><i> 22129</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i> 22130</i> </code></td><td><code>&nbsp else</code></td></tr>
+<tr><td><code><i> 22131</i> </code></td><td><code>&nbsp return&nbsp FALSE;</code></td></tr>
+<tr><td><code><i> 22132</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22133</i> </code></td><td><code>&nbsp goto&nbsp _SaveMessage;</code></td></tr>
+<tr><td><code><i> 22134</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i> 22135</i> </code></td><td><code>&nbsp </code></td></tr>
 <tr><td><code><i> 22136</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22137</i> </code></td><td><code>&nbsp else&nbsp if&nbsp (RXB1CONbits.RXFUL)</code></td></tr>
-<tr><td><code><i> 22138</i> </code></td><td><code>&nbsp ptr&nbsp =&nbsp (BYTE*)&RXB1CON;</code></td></tr>
+<tr><td><code><i> 22137</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22138</i> </code></td><td><code>&nbsp else&nbsp if&nbsp (&nbsp mode&nbsp ==&nbsp 0x40&nbsp )</code></td></tr>
 <tr><td><code><i> 22139</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22140</i> </code></td><td><code>&nbsp else&nbsp if&nbsp (&nbsp (B0TXEN==0)&nbsp &&&nbsp B0RXFUL&nbsp )</code></td></tr>
-<tr><td><code><i> 22141</i> </code></td><td><code>&nbsp ptr&nbsp =&nbsp (BYTE*)&B0CON;</code></td></tr>
-<tr><td><code><i> 22142</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22143</i> </code></td><td><code>&nbsp else&nbsp if&nbsp (&nbsp (B1TXEN==0)&nbsp &&&nbsp B1RXFUL&nbsp )</code></td></tr>
-<tr><td><code><i> 22144</i> </code></td><td><code>&nbsp ptr&nbsp =&nbsp (BYTE*)&B1CON;</code></td></tr>
-<tr><td><code><i> 22145</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22146</i> </code></td><td><code>&nbsp else&nbsp if&nbsp (&nbsp (B2TXEN==0)&nbsp &&&nbsp B2RXFUL&nbsp )</code></td></tr>
-<tr><td><code><i> 22147</i> </code></td><td><code>&nbsp ptr&nbsp =&nbsp (BYTE*)&B2CON;</code></td></tr>
-<tr><td><code><i> 22148</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22149</i> </code></td><td><code>&nbsp else&nbsp if&nbsp (&nbsp (B3TXEN==0)&nbsp &&&nbsp B3RXFUL&nbsp )</code></td></tr>
-<tr><td><code><i> 22150</i> </code></td><td><code>&nbsp ptr&nbsp =&nbsp (BYTE*)&B3CON;</code></td></tr>
-<tr><td><code><i> 22151</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22152</i> </code></td><td><code>&nbsp else&nbsp if&nbsp (&nbsp (B4TXEN==0)&nbsp &&&nbsp B4RXFUL&nbsp )</code></td></tr>
-<tr><td><code><i> 22153</i> </code></td><td><code>&nbsp ptr&nbsp =&nbsp (BYTE*)&B4CON;</code></td></tr>
-<tr><td><code><i> 22154</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22155</i> </code></td><td><code>&nbsp else&nbsp if&nbsp (&nbsp (B5TXEN==0)&nbsp &&&nbsp B5RXFUL&nbsp )</code></td></tr>
-<tr><td><code><i> 22156</i> </code></td><td><code>&nbsp ptr&nbsp =&nbsp (BYTE*)&B5CON;</code></td></tr>
-<tr><td><code><i> 22157</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22158</i> </code></td><td><code>&nbsp else</code></td></tr>
-<tr><td><code><i> 22159</i> </code></td><td><code>&nbsp return&nbsp FALSE;</code></td></tr>
-<tr><td><code><i> 22160</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22161</i> </code></td><td><code>&nbsp goto&nbsp _SaveMode12Message;</code></td></tr>
+<tr><td><code><i> 22140</i> </code></td><td><code>&nbsp #&nbsp 875</code></td></tr>
+<tr><td><code><i> 22141</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i> 22142</i> </code></td><td><code>&nbsp if&nbsp (&nbsp RXB0FUL&nbsp )</code></td></tr>
+<tr><td><code><i> 22143</i> </code></td><td><code>&nbsp ptr&nbsp =&nbsp (BYTE*)&RXB0CON;</code></td></tr>
+<tr><td><code><i> 22144</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22145</i> </code></td><td><code>&nbsp else&nbsp if&nbsp (RXB1CONbits.RXFUL)</code></td></tr>
+<tr><td><code><i> 22146</i> </code></td><td><code>&nbsp ptr&nbsp =&nbsp (BYTE*)&RXB1CON;</code></td></tr>
+<tr><td><code><i> 22147</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22148</i> </code></td><td><code>&nbsp else&nbsp if&nbsp (&nbsp (B0TXEN==0)&nbsp &&&nbsp B0RXFUL&nbsp )</code></td></tr>
+<tr><td><code><i> 22149</i> </code></td><td><code>&nbsp ptr&nbsp =&nbsp (BYTE*)&B0CON;</code></td></tr>
+<tr><td><code><i> 22150</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22151</i> </code></td><td><code>&nbsp else&nbsp if&nbsp (&nbsp (B1TXEN==0)&nbsp &&&nbsp B1RXFUL&nbsp )</code></td></tr>
+<tr><td><code><i> 22152</i> </code></td><td><code>&nbsp ptr&nbsp =&nbsp (BYTE*)&B1CON;</code></td></tr>
+<tr><td><code><i> 22153</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22154</i> </code></td><td><code>&nbsp else&nbsp if&nbsp (&nbsp (B2TXEN==0)&nbsp &&&nbsp B2RXFUL&nbsp )</code></td></tr>
+<tr><td><code><i> 22155</i> </code></td><td><code>&nbsp ptr&nbsp =&nbsp (BYTE*)&B2CON;</code></td></tr>
+<tr><td><code><i> 22156</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22157</i> </code></td><td><code>&nbsp else&nbsp if&nbsp (&nbsp (B3TXEN==0)&nbsp &&&nbsp B3RXFUL&nbsp )</code></td></tr>
+<tr><td><code><i> 22158</i> </code></td><td><code>&nbsp ptr&nbsp =&nbsp (BYTE*)&B3CON;</code></td></tr>
+<tr><td><code><i> 22159</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22160</i> </code></td><td><code>&nbsp else&nbsp if&nbsp (&nbsp (B4TXEN==0)&nbsp &&&nbsp B4RXFUL&nbsp )</code></td></tr>
+<tr><td><code><i> 22161</i> </code></td><td><code>&nbsp ptr&nbsp =&nbsp (BYTE*)&B4CON;</code></td></tr>
 <tr><td><code><i> 22162</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22163</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22164</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i> 22163</i> </code></td><td><code>&nbsp else&nbsp if&nbsp (&nbsp (B5TXEN==0)&nbsp &&&nbsp B5RXFUL&nbsp )</code></td></tr>
+<tr><td><code><i> 22164</i> </code></td><td><code>&nbsp ptr&nbsp =&nbsp (BYTE*)&B5CON;</code></td></tr>
 <tr><td><code><i> 22165</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22166</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22167</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22168</i> </code></td><td><code>&nbsp else</code></td></tr>
-<tr><td><code><i> 22169</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22170</i> </code></td><td><code>&nbsp #&nbsp 915</code></td></tr>
-<tr><td><code><i> 22171</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i> 22172</i> </code></td><td><code>&nbsp if&nbsp (&nbsp FIFOEMPTY&nbsp ==&nbsp 1&nbsp )</code></td></tr>
-<tr><td><code><i> 22173</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i> 22174</i> </code></td><td><code>&nbsp ptr&nbsp =&nbsp (BYTE*)_ECANPointBuffer(CANCON&0x07);</code></td></tr>
+<tr><td><code><i> 22166</i> </code></td><td><code>&nbsp else</code></td></tr>
+<tr><td><code><i> 22167</i> </code></td><td><code>&nbsp return&nbsp FALSE;</code></td></tr>
+<tr><td><code><i> 22168</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22169</i> </code></td><td><code>&nbsp goto&nbsp _SaveMode12Message;</code></td></tr>
+<tr><td><code><i> 22170</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22171</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22172</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i> 22173</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22174</i> </code></td><td><code>&nbsp </code></td></tr>
 <tr><td><code><i> 22175</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22176</i> </code></td><td><code>&nbsp goto&nbsp _SaveMode12Message;</code></td></tr>
-<tr><td><code><i> 22177</i> </code></td><td><code>&nbsp }</code></td></tr>
-<tr><td><code><i> 22178</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22179</i> </code></td><td><code>&nbsp return&nbsp FALSE;</code></td></tr>
-<tr><td><code><i> 22180</i> </code></td><td><code>&nbsp }</code></td></tr>
-<tr><td><code><i> 22181</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22182</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22176</i> </code></td><td><code>&nbsp else</code></td></tr>
+<tr><td><code><i> 22177</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22178</i> </code></td><td><code>&nbsp #&nbsp 915</code></td></tr>
+<tr><td><code><i> 22179</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i> 22180</i> </code></td><td><code>&nbsp if&nbsp (&nbsp FIFOEMPTY&nbsp ==&nbsp 1&nbsp )</code></td></tr>
+<tr><td><code><i> 22181</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i> 22182</i> </code></td><td><code>&nbsp ptr&nbsp =&nbsp (BYTE*)_ECANPointBuffer(CANCON&0x07);</code></td></tr>
 <tr><td><code><i> 22183</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22184</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22185</i> </code></td><td><code>&nbsp _SaveMode12Message:</code></td></tr>
-<tr><td><code><i> 22186</i> </code></td><td><code>&nbsp _ECANRxFilterHitInfo.Val&nbsp =&nbsp *ptr&nbsp &&nbsp 0x1f;</code></td></tr>
-<tr><td><code><i> 22187</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22188</i> </code></td><td><code>&nbsp RXB1IF&nbsp =&nbsp 0;</code></td></tr>
+<tr><td><code><i> 22184</i> </code></td><td><code>&nbsp goto&nbsp _SaveMode12Message;</code></td></tr>
+<tr><td><code><i> 22185</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i> 22186</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22187</i> </code></td><td><code>&nbsp return&nbsp FALSE;</code></td></tr>
+<tr><td><code><i> 22188</i> </code></td><td><code>&nbsp }</code></td></tr>
 <tr><td><code><i> 22189</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22190</i> </code></td><td><code>&nbsp if&nbsp (&nbsp RXB1OVFL&nbsp )</code></td></tr>
-<tr><td><code><i> 22191</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i> 22192</i> </code></td><td><code>&nbsp *msgFlags&nbsp |=&nbsp ECAN_RX_OVERFLOW;</code></td></tr>
-<tr><td><code><i> 22193</i> </code></td><td><code>&nbsp RXB1OVFL&nbsp =&nbsp 0;</code></td></tr>
-<tr><td><code><i> 22194</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i> 22190</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22191</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22192</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22193</i> </code></td><td><code>&nbsp _SaveMode12Message:</code></td></tr>
+<tr><td><code><i> 22194</i> </code></td><td><code>&nbsp _ECANRxFilterHitInfo.Val&nbsp =&nbsp *ptr&nbsp &&nbsp 0x1f;</code></td></tr>
 <tr><td><code><i> 22195</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22196</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22197</i> </code></td><td><code>&nbsp _SaveMessage:</code></td></tr>
-<tr><td><code><i> 22198</i> </code></td><td><code>&nbsp savedPtr&nbsp =&nbsp ptr;</code></td></tr>
-<tr><td><code><i> 22199</i> </code></td><td><code>&nbsp *msgFlags&nbsp =&nbsp 0;</code></td></tr>
-<tr><td><code><i> 22200</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22201</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22202</i> </code></td><td><code>&nbsp temp.Val&nbsp =&nbsp *(ptr+5);</code></td></tr>
-<tr><td><code><i> 22203</i> </code></td><td><code>&nbsp *dataLen&nbsp =&nbsp temp.Val&nbsp &&nbsp 0b00001111;</code></td></tr>
+<tr><td><code><i> 22196</i> </code></td><td><code>&nbsp RXB1IF&nbsp =&nbsp 0;</code></td></tr>
+<tr><td><code><i> 22197</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22198</i> </code></td><td><code>&nbsp if&nbsp (&nbsp RXB1OVFL&nbsp )</code></td></tr>
+<tr><td><code><i> 22199</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i> 22200</i> </code></td><td><code>&nbsp *msgFlags&nbsp |=&nbsp ECAN_RX_OVERFLOW;</code></td></tr>
+<tr><td><code><i> 22201</i> </code></td><td><code>&nbsp RXB1OVFL&nbsp =&nbsp 0;</code></td></tr>
+<tr><td><code><i> 22202</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i> 22203</i> </code></td><td><code>&nbsp </code></td></tr>
 <tr><td><code><i> 22204</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22205</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22206</i> </code></td><td><code>&nbsp if&nbsp (&nbsp temp.bits.b6&nbsp )</code></td></tr>
-<tr><td><code><i> 22207</i> </code></td><td><code>&nbsp *msgFlags&nbsp |=&nbsp ECAN_RX_RTR_FRAME;</code></td></tr>
+<tr><td><code><i> 22205</i> </code></td><td><code>&nbsp _SaveMessage:</code></td></tr>
+<tr><td><code><i> 22206</i> </code></td><td><code>&nbsp savedPtr&nbsp =&nbsp ptr;</code></td></tr>
+<tr><td><code><i> 22207</i> </code></td><td><code>&nbsp *msgFlags&nbsp =&nbsp 0;</code></td></tr>
 <tr><td><code><i> 22208</i> </code></td><td><code>&nbsp </code></td></tr>
 <tr><td><code><i> 22209</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22210</i> </code></td><td><code>&nbsp temp.Val&nbsp =&nbsp *(ptr+2);</code></td></tr>
-<tr><td><code><i> 22211</i> </code></td><td><code>&nbsp if&nbsp (&nbsp temp.bits.b3&nbsp )</code></td></tr>
-<tr><td><code><i> 22212</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i> 22213</i> </code></td><td><code>&nbsp *msgFlags&nbsp |=&nbsp ECAN_RX_XTD_FRAME;</code></td></tr>
-<tr><td><code><i> 22214</i> </code></td><td><code>&nbsp temp.Val&nbsp =&nbsp 1;</code></td></tr>
-<tr><td><code><i> 22215</i> </code></td><td><code>&nbsp }</code></td></tr>
-<tr><td><code><i> 22216</i> </code></td><td><code>&nbsp else</code></td></tr>
-<tr><td><code><i> 22217</i> </code></td><td><code>&nbsp temp.Val&nbsp =&nbsp 0;</code></td></tr>
-<tr><td><code><i> 22218</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22219</i> </code></td><td><code>&nbsp _RegsToCANID(ptr+1,&nbsp id,&nbsp temp.Val);</code></td></tr>
-<tr><td><code><i> 22220</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22221</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22222</i> </code></td><td><code>&nbsp ptr&nbsp +=&nbsp 6;</code></td></tr>
-<tr><td><code><i> 22223</i> </code></td><td><code>&nbsp temp.Val&nbsp =&nbsp *dataLen;</code></td></tr>
-<tr><td><code><i> 22224</i> </code></td><td><code>&nbsp for&nbsp (&nbsp i&nbsp =&nbsp 0;&nbsp i&nbsp&lsaquo &nbsp temp.Val;&nbsp i++&nbsp )</code></td></tr>
-<tr><td><code><i> 22225</i> </code></td><td><code>&nbsp *data++&nbsp =&nbsp *ptr++;</code></td></tr>
+<tr><td><code><i> 22210</i> </code></td><td><code>&nbsp temp.Val&nbsp =&nbsp *(ptr+5);</code></td></tr>
+<tr><td><code><i> 22211</i> </code></td><td><code>&nbsp *dataLen&nbsp =&nbsp temp.Val&nbsp &&nbsp 0b00001111;</code></td></tr>
+<tr><td><code><i> 22212</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22213</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22214</i> </code></td><td><code>&nbsp if&nbsp (&nbsp temp.bits.b6&nbsp )</code></td></tr>
+<tr><td><code><i> 22215</i> </code></td><td><code>&nbsp *msgFlags&nbsp |=&nbsp ECAN_RX_RTR_FRAME;</code></td></tr>
+<tr><td><code><i> 22216</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22217</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22218</i> </code></td><td><code>&nbsp temp.Val&nbsp =&nbsp *(ptr+2);</code></td></tr>
+<tr><td><code><i> 22219</i> </code></td><td><code>&nbsp if&nbsp (&nbsp temp.bits.b3&nbsp )</code></td></tr>
+<tr><td><code><i> 22220</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i> 22221</i> </code></td><td><code>&nbsp *msgFlags&nbsp |=&nbsp ECAN_RX_XTD_FRAME;</code></td></tr>
+<tr><td><code><i> 22222</i> </code></td><td><code>&nbsp temp.Val&nbsp =&nbsp 1;</code></td></tr>
+<tr><td><code><i> 22223</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i> 22224</i> </code></td><td><code>&nbsp else</code></td></tr>
+<tr><td><code><i> 22225</i> </code></td><td><code>&nbsp temp.Val&nbsp =&nbsp 0;</code></td></tr>
 <tr><td><code><i> 22226</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22227</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22228</i> </code></td><td><code>&nbsp if&nbsp (&nbsp IRXIF&nbsp )</code></td></tr>
-<tr><td><code><i> 22229</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i> 22230</i> </code></td><td><code>&nbsp *msgFlags&nbsp |=&nbsp ECAN_RX_INVALID_MSG;</code></td></tr>
-<tr><td><code><i> 22231</i> </code></td><td><code>&nbsp IRXIF&nbsp =&nbsp 0;</code></td></tr>
-<tr><td><code><i> 22232</i> </code></td><td><code>&nbsp }</code></td></tr>
-<tr><td><code><i> 22233</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22227</i> </code></td><td><code>&nbsp _RegsToCANID(ptr+1,&nbsp id,&nbsp temp.Val);</code></td></tr>
+<tr><td><code><i> 22228</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22229</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22230</i> </code></td><td><code>&nbsp ptr&nbsp +=&nbsp 6;</code></td></tr>
+<tr><td><code><i> 22231</i> </code></td><td><code>&nbsp temp.Val&nbsp =&nbsp *dataLen;</code></td></tr>
+<tr><td><code><i> 22232</i> </code></td><td><code>&nbsp for&nbsp (&nbsp i&nbsp =&nbsp 0;&nbsp i&nbsp&lsaquo &nbsp temp.Val;&nbsp i++&nbsp )</code></td></tr>
+<tr><td><code><i> 22233</i> </code></td><td><code>&nbsp *data++&nbsp =&nbsp *ptr++;</code></td></tr>
 <tr><td><code><i> 22234</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22235</i> </code></td><td><code>&nbsp *savedPtr&nbsp &=&nbsp 0x7f;</code></td></tr>
-<tr><td><code><i> 22236</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22237</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22238</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22239</i> </code></td><td><code>&nbsp if&nbsp (&nbsp mode&nbsp ==&nbsp 0x80&nbsp )</code></td></tr>
-<tr><td><code><i> 22240</i> </code></td><td><code>&nbsp FIFOEMPTY&nbsp =&nbsp 0;</code></td></tr>
+<tr><td><code><i> 22235</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22236</i> </code></td><td><code>&nbsp if&nbsp (&nbsp IRXIF&nbsp )</code></td></tr>
+<tr><td><code><i> 22237</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i> 22238</i> </code></td><td><code>&nbsp *msgFlags&nbsp |=&nbsp ECAN_RX_INVALID_MSG;</code></td></tr>
+<tr><td><code><i> 22239</i> </code></td><td><code>&nbsp IRXIF&nbsp =&nbsp 0;</code></td></tr>
+<tr><td><code><i> 22240</i> </code></td><td><code>&nbsp }</code></td></tr>
 <tr><td><code><i> 22241</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22242</i> </code></td><td><code>&nbsp #&nbsp 990</code></td></tr>
-<tr><td><code><i> 22243</i> </code></td><td><code>&nbsp return&nbsp TRUE;</code></td></tr>
-<tr><td><code><i> 22244</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i> 22242</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22243</i> </code></td><td><code>&nbsp *savedPtr&nbsp &=&nbsp 0x7f;</code></td></tr>
+<tr><td><code><i> 22244</i> </code></td><td><code>&nbsp </code></td></tr>
 <tr><td><code><i> 22245</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22246</i> </code></td><td><code>&nbsp #&nbsp 1011</code></td></tr>
-<tr><td><code><i> 22247</i> </code></td><td><code>&nbsp void&nbsp ECANSetOperationMode(ECAN_OP_MODE&nbsp mode)</code></td></tr>
-<tr><td><code><i> 22248</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i> 22249</i> </code></td><td><code>&nbsp CANCON&nbsp &=&nbsp 0x1F;</code></td></tr>
-<tr><td><code><i> 22250</i> </code></td><td><code>&nbsp CANCON&nbsp |=&nbsp mode;</code></td></tr>
-<tr><td><code><i> 22251</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22252</i> </code></td><td><code>&nbsp while(&nbsp (CANCON&nbsp &&nbsp ECAN_OP_MODE_BITS)&nbsp !=&nbsp mode&nbsp );</code></td></tr>
-<tr><td><code><i> 22253</i> </code></td><td><code>&nbsp }</code></td></tr>
-<tr><td><code><i> 22254</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22255</i> </code></td><td><code>&nbsp #&nbsp 1057</code></td></tr>
-<tr><td><code><i> 22256</i> </code></td><td><code>&nbsp typedef&nbsp union&nbsp _CAN_MESSAGE_ID</code></td></tr>
-<tr><td><code><i> 22257</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i> 22258</i> </code></td><td><code>&nbsp unsigned&nbsp long&nbsp ID;</code></td></tr>
+<tr><td><code><i> 22246</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22247</i> </code></td><td><code>&nbsp if&nbsp (&nbsp mode&nbsp ==&nbsp 0x80&nbsp )</code></td></tr>
+<tr><td><code><i> 22248</i> </code></td><td><code>&nbsp FIFOEMPTY&nbsp =&nbsp 0;</code></td></tr>
+<tr><td><code><i> 22249</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22250</i> </code></td><td><code>&nbsp #&nbsp 990</code></td></tr>
+<tr><td><code><i> 22251</i> </code></td><td><code>&nbsp return&nbsp TRUE;</code></td></tr>
+<tr><td><code><i> 22252</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i> 22253</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22254</i> </code></td><td><code>&nbsp #&nbsp 1011</code></td></tr>
+<tr><td><code><i> 22255</i> </code></td><td><code>&nbsp void&nbsp ECANSetOperationMode(ECAN_OP_MODE&nbsp mode)</code></td></tr>
+<tr><td><code><i> 22256</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i> 22257</i> </code></td><td><code>&nbsp CANCON&nbsp &=&nbsp 0x1F;</code></td></tr>
+<tr><td><code><i> 22258</i> </code></td><td><code>&nbsp CANCON&nbsp |=&nbsp mode;</code></td></tr>
 <tr><td><code><i> 22259</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22260</i> </code></td><td><code>&nbsp struct</code></td></tr>
-<tr><td><code><i> 22261</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i> 22262</i> </code></td><td><code>&nbsp struct</code></td></tr>
-<tr><td><code><i> 22263</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i> 22264</i> </code></td><td><code>&nbsp unsigned&nbsp SIDL:3;</code></td></tr>
-<tr><td><code><i> 22265</i> </code></td><td><code>&nbsp unsigned&nbsp SIDH:5;</code></td></tr>
-<tr><td><code><i> 22266</i> </code></td><td><code>&nbsp }&nbsp BYTE1;</code></td></tr>
-<tr><td><code><i> 22267</i> </code></td><td><code>&nbsp struct</code></td></tr>
-<tr><td><code><i> 22268</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i> 22269</i> </code></td><td><code>&nbsp unsigned&nbsp SIDHU:3;</code></td></tr>
-<tr><td><code><i> 22270</i> </code></td><td><code>&nbsp unsigned&nbsp EIDL_LN:5;</code></td></tr>
-<tr><td><code><i> 22271</i> </code></td><td><code>&nbsp }&nbsp BYTE2;</code></td></tr>
-<tr><td><code><i> 22272</i> </code></td><td><code>&nbsp struct</code></td></tr>
-<tr><td><code><i> 22273</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i> 22274</i> </code></td><td><code>&nbsp unsigned&nbsp EIDL_UN:3;</code></td></tr>
-<tr><td><code><i> 22275</i> </code></td><td><code>&nbsp unsigned&nbsp EIDH_LN:5;</code></td></tr>
-<tr><td><code><i> 22276</i> </code></td><td><code>&nbsp }&nbsp BYTE3;</code></td></tr>
-<tr><td><code><i> 22277</i> </code></td><td><code>&nbsp struct</code></td></tr>
-<tr><td><code><i> 22278</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i> 22279</i> </code></td><td><code>&nbsp unsigned&nbsp EIDH_UN:3;</code></td></tr>
-<tr><td><code><i> 22280</i> </code></td><td><code>&nbsp unsigned&nbsp EIDHU:2;</code></td></tr>
-<tr><td><code><i> 22281</i> </code></td><td><code>&nbsp unsigned&nbsp :3;</code></td></tr>
-<tr><td><code><i> 22282</i> </code></td><td><code>&nbsp }&nbsp BYTE4;</code></td></tr>
-<tr><td><code><i> 22283</i> </code></td><td><code>&nbsp }&nbsp ID_VALS;</code></td></tr>
-<tr><td><code><i> 22284</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22285</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22286</i> </code></td><td><code>&nbsp struct</code></td></tr>
-<tr><td><code><i> 22287</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i> 22288</i> </code></td><td><code>&nbsp BYTE&nbsp BYTE_1;</code></td></tr>
-<tr><td><code><i> 22289</i> </code></td><td><code>&nbsp BYTE&nbsp BYTE_2;</code></td></tr>
-<tr><td><code><i> 22290</i> </code></td><td><code>&nbsp BYTE&nbsp BYTE_3;</code></td></tr>
-<tr><td><code><i> 22291</i> </code></td><td><code>&nbsp BYTE&nbsp BYTE_4;</code></td></tr>
-<tr><td><code><i> 22292</i> </code></td><td><code>&nbsp }&nbsp BYTES;</code></td></tr>
-<tr><td><code><i> 22293</i> </code></td><td><code>&nbsp }&nbsp CAN_MESSAGE_ID;</code></td></tr>
-<tr><td><code><i> 22294</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22295</i> </code></td><td><code>&nbsp void&nbsp _CANIDToRegs(BYTE*&nbsp ptr,</code></td></tr>
-<tr><td><code><i> 22296</i> </code></td><td><code>&nbsp unsigned&nbsp long&nbsp val,</code></td></tr>
-<tr><td><code><i> 22297</i> </code></td><td><code>&nbsp BYTE&nbsp type)</code></td></tr>
-<tr><td><code><i> 22298</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i> 22299</i> </code></td><td><code>&nbsp CAN_MESSAGE_ID&nbsp *Value;</code></td></tr>
-<tr><td><code><i> 22300</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22301</i> </code></td><td><code>&nbsp Value&nbsp =&nbsp (CAN_MESSAGE_ID*)&val;</code></td></tr>
+<tr><td><code><i> 22260</i> </code></td><td><code>&nbsp while(&nbsp (CANCON&nbsp &&nbsp ECAN_OP_MODE_BITS)&nbsp !=&nbsp mode&nbsp );</code></td></tr>
+<tr><td><code><i> 22261</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i> 22262</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22263</i> </code></td><td><code>&nbsp #&nbsp 1057</code></td></tr>
+<tr><td><code><i> 22264</i> </code></td><td><code>&nbsp typedef&nbsp union&nbsp _CAN_MESSAGE_ID</code></td></tr>
+<tr><td><code><i> 22265</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i> 22266</i> </code></td><td><code>&nbsp unsigned&nbsp long&nbsp ID;</code></td></tr>
+<tr><td><code><i> 22267</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22268</i> </code></td><td><code>&nbsp struct</code></td></tr>
+<tr><td><code><i> 22269</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i> 22270</i> </code></td><td><code>&nbsp struct</code></td></tr>
+<tr><td><code><i> 22271</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i> 22272</i> </code></td><td><code>&nbsp unsigned&nbsp SIDL:3;</code></td></tr>
+<tr><td><code><i> 22273</i> </code></td><td><code>&nbsp unsigned&nbsp SIDH:5;</code></td></tr>
+<tr><td><code><i> 22274</i> </code></td><td><code>&nbsp }&nbsp BYTE1;</code></td></tr>
+<tr><td><code><i> 22275</i> </code></td><td><code>&nbsp struct</code></td></tr>
+<tr><td><code><i> 22276</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i> 22277</i> </code></td><td><code>&nbsp unsigned&nbsp SIDHU:3;</code></td></tr>
+<tr><td><code><i> 22278</i> </code></td><td><code>&nbsp unsigned&nbsp EIDL_LN:5;</code></td></tr>
+<tr><td><code><i> 22279</i> </code></td><td><code>&nbsp }&nbsp BYTE2;</code></td></tr>
+<tr><td><code><i> 22280</i> </code></td><td><code>&nbsp struct</code></td></tr>
+<tr><td><code><i> 22281</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i> 22282</i> </code></td><td><code>&nbsp unsigned&nbsp EIDL_UN:3;</code></td></tr>
+<tr><td><code><i> 22283</i> </code></td><td><code>&nbsp unsigned&nbsp EIDH_LN:5;</code></td></tr>
+<tr><td><code><i> 22284</i> </code></td><td><code>&nbsp }&nbsp BYTE3;</code></td></tr>
+<tr><td><code><i> 22285</i> </code></td><td><code>&nbsp struct</code></td></tr>
+<tr><td><code><i> 22286</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i> 22287</i> </code></td><td><code>&nbsp unsigned&nbsp EIDH_UN:3;</code></td></tr>
+<tr><td><code><i> 22288</i> </code></td><td><code>&nbsp unsigned&nbsp EIDHU:2;</code></td></tr>
+<tr><td><code><i> 22289</i> </code></td><td><code>&nbsp unsigned&nbsp :3;</code></td></tr>
+<tr><td><code><i> 22290</i> </code></td><td><code>&nbsp }&nbsp BYTE4;</code></td></tr>
+<tr><td><code><i> 22291</i> </code></td><td><code>&nbsp }&nbsp ID_VALS;</code></td></tr>
+<tr><td><code><i> 22292</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22293</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22294</i> </code></td><td><code>&nbsp struct</code></td></tr>
+<tr><td><code><i> 22295</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i> 22296</i> </code></td><td><code>&nbsp BYTE&nbsp BYTE_1;</code></td></tr>
+<tr><td><code><i> 22297</i> </code></td><td><code>&nbsp BYTE&nbsp BYTE_2;</code></td></tr>
+<tr><td><code><i> 22298</i> </code></td><td><code>&nbsp BYTE&nbsp BYTE_3;</code></td></tr>
+<tr><td><code><i> 22299</i> </code></td><td><code>&nbsp BYTE&nbsp BYTE_4;</code></td></tr>
+<tr><td><code><i> 22300</i> </code></td><td><code>&nbsp }&nbsp BYTES;</code></td></tr>
+<tr><td><code><i> 22301</i> </code></td><td><code>&nbsp }&nbsp CAN_MESSAGE_ID;</code></td></tr>
 <tr><td><code><i> 22302</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22303</i> </code></td><td><code>&nbsp if&nbsp (&nbsp type&nbsp ==&nbsp 0&nbsp )</code></td></tr>
-<tr><td><code><i> 22304</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i> 22305</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22306</i> </code></td><td><code>&nbsp *ptr&nbsp =&nbsp Value-&rsaquo  BYTES.BYTE_1&nbsp&rsaquo &rsaquo &nbsp 3;</code></td></tr>
-<tr><td><code><i> 22307</i> </code></td><td><code>&nbsp *ptr&nbsp |=&nbsp (Value-&rsaquo  BYTES.BYTE_2&nbsp&lsaquo &lsaquo &nbsp 5);</code></td></tr>
-<tr><td><code><i> 22308</i> </code></td><td><code>&nbsp ptr++;</code></td></tr>
-<tr><td><code><i> 22309</i> </code></td><td><code>&nbsp *ptr&nbsp =&nbsp Value-&rsaquo  BYTES.BYTE_1&nbsp&lsaquo &lsaquo &nbsp 5;</code></td></tr>
-<tr><td><code><i> 22310</i> </code></td><td><code>&nbsp }</code></td></tr>
-<tr><td><code><i> 22311</i> </code></td><td><code>&nbsp else</code></td></tr>
+<tr><td><code><i> 22303</i> </code></td><td><code>&nbsp void&nbsp _CANIDToRegs(BYTE*&nbsp ptr,</code></td></tr>
+<tr><td><code><i> 22304</i> </code></td><td><code>&nbsp unsigned&nbsp long&nbsp val,</code></td></tr>
+<tr><td><code><i> 22305</i> </code></td><td><code>&nbsp BYTE&nbsp type)</code></td></tr>
+<tr><td><code><i> 22306</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i> 22307</i> </code></td><td><code>&nbsp CAN_MESSAGE_ID&nbsp *Value;</code></td></tr>
+<tr><td><code><i> 22308</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22309</i> </code></td><td><code>&nbsp Value&nbsp =&nbsp (CAN_MESSAGE_ID*)&val;</code></td></tr>
+<tr><td><code><i> 22310</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22311</i> </code></td><td><code>&nbsp if&nbsp (&nbsp type&nbsp ==&nbsp 0&nbsp )</code></td></tr>
 <tr><td><code><i> 22312</i> </code></td><td><code>&nbsp {</code></td></tr>
 <tr><td><code><i> 22313</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22314</i> </code></td><td><code>&nbsp *ptr&nbsp =&nbsp Value-&rsaquo  BYTES.BYTE_3&nbsp&rsaquo &rsaquo &nbsp 5;</code></td></tr>
-<tr><td><code><i> 22315</i> </code></td><td><code>&nbsp *ptr&nbsp |=&nbsp Value-&rsaquo  BYTES.BYTE_4&nbsp&lsaquo &lsaquo &nbsp 3;</code></td></tr>
+<tr><td><code><i> 22314</i> </code></td><td><code>&nbsp *ptr&nbsp =&nbsp Value-&rsaquo  BYTES.BYTE_1&nbsp&rsaquo &rsaquo &nbsp 3;</code></td></tr>
+<tr><td><code><i> 22315</i> </code></td><td><code>&nbsp *ptr&nbsp |=&nbsp (Value-&rsaquo  BYTES.BYTE_2&nbsp&lsaquo &lsaquo &nbsp 5);</code></td></tr>
 <tr><td><code><i> 22316</i> </code></td><td><code>&nbsp ptr++;</code></td></tr>
-<tr><td><code><i> 22317</i> </code></td><td><code>&nbsp *ptr&nbsp =&nbsp (Value-&rsaquo  BYTES.BYTE_3&nbsp&lsaquo &lsaquo &nbsp 3)&nbsp &&nbsp 0xE0;</code></td></tr>
-<tr><td><code><i> 22318</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22319</i> </code></td><td><code>&nbsp *ptr&nbsp |=&nbsp 0b00001000;</code></td></tr>
-<tr><td><code><i> 22320</i> </code></td><td><code>&nbsp *ptr&nbsp |=&nbsp Value-&rsaquo  BYTES.BYTE_3&nbsp &&nbsp 0x03;</code></td></tr>
-<tr><td><code><i> 22321</i> </code></td><td><code>&nbsp ptr++;</code></td></tr>
-<tr><td><code><i> 22322</i> </code></td><td><code>&nbsp *ptr&nbsp =&nbsp Value-&rsaquo  BYTES.BYTE_2;</code></td></tr>
-<tr><td><code><i> 22323</i> </code></td><td><code>&nbsp ptr++;</code></td></tr>
-<tr><td><code><i> 22324</i> </code></td><td><code>&nbsp *ptr&nbsp =&nbsp Value-&rsaquo  BYTES.BYTE_1;</code></td></tr>
-<tr><td><code><i> 22325</i> </code></td><td><code>&nbsp }</code></td></tr>
-<tr><td><code><i> 22326</i> </code></td><td><code>&nbsp }</code></td></tr>
-<tr><td><code><i> 22327</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22328</i> </code></td><td><code>&nbsp #&nbsp 1153</code></td></tr>
-<tr><td><code><i> 22329</i> </code></td><td><code>&nbsp void&nbsp _RegsToCANID(&nbsp BYTE*&nbsp ptr,</code></td></tr>
-<tr><td><code><i> 22330</i> </code></td><td><code>&nbsp unsigned&nbsp long&nbsp *val,</code></td></tr>
-<tr><td><code><i> 22331</i> </code></td><td><code>&nbsp BYTE&nbsp type&nbsp )</code></td></tr>
-<tr><td><code><i> 22332</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i> 22333</i> </code></td><td><code>&nbsp CAN_MESSAGE_ID&nbsp *Value;</code></td></tr>
-<tr><td><code><i> 22334</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22335</i> </code></td><td><code>&nbsp Value&nbsp =&nbsp (CAN_MESSAGE_ID*)val;</code></td></tr>
-<tr><td><code><i> 22336</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22337</i> </code></td><td><code>&nbsp if&nbsp (&nbsp type&nbsp ==&nbsp 0&nbsp )</code></td></tr>
-<tr><td><code><i> 22338</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i> 22339</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22340</i> </code></td><td><code>&nbsp Value-&rsaquo  BYTES.BYTE_1&nbsp =&nbsp (*ptr&nbsp&lsaquo &lsaquo &nbsp 3);</code></td></tr>
-<tr><td><code><i> 22341</i> </code></td><td><code>&nbsp Value-&rsaquo  BYTES.BYTE_2&nbsp =&nbsp *ptr&nbsp&rsaquo &rsaquo &nbsp 5;</code></td></tr>
-<tr><td><code><i> 22342</i> </code></td><td><code>&nbsp ptr++;</code></td></tr>
-<tr><td><code><i> 22343</i> </code></td><td><code>&nbsp Value-&rsaquo  BYTES.BYTE_1&nbsp |=&nbsp (*ptr&nbsp&rsaquo &rsaquo &nbsp 5);</code></td></tr>
-<tr><td><code><i> 22344</i> </code></td><td><code>&nbsp Value-&rsaquo  BYTES.BYTE_3&nbsp =&nbsp 0x00;</code></td></tr>
-<tr><td><code><i> 22345</i> </code></td><td><code>&nbsp Value-&rsaquo  BYTES.BYTE_4&nbsp =&nbsp 0x00;</code></td></tr>
-<tr><td><code><i> 22346</i> </code></td><td><code>&nbsp }</code></td></tr>
-<tr><td><code><i> 22347</i> </code></td><td><code>&nbsp else</code></td></tr>
-<tr><td><code><i> 22348</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i> 22349</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22350</i> </code></td><td><code>&nbsp Value-&rsaquo  BYTES.BYTE_3&nbsp =&nbsp (*ptr&nbsp&lsaquo &lsaquo &nbsp 5);</code></td></tr>
-<tr><td><code><i> 22351</i> </code></td><td><code>&nbsp Value-&rsaquo  BYTES.BYTE_4&nbsp =&nbsp (*ptr&nbsp&rsaquo &rsaquo &nbsp 3);</code></td></tr>
-<tr><td><code><i> 22352</i> </code></td><td><code>&nbsp ptr++;</code></td></tr>
-<tr><td><code><i> 22353</i> </code></td><td><code>&nbsp Value-&rsaquo  BYTES.BYTE_3&nbsp |=&nbsp (*ptr&nbsp &&nbsp 0x03);</code></td></tr>
-<tr><td><code><i> 22354</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22355</i> </code></td><td><code>&nbsp Value-&rsaquo  BYTES.BYTE_3&nbsp |=&nbsp ((*ptr&nbsp &&nbsp 0xe0)&nbsp&rsaquo &rsaquo &nbsp 3);</code></td></tr>
-<tr><td><code><i> 22356</i> </code></td><td><code>&nbsp ptr++;</code></td></tr>
-<tr><td><code><i> 22357</i> </code></td><td><code>&nbsp Value-&rsaquo  BYTES.BYTE_2&nbsp =&nbsp *ptr;</code></td></tr>
-<tr><td><code><i> 22358</i> </code></td><td><code>&nbsp ptr++;</code></td></tr>
-<tr><td><code><i> 22359</i> </code></td><td><code>&nbsp Value-&rsaquo  BYTES.BYTE_1&nbsp =&nbsp *ptr;</code></td></tr>
-<tr><td><code><i> 22360</i> </code></td><td><code>&nbsp }</code></td></tr>
-<tr><td><code><i> 22361</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i> 22317</i> </code></td><td><code>&nbsp *ptr&nbsp =&nbsp Value-&rsaquo  BYTES.BYTE_1&nbsp&lsaquo &lsaquo &nbsp 5;</code></td></tr>
+<tr><td><code><i> 22318</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i> 22319</i> </code></td><td><code>&nbsp else</code></td></tr>
+<tr><td><code><i> 22320</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i> 22321</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22322</i> </code></td><td><code>&nbsp *ptr&nbsp =&nbsp Value-&rsaquo  BYTES.BYTE_3&nbsp&rsaquo &rsaquo &nbsp 5;</code></td></tr>
+<tr><td><code><i> 22323</i> </code></td><td><code>&nbsp *ptr&nbsp |=&nbsp Value-&rsaquo  BYTES.BYTE_4&nbsp&lsaquo &lsaquo &nbsp 3;</code></td></tr>
+<tr><td><code><i> 22324</i> </code></td><td><code>&nbsp ptr++;</code></td></tr>
+<tr><td><code><i> 22325</i> </code></td><td><code>&nbsp *ptr&nbsp =&nbsp (Value-&rsaquo  BYTES.BYTE_3&nbsp&lsaquo &lsaquo &nbsp 3)&nbsp &&nbsp 0xE0;</code></td></tr>
+<tr><td><code><i> 22326</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22327</i> </code></td><td><code>&nbsp *ptr&nbsp |=&nbsp 0b00001000;</code></td></tr>
+<tr><td><code><i> 22328</i> </code></td><td><code>&nbsp *ptr&nbsp |=&nbsp Value-&rsaquo  BYTES.BYTE_3&nbsp &&nbsp 0x03;</code></td></tr>
+<tr><td><code><i> 22329</i> </code></td><td><code>&nbsp ptr++;</code></td></tr>
+<tr><td><code><i> 22330</i> </code></td><td><code>&nbsp *ptr&nbsp =&nbsp Value-&rsaquo  BYTES.BYTE_2;</code></td></tr>
+<tr><td><code><i> 22331</i> </code></td><td><code>&nbsp ptr++;</code></td></tr>
+<tr><td><code><i> 22332</i> </code></td><td><code>&nbsp *ptr&nbsp =&nbsp Value-&rsaquo  BYTES.BYTE_1;</code></td></tr>
+<tr><td><code><i> 22333</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i> 22334</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i> 22335</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22336</i> </code></td><td><code>&nbsp #&nbsp 1153</code></td></tr>
+<tr><td><code><i> 22337</i> </code></td><td><code>&nbsp void&nbsp _RegsToCANID(&nbsp BYTE*&nbsp ptr,</code></td></tr>
+<tr><td><code><i> 22338</i> </code></td><td><code>&nbsp unsigned&nbsp long&nbsp *val,</code></td></tr>
+<tr><td><code><i> 22339</i> </code></td><td><code>&nbsp BYTE&nbsp type&nbsp )</code></td></tr>
+<tr><td><code><i> 22340</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i> 22341</i> </code></td><td><code>&nbsp CAN_MESSAGE_ID&nbsp *Value;</code></td></tr>
+<tr><td><code><i> 22342</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22343</i> </code></td><td><code>&nbsp Value&nbsp =&nbsp (CAN_MESSAGE_ID*)val;</code></td></tr>
+<tr><td><code><i> 22344</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22345</i> </code></td><td><code>&nbsp if&nbsp (&nbsp type&nbsp ==&nbsp 0&nbsp )</code></td></tr>
+<tr><td><code><i> 22346</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i> 22347</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22348</i> </code></td><td><code>&nbsp Value-&rsaquo  BYTES.BYTE_1&nbsp =&nbsp (*ptr&nbsp&lsaquo &lsaquo &nbsp 3);</code></td></tr>
+<tr><td><code><i> 22349</i> </code></td><td><code>&nbsp Value-&rsaquo  BYTES.BYTE_2&nbsp =&nbsp *ptr&nbsp&rsaquo &rsaquo &nbsp 5;</code></td></tr>
+<tr><td><code><i> 22350</i> </code></td><td><code>&nbsp ptr++;</code></td></tr>
+<tr><td><code><i> 22351</i> </code></td><td><code>&nbsp Value-&rsaquo  BYTES.BYTE_1&nbsp |=&nbsp (*ptr&nbsp&rsaquo &rsaquo &nbsp 5);</code></td></tr>
+<tr><td><code><i> 22352</i> </code></td><td><code>&nbsp Value-&rsaquo  BYTES.BYTE_3&nbsp =&nbsp 0x00;</code></td></tr>
+<tr><td><code><i> 22353</i> </code></td><td><code>&nbsp Value-&rsaquo  BYTES.BYTE_4&nbsp =&nbsp 0x00;</code></td></tr>
+<tr><td><code><i> 22354</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i> 22355</i> </code></td><td><code>&nbsp else</code></td></tr>
+<tr><td><code><i> 22356</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i> 22357</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22358</i> </code></td><td><code>&nbsp Value-&rsaquo  BYTES.BYTE_3&nbsp =&nbsp (*ptr&nbsp&lsaquo &lsaquo &nbsp 5);</code></td></tr>
+<tr><td><code><i> 22359</i> </code></td><td><code>&nbsp Value-&rsaquo  BYTES.BYTE_4&nbsp =&nbsp (*ptr&nbsp&rsaquo &rsaquo &nbsp 3);</code></td></tr>
+<tr><td><code><i> 22360</i> </code></td><td><code>&nbsp ptr++;</code></td></tr>
+<tr><td><code><i> 22361</i> </code></td><td><code>&nbsp Value-&rsaquo  BYTES.BYTE_3&nbsp |=&nbsp (*ptr&nbsp &&nbsp 0x03);</code></td></tr>
 <tr><td><code><i> 22362</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22363</i> </code></td><td><code>&nbsp #&nbsp 1206</code></td></tr>
-<tr><td><code><i> 22364</i> </code></td><td><code>&nbsp static&nbsp BYTE*&nbsp _ECANPointBuffer(BYTE&nbsp b)</code></td></tr>
-<tr><td><code><i> 22365</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i> 22366</i> </code></td><td><code>&nbsp BYTE*&nbsp pt;</code></td></tr>
-<tr><td><code><i> 22367</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i> 22368</i> </code></td><td><code>&nbsp switch(b)</code></td></tr>
-<tr><td><code><i> 22369</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i> 22370</i> </code></td><td><code>&nbsp case&nbsp 0:</code></td></tr>
-<tr><td><code><i> 22371</i> </code></td><td><code>&nbsp pt=(BYTE*)&RXB0CON;</code></td></tr>
-<tr><td><code><i> 22372</i> </code></td><td><code>&nbsp break;</code></td></tr>
-<tr><td><code><i> 22373</i> </code></td><td><code>&nbsp case&nbsp 1:</code></td></tr>
-<tr><td><code><i> 22374</i> </code></td><td><code>&nbsp pt=(BYTE*)&RXB1CON;</code></td></tr>
-<tr><td><code><i> 22375</i> </code></td><td><code>&nbsp break;</code></td></tr>
-<tr><td><code><i> 22376</i> </code></td><td><code>&nbsp case&nbsp 2:</code></td></tr>
-<tr><td><code><i> 22377</i> </code></td><td><code>&nbsp pt=(BYTE*)&B0CON;</code></td></tr>
-<tr><td><code><i> 22378</i> </code></td><td><code>&nbsp break;</code></td></tr>
-<tr><td><code><i> 22379</i> </code></td><td><code>&nbsp case&nbsp 3:</code></td></tr>
-<tr><td><code><i> 22380</i> </code></td><td><code>&nbsp pt=(BYTE*)&B1CON;</code></td></tr>
-<tr><td><code><i> 22381</i> </code></td><td><code>&nbsp break;</code></td></tr>
-<tr><td><code><i> 22382</i> </code></td><td><code>&nbsp case&nbsp 4:</code></td></tr>
-<tr><td><code><i> 22383</i> </code></td><td><code>&nbsp pt=(BYTE*)&B2CON;</code></td></tr>
-<tr><td><code><i> 22384</i> </code></td><td><code>&nbsp break;</code></td></tr>
-<tr><td><code><i> 22385</i> </code></td><td><code>&nbsp case&nbsp 5:</code></td></tr>
-<tr><td><code><i> 22386</i> </code></td><td><code>&nbsp pt=(BYTE*)&B3CON;</code></td></tr>
-<tr><td><code><i> 22387</i> </code></td><td><code>&nbsp break;</code></td></tr>
-<tr><td><code><i> 22388</i> </code></td><td><code>&nbsp case&nbsp 6:</code></td></tr>
-<tr><td><code><i> 22389</i> </code></td><td><code>&nbsp pt=(BYTE*)&B4CON;</code></td></tr>
-<tr><td><code><i> 22390</i> </code></td><td><code>&nbsp break;</code></td></tr>
-<tr><td><code><i> 22391</i> </code></td><td><code>&nbsp default:</code></td></tr>
-<tr><td><code><i> 22392</i> </code></td><td><code>&nbsp pt=(BYTE*)&B5CON;</code></td></tr>
-<tr><td><code><i> 22393</i> </code></td><td><code>&nbsp break;</code></td></tr>
-<tr><td><code><i> 22394</i> </code></td><td><code>&nbsp }</code></td></tr>
-<tr><td><code><i> 22395</i> </code></td><td><code>&nbsp return&nbsp (pt);</code></td></tr>
-<tr><td><code><i> 22396</i> </code></td><td><code>&nbsp }</code></td></tr>
-<tr><td><code><i> 22397</i> </code></td><td><code>&nbsp </code></code></BODY>
+<tr><td><code><i> 22363</i> </code></td><td><code>&nbsp Value-&rsaquo  BYTES.BYTE_3&nbsp |=&nbsp ((*ptr&nbsp &&nbsp 0xe0)&nbsp&rsaquo &rsaquo &nbsp 3);</code></td></tr>
+<tr><td><code><i> 22364</i> </code></td><td><code>&nbsp ptr++;</code></td></tr>
+<tr><td><code><i> 22365</i> </code></td><td><code>&nbsp Value-&rsaquo  BYTES.BYTE_2&nbsp =&nbsp *ptr;</code></td></tr>
+<tr><td><code><i> 22366</i> </code></td><td><code>&nbsp ptr++;</code></td></tr>
+<tr><td><code><i> 22367</i> </code></td><td><code>&nbsp Value-&rsaquo  BYTES.BYTE_1&nbsp =&nbsp *ptr;</code></td></tr>
+<tr><td><code><i> 22368</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i> 22369</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i> 22370</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22371</i> </code></td><td><code>&nbsp #&nbsp 1206</code></td></tr>
+<tr><td><code><i> 22372</i> </code></td><td><code>&nbsp static&nbsp BYTE*&nbsp _ECANPointBuffer(BYTE&nbsp b)</code></td></tr>
+<tr><td><code><i> 22373</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i> 22374</i> </code></td><td><code>&nbsp BYTE*&nbsp pt;</code></td></tr>
+<tr><td><code><i> 22375</i> </code></td><td><code>&nbsp </code></td></tr>
+<tr><td><code><i> 22376</i> </code></td><td><code>&nbsp switch(b)</code></td></tr>
+<tr><td><code><i> 22377</i> </code></td><td><code>&nbsp {</code></td></tr>
+<tr><td><code><i> 22378</i> </code></td><td><code>&nbsp case&nbsp 0:</code></td></tr>
+<tr><td><code><i> 22379</i> </code></td><td><code>&nbsp pt=(BYTE*)&RXB0CON;</code></td></tr>
+<tr><td><code><i> 22380</i> </code></td><td><code>&nbsp break;</code></td></tr>
+<tr><td><code><i> 22381</i> </code></td><td><code>&nbsp case&nbsp 1:</code></td></tr>
+<tr><td><code><i> 22382</i> </code></td><td><code>&nbsp pt=(BYTE*)&RXB1CON;</code></td></tr>
+<tr><td><code><i> 22383</i> </code></td><td><code>&nbsp break;</code></td></tr>
+<tr><td><code><i> 22384</i> </code></td><td><code>&nbsp case&nbsp 2:</code></td></tr>
+<tr><td><code><i> 22385</i> </code></td><td><code>&nbsp pt=(BYTE*)&B0CON;</code></td></tr>
+<tr><td><code><i> 22386</i> </code></td><td><code>&nbsp break;</code></td></tr>
+<tr><td><code><i> 22387</i> </code></td><td><code>&nbsp case&nbsp 3:</code></td></tr>
+<tr><td><code><i> 22388</i> </code></td><td><code>&nbsp pt=(BYTE*)&B1CON;</code></td></tr>
+<tr><td><code><i> 22389</i> </code></td><td><code>&nbsp break;</code></td></tr>
+<tr><td><code><i> 22390</i> </code></td><td><code>&nbsp case&nbsp 4:</code></td></tr>
+<tr><td><code><i> 22391</i> </code></td><td><code>&nbsp pt=(BYTE*)&B2CON;</code></td></tr>
+<tr><td><code><i> 22392</i> </code></td><td><code>&nbsp break;</code></td></tr>
+<tr><td><code><i> 22393</i> </code></td><td><code>&nbsp case&nbsp 5:</code></td></tr>
+<tr><td><code><i> 22394</i> </code></td><td><code>&nbsp pt=(BYTE*)&B3CON;</code></td></tr>
+<tr><td><code><i> 22395</i> </code></td><td><code>&nbsp break;</code></td></tr>
+<tr><td><code><i> 22396</i> </code></td><td><code>&nbsp case&nbsp 6:</code></td></tr>
+<tr><td><code><i> 22397</i> </code></td><td><code>&nbsp pt=(BYTE*)&B4CON;</code></td></tr>
+<tr><td><code><i> 22398</i> </code></td><td><code>&nbsp break;</code></td></tr>
+<tr><td><code><i> 22399</i> </code></td><td><code>&nbsp default:</code></td></tr>
+<tr><td><code><i> 22400</i> </code></td><td><code>&nbsp pt=(BYTE*)&B5CON;</code></td></tr>
+<tr><td><code><i> 22401</i> </code></td><td><code>&nbsp break;</code></td></tr>
+<tr><td><code><i> 22402</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i> 22403</i> </code></td><td><code>&nbsp return&nbsp (pt);</code></td></tr>
+<tr><td><code><i> 22404</i> </code></td><td><code>&nbsp }</code></td></tr>
+<tr><td><code><i> 22405</i> </code></td><td><code>&nbsp </code></code></BODY>
 </HTML>

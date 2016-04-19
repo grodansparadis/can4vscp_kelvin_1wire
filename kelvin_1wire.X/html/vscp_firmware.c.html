@@ -129,7 +129,7 @@
 <tr><td><code><i>   122</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp //&nbsp read&nbsp the&nbsp nickname&nbsp id</code></td></tr>
 <tr><td><code><i>   123</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp vscp_nickname&nbsp =&nbsp vscp_readNicknamePermanent();</code></td></tr>
 <tr><td><code><i>   124</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>   125</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp //&nbsp if&nbsp zero&nbsp set&nbsp to&nbsp uninitialized</code></td></tr>
+<tr><td><code><i>   125</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp //&nbsp if&nbsp zero&nbsp set&nbsp to&nbsp uninitialised</code></td></tr>
 <tr><td><code><i>   126</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp if&nbsp (&nbsp 0&nbsp ==&nbsp vscp_nickname)&nbsp vscp_nickname&nbsp =&nbsp VSCP_ADDRESS_FREE;</code></td></tr>
 <tr><td><code><i>   127</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp </code></td></tr>
 <tr><td><code><i>   128</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp //&nbsp Start&nbsp init.&nbsp blink&nbsp if&nbsp no&nbsp nodeid</code></td></tr>
@@ -159,7 +159,7 @@
 <tr><td><code><i>   152</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp vscp_probe_cnt&nbsp =&nbsp 0;</code></td></tr>
 <tr><td><code><i>   153</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp vscp_page_select&nbsp =&nbsp 0;</code></td></tr>
 <tr><td><code><i>   154</i> </code></td><td><code>&nbsp </code></td></tr>
-<tr><td><code><i>   155</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp //&nbsp Initialize&nbsp time&nbsp keeping</code></td></tr>
+<tr><td><code><i>   155</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp //&nbsp Initialise&nbsp time&nbsp keeping</code></td></tr>
 <tr><td><code><i>   156</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp vscp_timer&nbsp =&nbsp 0;</code></td></tr>
 <tr><td><code><i>   157</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp vscp_configtimer&nbsp =&nbsp 0;</code></td></tr>
 <tr><td><code><i>   158</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp vscp_second&nbsp =&nbsp 0;</code></td></tr>
@@ -176,7 +176,7 @@
 <tr><td><code><i>   169</i> </code></td><td><code>&nbsp </code></td></tr>
 <tr><td><code><i>   170</i> </code></td><td><code>&nbsp int8_t&nbsp vscp_check_pstorage(void)</code></td></tr>
 <tr><td><code><i>   171</i> </code></td><td><code>&nbsp {</code></td></tr>
-<tr><td><code><i>   172</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp //&nbsp Check&nbsp if&nbsp persistent&nbsp storage&nbsp is&nbsp initialized.</code></td></tr>
+<tr><td><code><i>   172</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp //&nbsp Check&nbsp if&nbsp persistent&nbsp storage&nbsp is&nbsp initialised.</code></td></tr>
 <tr><td><code><i>   173</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp if&nbsp (&nbsp (&nbsp VSCP_INITIALIZED_BYTE0_VALUE&nbsp ==&nbsp </code></td></tr>
 <tr><td><code><i>   174</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp vscp_getControlByte(&nbsp VSCP_INITIALIZED_BYTE0_INDEX&nbsp )&nbsp )&nbsp &&</code></td></tr>
 <tr><td><code><i>   175</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp (&nbsp VSCP_INITIALIZED_BYTE1_VALUE&nbsp ==&nbsp </code></td></tr>
@@ -186,13 +186,13 @@
 <tr><td><code><i>   179</i> </code></td><td><code>&nbsp </code></td></tr>
 <tr><td><code><i>   180</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp vscp_initledfunc&nbsp =&nbsp VSCP_LED_BLINK1;</code></td></tr>
 <tr><td><code><i>   181</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp </code></td></tr>
-<tr><td><code><i>   182</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp //&nbsp Initialize&nbsp persistent&nbsp storage</code></td></tr>
+<tr><td><code><i>   182</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp //&nbsp Initialise&nbsp persistent&nbsp storage</code></td></tr>
 <tr><td><code><i>   183</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp vscp_init_pstorage();</code></td></tr>
 <tr><td><code><i>   184</i> </code></td><td><code>&nbsp </code></td></tr>
 <tr><td><code><i>   185</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp //&nbsp No&nbsp nickname&nbsp yet.</code></td></tr>
 <tr><td><code><i>   186</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp vscp_writeNicknamePermanent(&nbsp VSCP_ADDRESS_FREE&nbsp );</code></td></tr>
 <tr><td><code><i>   187</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp </code></td></tr>
-<tr><td><code><i>   188</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp //&nbsp Mark&nbsp persistent&nbsp storage&nbsp as&nbsp initialized</code></td></tr>
+<tr><td><code><i>   188</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp //&nbsp Mark&nbsp persistent&nbsp storage&nbsp as&nbsp initialised</code></td></tr>
 <tr><td><code><i>   189</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp vscp_setControlByte(&nbsp VSCP_INITIALIZED_BYTE0_INDEX,&nbsp </code></td></tr>
 <tr><td><code><i>   190</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp VSCP_INITIALIZED_BYTE0_VALUE&nbsp );</code></td></tr>
 <tr><td><code><i>   191</i> </code></td><td><code>&nbsp &nbsp&nbsp&nbsp&nbsp vscp_setControlByte(&nbsp VSCP_INITIALIZED_BYTE1_INDEX,&nbsp </code></td></tr>

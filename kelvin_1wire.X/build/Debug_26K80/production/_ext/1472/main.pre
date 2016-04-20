@@ -22235,7 +22235,7 @@ int8_t sendCANFrame( uint32_t id, uint8_t size, uint8_t *pData );
 # 153
 int8_t getCANFrame( uint32_t *pid, uint8_t *psize, uint8_t *pData );
 
-# 577 "../onewire.h"
+# 594 "../onewire.h"
 uint8_t DS1820_Reset( uint8_t pin );
 uint8_t DS1820_ReadBit( uint8_t pin );
 void DS1820_WriteBit( uint8_t pin, uint8_t bBit );
@@ -22285,6 +22285,14 @@ uint8_t bDoneFlagOneWire;
 uint8_t nLastDiscrepancyOnewire;
 
 
+uint16_t OW_MasterResetPulseTime;
+uint8_t OW_PresenceWait;
+uint16_t OW_PresenceFin;
+uint8_t OW_MasterBitStart;
+uint8_t OW_DelayBitRead;
+uint8_t OW_DelayBitWait;
+uint8_t OW_DelayBitWrite;
+
 
 const uint8_t vscp_deviceURL[] = "www.eurosource.se/1wire_1.xml";
 
@@ -22312,8 +22320,8 @@ double arrayTemp[ 9 ];
 
 uint8_t currentSensor = 0;
 
-# 163
-const uint8_t reg2eeprom_pg0[] = {
+# 172
+const uint16_t reg2eeprom_pg0[] = {
 0x42 + 0,
 0x42 + 1,
 
@@ -22362,12 +22370,7 @@ const uint8_t reg2eeprom_pg0[] = {
 
 0x42 + 43,
 0x42 + 44,
-};
 
-
-
-
-const uint8_t reg2eeprom_pg2[] = {
 0x42 + 45,
 0x42 + 46,
 0x42 + 47,
@@ -22375,8 +22378,12 @@ const uint8_t reg2eeprom_pg2[] = {
 0x42 + 49,
 0x42 + 50,
 0x42 + 51,
-0x42 + 52,
 0x42 + 53,
+0x42 + 53,
+};
+
+# 237
+const uint16_t reg2eeprom_pg2[] = {
 0x42 + 54,
 0x42 + 55,
 0x42 + 56,
@@ -22384,7 +22391,6 @@ const uint8_t reg2eeprom_pg2[] = {
 0x42 + 58,
 0x42 + 59,
 0x42 + 60,
-
 0x42 + 61,
 0x42 + 62,
 0x42 + 63,
@@ -22394,6 +22400,7 @@ const uint8_t reg2eeprom_pg2[] = {
 0x42 + 67,
 0x42 + 68,
 0x42 + 69,
+
 0x42 + 70,
 0x42 + 71,
 0x42 + 72,
@@ -22401,7 +22408,6 @@ const uint8_t reg2eeprom_pg2[] = {
 0x42 + 74,
 0x42 + 75,
 0x42 + 76,
-
 0x42 + 77,
 0x42 + 78,
 0x42 + 79,
@@ -22411,6 +22417,7 @@ const uint8_t reg2eeprom_pg2[] = {
 0x42 + 83,
 0x42 + 84,
 0x42 + 85,
+
 0x42 + 86,
 0x42 + 87,
 0x42 + 88,
@@ -22418,7 +22425,6 @@ const uint8_t reg2eeprom_pg2[] = {
 0x42 + 90,
 0x42 + 91,
 0x42 + 92,
-
 0x42 + 93,
 0x42 + 94,
 0x42 + 95,
@@ -22428,6 +22434,7 @@ const uint8_t reg2eeprom_pg2[] = {
 0x42 + 99,
 0x42 + 100,
 0x42 + 101,
+
 0x42 + 102,
 0x42 + 103,
 0x42 + 104,
@@ -22435,7 +22442,6 @@ const uint8_t reg2eeprom_pg2[] = {
 0x42 + 106,
 0x42 + 107,
 0x42 + 108,
-
 0x42 + 109,
 0x42 + 110,
 0x42 + 111,
@@ -22444,8 +22450,8 @@ const uint8_t reg2eeprom_pg2[] = {
 0x42 + 114,
 0x42 + 115,
 0x42 + 116,
-
 0x42 + 117,
+
 0x42 + 118,
 0x42 + 119,
 0x42 + 120,
@@ -22454,6 +22460,7 @@ const uint8_t reg2eeprom_pg2[] = {
 0x42 + 123,
 0x42 + 124,
 0x42 + 125,
+
 0x42 + 126,
 0x42 + 127,
 0x42 + 128,
@@ -22461,11 +22468,6 @@ const uint8_t reg2eeprom_pg2[] = {
 0x42 + 130,
 0x42 + 131,
 0x42 + 132,
-};
-
-
-
-const uint8_t reg2eeprom_pg3[] = {
 0x42 + 133,
 0x42 + 134,
 0x42 + 135,
@@ -22475,6 +22477,11 @@ const uint8_t reg2eeprom_pg3[] = {
 0x42 + 139,
 0x42 + 140,
 0x42 + 141,
+};
+
+
+
+const uint16_t reg2eeprom_pg3[] = {
 0x42 + 142,
 0x42 + 143,
 0x42 + 144,
@@ -22530,10 +22537,19 @@ const uint8_t reg2eeprom_pg3[] = {
 0x42 + 194,
 0x42 + 195,
 0x42 + 196,
-0x42 + 197
+0x42 + 197,
+0x42 + 198,
+0x42 + 199,
+0x42 + 200,
+0x42 + 201,
+0x42 + 202,
+0x42 + 203,
+0x42 + 204,
+0x42 + 205,
+0x42 + 206,
 };
 
-# 391
+# 411
 void interrupt low_priority interrupt_at_low_vector( void )
 {
 
@@ -22616,7 +22632,7 @@ PIR1bits.ADIF = 0;
 return;
 }
 
-# 479
+# 499
 uint8_t input( uint8_t pin )
 {
 uint8_t rv = 1;
@@ -22648,7 +22664,7 @@ break;
 return rv;
 }
 
-# 516
+# 536
 extern void output( uint8_t pin )
 {
 switch ( pin ) {
@@ -22673,7 +22689,7 @@ break;
 
 }
 
-# 546
+# 566
 void output_low( uint8_t pin )
 {
 switch ( pin ) {
@@ -22701,7 +22717,7 @@ break;
 }
 }
 
-# 579
+# 599
 void output_high( uint8_t pin )
 {
 switch ( pin ) {
@@ -22729,7 +22745,7 @@ break;
 }
 }
 
-# 613
+# 633
 void main()
 {
 uint32_t i;
@@ -22853,7 +22869,7 @@ doWork();
 }
 }
 
-# 740
+# 760
 void init()
 {
 
@@ -22861,20 +22877,20 @@ void init()
 
 init_app_ram();
 
-# 753
+# 773
 TRISA = 0x07;
 
-# 764
+# 784
 TRISB = 0x1B;
 
-# 775
+# 795
 PORTC = 0b11011001;
 TRISC = 0b11011001;
 
 OpenTimer0(0b11111111 & 0b10111111 & 0b11011111 & 0b11110010);
 WriteTimer0(0xfb1d);
 
-# 789
+# 809
 CM1CON = 0x00;
 CM2CON = 0x00;
 CVRCON = 0;
@@ -22890,7 +22906,7 @@ OpenADC( 0b10101111 & 0b11111111 & 0b11111111,
 
 ECANInitialize();
 
-# 826
+# 846
 INTCONbits.GIE = 1;
 
 
@@ -22899,7 +22915,7 @@ ConvertADC();
 return;
 }
 
-# 838
+# 858
 void init_app_ram(void)
 {
 char i;
@@ -22921,7 +22937,7 @@ low_alarm = 0;
 high_alarm = 0;
 }
 
-# 865
+# 885
 void init_app_eeprom(void)
 {
 unsigned char i, j;
@@ -22976,6 +22992,17 @@ for ( i=0; i<8; i++ ) {
 (Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 43 ],0x68));
 
 
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 44 ],( 480 >> 8 ) & 0xff));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 45 ],480 & 0xff));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 46 ],40));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 47 ],( 480 >> 8 ) & 0xff));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 48 ],480 & 0xff));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 49 ],2));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 50 ],5));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 51 ],55));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 52 ],100));
+
+
 (Busy_eep(), Write_b_eep(reg2eeprom_pg3[ 0 ],0));
 
 
@@ -22988,7 +23015,7 @@ for ( i=0; i<64; i++ ) {
 
 for ( i = 0; i<8; i++ ) {
 for ( j = 0; j < 8; j++ ) {
-(Busy_eep(), Write_b_eep(0x42 + 198 + 8*i + j,0));
+(Busy_eep(), Write_b_eep(0x42 + 207 + 8*i + j,0));
 }
 }
 
@@ -22997,7 +23024,7 @@ calculateSetFilterMask();
 
 }
 
-# 947
+# 978
 BOOL loadROMCodeFromEEPROM( uint8_t currentSensor )
 {
 uint8_t i;
@@ -23011,24 +23038,26 @@ Read_b_eep(reg2eeprom_pg3[ 1+ 8*currentSensor + i ]) );
 return sum;
 }
 
-# 964
+# 995
 void saveROMCodeToEEPROM( uint8_t channel, uint8_t idxSensor )
 {
 uint8_t i;
 
 for ( i=0; i<8; i++ ) {
 (Busy_eep(), Write_b_eep(reg2eeprom_pg3[ 1 + 16*channel + 8*idxSensor + i ],romAddrOneWire[ 7-i ]));
+
+# 1002
 }
 }
 
-# 979
+# 1011
 void doWork(void)
 {
 
-# 991
+# 1023
 }
 
-# 997
+# 1029
 void doOneSecondWork(void)
 {
 uint8_t tmp;
@@ -23053,17 +23082,17 @@ if ( loadROMCodeFromEEPROM( currentSensor ) ) {
 DS1820_StartTempConversion( 0 + currentSensor/2 );
 }
 
-# 1026
+# 1058
 uint16_t B;
 double resistance;
 double Rinf;
 double temp;
 double v;
 
-# 1039
+# 1071
 B = ((uint16_t)( (((uint16_t)Read_b_eep(reg2eeprom_pg0[ 42 ]))<<8) + (uint16_t)Read_b_eep(reg2eeprom_pg0[ 43 ])) );
 
-# 1042
+# 1074
 Rinf = 10000.0 * exp( B/-298.15 );
 
 
@@ -23076,7 +23105,7 @@ resistance = ( 10000.0 * ( 5.0 - v ) ) / v;
 temp = (double)B / log( resistance/Rinf );
 temp -= 273.15;
 
-# 1066
+# 1098
 arrayTemp[ 8 ] = ( arrayTemp[ 8 ] + temp +
 ( reg2eeprom_pg2[ 88 ] << 8 +
 reg2eeprom_pg2[ 89 ] )/100 ) / 2;
@@ -23089,26 +23118,26 @@ for ( i=0; i<8; i++ ) {
 if ( 100*arrayTemp[ i ] <
 ((int16_t)( (((uint16_t)Read_b_eep(reg2eeprom_pg2[ 32 ] + 2*i))<<8) + (uint16_t)Read_b_eep(reg2eeprom_pg2[ 33 ] + 2*i)) ) ) {
 
-# 1079
+# 1111
 (Busy_eep(), Write_b_eep(reg2eeprom_pg2[ 32 ] + 2*i,( (uint16_t)( 100 * arrayTemp[ i ] ) ) >> 8));
 
-# 1081
+# 1113
 (Busy_eep(), Write_b_eep(reg2eeprom_pg2[ 33 ] + 2*i,( (uint16_t)( 100 * arrayTemp[ i ] ) ) & 0xff));
 
-# 1083
+# 1115
 }
 
-# 1089
+# 1121
 if ( 100*arrayTemp[ i ] >
 (double)((int16_t)( (((uint16_t)Read_b_eep(reg2eeprom_pg2[ 48 ] + 2*i))<<8) + (uint16_t)Read_b_eep(reg2eeprom_pg2[ 49 ] + 2*i)) ) ) {
 
-# 1093
+# 1125
 (Busy_eep(), Write_b_eep(reg2eeprom_pg2[ 48 ] + 2*i,( (uint16_t)( 100*arrayTemp[ i ] ) ) >> 8));
 
-# 1095
+# 1127
 (Busy_eep(), Write_b_eep(reg2eeprom_pg2[ 49 ] + 2*i,( (uint16_t)( 100*arrayTemp[ i ] ) ) & 0xff));
 
-# 1097
+# 1129
 }
 
 
@@ -23221,13 +23250,13 @@ vscp_sendEvent();
 }
 }
 
-# 1214
+# 1246
 if ( low_alarm & ( 1 << i ) ) {
 
 
 setpoint = ((int16_t)( (((uint16_t)Read_b_eep(reg2eeprom_pg2[ 0 ] + 2*i))<<8) + (uint16_t)Read_b_eep(reg2eeprom_pg2[ 1 ] + 2*i)) ) +
 
-# 1219
+# 1251
 (int8_t) Read_b_eep(reg2eeprom_pg2[ 64 ] + i);
 
 
@@ -23247,7 +23276,7 @@ else {
 
 setpoint = ((int16_t)( (((uint16_t)Read_b_eep(reg2eeprom_pg2[ 0 ] + 2*i))<<8) + (uint16_t)Read_b_eep(reg2eeprom_pg2[ 1 ] + 2*i)) );
 
-# 1239
+# 1271
 if ( arrayTemp[ i ] < ( setpoint * 100 ) ) {
 
 
@@ -23301,14 +23330,14 @@ low_alarm &= ~(1 << i);
 }
 }
 
-# 1296
+# 1328
 if (high_alarm & (1 << i)) {
 
 
 
 setpoint = ((int16_t)( (((uint16_t)Read_b_eep(reg2eeprom_pg2[ 16 ] + 2 * i))<<8) + (uint16_t)Read_b_eep(reg2eeprom_pg2[ 17 ] + 2 * i)) ) -
 
-# 1302
+# 1334
 (int8_t)Read_b_eep(reg2eeprom_pg2[ 64 ] + i);
 
 
@@ -23327,13 +23356,13 @@ else {
 
 setpoint = ((int16_t)( (((uint16_t)Read_b_eep(reg2eeprom_pg2[ 16 ] + 2 * i))<<8) + (uint16_t)Read_b_eep(reg2eeprom_pg2[ 17 ] + 2 * i)) );
 
-# 1321
+# 1353
 if ( arrayTemp[ i ] > (setpoint * 100)) {
 
 
 high_alarm |= (1 << i);
 
-# 1330
+# 1362
 vscp_alarmstatus |= 2;
 
 
@@ -23384,7 +23413,7 @@ high_alarm &= ~(1 << i);
 
 }
 
-# 1384
+# 1416
 int8_t sendTempEvent( uint8_t nTemp )
 {
 uint8_t *p;
@@ -23489,7 +23518,7 @@ return 0;
 return 1;
 }
 
-# 1492
+# 1524
 void setEventData(int v, unsigned char unit)
 {
 double newval;
@@ -23514,7 +23543,7 @@ vscp_omsg.data[ 2 ] = ((ival & 0xff00) >> 8);
 vscp_omsg.data[ 3 ] = (ival & 0xff);
 }
 
-# 1521
+# 1553
 int8_t convertTemperature( double temp, unsigned char unit)
 {
 int newval;
@@ -23535,7 +23564,7 @@ newval = (int) temp;
 return newval;
 }
 
-# 1547
+# 1579
 void handle_sync(void)
 {
 uint8_t i;
@@ -23556,14 +23585,14 @@ if (timeout_clock > 1000) break;
 }
 }
 
-# 1571
+# 1603
 uint8_t vscp_readAppReg(unsigned char reg)
 {
 uint8_t rv;
 
 if ( 0 == vscp_page_select ) {
 
-if ( reg <= 43 ) {
+if ( reg <= 52 ) {
 rv = Read_b_eep(reg2eeprom_pg0[ reg ]);
 }
 
@@ -23598,7 +23627,7 @@ rv = Read_b_eep(reg2eeprom_pg3[ reg ]);
 else if (250 == vscp_page_select) {
 
 if ( reg < ( 0 + 8*8 ) ) {
-rv = Read_b_eep(0x42 + 198 + reg);
+rv = Read_b_eep(0x42 + 207 + reg);
 }
 
 }
@@ -23607,7 +23636,7 @@ return rv;
 
 }
 
-# 1625
+# 1657
 uint8_t vscp_writeAppReg(unsigned char reg, unsigned char val)
 {
 uint8_t rv;
@@ -23620,6 +23649,46 @@ if ( 0 == vscp_page_select ) {
 if ( reg <= 43 ) {
 (Busy_eep(), Write_b_eep(reg2eeprom_pg0[ reg ],val));
 rv = Read_b_eep(reg2eeprom_pg0[ reg ]);
+}
+else if ( reg == 44 ) {
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ reg ],val));
+rv = Read_b_eep(reg2eeprom_pg0[ reg ]);
+}
+else if ( reg == 45 ) {
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ reg ],val));
+OW_MasterResetPulseTime = ( Read_b_eep(44) << 8 +
+Read_b_eep(45) );
+rv = Read_b_eep(reg2eeprom_pg0[ reg ]);
+}
+else if ( reg == 46 ) {
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ reg ],val));
+OW_PresenceWait= rv = Read_b_eep(reg2eeprom_pg0[ reg ]);
+}
+else if ( reg == 47 ) {
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ reg ],val));
+rv = Read_b_eep(reg2eeprom_pg0[ reg ]);
+}
+else if ( reg == 48 ) {
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ reg ],val));
+OW_PresenceFin = ( Read_b_eep(47) << 8 ) +
+Read_b_eep(48);
+rv = Read_b_eep(reg2eeprom_pg0[ reg ]);
+}
+else if ( reg == 49 ) {
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ reg ],val));
+OW_MasterBitStart = rv = Read_b_eep(reg2eeprom_pg0[ reg ]);
+}
+else if ( reg == 50 ) {
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ reg ],val));
+OW_DelayBitRead = rv = Read_b_eep(reg2eeprom_pg0[ reg ]);
+}
+else if ( reg == 51 ) {
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ reg ],val));
+OW_DelayBitWait = rv = Read_b_eep(reg2eeprom_pg0[ reg ]);
+}
+else if ( reg == 52 ) {
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ reg ],val));
+OW_DelayBitWrite = rv = Read_b_eep(reg2eeprom_pg0[ reg ]);
 }
 
 }
@@ -23651,9 +23720,9 @@ rv = Read_b_eep(reg2eeprom_pg3[ reg ]);
 else if ( 250 == vscp_page_select ) {
 
 if ( reg < (0 + 8 * 8 ) ) {
-(Busy_eep(), Write_b_eep(0x42 + 198 + reg,val));
+(Busy_eep(), Write_b_eep(0x42 + 207 + reg,val));
 calculateSetFilterMask();
-rv = Read_b_eep(0x42 + 198 + reg);
+rv = Read_b_eep(0x42 + 207 + reg);
 }
 
 }
@@ -23661,7 +23730,7 @@ rv = Read_b_eep(0x42 + 198 + reg);
 return rv;
 }
 
-# 1682
+# 1754
 void reportTokenActivity( void )
 {
 vscp_omsg.priority = 0x03;
@@ -23702,17 +23771,20 @@ vscp_sendEvent();
 
 }
 
-# 1726
+# 1798
 uint8_t writeChannelControl( uint8_t val )
 {
-uint8_t nFound = 0;
+uint8_t nFound0 = 0;
+uint8_t nFound1 = 0;
+uint8_t nFound2 = 0;
+uint8_t nFound3 = 0;
+
+
+if ( val & 0b00000001 ) {
 
 
 nLastDiscrepancyOnewire = 0;
 bDoneFlagOneWire = 0;
-
-
-if ( val & 0b00000001 ) {
 
 while( !bDoneFlagOneWire && DS1820_FindNextDevice( 0 ) ) {
 
@@ -23721,11 +23793,11 @@ if ( ( 0x10 == romAddrOneWire[ 0 ] ) ||
 ( 0x28 == romAddrOneWire[ 0 ] ) ) {
 
 
-if ( nFound <= 1 ) {
-saveROMCodeToEEPROM( 0, nFound );
+if ( nFound0 <= 1 ) {
+saveROMCodeToEEPROM( 0, nFound0 );
 }
 
-nFound++;
+nFound0++;
 
 }
 
@@ -23739,6 +23811,10 @@ reportTokenActivity();
 
 if ( val & 0b00000010 ) {
 
+
+nLastDiscrepancyOnewire = 0;
+bDoneFlagOneWire = 0;
+
 while( !bDoneFlagOneWire && DS1820_FindNextDevice( 1 ) ) {
 
 
@@ -23746,11 +23822,11 @@ if ( ( 0x10 == romAddrOneWire[ 0 ] ) ||
 ( 0x28 == romAddrOneWire[ 0 ] ) ) {
 
 
-if ( nFound <= 1 ) {
-saveROMCodeToEEPROM( 1, nFound );
+if ( nFound1 <= 1 ) {
+saveROMCodeToEEPROM( 1, nFound1 );
 }
 
-nFound++;
+nFound1++;
 
 }
 
@@ -23764,6 +23840,10 @@ reportTokenActivity();
 
 if ( val & 0b00000100 ) {
 
+
+nLastDiscrepancyOnewire = 0;
+bDoneFlagOneWire = 0;
+
 while( !bDoneFlagOneWire && DS1820_FindNextDevice( 2 ) ) {
 
 
@@ -23771,11 +23851,11 @@ if ( ( 0x10 == romAddrOneWire[ 0 ] ) ||
 ( 0x28 == romAddrOneWire[ 0 ] ) ) {
 
 
-if ( nFound <= 1 ) {
-saveROMCodeToEEPROM( 2, nFound );
+if ( nFound2 <= 1 ) {
+saveROMCodeToEEPROM( 2, nFound2 );
 }
 
-nFound++;
+nFound2++;
 
 }
 
@@ -23789,6 +23869,10 @@ reportTokenActivity();
 
 if ( val & 0b00001000 ) {
 
+
+nLastDiscrepancyOnewire = 0;
+bDoneFlagOneWire = 0;
+
 while( !bDoneFlagOneWire && DS1820_FindNextDevice( 3 ) ) {
 
 
@@ -23796,11 +23880,11 @@ if ( ( 0x10 == romAddrOneWire[ 0 ] ) ||
 ( 0x28 == romAddrOneWire[ 0 ] ) ) {
 
 
-if ( nFound <= 1 ) {
-saveROMCodeToEEPROM( 3, nFound );
+if ( nFound3 <= 1 ) {
+saveROMCodeToEEPROM( 3, nFound3 );
 }
 
-nFound++;
+nFound3++;
 
 }
 
@@ -23816,80 +23900,80 @@ return val;
 
 }
 
-# 1851
+# 1938
 unsigned char vscp_getMajorVersion()
 {
 return 1;
 }
 
-# 1860
+# 1947
 unsigned char vscp_getMinorVersion()
 {
 return 0;
 }
 
-# 1869
+# 1956
 unsigned char vscp_getSubMinorVersion()
 {
 return 0;
 }
 
-# 1880
+# 1967
 uint8_t vscp_getGUID(uint8_t idx)
 {
 return Read_b_eep(0x12 + idx);
 }
 
-# 1890
+# 1977
 void vscp_setGUID( uint8_t idx, uint8_t data )
 {
 if ( idx>15 ) return;
 (Busy_eep(), Write_b_eep(0x12 + idx,data));
 }
 
-# 1903
+# 1990
 uint8_t vscp_getMDF_URL(uint8_t idx)
 {
 return vscp_deviceURL[ idx ];
 }
 
-# 1912
+# 1999
 uint8_t vscp_getUserID(uint8_t idx)
 {
 return Read_b_eep(0x05 + idx);
 }
 
-# 1921
+# 2008
 void vscp_setUserID(uint8_t idx, uint8_t data)
 {
-(Busy_eep(), Write_b_eep(idx + 0x05,data));
+(Busy_eep(), Write_b_eep(0x05 + idx,data));
 }
 
-# 1932
+# 2019
 uint8_t vscp_getManufacturerId(uint8_t idx)
 {
 return Read_b_eep(0x0A + idx);
 }
 
-# 1943
+# 2030
 void vscp_setManufacturerId(uint8_t idx, uint8_t data)
 {
 (Busy_eep(), Write_b_eep(0x0A + idx,data));
 }
 
-# 1952
+# 2039
 uint8_t vscp_getBootLoaderAlgorithm(void)
 {
 return 0x01;
 }
 
-# 1961
+# 2048
 uint8_t vscp_getBufferSize(void)
 {
 return 8;
 }
 
-# 1970
+# 2057
 void vscp_getMatrixInfo(char *pData)
 {
 pData[ 0 ] = 8;
@@ -23901,7 +23985,7 @@ pData[ 5 ] = 250;
 pData[ 6 ] = 0;
 }
 
-# 1988
+# 2075
 void doDM(void)
 {
 unsigned char i;
@@ -23917,14 +24001,14 @@ if ( 0 == vscp_imsg.vscp_class ) return;
 for (i = 0; i<8; i++) {
 
 
-dmflags = Read_b_eep(0x42 + 198 + (8 * i));
+dmflags = Read_b_eep(0x42 + 207 + (8 * i));
 
 
 if ( dmflags & 0x80 ) {
 
 
 if ( ( dmflags & 0x40 ) &&
-( vscp_imsg.oaddr != Read_b_eep(0x42 + 198 + (8 * i)) ) ) {
+( vscp_imsg.oaddr != Read_b_eep(0x42 + 207 + (8 * i)) ) ) {
 continue;
 }
 
@@ -23947,63 +24031,63 @@ continue;
 }
 
 class_filter = ( ( dmflags & 0x01) << 8 ) +
-Read_b_eep(0x42 + 198 + (8 * i) + 3);
+Read_b_eep(0x42 + 207 + (8 * i) + 3);
 
-# 2037
+# 2124
 class_mask = ( ( dmflags & 0x02 ) << 7 ) +
-Read_b_eep(0x42 + 198 + (8 * i) + 2);
+Read_b_eep(0x42 + 207 + (8 * i) + 2);
 
-# 2042
-type_filter = Read_b_eep(0x42 + 198 + (8 * i) + 5);
+# 2129
+type_filter = Read_b_eep(0x42 + 207 + (8 * i) + 5);
 
-# 2046
-type_mask = Read_b_eep(0x42 + 198 + (8 * i) + 4);
+# 2133
+type_mask = Read_b_eep(0x42 + 207 + (8 * i) + 4);
 
-# 2050
+# 2137
 if ( !( ( class_filter ^ vscp_imsg.vscp_class ) & class_mask ) &&
 !( ( type_filter ^ vscp_imsg.vscp_type ) & type_mask ) ) {
 
 
-switch ( Read_b_eep(0x42 + 198 + (8 * i) + 6) ) {
+switch ( Read_b_eep(0x42 + 207 + (8 * i) + 6) ) {
 
-# 2058
+# 2145
 case 0:
 break;
 
 case 1:
-actionScan( Read_b_eep(0x42 + 198 + (8 * i) + 7) );
+actionScan( Read_b_eep(0x42 + 207 + (8 * i) + 7) );
 
-# 2065
+# 2152
 break;
 
 case 2:
-actionScanStore( Read_b_eep(0x42 + 198 + (8 * i) + 7) );
+actionScanStore( Read_b_eep(0x42 + 207 + (8 * i) + 7) );
 
-# 2071
+# 2158
 break;
 
 case 3:
-actionReport( Read_b_eep(0x42 + 198 + (8 * i) + 7) );
+actionReport( Read_b_eep(0x42 + 207 + (8 * i) + 7) );
 
-# 2077
+# 2164
 break;
 
 case 4:
-actionClearAlarm( Read_b_eep(0x42 + 198 + (8 * i) + 7) );
+actionClearAlarm( Read_b_eep(0x42 + 207 + (8 * i) + 7) );
 
-# 2083
+# 2170
 break;
 
 case 5:
-actionClearHigh( Read_b_eep(0x42 + 198 + (8 * i) + 7) );
+actionClearHigh( Read_b_eep(0x42 + 207 + (8 * i) + 7) );
 
-# 2089
+# 2176
 break;
 
 case 6:
-actionClearLow( Read_b_eep(0x42 + 198 + (8 * i) + 7) );
+actionClearLow( Read_b_eep(0x42 + 207 + (8 * i) + 7) );
 
-# 2095
+# 2182
 break;
 
 }
@@ -24016,43 +24100,43 @@ break;
 
 }
 
-# 2111
+# 2198
 void actionScan( uint8_t param )
 {
 
 }
 
-# 2120
+# 2207
 void actionScanStore( uint8_t param )
 {
 
 }
 
-# 2129
+# 2216
 void actionReport( uint8_t param )
 {
 
 }
 
-# 2138
+# 2225
 void actionClearAlarm( uint8_t param )
 {
 
 }
 
-# 2147
+# 2234
 void actionClearHigh( uint8_t param )
 {
 
 }
 
-# 2156
+# 2243
 void actionClearLow( uint8_t param )
 {
 
 }
 
-# 2166
+# 2253
 void vscp_getEmbeddedMdfInfo(void)
 {
 
@@ -24070,25 +24154,25 @@ vscp_omsg.data[ 2 ] = 0;
 vscp_sendEvent();
 }
 
-# 2188
+# 2275
 uint8_t vscp_getRegisterPagesUsed(void)
 {
 return 1;
 }
 
-# 2197
+# 2284
 uint8_t vscp_getZone(void)
 {
 return Read_b_eep(reg2eeprom_pg0[ 0 ]);
 }
 
-# 2206
+# 2293
 uint8_t vscp_getSubzone(void)
 {
 return Read_b_eep(reg2eeprom_pg0[ 0 ]);
 }
 
-# 2215
+# 2302
 void vscp_goBootloaderMode( uint8_t algorithm )
 {
 if ( 0x01 != algorithm ) return;
@@ -24104,58 +24188,58 @@ ECANSetOperationMode( ECAN_OP_MODE_CONFIG );
 asm("reset");
 }
 
-# 2234
+# 2321
 uint8_t vscp_readNicknamePermanent(void)
 {
 return Read_b_eep(0x01);
 }
 
-# 2243
+# 2330
 void vscp_writeNicknamePermanent(uint8_t nickname)
 {
 (Busy_eep(), Write_b_eep(0x01,nickname));
 }
 
-# 2252
+# 2339
 void vscp_setControlByte( uint8_t ctrl, uint8_t idx )
 {
 if ( idx > 1 ) return;
 (Busy_eep(), Write_b_eep(0x03 + idx,ctrl));
 }
 
-# 2263
+# 2350
 uint8_t vscp_getControlByte( uint8_t idx )
 {
 if ( idx > 1 ) return 0;
 return Read_b_eep(0x03 + idx);
 }
 
-# 2273
+# 2360
 void vscp_init_pstorage( void )
 {
 init_app_eeprom();
 }
 
-# 2282
+# 2369
 uint32_t vscp_getFamilyCode()
 {
 return 0L;
 }
 
-# 2292
+# 2379
 uint32_t vscp_getFamilyType()
 {
 return 0;
 }
 
-# 2301
+# 2388
 void vscp_restoreDefaults()
 {
 init_app_eeprom();
 init_app_ram();
 }
 
-# 2311
+# 2398
 int8_t sendVSCPFrame(uint16_t vscpclass,
 uint8_t vscptype,
 uint8_t nodeid,
@@ -24177,7 +24261,7 @@ return 0;
 return 1;
 }
 
-# 2337
+# 2424
 int8_t getVSCPFrame( uint16_t *pvscpclass,
 uint8_t *pvscptype,
 uint8_t *pNodeId,
@@ -24199,7 +24283,7 @@ return 0;
 return 1;
 }
 
-# 2363
+# 2450
 int8_t sendCANFrame(uint32_t id, uint8_t dlc, uint8_t *pdata)
 {
 uint8_t rv = 0;
@@ -24217,7 +24301,7 @@ vscp_omsg.flags = 0;
 return rv;
 }
 
-# 2384
+# 2471
 int8_t getCANFrame(uint32_t *pid, uint8_t *pdlc, uint8_t *pdata)
 {
 ECAN_RX_MSG_FLAGS flags;
@@ -24239,7 +24323,7 @@ return 1;
 return 0;
 }
 
-# 2413
+# 2500
 void calculateSetFilterMask( void )
 {
 uint8_t i,j;
@@ -24257,7 +24341,7 @@ for ( i=0; i<8; i++ ) {
 
 if ( Read_b_eep(0x42 + 8*i + 1) & 0x80 ) {
 
-# 2437
+# 2524
 rowmask =
 
 ( (uint32_t)( Read_b_eep(0x42 + 8*i + 1) & 0x02 ) << 23 ) |
@@ -24270,7 +24354,7 @@ rowmask =
 
 0xff;
 
-# 2453
+# 2540
 rowfilter =
 
 ( (uint32_t)( Read_b_eep(0x42 + 8*i + 1) & 0x01 ) << 24 ) |
@@ -24298,7 +24382,7 @@ mask &= ~(1<<j);
 }
 }
 
-# 2484
+# 2571
 filter &= rowfilter;
 
 

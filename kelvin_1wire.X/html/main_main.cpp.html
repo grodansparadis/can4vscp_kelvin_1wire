@@ -81,7 +81,7 @@
 <tr><td><code>__XC__</code></td><td>none</td><td>1</td></tr>
 <tr><td><code>__IT</code></td><td>none</td><td>0x101</td></tr>
 <tr><td><code>_ERRATA_TYPES</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>__DATE__</code></td><td>none</td><td>"Apr 19 2016"</td></tr>
+<tr><td><code>__DATE__</code></td><td>none</td><td>"Apr 20 2016"</td></tr>
 <tr><td><code>_FLASH_WRITE_SIZE</code></td><td>none</td><td>64</td></tr>
 <tr><td><code>__STACK_HYBRID</code></td><td>none</td><td>2</td></tr>
 <tr><td><code>__XC8_VERSION</code></td><td>none</td><td>1210</td></tr>
@@ -96,7 +96,7 @@
 <tr><td><code>__TRADITIONAL18__</code></td><td>none</td><td>1</td></tr>
 <tr><td><code>__STDC__</code></td><td>none</td><td>1</td></tr>
 <tr><td><code>_18F26K80</code></td><td>none</td><td>1</td></tr>
-<tr><td><code>__TIME__</code></td><td>none</td><td>"20:56:18"</td></tr>
+<tr><td><code>__TIME__</code></td><td>none</td><td>"16:13:22"</td></tr>
 <tr><td><code>_OMNI_CODE_</code></td><td>none</td><td>1</td></tr>
 <tr><td><code>__STACK</code></td><td>none</td><td>__STACK_COMPILED</td></tr>
 <tr><td><code>_18F66K80_FAMILY_</code></td><td>none</td><td>1</td></tr>
@@ -30643,6 +30643,15 @@
 <tr><td><code>REG0_KELVIN1W_REPORT_INTERVAL_7</code></td><td>none</td><td>41</td></tr>
 <tr><td><code>REG0_KELVIN1W_BCONSTANT0_MSB</code></td><td>none</td><td>42</td></tr>
 <tr><td><code>REG0_KELVIN1W_BCONSTANT0_LSB</code></td><td>none</td><td>43</td></tr>
+<tr><td><code>REG0_KELVIN1W_MASTER_RESET_PULSE_MSB</code></td><td>none</td><td>44</td></tr>
+<tr><td><code>REG0_KELVIN1W_MASTER_RESET_PULSE_LSB</code></td><td>none</td><td>45</td></tr>
+<tr><td><code>REG0_KELVIN1W_PRESENCE_WAIT</code></td><td>none</td><td>46</td></tr>
+<tr><td><code>REG0_KELVIN1W_PRESENCE_FIN_MSB</code></td><td>none</td><td>47</td></tr>
+<tr><td><code>REG0_KELVIN1W_PRESENCE_FIN_LSB</code></td><td>none</td><td>48</td></tr>
+<tr><td><code>REG0_KELVIN1W_MASTER_BITSTART_DELAY</code></td><td>none</td><td>49</td></tr>
+<tr><td><code>REG0_KELVIN1W_BIT_READ_DELAY</code></td><td>none</td><td>50</td></tr>
+<tr><td><code>REG0_KELVIN1W_BIT_READ_WAIT</code></td><td>none</td><td>51</td></tr>
+<tr><td><code>REG0_KELVIN1W_BIT_WRITE_DELAY</code></td><td>none</td><td>52</td></tr>
 <tr><td><code>REG1_KELVIN1W_TEMPERATURE0_MSB</code></td><td>none</td><td>0</td></tr>
 <tr><td><code>REG1_KELVIN1W_TEMPERATURE0_BYTE0</code></td><td>none</td><td>0</td></tr>
 <tr><td><code>REG1_KELVIN1W_TEMPERATURE0_BYTE1</code></td><td>none</td><td>1</td></tr>
@@ -30930,18 +30939,16 @@
 <tr><td><code>SELECT_ADC_TEMP3</code></td><td>none</td><td>(0<<2)</td></tr>
 <tr><td><code>SELECT_ADC_TEMP4</code></td><td>none</td><td>(9<<2)</td></tr>
 <tr><td><code>SELECT_ADC_TEMP5</code></td><td>none</td><td>(8<<2)</td></tr>
-<tr><td><code>ROMCODE_18S20</code></td><td>none</td><td>0x10</td></tr>
-<tr><td><code>ROMCODE_18B20</code></td><td>none</td><td>0x28</td></tr>
 <tr><td><code>OW_ROM_FAMILY_CODE</code></td><td>none</td><td>0</td></tr>
 <tr><td><code>OW_ROM_CRC</code></td><td>none</td><td>7</td></tr>
 <tr><td><code>TEMP_RES</code></td><td>none</td><td>0x100</td></tr>
 <tr><td><code>DS1820_RST_PULSE</code></td><td>none</td><td>480</td></tr>
-<tr><td><code>DS1820_PRESENCE_WAIT</code></td><td>none</td><td>70</td></tr>
-<tr><td><code>DS1820_PRESENCE_FIN</code></td><td>none</td><td>410</td></tr>
-<tr><td><code>DS1820_MSTR_BITSTART</code></td><td>none</td><td>6</td></tr>
-<tr><td><code>DS1820_BITREAD_DLY</code></td><td>none</td><td>9</td></tr>
+<tr><td><code>DS1820_PRESENCE_WAIT</code></td><td>none</td><td>40</td></tr>
+<tr><td><code>DS1820_PRESENCE_FIN</code></td><td>none</td><td>480</td></tr>
+<tr><td><code>DS1820_MSTR_BITSTART</code></td><td>none</td><td>2</td></tr>
+<tr><td><code>DS1820_BITREAD_DLY</code></td><td>none</td><td>5</td></tr>
 <tr><td><code>DS1820_BITREAD_WAIT</code></td><td>none</td><td>55</td></tr>
-<tr><td><code>DS1820_BITWRITE_DLY</code></td><td>none</td><td>64</td></tr>
+<tr><td><code>DS1820_BITWRITE_DLY</code></td><td>none</td><td>100</td></tr>
 <tr><td><code>DS1820_REG_TEMPLSB</code></td><td>none</td><td>0</td></tr>
 <tr><td><code>DS1820_REG_TEMPMSB</code></td><td>none</td><td>1</td></tr>
 <tr><td><code>DS1820_REG_CNTREMAIN</code></td><td>none</td><td>6</td></tr>
@@ -31158,7 +31165,16 @@
 <tr><td><code>VSCP_EEPROM_VSCP_END</code></td><td>none</td><td>0x42</td></tr>
 <tr><td><code>VSCP_EEPROM_VSCP_END</code></td><td>none</td><td>0x42</td></tr>
 <tr><td><code>VSCP_EEPROM_VSCP_END</code></td><td>none</td><td>0x42</td></tr>
-<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>VSCP_EEPROM_VSCP_END + 198</td></tr>
+<tr><td><code>VSCP_EEPROM_VSCP_END</code></td><td>none</td><td>0x42</td></tr>
+<tr><td><code>VSCP_EEPROM_VSCP_END</code></td><td>none</td><td>0x42</td></tr>
+<tr><td><code>VSCP_EEPROM_VSCP_END</code></td><td>none</td><td>0x42</td></tr>
+<tr><td><code>VSCP_EEPROM_VSCP_END</code></td><td>none</td><td>0x42</td></tr>
+<tr><td><code>VSCP_EEPROM_VSCP_END</code></td><td>none</td><td>0x42</td></tr>
+<tr><td><code>VSCP_EEPROM_VSCP_END</code></td><td>none</td><td>0x42</td></tr>
+<tr><td><code>VSCP_EEPROM_VSCP_END</code></td><td>none</td><td>0x42</td></tr>
+<tr><td><code>VSCP_EEPROM_VSCP_END</code></td><td>none</td><td>0x42</td></tr>
+<tr><td><code>VSCP_EEPROM_VSCP_END</code></td><td>none</td><td>0x42</td></tr>
+<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>VSCP_EEPROM_VSCP_END + 207</td></tr>
 <tr><td><code>TIMER0_RELOAD_VALUE</code></td><td>none</td><td>0xfb1d</td></tr>
 <tr><td><code>VSCP_LED_BLINK1</code></td><td>none</td><td>0x02</td></tr>
 <tr><td><code>VSCP_LED_ON</code></td><td>none</td><td>0x01</td></tr>
@@ -31301,12 +31317,39 @@
 <tr><td><code>REG0_KELVIN1W_BCONSTANT0_LSB</code></td><td>none</td><td>43</td></tr>
 <tr><td><code>DEFAULT_B_CONSTANT_SENSOR0_LSB</code></td><td>none</td><td>0x68</td></tr>
 <tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
+<tr><td><code>REG0_KELVIN1W_MASTER_RESET_PULSE_MSB</code></td><td>none</td><td>44</td></tr>
+<tr><td><code>DS1820_RST_PULSE</code></td><td>none</td><td>480</td></tr>
+<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
+<tr><td><code>REG0_KELVIN1W_MASTER_RESET_PULSE_LSB</code></td><td>none</td><td>45</td></tr>
+<tr><td><code>DS1820_RST_PULSE</code></td><td>none</td><td>480</td></tr>
+<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
+<tr><td><code>REG0_KELVIN1W_PRESENCE_WAIT</code></td><td>none</td><td>46</td></tr>
+<tr><td><code>DS1820_PRESENCE_WAIT</code></td><td>none</td><td>40</td></tr>
+<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
+<tr><td><code>REG0_KELVIN1W_PRESENCE_FIN_MSB</code></td><td>none</td><td>47</td></tr>
+<tr><td><code>DS1820_PRESENCE_FIN</code></td><td>none</td><td>480</td></tr>
+<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
+<tr><td><code>REG0_KELVIN1W_PRESENCE_FIN_LSB</code></td><td>none</td><td>48</td></tr>
+<tr><td><code>DS1820_PRESENCE_FIN</code></td><td>none</td><td>480</td></tr>
+<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
+<tr><td><code>REG0_KELVIN1W_MASTER_BITSTART_DELAY</code></td><td>none</td><td>49</td></tr>
+<tr><td><code>DS1820_MSTR_BITSTART</code></td><td>none</td><td>2</td></tr>
+<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
+<tr><td><code>REG0_KELVIN1W_BIT_READ_DELAY</code></td><td>none</td><td>50</td></tr>
+<tr><td><code>DS1820_BITREAD_DLY</code></td><td>none</td><td>5</td></tr>
+<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
+<tr><td><code>REG0_KELVIN1W_BIT_READ_WAIT</code></td><td>none</td><td>51</td></tr>
+<tr><td><code>DS1820_BITREAD_WAIT</code></td><td>none</td><td>55</td></tr>
+<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
+<tr><td><code>REG0_KELVIN1W_BIT_WRITE_DELAY</code></td><td>none</td><td>52</td></tr>
+<tr><td><code>DS1820_BITWRITE_DLY</code></td><td>none</td><td>100</td></tr>
+<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
 <tr><td><code>REG3_KELVIN1W_CHANNEL_CONTROL_REGISTER</code></td><td>none</td><td>0</td></tr>
 <tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
 <tr><td><code>REG3_KELVIN1W_ROM_CODE_TEMP0_MSB</code></td><td>none</td><td>1</td></tr>
 <tr><td><code>DESCION_MATRIX_ROWS</code></td><td>none</td><td>8</td></tr>
 <tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>VSCP_EEPROM_VSCP_END + 198</td></tr>
+<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>VSCP_EEPROM_VSCP_END + 207</td></tr>
 <tr><td><code>VSCP_EEPROM_VSCP_END</code></td><td>none</td><td>0x42</td></tr>
 <tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
 <tr><td><code>REG3_KELVIN1W_ROM_CODE_TEMP0_BYTE0</code></td><td>none</td><td>1</td></tr>
@@ -31486,7 +31529,7 @@
 <tr><td><code>REG0_KELVIN1W_TEMP0_ZONE</code></td><td>none</td><td>2</td></tr>
 <tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
 <tr><td><code>REG0_KELVIN1W_TEMP0_SUBZONE</code></td><td>none</td><td>3</td></tr>
-<tr><td><code>REG0_KELVIN1W_BCONSTANT0_LSB</code></td><td>none</td><td>43</td></tr>
+<tr><td><code>REG0_KELVIN1W_BIT_WRITE_DELAY</code></td><td>none</td><td>52</td></tr>
 <tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
 <tr><td><code>REG1_KELVIN1W_TEMPERATURE8_BYTE3</code></td><td>none</td><td>35</td></tr>
 <tr><td><code>REG2_KELVIN1W_CALIBRATION_TEMP8_LSB</code></td><td>none</td><td>89</td></tr>
@@ -31496,9 +31539,44 @@
 <tr><td><code>REG_DESCION_MATRIX</code></td><td>none</td><td>0</td></tr>
 <tr><td><code>DESCION_MATRIX_ROWS</code></td><td>none</td><td>8</td></tr>
 <tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>VSCP_EEPROM_VSCP_END + 198</td></tr>
+<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>VSCP_EEPROM_VSCP_END + 207</td></tr>
 <tr><td><code>VSCP_EEPROM_VSCP_END</code></td><td>none</td><td>0x42</td></tr>
 <tr><td><code>REG0_KELVIN1W_BCONSTANT0_LSB</code></td><td>none</td><td>43</td></tr>
+<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
+<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
+<tr><td><code>REG0_KELVIN1W_MASTER_RESET_PULSE_MSB</code></td><td>none</td><td>44</td></tr>
+<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
+<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
+<tr><td><code>REG0_KELVIN1W_MASTER_RESET_PULSE_LSB</code></td><td>none</td><td>45</td></tr>
+<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
+<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
+<tr><td><code>REG0_KELVIN1W_MASTER_RESET_PULSE_MSB</code></td><td>none</td><td>44</td></tr>
+<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
+<tr><td><code>REG0_KELVIN1W_MASTER_RESET_PULSE_LSB</code></td><td>none</td><td>45</td></tr>
+<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
+<tr><td><code>REG0_KELVIN1W_PRESENCE_WAIT</code></td><td>none</td><td>46</td></tr>
+<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
+<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
+<tr><td><code>REG0_KELVIN1W_PRESENCE_FIN_MSB</code></td><td>none</td><td>47</td></tr>
+<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
+<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
+<tr><td><code>REG0_KELVIN1W_PRESENCE_FIN_LSB</code></td><td>none</td><td>48</td></tr>
+<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
+<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
+<tr><td><code>REG0_KELVIN1W_PRESENCE_FIN_MSB</code></td><td>none</td><td>47</td></tr>
+<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
+<tr><td><code>REG0_KELVIN1W_PRESENCE_FIN_LSB</code></td><td>none</td><td>48</td></tr>
+<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
+<tr><td><code>REG0_KELVIN1W_MASTER_BITSTART_DELAY</code></td><td>none</td><td>49</td></tr>
+<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
+<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
+<tr><td><code>REG0_KELVIN1W_BIT_READ_DELAY</code></td><td>none</td><td>50</td></tr>
+<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
+<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
+<tr><td><code>REG0_KELVIN1W_BIT_READ_WAIT</code></td><td>none</td><td>51</td></tr>
+<tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
+<tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
+<tr><td><code>REG0_KELVIN1W_BIT_WRITE_DELAY</code></td><td>none</td><td>52</td></tr>
 <tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
 <tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
 <tr><td><code>REG2_KELVIN1W_CALIBRATION_TEMP8_LSB</code></td><td>none</td><td>89</td></tr>
@@ -31512,10 +31590,10 @@
 <tr><td><code>REG_DESCION_MATRIX</code></td><td>none</td><td>0</td></tr>
 <tr><td><code>DESCION_MATRIX_ROWS</code></td><td>none</td><td>8</td></tr>
 <tr><td><code>eeprom_write</code></td><td>2</td><td>(Busy_eep(), Write_b_eep(<0>,<1>))</td></tr>
-<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>VSCP_EEPROM_VSCP_END + 198</td></tr>
+<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>VSCP_EEPROM_VSCP_END + 207</td></tr>
 <tr><td><code>VSCP_EEPROM_VSCP_END</code></td><td>none</td><td>0x42</td></tr>
 <tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>VSCP_EEPROM_VSCP_END + 198</td></tr>
+<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>VSCP_EEPROM_VSCP_END + 207</td></tr>
 <tr><td><code>VSCP_EEPROM_VSCP_END</code></td><td>none</td><td>0x42</td></tr>
 <tr><td><code>VSCP_PRIORITY_MEDIUM</code></td><td>none</td><td>0x03</td></tr>
 <tr><td><code>VSCP_CLASS1_INFORMATION</code></td><td>none</td><td>20</td></tr>
@@ -31528,27 +31606,30 @@
 <tr><td><code>REG0_KELVIN1W_SUBZONE</code></td><td>none</td><td>1</td></tr>
 <tr><td><code>FALSE</code></td><td>none</td><td>0</td></tr>
 <tr><td><code>TEMP_CHANNEL0</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>ROMCODE_18S20</code></td><td>none</td><td>0x10</td></tr>
+<tr><td><code>DS1820_FAMILY_CODE_DS18S20</code></td><td>none</td><td>0x10</td></tr>
 <tr><td><code>OW_ROM_FAMILY_CODE</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>ROMCODE_18B20</code></td><td>none</td><td>0x28</td></tr>
+<tr><td><code>DS1820_FAMILY_CODE_DS18B20</code></td><td>none</td><td>0x28</td></tr>
 <tr><td><code>OW_ROM_FAMILY_CODE</code></td><td>none</td><td>0</td></tr>
 <tr><td><code>TEMP_CHANNEL0</code></td><td>none</td><td>0</td></tr>
+<tr><td><code>FALSE</code></td><td>none</td><td>0</td></tr>
 <tr><td><code>TEMP_CHANNEL1</code></td><td>none</td><td>1</td></tr>
-<tr><td><code>ROMCODE_18S20</code></td><td>none</td><td>0x10</td></tr>
+<tr><td><code>DS1820_FAMILY_CODE_DS18S20</code></td><td>none</td><td>0x10</td></tr>
 <tr><td><code>OW_ROM_FAMILY_CODE</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>ROMCODE_18B20</code></td><td>none</td><td>0x28</td></tr>
+<tr><td><code>DS1820_FAMILY_CODE_DS18B20</code></td><td>none</td><td>0x28</td></tr>
 <tr><td><code>OW_ROM_FAMILY_CODE</code></td><td>none</td><td>0</td></tr>
 <tr><td><code>TEMP_CHANNEL1</code></td><td>none</td><td>1</td></tr>
+<tr><td><code>FALSE</code></td><td>none</td><td>0</td></tr>
 <tr><td><code>TEMP_CHANNEL2</code></td><td>none</td><td>2</td></tr>
-<tr><td><code>ROMCODE_18S20</code></td><td>none</td><td>0x10</td></tr>
+<tr><td><code>DS1820_FAMILY_CODE_DS18S20</code></td><td>none</td><td>0x10</td></tr>
 <tr><td><code>OW_ROM_FAMILY_CODE</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>ROMCODE_18B20</code></td><td>none</td><td>0x28</td></tr>
+<tr><td><code>DS1820_FAMILY_CODE_DS18B20</code></td><td>none</td><td>0x28</td></tr>
 <tr><td><code>OW_ROM_FAMILY_CODE</code></td><td>none</td><td>0</td></tr>
 <tr><td><code>TEMP_CHANNEL2</code></td><td>none</td><td>2</td></tr>
+<tr><td><code>FALSE</code></td><td>none</td><td>0</td></tr>
 <tr><td><code>TEMP_CHANNEL3</code></td><td>none</td><td>3</td></tr>
-<tr><td><code>ROMCODE_18S20</code></td><td>none</td><td>0x10</td></tr>
+<tr><td><code>DS1820_FAMILY_CODE_DS18S20</code></td><td>none</td><td>0x10</td></tr>
 <tr><td><code>OW_ROM_FAMILY_CODE</code></td><td>none</td><td>0</td></tr>
-<tr><td><code>ROMCODE_18B20</code></td><td>none</td><td>0x28</td></tr>
+<tr><td><code>DS1820_FAMILY_CODE_DS18B20</code></td><td>none</td><td>0x28</td></tr>
 <tr><td><code>OW_ROM_FAMILY_CODE</code></td><td>none</td><td>0</td></tr>
 <tr><td><code>TEMP_CHANNEL3</code></td><td>none</td><td>3</td></tr>
 <tr><td><code>FIRMWARE_MAJOR_VERSION</code></td><td>none</td><td>1</td></tr>
@@ -31574,12 +31655,12 @@
 <tr><td><code>VSCP_CLASS1_PROTOCOL</code></td><td>none</td><td>0</td></tr>
 <tr><td><code>DESCION_MATRIX_ROWS</code></td><td>none</td><td>8</td></tr>
 <tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>VSCP_EEPROM_VSCP_END + 198</td></tr>
+<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>VSCP_EEPROM_VSCP_END + 207</td></tr>
 <tr><td><code>VSCP_EEPROM_VSCP_END</code></td><td>none</td><td>0x42</td></tr>
 <tr><td><code>VSCP_DM_FLAG_ENABLED</code></td><td>none</td><td>0x80</td></tr>
 <tr><td><code>VSCP_DM_FLAG_CHECK_OADDR</code></td><td>none</td><td>0x40</td></tr>
 <tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>VSCP_EEPROM_VSCP_END + 198</td></tr>
+<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>VSCP_EEPROM_VSCP_END + 207</td></tr>
 <tr><td><code>VSCP_EEPROM_VSCP_END</code></td><td>none</td><td>0x42</td></tr>
 <tr><td><code>VSCP_DM_FLAG_CHECK_ZONE</code></td><td>none</td><td>0x10</td></tr>
 <tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
@@ -31589,55 +31670,55 @@
 <tr><td><code>REG0_KELVIN1W_SUBZONE</code></td><td>none</td><td>1</td></tr>
 <tr><td><code>VSCP_DM_FLAG_CLASS_FILTER</code></td><td>none</td><td>0x01</td></tr>
 <tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>VSCP_EEPROM_VSCP_END + 198</td></tr>
+<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>VSCP_EEPROM_VSCP_END + 207</td></tr>
 <tr><td><code>VSCP_EEPROM_VSCP_END</code></td><td>none</td><td>0x42</td></tr>
 <tr><td><code>VSCP_DM_POS_CLASSFILTER</code></td><td>none</td><td>3</td></tr>
 <tr><td><code>VSCP_DM_FLAG_CLASS_MASK</code></td><td>none</td><td>0x02</td></tr>
 <tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>VSCP_EEPROM_VSCP_END + 198</td></tr>
+<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>VSCP_EEPROM_VSCP_END + 207</td></tr>
 <tr><td><code>VSCP_EEPROM_VSCP_END</code></td><td>none</td><td>0x42</td></tr>
 <tr><td><code>VSCP_DM_POS_CLASSMASK</code></td><td>none</td><td>2</td></tr>
 <tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>VSCP_EEPROM_VSCP_END + 198</td></tr>
+<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>VSCP_EEPROM_VSCP_END + 207</td></tr>
 <tr><td><code>VSCP_EEPROM_VSCP_END</code></td><td>none</td><td>0x42</td></tr>
 <tr><td><code>VSCP_DM_POS_TYPEFILTER</code></td><td>none</td><td>5</td></tr>
 <tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>VSCP_EEPROM_VSCP_END + 198</td></tr>
+<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>VSCP_EEPROM_VSCP_END + 207</td></tr>
 <tr><td><code>VSCP_EEPROM_VSCP_END</code></td><td>none</td><td>0x42</td></tr>
 <tr><td><code>VSCP_DM_POS_TYPEMASK</code></td><td>none</td><td>4</td></tr>
 <tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>VSCP_EEPROM_VSCP_END + 198</td></tr>
+<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>VSCP_EEPROM_VSCP_END + 207</td></tr>
 <tr><td><code>VSCP_EEPROM_VSCP_END</code></td><td>none</td><td>0x42</td></tr>
 <tr><td><code>VSCP_DM_POS_ACTION</code></td><td>none</td><td>6</td></tr>
 <tr><td><code>KELVIN1W_ACTION_NOOP</code></td><td>none</td><td>0</td></tr>
 <tr><td><code>KELVIN1W_ACTION_SCAN</code></td><td>none</td><td>1</td></tr>
 <tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>VSCP_EEPROM_VSCP_END + 198</td></tr>
+<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>VSCP_EEPROM_VSCP_END + 207</td></tr>
 <tr><td><code>VSCP_EEPROM_VSCP_END</code></td><td>none</td><td>0x42</td></tr>
 <tr><td><code>VSCP_DM_POS_ACTIONPARAM</code></td><td>none</td><td>7</td></tr>
 <tr><td><code>KELVIN1W_ACTION_SCANSTORE</code></td><td>none</td><td>2</td></tr>
 <tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>VSCP_EEPROM_VSCP_END + 198</td></tr>
+<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>VSCP_EEPROM_VSCP_END + 207</td></tr>
 <tr><td><code>VSCP_EEPROM_VSCP_END</code></td><td>none</td><td>0x42</td></tr>
 <tr><td><code>VSCP_DM_POS_ACTIONPARAM</code></td><td>none</td><td>7</td></tr>
 <tr><td><code>KELVIN1W_ACTION_REPORT</code></td><td>none</td><td>3</td></tr>
 <tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>VSCP_EEPROM_VSCP_END + 198</td></tr>
+<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>VSCP_EEPROM_VSCP_END + 207</td></tr>
 <tr><td><code>VSCP_EEPROM_VSCP_END</code></td><td>none</td><td>0x42</td></tr>
 <tr><td><code>VSCP_DM_POS_ACTIONPARAM</code></td><td>none</td><td>7</td></tr>
 <tr><td><code>KELVIN1W_ACTION_CLEAR_ALARM</code></td><td>none</td><td>4</td></tr>
 <tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>VSCP_EEPROM_VSCP_END + 198</td></tr>
+<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>VSCP_EEPROM_VSCP_END + 207</td></tr>
 <tr><td><code>VSCP_EEPROM_VSCP_END</code></td><td>none</td><td>0x42</td></tr>
 <tr><td><code>VSCP_DM_POS_ACTIONPARAM</code></td><td>none</td><td>7</td></tr>
 <tr><td><code>KELVIN1W_ACTION_CLEAR_HIGH</code></td><td>none</td><td>5</td></tr>
 <tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>VSCP_EEPROM_VSCP_END + 198</td></tr>
+<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>VSCP_EEPROM_VSCP_END + 207</td></tr>
 <tr><td><code>VSCP_EEPROM_VSCP_END</code></td><td>none</td><td>0x42</td></tr>
 <tr><td><code>VSCP_DM_POS_ACTIONPARAM</code></td><td>none</td><td>7</td></tr>
 <tr><td><code>KELVIN1W_ACTION_CLEAR_LOW</code></td><td>none</td><td>6</td></tr>
 <tr><td><code>eeprom_read</code></td><td>1</td><td>Read_b_eep(<0>)</td></tr>
-<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>VSCP_EEPROM_VSCP_END + 198</td></tr>
+<tr><td><code>DECISION_MATRIX_EEPROM_START</code></td><td>none</td><td>VSCP_EEPROM_VSCP_END + 207</td></tr>
 <tr><td><code>VSCP_EEPROM_VSCP_END</code></td><td>none</td><td>0x42</td></tr>
 <tr><td><code>VSCP_DM_POS_ACTIONPARAM</code></td><td>none</td><td>7</td></tr>
 <tr><td><code>VSCP_PRIORITY_NORMAL</code></td><td>none</td><td>0x03</td></tr>

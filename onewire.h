@@ -82,6 +82,16 @@
 #define REG0_KELVIN1W_BCONSTANT0_MSB                    42
 #define REG0_KELVIN1W_BCONSTANT0_LSB                    43
 
+#define REG0_KELVIN1W_MASTER_RESET_PULSE_MSB            44
+#define REG0_KELVIN1W_MASTER_RESET_PULSE_LSB            45
+#define REG0_KELVIN1W_PRESENCE_WAIT                     46
+#define REG0_KELVIN1W_PRESENCE_FIN_MSB                  47   
+#define REG0_KELVIN1W_PRESENCE_FIN_LSB                  48
+#define REG0_KELVIN1W_MASTER_BITSTART_DELAY             49
+#define REG0_KELVIN1W_BIT_READ_DELAY                    50  
+#define REG0_KELVIN1W_BIT_READ_WAIT                     51 
+#define REG0_KELVIN1W_BIT_WRITE_DELAY                   52
+
 
 ////////////////////////////////////////////////////////////////////////////////
 //                                 Page 1
@@ -443,7 +453,7 @@
 #define DEFAULT_HYSTERESIS                  2
 
 //
-// Error
+// Errors
 //
 
 #define ERROR_GENERAL                       0x00
@@ -509,10 +519,6 @@
 // ----------------------------------------------------------------------------- 
 
 
-// Handled ROM codes
-#define ROMCODE_18S20               0x10  // Valid for DS1820 also
-#define ROMCODE_18B20               0x28
-
 // Frame positions in ROM code
 #define OW_ROM_FAMILY_CODE          0
 #define OW_ROM_CRC                  7
@@ -525,20 +531,31 @@
 //                         DS1820 Timing Parameters                           
 // -----------------------------------------------------------------------------
 
-#define DS1820_RST_PULSE                480 // master reset pulse time in [us] 
-//#define DS1820_PRESENCE_WAIT   40         // delay after master reset pulse in [us] 
-#define DS1820_PRESENCE_WAIT            70
-//#define DS1820_PRESENCE_FIN    480   // delay after reading of presence pulse [us] 
-#define DS1820_PRESENCE_FIN             410
+// uncomment to use standard timing
+//#define DS1820_USE_STANDARD_TIMING
 
-//#define DS1820_MSTR_BITSTART   2     // delay time for bit start by master 
-#define DS1820_MSTR_BITSTART            6
-//#define DS1820_BITREAD_DLY     5      // bit read delay 
-#define DS1820_BITREAD_DLY              9
-#define DS1820_BITREAD_WAIT             55
 
-//#define DS1820_BITWRITE_DLY    100   // bit write delay 
-#define DS1820_BITWRITE_DLY             64
+#ifdef DS1820_USE_STANDARD_TIMING
+
+#define DS1820_RST_PULSE                480 // Master reset pulse time in [us]     
+#define DS1820_PRESENCE_WAIT            70  // Delay after master reset pulse in [us]  
+#define DS1820_PRESENCE_FIN             410 // Delay after reading of presence pulse [us]    
+#define DS1820_MSTR_BITSTART            6   // Delay time for bit start by master    
+#define DS1820_BITREAD_DLY              9   // Bit read delay 
+#define DS1820_BITREAD_WAIT             55  // Bit read wait  
+#define DS1820_BITWRITE_DLY             64  // Bit write delay
+
+#else
+
+#define DS1820_RST_PULSE                480 // Master reset pulse time in [us]         
+#define DS1820_PRESENCE_WAIT            40  // Delay after master reset pulse in [us]     
+#define DS1820_PRESENCE_FIN             480 // Delay after reading of presence pulse [us]    
+#define DS1820_MSTR_BITSTART            2   // Delay time for bit start by master      
+#define DS1820_BITREAD_DLY              5   // bit read delay
+#define DS1820_BITREAD_WAIT             55  // Bit read wait
+#define DS1820_BITWRITE_DLY             100 // Bit write delay
+
+#endif
 
 // -----------------------------------------------------------------------------
 //                            DS1820 Registers                                

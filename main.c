@@ -643,6 +643,18 @@ void main()
     // Check VSCP persistent storage and
     // restore if needed
     vscp_check_pstorage();    
+    
+    // Initialisation of in memory variables
+    OW_MasterResetPulseTime = ( eeprom_read( REG0_KELVIN1W_MASTER_RESET_PULSE_MSB ) << 8 +
+                                    eeprom_read( REG0_KELVIN1W_MASTER_RESET_PULSE_LSB ) );;
+    OW_PresenceWait = eeprom_read(reg2eeprom_pg0[ REG0_KELVIN1W_PRESENCE_WAIT ]);  
+    OW_PresenceFin = ( eeprom_read( REG0_KELVIN1W_PRESENCE_FIN_MSB ) << 8 ) +
+                        eeprom_read( REG0_KELVIN1W_PRESENCE_FIN_LSB );
+    OW_MasterBitStart = eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_MASTER_BITSTART_DELAY ] );
+    OW_DelayBitRead = eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_BIT_READ_DELAY ] );
+    OW_DelayBitWait = eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_BIT_READ_WAIT ] );
+    OW_DelayBitWrite = eeprom_read( reg2eeprom_pg0[ REG0_KELVIN1W_BIT_WRITE_DELAY ] );
+    
 
     while (TRUE) { // Loop Forever
 
@@ -1679,7 +1691,7 @@ uint8_t vscp_writeAppReg(unsigned char reg, unsigned char val)
         }
         else if ( reg == REG0_KELVIN1W_PRESENCE_WAIT ) {
             eeprom_write(reg2eeprom_pg0[ reg ], val);
-            OW_PresenceWait= rv = eeprom_read(reg2eeprom_pg0[ reg ]);
+            OW_PresenceWait = rv = eeprom_read(reg2eeprom_pg0[ reg ]);
         }
         else if ( reg == REG0_KELVIN1W_PRESENCE_FIN_MSB ) {
             eeprom_write(reg2eeprom_pg0[ reg ], val);

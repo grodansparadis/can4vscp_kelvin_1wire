@@ -6,7 +6,7 @@
     <name>Kelvin 1-wire temperature module</name>
     <model>1W</model>
     <version>A</version>
-    <changed>2016-04-19</changed>
+    <changed>2016-04-20</changed>
     <description lang="en">
         This module can report temperature from up to eight temperature sensors plus show tempertature for one sensor
         that is located localy on board.
@@ -61,7 +61,7 @@
         version_minor="2"
         version_subminor="0">
         <description lang="en" >
-            Firmware version 1.2.0 for the Kelvin 1-wire module.
+            Firmware version 1.0.0 for the Kelvin 1-wire module.
         </description> 
     </firmware>
 
@@ -1532,7 +1532,7 @@
                 of report events for the sensor.
             </description>
             <access>rw</access>
-        </reg>	
+        </reg>
         
         <reg page="0" offset="40" default="0" bgcolor="0xB2F0FF">
             <name lang="en">ReportIntervalSensor6</name>
@@ -1562,7 +1562,7 @@
                 B constant for sensor 8 the on-board sensor.
             </description>
             <access>rw</access>
-        </reg>		
+        </reg>
 
         <reg page="0" offset="43" default="0x68" bgcolor="0xCCCCFF">
             <name lang="en">BetaSensor8_LSB</name>
@@ -2017,7 +2017,7 @@
                 alarm set point for sensor 3. The value is stored as a twos complement number.
             </description>
             <access>rw</access>
-        </reg>		
+        </reg>
 
         <reg page="2" offset="7" default="0xff" bgcolor="0xFFCCCC">
             <name lang="en">LowAlarmSetPointSensor3_LSB</name>
@@ -2035,7 +2035,7 @@
                 alarm set point for sensor 4. The value is stored as a twos complement number.
             </description>
             <access>rw</access>
-        </reg>		
+        </reg>
 
         <reg page="2" offset="9" default="0xff" bgcolor="0xFFCCCC">
             <name lang="en">LowAlarmSetPointSensor4_LSB</name>
@@ -2071,7 +2071,7 @@
                 alarm set point for sensor 6. The value is stored as a twos complement number.
             </description>
             <access>rw</access>
-        </reg>		
+        </reg>
 
         <reg page="2" offset="13" default="0xff" bgcolor="0xFFCCCC">
             <name lang="en">LowAlarmSetPointSensor6_LSB</name>
@@ -2318,7 +2318,7 @@
                 The value is stored as a twos complement number as temperature * 100.
             </description>
             <access>rw</access>
-        </reg>		
+        </reg>
 
         <reg page="2" offset="39" default="0xff" bgcolor="0xE5CCFF">
             <name lang="en">AbsoluteLowTemperatureSensor3_LSB</name>
@@ -2422,7 +2422,7 @@
                 The value is stored as a twos complement number as temperature * 100.
             </description>
             <access>rw</access>
-        </reg>		
+        </reg>
 
         <reg page="2" offset="49" default="0" bgcolor="0xFFCCFF" >
             <name lang="en">AbsoluteHighTemperatureSensor0_LSB</name>
@@ -2442,7 +2442,7 @@
                 The value is stored as a twos complement number as temperature * 100.
             </description>
             <access>rw</access>
-        </reg>		
+        </reg>
 
         <reg page="2" offset="51" default="0" bgcolor="0xFFCCFF">
             <name lang="en">AbsoluteHighTemperatureSensor1_LSB</name>
@@ -2462,7 +2462,7 @@
                 The value is stored as a twos complement number as temperature * 100.
             </description>
             <access>rw</access>
-        </reg>		
+        </reg>
 
         <reg page="2" offset="53" default="0" bgcolor="0xFFCCFF">
             <name lang="en">AbsoluteHighTemperatureSensor2_LSB</name>
@@ -2482,7 +2482,7 @@
                 The value is stored as a twos complement number as temperature * 100.
             </description>
             <access>rw</access>
-        </reg>		
+        </reg>
 
         <reg page="2" offset="55" default="0" bgcolor="0xFFCCFF">
             <name lang="en">AbsoluteHighTemperatureSensor3_LSB</name>
@@ -2502,7 +2502,7 @@
                 The value is stored as a twos complement number as temperature * 100.
             </description>
             <access>rw</access>
-        </reg>		
+        </reg>
 
         <reg page="2" offset="57" default="0" bgcolor="0xFFCCFF">
             <name lang="en">AbsoluteHighTemperatureSensor4_LSB</name>
@@ -2522,7 +2522,7 @@
                 The value is stored as a twos complement number as temperature * 100.
             </description>
             <access>rw</access>
-        </reg>		
+        </reg>
 
         <reg page="2" offset="59" default="0" bgcolor="0xFFCCFF">
             <name lang="en">AbsoluteHighTemperatureSensor5_LSB</name>
@@ -2532,7 +2532,7 @@
                 The value is stored as a twos complement number as temperature * 100.
             </description>
             <access>rw</access>
-        </reg>	
+        </reg>
         
         <reg page="2" offset="60" default="0x80" bgcolor="0xFFCCFF">
             <name lang="en">AbsoluteHighTemperatureSensor6_MSB</name>
@@ -2542,7 +2542,7 @@
                 The value is stored as a twos complement number as temperature * 100.
             </description>
             <access>rw</access>
-        </reg>		
+        </reg>
 
         <reg page="2" offset="61" default="0" bgcolor="0xFFCCFF">
             <name lang="en">AbsoluteHighTemperatureSensor6_LSB</name>
@@ -2552,7 +2552,7 @@
                 The value is stored as a twos complement number as temperature * 100.
             </description>
             <access>rw</access>
-        </reg>	
+        </reg>
         
         <reg page="2" offset="62" default="0x80" bgcolor="0xFFCCFF">
             <name lang="en">AbsoluteHighTemperatureSensor7_MSB</name>
@@ -2562,7 +2562,7 @@
                 The value is stored as a twos complement number as temperature * 100.
             </description>
             <access>rw</access>
-        </reg>		
+        </reg>
 
         <reg page="2" offset="63" default="0" bgcolor="0xFFCCFF">
             <name lang="en">AbsoluteHighTemperatureSensor7_LSB</name>
@@ -2572,7 +2572,7 @@
                 The value is stored as a twos complement number as temperature * 100.
             </description>
             <access>rw</access>
-        </reg>	
+        </reg>
         
         
         <!-- Hysteresis -->
@@ -3428,9 +3428,9 @@
         
         <!-- B Constant -->
 
-        <abstraction id="bconst0" type="uint16_t" default="0"
+        <abstraction id="bconst0" type="uint16_t" default="0x0f68"
                             page = "0" offset = "42" bgcolor="0xE5FFCC">
-            <name lang="en">B constant for sensor 8</name>
+            <name lang="en">BConstantSensor8</name>
             <description lang="en">
                 NTC Thermistor B constant for sensor 8 (on-board sensor).
             </description>
@@ -3439,72 +3439,72 @@
         
         <!-- Low alarm -->
 
-        <abstraction id="lowalarm2" type="int16_t" default="0" 
+        <abstraction id="lowalarm0" type="int16_t" default="0x80ff" 
                             page = "2" offset = "0" bgcolor="0xCCFFE5">
-            <name lang="en">Low alarm for sensor 0</name>
+            <name lang="en">LowAlarmSensor0</name>
             <description lang="en">
                 Low alarm setpoint for sensor 0.
             </description>
             <access>rw</access>
         </abstraction>
         
-        <abstraction id="lowalarm1" type="int16_t"  default="0"
+        <abstraction id="lowalarm1" type="int16_t"  default="0x80ff"
                             page = "2" offset = "2" bgcolor="0xCCFFE5">
-            <name lang="en">Low alarm for sensor 1</name>
+            <name lang="en">LowAlarmSensor1</name>
             <description lang="en">
                 Low alarm set point for sensor 1.
             </description>
             <access>rw</access>
         </abstraction>
 
-        <abstraction id="lowalarm2" type="int16_t" default="0" 
+        <abstraction id="lowalarm2" type="int16_t" default="0x80ff" 
                             page = "2" offset = "4" bgcolor="0xCCFFE5">
-            <name lang="en">Low alarm for sensor 2</name>
+            <name lang="en">LowAlarmSensor2</name>
             <description lang="en">
                 Low alarm set point for sensor 2.
             </description>
             <access>rw</access>
         </abstraction>
 
-        <abstraction id="lowalarm3" type="int16_t" default="0" 
+        <abstraction id="lowalarm3" type="int16_t" default="0x80ff" 
                             page = "2" offset = "6" bgcolor="0xCCFFE5">
-            <name lang="en">Low alarm for sensor 3</name>
+            <name lang="en">LowAlarmSensor3</name>
             <description lang="en">
                 Low alarm set point for sensor 3.
             </description>
             <access>rw</access>
         </abstraction>
 
-        <abstraction id="lowalarm4" type="int16_t"  default="0"
+        <abstraction id="lowalarm4" type="int16_t"  default="0x80ff"
                             page = "2" offset = "8" bgcolor="0xCCFFE5">
-            <name lang="en">Low alarm for sensor 4</name>
+            <name lang="en">LowAlarmSensor4</name>
             <description lang="en">
                 Low alarm set point for sensor 4.
             </description>
             <access>rw</access>
         </abstraction>
 
-        <abstraction id="lowalarm5" type="int16_t"  default="0"
+        <abstraction id="lowalarm5" type="int16_t"  default="0x80ff"
                             page = "2" offset = "10" bgcolor="0xCCFFE5">
-            <name lang="en">Low alarm for sensor 5</name>
+            <name lang="en">LowAlarmSensor5</name>
             <description lang="en">
                 Low alarm set point for sensor 5.
             </description>
             <access>rw</access>
         </abstraction>	
         
-        <abstraction id="lowalarm6" type="int16_t"  default="0"
+        <abstraction id="lowalarm6" type="int16_t"  default="0x80ff"
                             page = "2" offset = "12" bgcolor="0xCCFFE5">
-            <name lang="en">Low alarm for sensor 6</name>
+            <name lang="en">LowAlarmSensor6</name>
             <description lang="en">
                 Low alarm set point for sensor 6.
             </description>
             <access>rw</access>
         </abstraction>
         
-        <abstraction id="lowalarm7" type="int16_t"  default="0"
+        <abstraction id="lowalarm7" type="int16_t"  default="0x80ff"
                             page = "2" offset = "14" bgcolor="0xCCFFE5">
-            <name lang="en">Low alarm for sensor 7</name>
+            <name lang="en">LowAlarmSensor7</name>
             <description lang="en">
                 Low alarm set point for sensor 7.
             </description>
@@ -3515,72 +3515,72 @@
         <!-- High alarm -->
 
 
-        <abstraction id="highalarm0" type="int16_t"  default="0"
+        <abstraction id="highalarm0" type="int16_t"  default="0x7fff"
                             page = "2" offset = "16" bgcolor="0xCCFFCC">
-            <name lang="en">High alarm for sensor 0</name>
+            <name lang="en">HighAlarmSensor0</name>
             <description lang="en">
                 High alarm set point for sensor 0.
             </description>
             <access>rw</access>
         </abstraction>
 
-        <abstraction id="highalarm1" type="int16_t"  default="0"
+        <abstraction id="highalarm1" type="int16_t"  default="0x7fff"
                             page = "2" offset = "18" bgcolor="0xCCFFCC">
-            <name lang="en">High alarm for sensor 1</name>
+            <name lang="en">HighAlarmSensor1</name>
             <description lang="en">
                 High alarm set point for sensor 1.
             </description>
             <access>rw</access>
         </abstraction>
         
-        <abstraction id="highalarm2" type="int16_t"  default="0"
+        <abstraction id="highalarm2" type="int16_t"  default="0x7fff"
                             page = "2" offset = "20" bgcolor="0xCCFFCC">
-            <name lang="en">High alarm for sensor 2</name>
+            <name lang="en">HighAlarmSensor2</name>
             <description lang="en">
                 High alarm set point for sensor 2.
             </description>
             <access>rw</access>
         </abstraction>
         
-        <abstraction id="highalarm3" type="int16_t"  default="0"
+        <abstraction id="highalarm3" type="int16_t"  default="0x7fff"
                             page = "2" offset = "22" bgcolor="0xCCFFCC">
-            <name lang="en">High alarm for sensor 3</name>
+            <name lang="en">HighAlarmSensor3</name>
             <description lang="en">
                 High alarm set point for sensor 3.
             </description>
             <access>rw</access>
         </abstraction>
 
-        <abstraction id="highalarm4" type="int16_t"  default="0"
+        <abstraction id="highalarm4" type="int16_t"  default="0x7fff"
                             page = "2" offset = "24" bgcolor="0xCCFFCC">
-            <name lang="en">High alarm for sensor 4</name>
+            <name lang="en">HighAlarmSensor4</name>
             <description lang="en">
                 High alarm set point for sensor 4.
             </description>
             <access>rw</access>
         </abstraction>
 
-        <abstraction id="highalarm5" type="int16_t"  default="0"
+        <abstraction id="highalarm5" type="int16_t"  default="0x7fff"
                             page = "2" offset = "26" bgcolor="0xCCFFCC">
-            <name lang="en">High alarm for sensor 5</name>
+            <name lang="en">HighAlarmSensor5</name>
             <description lang="en">
                 High alarm set point for sensor 5.
             </description>
             <access>rw</access>
         </abstraction>	
         
-        <abstraction id="highalarm6" type="int16_t"  default="0"
+        <abstraction id="highalarm6" type="int16_t"  default="0x7fff"
                             page = "2" offset = "28" bgcolor="0xCCFFCC">
-            <name lang="en">High alarm for sensor 6</name>
+            <name lang="en">HighAlarmSensor6</name>
             <description lang="en">
                 High alarm set point for sensor 6.
             </description>
             <access>rw</access>
         </abstraction>	
         
-        <abstraction id="highalarm7" type="int16_t"  default="0"
+        <abstraction id="highalarm7" type="int16_t"  default="0x7fff"
                             page = "2" offset = "30" bgcolor="0xCCFFCC">
-            <name lang="en">High alarm for sensor 7</name>
+            <name lang="en">HighAlarmSensor7</name>
             <description lang="en">
                 High alarm set point for sensor 7.
             </description>
@@ -3593,7 +3593,7 @@
 
         <abstraction id="abslow0" type="int16_t"  default="0"
                             page = "2" offset = "32" bgcolor="0xFFCCCC">
-            <name lang="en">Absolute low temperature for sensor 0</name>
+            <name lang="en">AbsoluteLowTemperatureSensor0</name>
             <description lang="en">
                 Absolute low temperature for sensor 0.\n
                 This is the lowest temperature measured for this sensor.
@@ -3604,7 +3604,7 @@
         
         <abstraction id="abslow1" type="int16_t"  default="0"
                             page = "2" offset = "34" bgcolor="0xFFCCCC">
-            <name lang="en">Absolute low temperature for sensor 1</name>
+            <name lang="en">AbsoluteLowTemperatureSensor1</name>
             <description lang="en">
                 Absolute low temperature for sensor 1.\n
                 This is the lowest temperature measured for this sensor.
@@ -3615,7 +3615,7 @@
 
         <abstraction id="abslow2" type="int16_t"  default="0"
                             page = "2" offset = "36" bgcolor="0xFFCCCC">
-            <name lang="en">Absolute low temperature for sensor 2</name>
+            <name lang="en">AbsoluteLowTemperatureSensor2</name>
             <description lang="en">
                 Absolute low temperature for sensor 2.\n
                 This is the lowest temperature measured for this sensor.
@@ -3626,7 +3626,7 @@
 
         <abstraction id="abslow3" type="int16_t"  default="0"
                             page = "2" offset = "38" bgcolor="0xFFCCCC">
-            <name lang="en">Absolute low temperature for sensor 3</name>
+            <name lang="en">AbsoluteLowTemperatureSensor3</name>
             <description lang="en">
                 Absolute low temperature for sensor 3.\n
                 This is the lowest temperature measured for this sensor.
@@ -3637,7 +3637,7 @@
 
         <abstraction id="abslow4" type="int16_t"  default="0"
                             page = "2" offset = "40" bgcolor="0xFFCCCC">
-            <name lang="en">Absolute low temperature for sensor 4</name>
+            <name lang="en">AbsoluteLowTemperatureSensor4</name>
             <description lang="en">
                 Absolute low temperature for sensor 4.\n
                 This is the lowest temperature measured for this sensor.
@@ -3648,7 +3648,7 @@
 
         <abstraction id="abslow5" type="int16_t"  default="0"
                             page = "2" offset = "42" bgcolor="0xFFCCCC">
-            <name lang="en">Absolute low temperature for sensor 5</name>
+            <name lang="en">AbsoluteLowTemperatureSensor5</name>
             <description lang="en">
                 Absolute low temperature for sensor 5.\n
                 This is the lowest temperature measured for this sensor.
@@ -3659,7 +3659,7 @@
         
         <abstraction id="abslow6" type="int16_t"  default="0"
                             page = "2" offset = "44" bgcolor="0xFFCCCC">
-            <name lang="en">Absolute low temperature for sensor 6</name>
+            <name lang="en">AbsoluteLowTemperatureSensor6</name>
             <description lang="en">
                 Absolute low temperature for sensor 6.\n
                 This is the lowest temperature measured for this sensor.
@@ -3670,7 +3670,7 @@
         
         <abstraction id="abslow7" type="int16_t"  default="0"
                             page = "2" offset = "46" bgcolor="0xFFCCCC">
-            <name lang="en">Absolute low temperature for sensor 7</name>
+            <name lang="en">AbsoluteLowTemperatureSensor7</name>
             <description lang="en">
                 Absolute low temperature for sensor 7.\n
                 This is the lowest temperature measured for this sensor.
@@ -3685,7 +3685,7 @@
         
         <abstraction id="abshigh0" type="int16_t" default="0" 
                             page = "2" offset = "48" bgcolor="0xFFCCCC" >
-            <name lang="en">Absolute high temperature for sensor 0</name>
+            <name lang="en">AbsoluteHighTemperatureSensor0</name>
             <description lang="en">
                 Absolute high temperature for sensor 0.\n
                 This is the highest temperature measured for this sensor.
@@ -3696,7 +3696,7 @@
 
         <abstraction id="abshigh1" type="int16_t" default="0" 
                             page = "2" offset = "50" bgcolor="0xFFCCCC">
-            <name lang="en">Absolute high temperature for sensor 1</name>
+            <name lang="en">AbsoluteHighTemperatureSensor1</name>
             <description lang="en">
                 Absolute high temperature for sensor 1.\n
                 This is the highest temperature measured for this sensor.
@@ -3707,7 +3707,7 @@
 
         <abstraction id="abshigh2" type="int16_t"  default="0"
                             page = "2" offset = "52" bgcolor="0xFFCCCC">
-            <name lang="en">Absolute high temperature for sensor 2</name>
+            <name lang="en">AbsoluteHighTemperatureSensor2</name>
             <description lang="en">
                 Absolute high temperature for sensor 2.\n
                 This is the highest temperature measured for this sensor.
@@ -3718,7 +3718,7 @@
 
         <abstraction id="abshigh3" type="int16_t"  default="0"
                             page = "2" offset = "54" bgcolor="0xFFCCCC">
-            <name lang="en">Absolute high temperature for sensor 3</name>
+            <name lang="en">AbsoluteHighTemperatureSensor3</name>
             <description lang="en">
                 Absolute high temperature for sensor 3.\n
                 This is the highest temperature measured for this sensor.
@@ -3729,7 +3729,7 @@
 
         <abstraction id="abshigh4" type="int16_t"  default="0"
                             page = "2" offset = "56" bgcolor="0xFFCCCC">
-            <name lang="en">Absolute high temperature for sensor 4</name>
+            <name lang="en">AbsoluteHighTemperatureSensor4</name>
             <description lang="en">
                 Absolute high temperature for sensor 4.\n
                 This is the highest temperature measured for this sensor.
@@ -3740,7 +3740,7 @@
 
         <abstraction id="abshigh5" type="int16_t"  default="0"
                             page = "2" offset = "58" bgcolor="0xFFCCCC">
-            <name lang="en">Absolute high temperature for sensor 5</name>
+            <name lang="en">AbsoluteHighTemperatureSensor5</name>
             <description lang="en">
                 Absolute high temperature for sensor 5.\n
                 This is the highest temperature measured for this sensor.
@@ -3751,7 +3751,7 @@
         
         <abstraction id="abshigh6" type="int16_t"  default="0"
                             page = "2" offset = "60" bgcolor="0xFFCCCC">
-            <name lang="en">Absolute high temperature for sensor 6</name>
+            <name lang="en">AbsoluteHighTemperatureSensor6</name>
             <description lang="en">
                 Absolute high temperature for sensor 6.\n
                 This is the highest temperature measured for this sensor.
@@ -3762,7 +3762,7 @@
         
         <abstraction id="abshigh7" type="int16_t"  default="0"
                             page = "2" offset = "62" bgcolor="0xFFCCCC">
-            <name lang="en">Absolute high temperature for sensor 7</name>
+            <name lang="en">AbsoluteHighTemperatureSensor7</name>
             <description lang="en">
                 Absolute high temperature for sensor 7.\n
                 This is the highest temperature measured for this sensor.
@@ -3779,7 +3779,7 @@
      
         <abstraction id="calibration0" type="int16_t"  default="0"
                             page = "2" offset = "72" bgcolor="0xCCE5FF">
-            <name lang="en">Calibration value for sensors 0</name>
+            <name lang="en">CalibrationValueSensors0</name>
             <description lang="en">
                 Calibration value for sensor 0. This signed value is added to 
                 the value read form the sensor before it is presented. The value entered 
@@ -3790,7 +3790,7 @@
 
         <abstraction id="calibration1" type="int16_t"  default="0"
                             page = "2" offset = "74" bgcolor="0xCCE5FF">
-            <name lang="en">Calibration value for sensors 1</name>
+            <name lang="en">CalibrationValueSensors1</name>
             <description lang="en">
                 Calibration value for sensor 1. This signed value is added to 
                 the value read form the sensor before it is presented. The value entered 
@@ -3801,7 +3801,7 @@
         
         <abstraction id="calibration2" type="int16_t"  default="0"
                             page = "2" offset = "76" bgcolor="0xCCE5FF">
-            <name lang="en">Calibration value for sensors 2</name>
+            <name lang="en">CalibrationValueSensors2</name>
             <description lang="en">
                 Calibration value for sensor 2. This signed value is added to 
                 the value read form the sensor before it is presented. The value entered 
@@ -3812,7 +3812,7 @@
         
         <abstraction id="calibration3" type="int16_t"  default="0"
                             page = "2" offset = "78" bgcolor="0xCCE5FF">
-            <name lang="en">Calibration value for sensors 3</name>
+            <name lang="en">CalibrationValueSensors3</name>
             <description lang="en">
                 Calibration value for sensor 3. This signed value is added to 
                 the value read form the sensor before it is presented. The value entered 
@@ -3823,7 +3823,7 @@
         
         <abstraction id="calibration4" type="int16_t"  default="0"
                             page = "2" offset = "80" bgcolor="0xCCE5FF">
-            <name lang="en">Calibration value for sensors 4</name>
+            <name lang="en">CalibrationValueSensors4</name>
             <description lang="en">
                 Calibration value for sensor 4. This signed value is added to 
                 the value read form the sensor before it is presented. The value entered 
@@ -3834,7 +3834,7 @@
         
         <abstraction id="calibration5" type="int16_t"  default="0"
                             page = "2" offset = "82" bgcolor="0xCCE5FF">
-            <name lang="en">Calibration value for sensors 5</name>
+            <name lang="en">CalibrationValueSensors5</name>
             <description lang="en">
                 Calibration value for sensor 5. This signed value is added to 
                 the value read form the sensor before it is presented. The value entered 
@@ -3845,7 +3845,7 @@
         
         <abstraction id="calibration6" type="int16_t"  default="0"
                             page = "2" offset = "84" bgcolor="0xCCE5FF">
-            <name lang="en">Calibration value for sensors 6</name>
+            <name lang="en">CalibrationValueSensors6</name>
             <description lang="en">
                 Calibration value for sensor 6. This signed value is added to 
                 the value read form the sensor before it is presented. The value entered 
@@ -3856,7 +3856,7 @@
         
         <abstraction id="calibration7" type="int16_t"  default="0"
                             page = "2" offset = "86" bgcolor="0xCCE5FF">
-            <name lang="en">Calibration value for sensors 7</name>
+            <name lang="en">CalibrationValueSensors7</name>
             <description lang="en">
                 Calibration value for sensor 7. This vsigned value is added to 
                 the value read form the sensor before it is presented. The value entered 
@@ -3867,7 +3867,7 @@
        
         <abstraction id="calibration8" type="int16_t"  default="0"
                             page = "2" offset = "88" bgcolor="0xCCE5FF">
-            <name lang="en">Calibration value for sensors 8</name>
+            <name lang="en">CalibrationValueSensors8</name>
             <description lang="en">
                 Calibration value for sensor 8 (internal sensor). This signed value is added to 
                 the value read form the sensor before it is presented. The value entered 
@@ -3972,13 +3972,13 @@
                     This byte tells how many steps left (for a positive number) or right 
                     (for a negative number) the decimal point should be shifted to get the
                     correct temperature.
-                </description>      	
+                </description>      
             </data>
             <data offset="2" >
                 <name lang="en">Temperature MSB</name>
                 <description lang="en">
                     This is the most significant byte of the temperature.
-                </description>      	
+                </description>      
             </data>
             <data offset="3" >
                 <name lang="en">Temperature</name>

@@ -5,7 +5,7 @@
  *  Kelvin 1-wire Module
  *  =====================
  *
- *  Copyright (C) 2015-2016 Ake Hedman, Grodans Paradis AB
+ *  Copyright (C) 2015-2018 Ake Hedman, Grodans Paradis AB
  *                          http://www.grodansparadis.com
  *                          <akhe@grodansparadis.com>
  *
@@ -810,7 +810,7 @@ void init()
     OpenTimer0(TIMER_INT_ON & T0_16BIT & T0_SOURCE_INT & T0_PS_1_8);
     WriteTimer0(TIMER0_RELOAD_VALUE);
     
-    #if defined(_18F2580)     
+#if defined(_18F2580)     
     OpenADC(ADC_FOSC_32 & ADC_RIGHT_JUST & ADC_20_TAD,
                 ADC_CH0 & ADC_INT_ON & ADC_11ANA &
                     ADC_VREFPLUS_VDD & ADC_VREFMINUS_VSS,

@@ -6,7 +6,7 @@
  *  Kelvin 1-wire Module
  *  ====================
  *
- *  Copyright (C) 2015-2016 Ake Hedman, Grodans Paradis AB
+ *  Copyright (C) 2015-2018 Ake Hedman, Grodans Paradis AB
  *                          http://www.grodansparadis.com
  *                          <akhe@grodansparadis.com>
  *

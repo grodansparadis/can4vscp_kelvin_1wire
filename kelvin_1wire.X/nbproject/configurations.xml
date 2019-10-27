@@ -49,8 +49,8 @@
   </logicalFolder>
   <sourceRootList>
     <Elem>../</Elem>
-    <Elem>../../vscp_firmware/common</Elem>
-    <Elem>../../vscp_firmware/pic/common</Elem>
+    <Elem>../../vscp-firmware/common</Elem>
+    <Elem>../../vscp-firmware/pic/common</Elem>
     <Elem>../../vscp-firmware/common</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
@@ -67,7 +67,7 @@
         <platform>2</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC18Fxxxx_DFP" vendor="Microchip" version="1.0.6"/>
+        <pack name="PIC18Fxxxx_DFP" vendor="Microchip" version="1.0.9"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -94,12 +94,17 @@
         <makeCustomizationNormalizeHexFile>true</makeCustomizationNormalizeHexFile>
       </makeCustomizationType>
       <HI-TECH-COMP>
+        <property key="additional-warnings" value="true"/>
         <property key="asmlist" value="true"/>
+        <property key="default-bitfield-type" value="true"/>
+        <property key="default-char-type" value="true"/>
         <property key="define-macros" value="RELEASE"/>
         <property key="disable-optimizations" value="false"/>
         <property key="extra-include-directories"
-                  value="../;..\..\vscp_firmware\pic\common;..\..\vscp_firmware\common;..\..\vscp_software\src\vscp\common"/>
+                  value="../;..\..\vscp-firmware\pic\common;..\..\vscp-firmware\common;..\..\vscp\src\vscp\common"/>
         <property key="favor-optimization-for" value="+speed,-space"/>
+        <property key="garbage-collect-data" value="true"/>
+        <property key="garbage-collect-functions" value="true"/>
         <property key="identifier-length" value="255"/>
         <property key="local-generation" value="false"/>
         <property key="operation-mode" value="pro"/>
@@ -109,10 +114,12 @@
         <property key="optimization-debug" value="false"/>
         <property key="optimization-invariant-enable" value="false"/>
         <property key="optimization-invariant-value" value="16"/>
-        <property key="optimization-level" value="9"/>
+        <property key="optimization-level" value="-O3"/>
         <property key="optimization-speed" value="true"/>
         <property key="optimization-stable-enable" value="false"/>
+        <property key="pack-struct" value="true"/>
         <property key="preprocess-assembler" value="true"/>
+        <property key="short-enums" value="true"/>
         <property key="undefine-macros" value=""/>
         <property key="use-cci" value="false"/>
         <property key="use-iar" value="false"/>
@@ -164,6 +171,7 @@
         <property key="opt-xc8-linker-link_startup" value="false"/>
         <property key="opt-xc8-linker-serial" value=""/>
         <property key="program-the-device-with-default-config-words" value="true"/>
+        <property key="remove-unused-sections" value="true"/>
       </HI-TECH-LINK>
       <RealICEPlatformTool>
         <property key="AutoSelectMemRanges" value="auto"/>
@@ -223,6 +231,9 @@
         <property key="tracecontrol.tracefilemax" value="10000000"/>
         <property key="voltagevalue" value="5.0"/>
       </RealICEPlatformTool>
+      <XC8-CO>
+        <property key="coverage-enable" value=""/>
+      </XC8-CO>
       <XC8-config-global>
         <property key="advanced-elf" value="true"/>
         <property key="gcc-opt-driver-new" value="false"/>
@@ -249,7 +260,7 @@
         <platform>2</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC18Fxxxx_DFP" vendor="Microchip" version="1.0.6"/>
+        <pack name="PIC18Fxxxx_DFP" vendor="Microchip" version="1.0.9"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -276,12 +287,17 @@
         <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
       </makeCustomizationType>
       <HI-TECH-COMP>
+        <property key="additional-warnings" value="true"/>
         <property key="asmlist" value="true"/>
+        <property key="default-bitfield-type" value="true"/>
+        <property key="default-char-type" value="true"/>
         <property key="define-macros" value="DEBUG"/>
         <property key="disable-optimizations" value="false"/>
         <property key="extra-include-directories"
                   value="../;..\..\vscp-firmware\pic\common;..\..\vscp-firmware\common;..\..\vscp-software\src\vscp\common"/>
         <property key="favor-optimization-for" value="-speed,+space"/>
+        <property key="garbage-collect-data" value="true"/>
+        <property key="garbage-collect-functions" value="true"/>
         <property key="identifier-length" value="255"/>
         <property key="local-generation" value="false"/>
         <property key="operation-mode" value="pro"/>
@@ -291,10 +307,12 @@
         <property key="optimization-debug" value="true"/>
         <property key="optimization-invariant-enable" value="false"/>
         <property key="optimization-invariant-value" value="16"/>
-        <property key="optimization-level" value="9"/>
+        <property key="optimization-level" value="-Os"/>
         <property key="optimization-speed" value="false"/>
         <property key="optimization-stable-enable" value="false"/>
+        <property key="pack-struct" value="true"/>
         <property key="preprocess-assembler" value="true"/>
+        <property key="short-enums" value="true"/>
         <property key="undefine-macros" value=""/>
         <property key="use-cci" value="false"/>
         <property key="use-iar" value="false"/>
@@ -346,6 +364,7 @@
         <property key="opt-xc8-linker-link_startup" value="false"/>
         <property key="opt-xc8-linker-serial" value=""/>
         <property key="program-the-device-with-default-config-words" value="true"/>
+        <property key="remove-unused-sections" value="true"/>
       </HI-TECH-LINK>
       <RealICEPlatformTool>
         <property key="AutoSelectMemRanges" value="auto"/>
@@ -405,6 +424,9 @@
         <property key="tracecontrol.tracefilemax" value="54600"/>
         <property key="voltagevalue" value="5.0"/>
       </RealICEPlatformTool>
+      <XC8-CO>
+        <property key="coverage-enable" value=""/>
+      </XC8-CO>
       <XC8-config-global>
         <property key="advanced-elf" value="true"/>
         <property key="gcc-opt-driver-new" value="false"/>
@@ -431,7 +453,7 @@
         <platform>2</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC18F-K_DFP" vendor="Microchip" version="1.0.40"/>
+        <pack name="PIC18F-K_DFP" vendor="Microchip" version="1.1.58"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -458,12 +480,17 @@
         <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
       </makeCustomizationType>
       <HI-TECH-COMP>
+        <property key="additional-warnings" value="true"/>
         <property key="asmlist" value="true"/>
+        <property key="default-bitfield-type" value="true"/>
+        <property key="default-char-type" value="true"/>
         <property key="define-macros" value="DEBUG"/>
         <property key="disable-optimizations" value="false"/>
         <property key="extra-include-directories"
-                  value="../;..\..\vscp_firmware\pic\common;..\..\vscp_firmware\common;..\..\vscp_software\src\vscp\common"/>
+                  value="../;..\..\vscp-firmware\pic\common;..\..\vscp-firmware\common;..\..\vscp\src\vscp\common"/>
         <property key="favor-optimization-for" value="-speed,+space"/>
+        <property key="garbage-collect-data" value="true"/>
+        <property key="garbage-collect-functions" value="true"/>
         <property key="identifier-length" value="255"/>
         <property key="local-generation" value="false"/>
         <property key="operation-mode" value="pro"/>
@@ -473,10 +500,12 @@
         <property key="optimization-debug" value="true"/>
         <property key="optimization-invariant-enable" value="false"/>
         <property key="optimization-invariant-value" value="16"/>
-        <property key="optimization-level" value="9"/>
+        <property key="optimization-level" value="-Os"/>
         <property key="optimization-speed" value="false"/>
         <property key="optimization-stable-enable" value="false"/>
+        <property key="pack-struct" value="true"/>
         <property key="preprocess-assembler" value="true"/>
+        <property key="short-enums" value="true"/>
         <property key="undefine-macros" value=""/>
         <property key="use-cci" value="false"/>
         <property key="use-iar" value="false"/>
@@ -528,6 +557,7 @@
         <property key="opt-xc8-linker-link_startup" value="false"/>
         <property key="opt-xc8-linker-serial" value=""/>
         <property key="program-the-device-with-default-config-words" value="true"/>
+        <property key="remove-unused-sections" value="true"/>
       </HI-TECH-LINK>
       <RealICEPlatformTool>
         <property key="AutoSelectMemRanges" value="auto"/>
@@ -587,6 +617,9 @@
         <property key="tracecontrol.tracefilemax" value="54600"/>
         <property key="voltagevalue" value="1.875"/>
       </RealICEPlatformTool>
+      <XC8-CO>
+        <property key="coverage-enable" value=""/>
+      </XC8-CO>
       <XC8-config-global>
         <property key="advanced-elf" value="true"/>
         <property key="gcc-opt-driver-new" value="false"/>
@@ -613,7 +646,7 @@
         <platform>2</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC18F-K_DFP" vendor="Microchip" version="1.0.40"/>
+        <pack name="PIC18F-K_DFP" vendor="Microchip" version="1.1.58"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -640,12 +673,17 @@
         <makeCustomizationNormalizeHexFile>true</makeCustomizationNormalizeHexFile>
       </makeCustomizationType>
       <HI-TECH-COMP>
+        <property key="additional-warnings" value="true"/>
         <property key="asmlist" value="true"/>
+        <property key="default-bitfield-type" value="true"/>
+        <property key="default-char-type" value="true"/>
         <property key="define-macros" value="RELEASE"/>
         <property key="disable-optimizations" value="false"/>
         <property key="extra-include-directories"
-                  value="../;..\..\vscp_firmware\pic\common;..\..\vscp_firmware\common;..\..\vscp_software\src\vscp\common"/>
+                  value="../;..\..\vscp-firmware\pic\common;..\..\vscp-firmware\common;..\..\vscp\src\vscp\common"/>
         <property key="favor-optimization-for" value="+speed,-space"/>
+        <property key="garbage-collect-data" value="true"/>
+        <property key="garbage-collect-functions" value="true"/>
         <property key="identifier-length" value="255"/>
         <property key="local-generation" value="false"/>
         <property key="operation-mode" value="pro"/>
@@ -655,10 +693,12 @@
         <property key="optimization-debug" value="false"/>
         <property key="optimization-invariant-enable" value="false"/>
         <property key="optimization-invariant-value" value="16"/>
-        <property key="optimization-level" value="9"/>
+        <property key="optimization-level" value="-O3"/>
         <property key="optimization-speed" value="true"/>
         <property key="optimization-stable-enable" value="false"/>
+        <property key="pack-struct" value="true"/>
         <property key="preprocess-assembler" value="true"/>
+        <property key="short-enums" value="true"/>
         <property key="undefine-macros" value=""/>
         <property key="use-cci" value="false"/>
         <property key="use-iar" value="false"/>
@@ -710,6 +750,7 @@
         <property key="opt-xc8-linker-link_startup" value="false"/>
         <property key="opt-xc8-linker-serial" value=""/>
         <property key="program-the-device-with-default-config-words" value="true"/>
+        <property key="remove-unused-sections" value="true"/>
       </HI-TECH-LINK>
       <RealICEPlatformTool>
         <property key="AutoSelectMemRanges" value="auto"/>
@@ -769,6 +810,9 @@
         <property key="tracecontrol.tracefilemax" value="10000000"/>
         <property key="voltagevalue" value="5.0"/>
       </RealICEPlatformTool>
+      <XC8-CO>
+        <property key="coverage-enable" value=""/>
+      </XC8-CO>
       <XC8-config-global>
         <property key="advanced-elf" value="true"/>
         <property key="gcc-opt-driver-new" value="false"/>

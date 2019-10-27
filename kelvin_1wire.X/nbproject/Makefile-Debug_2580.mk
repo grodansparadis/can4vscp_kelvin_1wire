@@ -70,6 +70,7 @@ OBJECTFILES=${OBJECTDIR}/_ext/1472/main.p1 ${OBJECTDIR}/_ext/1472/onewire.p1 ${O
 SOURCEFILES=../main.c ../onewire.c ../ECAN.c ../../vscp-firmware/common/vscp_firmware.c
 
 
+
 CFLAGS=
 ASFLAGS=
 LDLIBSOPTIONS=

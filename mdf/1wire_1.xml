@@ -6,7 +6,7 @@
     <name>Kelvin 1-wire temperature module</name>
     <model>1W</model>
     <version>A</version>
-    <changed>2016-04-20</changed>
+    <changed>2020-05-15</changed>
     <description lang="en">
         This module can report temperature from up to eight temperature sensors plus show tempertature for one sensor
         that is located localy on board.
@@ -18,7 +18,7 @@
         <address>
             <street>Brattbergavägen 17</street>
             <city>Los</city>
-            <postcode>82050</postcode>
+            <postcode>82770</postcode>
             <country>Sweden</country>
         </address>
         <telephone>
@@ -53,17 +53,35 @@
     </picture>
     
     <!-- Firmware for the device -->
-    <firmware path="http://www.grodansparadis.com/kelvin/firmware_kelvin_ntc10ka_1_2_0.hex" 
+    <files>
+    
+    <firmware target="pic18f2580"
+        path="https://github.com/grodansparadis/can4vscp_kelvin_1wire/releases/download/v1.0.0/Kelvin_1wire_pic2580_1_0_0_relocated.hex" 
         format="intelhex8"
         size="32000"
-        date="2015-02-18"
+        date="2020-05-15"
         version_major="1"
-        version_minor="2"
+        version_minor="1"
         version_subminor="0">
         <description lang="en" >
-            Firmware version 1.0.0 for the Kelvin 1-wire module.
+            Firmware version 1.0.0 for the Kelvin 1-wire module for boards with PIC18F2580.
         </description> 
     </firmware>
+    
+    <firmware target="pic18f26k80"
+        path="https://github.com/grodansparadis/can4vscp_kelvin_1wire/releases/download/v1.0.0/kelvin_1wire_pic18f26k80_1_0_0_relocated.hex" 
+        format="intelhex8"
+        size="32000"
+        date="2020-05-15"
+        version_major="1"
+        version_minor="1"
+        version_subminor="0">
+        <description lang="en" >
+            Firmware version 1.0.0 for the Kelvin 1-wire module for boards with PIC18F267k80.
+        </description> 
+    </firmware>
+    
+    </files>
 
     <!-- Full documentation for the device -->
     <manual path="http://www.grodansparadis.com/kelvin1w/manual" 	

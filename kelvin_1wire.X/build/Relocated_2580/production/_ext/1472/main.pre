@@ -18712,6 +18712,101 @@ extern void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern void _delay3(unsigned char);
 
+# 7 "/opt/microchip/xc8/v1.21/include/stdarg.h"
+typedef void * va_list[1];
+
+#pragma intrinsic(__va_start)
+extern void * __va_start(void);
+
+#pragma intrinsic(__va_arg)
+extern void * __va_arg(void *, ...);
+
+# 23 "/opt/microchip/xc8/v1.21/include/stdio.h"
+extern int errno;
+
+# 54
+struct __prbuf
+{
+char * ptr;
+void (* func)(char);
+};
+
+# 17 "/opt/microchip/xc8/v1.21/include/conio.h"
+extern int errno;
+
+
+extern void init_uart(void);
+
+extern char getch(void);
+extern char getche(void);
+extern void putch(char);
+extern void ungetch(char);
+
+extern __bit kbhit(void);
+
+# 31
+extern char * cgets(char *);
+extern void cputs(const char *);
+
+# 99 "/opt/microchip/xc8/v1.21/include/stdio.h"
+extern int cprintf(char *, ...);
+#pragma printf_check(cprintf)
+
+
+
+extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+
+
+# 191
+#pragma printf_check(vprintf) const
+#pragma printf_check(vsprintf) const
+
+extern char * gets(char *);
+extern int puts(const char *);
+extern int scanf(const char *, ...);
+extern int sscanf(const char *, const char *, ...);
+extern int vprintf(const char *, va_list);
+extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+extern int vscanf(const char *, va_list ap);
+extern int vsscanf(const char *, const char *, va_list);
+
+#pragma printf_check(printf) const
+#pragma printf_check(sprintf) const
+extern int sprintf(char *, const char *, ...);
+extern int printf(const char *, ...);
+
+# 22 "/opt/microchip/xc8/v1.21/include/string.h"
+extern void * memcpy(void *, const void *, size_t);
+extern void * memmove(void *, const void *, size_t);
+extern void * memset(void *, int, size_t);
+
+# 35
+extern char * strcat(char *, const char *);
+extern char * strcpy(char *, const char *);
+extern char * strncat(char *, const char *, size_t);
+extern char * strncpy(char *, const char *, size_t);
+extern char * strdup(const char *);
+extern char * strtok(char *, const char *);
+
+
+extern int memcmp(const void *, const void *, size_t);
+extern int strcmp(const char *, const char *);
+extern int stricmp(const char *, const char *);
+extern int strncmp(const char *, const char *, size_t);
+extern int strnicmp(const char *, const char *, size_t);
+extern void * memchr(const void *, int, size_t);
+extern size_t strcspn(const char *, const char *);
+extern char * strpbrk(const char *, const char *);
+extern size_t strspn(const char *, const char *);
+extern char * strstr(const char *, const char *);
+extern char * stristr(const char *, const char *);
+extern char * strerror(int);
+extern size_t strlen(const char *);
+extern char * strchr(const char *, int);
+extern char * strichr(const char *, int);
+extern char * strrchr(const char *, int);
+extern char * strrichr(const char *, int);
+
 # 3 "/opt/microchip/xc8/v1.21/include/math.h"
 extern double fabs(double);
 extern double floor(double);
@@ -18740,7 +18835,7 @@ extern double fmod(double, double);
 extern double trunc(double);
 extern double round(double);
 
-# 34 "../../vscp_firmware/pic/common/inttypes.h"
+# 34 "../../vscp-firmware/pic/common/inttypes.h"
 typedef long long int64_t;
 
 
@@ -18858,10 +18953,10 @@ void _CANIDToRegs(BYTE* ptr,
 unsigned long val,
 BYTE type );
 
-# 219 "../../vscp_firmware/common/vscp_firmware.h"
+# 219 "../../vscp-firmware/common/vscp-firmware.h"
 typedef struct {
 
-# 231
+# 232
 uint8_t flags;
 
 uint8_t priority;
@@ -18871,7 +18966,7 @@ uint8_t oaddr;
 uint8_t data[8];
 } vscpevent_t;
 
-# 296
+# 297
 struct _dmrow {
 uint8_t oaddr;
 uint8_t flags;
@@ -18897,71 +18992,71 @@ extern vscpevent_t vscp_imsg;
 extern vscpevent_t vscp_omsg;
 extern volatile uint16_t vscp_timer;
 extern uint8_t vscp_probe_address;
-extern volatile uint8_t vscp_initbtncnt;
+extern volatile uint16_t vscp_initbtncnt;
 extern volatile uint8_t vscp_statuscnt;
 extern uint16_t vscp_page_select;
 extern volatile uint16_t vscp_configtimer;
 
 extern const uint8_t vscp_deviceURL[];
 
-# 336
+# 337
 void vscp_init(void);
 
-# 343
+# 344
 void vscp_error(void);
 
-# 351
+# 352
 void vscp_handleProbeState(void);
 
-# 364
+# 365
 void vscp_handlePreActiveState(void);
 
-# 371
+# 372
 void vscp_handleProtocolEvent(void);
 
-# 379
+# 380
 void vscp_goActiveState(void);
 
-# 389
+# 390
 void vscp_sendHeartBeat(uint8_t zone, uint8_t subzone);
 
-# 394
+# 395
 void vscp_handleHeartbeat(void);
 
-# 399
+# 400
 void vscp_handleSetNickname(void);
 
-# 404
+# 405
 void vscp_handleDropNickname(void);
 
-# 409
+# 410
 void vscp_newNodeOnline(void);
 
-# 416
+# 417
 uint8_t vscp_readRegister(uint8_t reg);
 
-# 423
+# 424
 uint8_t vscp_readStdReg(uint8_t reg);
 
-# 431
+# 432
 uint8_t vscp_writeRegister(uint8_t reg, uint8_t value);
 
-# 439
+# 440
 uint8_t vscp_writeStdReg(uint8_t reg, uint8_t value);
 
-# 447
+# 448
 void vscp_doOneSecondWork(void);
 
-# 452
+# 453
 int8_t vscp_check_pstorage(void);
 
-# 458
+# 459
 int8_t vscp_sendEvent(void);
 
-# 464
+# 465
 int8_t vscp_getEvent(void);
 
-# 517
+# 518
 int8_t getVSCPFrame( uint16_t *pvscpclass,
 uint8_t *pvscptype,
 uint8_t *pNodeId,
@@ -18969,7 +19064,7 @@ uint8_t *pPriority,
 uint8_t *pSize,
 uint8_t *pData);
 
-# 534
+# 535
 int8_t sendVSCPFrame( uint16_t vscpclass,
 uint8_t vscptype,
 uint8_t nodeid,
@@ -18977,87 +19072,87 @@ uint8_t priority,
 uint8_t size,
 uint8_t *pData );
 
-# 545
+# 546
 uint8_t vscp_getMajorVersion( void );
 uint8_t vscp_getMinorVersion( void );
 uint8_t vscp_getSubMinorVersion( void );
 
-# 552
+# 553
 uint8_t vscp_getGUID(uint8_t idx);
 void vscp_setGUID(uint8_t idx, uint8_t data);
 
-# 562
+# 563
 uint8_t vscp_getUserID(uint8_t idx);
 void vscp_setUserID(uint8_t idx, uint8_t data);
 
-# 578
+# 579
 uint8_t vscp_getManufacturerId(uint8_t idx);
 void vscp_setManufacturerId(uint8_t idx, uint8_t data);
 
-# 584
+# 585
 uint8_t vscp_getBootLoaderAlgorithm( void );
 
-# 589
+# 590
 uint8_t vscp_getBufferSize(void);
 
-# 594
+# 595
 uint8_t vscp_getRegisterPagesUsed(void);
 
-# 600
+# 601
 uint8_t vscp_getMDF_URL(uint8_t idx);
 
-# 606
+# 607
 uint8_t vscp_readNicknamePermanent(void);
 
-# 612
+# 613
 void vscp_writeNicknamePermanent(uint8_t nickname);
 
-# 617
+# 618
 uint8_t vscp_getControlByte( uint8_t idx );
 
-# 622
+# 623
 void vscp_setControlByte(uint8_t idx, uint8_t ctrl);
 
-# 627
+# 628
 void vscp_init_pstorage( void );
 
-# 634
+# 635
 uint8_t vscp_getPageSelect(uint8_t idx);
 
-# 641
+# 642
 void vscp_setPageSelect(uint8_t idx, uint8_t data);
 
-# 648
+# 649
 uint8_t vscp_readAppReg(uint8_t reg);
 
-# 656
+# 657
 uint8_t vscp_writeAppReg(uint8_t reg, uint8_t value);
 
-# 670
+# 671
 void vscp_getMatrixInfo(char *pData);
 
-# 678
+# 679
 void vscp_getEmbeddedMdfInfo(void);
 
-# 685
+# 686
 void vscp_goBootloaderMode( uint8_t algorithm );
 
-# 691
+# 692
 uint8_t vscp_getZone(void);
 
-# 697
+# 698
 uint8_t vscp_getSubzone(void);
 
-# 703
+# 704
 uint32_t vscp_getFamilyCode(void);
 
-# 709
+# 710
 uint32_t vscp_getFamilyType(void);
 
-# 717
+# 718
 void vscp_restoreDefaults(void);
 
-# 107 "../main.h"
+# 105 "../main.h"
 void doWork(void);
 void init(void);
 void init_app_ram(void);
@@ -19065,31 +19160,60 @@ void init_app_eeprom(void);
 void doOneSecondWork(void);
 void handle_sync(void);
 int16_t getCalibrationValue( uint8_t i );
-int8_t convertTemperature(int temp, unsigned char unit);
+int8_t convertTemperature(double temp, unsigned char unit );
 int8_t sendTempEvent( uint8_t i );
 void setEventData(int v, unsigned char unit);
 void read_app_register(unsigned char reg);
 void write_app_register(unsigned char reg, unsigned char val);
+void calculateSetFilterMask( void );
+uint8_t writeChannelControl( uint8_t val );
+BOOL loadROMCodeFromEEPROM( uint8_t currentSensor );
+void saveROMCodeToEEPROM( uint8_t channel, uint8_t idxSensor );
+void reportTokenActivity( void );
 
-# 453 "../onewire.h"
+
 double Celsius2Fahrenheit(double tc);
 double Fahrenheit2Celsius(double tf);
 double Celsius2Kelvin(double tc);
 double Kelvin2Celsius(double tf);
 
-# 465
+
+void actionScan( uint8_t param );
+void actionScanStore( uint8_t param );
+void actionReport( uint8_t param );
+void actionClearAlarm( uint8_t param );
+void actionClearHigh( uint8_t param );
+void actionClearLow( uint8_t param );
+
+# 144
 int8_t sendCANFrame( uint32_t id, uint8_t size, uint8_t *pData );
 
-# 474
+# 153
 int8_t getCANFrame( uint32_t *pid, uint8_t *psize, uint8_t *pData );
 
+# 594 "../onewire.h"
+uint8_t DS1820_Reset( uint8_t pin );
+uint8_t DS1820_ReadBit( uint8_t pin );
+void DS1820_WriteBit( uint8_t pin, uint8_t bBit );
+uint8_t DS1820_ReadByte( uint8_t pin );
+void DS1820_WriteByte( uint8_t pin, uint8_t val_u8 );
+void DS1820_AddrDevice( uint8_t pin, uint8_t nAddrMethod );
+uint8_t DS1820_FindNextDevice( uint8_t pin );
+uint8_t DS1820_FindFirstDevice( uint8_t pin );
+void DS1820_WriteEEPROM( uint8_t pin, uint8_t high, uint8_t low );
+void DS1820_StartTempConversion( uint8_t pin );
+int16_t DS1820_GetTempRaw( uint8_t pin, BOOL bStartAndWait );
+double DS1820_GetTempFloat( uint8_t pin );
+double DS1820_LateGetTempFloat( uint8_t pin );
+void DS1820_GetTempString( int16_t rawTemp, char *strTemp );
 
-# 50 "../main.c"
+
+# 52 "../main.c"
 #pragma config WDT = ON, WDTPS = 128
 #pragma config OSC = HSPLL
 #pragma config BOREN = BOACTIVE
 #pragma config STVREN = ON
-#pragma config BORV = 3
+#pragma config BORV = 1
 #pragma config LVP = ON
 #pragma config CPB = ON
 #pragma config BBSIZ = 2048
@@ -19102,11 +19226,24 @@ int8_t getCANFrame( uint32_t *pid, uint8_t *psize, uint8_t *pData );
 
 #pragma config EBTRB = OFF
 
-# 125
+# 127
+uint8_t romAddrOneWire[ 8 ];
+uint8_t bDoneFlagOneWire;
+uint8_t nLastDiscrepancyOnewire;
+
+
+uint16_t OW_MasterResetPulseTime;
+uint8_t OW_PresenceWait;
+uint16_t OW_PresenceFin;
+uint8_t OW_MasterBitStart;
+uint8_t OW_DelayBitRead;
+uint8_t OW_DelayBitWait;
+uint8_t OW_DelayBitWrite;
+
+
 const uint8_t vscp_deviceURL[] = "www.eurosource.se/1wire_1.xml";
 
 
-int16_t current_temp;
 
 volatile uint16_t sendTimer;
 volatile uint32_t measurement_clock;
@@ -19114,16 +19251,252 @@ volatile uint32_t timeout_clock;
 
 uint8_t seconds;
 
-uint8_t seconds_temp[6];
+uint8_t seconds_temp[ 8 ];
 
 
 uint8_t low_alarm;
 uint8_t high_alarm;
 
-uint8_t adc_low;
-uint8_t adc_high;
+uint32_t adc_value;
 
-# 152
+
+
+
+double arrayTemp[ 9 ];
+
+
+uint8_t currentSensor = 0;
+
+# 172
+const uint16_t reg2eeprom_pg0[] = {
+0x42 + 0,
+0x42 + 1,
+
+0x42 + 2,
+0x42 + 3,
+0x42 + 4,
+0x42 + 5,
+0x42 + 6,
+0x42 + 7,
+0x42 + 8,
+0x42 + 10,
+0x42 + 11,
+0x42 + 12,
+0x42 + 13,
+0x42 + 14,
+0x42 + 15,
+0x42 + 16,
+0x42 + 17,
+0x42 + 18,
+
+0x42 + 19,
+0x42 + 20,
+0x42 + 21,
+0x42 + 22,
+0x42 + 23,
+0x42 + 24,
+0x42 + 25,
+0x42 + 26,
+0x42 + 27,
+0x42 + 28,
+0x42 + 29,
+0x42 + 30,
+0x42 + 31,
+0x42 + 32,
+0x42 + 33,
+0x42 + 34,
+
+0x42 + 35,
+0x42 + 36,
+0x42 + 37,
+0x42 + 38,
+0x42 + 39,
+0x42 + 40,
+0x42 + 41,
+0x42 + 42,
+
+0x42 + 43,
+0x42 + 44,
+
+0x42 + 45,
+0x42 + 46,
+0x42 + 47,
+0x42 + 48,
+0x42 + 49,
+0x42 + 50,
+0x42 + 51,
+0x42 + 53,
+0x42 + 53,
+};
+
+# 237
+const uint16_t reg2eeprom_pg2[] = {
+0x42 + 54,
+0x42 + 55,
+0x42 + 56,
+0x42 + 57,
+0x42 + 58,
+0x42 + 59,
+0x42 + 60,
+0x42 + 61,
+0x42 + 62,
+0x42 + 63,
+0x42 + 64,
+0x42 + 65,
+0x42 + 66,
+0x42 + 67,
+0x42 + 68,
+0x42 + 69,
+
+0x42 + 70,
+0x42 + 71,
+0x42 + 72,
+0x42 + 73,
+0x42 + 74,
+0x42 + 75,
+0x42 + 76,
+0x42 + 77,
+0x42 + 78,
+0x42 + 79,
+0x42 + 80,
+0x42 + 81,
+0x42 + 82,
+0x42 + 83,
+0x42 + 84,
+0x42 + 85,
+
+0x42 + 86,
+0x42 + 87,
+0x42 + 88,
+0x42 + 89,
+0x42 + 90,
+0x42 + 91,
+0x42 + 92,
+0x42 + 93,
+0x42 + 94,
+0x42 + 95,
+0x42 + 96,
+0x42 + 97,
+0x42 + 98,
+0x42 + 99,
+0x42 + 100,
+0x42 + 101,
+
+0x42 + 102,
+0x42 + 103,
+0x42 + 104,
+0x42 + 105,
+0x42 + 106,
+0x42 + 107,
+0x42 + 108,
+0x42 + 109,
+0x42 + 110,
+0x42 + 111,
+0x42 + 112,
+0x42 + 113,
+0x42 + 114,
+0x42 + 115,
+0x42 + 116,
+0x42 + 117,
+
+0x42 + 118,
+0x42 + 119,
+0x42 + 120,
+0x42 + 121,
+0x42 + 122,
+0x42 + 123,
+0x42 + 124,
+0x42 + 125,
+
+0x42 + 126,
+0x42 + 127,
+0x42 + 128,
+0x42 + 129,
+0x42 + 130,
+0x42 + 131,
+0x42 + 132,
+0x42 + 133,
+0x42 + 134,
+0x42 + 135,
+0x42 + 136,
+0x42 + 137,
+0x42 + 138,
+0x42 + 139,
+0x42 + 140,
+0x42 + 141,
+};
+
+
+
+const uint16_t reg2eeprom_pg3[] = {
+0x42 + 142,
+0x42 + 143,
+0x42 + 144,
+0x42 + 145,
+0x42 + 146,
+0x42 + 147,
+0x42 + 148,
+0x42 + 149,
+0x42 + 150,
+0x42 + 151,
+0x42 + 152,
+0x42 + 153,
+0x42 + 154,
+0x42 + 155,
+0x42 + 156,
+0x42 + 157,
+0x42 + 158,
+0x42 + 159,
+0x42 + 160,
+0x42 + 161,
+0x42 + 162,
+0x42 + 163,
+0x42 + 164,
+0x42 + 165,
+0x42 + 166,
+0x42 + 167,
+0x42 + 168,
+0x42 + 169,
+0x42 + 170,
+0x42 + 171,
+0x42 + 172,
+0x42 + 173,
+0x42 + 174,
+0x42 + 175,
+0x42 + 176,
+0x42 + 177,
+0x42 + 178,
+0x42 + 179,
+0x42 + 180,
+0x42 + 181,
+0x42 + 182,
+0x42 + 183,
+0x42 + 184,
+0x42 + 185,
+0x42 + 186,
+0x42 + 187,
+0x42 + 188,
+0x42 + 189,
+0x42 + 190,
+0x42 + 191,
+0x42 + 192,
+0x42 + 193,
+0x42 + 194,
+0x42 + 195,
+0x42 + 196,
+0x42 + 197,
+0x42 + 198,
+0x42 + 199,
+0x42 + 200,
+0x42 + 201,
+0x42 + 202,
+0x42 + 203,
+0x42 + 204,
+0x42 + 205,
+0x42 + 206,
+};
+
+# 411
 void interrupt low_priority interrupt_at_low_vector( void )
 {
 
@@ -19178,17 +19551,21 @@ if ( PIR1bits.ADIF ) {
 
 switch (0x3C & ADCON0) {
 
-# 209
+# 468
 case (10<<2):
 
 
-adc_low = ADRESH;
-adc_high = ADRESL;
+adc_value = ADRES;
+break;
 
+default:
 ADCON0 = (10<<2) + 1;
 break;
 
 }
+
+
+ADCON0 = (10<<2) + 1;
 
 
 ConvertADC();
@@ -19200,50 +19577,151 @@ PIR1bits.ADIF = 0;
 return;
 }
 
-
-void output_low( uint8_t pin )
+# 499
+uint8_t input( uint8_t pin )
 {
+uint8_t rv = 1;
+
+switch ( pin ) {
+
+case 0:
+TRISCbits.TRISC7 = 1;
+rv = PORTCbits.RC7;
+break;
+
+case 1:
+TRISCbits.TRISC6 = 1;
+rv = PORTCbits.RC6;
+break;
+
+case 2:
+TRISCbits.TRISC4 = 1;
+rv = PORTCbits.RC4;
+break;
+
+case 3:
+TRISCbits.TRISC3 = 1;
+rv = PORTCbits.RC3;
+break;
 
 }
 
-void output_high( uint8_t pin )
-{
-
+return rv;
 }
 
-extern uint8_t input( uint8_t pin )
-{
-return 1;
-}
-
+# 536
 extern void output( uint8_t pin )
 {
+switch ( pin ) {
+
+case 0:
+TRISCbits.TRISC7 = 0;
+break;
+
+case 1:
+TRISCbits.TRISC6 = 0;
+break;
+
+case 2:
+TRISCbits.TRISC4 = 0;
+break;
+
+case 3:
+TRISCbits.TRISC3 = 0;
+break;
 
 }
 
-# 256
+}
+
+# 566
+void output_low( uint8_t pin )
+{
+switch ( pin ) {
+
+case 0:
+TRISCbits.TRISC7 = 0;
+LATC7 = 0;
+break;
+
+case 1:
+TRISCbits.TRISC6 = 0;
+PORTCbits.RC6 = 0;
+break;
+
+case 2:
+TRISCbits.TRISC4 = 0;
+PORTCbits.RC4 = 0;
+break;
+
+case 3:
+TRISCbits.TRISC3 = 0;
+PORTCbits.RC3 = 0;
+break;
+
+}
+}
+
+# 599
+void output_high( uint8_t pin )
+{
+switch ( pin ) {
+
+case 0:
+TRISCbits.TRISC7 = 0;
+LATCbits.LATC7 = 1;
+break;
+
+case 1:
+TRISCbits.TRISC6 = 0;
+PORTCbits.RC6 = 1;
+break;
+
+case 2:
+TRISCbits.TRISC4 = 0;
+PORTCbits.RC4 = 1;
+break;
+
+case 3:
+TRISCbits.TRISC3 = 0;
+PORTCbits.RC3 = 1;
+break;
+
+}
+}
+
+# 633
 void main()
 {
 uint32_t i;
 
+
 init();
 
 
-
-if ( !vscp_check_pstorage() ) {
-
-
-init_app_eeprom();
-
-}
-
 vscp_init();
+
+
+
+vscp_check_pstorage();
+
+
+OW_MasterResetPulseTime = ( Read_b_eep(44) << 8 +
+Read_b_eep(45) );;
+OW_PresenceWait = Read_b_eep(reg2eeprom_pg0[ 46 ]);
+OW_PresenceFin = ( Read_b_eep(47) << 8 ) +
+Read_b_eep(48);
+OW_MasterBitStart = Read_b_eep(reg2eeprom_pg0[ 49 ]);
+OW_DelayBitRead = Read_b_eep(reg2eeprom_pg0[ 50 ]);
+OW_DelayBitWait = Read_b_eep(reg2eeprom_pg0[ 51 ]);
+OW_DelayBitWrite = Read_b_eep(reg2eeprom_pg0[ 52 ]);
+
 
 while (1) {
 
 asm(" clrwdt");
 
-if ( ( vscp_initbtncnt > 250 ) &&
+if ( ( vscp_initbtncnt > 2500 ) &&
 ( 0x01 != vscp_node_state ) ) {
 
 
@@ -19254,10 +19732,8 @@ vscp_init();
 }
 
 
-
 vscp_imsg.flags = 0;
 vscp_getEvent();
-
 
 switch (vscp_node_state) {
 
@@ -19317,14 +19793,18 @@ break;
 if ( measurement_clock > 1000 ) {
 
 measurement_clock = 0;
-doOneSecondWork();
 seconds++;
+
+if (0x03 == vscp_node_state) {
+doOneSecondWork();
+}
+
 
 
 
 if (0x03 == vscp_node_state) {
-for (i = 0; i < 6; i++) {
-seconds_temp[i]++;
+for (i = 0; i < 8; i++) {
+seconds_temp[ i ]++;
 }
 }
 
@@ -19338,89 +19818,17 @@ if (0x03 == vscp_node_state) {
 vscp_doOneSecondWork();
 }
 
+}
 
+
+if ( 0x03 == vscp_node_state ) {
 doWork();
-
 }
 
 }
 }
 
-# 387
-void doWork(void)
-{
-
-
-}
-
-# 397
-void doOneSecondWork(void)
-{
-uint8_t tmp;
-uint8_t i;
-int16_t setpoint;
-
-# 682
-}
-
-# 688
-int8_t sendTempEvent(uint8_t i)
-{
-vscp_omsg.priority = 0x03;
-vscp_omsg.flags = 0x80 + 4;
-vscp_omsg.vscp_class = 10;
-vscp_omsg.vscp_type = 6;
-
-
-vscp_omsg.data[ 0 ] = 0x80 |
-((0x03 & Read_b_eep(i + 0x43)) << 3) |
-i;
-
-vscp_omsg.data[ 1 ] = 0x82;
-
-# 706
-if (!vscp_sendEvent()) {
-return 0;
-}
-
-return 1;
-}
-
-# 717
-void setEventData(int v, unsigned char unit)
-{
-double newval;
-int ival;
-
-if (0 == unit) {
-
-newval = Celsius2Kelvin(v);
-} else if (2 == unit) {
-
-newval = Celsius2Fahrenheit(v);
-} else {
-
-newval = v;
-}
-
-ival = (int) newval;
-
-vscp_omsg.data[ 2 ] = ((ival & 0xff00) >> 8);
-vscp_omsg.data[ 3 ] = (ival & 0xff);
-}
-
-# 745
-int16_t getCalibrationValue(uint8_t i)
-{
-int16_t cal;
-
-cal = ((int16_t)( (((uint16_t)Read_b_eep(2 * i + 0x9E))<<8) + (uint16_t)Read_b_eep(2 * i + 0x9F)) );
-
-# 754
-return cal;
-}
-
-# 761
+# 774
 void init()
 {
 
@@ -19428,14 +19836,14 @@ void init()
 
 init_app_ram();
 
-# 774
+# 787
 TRISA = 0x07;
 
-# 785
+# 798
 TRISB = 0x1B;
 
-# 796
-PORTC = 0b00000000;
+# 809
+PORTC = 0b11011001;
 TRISC = 0b11011001;
 
 OpenTimer0(0b11111111 & 0b10111111 & 0b11011111 & 0b11110010);
@@ -19447,10 +19855,10 @@ OpenADC(0b10101111 & 0b11111111 & 0b11111111,
 0b11111110 & 0b11111101,
 15 );
 
-# 828
+# 836
 ECANInitialize();
 
-# 852
+# 860
 INTCONbits.GIE = 1;
 
 
@@ -19459,7 +19867,7 @@ ConvertADC();
 return;
 }
 
-# 864
+# 872
 void init_app_ram(void)
 {
 char i;
@@ -19468,173 +19876,625 @@ measurement_clock = 0;
 seconds = 0;
 
 
-for (i = 0; i < 6; i++) {
-
-current_temp = 0;
+for ( i=0; i<9; i++ ) {
+arrayTemp[ i ] = 0;
 }
+
+currentSensor = 0;
 
 
 low_alarm = 0;
 
 
 high_alarm = 0;
-
 }
 
-# 891
+# 899
 void init_app_eeprom(void)
 {
-
-(Busy_eep(), Write_b_eep(0x41,0));
-(Busy_eep(), Write_b_eep(0x41,0));
-
-(Busy_eep(), Write_b_eep(0x43,0b00000001));
-(Busy_eep(), Write_b_eep(0x44,0b00000001));
-(Busy_eep(), Write_b_eep(0x45,0b00000001));
-(Busy_eep(), Write_b_eep(0x46,0b00000001));
-(Busy_eep(), Write_b_eep(0x47,0b00000001));
-(Busy_eep(), Write_b_eep(0x48,0b00000001));
-
-(Busy_eep(), Write_b_eep(0x49,30));
-(Busy_eep(), Write_b_eep(0x4A,0));
-(Busy_eep(), Write_b_eep(0x4B,0));
-(Busy_eep(), Write_b_eep(0x4C,0));
-(Busy_eep(), Write_b_eep(0x4D,0));
-(Busy_eep(), Write_b_eep(0x4E,0));
+unsigned char i, j;
 
 
 
-(Busy_eep(), Write_b_eep(0x4F,0x0F));
-(Busy_eep(), Write_b_eep(0x50,0x68));
+
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 0 ],0));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 1 ],0));
+
+
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 2 ],1));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 3 ],1));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 4 ],2));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 5 ],2));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 6 ],3));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 7 ],3));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 8 ],4));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 9 ],4));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 10 ],5));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 11 ],5));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 12 ],6));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 13 ],6));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 14 ],7));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 15 ],7));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 16 ],8));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 17 ],8));
+
+for ( i=0; i<8; i++ ) {
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 18 + 2*i ],0b00000001));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 19 + 2*i ],0b00000001));
+
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 34 + i ],0));
+
+(Busy_eep(), Write_b_eep(reg2eeprom_pg2[ 0 + 2*i ],0x80));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg2[ 1 + 2*i ],0xff));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg2[ 16 + 2*i ],0x7f));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg2[ 17 + 2*i ],0xff));
+
+(Busy_eep(), Write_b_eep(reg2eeprom_pg2[ 32 + 2*i ],0x7f));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg2[ 33 + 2*i ],0xff));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg2[ 48 + 2*i ],0x80));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg2[ 49 + 2*i ],0x00));
+
+(Busy_eep(), Write_b_eep(reg2eeprom_pg2[ 64 + i ],2));
+
+(Busy_eep(), Write_b_eep(reg2eeprom_pg2[ 72 + 2*i ],0));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg2[ 73 + 2*i ],0));
+}
+
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 42 ],0x0F));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 43 ],0x68));
+
+
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 44 ],( 480 >> 8 ) & 0xff));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 45 ],480 & 0xff));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 46 ],40));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 47 ],( 480 >> 8 ) & 0xff));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 48 ],480 & 0xff));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 49 ],2));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 50 ],5));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 51 ],55));
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ 52 ],100));
+
+
+(Busy_eep(), Write_b_eep(reg2eeprom_pg3[ 0 ],0));
+
+
+for ( i=0; i<64; i++ ) {
+(Busy_eep(), Write_b_eep(reg2eeprom_pg3[ 1 + i ],0));
+}
 
 
 
-(Busy_eep(), Write_b_eep(0x5B,0x80));
-(Busy_eep(), Write_b_eep(0x5C,0xff));
 
-(Busy_eep(), Write_b_eep(0x5D,0x80));
-(Busy_eep(), Write_b_eep(0x5E,0xff));
-
-(Busy_eep(), Write_b_eep(0x5F,0x80));
-(Busy_eep(), Write_b_eep(0x60,0xff));
-
-(Busy_eep(), Write_b_eep(0x61,0x80));
-(Busy_eep(), Write_b_eep(0x62,0xff));
-
-(Busy_eep(), Write_b_eep(0x63,0x80));
-(Busy_eep(), Write_b_eep(0x64,0xff));
-
-(Busy_eep(), Write_b_eep(0x65,0x80));
-(Busy_eep(), Write_b_eep(0x66,0xff));
+for ( i = 0; i<8; i++ ) {
+for ( j = 0; j < 8; j++ ) {
+(Busy_eep(), Write_b_eep(0x42 + 207 + 8*i + j,0));
+}
+}
 
 
-
-(Busy_eep(), Write_b_eep(0x67,0x7f));
-(Busy_eep(), Write_b_eep(0x68,0xff));
-
-(Busy_eep(), Write_b_eep(0x69,0x7f));
-(Busy_eep(), Write_b_eep(0x6A,0xff));
-
-(Busy_eep(), Write_b_eep(0x6B,0x7f));
-(Busy_eep(), Write_b_eep(0x6C,0xff));
-
-(Busy_eep(), Write_b_eep(0x6D,0x7f));
-(Busy_eep(), Write_b_eep(0x6E,0xff));
-
-(Busy_eep(), Write_b_eep(0x6F,0x7f));
-(Busy_eep(), Write_b_eep(0x70,0xff));
-
-(Busy_eep(), Write_b_eep(0x71,0x7f));
-(Busy_eep(), Write_b_eep(0x72,0xff));
-
-
-
-(Busy_eep(), Write_b_eep(0x73,0));
-(Busy_eep(), Write_b_eep(0x74,0));
-
-(Busy_eep(), Write_b_eep(0x75,0));
-(Busy_eep(), Write_b_eep(0x76,0));
-
-(Busy_eep(), Write_b_eep(0x77,0));
-(Busy_eep(), Write_b_eep(0x78,0));
-
-(Busy_eep(), Write_b_eep(0x79,0));
-(Busy_eep(), Write_b_eep(0x7A,0));
-
-(Busy_eep(), Write_b_eep(0x7B,0));
-(Busy_eep(), Write_b_eep(0x7C,0));
-
-(Busy_eep(), Write_b_eep(0x7D,0));
-(Busy_eep(), Write_b_eep(0x7E,0));
-
-
-
-(Busy_eep(), Write_b_eep(0x7F,0x7f));
-(Busy_eep(), Write_b_eep(0x80,0xff));
-
-(Busy_eep(), Write_b_eep(0x81,0x7f));
-(Busy_eep(), Write_b_eep(0x82,0xff));
-
-(Busy_eep(), Write_b_eep(0x83,0x7f));
-(Busy_eep(), Write_b_eep(0x84,0xff));
-
-(Busy_eep(), Write_b_eep(0x85,0x7f));
-(Busy_eep(), Write_b_eep(0x86,0xff));
-
-(Busy_eep(), Write_b_eep(0x87,0x7f));
-(Busy_eep(), Write_b_eep(0x88,0xff));
-
-(Busy_eep(), Write_b_eep(0x89,0x7f));
-(Busy_eep(), Write_b_eep(0x8A,0xff));
-
-
-
-(Busy_eep(), Write_b_eep(0x8B,0x80));
-(Busy_eep(), Write_b_eep(0x8C,0x00));
-
-(Busy_eep(), Write_b_eep(0x8D,0x80));
-(Busy_eep(), Write_b_eep(0x8E,0x00));
-
-(Busy_eep(), Write_b_eep(0x8F,0x80));
-(Busy_eep(), Write_b_eep(0x90,0x00));
-
-(Busy_eep(), Write_b_eep(0x91,0x80));
-(Busy_eep(), Write_b_eep(0x92,0x00));
-
-(Busy_eep(), Write_b_eep(0x93,0x80));
-(Busy_eep(), Write_b_eep(0x94,0x00));
-
-(Busy_eep(), Write_b_eep(0x95,0x80));
-(Busy_eep(), Write_b_eep(0x96,0x00));
-
-
-
-(Busy_eep(), Write_b_eep(0x97,2));
-(Busy_eep(), Write_b_eep(0x98,2));
-(Busy_eep(), Write_b_eep(0x99,2));
-(Busy_eep(), Write_b_eep(0x9A,2));
-(Busy_eep(), Write_b_eep(0x9B,2));
-(Busy_eep(), Write_b_eep(0x9C,2));
-
-
-
-(Busy_eep(), Write_b_eep(0x9E,0));
-(Busy_eep(), Write_b_eep(0x9F,0));
-(Busy_eep(), Write_b_eep(0xA0,0));
-(Busy_eep(), Write_b_eep(0xA1,0));
-(Busy_eep(), Write_b_eep(0xA2,0));
-(Busy_eep(), Write_b_eep(0xA3,0));
-(Busy_eep(), Write_b_eep(0xA4,0));
-(Busy_eep(), Write_b_eep(0xA5,0));
-(Busy_eep(), Write_b_eep(0xA6,0));
-(Busy_eep(), Write_b_eep(0xA7,0));
-(Busy_eep(), Write_b_eep(0xA8,0));
-(Busy_eep(), Write_b_eep(0xA9,0));
+calculateSetFilterMask();
 
 }
 
-# 1047
-int8_t convertTemperature(int temp, unsigned char unit)
+# 992
+BOOL loadROMCodeFromEEPROM( uint8_t currentSensor )
+{
+uint8_t i;
+uint8_t sum=0;
+
+for ( i=0; i<8; i++ ) {
+sum |= ( romAddrOneWire[ 7-i ] =
+Read_b_eep(reg2eeprom_pg3[ 1+ 8*currentSensor + i ]) );
+}
+
+return sum;
+}
+
+# 1009
+void saveROMCodeToEEPROM( uint8_t channel, uint8_t idxSensor )
+{
+uint8_t i;
+
+for ( i=0; i<8; i++ ) {
+(Busy_eep(), Write_b_eep(reg2eeprom_pg3[ 1 + 16*channel + 8*idxSensor + i ],romAddrOneWire[ 7-i ]));
+
+# 1016
+}
+}
+
+# 1025
+void doWork(void)
+{
+
+# 1037
+}
+
+# 1043
+void doOneSecondWork(void)
+{
+uint8_t tmp;
+uint8_t i;
+int16_t setpoint;
+
+
+
+
+if ( loadROMCodeFromEEPROM( currentSensor ) ) {
+arrayTemp[ currentSensor ] = DS1820_LateGetTempFloat( currentSensor/2 );
+}
+else {
+
+arrayTemp[ currentSensor ] = 0;
+}
+currentSensor++;
+if ( currentSensor > 7 ) currentSensor = 0;
+
+
+if ( loadROMCodeFromEEPROM( currentSensor ) ) {
+DS1820_StartTempConversion( 0 + currentSensor/2 );
+}
+
+# 1072
+uint16_t B;
+double resistance;
+double Rinf;
+double temp;
+double v;
+
+# 1085
+B = ((uint16_t)( (((uint16_t)Read_b_eep(reg2eeprom_pg0[ 42 ]))<<8) + (uint16_t)Read_b_eep(reg2eeprom_pg0[ 43 ])) );
+
+# 1088
+Rinf = 10000.0 * exp( B/-298.15 );
+
+
+v = 5.0 * (double)adc_value/1024;
+
+# 1096
+resistance = ( 10000.0 * ( 5.0 - v ) ) / v;
+temp = (double)B / log( resistance/Rinf );
+temp -= 273.15;
+
+# 1112
+arrayTemp[ 8 ] = ( arrayTemp[ 8 ] + temp +
+( reg2eeprom_pg2[ 88 ] << 8 +
+reg2eeprom_pg2[ 89 ] )/100 ) / 2;
+
+
+
+
+for ( i=0; i<8; i++ ) {
+
+if ( 100*arrayTemp[ i ] <
+((int16_t)( (((uint16_t)Read_b_eep(reg2eeprom_pg2[ 32 ] + 2*i))<<8) + (uint16_t)Read_b_eep(reg2eeprom_pg2[ 33 ] + 2*i)) ) ) {
+
+# 1125
+(Busy_eep(), Write_b_eep(reg2eeprom_pg2[ 32 ] + 2*i,( (uint16_t)( 100 * arrayTemp[ i ] ) ) >> 8));
+
+# 1127
+(Busy_eep(), Write_b_eep(reg2eeprom_pg2[ 33 ] + 2*i,( (uint16_t)( 100 * arrayTemp[ i ] ) ) & 0xff));
+
+# 1129
+}
+
+# 1135
+if ( 100*arrayTemp[ i ] >
+(double)((int16_t)( (((uint16_t)Read_b_eep(reg2eeprom_pg2[ 48 ] + 2*i))<<8) + (uint16_t)Read_b_eep(reg2eeprom_pg2[ 49 ] + 2*i)) ) ) {
+
+# 1139
+(Busy_eep(), Write_b_eep(reg2eeprom_pg2[ 48 ] + 2*i,( (uint16_t)( 100*arrayTemp[ i ] ) ) >> 8));
+
+# 1141
+(Busy_eep(), Write_b_eep(reg2eeprom_pg2[ 49 ] + 2*i,( (uint16_t)( 100*arrayTemp[ i ] ) ) & 0xff));
+
+# 1143
+}
+
+
+
+
+tmp = Read_b_eep(reg2eeprom_pg0[ 34 ] + i);
+if ( tmp && ( seconds_temp[ i ] > tmp ) ) {
+
+
+if ( sendTempEvent( i ) ) {
+seconds_temp[ i ] = 0;
+}
+
+}
+
+
+
+
+if ( 0x80 &
+Read_b_eep(reg2eeprom_pg0[ 18 ] + 2*i) ) {
+
+
+if (low_alarm & (1 << i)) {
+
+
+if ( Read_b_eep(reg2eeprom_pg0[ 18 ] + 2*i) &
+0x08 ) {
+
+vscp_omsg.priority = 0x00;
+vscp_omsg.flags = 0x80 + 3;
+
+
+if ( Read_b_eep(reg2eeprom_pg0[ 18 ] + 2*i) &
+0x20 ) {
+
+if ( Read_b_eep(reg2eeprom_pg0[ 18 ] + 2*i) &
+0x40 ) {
+vscp_omsg.vscp_class = 30;
+vscp_omsg.vscp_type = 5;
+}
+else {
+vscp_omsg.vscp_class = 30;
+vscp_omsg.vscp_type = 6;
+}
+
+}
+else {
+
+vscp_omsg.vscp_class = 1;
+vscp_omsg.vscp_type = 2;
+}
+
+vscp_omsg.data[ 0 ] = i;
+vscp_omsg.data[ 1 ] =
+Read_b_eep(reg2eeprom_pg0[ 2 ] + 2*i);
+vscp_omsg.data[ 2 ] =
+Read_b_eep(reg2eeprom_pg0[ 3 ] + 2*i);
+
+
+
+
+vscp_sendEvent();
+
+}
+
+}
+
+
+if ( high_alarm & (1 << i) ) {
+
+
+if ( ( Read_b_eep(reg2eeprom_pg0[ 18 ] + 2*i) &
+0x10 ) ) {
+
+vscp_omsg.priority = 0x00;
+vscp_omsg.flags = 0x80 + 3;
+
+if ( Read_b_eep(reg2eeprom_pg0[ 18 ] + 2*i) &
+0x20 ) {
+
+if ( Read_b_eep(reg2eeprom_pg0[ 18 ] + 2*i) &
+0x40 ) {
+vscp_omsg.vscp_class = 30;
+vscp_omsg.vscp_type = 6;
+}
+else {
+vscp_omsg.vscp_class = 30;
+vscp_omsg.vscp_type = 5;
+}
+}
+else {
+
+vscp_omsg.vscp_class = 1;
+vscp_omsg.vscp_type = 2;
+}
+
+vscp_omsg.data[ 0 ] = i;
+vscp_omsg.data[ 1 ] =
+Read_b_eep(reg2eeprom_pg0[ 2 ] + 2*i);
+vscp_omsg.data[ 2 ] =
+Read_b_eep(reg2eeprom_pg0[ 3 ] + 2*i);
+
+
+
+
+vscp_sendEvent();
+
+}
+
+}
+}
+
+# 1260
+if ( low_alarm & ( 1 << i ) ) {
+
+
+setpoint = ((int16_t)( (((uint16_t)Read_b_eep(reg2eeprom_pg2[ 0 ] + 2*i))<<8) + (uint16_t)Read_b_eep(reg2eeprom_pg2[ 1 ] + 2*i)) ) +
+
+# 1265
+(int8_t) Read_b_eep(reg2eeprom_pg2[ 64 ] + i);
+
+
+
+
+if ( arrayTemp[ i ] > ( setpoint * 100 ) ) {
+
+
+low_alarm &= ~(1 << i);
+
+}
+
+}
+else {
+
+
+
+setpoint = ((int16_t)( (((uint16_t)Read_b_eep(reg2eeprom_pg2[ 0 ] + 2*i))<<8) + (uint16_t)Read_b_eep(reg2eeprom_pg2[ 1 ] + 2*i)) );
+
+# 1285
+if ( arrayTemp[ i ] < ( setpoint * 100 ) ) {
+
+
+low_alarm |= (1 << i);
+
+
+
+
+vscp_alarmstatus |= 1;
+
+
+if ( Read_b_eep(i + reg2eeprom_pg0[ 18 ]) & 0x08 ) {
+
+vscp_omsg.priority = 0x00;
+vscp_omsg.flags = 0x80 + 3;
+
+
+if (Read_b_eep(reg2eeprom_pg0[ 18 ] + i) &
+0x20 ) {
+
+if (Read_b_eep(reg2eeprom_pg0[ 18 ] + i) &
+0x40) {
+vscp_omsg.vscp_class = 30;
+vscp_omsg.vscp_type = 5;
+}
+else {
+vscp_omsg.vscp_class = 30;
+vscp_omsg.vscp_type = 6;
+}
+
+}
+else {
+vscp_omsg.vscp_class = 1;
+vscp_omsg.vscp_type = 2;
+}
+
+vscp_omsg.data[ 0 ] = i;
+vscp_omsg.data[ 1 ] =
+Read_b_eep(reg2eeprom_pg0[ 2 ] + 2*i) ;
+vscp_omsg.data[ 2 ] =
+Read_b_eep(reg2eeprom_pg0[ 3 ] + 2*i);
+
+
+if (!vscp_sendEvent()) {
+
+
+low_alarm &= ~(1 << i);
+}
+
+}
+}
+}
+
+# 1342
+if (high_alarm & (1 << i)) {
+
+
+
+setpoint = ((int16_t)( (((uint16_t)Read_b_eep(reg2eeprom_pg2[ 16 ] + 2 * i))<<8) + (uint16_t)Read_b_eep(reg2eeprom_pg2[ 17 ] + 2 * i)) ) -
+
+# 1348
+(int8_t)Read_b_eep(reg2eeprom_pg2[ 64 ] + i);
+
+
+if ( arrayTemp[ i ] < (setpoint * 100) ) {
+
+
+high_alarm &= ~(1 << i);
+
+}
+
+}
+else {
+
+
+
+
+setpoint = ((int16_t)( (((uint16_t)Read_b_eep(reg2eeprom_pg2[ 16 ] + 2 * i))<<8) + (uint16_t)Read_b_eep(reg2eeprom_pg2[ 17 ] + 2 * i)) );
+
+# 1367
+if ( arrayTemp[ i ] > (setpoint * 100)) {
+
+
+high_alarm |= (1 << i);
+
+# 1376
+vscp_alarmstatus |= 2;
+
+
+if ( Read_b_eep(reg2eeprom_pg0[ 18 ] + i) &
+0x10 ) {
+
+vscp_omsg.priority = 0x00;
+vscp_omsg.flags = 0x80 + 3;
+
+if ( Read_b_eep(reg2eeprom_pg0[ 18 ] + i) &
+0x20 ) {
+
+if (Read_b_eep(reg2eeprom_pg0[ 18 ] + i) &
+0x40 ) {
+vscp_omsg.vscp_class = 30;
+vscp_omsg.vscp_type = 6;
+}
+else {
+vscp_omsg.vscp_class = 30;
+vscp_omsg.vscp_type = 5;
+}
+}
+else {
+vscp_omsg.vscp_class = 1;
+vscp_omsg.vscp_type = 2;
+}
+
+vscp_omsg.data[ 0 ] = i;
+vscp_omsg.data[ 1 ] =
+Read_b_eep(reg2eeprom_pg0[ 2 ] + 2 * i);
+vscp_omsg.data[ 2 ] =
+Read_b_eep(reg2eeprom_pg0[ 3 ] + 2 * i);
+
+
+if ( !vscp_sendEvent() ) {
+
+
+high_alarm &= ~(1 << i);
+}
+
+}
+
+}
+
+}
+
+}
+
+}
+
+# 1430
+int8_t sendTempEvent( uint8_t nTemp )
+{
+uint8_t *p;
+double newval;
+int32_t ival;
+
+vscp_omsg.priority = 0x03;
+vscp_omsg.vscp_class = 10;
+vscp_omsg.vscp_type = 6;
+
+
+switch( 0x03 & Read_b_eep(nTemp + reg2eeprom_pg0[ 18 ]) ) {
+
+case 0:
+
+newval = Celsius2Kelvin( arrayTemp[ nTemp ] );
+break;
+
+case 2:
+
+newval = Celsius2Fahrenheit( arrayTemp[ nTemp ] );
+break;
+
+default:
+
+newval = arrayTemp[ nTemp ];
+break;
+
+}
+
+
+switch ( Read_b_eep(reg2eeprom_pg0[ 19 ] + 2*nTemp) &
+0x03 ) {
+
+case 0:
+
+vscp_omsg.flags = 0x80 + 5;
+
+
+vscp_omsg.data[ 0 ] = 0b10000000 |
+((0x03 & Read_b_eep(nTemp + reg2eeprom_pg0[ 18 ]) ) << 3 ) |
+nTemp;
+
+
+vscp_omsg.data[ 1 ] = 0x83;
+
+ival = (int32_t)newval*1000;
+vscp_omsg.data[ 2 ] = ( ival >> 16 ) & 0xff;
+vscp_omsg.data[ 3 ] = ( ival >> 8 ) & 0xff;
+vscp_omsg.data[ 4 ] = ival & 0xff;
+break;
+
+case 2:
+
+
+vscp_omsg.data[ 0 ] = 0b01000000 |
+((0x03 & Read_b_eep(nTemp + reg2eeprom_pg0[ 18 ]) ) << 3 ) |
+nTemp;
+
+{
+unsigned char buf[ 8 ];
+
+memset( buf, 0, 8 );
+sprintf( buf, "%3.3f", newval );
+if ( strlen( buf ) >= 7 ) {
+memcpy( vscp_omsg.data + 1, buf, 7 );
+vscp_omsg.flags = 0x80 + 1 + 7;
+}
+else {
+strcpy( vscp_omsg.data + 1, buf );
+vscp_omsg.flags = 0x80 + 1 + strlen( vscp_omsg.data + 1 );
+}
+
+}
+
+break;
+
+default:
+case 1:
+
+vscp_omsg.flags = 0x80 + 5;
+
+
+vscp_omsg.data[ 0 ] = 0b10100000 |
+((0x03 & Read_b_eep(nTemp + reg2eeprom_pg0[ 18 ]) ) << 3 ) |
+nTemp;
+
+
+p = (uint8_t *)&newval;
+vscp_omsg.data[ 1 ] = *(p+3);
+vscp_omsg.data[ 2 ] = *(p+2);
+vscp_omsg.data[ 3 ] = *(p+1);
+vscp_omsg.data[ 4 ] = *(p+0);
+break;
+}
+
+
+if ( !vscp_sendEvent() ) {
+return 0;
+}
+
+return 1;
+}
+
+# 1538
+void setEventData(int v, unsigned char unit)
+{
+double newval;
+int ival;
+
+if (0 == unit) {
+
+newval = Celsius2Kelvin( v );
+}
+else if (2 == unit) {
+
+newval = Celsius2Fahrenheit( v );
+}
+else {
+
+newval = v;
+}
+
+ival = (int) newval;
+
+vscp_omsg.data[ 2 ] = ((ival & 0xff00) >> 8);
+vscp_omsg.data[ 3 ] = (ival & 0xff);
+}
+
+# 1567
+int8_t convertTemperature( double temp, unsigned char unit)
 {
 int newval;
 
@@ -19654,17 +20514,17 @@ newval = (int) temp;
 return newval;
 }
 
-# 1073
+# 1593
 void handle_sync(void)
 {
 uint8_t i;
 
-for (i = 0; i < 6; i++) {
+for (i=0; i<8; i++) {
 
 if ( ( ( 0xff == vscp_imsg.data[ 1 ] ) ||
-( Read_b_eep(0x73 + 2*i) == vscp_imsg.data[ 1 ] ) ) &&
+( Read_b_eep(reg2eeprom_pg0[ 2 ] + 2*i) == vscp_imsg.data[ 1 ] ) ) &&
 ( ( 0xff == vscp_imsg.data[ 2 ] ) ||
-( Read_b_eep(0x74 + 2*i) == vscp_imsg.data[ 2 ] ) ) ) {
+( Read_b_eep(reg2eeprom_pg0[ 3 ] + 2*i) == vscp_imsg.data[ 2 ] ) ) ) {
 
 
 timeout_clock = 0;
@@ -19675,1297 +20535,558 @@ if (timeout_clock > 1000) break;
 }
 }
 
-# 1097
+# 1617
 uint8_t vscp_readAppReg(unsigned char reg)
 {
 uint8_t rv;
 
-if (0 == vscp_page_select) {
+if ( 0 == vscp_page_select ) {
 
-switch (reg) {
-
-
-case 0x00:
-rv = Read_b_eep(0x41);
-break;
-
-
-case 0x01:
-rv = Read_b_eep(0x42);
-break;
-
-
-case 0x02:
-rv = Read_b_eep(0x43);
-break;
-
-
-case 0x03:
-rv = Read_b_eep(0x44);
-break;
-
-
-case 0x04:
-rv = Read_b_eep(0x45);
-break;
-
-
-case 0x05:
-rv = Read_b_eep(0x46);
-break;
-
-
-case 0x06:
-rv = Read_b_eep(0x47);
-break;
-
-
-case 0x07:
-rv = Read_b_eep(0x48);
-break;
-
-
-case 0x08:
-rv = ((current_temp & 0xff00) >> 8);
-break;
-
-
-case 0x09:
-rv = (current_temp & 0x00ff);
-break;
-
-
-case 0x0A:
-rv = ((current_temp & 0xff00) >> 8);
-break;
-
-
-case 0x0B:
-rv = (current_temp & 0x00ff);
-break;
-
-
-case 0x0C:
-rv = ((current_temp & 0xff00) >> 8);
-break;
-
-
-case 0x0D:
-rv = (current_temp & 0x00ff);
-break;
-
-
-case 0x0E:
-rv = ((current_temp & 0xff00) >> 8);
-break;
-
-
-case 0x0F:
-rv = (current_temp & 0x00ff);
-break;
-
-
-case 0x10:
-rv = ((current_temp & 0xff00) >> 8);
-break;
-
-
-case 0x11:
-rv = (current_temp & 0x00ff);
-break;
-
-
-case 0x12:
-rv = ((current_temp & 0xff00) >> 8);
-break;
-
-
-case 0x13:
-rv = (current_temp & 0x00ff);
-break;
-
-
-case 0x14:
-rv = Read_b_eep(0x49);
-break;
-
-
-case 0x15:
-rv = Read_b_eep(0x4A);
-break;
-
-
-case 0x16:
-rv = Read_b_eep(0x4B);
-break;
-
-
-case 0x17:
-rv = Read_b_eep(0x4C);
-break;
-
-
-case 0x18:
-rv = Read_b_eep(0x4D);
-break;
-
-
-case 0x19:
-rv = Read_b_eep(0x4E);
-break;
-
-
-
-
-case 0x26:
-rv = Read_b_eep(0x4F);
-break;
-
-
-case 0x27:
-rv = Read_b_eep(0x50);
-break;
-
-
-case 0x28:
-rv = Read_b_eep(0x51);
-break;
-
-
-case 0x29:
-rv = Read_b_eep(0x52);
-break;
-
-
-case 0x2A:
-rv = Read_b_eep(0x53);
-break;
-
-
-case 0x2B:
-rv = Read_b_eep(0x54);
-break;
-
-
-case 0x2C:
-rv = Read_b_eep(0x55);
-break;
-
-
-case 0x2D:
-rv = Read_b_eep(0x56);
-break;
-
-
-case 0x2E:
-rv = Read_b_eep(0x57);
-break;
-
-
-case 0x2F:
-rv = Read_b_eep(0x58);
-break;
-
-
-case 0x30:
-rv = Read_b_eep(0x59);
-break;
-
-
-case 0x31:
-rv = Read_b_eep(0x5A);
-break;
-
-# 1302
-case 0x32:
-rv = Read_b_eep(0x5B);
-break;
-
-
-case 0x33:
-rv = Read_b_eep(0x5C);
-break;
-
-
-case 0x34:
-rv = Read_b_eep(0x5D);
-break;
-
-
-case 0x35:
-rv = Read_b_eep(0x5E);
-break;
-
-
-case 0x36:
-rv = Read_b_eep(0x5F);
-break;
-
-
-case 0x37:
-rv = Read_b_eep(0x60);
-break;
-
-
-case 0x38:
-rv = Read_b_eep(0x61);
-break;
-
-
-case 0x39:
-rv = Read_b_eep(0x62);
-break;
-
-
-case 0x3A:
-rv = Read_b_eep(0x63);
-break;
-
-
-case 0x3B:
-rv = Read_b_eep(0x64);
-break;
-
-
-case 0x3C:
-rv = Read_b_eep(0x65);
-break;
-
-
-case 0x3D:
-rv = Read_b_eep(0x66);
-break;
-
-# 1367
-case 0x3E:
-rv = Read_b_eep(0x67);
-break;
-
-
-case 0x3F:
-rv = Read_b_eep(0x68);
-break;
-
-
-case 0x40:
-rv = Read_b_eep(0x69);
-break;
-
-
-case 0x41:
-rv = Read_b_eep(0x6A);
-break;
-
-
-case 0x42:
-rv = Read_b_eep(0x6B);
-break;
-
-
-case 0x43:
-rv = Read_b_eep(0x6C);
-break;
-
-
-case 0x44:
-rv = Read_b_eep(0x6D);
-break;
-
-
-case 0x45:
-rv = Read_b_eep(0x6E);
-break;
-
-
-case 0x46:
-rv = Read_b_eep(0x6F);
-break;
-
-
-case 0x47:
-rv = Read_b_eep(0x70);
-break;
-
-
-case 0x48:
-rv = Read_b_eep(0x71);
-break;
-
-
-case 0x49:
-rv = Read_b_eep(0x72);
-break;
-
-# 1431
-case 0x4A:
-rv = Read_b_eep(0x73);
-break;
-
-
-case 0x4B:
-rv = Read_b_eep(0x74);
-break;
-
-
-case 0x4C:
-rv = Read_b_eep(0x75);
-break;
-
-
-case 0x4D:
-rv = Read_b_eep(0x76);
-break;
-
-
-case 0x4E:
-rv = Read_b_eep(0x77);
-break;
-
-
-case 0x4F:
-rv = Read_b_eep(0x78);
-break;
-
-
-case 0x50:
-rv = Read_b_eep(0x79);
-break;
-
-
-case 0x51:
-rv = Read_b_eep(0x7A);
-break;
-
-
-case 0x52:
-rv = Read_b_eep(0x7B);
-break;
-
-
-case 0x53:
-rv = Read_b_eep(0x7C);
-break;
-
-
-case 0x54:
-rv = Read_b_eep(0x7D);
-break;
-
-
-case 0x55:
-rv = Read_b_eep(0x7E);
-break;
-
-# 1495
-case 0x56:
-rv = Read_b_eep(0x7F);
-break;
-
-
-case 0x57:
-rv = Read_b_eep(0x80);
-break;
-
-
-case 0x58:
-rv = Read_b_eep(0x81);
-break;
-
-
-case 0x59:
-rv = Read_b_eep(0x82);
-break;
-
-
-case 0x5A:
-rv = Read_b_eep(0x83);
-break;
-
-
-case 0x5B:
-rv = Read_b_eep(0x84);
-break;
-
-
-case 0x5C:
-rv = Read_b_eep(0x85);
-break;
-
-
-case 0x5D:
-rv = Read_b_eep(0x86);
-break;
-
-
-case 0x5E:
-rv = Read_b_eep(0x87);
-break;
-
-
-case 0x5F:
-rv = Read_b_eep(0x88);
-break;
-
-
-case 0x60:
-rv = Read_b_eep(0x89);
-break;
-
-
-case 0x61:
-rv = Read_b_eep(0x8A);
-break;
-
-# 1559
-case 0x62:
-rv = Read_b_eep(0x8B);
-break;
-
-
-case 0x63:
-rv = Read_b_eep(0x8C);
-break;
-
-
-case 0x64:
-rv = Read_b_eep(0x8D);
-break;
-
-
-case 0x65:
-rv = Read_b_eep(0x8E);
-break;
-
-
-case 0x66:
-rv = Read_b_eep(0x8F);
-break;
-
-
-case 0x67:
-rv = Read_b_eep(0x90);
-break;
-
-
-case 0x68:
-rv = Read_b_eep(0x91);
-break;
-
-
-case 0x69:
-rv = Read_b_eep(0x92);
-break;
-
-
-case 0x6A:
-rv = Read_b_eep(0x93);
-break;
-
-
-case 0x6B:
-rv = Read_b_eep(0x94);
-break;
-
-
-case 0x6C:
-rv = Read_b_eep(0x95);
-break;
-
-
-case 0x6D:
-rv = Read_b_eep(0x96);
-break;
-
-# 1624
-case 0x6E:
-rv = Read_b_eep(0x97);
-break;
-
-
-case 0x6F:
-rv = Read_b_eep(0x98);
-break;
-
-
-case 0x70:
-rv = Read_b_eep(0x99);
-break;
-
-
-case 0x71:
-rv = Read_b_eep(0x9A);
-break;
-
-
-case 0x72:
-rv = Read_b_eep(0x9B);
-break;
-
-
-case 0x73:
-rv = Read_b_eep(0x9C);
-break;
-
-
-case 0x74:
-rv = 0;
-break;
-
-
-case 0x75:
-rv = 0;
-break;
-
-
-case 0x76:
-rv = Read_b_eep(0xF2);
-break;
-
-
-case 0x77:
-rv = Read_b_eep(0xF3);
-break;
-
-default:
-rv = 0;
-break;
+if ( reg <= 52 ) {
+rv = Read_b_eep(reg2eeprom_pg0[ reg ]);
 }
+
 }
 else if (1 == vscp_page_select) {
 
+if ( reg <= 35 ) {
+uint8_t *p = (uint8_t *)&arrayTemp[reg/4];
+rv = *( p + (3-reg%4) );
 
-if (reg < 72) {
-rv = Read_b_eep(0xAA + reg) ;
-}
-
-else if (reg < 84) {
-
-uint8_t pos = reg - 72;
-if ( pos % 2 ) {
-pos--;
-}
-else {
-pos++;
-}
-rv = adc_low;
 }
 
-else if (reg < 98) {
-rv = Read_b_eep(0x9E + reg - 84) ;
 }
+else if (2 == vscp_page_select) {
+
+if ( reg <= 89 ) {
+rv = Read_b_eep(reg2eeprom_pg2[ reg ]);
+}
+
+}
+else if (3 == vscp_page_select) {
+
+if ( 0 == reg ) {
+rv = 0;
+}
+else if ( reg <= 64 ) {
+rv = Read_b_eep(reg2eeprom_pg3[ reg ]);
+}
+
+
+}
+else if (250 == vscp_page_select) {
+
+if ( reg < ( 0 + 8*8 ) ) {
+rv = Read_b_eep(0x42 + 207 + reg);
+}
+
 }
 
 return rv;
 
 }
 
-# 1710
+# 1671
 uint8_t vscp_writeAppReg(unsigned char reg, unsigned char val)
 {
 uint8_t rv;
 
-# 1719
 rv = ~val;
 
-if (0 == vscp_page_select) {
+if ( 0 == vscp_page_select ) {
 
-switch (reg) {
 
-
-case 0x00:
-(Busy_eep(), Write_b_eep(0x41,val));
-rv = Read_b_eep(0x41);
-break;
-
-
-case 0x01:
-(Busy_eep(), Write_b_eep(0x42,val));
-rv = Read_b_eep(0x42);
-break;
-
-# 1742
-case 0x02:
-(Busy_eep(), Write_b_eep(0x43,val));
-rv = Read_b_eep(0x43);
-break;
-
-
-case 0x03:
-(Busy_eep(), Write_b_eep(0x44,val));
-rv = Read_b_eep(0x44);
-break;
-
-
-case 0x04:
-(Busy_eep(), Write_b_eep(0x45,val));
-rv = Read_b_eep(0x45);
-break;
-
-
-case 0x05:
-(Busy_eep(), Write_b_eep(0x46,val));
-rv = Read_b_eep(0x46);
-break;
-
-
-case 0x06:
-(Busy_eep(), Write_b_eep(0x47,val));
-rv = Read_b_eep(0x47);
-break;
-
-
-case 0x07:
-(Busy_eep(), Write_b_eep(0x48,val));
-rv = Read_b_eep(0x48);
-break;
-
-# 1782
-case 0x14:
-(Busy_eep(), Write_b_eep(0x49,val));
-rv = Read_b_eep(0x49);
-break;
-
-
-case 0x15:
-(Busy_eep(), Write_b_eep(0x4A,val));
-rv = Read_b_eep(0x4A);
-break;
-
-
-case 0x16:
-(Busy_eep(), Write_b_eep(0x4B,val));
-rv = Read_b_eep(0x4B);
-break;
-
-
-case 0x17:
-(Busy_eep(), Write_b_eep(0x4C,val));
-rv = Read_b_eep(0x4C);
-break;
-
-
-case 0x18:
-(Busy_eep(), Write_b_eep(0x4D,val));
-rv = Read_b_eep(0x4D);
-break;
-
-
-case 0x19:
-(Busy_eep(), Write_b_eep(0x4E,val));
-rv = Read_b_eep(0x4E);
-break;
-
-# 1822
-case 0x26:
-(Busy_eep(), Write_b_eep(0x4F,val));
-rv = Read_b_eep(0x4F);
-break;
-
-
-case 0x27:
-(Busy_eep(), Write_b_eep(0x50,val));
-rv = Read_b_eep(0x50);
-break;
-
-
-case 0x28:
-(Busy_eep(), Write_b_eep(0x51,val));
-rv = Read_b_eep(0x51);
-break;
-
-
-case 0x29:
-(Busy_eep(), Write_b_eep(0x52,val));
-rv = Read_b_eep(0x52);
-break;
-
-
-case 0x2A:
-(Busy_eep(), Write_b_eep(0x53,val));
-rv = Read_b_eep(0x53);
-break;
-
-
-case 0x2B:
-(Busy_eep(), Write_b_eep(0x54,val));
-rv = Read_b_eep(0x54);
-break;
-
-
-case 0x2C:
-(Busy_eep(), Write_b_eep(0x55,val));
-rv = Read_b_eep(0x55);
-break;
-
-
-case 0x2D:
-(Busy_eep(), Write_b_eep(0x56,val));
-rv = Read_b_eep(0x56);
-break;
-
-
-case 0x2E:
-(Busy_eep(), Write_b_eep(0x57,val));
-rv = Read_b_eep(0x57);
-break;
-
-
-case 0x2F:
-(Busy_eep(), Write_b_eep(0x58,val));
-rv = Read_b_eep(0x58);
-break;
-
-
-case 0x30:
-(Busy_eep(), Write_b_eep(0x59,val));
-rv = Read_b_eep(0x59);
-break;
-
-
-case 0x31:
-(Busy_eep(), Write_b_eep(0x5A,val));
-rv = Read_b_eep(0x5A);
-break;
-
-# 1898
-case 0x32:
-(Busy_eep(), Write_b_eep(0x5B,val));
-rv = Read_b_eep(0x5B);
-break;
-
-
-case 0x33:
-(Busy_eep(), Write_b_eep(0x5C,val));
-rv = Read_b_eep(0x5C);
-break;
-
-
-case 0x34:
-(Busy_eep(), Write_b_eep(0x5D,val));
-rv = Read_b_eep(0x5D);
-break;
-
-
-case 0x35:
-(Busy_eep(), Write_b_eep(0x5E,val));
-rv = Read_b_eep(0x5E);
-break;
-
-
-case 0x36:
-(Busy_eep(), Write_b_eep(0x5F,val));
-rv = Read_b_eep(0x5F);
-break;
-
-
-case 0x37:
-(Busy_eep(), Write_b_eep(0x60,val));
-rv = Read_b_eep(0x60);
-break;
-
-
-case 0x38:
-(Busy_eep(), Write_b_eep(0x61,val));
-rv = Read_b_eep(0x61);
-break;
-
-
-case 0x39:
-(Busy_eep(), Write_b_eep(0x62,val));
-rv = Read_b_eep(0x62);
-break;
-
-
-case 0x3A:
-(Busy_eep(), Write_b_eep(0x63,val));
-rv = Read_b_eep(0x63);
-break;
-
-
-case 0x3B:
-(Busy_eep(), Write_b_eep(0x64,val));
-rv = Read_b_eep(0x64);
-break;
-
-
-case 0x3C:
-(Busy_eep(), Write_b_eep(0x65,val));
-rv = Read_b_eep(0x65);
-break;
-
-
-case 0x3D:
-(Busy_eep(), Write_b_eep(0x66,val));
-rv = Read_b_eep(0x66);
-break;
-
-# 1974
-case 0x3E:
-(Busy_eep(), Write_b_eep(0x67,val));
-rv = Read_b_eep(0x67);
-break;
-
-
-case 0x3F:
-(Busy_eep(), Write_b_eep(0x68,val));
-rv = Read_b_eep(0x68);
-break;
-
-
-case 0x40:
-(Busy_eep(), Write_b_eep(0x69,val));
-rv = Read_b_eep(0x69);
-break;
-
-
-case 0x41:
-(Busy_eep(), Write_b_eep(0x6A,val));
-rv = Read_b_eep(0x6A);
-break;
-
-
-case 0x42:
-(Busy_eep(), Write_b_eep(0x6B,val));
-rv = Read_b_eep(0x6B);
-break;
-
-
-case 0x43:
-(Busy_eep(), Write_b_eep(0x6C,val));
-rv = Read_b_eep(0x6C);
-break;
-
-
-case 0x44:
-(Busy_eep(), Write_b_eep(0x6D,val));
-rv = Read_b_eep(0x6D);
-break;
-
-
-case 0x45:
-(Busy_eep(), Write_b_eep(0x6E,val));
-rv = Read_b_eep(0x6E);
-break;
-
-
-case 0x46:
-(Busy_eep(), Write_b_eep(0x6F,val));
-rv = Read_b_eep(0x6F);
-break;
-
-
-case 0x47:
-(Busy_eep(), Write_b_eep(0x70,val));
-rv = Read_b_eep(0x70);
-break;
-
-
-case 0x48:
-(Busy_eep(), Write_b_eep(0x71,val));
-rv = Read_b_eep(0x71);
-break;
-
-
-case 0x49:
-(Busy_eep(), Write_b_eep(0x72,val));
-rv = Read_b_eep(0x72);
-break;
-
-# 2050
-case 0x4A:
-(Busy_eep(), Write_b_eep(0x73,val));
-rv = Read_b_eep(0x73);
-break;
-
-
-case 0x4B:
-(Busy_eep(), Write_b_eep(0x74,val));
-rv = Read_b_eep(0x74);
-break;
-
-
-case 0x4C:
-(Busy_eep(), Write_b_eep(0x75,val));
-rv = Read_b_eep(0x75);
-break;
-
-
-case 0x4D:
-(Busy_eep(), Write_b_eep(0x76,val));
-rv = Read_b_eep(0x76);
-break;
-
-
-case 0x4E:
-(Busy_eep(), Write_b_eep(0x77,val));
-rv = Read_b_eep(0x77);
-break;
-
-
-case 0x4F:
-(Busy_eep(), Write_b_eep(0x78,val));
-rv = Read_b_eep(0x78);
-break;
-
-
-case 0x50:
-(Busy_eep(), Write_b_eep(0x79,val));
-rv = Read_b_eep(0x79);
-break;
-
-
-case 0x51:
-(Busy_eep(), Write_b_eep(0x7A,val));
-rv = Read_b_eep(0x7A);
-break;
-
-
-case 0x52:
-(Busy_eep(), Write_b_eep(0x7B,val));
-rv = Read_b_eep(0x7B);
-break;
-
-
-case 0x53:
-(Busy_eep(), Write_b_eep(0x7C,val));
-rv = Read_b_eep(0x7C);
-break;
-
-
-case 0x54:
-(Busy_eep(), Write_b_eep(0x7D,val));
-rv = Read_b_eep(0x7D);
-break;
-
-
-case 0x55:
-(Busy_eep(), Write_b_eep(0x7E,val));
-rv = Read_b_eep(0x7E);
-break;
-
-# 2126
-case 0x56:
-(Busy_eep(), Write_b_eep(0x7F,val));
-rv = Read_b_eep(0x7F);
-break;
-
-
-case 0x57:
-(Busy_eep(), Write_b_eep(0x80,val));
-rv = Read_b_eep(0x80);
-break;
-
-
-case 0x58:
-(Busy_eep(), Write_b_eep(0x81,val));
-rv = Read_b_eep(0x81);
-break;
-
-
-case 0x59:
-(Busy_eep(), Write_b_eep(0x82,val));
-rv = Read_b_eep(0x82);
-break;
-
-
-case 0x5A:
-(Busy_eep(), Write_b_eep(0x83,val));
-rv = Read_b_eep(0x83);
-break;
-
-
-case 0x5B:
-(Busy_eep(), Write_b_eep(0x84,val));
-rv = Read_b_eep(0x84);
-break;
-
-
-case 0x5C:
-(Busy_eep(), Write_b_eep(0x85,val));
-rv = Read_b_eep(0x85);
-break;
-
-
-case 0x5D:
-(Busy_eep(), Write_b_eep(0x86,val));
-rv = Read_b_eep(0x86);
-break;
-
-
-case 0x5E:
-(Busy_eep(), Write_b_eep(0x87,val));
-rv = Read_b_eep(0x87);
-break;
-
-
-case 0x5F:
-(Busy_eep(), Write_b_eep(0x88,val));
-rv = Read_b_eep(0x88);
-break;
-
-
-case 0x60:
-(Busy_eep(), Write_b_eep(0x89,val));
-rv = Read_b_eep(0x89);
-break;
-
-
-case 0x61:
-(Busy_eep(), Write_b_eep(0x8A,val));
-rv = Read_b_eep(0x8A);
-break;
-
-# 2202
-case 0x62:
-(Busy_eep(), Write_b_eep(0x8B,val));
-rv = Read_b_eep(0x8B);
-break;
-
-
-case 0x63:
-(Busy_eep(), Write_b_eep(0x8C,val));
-rv = Read_b_eep(0x8C);
-break;
-
-
-case 0x64:
-(Busy_eep(), Write_b_eep(0x8D,val));
-rv = Read_b_eep(0x8D);
-break;
-
-
-case 0x65:
-(Busy_eep(), Write_b_eep(0x8E,val));
-rv = Read_b_eep(0x8E);
-break;
-
-
-case 0x66:
-(Busy_eep(), Write_b_eep(0x8F,val));
-rv = Read_b_eep(0x8F);
-break;
-
-
-case 0x67:
-(Busy_eep(), Write_b_eep(0x90,val));
-rv = Read_b_eep(0x90);
-break;
-
-
-case 0x68:
-(Busy_eep(), Write_b_eep(0x91,val));
-rv = Read_b_eep(0x91);
-break;
-
-
-case 0x69:
-(Busy_eep(), Write_b_eep(0x92,val));
-rv = Read_b_eep(0x92);
-break;
-
-
-case 0x6A:
-(Busy_eep(), Write_b_eep(0x93,val));
-rv = Read_b_eep(0x93);
-break;
-
-
-case 0x6B:
-(Busy_eep(), Write_b_eep(0x94,val));
-rv = Read_b_eep(0x94);
-break;
-
-
-case 0x6C:
-(Busy_eep(), Write_b_eep(0x95,val));
-rv = Read_b_eep(0x95);
-break;
-
-
-case 0x6D:
-(Busy_eep(), Write_b_eep(0x96,val));
-rv = Read_b_eep(0x96);
-break;
-
-# 2278
-case 0x6E:
-(Busy_eep(), Write_b_eep(0x97,val));
-rv = Read_b_eep(0x97);
-break;
-
-
-case 0x6F:
-(Busy_eep(), Write_b_eep(0x98,val));
-rv = Read_b_eep(0x98);
-break;
-
-
-case 0x70:
-(Busy_eep(), Write_b_eep(0x99,val));
-rv = Read_b_eep(0x99);
-
-
-case 0x71:
-(Busy_eep(), Write_b_eep(0x9A,val));
-rv = Read_b_eep(0x9A);
-break;
-
-
-case 0x72:
-(Busy_eep(), Write_b_eep(0x9B,val));
-rv = Read_b_eep(0x9B);
-break;
-
-
-case 0x73:
-(Busy_eep(), Write_b_eep(0x9C,val));
-rv = Read_b_eep(0x9C);
-break;
-
-
-case 0x74:
-rv = 0;
-break;
-
-
-case 0x75:
-rv = 0;
-break;
-
-
-case 0x76:
-(Busy_eep(), Write_b_eep(0xF2,val));
-rv = Read_b_eep(0xF2);
-break;
-
-
-case 0x77:
-(Busy_eep(), Write_b_eep(0xF3,val));
-rv = Read_b_eep(0xF3);
-break;
-
-default:
-rv = ~val;
-break;
+if ( reg <= 43 ) {
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ reg ],val));
+rv = Read_b_eep(reg2eeprom_pg0[ reg ]);
 }
+else if ( reg == 44 ) {
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ reg ],val));
+rv = Read_b_eep(reg2eeprom_pg0[ reg ]);
 }
-else if (1 == vscp_page_select) {
-
-
-if (reg < 72) {
-(Busy_eep(), Write_b_eep(0xAA + reg,val));
-rv = Read_b_eep(0xAA + reg);
-
+else if ( reg == 45 ) {
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ reg ],val));
+OW_MasterResetPulseTime = ( Read_b_eep(44) << 8 +
+Read_b_eep(45) );
+rv = Read_b_eep(reg2eeprom_pg0[ reg ]);
+}
+else if ( reg == 46 ) {
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ reg ],val));
+OW_PresenceWait = rv = Read_b_eep(reg2eeprom_pg0[ reg ]);
+}
+else if ( reg == 47 ) {
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ reg ],val));
+rv = Read_b_eep(reg2eeprom_pg0[ reg ]);
+}
+else if ( reg == 48 ) {
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ reg ],val));
+OW_PresenceFin = ( Read_b_eep(47) << 8 ) +
+Read_b_eep(48);
+rv = Read_b_eep(reg2eeprom_pg0[ reg ]);
+}
+else if ( reg == 49 ) {
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ reg ],val));
+OW_MasterBitStart = rv = Read_b_eep(reg2eeprom_pg0[ reg ]);
+}
+else if ( reg == 50 ) {
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ reg ],val));
+OW_DelayBitRead = rv = Read_b_eep(reg2eeprom_pg0[ reg ]);
+}
+else if ( reg == 51 ) {
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ reg ],val));
+OW_DelayBitWait = rv = Read_b_eep(reg2eeprom_pg0[ reg ]);
+}
+else if ( reg == 52 ) {
+(Busy_eep(), Write_b_eep(reg2eeprom_pg0[ reg ],val));
+OW_DelayBitWrite = rv = Read_b_eep(reg2eeprom_pg0[ reg ]);
 }
 
-else if (reg < 84) {
+}
+else if ( 1 == vscp_page_select ) {
 
-uint8_t pos = reg - 72;
-if ( pos % 2 ) {
-pos--;
+
+
 }
-else {
-pos++;
-}
-rv = adc_high;
+else if ( 2 == vscp_page_select ) {
+
+if ( reg <= 89 ) {
+(Busy_eep(), Write_b_eep(reg2eeprom_pg2[ reg ],val));
+rv = Read_b_eep(reg2eeprom_pg2[ reg ]);
 }
 
-else if (reg < 98) {
-(Busy_eep(), Write_b_eep(0x9E + reg - 84,val));
-rv = Read_b_eep(0x9E + reg - 84) ;
 }
+else if ( 3 == vscp_page_select ) {
+
+if ( 0 == reg ) {
+rv = writeChannelControl( val );
+}
+else if ( ( reg >= 1 ) &&
+( reg <= 64 ) ) {
+(Busy_eep(), Write_b_eep(reg2eeprom_pg3[ reg ],val));
+rv = Read_b_eep(reg2eeprom_pg3[ reg ]);
+}
+
+}
+else if ( 250 == vscp_page_select ) {
+
+if ( reg < (0 + 8 * 8 ) ) {
+(Busy_eep(), Write_b_eep(0x42 + 207 + reg,val));
+calculateSetFilterMask();
+rv = Read_b_eep(0x42 + 207 + reg);
+}
+
 }
 
 return rv;
 }
 
-# 2380
+# 1768
+void reportTokenActivity( void )
+{
+vscp_omsg.priority = 0x03;
+vscp_omsg.vscp_class = 20;
+vscp_omsg.vscp_type = 37;
+
+
+
+vscp_omsg.flags = 0x80 + 8;
+
+
+vscp_omsg.data[ 0 ] = 0b00000101;
+vscp_omsg.data[ 1 ] = reg2eeprom_pg0[ 0 ];
+vscp_omsg.data[ 2 ] = reg2eeprom_pg0[ 1 ];
+vscp_omsg.data[ 3 ] = 0;
+vscp_omsg.data[ 4 ] = romAddrOneWire[ 0 ];
+vscp_omsg.data[ 5 ] = romAddrOneWire[ 1 ];
+vscp_omsg.data[ 6 ] = romAddrOneWire[ 2 ];
+vscp_omsg.data[ 7 ] = romAddrOneWire[ 3 ];
+
+vscp_sendEvent();
+
+
+
+vscp_omsg.flags = 0x80 + 8;
+
+
+vscp_omsg.data[ 0 ] = 0b00000101;
+vscp_omsg.data[ 1 ] = reg2eeprom_pg0[ 0 ];
+vscp_omsg.data[ 2 ] = reg2eeprom_pg0[ 1 ];
+vscp_omsg.data[ 3 ] = 1;
+vscp_omsg.data[ 4 ] = romAddrOneWire[ 4 ];
+vscp_omsg.data[ 5 ] = romAddrOneWire[ 5 ];
+vscp_omsg.data[ 6 ] = romAddrOneWire[ 6 ];
+vscp_omsg.data[ 7 ] = romAddrOneWire[ 7 ];
+
+vscp_sendEvent();
+
+}
+
+# 1812
+uint8_t writeChannelControl( uint8_t val )
+{
+uint8_t nFound0 = 0;
+uint8_t nFound1 = 0;
+uint8_t nFound2 = 0;
+uint8_t nFound3 = 0;
+
+
+if ( val & 0b00000001 ) {
+
+
+nLastDiscrepancyOnewire = 0;
+bDoneFlagOneWire = 0;
+
+while( !bDoneFlagOneWire && DS1820_FindNextDevice( 0 ) ) {
+
+
+if ( ( 0x10 == romAddrOneWire[ 0 ] ) ||
+( 0x28 == romAddrOneWire[ 0 ] ) ) {
+
+
+if ( nFound0 <= 1 ) {
+saveROMCodeToEEPROM( 0, nFound0 );
+}
+
+nFound0++;
+
+}
+
+
+if ( val & 0b00010000 ) {
+reportTokenActivity();
+}
+
+}
+}
+
+if ( val & 0b00000010 ) {
+
+
+nLastDiscrepancyOnewire = 0;
+bDoneFlagOneWire = 0;
+
+while( !bDoneFlagOneWire && DS1820_FindNextDevice( 1 ) ) {
+
+
+if ( ( 0x10 == romAddrOneWire[ 0 ] ) ||
+( 0x28 == romAddrOneWire[ 0 ] ) ) {
+
+
+if ( nFound1 <= 1 ) {
+saveROMCodeToEEPROM( 1, nFound1 );
+}
+
+nFound1++;
+
+}
+
+
+if ( val & 0b00100000 ) {
+reportTokenActivity();
+}
+
+}
+}
+
+if ( val & 0b00000100 ) {
+
+
+nLastDiscrepancyOnewire = 0;
+bDoneFlagOneWire = 0;
+
+while( !bDoneFlagOneWire && DS1820_FindNextDevice( 2 ) ) {
+
+
+if ( ( 0x10 == romAddrOneWire[ 0 ] ) ||
+( 0x28 == romAddrOneWire[ 0 ] ) ) {
+
+
+if ( nFound2 <= 1 ) {
+saveROMCodeToEEPROM( 2, nFound2 );
+}
+
+nFound2++;
+
+}
+
+
+if ( val & 0b01000000 ) {
+reportTokenActivity();
+}
+
+}
+}
+
+if ( val & 0b00001000 ) {
+
+
+nLastDiscrepancyOnewire = 0;
+bDoneFlagOneWire = 0;
+
+while( !bDoneFlagOneWire && DS1820_FindNextDevice( 3 ) ) {
+
+
+if ( ( 0x10 == romAddrOneWire[ 0 ] ) ||
+( 0x28 == romAddrOneWire[ 0 ] ) ) {
+
+
+if ( nFound3 <= 1 ) {
+saveROMCodeToEEPROM( 3, nFound3 );
+}
+
+nFound3++;
+
+}
+
+
+if ( val & 0b10000000 ) {
+reportTokenActivity();
+}
+
+}
+}
+
+return val;
+
+}
+
+# 1952
 unsigned char vscp_getMajorVersion()
 {
 return 1;
 }
 
-# 2389
+# 1961
 unsigned char vscp_getMinorVersion()
 {
 return 0;
 }
 
-# 2398
+# 1970
 unsigned char vscp_getSubMinorVersion()
 {
 return 0;
 }
 
-# 2409
+# 1981
 uint8_t vscp_getGUID(uint8_t idx)
 {
 return Read_b_eep(0x12 + idx);
 }
 
-# 2419
+# 1991
 void vscp_setGUID( uint8_t idx, uint8_t data )
 {
 if ( idx>15 ) return;
 (Busy_eep(), Write_b_eep(0x12 + idx,data));
 }
 
-# 2432
+# 2004
 uint8_t vscp_getMDF_URL(uint8_t idx)
 {
 return vscp_deviceURL[ idx ];
 }
 
-# 2441
+# 2013
 uint8_t vscp_getUserID(uint8_t idx)
 {
 return Read_b_eep(0x05 + idx);
 }
 
-# 2450
+# 2022
 void vscp_setUserID(uint8_t idx, uint8_t data)
 {
-(Busy_eep(), Write_b_eep(idx + 0x05,data));
+(Busy_eep(), Write_b_eep(0x05 + idx,data));
 }
 
-# 2461
+# 2033
 uint8_t vscp_getManufacturerId(uint8_t idx)
 {
 return Read_b_eep(0x0A + idx);
 }
 
-# 2472
+# 2044
 void vscp_setManufacturerId(uint8_t idx, uint8_t data)
 {
 (Busy_eep(), Write_b_eep(0x0A + idx,data));
 }
 
-# 2481
+# 2053
 uint8_t vscp_getBootLoaderAlgorithm(void)
 {
 return 0x01;
 }
 
-# 2490
+# 2062
 uint8_t vscp_getBufferSize(void)
 {
 return 8;
 }
 
-# 2499
+# 2071
 void vscp_getMatrixInfo(char *pData)
 {
-uint8_t i;
+pData[ 0 ] = 8;
+pData[ 1 ] = 0;
+pData[ 2 ] = 0;
+pData[ 3 ] = 250;
+pData[ 4 ] = 0;
+pData[ 5 ] = 250;
+pData[ 6 ] = 0;
+}
+
+# 2089
+void doDM(void)
+{
+unsigned char i;
+unsigned char dmflags;
+unsigned short class_filter;
+unsigned short class_mask;
+unsigned char type_filter;
+unsigned char type_mask;
 
 
+if ( 0 == vscp_imsg.vscp_class ) return;
 
-for (i = 0; i < 8; i++) {
-pData[ i ] = 0;
+for (i = 0; i<8; i++) {
+
+
+dmflags = Read_b_eep(0x42 + 207 + (8 * i));
+
+
+if ( dmflags & 0x80 ) {
+
+
+if ( ( dmflags & 0x40 ) &&
+( vscp_imsg.oaddr != Read_b_eep(0x42 + 207 + (8 * i)) ) ) {
+continue;
+}
+
+
+if ( dmflags & 0x10 ) {
+if ( 255 != vscp_imsg.data[ 1 ] ) {
+if ( vscp_imsg.data[ 1 ] != Read_b_eep(reg2eeprom_pg0[ 0 ]) ) {
+continue;
+}
+}
+}
+
+
+if ( dmflags & 0x08 ) {
+if ( 255 != vscp_imsg.data[ 2 ] ) {
+if ( vscp_imsg.data[ 2 ] != Read_b_eep(reg2eeprom_pg0[ 1 ]) ) {
+continue;
+}
+}
+}
+
+class_filter = ( ( dmflags & 0x01) << 8 ) +
+Read_b_eep(0x42 + 207 + (8 * i) + 3);
+
+# 2138
+class_mask = ( ( dmflags & 0x02 ) << 7 ) +
+Read_b_eep(0x42 + 207 + (8 * i) + 2);
+
+# 2143
+type_filter = Read_b_eep(0x42 + 207 + (8 * i) + 5);
+
+# 2147
+type_mask = Read_b_eep(0x42 + 207 + (8 * i) + 4);
+
+# 2151
+if ( !( ( class_filter ^ vscp_imsg.vscp_class ) & class_mask ) &&
+!( ( type_filter ^ vscp_imsg.vscp_type ) & type_mask ) ) {
+
+
+switch ( Read_b_eep(0x42 + 207 + (8 * i) + 6) ) {
+
+# 2159
+case 0:
+break;
+
+case 1:
+actionScan( Read_b_eep(0x42 + 207 + (8 * i) + 7) );
+
+# 2166
+break;
+
+case 2:
+actionScanStore( Read_b_eep(0x42 + 207 + (8 * i) + 7) );
+
+# 2172
+break;
+
+case 3:
+actionReport( Read_b_eep(0x42 + 207 + (8 * i) + 7) );
+
+# 2178
+break;
+
+case 4:
+actionClearAlarm( Read_b_eep(0x42 + 207 + (8 * i) + 7) );
+
+# 2184
+break;
+
+case 5:
+actionClearHigh( Read_b_eep(0x42 + 207 + (8 * i) + 7) );
+
+# 2190
+break;
+
+case 6:
+actionClearLow( Read_b_eep(0x42 + 207 + (8 * i) + 7) );
+
+# 2196
+break;
+
 }
 
 }
 
-# 2515
+}
+
+}
+
+}
+
+# 2212
+void actionScan( uint8_t param )
+{
+
+}
+
+# 2221
+void actionScanStore( uint8_t param )
+{
+
+}
+
+# 2230
+void actionReport( uint8_t param )
+{
+
+}
+
+# 2239
+void actionClearAlarm( uint8_t param )
+{
+
+}
+
+# 2248
+void actionClearHigh( uint8_t param )
+{
+
+}
+
+# 2257
+void actionClearLow( uint8_t param )
+{
+
+}
+
+# 2267
 void vscp_getEmbeddedMdfInfo(void)
 {
 
@@ -20983,25 +21104,25 @@ vscp_omsg.data[ 2 ] = 0;
 vscp_sendEvent();
 }
 
-# 2537
+# 2289
 uint8_t vscp_getRegisterPagesUsed(void)
 {
 return 1;
 }
 
-# 2546
+# 2298
 uint8_t vscp_getZone(void)
 {
-return Read_b_eep(0x41);
+return Read_b_eep(reg2eeprom_pg0[ 0 ]);
 }
 
-# 2555
+# 2307
 uint8_t vscp_getSubzone(void)
 {
-return Read_b_eep(0x42);
+return Read_b_eep(reg2eeprom_pg0[ 0 ]);
 }
 
-# 2564
+# 2316
 void vscp_goBootloaderMode( uint8_t algorithm )
 {
 if ( 0x01 != algorithm ) return;
@@ -21017,58 +21138,58 @@ ECANSetOperationMode( ECAN_OP_MODE_CONFIG );
 asm("reset");
 }
 
-# 2583
+# 2335
 uint8_t vscp_readNicknamePermanent(void)
 {
 return Read_b_eep(0x01);
 }
 
-# 2592
+# 2344
 void vscp_writeNicknamePermanent(uint8_t nickname)
 {
 (Busy_eep(), Write_b_eep(0x01,nickname));
 }
 
-# 2601
-void vscp_setControlByte( uint8_t ctrl, uint8_t idx )
+# 2353
+void vscp_setControlByte( uint8_t idx, uint8_t ctrl )
 {
 if ( idx > 1 ) return;
 (Busy_eep(), Write_b_eep(0x03 + idx,ctrl));
 }
 
-# 2612
+# 2364
 uint8_t vscp_getControlByte( uint8_t idx )
 {
 if ( idx > 1 ) return 0;
 return Read_b_eep(0x03 + idx);
 }
 
-# 2622
+# 2374
 void vscp_init_pstorage( void )
 {
 init_app_eeprom();
 }
 
-# 2631
+# 2383
 uint32_t vscp_getFamilyCode()
 {
 return 0L;
 }
 
-# 2641
+# 2393
 uint32_t vscp_getFamilyType()
 {
 return 0;
 }
 
-# 2650
+# 2402
 void vscp_restoreDefaults()
 {
 init_app_eeprom();
 init_app_ram();
 }
 
-# 2660
+# 2412
 int8_t sendVSCPFrame(uint16_t vscpclass,
 uint8_t vscptype,
 uint8_t nodeid,
@@ -21090,7 +21211,7 @@ return 0;
 return 1;
 }
 
-# 2686
+# 2438
 int8_t getVSCPFrame( uint16_t *pvscpclass,
 uint8_t *pvscptype,
 uint8_t *pNodeId,
@@ -21112,7 +21233,7 @@ return 0;
 return 1;
 }
 
-# 2712
+# 2464
 int8_t sendCANFrame(uint32_t id, uint8_t dlc, uint8_t *pdata)
 {
 uint8_t rv = 0;
@@ -21130,7 +21251,7 @@ vscp_omsg.flags = 0;
 return rv;
 }
 
-# 2733
+# 2485
 int8_t getCANFrame(uint32_t *pid, uint8_t *pdlc, uint8_t *pdata)
 {
 ECAN_RX_MSG_FLAGS flags;
@@ -21150,4 +21271,109 @@ return 1;
 }
 
 return 0;
+}
+
+# 2514
+void calculateSetFilterMask( void )
+{
+uint8_t i,j;
+uint8_t lastOID;
+uint32_t rowmask;
+uint32_t rowfilter;
+
+
+uint32_t mask = 0xffffffff;
+uint32_t filter = 0x00000000;
+
+
+for ( i=0; i<8; i++ ) {
+
+
+if ( Read_b_eep(0x42 + 8*i + 1) & 0x80 ) {
+
+# 2538
+rowmask =
+
+( (uint32_t)( Read_b_eep(0x42 + 8*i + 1) & 0x02 ) << 23 ) |
+
+( (uint32_t)Read_b_eep(0x42 + 8*i + 2) << 16 ) |
+
+( (uint32_t)Read_b_eep(0x42 + 8*i + 4) << 8 ) |
+
+
+
+0xff;
+
+# 2554
+rowfilter =
+
+( (uint32_t)( Read_b_eep(0x42 + 8*i + 1) & 0x01 ) << 24 ) |
+
+( (uint32_t)Read_b_eep(0x42 + 8*i + 3) << 16 ) |
+
+( (uint32_t)Read_b_eep(0x42 + 8*i + 5) << 8 ) |
+
+
+Read_b_eep(0x42 + 8*i);
+
+if ( 0 == i ) filter = rowfilter;
+
+
+
+mask &= rowmask;
+
+
+
+
+for ( j=0; j<32; j++ ) {
+
+if ( ( ( filter >> j ) & 1 ) != ( ( rowfilter >> j ) & 1 ) ) {
+mask &= ~(1<<j);
+}
+}
+
+# 2585
+filter &= rowfilter;
+
+
+if ( !Read_b_eep(0x42 + 8*i + 1) & 0x40 ) {
+
+
+
+mask &= ~0xff;
+}
+
+if ( i ) {
+
+
+for (j = 0; j < 8; j++) {
+if ((lastOID >> i & 1)
+!= (Read_b_eep(0x42 + 8*i) >> i & 1)) {
+mask &= (1 << i);
+}
+}
+
+lastOID = Read_b_eep(0x42 + 8*i);
+
+}
+else {
+
+lastOID = Read_b_eep(0x42 + 8*i);
+}
+
+}
+}
+
+
+ECANSetOperationMode( ECAN_OP_MODE_CONFIG );
+
+
+_CANIDToRegs((BYTE*)&RXM1SIDH, mask, 1);
+
+
+RXF1EN = 1; _CANIDToRegs((BYTE*)&RXF1SIDH, filter, 1);;
+
+
+ECANSetOperationMode( ECAN_OP_MODE_NORMAL );
+
 }

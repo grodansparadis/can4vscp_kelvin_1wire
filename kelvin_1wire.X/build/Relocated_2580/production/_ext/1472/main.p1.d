@@ -4,11 +4,11 @@
 ../vscp_projdefs.h  \
 ../ECAN.h  \
 ../vscp_compiler.h  \
-../../vscp_firmware/pic/common/inttypes.h  \
+../../vscp-firmware/pic/common/inttypes.h  \
 ../ECAN.def  \
-../../vscp_firmware/common/vscp_class.h  \
-../../vscp_firmware/common/vscp_firmware.h  \
+../../vscp-firmware/common/vscp-firmware.h  \
+../../vscp-firmware/common/vscp_class.h  \
 ../main.h  \
 ../onewire.h  \
-../../vscp_firmware/common/vscp_type.h  \
+../../vscp-firmware/common/vscp_type.h  \
 ../version.h 

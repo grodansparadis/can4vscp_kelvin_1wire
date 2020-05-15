@@ -1,6 +1,9 @@
 Kelvin 1-wire
 ============
 
+2016-04-19 AKHE - Release 1.0.0
+2020-05-15 AKHE - Init. timer now set to 1500 ms instead of 250 ms.
+                  Seconds timing fixed.
 2016-04-19 AKHE - RA4 set to input to prevent collision with VCAP circuits in
                   PIC18F2580. Brown out raised to maximum (3V & 4.6V). Valuable                    input from Anders Forsgren, AJE Electronics AB.
 2016-03-04 AKHE - Changed value of C14 to 10uF

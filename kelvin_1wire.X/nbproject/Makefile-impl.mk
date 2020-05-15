@@ -27,7 +27,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 PROJECTNAME=kelvin_1wire.X
 
 # Active Configuration
-DEFAULTCONF=Relocated_26K80
+DEFAULTCONF=Relocated_2580
 CONF=${DEFAULTCONF}
 
 # All Configurations

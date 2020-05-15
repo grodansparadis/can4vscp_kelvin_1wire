@@ -6,8 +6,8 @@
 ../vscp_compiler.h  \
 ../../vscp-firmware/pic/common/inttypes.h  \
 ../ECAN.def  \
+../../vscp-firmware/common/vscp-firmware.h  \
 ../../vscp-firmware/common/vscp_class.h  \
-../../vscp-firmware/common/vscp_firmware.h  \
 ../main.h  \
 ../onewire.h  \
 ../../vscp-firmware/common/vscp_type.h  \

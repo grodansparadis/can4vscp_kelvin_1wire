@@ -11,9 +11,9 @@
       <itemPath>../ECAN.h</itemPath>
       <itemPath>../onewire.h</itemPath>
       <itemPath>../ECAN.def</itemPath>
-      <itemPath>../../vscp_firmware/common/vscp_class.h</itemPath>
-      <itemPath>../../vscp_firmware/common/vscp_type.h</itemPath>
-      <itemPath>../../vscp-firmware/common/vscp_firmware.h</itemPath>
+      <itemPath>../../vscp-firmware/common/vscp_class.h</itemPath>
+      <itemPath>../../vscp-firmware/common/vscp_type.h</itemPath>
+      <itemPath>../../vscp-firmware/common/vscp-firmware.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LibraryFiles"
                    displayName="Library Files"
@@ -33,7 +33,7 @@
       <itemPath>../main.c</itemPath>
       <itemPath>../onewire.c</itemPath>
       <itemPath>../ECAN.c</itemPath>
-      <itemPath>../../vscp-firmware/common/vscp_firmware.c</itemPath>
+      <itemPath>../../vscp-firmware/common/vscp-firmware.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -51,7 +51,6 @@
     <Elem>../</Elem>
     <Elem>../../vscp-firmware/common</Elem>
     <Elem>../../vscp-firmware/pic/common</Elem>
-    <Elem>../../vscp-firmware/common</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -67,7 +66,7 @@
         <platform>2</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC18Fxxxx_DFP" vendor="Microchip" version="1.0.9"/>
+        <pack name="PIC18Fxxxx_DFP" vendor="Microchip" version="1.2.26"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -96,6 +95,7 @@
       <HI-TECH-COMP>
         <property key="additional-warnings" value="true"/>
         <property key="asmlist" value="true"/>
+        <property key="call-prologues" value="false"/>
         <property key="default-bitfield-type" value="true"/>
         <property key="default-char-type" value="true"/>
         <property key="define-macros" value="RELEASE"/>
@@ -240,6 +240,7 @@
         <property key="gcc-opt-std" value="--std=c89"/>
         <property key="gcc-output-file-format" value="dwarf-3"/>
         <property key="omit-pack-options" value="false"/>
+        <property key="omit-pack-options-new" value="1"/>
         <property key="output-file-format" value="-mcof,+elf"/>
         <property key="stack-size-high" value="auto"/>
         <property key="stack-size-low" value="auto"/>
@@ -260,7 +261,7 @@
         <platform>2</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC18Fxxxx_DFP" vendor="Microchip" version="1.0.9"/>
+        <pack name="PIC18Fxxxx_DFP" vendor="Microchip" version="1.2.26"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -289,6 +290,7 @@
       <HI-TECH-COMP>
         <property key="additional-warnings" value="true"/>
         <property key="asmlist" value="true"/>
+        <property key="call-prologues" value="false"/>
         <property key="default-bitfield-type" value="true"/>
         <property key="default-char-type" value="true"/>
         <property key="define-macros" value="DEBUG"/>
@@ -433,6 +435,7 @@
         <property key="gcc-opt-std" value="--std=c89"/>
         <property key="gcc-output-file-format" value="dwarf-3"/>
         <property key="omit-pack-options" value="false"/>
+        <property key="omit-pack-options-new" value="1"/>
         <property key="output-file-format" value="-mcof,+elf"/>
         <property key="stack-size-high" value="auto"/>
         <property key="stack-size-low" value="auto"/>
@@ -447,13 +450,13 @@
         <targetDevice>PIC18F26K80</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>RealICEPlatformTool</platformTool>
+        <platformTool></platformTool>
         <languageToolchain>XC8</languageToolchain>
         <languageToolchainVersion>1.21</languageToolchainVersion>
         <platform>2</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC18F-K_DFP" vendor="Microchip" version="1.1.58"/>
+        <pack name="PIC18F-K_DFP" vendor="Microchip" version="1.3.84"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -482,6 +485,7 @@
       <HI-TECH-COMP>
         <property key="additional-warnings" value="true"/>
         <property key="asmlist" value="true"/>
+        <property key="call-prologues" value="false"/>
         <property key="default-bitfield-type" value="true"/>
         <property key="default-char-type" value="true"/>
         <property key="define-macros" value="DEBUG"/>
@@ -626,6 +630,7 @@
         <property key="gcc-opt-std" value="--std=c89"/>
         <property key="gcc-output-file-format" value="dwarf-3"/>
         <property key="omit-pack-options" value="false"/>
+        <property key="omit-pack-options-new" value="1"/>
         <property key="output-file-format" value="-mcof,+elf"/>
         <property key="stack-size-high" value="auto"/>
         <property key="stack-size-low" value="auto"/>
@@ -640,13 +645,13 @@
         <targetDevice>PIC18F26K80</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>RealICEPlatformTool</platformTool>
+        <platformTool></platformTool>
         <languageToolchain>XC8</languageToolchain>
         <languageToolchainVersion>1.21</languageToolchainVersion>
         <platform>2</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC18F-K_DFP" vendor="Microchip" version="1.1.58"/>
+        <pack name="PIC18F-K_DFP" vendor="Microchip" version="1.3.84"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -675,6 +680,7 @@
       <HI-TECH-COMP>
         <property key="additional-warnings" value="true"/>
         <property key="asmlist" value="true"/>
+        <property key="call-prologues" value="false"/>
         <property key="default-bitfield-type" value="true"/>
         <property key="default-char-type" value="true"/>
         <property key="define-macros" value="RELEASE"/>
@@ -819,6 +825,7 @@
         <property key="gcc-opt-std" value="--std=c89"/>
         <property key="gcc-output-file-format" value="dwarf-3"/>
         <property key="omit-pack-options" value="false"/>
+        <property key="omit-pack-options-new" value="1"/>
         <property key="output-file-format" value="-mcof,+elf"/>
         <property key="stack-size-high" value="auto"/>
         <property key="stack-size-low" value="auto"/>

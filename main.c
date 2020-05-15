@@ -5,7 +5,7 @@
  *  Kelvin 1-wire Module
  *  =====================
  *
- *  Copyright (C) 2015-2018 Ake Hedman, Grodans Paradis AB
+ *  Copyright (C) 2015-2020 Ake Hedman, Grodans Paradis AB
  *                          http://www.grodansparadis.com
  *                          <akhe@grodansparadis.com>
  *
@@ -36,7 +36,7 @@
 #include <math.h>
 #include <inttypes.h>
 #include <ECAN.h>
-#include <vscp_firmware.h>
+#include <vscp-firmware.h>
 #include <vscp_class.h>
 #include <vscp_type.h>
 #include "main.h" 
@@ -53,7 +53,7 @@
 #pragma config OSC = HSPLL
 #pragma config BOREN = BOACTIVE
 #pragma config STVREN = ON
-#pragma config BORV = 3
+#pragma config BORV = 1 // 4.3V
 #pragma config LVP = ON
 #pragma config CPB = ON
 #pragma config BBSIZ = 2048
@@ -73,7 +73,7 @@
 #pragma config PWRT = ON
 #pragma config BOREN = BOACTIVE
 #pragma config STVREN = ON
-#pragma config BORV = 3
+#pragma config BORV = 1 // 4.3V
 #pragma config LVP = OFF
 #pragma config CPB = OFF
 #pragma config WRTD  = OFF
@@ -660,8 +660,8 @@ void main()
 
         ClrWdt(); // Feed the dog
 
-        if ( ( vscp_initbtncnt > 250 ) &&
-                ( VSCP_STATE_INIT != vscp_node_state ) ) {
+        if ( ( vscp_initbtncnt > 2500 ) &&
+             ( VSCP_STATE_INIT != vscp_node_state ) ) {
 
             // Init. button pressed
             vscp_nickname = VSCP_ADDRESS_FREE;
@@ -732,10 +732,12 @@ void main()
         if ( measurement_clock > 1000 ) {
 
             measurement_clock = 0;
+            seconds++;
+            
             if (VSCP_STATE_ACTIVE == vscp_node_state) {
                 doOneSecondWork();
             }
-            seconds++;
+            
 
             // Temperature report timers are only updated if in active
             // state
@@ -2348,7 +2350,7 @@ void vscp_writeNicknamePermanent(uint8_t nickname)
 //  setVSCPControlByte
 //
 
-void vscp_setControlByte( uint8_t ctrl, uint8_t idx )
+void vscp_setControlByte( uint8_t idx, uint8_t ctrl )
 {
     if ( idx > 1 ) return;
     eeprom_write( VSCP_EEPROM_CONTROL1 + idx, ctrl );

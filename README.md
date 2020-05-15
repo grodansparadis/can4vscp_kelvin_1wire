@@ -1,6 +1,6 @@
-<h1>Kelvin 1Wire + Humidity</h1>
+<h1>Kelvin 1Wire</h1>
 
-<img src="http://grodansparadis.com/images/vscp_logo.jpg" />
+<img src="https://vscp.org/images/logo.png" width="100"><img src="http://grodansparadis.com/images/vscp_logo.jpg" />
 
 This module supports four 1-wire temperature sensor channels and one humidity sensor channel.
 <hr>

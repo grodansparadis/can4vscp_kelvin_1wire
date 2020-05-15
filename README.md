@@ -1,8 +1,11 @@
 <h1>Kelvin 1Wire</h1>
 
-<img src="http://grodansparadis.com/images/vscp_logo.jpg" />
+<img src="http://grodansparadis.com/images/vscp_logo.jpg" width="100" />
 
 This module supports four 1-wire temperature sensor channels and one humidity sensor channel.
+
+Documentation for this module is [here](https://www.grodansparadis.com/kelvin1w/index.html)
+
 <hr>
 
 This project is part of the <a href="http://www.vscp.org">VSCP (Very Simple Control Protocol) project</a>. 

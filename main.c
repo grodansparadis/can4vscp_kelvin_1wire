@@ -1466,7 +1466,7 @@ int8_t sendTempEvent( uint8_t nTemp )
             vscp_omsg.flags = VSCP_VALID_MSG + 5;
             
             // Data format
-            vscp_omsg.data[ 0 ] = 0b10000000 | // Normalised integer
+            vscp_omsg.data[ 0 ] = 0b10000000 | // Normalized integer
                 ((0x03 & eeprom_read( nTemp + reg2eeprom_pg0[ REG0_KELVIN1W_CTRL_REG0_LOW ] ) ) << 3 ) | // Unit
                 nTemp; // Sensor
             
@@ -1482,7 +1482,7 @@ int8_t sendTempEvent( uint8_t nTemp )
         case REPORT_TEMP_AS_STRING:
                 
             // Data format
-            vscp_omsg.data[ 0 ] = 0b01000000 | // Normalised integer
+            vscp_omsg.data[ 0 ] = 0b01000000 | // Normalized integer
                 ((0x03 & eeprom_read( nTemp + reg2eeprom_pg0[ REG0_KELVIN1W_CTRL_REG0_LOW ] ) ) << 3 ) | // Unit
                 nTemp; // Sensor
             
@@ -1510,13 +1510,13 @@ int8_t sendTempEvent( uint8_t nTemp )
             vscp_omsg.flags = VSCP_VALID_MSG + 5;
             
             // Data format
-            vscp_omsg.data[ 0 ] = 0b10100000 | // Normalised integer
+            vscp_omsg.data[ 0 ] = 0b10100000 | // normalized integer
                 ((0x03 & eeprom_read( nTemp + reg2eeprom_pg0[ REG0_KELVIN1W_CTRL_REG0_LOW ] ) ) << 3 ) | // Unit
                 nTemp; // Sensor
             
             // Data
             p = (uint8_t *)&newval;
-            vscp_omsg.data[ 1 ] = *(p+3);
+            vscp_omsg.data[ 1 ] = *(p+3);   // Send it big-endian (PIC & PC are little-endian)
             vscp_omsg.data[ 2 ] = *(p+2);
             vscp_omsg.data[ 3 ] = *(p+1);
             vscp_omsg.data[ 4 ] = *(p+0);

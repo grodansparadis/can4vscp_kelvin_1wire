@@ -27,11 +27,11 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 PROJECTNAME=kelvin_1wire.X
 
 # Active Configuration
-DEFAULTCONF=Relocated_2580
+DEFAULTCONF=New_reloc_26K80
 CONF=${DEFAULTCONF}
 
 # All Configurations
-ALLCONFS=Relocated_2580 Debug_2580 Debug_26K80 Relocated_26K80 
+ALLCONFS=Relocated_2580 Debug_2580 Debug_26K80 Relocated_26K80 New_reloc_26K80 
 
 
 # build
@@ -49,6 +49,7 @@ ALLCONFS=Relocated_2580 Debug_2580 Debug_26K80 Relocated_26K80
 	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=Debug_2580 clean
 	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=Debug_26K80 clean
 	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=Relocated_26K80 clean
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=New_reloc_26K80 clean
 
 
 
@@ -58,6 +59,7 @@ ALLCONFS=Relocated_2580 Debug_2580 Debug_26K80 Relocated_26K80
 	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=Debug_2580 build
 	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=Debug_26K80 build
 	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=Relocated_26K80 build
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=New_reloc_26K80 build
 
 
 

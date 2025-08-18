@@ -34,6 +34,10 @@
                     <name>Relocated_26K80</name>
                     <type>2</type>
                 </confElem>
+                <confElem>
+                    <name>New_reloc_26K80</name>
+                    <type>2</type>
+                </confElem>
             </confList>
             <formatting>
                 <project-formatting-style>false</project-formatting-style>

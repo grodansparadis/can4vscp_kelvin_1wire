@@ -32,3 +32,10 @@ CND_ARTIFACT_PATH_Relocated_26K80=dist/Relocated_26K80/production/kelvin_1wire.X
 CND_PACKAGE_DIR_Relocated_26K80=${CND_DISTDIR}/Relocated_26K80/package
 CND_PACKAGE_NAME_Relocated_26K80=kelvin1wire.x.tar
 CND_PACKAGE_PATH_Relocated_26K80=${CND_DISTDIR}/Relocated_26K80/package/kelvin1wire.x.tar
+# New_reloc_26K80 configuration
+CND_ARTIFACT_DIR_New_reloc_26K80=dist/New_reloc_26K80/production
+CND_ARTIFACT_NAME_New_reloc_26K80=kelvin_1wire.X.production.hex
+CND_ARTIFACT_PATH_New_reloc_26K80=dist/New_reloc_26K80/production/kelvin_1wire.X.production.hex
+CND_PACKAGE_DIR_New_reloc_26K80=${CND_DISTDIR}/New_reloc_26K80/package
+CND_PACKAGE_NAME_New_reloc_26K80=kelvin1wire.x.tar
+CND_PACKAGE_PATH_New_reloc_26K80=${CND_DISTDIR}/New_reloc_26K80/package/kelvin1wire.x.tar

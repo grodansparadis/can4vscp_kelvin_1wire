@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "kelvin_1wire_B")(type "KiCad")(uri "$(KIPRJMOD)/kelvin_1wire_B.pretty")(options "")(descr ""))
+)

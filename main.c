@@ -28,22 +28,6 @@
 
 #define _XTAL_FREQ 40000000 // For delay functions
 
-#include <xc.h>
-#include <timers.h>
-#include <adc.h>
-#include <stdio.h>
-#include <string.h>
-#include <math.h>
-#include <inttypes.h>
-#include <ECAN.h>
-#include <vscp-firmware.h>
-#include <vscp_class.h>
-#include <vscp_type.h>
-#include "main.h" 
-#include "version.h"
-#include "onewire.h"
-
-
 #if defined(_18F2580) 
 
 
@@ -122,6 +106,24 @@
 
 
 #endif
+
+#include <xc.h>
+#include <timers.h>
+#include <adc.h>
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <inttypes.h>
+#include <ECAN.h>
+#include <vscp-firmware.h>
+#include <vscp_class.h>
+#include <vscp_type.h>
+#include "main.h" 
+#include "version.h"
+#include "onewire.h"
+
+
+
 
 
 uint8_t romAddrOneWire[ DS1820_ADDR_LEN ];

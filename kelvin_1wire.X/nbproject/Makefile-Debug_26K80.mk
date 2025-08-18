@@ -94,7 +94,7 @@ MP_PROCESSOR_OPTION=18F26K80
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/_ext/1472/main.p1: ../main.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/_ext/1472/main.p1: ../main.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
 	@${RM} ${OBJECTDIR}/_ext/1472/main.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1472/main.p1 
@@ -102,7 +102,7 @@ ${OBJECTDIR}/_ext/1472/main.p1: ../main.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/_ext/1472/main.d ${OBJECTDIR}/_ext/1472/main.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1472/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/1472/onewire.p1: ../onewire.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/_ext/1472/onewire.p1: ../onewire.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
 	@${RM} ${OBJECTDIR}/_ext/1472/onewire.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1472/onewire.p1 
@@ -110,7 +110,7 @@ ${OBJECTDIR}/_ext/1472/onewire.p1: ../onewire.c  nbproject/Makefile-${CND_CONF}.
 	@-${MV} ${OBJECTDIR}/_ext/1472/onewire.d ${OBJECTDIR}/_ext/1472/onewire.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1472/onewire.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/1472/ECAN.p1: ../ECAN.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/_ext/1472/ECAN.p1: ../ECAN.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
 	@${RM} ${OBJECTDIR}/_ext/1472/ECAN.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1472/ECAN.p1 
@@ -118,7 +118,7 @@ ${OBJECTDIR}/_ext/1472/ECAN.p1: ../ECAN.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/_ext/1472/ECAN.d ${OBJECTDIR}/_ext/1472/ECAN.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1472/ECAN.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/1692658300/vscp-firmware.p1: ../../vscp-firmware/common/vscp-firmware.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/_ext/1692658300/vscp-firmware.p1: ../../vscp-firmware/common/vscp-firmware.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/_ext/1692658300" 
 	@${RM} ${OBJECTDIR}/_ext/1692658300/vscp-firmware.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1692658300/vscp-firmware.p1 
@@ -127,7 +127,7 @@ ${OBJECTDIR}/_ext/1692658300/vscp-firmware.p1: ../../vscp-firmware/common/vscp-f
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1692658300/vscp-firmware.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 else
-${OBJECTDIR}/_ext/1472/main.p1: ../main.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/_ext/1472/main.p1: ../main.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
 	@${RM} ${OBJECTDIR}/_ext/1472/main.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1472/main.p1 
@@ -135,7 +135,7 @@ ${OBJECTDIR}/_ext/1472/main.p1: ../main.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/_ext/1472/main.d ${OBJECTDIR}/_ext/1472/main.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1472/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/1472/onewire.p1: ../onewire.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/_ext/1472/onewire.p1: ../onewire.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
 	@${RM} ${OBJECTDIR}/_ext/1472/onewire.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1472/onewire.p1 
@@ -143,7 +143,7 @@ ${OBJECTDIR}/_ext/1472/onewire.p1: ../onewire.c  nbproject/Makefile-${CND_CONF}.
 	@-${MV} ${OBJECTDIR}/_ext/1472/onewire.d ${OBJECTDIR}/_ext/1472/onewire.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1472/onewire.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/1472/ECAN.p1: ../ECAN.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/_ext/1472/ECAN.p1: ../ECAN.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
 	@${RM} ${OBJECTDIR}/_ext/1472/ECAN.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1472/ECAN.p1 
@@ -151,7 +151,7 @@ ${OBJECTDIR}/_ext/1472/ECAN.p1: ../ECAN.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/_ext/1472/ECAN.d ${OBJECTDIR}/_ext/1472/ECAN.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1472/ECAN.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/1692658300/vscp-firmware.p1: ../../vscp-firmware/common/vscp-firmware.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/_ext/1692658300/vscp-firmware.p1: ../../vscp-firmware/common/vscp-firmware.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/_ext/1692658300" 
 	@${RM} ${OBJECTDIR}/_ext/1692658300/vscp-firmware.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1692658300/vscp-firmware.p1 

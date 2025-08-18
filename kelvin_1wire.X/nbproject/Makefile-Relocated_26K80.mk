@@ -39,7 +39,7 @@ FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/kelvin_1wire.X.${IMAGE_TYPE}.${OUTPUT
 endif
 
 ifeq ($(COMPARE_BUILD), true)
-COMPARISON_BUILD=
+COMPARISON_BUILD=-mafrlcsj
 else
 COMPARISON_BUILD=
 endif
@@ -94,68 +94,68 @@ MP_PROCESSOR_OPTION=18F26K80
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/_ext/1472/main.p1: ../main.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/_ext/1472/main.p1: ../main.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
 	@${RM} ${OBJECTDIR}/_ext/1472/main.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1472/main.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=none    --double=32 --float=24 --emi=wordwrite --opt=+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=pro -DRELEASE -P -N255 -I"../" -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" --warn=0 --asmlist -DXPRJ_Relocated_26K80=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x800 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib $(COMPARISON_BUILD)  --output=-mcof,+elf "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/_ext/1472/main.p1 ../main.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fshort-float -memi=wordwrite -O2 -maddrqual=ignore -DRELEASE -xassembler-with-cpp -I"../" -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" -mwarn=0 -Wa,-a -DXPRJ_Relocated_26K80=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file -mcodeoffset=0x800  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits -mc90lib $(COMPARISON_BUILD)  -std=c90 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/_ext/1472/main.p1 ../main.c 
 	@-${MV} ${OBJECTDIR}/_ext/1472/main.d ${OBJECTDIR}/_ext/1472/main.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1472/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/1472/onewire.p1: ../onewire.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/_ext/1472/onewire.p1: ../onewire.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
 	@${RM} ${OBJECTDIR}/_ext/1472/onewire.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1472/onewire.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=none    --double=32 --float=24 --emi=wordwrite --opt=+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=pro -DRELEASE -P -N255 -I"../" -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" --warn=0 --asmlist -DXPRJ_Relocated_26K80=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x800 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib $(COMPARISON_BUILD)  --output=-mcof,+elf "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/_ext/1472/onewire.p1 ../onewire.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fshort-float -memi=wordwrite -O2 -maddrqual=ignore -DRELEASE -xassembler-with-cpp -I"../" -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" -mwarn=0 -Wa,-a -DXPRJ_Relocated_26K80=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file -mcodeoffset=0x800  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits -mc90lib $(COMPARISON_BUILD)  -std=c90 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/_ext/1472/onewire.p1 ../onewire.c 
 	@-${MV} ${OBJECTDIR}/_ext/1472/onewire.d ${OBJECTDIR}/_ext/1472/onewire.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1472/onewire.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/1472/ECAN.p1: ../ECAN.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/_ext/1472/ECAN.p1: ../ECAN.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
 	@${RM} ${OBJECTDIR}/_ext/1472/ECAN.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1472/ECAN.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=none    --double=32 --float=24 --emi=wordwrite --opt=+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=pro -DRELEASE -P -N255 -I"../" -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" --warn=0 --asmlist -DXPRJ_Relocated_26K80=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x800 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib $(COMPARISON_BUILD)  --output=-mcof,+elf "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/_ext/1472/ECAN.p1 ../ECAN.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fshort-float -memi=wordwrite -O2 -maddrqual=ignore -DRELEASE -xassembler-with-cpp -I"../" -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" -mwarn=0 -Wa,-a -DXPRJ_Relocated_26K80=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file -mcodeoffset=0x800  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits -mc90lib $(COMPARISON_BUILD)  -std=c90 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/_ext/1472/ECAN.p1 ../ECAN.c 
 	@-${MV} ${OBJECTDIR}/_ext/1472/ECAN.d ${OBJECTDIR}/_ext/1472/ECAN.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1472/ECAN.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/1692658300/vscp-firmware.p1: ../../vscp-firmware/common/vscp-firmware.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/_ext/1692658300/vscp-firmware.p1: ../../vscp-firmware/common/vscp-firmware.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/_ext/1692658300" 
 	@${RM} ${OBJECTDIR}/_ext/1692658300/vscp-firmware.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1692658300/vscp-firmware.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=none    --double=32 --float=24 --emi=wordwrite --opt=+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=pro -DRELEASE -P -N255 -I"../" -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" --warn=0 --asmlist -DXPRJ_Relocated_26K80=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x800 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib $(COMPARISON_BUILD)  --output=-mcof,+elf "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/_ext/1692658300/vscp-firmware.p1 ../../vscp-firmware/common/vscp-firmware.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fshort-float -memi=wordwrite -O2 -maddrqual=ignore -DRELEASE -xassembler-with-cpp -I"../" -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" -mwarn=0 -Wa,-a -DXPRJ_Relocated_26K80=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file -mcodeoffset=0x800  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits -mc90lib $(COMPARISON_BUILD)  -std=c90 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/_ext/1692658300/vscp-firmware.p1 ../../vscp-firmware/common/vscp-firmware.c 
 	@-${MV} ${OBJECTDIR}/_ext/1692658300/vscp-firmware.d ${OBJECTDIR}/_ext/1692658300/vscp-firmware.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1692658300/vscp-firmware.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 else
-${OBJECTDIR}/_ext/1472/main.p1: ../main.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/_ext/1472/main.p1: ../main.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
 	@${RM} ${OBJECTDIR}/_ext/1472/main.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1472/main.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G    --double=32 --float=24 --emi=wordwrite --opt=+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=pro -DRELEASE -P -N255 -I"../" -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" --warn=0 --asmlist -DXPRJ_Relocated_26K80=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x800 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib $(COMPARISON_BUILD)  --output=-mcof,+elf "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/_ext/1472/main.p1 ../main.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fshort-float -memi=wordwrite -O2 -maddrqual=ignore -DRELEASE -xassembler-with-cpp -I"../" -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" -mwarn=0 -Wa,-a -DXPRJ_Relocated_26K80=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file -mcodeoffset=0x800  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits -mc90lib $(COMPARISON_BUILD)  -std=c90 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/_ext/1472/main.p1 ../main.c 
 	@-${MV} ${OBJECTDIR}/_ext/1472/main.d ${OBJECTDIR}/_ext/1472/main.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1472/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/1472/onewire.p1: ../onewire.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/_ext/1472/onewire.p1: ../onewire.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
 	@${RM} ${OBJECTDIR}/_ext/1472/onewire.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1472/onewire.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G    --double=32 --float=24 --emi=wordwrite --opt=+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=pro -DRELEASE -P -N255 -I"../" -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" --warn=0 --asmlist -DXPRJ_Relocated_26K80=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x800 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib $(COMPARISON_BUILD)  --output=-mcof,+elf "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/_ext/1472/onewire.p1 ../onewire.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fshort-float -memi=wordwrite -O2 -maddrqual=ignore -DRELEASE -xassembler-with-cpp -I"../" -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" -mwarn=0 -Wa,-a -DXPRJ_Relocated_26K80=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file -mcodeoffset=0x800  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits -mc90lib $(COMPARISON_BUILD)  -std=c90 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/_ext/1472/onewire.p1 ../onewire.c 
 	@-${MV} ${OBJECTDIR}/_ext/1472/onewire.d ${OBJECTDIR}/_ext/1472/onewire.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1472/onewire.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/1472/ECAN.p1: ../ECAN.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/_ext/1472/ECAN.p1: ../ECAN.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
 	@${RM} ${OBJECTDIR}/_ext/1472/ECAN.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1472/ECAN.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G    --double=32 --float=24 --emi=wordwrite --opt=+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=pro -DRELEASE -P -N255 -I"../" -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" --warn=0 --asmlist -DXPRJ_Relocated_26K80=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x800 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib $(COMPARISON_BUILD)  --output=-mcof,+elf "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/_ext/1472/ECAN.p1 ../ECAN.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fshort-float -memi=wordwrite -O2 -maddrqual=ignore -DRELEASE -xassembler-with-cpp -I"../" -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" -mwarn=0 -Wa,-a -DXPRJ_Relocated_26K80=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file -mcodeoffset=0x800  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits -mc90lib $(COMPARISON_BUILD)  -std=c90 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/_ext/1472/ECAN.p1 ../ECAN.c 
 	@-${MV} ${OBJECTDIR}/_ext/1472/ECAN.d ${OBJECTDIR}/_ext/1472/ECAN.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1472/ECAN.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/1692658300/vscp-firmware.p1: ../../vscp-firmware/common/vscp-firmware.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/_ext/1692658300/vscp-firmware.p1: ../../vscp-firmware/common/vscp-firmware.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/_ext/1692658300" 
 	@${RM} ${OBJECTDIR}/_ext/1692658300/vscp-firmware.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1692658300/vscp-firmware.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G    --double=32 --float=24 --emi=wordwrite --opt=+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=pro -DRELEASE -P -N255 -I"../" -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" --warn=0 --asmlist -DXPRJ_Relocated_26K80=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x800 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib $(COMPARISON_BUILD)  --output=-mcof,+elf "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/_ext/1692658300/vscp-firmware.p1 ../../vscp-firmware/common/vscp-firmware.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fshort-float -memi=wordwrite -O2 -maddrqual=ignore -DRELEASE -xassembler-with-cpp -I"../" -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" -mwarn=0 -Wa,-a -DXPRJ_Relocated_26K80=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file -mcodeoffset=0x800  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits -mc90lib $(COMPARISON_BUILD)  -std=c90 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/_ext/1692658300/vscp-firmware.p1 ../../vscp-firmware/common/vscp-firmware.c 
 	@-${MV} ${OBJECTDIR}/_ext/1692658300/vscp-firmware.d ${OBJECTDIR}/_ext/1692658300/vscp-firmware.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1692658300/vscp-firmware.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -168,20 +168,26 @@ else
 endif
 
 # ------------------------------------------------------------------------------------
+# Rules for buildStep: assembleWithPreprocess
+ifeq ($(TYPE_IMAGE), DEBUG_RUN)
+else
+endif
+
+# ------------------------------------------------------------------------------------
 # Rules for buildStep: link
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 dist/${CND_CONF}/${IMAGE_TYPE}/kelvin_1wire.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE) --chip=$(MP_PROCESSOR_OPTION) -G -mdist/${CND_CONF}/${IMAGE_TYPE}/kelvin_1wire.X.${IMAGE_TYPE}.map  -D__DEBUG=1  --debugger=none  -DXPRJ_Relocated_26K80=$(CND_CONF)    --double=32 --float=24 --emi=wordwrite --opt=+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=pro -DRELEASE -P -N255 -I"../" -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x800 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"        $(COMPARISON_BUILD)  -odist/${CND_CONF}/${IMAGE_TYPE}/kelvin_1wire.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     
+	${MP_CC} $(MP_EXTRA_LD_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -Wl,-Map=dist/${CND_CONF}/${IMAGE_TYPE}/kelvin_1wire.X.${IMAGE_TYPE}.map  -D__DEBUG=1  -DXPRJ_Relocated_26K80=$(CND_CONF)  -Wl,--defsym=__MPLAB_BUILD=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fshort-float -memi=wordwrite -O2 -maddrqual=ignore -DRELEASE -xassembler-with-cpp -I"../" -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" -mwarn=0 -Wa,-a -msummary=-psect,-class,+mem,-hex,-file -mcodeoffset=0x800  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits -mc90lib -std=c90 -gdwarf-3 -mstack=compiled:auto:auto:auto        $(COMPARISON_BUILD) -Wl,--memorysummary,dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -o dist/${CND_CONF}/${IMAGE_TYPE}/kelvin_1wire.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     
 	@${RM} dist/${CND_CONF}/${IMAGE_TYPE}/kelvin_1wire.X.${IMAGE_TYPE}.hex 
 	
 else
 dist/${CND_CONF}/${IMAGE_TYPE}/kelvin_1wire.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE) --chip=$(MP_PROCESSOR_OPTION) -G -mdist/${CND_CONF}/${IMAGE_TYPE}/kelvin_1wire.X.${IMAGE_TYPE}.map  -DXPRJ_Relocated_26K80=$(CND_CONF)    --double=32 --float=24 --emi=wordwrite --opt=+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=pro -DRELEASE -P -N255 -I"../" -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x800 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     $(COMPARISON_BUILD)  -odist/${CND_CONF}/${IMAGE_TYPE}/kelvin_1wire.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     
+	${MP_CC} $(MP_EXTRA_LD_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -Wl,-Map=dist/${CND_CONF}/${IMAGE_TYPE}/kelvin_1wire.X.${IMAGE_TYPE}.map  -DXPRJ_Relocated_26K80=$(CND_CONF)  -Wl,--defsym=__MPLAB_BUILD=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fshort-float -memi=wordwrite -O2 -maddrqual=ignore -DRELEASE -xassembler-with-cpp -I"../" -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" -mwarn=0 -Wa,-a -msummary=-psect,-class,+mem,-hex,-file -mcodeoffset=0x800  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits -mc90lib -std=c90 -gdwarf-3 -mstack=compiled:auto:auto:auto     $(COMPARISON_BUILD) -Wl,--memorysummary,dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -o dist/${CND_CONF}/${IMAGE_TYPE}/kelvin_1wire.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     
 	
 	@echo Normalizing hex file
-	@"/opt/microchip/mplabx/v5.35/mplab_platform/platform/../mplab_ide/modules/../../bin/hexmate" --edf="/opt/microchip/mplabx/v5.35/mplab_platform/platform/../mplab_ide/modules/../../dat/en_msgs.txt" dist/${CND_CONF}/${IMAGE_TYPE}/kelvin_1wire.X.${IMAGE_TYPE}.hex -odist/${CND_CONF}/${IMAGE_TYPE}/kelvin_1wire.X.${IMAGE_TYPE}.hex
+	@"/opt/microchip/mplabx/v5.45/mplab_platform/platform/../mplab_ide/modules/../../bin/hexmate" --edf="/opt/microchip/mplabx/v5.45/mplab_platform/platform/../mplab_ide/modules/../../dat/en_msgs.txt" dist/${CND_CONF}/${IMAGE_TYPE}/kelvin_1wire.X.${IMAGE_TYPE}.hex -odist/${CND_CONF}/${IMAGE_TYPE}/kelvin_1wire.X.${IMAGE_TYPE}.hex
 
 endif
 

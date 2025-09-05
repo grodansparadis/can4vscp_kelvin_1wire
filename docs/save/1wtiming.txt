@@ -1,0 +1,18 @@
+===== 1-wire timing ===== 
+
+^ Register ^ Page ^ Standard ^ Default ^ Description ^
+|  44  |  0  |  0x01  |  0x01  | Master reset pulse time in [us] MSB | 
+|  45  |  0  |  0xE0  |  0xE0  | Master reset pulse time in [us] LSB |
+|  46  |  0  |  0x46  |  0x28  | Delay after master reset pulse in [us] |
+|  47  |  0  |  0x01  |  0x01  | Delay after reading of presence pulse [us] MSB | 
+|  48  |  0  |  0x9A  |  0xE0  | Delay after reading of presence pulse [us] LSB |
+|  49  |  0  |  0x06  |  0x02  | Delay time for bit start by master [us] |
+|  50  |  0  |  0x09  |  0x05  | Bit read delay [us] |
+|  51  |  0  |  0x37  |  0x37  | Bit read wait [us] |
+|  52  |  0  |  0x36  |  0x64  | Bit write delay [us] |
+
+**Standard column** list values recommended in Dallas/Maxim standard document. 
+
+**Default column** is defaults used on this module and are values that empirically has been found to work better with longer cable lengths.
+
+Writing the two **16-bit values** takes affect in the system when the LSB byte is written. So the writing order is, first write the MSB and then then the LSB. 

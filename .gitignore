@@ -77,4 +77,4 @@ kelvin_1wire.X/nbproject
 *.s#9
 *.d
 *.pre
-
+kicad/kelvin_1wire_B-backups/*

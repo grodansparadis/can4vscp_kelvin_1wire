@@ -1,7 +1,0 @@
-(function(){
-  document.write('<div id="adsatlas-3515217638" style="position:relative;width:160px;height:200px;overflow:hidden">');
-  document.write('<a href="https://ad.atdmt.com/c/go;p=11152200890948;as=0;a=11152200890952;crs=11152200890944;cr=11152200890945;i.ts=1436163484" target="_blank"><img border="0" src="https://cdn.atlassbx.com/FB/11152200890945/MOL-15037_static_bnrs_160x200.jpg"/></a>');
-  document.write('</div>');
-  document.write('');
-  document.close();
-})();

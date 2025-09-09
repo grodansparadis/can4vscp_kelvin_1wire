@@ -20,8 +20,8 @@ All VSCP modules contains information of there own setup, manual, hardware versi
 
 ## Project files
 
-### User manual
-  * [User Manual](https://github.com/grodansparadis/can4vscp_kelvin_1wire/tree/master)
+### User manual 
+  * [User Manual](https://grodansparadis.github.io/can4vscp_kelvin_1wire/#)
 
 ### Schematic, PCB, 3D files etc
   * [Schematics reversion A](https://github.com/grodansparadis/can4vscp_kelvin_1wire/blob/master/eagle/kelvin_1wire_brd_rev_a.png)
